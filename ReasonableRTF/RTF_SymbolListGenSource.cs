@@ -1,22 +1,23 @@
 ﻿/*
 TODO(gperf stuff): Tidy this up and get rid of hardcoded directories and whatnot
-TODO: Also make this its own class, and public, but ifdeffed out entirely
 */
 
 //#define SYMBOL_PERFECT_HASH_GEN
 
 #if SYMBOL_PERFECT_HASH_GEN
+
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using System.Diagnostics;
 using System.Text.RegularExpressions;
-#endif
+using JetBrains.Annotations;
+using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
-internal static partial class RTFParserCommon
+[PublicAPI]
+public static class RTF_SymbolListGenSource
 {
-#if SYMBOL_PERFECT_HASH_GEN
     // This is the original "canonical" list, generate the perfect hash from this
     private static readonly Symbol[] _symbolList =
     {
@@ -203,7 +204,7 @@ internal static partial class RTFParserCommon
         var outLines = new List<string>
         {
             "struct Symbol { char *name; int dummy; };",
-            "%%"
+            "%%",
         };
 
         for (int i = 0; i < _symbolList.Length; i++)
@@ -298,5 +299,6 @@ internal static partial class RTFParserCommon
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static bool StartsWithO(this string str, string value) => str.StartsWith(value, StringComparison.Ordinal);
-#endif
 }
+
+#endif

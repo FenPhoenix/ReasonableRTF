@@ -74,9 +74,33 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using JetBrains.Annotations;
-using static ReasonableRTF.RTFParserCommon;
+using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
+
+public enum RtfError : byte
+{
+    /// <summary>
+    /// No error.
+    /// </summary>
+    OK,
+    /// <summary>
+    /// Unmatched '}'.
+    /// </summary>
+    StackUnderflow,
+    /// <summary>
+    /// Too many subgroups (we cap it at 100).
+    /// </summary>
+    StackOverflow,
+    /// <summary>
+    /// RTF ended during an open group.
+    /// </summary>
+    UnmatchedBrace,
+    /// <summary>
+    /// The rtf is malformed in such a way that it might be unsafe to continue parsing it (infinite loops, stack overflows, etc.)
+    /// </summary>
+    AbortedForSafety,
+}
 
 public sealed class RtfToTextConverter
 {
@@ -90,9 +114,28 @@ public sealed class RtfToTextConverter
 #endif
 
         InitSymbolFontData();
+
+        ResetHeader();
     }
 
+    private readonly char[] Keyword = new char[KeywordMaxLen];
+    private readonly GroupStack GroupStack = new();
+    // TODO: Un-hardcode this 150
+    private readonly FontDictionary FontEntries = new(150);
+
     #region Constants
+
+    /// <summary>
+    /// Since font numbers can be negative, let's just use a slightly less likely value than the already unlikely
+    /// enough -1...
+    /// </summary>
+    internal const int NoFontNumber = int.MinValue;
+
+    private const int KeywordMaxLen = 32;
+    // Most are signed int16 (5 chars), but a few can be signed int32 (10 chars)
+    private const int ParamMaxLen = 10;
+
+    private const int UndefinedLanguage = 1024;
 
     private const int _windows1252 = 1252;
     private const int _shiftJisWin = 932;
@@ -106,7 +149,155 @@ public sealed class RtfToTextConverter
 
     #region Tables
 
-    #region Font to Unicode conversion tables
+    #region Conversion tables
+
+    #region Charset to code page
+
+    private const int _charSetToCodePageLength = 256;
+    private static readonly int[] _charSetToCodePage = InitializeCharSetToCodePage();
+
+    private static int[] InitializeCharSetToCodePage()
+    {
+        int[] charSetToCodePage = Utils.InitializedArray(_charSetToCodePageLength, -1);
+
+        charSetToCodePage[0] = 1252;   // "ANSI" (1252)
+
+        // TODO: Code page 0 ("Default") is variable... should we force it to 1252?
+        // "The system default Windows ANSI code page" says the doc page.
+        // Terrible. Fortunately only two known FMs define it in a font entry, and neither one actually uses
+        // said font entry. Still, maybe this should be 1252 as well, since we're rolling dice anyway we may
+        // as well go with the statistically likeliest?
+        charSetToCodePage[1] = 0;      // Default
+
+        charSetToCodePage[2] = 42;     // Symbol
+        charSetToCodePage[77] = 10000; // Mac Roman
+        charSetToCodePage[78] = 10001; // Mac Shift Jis
+        charSetToCodePage[79] = 10003; // Mac Hangul
+        charSetToCodePage[80] = 10008; // Mac GB2312
+        charSetToCodePage[81] = 10002; // Mac Big5
+        //charSetToCodePage[82] = ?    // Mac Johab (old)
+        charSetToCodePage[83] = 10005; // Mac Hebrew
+        charSetToCodePage[84] = 10004; // Mac Arabic
+        charSetToCodePage[85] = 10006; // Mac Greek
+        charSetToCodePage[86] = 10081; // Mac Turkish
+        charSetToCodePage[87] = 10021; // Mac Thai
+        charSetToCodePage[88] = 10029; // Mac East Europe
+        charSetToCodePage[89] = 10007; // Mac Russian
+        charSetToCodePage[128] = 932;  // Shift JIS (Windows-31J) (932)
+        charSetToCodePage[129] = 949;  // Hangul
+        charSetToCodePage[130] = 1361; // Johab
+        charSetToCodePage[134] = 936;  // GB2312
+        charSetToCodePage[136] = 950;  // Big5
+        charSetToCodePage[161] = 1253; // Greek
+        charSetToCodePage[162] = 1254; // Turkish
+        charSetToCodePage[163] = 1258; // Vietnamese
+        charSetToCodePage[177] = 1255; // Hebrew
+        charSetToCodePage[178] = 1256; // Arabic
+        //charSetToCodePage[179] = ?   // Arabic Traditional (old)
+        //charSetToCodePage[180] = ?   // Arabic user (old)
+        //charSetToCodePage[181] = ?   // Hebrew user (old)
+        charSetToCodePage[186] = 1257; // Baltic
+        charSetToCodePage[204] = 1251; // Russian
+        charSetToCodePage[222] = 874;  // Thai
+        charSetToCodePage[238] = 1250; // Eastern European
+        charSetToCodePage[254] = 437;  // PC 437
+        charSetToCodePage[255] = 850;  // OEM
+
+        return charSetToCodePage;
+    }
+
+    #endregion
+
+    #region Lang to code page
+
+    // TODO: Re-enable support for all \langN languages
+
+    private const int MaxLangNumIndex = 16385;
+    private static readonly int[] LangToCodePage = InitializeLangToCodePage();
+
+    private static int[] InitializeLangToCodePage()
+    {
+        int[] langToCodePage = Utils.InitializedArray(MaxLangNumIndex + 1, -1);
+
+        /*
+        There's a ton more languages than this, but it's not clear what code page they all translate to.
+        This should be enough to get on with for now though...
+
+        Note: 1024 is implicitly rejected by simply not being in the list, so we're all good there.
+
+        2023-03-31: Only handle 1049 for now (and leave in 1033 for the plaintext converter).
+        */
+#if false
+        // Arabic
+        langToCodePage[1065] = 1256;
+        langToCodePage[1025] = 1256;
+        langToCodePage[2049] = 1256;
+        langToCodePage[3073] = 1256;
+        langToCodePage[4097] = 1256;
+        langToCodePage[5121] = 1256;
+        langToCodePage[6145] = 1256;
+        langToCodePage[7169] = 1256;
+        langToCodePage[8193] = 1256;
+        langToCodePage[9217] = 1256;
+        langToCodePage[10241] = 1256;
+        langToCodePage[11265] = 1256;
+        langToCodePage[12289] = 1256;
+        langToCodePage[13313] = 1256;
+        langToCodePage[14337] = 1256;
+        langToCodePage[15361] = 1256;
+        langToCodePage[16385] = 1256;
+        langToCodePage[1056] = 1256;
+        langToCodePage[2118] = 1256;
+        langToCodePage[2137] = 1256;
+        langToCodePage[1119] = 1256;
+        langToCodePage[1120] = 1256;
+        langToCodePage[1123] = 1256;
+        langToCodePage[1164] = 1256;
+#endif
+
+        // Cyrillic
+        langToCodePage[1049] = 1251;
+#if false
+        langToCodePage[1026] = 1251;
+        langToCodePage[10266] = 1251;
+        langToCodePage[1058] = 1251;
+        langToCodePage[2073] = 1251;
+        langToCodePage[3098] = 1251;
+        langToCodePage[7194] = 1251;
+        langToCodePage[8218] = 1251;
+        langToCodePage[12314] = 1251;
+        langToCodePage[1059] = 1251;
+        langToCodePage[1064] = 1251;
+        langToCodePage[2092] = 1251;
+        langToCodePage[1071] = 1251;
+        langToCodePage[1087] = 1251;
+        langToCodePage[1088] = 1251;
+        langToCodePage[2115] = 1251;
+        langToCodePage[1092] = 1251;
+        langToCodePage[1104] = 1251;
+        langToCodePage[1133] = 1251;
+        langToCodePage[1157] = 1251;
+
+        // Greek
+        langToCodePage[1032] = 1253;
+
+        // Hebrew
+        langToCodePage[1037] = 1255;
+        langToCodePage[1085] = 1255;
+
+        // Vietnamese
+        langToCodePage[1066] = 1258;
+#endif
+
+        // Western European
+        langToCodePage[1033] = 1252;
+
+        return langToCodePage;
+    }
+
+    #endregion
+
+    #region Font to Unicode
 
     /*
     Many RTF files put emoji-like glyphs into text not with a Unicode character, but by just putting in a
@@ -854,6 +1045,8 @@ public sealed class RtfToTextConverter
 
     #endregion
 
+    #endregion
+
     // From .NET 8. Maps ascii characters to hex (ie. "A" -> 0xA). 0xFF means not a hex character.
     private static readonly byte[] _charToHex =
     {
@@ -891,9 +1084,17 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private readonly Context _ctx = new();
+    private static readonly SymbolDict Symbols = new();
 
     #region Resettables
+
+    #region Header
+
+    private int HeaderCodePage;
+    private bool HeaderDefaultFontSet;
+    private int HeaderDefaultFontNum;
+
+    #endregion
 
     private ArrayWithLength<byte> _rtfBytes = ArrayWithLength<byte>.Empty();
 
@@ -1040,7 +1241,10 @@ public sealed class RtfToTextConverter
 
     private void Reset(in ArrayWithLength<byte> rtfBytes)
     {
-        _ctx.Reset();
+        GroupStack.ClearFast();
+        GroupStack.ResetFirst();
+        FontEntries.Clear();
+        ResetHeader();
 
         _groupCount = 0;
         _skipDestinationIfUnknown = false;
@@ -1073,6 +1277,14 @@ public sealed class RtfToTextConverter
         _inHandleFontTable = false;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void ResetHeader()
+    {
+        HeaderCodePage = 1252;
+        HeaderDefaultFontSet = false;
+        HeaderDefaultFontNum = 0;
+    }
+
     private RtfError ParseRtf()
     {
         while (CurrentPos < _rtfBytes.Length)
@@ -1089,13 +1301,13 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_ctx.GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
-                    _ctx.GroupStack.DeepCopyToNext();
+                    if (GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    GroupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
                 case '}':
-                    if (_ctx.GroupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_ctx.GroupStack.Count;
+                    if (GroupStack.Count == 0) return RtfError.StackUnderflow;
+                    --GroupStack.Count;
                     _groupCount--;
                     if (_groupCount == 0) return RtfError.OK;
                     break;
@@ -1104,14 +1316,13 @@ public sealed class RtfToTextConverter
                     break;
                 case not '\0':
                 {
-                    GroupStack groupStack = _ctx.GroupStack;
-                    if (!groupStack.CurrentSkipDest &&
-                        groupStack.CurrentProperties[(int)Property.Hidden] == 0)
+                    if (!GroupStack.CurrentSkipDest &&
+                        GroupStack.CurrentProperties[(int)Property.Hidden] == 0)
                     {
                         if (IsNonPlainText[_rtfBytes.Array[CurrentPos]])
                         {
                             // Support bare characters that are supposed to be displayed in a symbol font.
-                            SymbolFont symbolFont = groupStack.CurrentSymbolFont;
+                            SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
                             if (symbolFont > SymbolFont.Unset)
                             {
                                 GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
@@ -1139,7 +1350,7 @@ public sealed class RtfToTextConverter
     {
         CurrentPos--;
 
-        SymbolFont symbolFont = _ctx.GroupStack.CurrentSymbolFont;
+        SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
@@ -1182,7 +1393,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError DispatchKeyword(Symbol symbol, int param, bool hasParam)
     {
-        if (!_ctx.GroupStack.CurrentSkipDest)
+        if (!GroupStack.CurrentSkipDest)
         {
             switch (symbol.KeywordType)
             {
@@ -1245,12 +1456,12 @@ public sealed class RtfToTextConverter
                 CurrentPos = closingBraceIndex == -1 ? _rtfBytes.Length : closingBraceIndex;
                 break;
             case SpecialType.FontTable:
-                _ctx.GroupStack.CurrentInFontTable = true;
+                GroupStack.CurrentInFontTable = true;
                 RtfError error = HandleFontTable();
                 if (error != RtfError.OK) return error;
                 break;
             default:
-                HandleSpecialTypeFont(_ctx, specialType, param);
+                HandleSpecialTypeFont(specialType, param);
                 return RtfError.OK;
         }
 
@@ -1264,7 +1475,7 @@ public sealed class RtfToTextConverter
         if (_inHandleFontTable) return RtfError.AbortedForSafety;
         _inHandleFontTable = true;
 
-        int fontTableGroupLevel = _ctx.GroupStack.Count;
+        int fontTableGroupLevel = GroupStack.Count;
 
         while (CurrentPos < _rtfBytes.Length)
         {
@@ -1275,33 +1486,33 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_ctx.GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
-                    _ctx.GroupStack.DeepCopyToNext();
+                    if (GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    GroupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
                 case '}':
-                    if (_ctx.GroupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_ctx.GroupStack.Count;
+                    if (GroupStack.Count == 0) return RtfError.StackUnderflow;
+                    --GroupStack.Count;
                     _groupCount--;
                     if (_groupCount < fontTableGroupLevel)
                     {
                         // We can't actually set the symbol font as soon as we see \deffN, because we won't have
                         // any font entry objects yet. Now that we do, we can retroactively set all previous
                         // groups' fonts as appropriate, as if they had propagated up automatically.
-                        int defaultFontNum = _ctx.Header.DefaultFontNum;
-                        if (_ctx.FontEntries.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
+                        int defaultFontNum = HeaderDefaultFontNum;
+                        if (FontEntries.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
                         {
                             SymbolFont symbolFont = fontEntry.SymbolFont;
                             // Start at 1 because the "base" group is still inside an opening { so it's
                             // really group 1.
                             for (int i = 1; i < _groupCount + 1; i++)
                             {
-                                int[] properties = _ctx.GroupStack.Properties[i];
+                                int[] properties = GroupStack.Properties[i];
                                 int fontNum = properties[(int)Property.FontNum];
                                 if (fontNum == NoFontNumber)
                                 {
                                     properties[(int)Property.FontNum] = defaultFontNum;
-                                    _ctx.GroupStack.SymbolFonts.Array[i] = (byte)symbolFont;
+                                    GroupStack.SymbolFonts.Array[i] = (byte)symbolFont;
                                 }
                                 else
                                 {
@@ -1328,7 +1539,7 @@ public sealed class RtfToTextConverter
                     const ulong WebdingsBytes = 0x73676E6964626557;
                     const ulong symbolAndSemicolonBytes = 0x003B6C6F626D7953;
 
-                    FontEntry? fontEntry = _ctx.FontEntries.Top;
+                    FontEntry? fontEntry = FontEntries.Top;
                     if (CurrentPos >= _rtfBytes.Length - 16)
                     {
                         if (fontEntry != null)
@@ -1337,7 +1548,7 @@ public sealed class RtfToTextConverter
                         }
                         break;
                     }
-                    if (!_ctx.GroupStack.CurrentSkipDest &&
+                    if (!GroupStack.CurrentSkipDest &&
                         fontEntry is { SymbolFont: SymbolFont.Unset })
                     {
                         CurrentPos--;
@@ -1408,12 +1619,12 @@ public sealed class RtfToTextConverter
     {
         if (propertyTableIndex == Property.FontNum)
         {
-            if (_ctx.GroupStack.CurrentInFontTable)
+            if (GroupStack.CurrentInFontTable)
             {
-                _ctx.FontEntries.Add(val);
+                FontEntries.Add(val);
                 return;
             }
-            else if (_ctx.FontEntries.TryGetValue(val, out FontEntry? fontEntry))
+            else if (FontEntries.TryGetValue(val, out FontEntry? fontEntry))
             {
                 if (fontEntry.CodePage == 42)
                 {
@@ -1424,17 +1635,17 @@ public sealed class RtfToTextConverter
                 // Support bare characters that are supposed to be displayed in a symbol font. We use a simple
                 // enum so that we don't have to do a dictionary lookup on every single character, but only
                 // once per font change.
-                _ctx.GroupStack.CurrentSymbolFont = fontEntry.SymbolFont;
+                GroupStack.CurrentSymbolFont = fontEntry.SymbolFont;
             }
             // \fN supersedes \langN
-            _ctx.GroupStack.CurrentProperties[(int)Property.Lang] = -1;
+            GroupStack.CurrentProperties[(int)Property.Lang] = -1;
         }
         else if (propertyTableIndex == Property.Lang)
         {
             if (val == UndefinedLanguage) return;
         }
 
-        _ctx.GroupStack.CurrentProperties[(int)propertyTableIndex] = val;
+        GroupStack.CurrentProperties[(int)propertyTableIndex] = val;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1443,7 +1654,7 @@ public sealed class RtfToTextConverter
         switch (destinationType)
         {
             case DestinationType.Skip:
-                _ctx.GroupStack.CurrentSkipDest = true;
+                GroupStack.CurrentSkipDest = true;
                 return RtfError.OK;
             case DestinationType.FieldInstruction:
                 return HandleFieldInstruction();
@@ -1459,11 +1670,10 @@ public sealed class RtfToTextConverter
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
         // none of them are null.
-        if (_ctx.GroupStack.CurrentProperties[(int)Property.Hidden] == 0)
+        if (GroupStack.CurrentProperties[(int)Property.Hidden] == 0)
         {
             // Support bare characters that are supposed to be displayed in a symbol font.
-            GroupStack groupStack = _ctx.GroupStack;
-            SymbolFont symbolFont = groupStack.CurrentSymbolFont;
+            SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
             if (symbolFont > SymbolFont.Unset)
             {
                 uint[] fontTable = _symbolFontTables[(int)symbolFont];
@@ -1741,7 +1951,7 @@ public sealed class RtfToTextConverter
         to spec fully here. This is actually really fortunate, because ignoring the thorny "entire control word
         including bin and its data" thing means we get simpler and faster.
         */
-        int numToSkip = _ctx.GroupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
+        int numToSkip = GroupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
         while (numToSkip > 0 && CurrentPos < _rtfBytes.Length)
         {
             char c = (char)_rtfBytes.Array[CurrentPos++];
@@ -1858,7 +2068,7 @@ public sealed class RtfToTextConverter
         if (SYMBOLKeyword != SYMBOLKeywordAsULong)
         {
             // Manual return to match previous behavior more-or-less (don't rewind too far)
-            _ctx.GroupStack.CurrentSkipDest = true;
+            GroupStack.CurrentSkipDest = true;
             return RtfError.OK;
         }
 
@@ -2146,7 +2356,7 @@ public sealed class RtfToTextConverter
     private RtfError RewindAndSkipGroup()
     {
         CurrentPos--;
-        _ctx.GroupStack.CurrentSkipDest = true;
+        GroupStack.CurrentSkipDest = true;
         return RtfError.OK;
     }
 
@@ -2162,8 +2372,8 @@ public sealed class RtfToTextConverter
         // need to duplicate any of the bare-char symbol font stuff here.
 
         if (!(count == 1 && ch[0] == '\0') &&
-            _ctx.GroupStack.CurrentProperties[(int)Property.Hidden] == 0 &&
-            !_ctx.GroupStack.CurrentInFontTable)
+            GroupStack.CurrentProperties[(int)Property.Hidden] == 0 &&
+            !GroupStack.CurrentInFontTable)
         {
             _plainText.AddRange(ch, count);
         }
@@ -2216,22 +2426,22 @@ public sealed class RtfToTextConverter
     private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
     GetCurrentEncoding()
     {
-        int groupFontNum = _ctx.GroupStack.CurrentProperties[(int)Property.FontNum];
-        int groupLang = _ctx.GroupStack.CurrentProperties[(int)Property.Lang];
+        int groupFontNum = GroupStack.CurrentProperties[(int)Property.FontNum];
+        int groupLang = GroupStack.CurrentProperties[(int)Property.Lang];
 
-        if (groupFontNum == NoFontNumber) groupFontNum = _ctx.Header.DefaultFontNum;
+        if (groupFontNum == NoFontNumber) groupFontNum = HeaderDefaultFontNum;
 
-        _ctx.FontEntries.TryGetValue(groupFontNum, out FontEntry? fontEntry);
+        FontEntries.TryGetValue(groupFontNum, out FontEntry? fontEntry);
 
         int codePage;
         if (groupLang is > -1 and <= MaxLangNumIndex)
         {
             int translatedCodePage = LangToCodePage[groupLang];
-            codePage = translatedCodePage > -1 ? translatedCodePage : fontEntry?.CodePage >= 0 ? fontEntry.CodePage : _ctx.Header.CodePage;
+            codePage = translatedCodePage > -1 ? translatedCodePage : fontEntry?.CodePage >= 0 ? fontEntry.CodePage : HeaderCodePage;
         }
         else
         {
-            codePage = fontEntry?.CodePage >= 0 ? fontEntry.CodePage : _ctx.Header.CodePage;
+            codePage = fontEntry?.CodePage >= 0 ? fontEntry.CodePage : HeaderCodePage;
         }
 
         if (codePage == 42) return (true, true, null, fontEntry);
@@ -2369,9 +2579,9 @@ public sealed class RtfToTextConverter
 
             int fontNum = _lastUsedFontWithCodePage42 > NoFontNumber
                 ? _lastUsedFontWithCodePage42
-                : _ctx.Header.DefaultFontNum;
+                : HeaderDefaultFontNum;
 
-            if (!_ctx.FontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+            if (!FontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
             {
                 return;
             }
@@ -2453,6 +2663,26 @@ public sealed class RtfToTextConverter
         }
     }
 
+    /// <summary>
+    /// Specialized thing for branchless handling of optional spaces after rtf control words.
+    /// Char values must be no higher than a byte (0-255) for the logic to work (perf).
+    /// </summary>
+    /// <param name="character"></param>
+    /// <returns>-1 if <paramref name="character"/> is not equal to the ascii space character (0x20), otherwise, 0.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static int MinusOneIfNotSpace_8Bits(char character)
+    {
+        // We only use 8 bits of a char's 16
+        const int bits = 8;
+        // 7 instructions on Framework x86
+        // 8 instructions on Framework x64
+        // 7 instructions on .NET 8 x64
+        return ((character - ' ') | (' ' - character)) >> (bits - 1);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static int BranchlessConditionalNegate(int value, int negate) => (value ^ -negate) + negate;
+
     #endregion
 
     private RtfError ParseKeyword()
@@ -2463,7 +2693,7 @@ public sealed class RtfToTextConverter
 
         char ch = (char)_rtfBytes[CurrentPos++];
 
-        char[] keyword = _ctx.Keyword;
+        char[] keyword = Keyword;
 
         if (!char.IsAsciiLetter(ch))
         {
@@ -2531,7 +2761,7 @@ public sealed class RtfToTextConverter
             // If this is a new destination
             if (_skipDestinationIfUnknown)
             {
-                _ctx.GroupStack.CurrentSkipDest = true;
+                GroupStack.CurrentSkipDest = true;
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -2551,7 +2781,7 @@ public sealed class RtfToTextConverter
         if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
         _inHandleSkippableHexData = true;
 
-        int startGroupLevel = _ctx.GroupStack.Count;
+        int startGroupLevel = GroupStack.Count;
 
         while (CurrentPos < _rtfBytes.Length)
         {
@@ -2562,13 +2792,13 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_ctx.GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
-                    _ctx.GroupStack.DeepCopyToNext();
+                    if (GroupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    GroupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
                 case '}':
-                    if (_ctx.GroupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_ctx.GroupStack.Count;
+                    if (GroupStack.Count == 0) return RtfError.StackUnderflow;
+                    --GroupStack.Count;
                     _groupCount--;
                     if (_groupCount < startGroupLevel)
                     {
@@ -2609,41 +2839,41 @@ public sealed class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    // @RTF(in Context ctx): Test perf with in vs. without
-    private static void HandleSpecialTypeFont(Context ctx, SpecialType specialType, int param)
+    // TODO: Move this in with its caller
+    private void HandleSpecialTypeFont(SpecialType specialType, int param)
     {
         switch (specialType)
         {
             case SpecialType.HeaderCodePage:
-                ctx.Header.CodePage = param >= 0 ? param : 1252;
+                HeaderCodePage = param >= 0 ? param : 1252;
                 break;
             case SpecialType.DefaultFont:
-                if (!ctx.Header.DefaultFontSet)
+                if (!HeaderDefaultFontSet)
                 {
-                    ctx.Header.DefaultFontNum = param;
-                    ctx.Header.DefaultFontSet = true;
+                    HeaderDefaultFontNum = param;
+                    HeaderDefaultFontSet = true;
                 }
                 break;
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
                 // (which is guaranteed not to be negative)
-                if (ctx.FontEntries.Top != null && ctx.GroupStack.CurrentInFontTable)
+                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
                         int codePage = _charSetToCodePage[param];
-                        ctx.FontEntries.Top.CodePage = codePage >= 0 ? codePage : ctx.Header.CodePage;
+                        FontEntries.Top.CodePage = codePage >= 0 ? codePage : HeaderCodePage;
                     }
                     else
                     {
-                        ctx.FontEntries.Top.CodePage = ctx.Header.CodePage;
+                        FontEntries.Top.CodePage = HeaderCodePage;
                     }
                 }
                 break;
             case SpecialType.CodePage:
-                if (ctx.FontEntries.Top != null && ctx.GroupStack.CurrentInFontTable)
+                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
                 {
-                    ctx.FontEntries.Top.CodePage = param >= 0 ? param : ctx.Header.CodePage;
+                    FontEntries.Top.CodePage = param >= 0 ? param : HeaderCodePage;
                 }
                 break;
         }
