@@ -1460,9 +1460,38 @@ public sealed class RtfToTextConverter
                 RtfError error = HandleFontTable();
                 if (error != RtfError.OK) return error;
                 break;
-            default:
-                HandleSpecialTypeFont(specialType, param);
-                return RtfError.OK;
+            case SpecialType.HeaderCodePage:
+                HeaderCodePage = param >= 0 ? param : 1252;
+                break;
+            case SpecialType.DefaultFont:
+                if (!HeaderDefaultFontSet)
+                {
+                    HeaderDefaultFontNum = param;
+                    HeaderDefaultFontSet = true;
+                }
+                break;
+            case SpecialType.Charset:
+                // Reject negative codepage values as invalid and just use the header default in that case
+                // (which is guaranteed not to be negative)
+                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
+                {
+                    if (param is >= 0 and < _charSetToCodePageLength)
+                    {
+                        int codePage = _charSetToCodePage[param];
+                        FontEntries.Top.CodePage = codePage >= 0 ? codePage : HeaderCodePage;
+                    }
+                    else
+                    {
+                        FontEntries.Top.CodePage = HeaderCodePage;
+                    }
+                }
+                break;
+            case SpecialType.CodePage:
+                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
+                {
+                    FontEntries.Top.CodePage = param >= 0 ? param : HeaderCodePage;
+                }
+                break;
         }
 
         return RtfError.OK;
@@ -2653,16 +2682,6 @@ public sealed class RtfToTextConverter
         list.Count = 1;
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void HandleEndOfSkippableData()
-    {
-        if (_plainText.Count > 0 &&
-            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
-        {
-            _plainText.Add(' ');
-        }
-    }
-
     /// <summary>
     /// Specialized thing for branchless handling of optional spaces after rtf control words.
     /// Char values must be no higher than a byte (0-255) for the logic to work (perf).
@@ -2802,9 +2821,11 @@ public sealed class RtfToTextConverter
                     _groupCount--;
                     if (_groupCount < startGroupLevel)
                     {
-                        if (insertSpaceIfNecessary)
+                        if (insertSpaceIfNecessary &&
+                            _plainText.Count > 0 &&
+                            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
                         {
-                            HandleEndOfSkippableData();
+                            _plainText.Add(' ');
                         }
                         _inHandleSkippableHexData = false;
                         return RtfError.OK;
@@ -2830,52 +2851,13 @@ public sealed class RtfToTextConverter
             }
         }
 
-        if (insertSpaceIfNecessary)
+        if (insertSpaceIfNecessary &&
+            _plainText.Count > 0 &&
+            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
         {
-            HandleEndOfSkippableData();
+            _plainText.Add(' ');
         }
         _inHandleSkippableHexData = false;
         return RtfError.OK;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    // TODO: Move this in with its caller
-    private void HandleSpecialTypeFont(SpecialType specialType, int param)
-    {
-        switch (specialType)
-        {
-            case SpecialType.HeaderCodePage:
-                HeaderCodePage = param >= 0 ? param : 1252;
-                break;
-            case SpecialType.DefaultFont:
-                if (!HeaderDefaultFontSet)
-                {
-                    HeaderDefaultFontNum = param;
-                    HeaderDefaultFontSet = true;
-                }
-                break;
-            case SpecialType.Charset:
-                // Reject negative codepage values as invalid and just use the header default in that case
-                // (which is guaranteed not to be negative)
-                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
-                {
-                    if (param is >= 0 and < _charSetToCodePageLength)
-                    {
-                        int codePage = _charSetToCodePage[param];
-                        FontEntries.Top.CodePage = codePage >= 0 ? codePage : HeaderCodePage;
-                    }
-                    else
-                    {
-                        FontEntries.Top.CodePage = HeaderCodePage;
-                    }
-                }
-                break;
-            case SpecialType.CodePage:
-                if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
-                {
-                    FontEntries.Top.CodePage = param >= 0 ? param : HeaderCodePage;
-                }
-                break;
-        }
     }
 }
