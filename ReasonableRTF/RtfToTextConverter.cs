@@ -74,7 +74,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using JetBrains.Annotations;
-using static ReasonableRTF.Data;
 using static ReasonableRTF.RTFParserCommon;
 
 namespace ReasonableRTF;
