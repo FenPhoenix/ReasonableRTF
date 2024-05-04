@@ -1,59 +1,4 @@
 ﻿/*
-Perf log:
-
-             FMInfoGen | RTF_ToPlainTextTest
-2024-04-28   ?           2112MB/s (x86) / 2422MB/s (x64) / 3581MB/s (.NET 8 x64)
-2024-04-27   ?           2034MB/s (x86) / 2139MB/s (x64) / 3432MB/s (.NET 8 x64)
-2024-04-26   ?           1915MB/s (x86) / 2085MB/s (x64) / 3362MB/s (.NET 8 x64)
-2023-11-07   ?           1631MB/s (x86) / 2009MB/s (x64)
-2023-11-06   ?           1539MB/s (x86) / 1872MB/s (x64)
-2023-11-06   ?           1471MB/s (x86) / 1716MB/s (x64)
-2023-11-06   ?           1248MB/s (x86) / 1615MB/s (x64)
-2023-11-05   ?           1185MB/s (x86) / 1525MB/s (x64)
-2023-11-04   ?           1109MB/s (x86) / 1360MB/s (x64)
-2023-11-04   ?           906MB/s (x86) / 1101MB/s (x64)
-2023-11-03   ?           828MB/s (x86) / 1012MB/s (x64)
-2023-11-02   ?           643MB/s (x86) / 713MB/s (x64)
-2023-11-02   ?           567MB/s (x86) / 663MB/s (x64)
-2023-10-05:  ?           521MB/s (x64)
-2023-10-03:  ?           512MB/s (x64)
-2023-10-03:  ?           492MB/s (x86)
-2023-09-30:  ?           363MB/s (x86)
-2023-09-29:  ?           335MB/s (x86)
-2020-08-24:  179MB/s     254MB/s
-2020-08-20:  157MB/s     211MB/s
-2020-08-19:  88.2 MB/s   97MB/s
-
----
-
-Note to self:
-RTFs in 1098 set, base dirs only:
-count: 280
-total size: 88,714,908
-84.6 MB
-
----
-
-This is a fast RTF-to-plaintext converter designed to provide scannable text for FMScanner.
-
-Goals:
-1. Be platform-agnostic (no RichTextBox dependency).
-2. Achieve faster performance than RichTextBox, and ideally be as fast as possible beyond that.
-3. Accurately convert all "general text" characters as the user would be intended to see them, even symbol font
-   glyphs.
-
-Non-Goals:
-1. Perfectly match RichTextBox in output. The output is not meant to be displayed to the user, so we don't care
-   about extra whitespace lines, indenting, bulleted/numbered list characters, etc. We also convert certain
-   exotic characters to their ASCII equivalents (dashes, spaces etc.) to give easier data to the scanner.
-2. Extremely strict validation or enforcement of spec. We assume the stream has been checked for an rtf header
-   already. We also allow for what RichTextBox allows - or has allowed - for, even if it's not quite to spec.
-3. Forward-only stream support. We used to have this, but it entailed a fairly sizable performance loss. The
-   need for an un-get buffer caused constant branching inside a tight loop, and also precluded optimizations
-   afforded by being able to move the stream index freely.
-
----
-
 Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
  (it's supposed to be an ellipsis - __MSG_final__FMInfo-De - Copy.rtf has an instance of it)
@@ -63,10 +8,8 @@ Notes and miscellaneous:
 -RichTextBox respects \v0 (hidden text) when it converts, but LibreOffice doesn't.
 -RichTextBox and LibreOffice both remove nulls.
 
-@RTF(RTF to plaintext converter):
--Consider being extremely forgiving about errors - we want as much plaintext as we can get out of a file, and
- even imperfect text may be useful. FMScanner extracts a relatively very small portion of text from the file,
- so statistically it's likely it may not even hit broken text even if it exists.
+TODO: Allow returning a byte array and length rather than string?
+TODO: Try to make API good like with granularity levels and whatever
 */
 
 using System.Globalization;
@@ -1285,6 +1228,7 @@ public sealed class RtfToTextConverter
         HeaderDefaultFontNum = 0;
     }
 
+    // TODO: Handle keyword or param too long
     private RtfError ParseRtf()
     {
         while (CurrentPos < _rtfBytes.Length)
@@ -1828,6 +1772,7 @@ public sealed class RtfToTextConverter
         (bool success, bool codePageWas42, Encoding? enc, FontEntry? fontEntry) = GetCurrentEncoding();
 
         /*
+        TODO: Handle invalid hex like LibreOffice (as described below)
         If the hex is invalid, oh well, we'll just get a junk character. No point in adding more branches
         to check for what's basically never going to happen.
         Other readers' behavior:
