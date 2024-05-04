@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReasonableRTF", "ReasonableRTF\ReasonableRTF.csproj", "{9F8557CD-E012-4B52-8538-003470270667}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F8557CD-E012-4B52-8538-003470270667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8557CD-E012-4B52-8538-003470270667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8557CD-E012-4B52-8538-003470270667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8557CD-E012-4B52-8538-003470270667}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D5A2FC4-3048-4D67-B179-51BD5FC3DC81}
+	EndGlobalSection
+EndGlobal
