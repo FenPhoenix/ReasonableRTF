@@ -21,6 +21,7 @@ using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
+// TODO: Make all the names and descriptions clear for public API purposes.
 public enum RtfError : byte
 {
     /// <summary>
@@ -32,13 +33,25 @@ public enum RtfError : byte
     /// </summary>
     StackUnderflow,
     /// <summary>
-    /// Too many subgroups (we cap it at 100).
+    /// There were over <inheritdoc cref="GroupStack.MaxGroups" path="//summary"/> nested groups.
     /// </summary>
     StackOverflow,
     /// <summary>
-    /// RTF ended during an open group.
+    /// Unmatched '{'.
     /// </summary>
     UnmatchedBrace,
+    /// <summary>
+    /// End of file was unexpectedly encountered while parsing.
+    /// </summary>
+    UnexpectedEndOfFile,
+    /// <summary>
+    /// A keyword longer than 32 characters was encountered.
+    /// </summary>
+    KeywordTooLong,
+    /// <summary>
+    /// A keyword parameter was outside the range of -2147483648 to 2147483647.
+    /// </summary>
+    ParameterOutOfRange,
     /// <summary>
     /// The rtf is malformed in such a way that it might be unsafe to continue parsing it (infinite loops, stack overflows, etc.)
     /// </summary>
@@ -1153,7 +1166,7 @@ public sealed class RtfToTextConverter
     }
 
     [PublicAPI]
-    public (bool Success, string Text)
+    public (RtfError Result, string Text)
     Convert(in ArrayWithLength<byte> rtfBytes)
     {
         Reset(rtfBytes);
@@ -1167,11 +1180,16 @@ public sealed class RtfToTextConverter
         try
         {
             RtfError error = ParseRtf();
-            return error == RtfError.OK ? (true, CreateStringFromChars(_plainText)) : (false, "");
+            return error == RtfError.OK ? (RtfError.OK, CreateStringFromChars(_plainText)) : (error, "");
         }
+        catch (IndexOutOfRangeException)
+        {
+            return (RtfError.UnexpectedEndOfFile, "");
+        }
+        // TODO: I guess we actually want to throw instead of have error enums to be idiomatic and to provide more info on unexpected errors
         catch
         {
-            return (false, "");
+            return (RtfError.UnexpectedEndOfFile, "");
         }
         finally
         {

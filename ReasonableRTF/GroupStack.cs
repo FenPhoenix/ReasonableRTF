@@ -19,6 +19,7 @@ internal sealed class GroupStack
     }
 
     // Highest measured was 10
+    /// <summary>100</summary>
     internal const int MaxGroups = 100;
 
     private BoolArrayWrapper SkipDestinations;
