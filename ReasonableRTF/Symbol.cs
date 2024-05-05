@@ -341,9 +341,8 @@ internal sealed class SymbolDict
         // Soft hyphen (Spec calls this "Optional hyphen")
         ret['-'] = new Symbol("-", 0, false, KeywordType.Character, '\xAD');
 
-        // There's also \- which is Optional Hyphen (the scanner is only producing single-line values, so no
-        // need for this), and \: which "specifies a subentry in an index entry" (it's not clear even from
-        // the spec what exactly an "index entry" is).
+        // There's also \: which "specifies a subentry in an index entry" (it's not clear even from the spec what
+        // exactly an "index entry" is).
 
         /*
         Spec:
