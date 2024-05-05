@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReasonableRTF", "ReasonableRTF\ReasonableRTF.csproj", "{9F8557CD-E012-4B52-8538-003470270667}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReasonableRTF", "ReasonableRTF\ReasonableRTF.csproj", "{9F8557CD-E012-4B52-8538-003470270667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReasonableRTF_TestApp", "ReasonableRTF_TestApp\ReasonableRTF_TestApp.csproj", "{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9F8557CD-E012-4B52-8538-003470270667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F8557CD-E012-4B52-8538-003470270667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F8557CD-E012-4B52-8538-003470270667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
