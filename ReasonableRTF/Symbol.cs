@@ -324,6 +324,9 @@ internal sealed class SymbolDict
         TODO: Should we support the math stuff...?
         TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
         TODO: Remove all assumptions about Windows-1252
+        TODO: We could support footnotes:
+        RichTextBox doesn't convert them at all.
+        LibreOffice adds citation numbers but doesn't add the footnotes themselves.
         */
         ret['\\'] = new Symbol("\\", 0, false, KeywordType.Character, '\\');
         ret['{'] = new Symbol("{", 0, false, KeywordType.Character, '{');
