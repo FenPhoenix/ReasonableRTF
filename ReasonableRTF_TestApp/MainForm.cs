@@ -1,8 +1,6 @@
-using ReasonableRTF;
-
 namespace ReasonableRTF_TestApp;
 
-public partial class MainForm : Form
+public sealed partial class MainForm : Form
 {
     public MainForm()
     {

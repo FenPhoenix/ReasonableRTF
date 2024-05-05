@@ -8,13 +8,13 @@ internal sealed class Symbol
     internal readonly string Keyword;
     internal readonly int DefaultParam;
     internal readonly bool UseDefaultParam;
-    internal readonly Enums.KeywordType KeywordType;
+    internal readonly KeywordType KeywordType;
     /// <summary>
     /// Index into the property table, or a regular enum member, or a character literal, depending on <see cref="KeywordType"/>.
     /// </summary>
     internal readonly ushort Index;
 
-    internal Symbol(string keyword, int defaultParam, bool useDefaultParam, Enums.KeywordType keywordType, ushort index)
+    internal Symbol(string keyword, int defaultParam, bool useDefaultParam, KeywordType keywordType, ushort index)
     {
         Keyword = keyword;
         DefaultParam = defaultParam;
@@ -304,7 +304,7 @@ internal sealed class SymbolDict
     private static Symbol?[] InitControlSymbolArray()
     {
         Symbol?[] ret = new Symbol?[256];
-        ret['\''] = new Symbol("'", 0, false, Enums.KeywordType.Special, (int)Enums.SpecialType.HexEncodedChar);
+        ret['\''] = new Symbol("'", 0, false, KeywordType.Special, (int)SpecialType.HexEncodedChar);
         /*
         @RTF(KeywordType.Character and symbol fonts):
         \, {, and } are the only KeywordType.Character chars that can be in a symbol font. Everything else is
@@ -325,18 +325,18 @@ internal sealed class SymbolDict
         TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
         TODO: Remove all assumptions about Windows-1252
         */
-        ret['\\'] = new Symbol("\\", 0, false, Enums.KeywordType.Character, '\\');
-        ret['{'] = new Symbol("{", 0, false, Enums.KeywordType.Character, '{');
-        ret['}'] = new Symbol("}", 0, false, Enums.KeywordType.Character, '}');
+        ret['\\'] = new Symbol("\\", 0, false, KeywordType.Character, '\\');
+        ret['{'] = new Symbol("{", 0, false, KeywordType.Character, '{');
+        ret['}'] = new Symbol("}", 0, false, KeywordType.Character, '}');
 
         // Non-breaking space (0xA0)
-        ret['~'] = new Symbol("~", 0, false, Enums.KeywordType.Character, '\xA0');
+        ret['~'] = new Symbol("~", 0, false, KeywordType.Character, '\xA0');
 
         // Non-breaking hyphen (0x2011)
-        ret['_'] = new Symbol("_", 0, false, Enums.KeywordType.Character, '\x2011');
+        ret['_'] = new Symbol("_", 0, false, KeywordType.Character, '\x2011');
 
         // Soft hyphen (Spec calls this "Optional hyphen")
-        ret['-'] = new Symbol("-", 0, false, Enums.KeywordType.Character, '\xAD');
+        ret['-'] = new Symbol("-", 0, false, KeywordType.Character, '\xAD');
 
         // There's also \- which is Optional Hyphen (the scanner is only producing single-line values, so no
         // need for this), and \: which "specifies a subentry in an index entry" (it's not clear even from
@@ -348,8 +348,8 @@ internal sealed class SymbolDict
         control if the character is preceded by a backslash. You must include the backslash; otherwise,
         RTF ignores the control word."
         */
-        ret['\r'] = new Symbol("\r", 0, false, Enums.KeywordType.Character, '\n');
-        ret['\n'] = new Symbol("\n", 0, false, Enums.KeywordType.Character, '\n');
+        ret['\r'] = new Symbol("\r", 0, false, KeywordType.Character, '\n');
+        ret['\n'] = new Symbol("\n", 0, false, KeywordType.Character, '\n');
         return ret;
     }
 
