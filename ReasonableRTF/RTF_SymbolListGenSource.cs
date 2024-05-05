@@ -2,7 +2,7 @@
 TODO(gperf stuff): Tidy this up and get rid of hardcoded directories and whatnot
 */
 
-//#define SYMBOL_PERFECT_HASH_GEN
+#define SYMBOL_PERFECT_HASH_GEN
 
 #if SYMBOL_PERFECT_HASH_GEN
 
@@ -61,28 +61,28 @@ public static class RTF_SymbolListGenSource
 
         new Symbol("par", 0, false, KeywordType.Character, '\n'),
         new Symbol("line", 0, false, KeywordType.Character, '\n'),
-        new Symbol("softline", 0, false, KeywordType.Character, '\n'),
+        new Symbol("sect", 0, false, KeywordType.Character, '\n'),
 
         #endregion
 
         #region Control words that map to a single character
 
         new Symbol("tab", 0, false, KeywordType.Character, '\t'),
-
         new Symbol("bullet", 0, false, KeywordType.Character, '\x2022'),
-
-        // Just convert these to regular spaces because we're just trying to scan for strings in readmes
-        // without weird crap tripping us up
-        new Symbol("emspace", 0, false, KeywordType.Character, ' '),
-        new Symbol("enspace", 0, false, KeywordType.Character, ' '),
-        new Symbol("qmspace", 0, false, KeywordType.Character, ' '),
-        // NOTE: Maybe just convert these all to ASCII equivalents as well?
+        new Symbol("emspace", 0, false, KeywordType.Character, '\x2003'),
+        new Symbol("enspace", 0, false, KeywordType.Character, '\x2002'),
+        new Symbol("qmspace", 0, false, KeywordType.Character, '\x2005'),
         new Symbol("emdash", 0, false, KeywordType.Character, '\x2014'),
         new Symbol("endash", 0, false, KeywordType.Character, '\x2013'),
         new Symbol("lquote", 0, false, KeywordType.Character, '\x2018'),
         new Symbol("rquote", 0, false, KeywordType.Character, '\x2019'),
         new Symbol("ldblquote", 0, false, KeywordType.Character, '\x201C'),
         new Symbol("rdblquote", 0, false, KeywordType.Character, '\x201D'),
+
+        new Symbol("zwbo", 0, false, KeywordType.Character, '\x200B'),
+        new Symbol("zwnbo", 0, false, KeywordType.Character, '\xFEFF'),
+        new Symbol("zwj", 0, false, KeywordType.Character, '\x200D'),
+        new Symbol("zwnj", 0, false, KeywordType.Character, '\x200C'),
 
         #endregion
 

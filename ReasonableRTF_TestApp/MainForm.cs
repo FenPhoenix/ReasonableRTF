@@ -1,3 +1,5 @@
+using ReasonableRTF;
+
 namespace ReasonableRTF_TestApp;
 
 public partial class MainForm : Form
@@ -9,6 +11,5 @@ public partial class MainForm : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-
     }
 }

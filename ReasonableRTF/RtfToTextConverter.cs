@@ -1180,7 +1180,7 @@ public sealed class RtfToTextConverter
         try
         {
             RtfError error = ParseRtf();
-            return error == RtfError.OK ? (RtfError.OK, CreateStringFromChars(_plainText)) : (error, "");
+            return error == RtfError.OK ? (RtfError.OK, CreateReturnStringFromChars(_plainText)) : (error, "");
         }
         catch (IndexOutOfRangeException)
         {
@@ -1544,6 +1544,7 @@ public sealed class RtfToTextConverter
                     {
                         CurrentPos--;
 
+                        // TODO: Read fonts char-wise so we can support arbitrary ones
                         ulong fontName1 = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[CurrentPos]);
                         switch (fontName1)
                         {
@@ -1663,6 +1664,13 @@ public sealed class RtfToTextConverter
         // none of them are null.
         if (GroupStack.CurrentProperties[(int)Property.Hidden] == 0)
         {
+            // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
+            // the start should we actually write it.
+            if (ch == '\xFEFF' && _plainText.Count == 0)
+            {
+                return;
+            }
+
             // Support bare characters that are supposed to be displayed in a symbol font.
             SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
             if (symbolFont > SymbolFont.Unset)
@@ -2376,7 +2384,7 @@ public sealed class RtfToTextConverter
     #region Helpers
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static string CreateStringFromChars(ListFast<char> chars) => new(chars.ItemsArray, 0, chars.Count);
+    private static string CreateReturnStringFromChars(ListFast<char> chars) => new(chars.ItemsArray, 0, chars.Count);
 
     /// <summary>
     /// If <paramref name="codePage"/> is in the cached list, returns the Encoding associated with it;

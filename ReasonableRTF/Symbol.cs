@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
@@ -29,53 +30,42 @@ internal sealed class SymbolDict
     /* Command-line: 'C:\\gperf\\tools\\gperf.exe' --output-file='C:\\_al_rtf_table_gen\\gperfOutputFile.txt' -t 'C:\\_al_rtf_table_gen\\gperfFormatFile.txt'  */
     /* Computed positions: -k'1-3,$' */
 
-    //private const int TOTAL_KEYWORDS = 77;
+    //private const int TOTAL_KEYWORDS = 81;
     //private const int MIN_WORD_LENGTH = 1;
     private const int MAX_WORD_LENGTH = 18;
     //private const int MIN_HASH_VALUE = 1;
-    private const int MAX_HASH_VALUE = 278;
-    /* maximum key range = 278, duplicates = 0 */
+    private const int MAX_HASH_VALUE = 228;
+    /* maximum key range = 218, duplicates = 0 */
 
-    private readonly ushort[] asso_values =
+    private readonly byte[] asso_values =
     [
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 0, 60, 0,
-        70, 0, 10, 115, 60, 0, 5, 0, 0, 100,
-        25, 0, 45, 5, 35, 5, 20, 0, 15, 0,
-        5, 0, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279, 279, 279, 279, 279,
-        279, 279, 279, 279, 279, 279,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 10, 45, 10,
+        75, 10, 5, 95, 40, 5, 85, 0, 0, 35,
+        15, 0, 25, 15, 50, 15, 0, 70, 10, 0,
+        37, 5, 5, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229, 229, 229, 229, 229,
+        229, 229, 229, 229, 229, 229,
     ];
-
-    // For "emspace", "enspace", "qmspace", "~"
-    // Just convert these to regular spaces because we're just trying to scan for strings in readmes
-    // without weird crap tripping us up
-    // emspace  '\x2003'
-    // enspace  '\x2002'
-    // qmspace  '\x2005'
-    // ~        '\xa0'
-
-    // For "emdash", "endash", "lquote", "rquote", "ldblquote", "rdblquote"
-    // NOTE: Maybe just convert these all to ASCII equivalents as well?
 
     // For "cs", "ds", "ts"
     // Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
@@ -103,220 +93,212 @@ internal sealed class SymbolDict
     // Symbol list which must be used as the source to generate this one).
     private readonly Symbol?[] _symbolTable =
     [
-        null,
-// Entry 12
-        new Symbol("u", 0, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.UnicodeChar),
-// Entry 11
-        new Symbol("uc", 1, false, Enums.KeywordType.Property, (ushort)Enums.Property.UnicodeCharSkipCount),
-        null,
-// Entry 76
-        new Symbol("cell", 0, false, Enums.KeywordType.Character, ' '),
-        null, null,
-// Entry 65
-        new Symbol("xe", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 37
-        new Symbol("colortbl", 0, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.ColorTable),
-        null, null,
-// Entry 24
-        new Symbol("lquote", 0, false, Enums.KeywordType.Character, '\x2018'),
-// Entry 30
-        new Symbol("cs", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.CanBeDestOrNotDest),
-// Entry 54
-        new Symbol("keywords", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null,
-// Entry 43
-        new Symbol("footerl", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 45
-        new Symbol("footnote", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+        null, null, null, null, null, null, null, null, null,
         null, null,
 // Entry 7
-        new Symbol("f", 0, false, Enums.KeywordType.Property, (ushort)Enums.Property.FontNum),
-// Entry 62
-        new Symbol("tc", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 16
-        new Symbol("softline", 0, false, Enums.KeywordType.Character, '\n'),
-        null, null, null,
-// Entry 42
-        new Symbol("footerf", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 64
-        new Symbol("txe", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 15
-        new Symbol("line", 0, false, Enums.KeywordType.Character, '\n'),
+        new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
+// Entry 47
+        new Symbol("footerl", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null,
+// Entry 46
+        new Symbol("footerf", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 41
+        new Symbol("colortbl", 0, false, KeywordType.Special, (ushort)SpecialType.ColorTable),
         null,
+// Entry 67
+        new Symbol("title", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 13
-        new Symbol("v", 1, false, Enums.KeywordType.Property, (ushort)Enums.Property.Hidden),
-// Entry 32
-        new Symbol("ts", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.CanBeDestOrNotDest),
-// Entry 33
-        new Symbol("listtext", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+        new Symbol("v", 1, false, KeywordType.Property, (ushort)Property.Hidden),
+// Entry 66
+        new Symbol("tc", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 49
+        new Symbol("footnote", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 80
+        new Symbol("cell", 0, false, KeywordType.Character, ' '),
+// Entry 29
+        new Symbol("zwnbo", 0, false, KeywordType.Character, '\xFEFF'),
+        null,
+// Entry 6
+        new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
+// Entry 37
+        new Symbol("listtext", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 57
+        new Symbol("info", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 64
+        new Symbol("stylesheet", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 36
+        new Symbol("ts", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+        null,
+// Entry 15
+        new Symbol("line", 0, false, KeywordType.Character, '\n'),
+        null, null,
+// Entry 52
+        new Symbol("ftnsepc", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 58
+        new Symbol("keywords", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 16
+        new Symbol("sect", 0, false, KeywordType.Character, '\n'),
+// Entry 50
+        new Symbol("ftncn", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 34
+        new Symbol("cs", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+        null,
+// Entry 70
+        new Symbol("pict", 1, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null,
+// Entry 38
+        new Symbol("pntext", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 1
+        new Symbol("pc", 437, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null,
 // Entry 0
-        new Symbol("ansi", 1252, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.HeaderCodePage),
+        new Symbol("ansi", 1252, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null,
+// Entry 51
+        new Symbol("ftnsep", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 42
+        new Symbol("comment", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 79
+        new Symbol("row", 0, false, KeywordType.Character, '\n'),
+// Entry 28
+        new Symbol("zwbo", 0, false, KeywordType.Character, '\x200B'),
         null, null,
 // Entry 20
-        new Symbol("enspace", 0, false, Enums.KeywordType.Character, ' '),
-// Entry 75
-        new Symbol("row", 0, false, Enums.KeywordType.Character, '\n'),
-// Entry 53
-        new Symbol("info", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null,
-// Entry 6
-        new Symbol("fonttbl", 0, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.FontTable),
-// Entry 59
-        new Symbol("rxe", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null,
-// Entry 63
-        new Symbol("title", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 25
-        new Symbol("rquote", 0, false, Enums.KeywordType.Character, '\x2019'),
-// Entry 1
-        new Symbol("pc", 437, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.HeaderCodePage),
+        new Symbol("enspace", 0, false, KeywordType.Character, '\x2002'),
 // Entry 3
-        new Symbol("pca", 850, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.HeaderCodePage),
-        null, null,
-// Entry 41
-        new Symbol("footer", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 44
-        new Symbol("footerr", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null,
-// Entry 60
-        new Symbol("stylesheet", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null, null,
-// Entry 35
-        new Symbol("author", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+        new Symbol("pca", 850, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+// Entry 69
+        new Symbol("xe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 68
+        new Symbol("txe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 45
+        new Symbol("footer", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 48
-        new Symbol("ftnsepc", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null,
-// Entry 51
-        new Symbol("headerl", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null,
-// Entry 66
-        new Symbol("pict", 1, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.SkippableHex),
-        null, null,
-// Entry 72
-        new Symbol("objdata", 1, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.SkippableHex),
-        null, null, null,
-// Entry 74
-        new Symbol("panose", 20, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.SkipNumberOfBytes),
-// Entry 50
-        new Symbol("headerf", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null,
-// Entry 31
-        new Symbol("ds", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.CanBeDestOrNotDest),
-        null, null,
-// Entry 46
-        new Symbol("ftncn", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 18
-        new Symbol("bullet", 0, false, Enums.KeywordType.Character, '\x2022'),
-// Entry 57
-        new Symbol("private", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 55
-        new Symbol("operator", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 67
-        new Symbol("themedata", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.SkippableHex),
-        null, null,
-// Entry 61
-        new Symbol("subject", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null,
-// Entry 5
-        new Symbol("deff", 0, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.DefaultFont),
-        null, null, null,
+        new Symbol("footerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 8
-        new Symbol("fcharset", -1, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.Charset),
-// Entry 70
-        new Symbol("datastore", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.SkippableHex),
-        null,
-// Entry 49
-        new Symbol("header", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 52
-        new Symbol("headerr", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 2
-        new Symbol("mac", 10000, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.HeaderCodePage),
+        new Symbol("fcharset", -1, false, KeywordType.Special, (ushort)SpecialType.Charset),
         null, null,
-// Entry 47
-        new Symbol("ftnsep", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-// Entry 29
-        new Symbol("fldinst", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.FieldInstruction),
+// Entry 78
+        new Symbol("panose", 20, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
+// Entry 55
+        new Symbol("headerl", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 2
+        new Symbol("mac", 10000, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+// Entry 71
+        new Symbol("themedata", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null,
+// Entry 54
+        new Symbol("headerf", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
         null, null, null, null,
 // Entry 19
-        new Symbol("emspace", 0, false, Enums.KeywordType.Character, ' '),
-// Entry 28
-        new Symbol("bin", 0, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.SkipNumberOfBytes),
-        null, null,
-// Entry 34
-        new Symbol("pntext", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+        new Symbol("emspace", 0, false, KeywordType.Character, '\x2003'),
+        null, null, null, null,
 // Entry 21
-        new Symbol("qmspace", 0, false, Enums.KeywordType.Character, ' '),
-// Entry 14
-        new Symbol("par", 0, false, Enums.KeywordType.Character, '\n'),
+        new Symbol("qmspace", 0, false, KeywordType.Character, '\x2005'),
+// Entry 32
+        new Symbol("bin", 0, false, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
         null, null, null,
-// Entry 69
-        new Symbol("passwordhash", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.SkippableHex),
+// Entry 33
+        new Symbol("fldinst", 0, false, KeywordType.Destination, (ushort)DestinationType.FieldInstruction),
         null, null, null, null,
-// Entry 38
-        new Symbol("comment", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null, null,
-// Entry 68
-        new Symbol("colorschememapping", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.SkippableHex),
+// Entry 11
+        new Symbol("uc", 1, false, KeywordType.Property, (ushort)Property.UnicodeCharSkipCount),
+// Entry 59
+        new Symbol("operator", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
         null, null, null,
-// Entry 73
-        new Symbol("blipuid", 32, true, Enums.KeywordType.Special, (ushort)Enums.SpecialType.SkipNumberOfBytes),
+// Entry 61
+        new Symbol("private", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
         null,
-// Entry 26
-        new Symbol("ldblquote", 0, false, Enums.KeywordType.Character, '\x201C'),
-        null, null,
-// Entry 39
-        new Symbol("creatim", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+// Entry 5
+        new Symbol("deff", 0, false, KeywordType.Special, (ushort)SpecialType.DefaultFont),
+        null,
+// Entry 24
+        new Symbol("lquote", 0, false, KeywordType.Character, '\x2018'),
+// Entry 73
+        new Symbol("passwordhash", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
 // Entry 17
-        new Symbol("tab", 0, false, Enums.KeywordType.Character, '\t'),
-// Entry 10
-        new Symbol("lang", 0, false, Enums.KeywordType.Property, (ushort)Enums.Property.Lang),
-        null, null, null, null, null, null, null,
-// Entry 4
-        new Symbol("ansicpg", 1252, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.HeaderCodePage),
+        new Symbol("tab", 0, false, KeywordType.Character, '\t'),
+// Entry 74
+        new Symbol("datastore", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null,
+// Entry 35
+        new Symbol("ds", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+        null,
+// Entry 31
+        new Symbol("zwnj", 0, false, KeywordType.Character, '\x200C'),
+// Entry 63
+        new Symbol("rxe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 62
+        new Symbol("revtim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 43
+        new Symbol("creatim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
         null, null, null,
-// Entry 58
-        new Symbol("revtim", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
+// Entry 53
+        new Symbol("header", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 56
+        new Symbol("headerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null,
+// Entry 18
+        new Symbol("bullet", 0, false, KeywordType.Character, '\x2022'),
+// Entry 60
+        new Symbol("printim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 72
+        new Symbol("colorschememapping", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+// Entry 10
+        new Symbol("lang", 0, false, KeywordType.Property, (ushort)Property.Lang),
+        null, null,
+// Entry 44
+        new Symbol("doccomm", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
         null, null, null, null,
+// Entry 77
+        new Symbol("blipuid", 32, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
+        null, null, null,
+// Entry 39
+        new Symbol("author", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 65
+        new Symbol("subject", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 14
+        new Symbol("par", 0, false, KeywordType.Character, '\n'),
+// Entry 26
+        new Symbol("ldblquote", 0, false, KeywordType.Character, '\x201C'),
+        null,
+// Entry 12
+        new Symbol("u", 0, false, KeywordType.Special, (ushort)SpecialType.UnicodeChar),
+// Entry 4
+        new Symbol("ansicpg", 1252, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null, null, null,
 // Entry 23
-        new Symbol("endash", 0, false, Enums.KeywordType.Character, '\x2013'),
-        null, null, null, null, null, null, null,
-// Entry 71
-        new Symbol("datafield", 0, false, Enums.KeywordType.Destination,
-            (ushort)Enums.DestinationType.SkippableHex),
-        null, null, null, null,
-// Entry 27
-        new Symbol("rdblquote", 0, false, Enums.KeywordType.Character, '\x201D'),
+        new Symbol("endash", 0, false, KeywordType.Character, '\x2013'),
+// Entry 76
+        new Symbol("objdata", 1, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null, null,
+// Entry 25
+        new Symbol("rquote", 0, false, KeywordType.Character, '\x2019'),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null,
+// Entry 22
+        new Symbol("emdash", 0, false, KeywordType.Character, '\x2014'),
+        null, null,
+// Entry 75
+        new Symbol("datafield", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null, null, null, null, null, null, null,
+// Entry 30
+        new Symbol("zwj", 0, false, KeywordType.Character, '\x200D'),
         null, null,
 // Entry 40
-        new Symbol("doccomm", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null, null, null, null, null, null,
-// Entry 56
-        new Symbol("printim", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null,
-// Entry 36
-        new Symbol("buptim", 0, false, Enums.KeywordType.Destination, (ushort)Enums.DestinationType.Skip),
-        null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null, null,
-// Entry 22
-        new Symbol("emdash", 0, false, Enums.KeywordType.Character, '\x2014'),
+        new Symbol("buptim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null, null, null, null,
+// Entry 27
+        new Symbol("rdblquote", 0, false, KeywordType.Character, '\x201D'),
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null,
+        null, null,
 // Entry 9
-        new Symbol("cpg", -1, false, Enums.KeywordType.Special, (ushort)Enums.SpecialType.CodePage),
+        new Symbol("cpg", -1, false, KeywordType.Special, (ushort)SpecialType.CodePage),
     ];
 
     private static Symbol?[] InitControlSymbolArray()
@@ -335,17 +317,39 @@ internal sealed class SymbolDict
 
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
+
+        TODO: Option to output \n or \r\n for linebreaks?
+        TODO: Handle cs\ds\ts properly (detect if we're at the start of a group to determine which version it is)
+        TODO: Handle bulleted/numbered lists properly
+        TODO: Should we support the math stuff...?
+        TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
+        TODO: Remove all assumptions about Windows-1252
         */
         ret['\\'] = new Symbol("\\", 0, false, Enums.KeywordType.Character, '\\');
         ret['{'] = new Symbol("{", 0, false, Enums.KeywordType.Character, '{');
         ret['}'] = new Symbol("}", 0, false, Enums.KeywordType.Character, '}');
-        // Nominally Non-Breaking Space (0xA0)
-        ret['~'] = new Symbol("~", 0, false, Enums.KeywordType.Character, ' ');
-        // Nominally Non-Breaking Hyphen (0x2011)
-        ret['_'] = new Symbol("_", 0, false, Enums.KeywordType.Character, '-');
+
+        // Non-breaking space (0xA0)
+        ret['~'] = new Symbol("~", 0, false, Enums.KeywordType.Character, '\xA0');
+
+        // Non-breaking hyphen (0x2011)
+        ret['_'] = new Symbol("_", 0, false, Enums.KeywordType.Character, '\x2011');
+
+        // Soft hyphen (Spec calls this "Optional hyphen")
+        ret['-'] = new Symbol("-", 0, false, Enums.KeywordType.Character, '\xAD');
+
         // There's also \- which is Optional Hyphen (the scanner is only producing single-line values, so no
         // need for this), and \: which "specifies a subentry in an index entry" (it's not clear even from
         // the spec what exactly an "index entry" is).
+
+        /*
+        Spec:
+        "A carriage return (character value 13) or line feed (character value 10) is treated as a \par
+        control if the character is preceded by a backslash. You must include the backslash; otherwise,
+        RTF ignores the control word."
+        */
+        ret['\r'] = new Symbol("\r", 0, false, Enums.KeywordType.Character, '\n');
+        ret['\n'] = new Symbol("\n", 0, false, Enums.KeywordType.Character, '\n');
         return ret;
     }
 
