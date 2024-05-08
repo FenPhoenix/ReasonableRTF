@@ -67,30 +67,32 @@ internal sealed class SymbolDict
         229, 229, 229, 229, 229, 229,
     ];
 
-    // For "cs", "ds", "ts"
-    // Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
+    /*
+    For "cs", "ds", "ts"
+    Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
 
-    // For "listtext", "pntext"
-    // Ignore list item bullets and numeric prefixes etc. We don't need them.
+    For "listtext", "pntext"
+    TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
 
-    // For "v"
-    // \v to make all plain text hidden (not output to the conversion stream), \v0 to make it shown again
+    For "v"
+    \v to make all plain text hidden (not output to the conversion stream), \v0 to make it shown again
 
-    // For "ansi"
-    // The spec calls this "ANSI (the default)" but says nothing about what codepage that actually means.
-    // "ANSI" is often misused to mean one of the Windows codepages, so I'll assume it's Windows-1252.
+    For "ansi"
+    The spec calls this "ANSI (the default)" but says nothing about what codepage that actually means.
+    "ANSI" is often misused to mean one of the Windows codepages, so I'll assume it's Windows-1252.
 
-    // For "mac"
-    // The spec calls this "Apple Macintosh" but again says nothing about what codepage that is. I'll
-    // assume 10000 ("Mac Roman")
+    For "mac"
+    The spec calls this "Apple Macintosh" but again says nothing about what codepage that is. I'll
+    assume 10000 ("Mac Roman")
 
-    // For "fldinst"
-    // We need to do stuff with this (SYMBOL instruction)
+    For "fldinst"
+    We need to do stuff with this (SYMBOL instruction)
 
-    // NOTE: This is generated. Values can be modified, but not keys (keys are the first string params).
-    // Also no reordering. Adding, removing, reordering, or modifying keys requires generating a new version.
-    // See RTF_SymbolListGenSource.cs for how to generate a new version (it also contains the original
-    // Symbol list which must be used as the source to generate this one).
+    NOTE: This is generated. Values can be modified, but not keys (keys are the first string params).
+    Also no reordering. Adding, removing, reordering, or modifying keys requires generating a new version.
+    See RTF_SymbolListGenSource.cs for how to generate a new version (it also contains the original
+    Symbol list which must be used as the source to generate this one).
+    */
     private readonly Symbol?[] _symbolTable =
     [
         null, null, null, null, null, null, null, null, null,
@@ -114,14 +116,14 @@ internal sealed class SymbolDict
 // Entry 49
         new Symbol("footnote", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 80
-        new Symbol("cell", 0, false, KeywordType.Character, ' '),
+        new Symbol("cell", 0, false, KeywordType.Character, '\t'),
 // Entry 29
         new Symbol("zwnbo", 0, false, KeywordType.Character, '\xFEFF'),
         null,
 // Entry 6
         new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
 // Entry 37
-        new Symbol("listtext", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        new Symbol("listtext", 0, false, KeywordType.Destination, 255),
 // Entry 57
         new Symbol("info", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 64
@@ -149,7 +151,7 @@ internal sealed class SymbolDict
         new Symbol("pict", 1, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
         null,
 // Entry 38
-        new Symbol("pntext", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        new Symbol("pntext", 0, false, KeywordType.Destination, 255),
 // Entry 1
         new Symbol("pc", 437, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
         null,
