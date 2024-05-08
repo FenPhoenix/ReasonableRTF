@@ -242,6 +242,8 @@ sealed partial class MainForm
         MaximizeBox = false;
         Name = "MainForm";
         Text = "ReasonableRTF Test App";
+        FormClosing += MainForm_FormClosing;
+        Load += MainForm_Load;
         ConvertAndWriteToDiskGroupBox.ResumeLayout(false);
         ConvertOnly_Full_GroupBox.ResumeLayout(false);
         ConverOnly_Small_GroupBox.ResumeLayout(false);
