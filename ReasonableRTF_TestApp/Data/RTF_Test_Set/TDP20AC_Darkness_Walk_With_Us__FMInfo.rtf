@@ -1,0 +1,995 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\froman\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 Courier New;}{\f6\froman\fprq2\fcharset0 Times New Roman;}{\f7\fnil\fprq2\fcharset0 Courier New;}{\f8\fnil\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f9\fnil\fprq2\fcharset0 Times New Roman;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\s0\snext0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081 Normal;}
+{\s15\sbasedon0\snext16\ql\nowidctlpar\hyphpar0\sb240\sa120\keepn\ltrpar\cf1\kerning1\dbch\af8\langfe3081\dbch\af8\afs24\loch\f4\fs28\lang3081 Heading;}
+{\s16\sbasedon0\snext16\sl276\slmult1\ql\nowidctlpar\hyphpar0\sb0\sa140\ltrpar\cf1\kerning1\dbch\af8\langfe3081\dbch\af8\afs24\loch\f3\fs24\lang3081 Text Body;}
+{\s17\sbasedon16\snext17\sl276\slmult1\ql\nowidctlpar\hyphpar0\sb0\sa140\ltrpar\cf1\kerning1\dbch\af8\langfe3081\dbch\af8\afs24\loch\f3\fs24\lang3081 List;}
+{\s18\sbasedon0\snext18\ql\nowidctlpar\hyphpar0\sb120\sa120\ltrpar\cf1\i\kerning1\dbch\af8\langfe3081\dbch\af8\afs24\loch\f3\fs24\lang3081 Caption;}
+{\s19\sbasedon0\snext19\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe3081\dbch\af8\afs24\loch\f3\fs24\lang3081 Index;}
+}{\*\generator LibreOffice/6.0.6.2$Linux_X86_64 LibreOffice_project/00m0$Build-2}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2018\mo11\dy16\hr19\min3}{\printim\yr0\mo0\dy0\hr0\min0}}{\*\userprops}\deftab720
+\hyphauto0\viewscale100
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn12240\pghsxn15840\marglsxn1320\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1320\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1320\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========= IMPORTANT INFORMATION FOR TFIX USERS }{{\*\bkmkstart __DdeLink__75_134288438}{\*\bkmkend __DdeLink__75_134288438}\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+======================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+You *will* need to use TFix 1.26a or newer, otherwise the custom scripts will not work and the mission will break.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Title           : Darkness Walk With Us!}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Filename        : TDP20AC_dunkel.zip}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Author          : Haplo}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Contact info    : Private message through TTLG forums}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Date of Release : 30.11.2018}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Version         : 1.00}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Playing Information *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Game                : Thief Gold}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+File Name           : miss23.mis}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Difficulty Settings : Yes (AI, clues, starting gear and loot requirement)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Equipment Store     : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Map/Automap         : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+New Graphics        : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+New Objects         : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+New Sounds          : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+EAX Support         : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Briefing            : Yes}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Construction *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Time                : ~400 hours in total}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Story *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+During one of my recent 'wealth distribution' activities, I overheard the Hammers saying that a certain Brother Teobaldo was leaving the next day on a secret mission. Apparently he is headed to the "Hillview Inn" which is at the foot of a hill quite a distance from here. Hammers would not travel so far unless it was important. I have decided to follow this Brother Teobaldo and find out what he is up to. Not that I have anything better lined up anyway.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Important Notes *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- NewDark 1.25 or later is required.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- TFix 1.26a or later is required.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Read the texts carefully, they contain vital clues. I have tried to keep them short.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- With a exception of a couple of scripted encounters, it should be possible to ghost this mission.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- This is a simple mission. I have tried to stay as faithful as I could to the original TG (which means no fancy features such as round cylinders or perfect arches). With the exception of subtle use of coloured light in a certain area, this mission could have been built in the old DromEd. Even the custom scripts have only been used for their convenience, and not for their special powers.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- For those who might be interested, this mission was developed completely on a Linux machine under WINE.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+===================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Credits *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- My partner Marisa for convincing me to go back to DromEd, and for her help with so many things. Without her input this mission would not have existed.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Yandros for his encouragements, and for answering my questions as I had forgotten so much after years of not having touched DromEd.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nameless Voice for the custom scripts.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- SlyFoxx for Garrett's voice.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Tannar and Dussander for the testing forum.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nickie for her help with the texts.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- The people at The Editors' Guild on TTLG forum.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- The beta testers for their help and patience.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Beta Testers *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Marukpa}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- ffox}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Gloria Creep}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nightwalker}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Peter Smith}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Translations *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- MoroseTroll : RU}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster: DE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster/Athalle: FR}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Piesel: IT}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Loading Information *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Do not unzip, load with FMSel or NewDarkloader. }{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Do not use the old Darkloader.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Copyright Information *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+This Mission is \u169\'a9 by Ali Pouladi (Haplo), 2018.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without my express permission.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af7\langfe3081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive, or Ion Storm.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========= WICHTIGE INFORMATION F\u220\'dcR TFIX-NUTZER =====================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+TFix 1.26a oder neuer ist obligatorisch, andernfalls arbeiten die Custom-Skripte nicht oder/und die}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+FM bricht ab.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Titel           : Finsternis, folge uns!}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Dateiname       : TDP20AC_dunkel.zip}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Autor           : Haplo}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Kontakt \u252\'fcber    : PM im TTLG-Forum}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Erschienen      : 30.11.2018}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Version         : 1.00}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Spiel-Information *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Spiel               : Thief Gold}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Dateiname           : miss23.mis}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Schwierigkeitsgrade : Ja (AI, Hinweise, Startpunkt und Beuteanforderung)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Ausr\u252\'fcstungsladen    : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Map/Automap         : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Neue Grafiken       : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Neue Objekte        : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Neue Ger\u228\'e4usche      : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+EAX                 : Nein}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Briefing            : Ja}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Bau *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Zeitbedarf          : ~400h insgesamt}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Handlung *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+W\u228\'e4hrend meiner laufenden 'Wertumverteilungsaktion' schnappte ich bei den Hammeriten auf, da\u223\'df ein gewisser Bruder Theobald im Begriff sei, zu einer Geheimmission aufzubrechen. Anscheinend macht er sich zum Gasthaus 'Hillview Inn' auf, welches sich am Fu\u223\'dfe des Berges in einiger Entfernung von hier befindet. Niemand von den Br\u252\'fcdern w\u252\'fcrde sich ohne triftigen Grund auf eine solch weite Reise begeben. Daher habe ich beschlossen, diesem Bruder Theobald zu folgen und herauszufinden, um was es \u252\'fcberhaupt geht. Zur Zeit liegen eh keine besonders lukrativen Vorhaben an.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Wichtige Anmerkungen *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- NewDark 1.25 oder neuer erforderlich.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- TFix 1.26a oder neuer erforderlich.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Lies alle Texte aufmerksam durch, sie enthalten wertvolle Hinweise. Ich habe sie kurz gehalten.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Mit Ausnahme einiger gesscripteter Szenen sollte die FM ghostbar sein.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Dies ist eine einfache FM. Ich habe sie bestm\u246\'f6glich nach dem TG-Original gestaltet (also auch ohne }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\fs20\lang1031\loch\f5\hich\af5
+  }{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+aufwendige, runde Zylinder oder perfekte B\u246\'f6gen). Wenn man das dezente Lich in einem bestimmten}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\fs20\lang1031\loch\f5\hich\af5
+  }{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Bereich ausnimmt, h\u228\'e4tte ich diese FM auch mit dem alten DromEd erstellen k\u246\'f6nnen. Selbst die}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\fs20\lang1031\loch\f5\hich\af5
+  }{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+custom-Skripte wurden nur aus Vereinfachungsgr\u252\'fcnden eingesetzt, nicht wegen ihrer Leistungsf\u228\'e4higkeit.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Wen es interessiert: Diese FM wurde vollst\u228\'e4ndig mit einer Linux-Installation unter WINE gebaut.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+=====================================================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Dank an ... *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- meine Partnerin Marisa, die mich \u252\'fcberzeugte, mal wieder DromEd anzuwerfen und ihre weitere Hilfe. Ohne ihr Zutun g\u228\'e4be es diese FM nicht.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Yandros f\u252\'fcr seine Ermutigung und Hilfestellung in Fragen, denn ich habe \u252\'fcber die Jahre viele}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\fs20\lang1031\loch\f5\hich\af5
+  }{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+DromEd-Fertigkeiten eingeb\u252\'fc\u223\'dft.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nameless Voice f\u252\'fcr seine Custom-Skripte.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- SlyFoxx f\u252\'fcr Garretts Synchronstimme.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Tannar und Dussander f\u252\'fcrs Testforum.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nickie f\u252\'fcr ihre Hilfe bei den Texten.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- die Leute der 'Editors' Guild' im TTLG-Forum.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- die Betatester f\u252\'fcr ihre Hilfe und Geduld.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Betatester *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Marukpa}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- ffox}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Gloria Creep}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nightwalker}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Peter Smith}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* \u220\'dcbersetzer *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- MoroseTroll : RU}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster: DE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster/Athalle: FR}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Piesel: IT}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Ladeinformation *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nicht h\u228\'e4ndisch entzippen, sondern nur per FMSel oder NewDarkloader installieren.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Urheberrecht *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Diese FM wurde \u169\'a9 2018 von Ali Pouladi (Haplo) erstellt. Ihre Weiterverteilung ist nur in}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+unver\u228\'e4ndertem Zustand gestattet.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Sie wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+von dort unterst\u252\'fctzt.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========= AVIS IMPORTANT POUR LES UTILISATEURS DE TFIX  ======================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+TFix 1.26a ou sup\u233\'e9rieur est obligatoire, sinon les custom scripts ne vont pas fonctionner et la}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+mission va s'arr\u234\'eater.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Titre                   : Obscurit\u233\'e9 suis-nous !}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Fichier                 : TDP20AC_dunkel.zip}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Auteur                  : Haplo}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Contact info            : MP \u224\'e0 http://ttlg.com/forums}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+R\u233\'e9alis\u233\'e9e en             : 30.11.2018}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Version                 : 1.00}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Informations sur le jeu : *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Jeu                     : Thief Gold}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Fichier                 : miss23.mis}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Niveaux des difficult\u233\'e9s : Oui (AI, indications, point de d\u233\'e9part et butin)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Magasin                 : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Carte                   : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nouveaux graphismes     : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nouveaux objets         : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nouveaux sons           : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+EAX                     : Non}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Briefing                : Oui}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Construction *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Temps                   : ~400 heures au total}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Histoire *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Durant ma r\u233\'e9cente activit\u233\'e9 de "redistribution des richesses", j'ai entendu la rumeur qu'un certain Fr\u232\'e8re Teobaldo partait le lendemain pour une mission secr\u232\'e8te. Aparemment il se dirige vers l'auberge "Hillview Inn" qui se trouve en bas d'une colline loin d'ici. Les Marteleurs ne font jamais un tel voyage sans une raison importante, donc j'ai d\u233\'e9cid\u233\'e9 de suivre Fr\u232\'e8re Teobaldo afin de d\u233\'e9couvrir ses intentions. Et je n'ai rien d'autre \u224\'e0 faire de mieux en ce moment.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Merci \u224\'e0... *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- ma partenaire Marisa pour m'avoir convaincu de retourner \u224\'e0 DromEd, et pour son aide diverse. Sans son engagement, cette FM n'aurait jamais vu le jour}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Yandros pour son encouragement et pour avoir r\u233\'e9pondu \u224\'e0 un tas de questions car j'avais oubli\u233\'e9 beaucoup de}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\fs20\lang1031\loch\f5\hich\af5
+  }{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+d\u233\'e9tails apr\u232\'e8s \u234\'eatre rest\u233\'e9 si longtemps loin de DromEd}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nameless Voice pour ses custom scripts.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- SlyFoxx pour la voix de Garrett}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Tannar et Dussander pour me mettre le forum de test \u224\'e0 disposition}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nickie pour son aide avec les textes}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- les gens chez http://ttlg.com/forums}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- les beta-testeurs pour leur aide et leur patience}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Beta-testeurs *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Marukpa}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- ffox}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Gloria Creep}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nightwalker}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Peter Smith}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Traductions *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- MoroseTroll : RU}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster: DE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster/Athalle: FR}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Piesel: IT}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Droit d'auteur *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Cette FM a \u233\'e9t\u233\'e9 construite \u169\'a9 2018 par Ali Pouladi (Haplo).}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Cette mission n'a pas \u233\'e9t\u233\'e9 r\u233\'e9alis\u233\'e9e par les studios Looking Glass Studios ou Eidos Interactive.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\pagebb{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+========= INFORMAZIONI IMPORTANTI PER TUTTI GLI UTENTI DI TFIX ==============================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+*Dovrai* utilizzare TFix 1.26a o successivi, altrimenti gli script customizzati non funzioneranno.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Titolo                  : L'oscurit\u224\'e0 cammina con noi!}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nome del file           : TDP20AC_dunkel.zip}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Autore                  : Haplo}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Contatti                : Messaggi privati attraverso i forum di TTLG }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Data di pubblicazione   : 30.11.2018}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Versione                : 1.00}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Informazioni di Gioco *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Gioco               : Thief Gold}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nome del file           : miss23.mis}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Settaggi Difficolt\u224\'e0 : Si (AI, indizi, equipaggiamento e richiesta di bottino)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Negozio d'equipaggiamento     : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Mappa/Automappa         : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nuove grafiche          : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nuovi oggetti           : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nuovi suoni             : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Supporto EAX            : No}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Briefing                : Si}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Costruzione *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Tempo                : in totale ~400 ore}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Storia *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Durante una delle mie recenti attivit\u224\'e0 di 'ridistribuzione di ricchezza', ho ascoltato gli Hammeriti dire che un certo Fratello Teobaldo, il giorno seguente, sarebbe partito per una missione segreta. Apparentemente \u232\'e8 diretto alla "Locanda Hillview" che si trova ai piedi di una collina ad una certa distanza da qui. Gli Hammeriti non viaggerebbero cos\u236\'ec lontano se non fosse importante. Ho deciso di seguire Fratello Teobaldo e scoprire di che si tratta. Non che al momento abbia di meglio da fare comunque.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Note Importanti *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- E' richiesto NewDark 1.25 o successivi.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- E' richiesto TFix 1.26a o successivi.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Leggi attentamente i testi, contengono indizi vitali. Ho provato a renderli brevi.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Ad eccezione di un paio di incontri scriptati, dovrebbe esser possibile non essere visti in tutta la missione (ghost).}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Questa \u232\'e8 una missione semplice. Ho cercato di rimanere il pi\u249\'f9 fedele possibile all'originale TG (il che significa che non ci saranno cose come cilindri rotondi od arcate perfette). Ad eccezione di un leggero uso di luce colorata in una certa zona, questa missione avrebbe potuto essere fatta con il vecchio DromEd. Anche gli script customizzati sono stati utilizzati solo per la loro comodit\u224\'e0, non per i loro poteri speciali.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Per chi potesse essere interessato, questa missione \u232\'e8 stata interamente sviluppata su una macchina Linux dotata di WINE.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+============================================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Riconoscimenti *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- La mia compagna Marisa per avermi convinto a ritornare a DromEd, e per aiutarmi con cos\u236\'ec tante cose. Senza la sua spinta questa missione non sarebbe esistita.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Yandros per i suoi incoraggiamenti, e per aver risposto alle mie domande dal momento che ho dimenticato molte cose dopo non aver pi\u249\'f9 toccato DromEd per anni.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nameless Voice per gli script customizzati.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- SlyFoxx per la voce di Garrett.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Tannar e Dussander per il forum di prova.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nickie per il suo aiuto con i testi.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- I ragazzi della The Editors' Guild nel forum TTLG.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- I beta tester per il loro aiuto e pazienza.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Beta Tester *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Marukpa}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- ffox}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Gloria Creep}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Nightwalker}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Peter Smith}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Traductions *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Piesel: IT}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- MoroseTroll : RU}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster: DE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+- Zappenduster/Athalle: FR}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+=============================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Informazioni di Caricamento *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Non unzippare, caricare con FMSel o NewDarkloader.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+=============================================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+* Informazioni sul Copyright *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Questa missione \u232\'e8 (c) di Ali Pouladi (Haplo), 2018.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+La distribuzione di questo livello \u232\'e8 permessa finch\u232\'e8 sia gratuita ed il paccehtto sia tenuto intatto. }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Nessuno pu\u242\'f2 editare e redistribuire questa missione senza il mio esplicito permesso.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+Questo livello non \u232\'e8 stato fatto e non \u232\'e8 supportato da Looking Glass Studios, Eidos Interactive,}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af8\langfe1081\dbch\af7\rtlch \ltrch\loch\fs20\lang1031\loch\f5\hich\af5
+o Ion Storm.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\rtlch \ltrch\loch
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1040\'3f\u1046\'3f\u1053\'3f\u1040\'3f\u1071\'3f \u1048\'3f\u1053\'3f\u1060\'3f\u1054\'3f\u1056\'3f\u1052\'3f\u1040\'3f\u1062\'3f\u1048\'3f\u1071\'3f \u1044\'3f\u1051\'3f\u1071\'3f \u1055\'3f\u1054\'3f\u1051\'3f\u1068\'3f\u1047\'3f\u1054\'3f\u1042\'3f\u1040\'3f\u1058\'3f\u1045\'3f\u1051\'3f\u1045\'3f\u1049\'3f TFIX}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qc\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1072\'3f\u1084\'3f }{\cf1\b\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1087\'3f\u1088\'3f\u1080\'3f\u1076\'3f\u1105\'3f\u1090\'3f\u1089\'3f\u1103\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+ \u1074\'3f\u1086\'3f\u1089\'3f\u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1100\'3f\u1089\'3f\u1103\'3f TFix 1.26a \u1080\'3f\u1083\'3f\u1080\'3f \u1089\'3f\u1074\'3f\u1077\'3f\u1078\'3f\u1077\'3f\u1077\'3f, \u1080\'3f\u1085\'3f\u1072\'3f\u1095\'3f\u1077\'3f \u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1077\'3f\u1083\'3f\u1100\'3f\u1089\'3f\u1082\'3f\u1080\'3f\u1077\'3f \u1089\'3f\u1082\'3f\u1088\'3f\u1080\'3f\u1087\'3f\u1090\'3f\u1099\'3f \u1085\'3f\u1077\'3f \u1089\'3f\u1088\'3f\u1072\'3f\u1073\'3f\u1086\'3f\u1090\'3f\u1072\'3f\u1102\'3f\u1090\'3f, \u1072\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1103\'3f \u1085\'3f\u1077\'3f \u1079\'3f\u1072\'3f\u1087\'3f\u1091\'3f\u1089\'3f\u1090\'3f\u1080\'3f\u1090\'3f\u1089\'3f\u1103\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qc\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1072\'3f\u1079\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1077\'3f\tab : Darkness Walk With Us! / "\u1058\'3f\u1100\'3f\u1084\'3f\u1072\'3f, \u1080\'3f\u1076\'3f\u1080\'3f \u1089\'3f \u1085\'3f\u1072\'3f\u1084\'3f\u1080\'3f!"}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1048\'3f\u1084\'3f\u1103\'3f \u1092\'3f\u1072\'3f\u1081\'3f\u1083\'3f\u1072\'3f\tab : TDP20AC_dunkel.zip}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1040\'3f\u1074\'3f\u1090\'3f\u1086\'3f\u1088\'3f\tab \tab : Haplo}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1050\'3f\u1086\'3f\u1085\'3f\u1090\'3f\u1072\'3f\u1082\'3f\u1090\'3f\u1099\'3f\tab : \u1051\'3f\u1080\'3f\u1095\'3f\u1085\'3f\u1086\'3f\u1077\'3f \u1089\'3f\u1086\'3f\u1086\'3f\u1073\'3f\u1097\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f \u1095\'3f\u1077\'3f\u1088\'3f\u1077\'3f\u1079\'3f \u1092\'3f\u1086\'3f\u1088\'3f\u1091\'3f\u1084\'3f TTLG}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1044\'3f\u1072\'3f\u1090\'3f\u1072\'3f \u1074\'3f\u1099\'3f\u1093\'3f\u1086\'3f\u1076\'3f\u1072\'3f\tab : 30.11.2018}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1077\'3f\u1088\'3f\u1089\'3f\u1080\'3f\u1103\'3f\tab : 1.00}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qc\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1048\'3f\u1075\'3f\u1088\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1103\'3f \u1080\'3f\u1085\'3f\u1092\'3f\u1086\'3f\u1088\'3f\u1084\'3f\u1072\'3f\u1094\'3f\u1080\'3f\u1103\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1048\'3f\u1075\'3f\u1088\'3f\u1072\'3f\tab \tab \tab : }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+Thief}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+Gold}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1048\'3f\u1084\'3f\u1103\'3f \u1092\'3f\u1072\'3f\u1081\'3f\u1083\'3f\u1072\'3f\tab \tab : }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+miss}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+23.}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+mis}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1057\'3f\u1083\'3f\u1086\'3f\u1078\'3f\u1085\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1100\'3f\tab \tab : \u1044\'3f\u1072\'3f (\u1048\'3f\u1048\'3f, \u1087\'3f\u1086\'3f\u1076\'3f\u1089\'3f\u1082\'3f\u1072\'3f\u1079\'3f\u1082\'3f\u1080\'3f, \u1085\'3f\u1072\'3f\u1095\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1099\'3f\u1081\'3f \u1085\'3f\u1072\'3f\u1073\'3f\u1086\'3f\u1088\'3f \u1080\'3f\u1085\'3f\u1089\'3f\u1090\'3f\u1088\'3f\u1091\'3f\u1084\'3f\u1077\'3f\u1085\'3f\u1090\'3f\u1086\'3f\u1074\'3f \u1080\'3f \u1090\'3f\u1088\'3f\u1077\'3f\u1073\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1103\'3f \u1087\'3f\u1086\'3f \u1089\'3f\u1073\'3f\u1086\'3f\u1088\'3f\u1091\'3f)}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1052\'3f\u1072\'3f\u1075\'3f\u1072\'3f\u1079\'3f\u1080\'3f\u1085\'3f\tab \tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1050\'3f\u1072\'3f\u1088\'3f\u1090\'3f\u1072\'3f/\u1072\'3f\u1074\'3f\u1090\'3f\u1086\'3f\u1082\'3f\u1072\'3f\u1088\'3f\u1090\'3f\u1072\'3f\tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1103\'3f \u1075\'3f\u1088\'3f\u1072\'3f\u1092\'3f\u1080\'3f\u1082\'3f\u1072\'3f\tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1086\'3f\u1074\'3f\u1099\'3f\u1077\'3f \u1086\'3f\u1073\'3f\u1098\'3f\u1077\'3f\u1082\'3f\u1090\'3f\u1099\'3f\tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1086\'3f\u1074\'3f\u1099\'3f\u1077\'3f \u1079\'3f\u1074\'3f\u1091\'3f\u1082\'3f\u1080\'3f\tab \tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1055\'3f\u1086\'3f\u1076\'3f\u1076\'3f\u1077\'3f\u1088\'3f\u1078\'3f\u1082\'3f\u1072\'3f EAX\tab : \u1053\'3f\u1077\'3f\u1090\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1041\'3f\u1088\'3f\u1080\'3f\u1092\'3f\u1080\'3f\u1085\'3f\u1075\'3f\tab \tab : \u1044\'3f\u1072\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1057\'3f\u1086\'3f\u1079\'3f\u1076\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1077\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1088\'3f\u1077\'3f\u1084\'3f\u1103\'3f               : ~400 \u1095\'3f\u1072\'3f\u1089\'3f\u1086\'3f\u1074\'3f}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1048\'3f\u1089\'3f\u1090\'3f\u1086\'3f\u1088\'3f\u1080\'3f\u1103\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi708{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1086\'3f \u1074\'3f\u1088\'3f\u1077\'3f\u1084\'3f\u1103\'3f \u1084\'3f\u1086\'3f\u1077\'3f\u1081\'3f \u1085\'3f\u1077\'3f\u1076\'3f\u1072\'3f\u1074\'3f\u1085\'3f\u1077\'3f\u1081\'3f \u1086\'3f\u1087\'3f\u1077\'3f\u1088\'3f\u1072\'3f\u1094\'3f\u1080\'3f\u1080\'3f \u1087\'3f\u1086\'3f '\u1088\'3f\u1072\'3f\u1089\'3f\u1087\'3f\u1088\'3f\u1077\'3f\u1076\'3f\u1077\'3f\u1083\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1102\'3f \u1073\'3f\u1086\'3f\u1075\'3f\u1072\'3f\u1090\'3f\u1089\'3f\u1090\'3f\u1074\'3f\u1072\'3f' \u1103\'3f \u1087\'3f\u1086\'3f\u1076\'3f\u1089\'3f\u1083\'3f\u1091\'3f\u1096\'3f\u1072\'3f\u1083\'3f, \u1082\'3f\u1072\'3f\u1082\'3f \u1093\'3f\u1072\'3f\u1084\'3f\u1084\'3f\u1077\'3f\u1088\'3f\u1080\'3f\u1090\'3f\u1099\'3f \u1075\'3f\u1086\'3f\u1074\'3f\u1086\'3f\u1088\'3f\u1080\'3f\u1083\'3f\u1080\'3f \u1086\'3f \u1085\'3f\u1077\'3f\u1082\'3f\u1086\'3f\u1077\'3f\u1084\'3f \u1073\'3f\u1088\'3f\u1072\'3f\u1090\'3f\u1077\'3f \u1058\'3f\u1077\'3f\u1086\'3f\u1073\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1076\'3f\u1086\'3f, \u1095\'3f\u1090\'3f\u1086\'3f \u1089\'3f\u1086\'3f\u1073\'3f\u1080\'3f\u1088\'3f\u1072\'3f\u1083\'3f\u1089\'3f\u1103\'3f \u1086\'3f\u1090\'3f\u1073\'3f\u1099\'3f\u1090\'3f\u1100\'3f \u1085\'3f\u1072\'3f \u1089\'3f\u1083\'3f\u1077\'3f\u1076\'3f\u1091\'3f\u1102\'3f\u1097\'3f\u1080\'3f\u1081\'3f \u1076\'3f\u1077\'3f\u1085\'3f\u1100\'3f \u1087\'3f\u1086\'3f \u1090\'3f\u1072\'3f\u1081\'3f\u1085\'3f\u1086\'3f\u1084\'3f\u1091\'3f \u1079\'3f\u1072\'3f\u1076\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1102\'3f \u1054\'3f\u1088\'3f\u1076\'3f\u1077\'3f\u1085\'3f\u1072\'3f. \u1054\'3f\u1095\'3f\u1077\'3f\u1074\'3f\u1080\'3f\u1076\'3f\u1085\'3f\u1086\'3f, \u1095\'3f\u1090\'3f\u1086\'3f \u1086\'3f\u1085\'3f \u1085\'3f\u1072\'3f\u1087\'3f\u1088\'3f\u1072\'3f\u1074\'3f\u1083\'3f\u1103\'3f\u1077\'3f\u1090\'3f\u1089\'3f\u1103\'3f \u1074\'3f \u1075\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1080\'3f\u1085\'3f\u1080\'3f\u1094\'3f\u1091\'3f '\u1061\'3f\u1080\'3f\u1083\'3f\u1083\'3f\u1074\'3f\u1100\'3f\u1102\'3f', \u1095\'3f\u1090\'3f\u1086\'3f \u1088\'3f\u1072\'3f\u1089\'3f\u1087\'3f\u1086\'3f\u1083\'3f\u1086\'3f\u1078\'3f\u1077\'3f\u1085\'3f\u1072\'3f \u1091\'3f \u1087\'3f\u1086\'3f\u1076\'3f\u1085\'3f\u1086\'3f\u1078\'3f\u1100\'3f\u1103\'3f \u1093\'3f\u1086\'3f\u1083\'3f\u1084\'3f\u1072\'3f, \u1085\'3f\u1072\'3f \u1087\'3f\u1088\'3f\u1080\'3f\u1083\'3f\u1080\'3f\u1095\'3f\u1085\'3f\u1086\'3f\u1084\'3f \u1088\'3f\u1072\'3f\u1089\'3f\u1089\'3f\u1090\'3f\u1086\'3f\u1103\'3f\u1085\'3f\u1080\'3f\u1080\'3f \u1086\'3f\u1090\'3f\u1089\'3f\u1102\'3f\u1076\'3f\u1072\'3f. \u1061\'3f\u1072\'3f\u1084\'3f\u1084\'3f\u1077\'3f\u1088\'3f\u1080\'3f\u1090\'3f\u1099\'3f \u1085\'3f\u1077\'3f \u1080\'3f\u1084\'3f\u1077\'3f\u1102\'3f\u1090\'3f \u1087\'3f\u1088\'3f\u1080\'3f\u1074\'3f\u1099\'3f\u1095\'3f\u1082\'3f\u1080\'3f \u1087\'3f\u1091\'3f\u1090\'3f\u1077\'3f\u1096\'3f\u1077\'3f\u1089\'3f\u1090\'3f\u1074\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1100\'3f \u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1086\'3f \u1090\'3f\u1072\'3f\u1082\'3f, \u1072\'3f \u1090\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1082\'3f\u1086\'3f \u1087\'3f\u1086\'3f \u1086\'3f\u1095\'3f\u1077\'3f\u1085\'3f\u1100\'3f \u1074\'3f\u1072\'3f\u1078\'3f\u1085\'3f\u1099\'3f\u1084\'3f \u1076\'3f\u1077\'3f\u1083\'3f\u1072\'3f\u1084\'3f. \u1071\'3f \u1088\'3f\u1077\'3f\u1096\'3f\u1080\'3f\u1083\'3f \u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1083\'3f\u1077\'3f\u1076\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1100\'3f \u1079\'3f\u1072\'3f \u1073\'3f\u1088\'3f\u1072\'3f\u1090\'3f\u1086\'3f\u1084\'3f \u1058\'3f\u1077\'3f\u1086\'3f\u1073\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1076\'3f\u1086\'3f \u1080\'3f \u1074\'3f\u1099\'3f\u1103\'3f\u1089\'3f\u1085\'3f\u1080\'3f\u1090\'3f\u1100\'3f, \u1095\'3f\u1090\'3f\u1086\'3f \u1086\'3f\u1085\'3f \u1079\'3f\u1072\'3f\u1076\'3f\u1091\'3f\u1084\'3f\u1072\'3f\u1083\'3f. \u1050\'3f \u1090\'3f\u1086\'3f\u1084\'3f\u1091\'3f \u1078\'3f\u1077\'3f, \u1085\'3f\u1080\'3f\u1095\'3f\u1077\'3f\u1075\'3f\u1086\'3f \u1083\'3f\u1091\'3f\u1095\'3f\u1096\'3f\u1077\'3f \u1091\'3f \u1084\'3f\u1077\'3f\u1085\'3f\u1103\'3f \u1087\'3f\u1086\'3f\u1082\'3f\u1072\'3f \u1085\'3f\u1077\'3f \u1085\'3f\u1072\'3f\u1082\'3f\u1083\'3f\u1105\'3f\u1074\'3f\u1099\'3f\u1074\'3f\u1072\'3f\u1083\'3f\u1086\'3f\u1089\'3f\u1100\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1042\'3f\u1072\'3f\u1078\'3f\u1085\'3f\u1086\'3f\u1077\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1058\'3f\u1088\'3f\u1077\'3f\u1073\'3f\u1091\'3f\u1077\'3f\u1090\'3f\u1089\'3f\u1103\'3f NewDark 1.25 \u1080\'3f\u1083\'3f\u1080\'3f \u1074\'3f\u1099\'3f\u1096\'3f\u1077\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1058\'3f\u1088\'3f\u1077\'3f\u1073\'3f\u1091\'3f\u1077\'3f\u1090\'3f\u1089\'3f\u1103\'3f TFix 1.26a.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1063\'3f\u1080\'3f\u1090\'3f\u1072\'3f\u1081\'3f\u1090\'3f\u1077\'3f \u1090\'3f\u1077\'3f\u1082\'3f\u1089\'3f\u1090\'3f\u1099\'3f \u1074\'3f\u1085\'3f\u1080\'3f\u1084\'3f\u1072\'3f\u1090\'3f\u1077\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1086\'3f, \u1086\'3f\u1085\'3f\u1080\'3f \u1089\'3f\u1086\'3f\u1076\'3f\u1077\'3f\u1088\'3f\u1078\'3f\u1072\'3f\u1090\'3f \u1074\'3f\u1072\'3f\u1078\'3f\u1085\'3f\u1099\'3f\u1077\'3f \u1087\'3f\u1086\'3f\u1076\'3f\u1089\'3f\u1082\'3f\u1072\'3f\u1079\'3f\u1082\'3f\u1080\'3f. \u1071\'3f \u1087\'3f\u1099\'3f\u1090\'3f\u1072\'3f\u1083\'3f\u1089\'3f\u1103\'3f \u1089\'3f\u1076\'3f\u1077\'3f\u1083\'3f\u1072\'3f\u1090\'3f\u1100\'3f \u1080\'3f\u1093\'3f \u1082\'3f\u1072\'3f\u1082\'3f \u1084\'3f\u1086\'3f\u1078\'3f\u1085\'3f\u1086\'3f \u1073\'3f\u1086\'3f\u1083\'3f\u1077\'3f\u1077\'3f \u1082\'3f\u1086\'3f\u1088\'3f\u1086\'3f\u1090\'3f\u1082\'3f\u1080\'3f\u1084\'3f\u1080\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1047\'3f\u1072\'3f \u1080\'3f\u1089\'3f\u1082\'3f\u1083\'3f\u1102\'3f\u1095\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f\u1084\'3f \u1087\'3f\u1072\'3f\u1088\'3f\u1099\'3f \u1079\'3f\u1072\'3f\u1089\'3f\u1082\'3f\u1088\'3f\u1080\'3f\u1087\'3f\u1090\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1085\'3f\u1099\'3f\u1093\'3f \u1074\'3f\u1089\'3f\u1090\'3f\u1088\'3f\u1077\'3f\u1095\'3f, \u1074\'3f\u1089\'3f\u1102\'3f \u1086\'3f\u1089\'3f\u1090\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1091\'3f\u1102\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1102\'3f \u1084\'3f\u1086\'3f\u1078\'3f\u1085\'3f\u1086\'3f \u1087\'3f\u1088\'3f\u1086\'3f\u1081\'3f\u1090\'3f\u1080\'3f \u1074\'3f \u1088\'3f\u1077\'3f\u1078\'3f\u1080\'3f\u1084\'3f\u1077\'3f \u1087\'3f\u1088\'3f\u1080\'3f\u1079\'3f\u1088\'3f\u1072\'3f\u1082\'3f\u1072\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1069\'3f\u1090\'3f\u1072\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1103\'3f \u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1072\'3f. \u1071\'3f \u1087\'3f\u1099\'3f\u1090\'3f\u1072\'3f\u1083\'3f\u1089\'3f\u1103\'3f, \u1085\'3f\u1072\'3f\u1089\'3f\u1082\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1082\'3f\u1086\'3f \u1084\'3f\u1086\'3f\u1075\'3f, \u1089\'3f\u1083\'3f\u1077\'3f\u1076\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1100\'3f \u1089\'3f\u1090\'3f\u1080\'3f\u1083\'3f\u1102\'3f \u1086\'3f\u1088\'3f\u1080\'3f\u1075\'3f\u1080\'3f\u1085\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1086\'3f Thief Gold (\u1095\'3f\u1090\'3f\u1086\'3f \u1086\'3f\u1079\'3f\u1085\'3f\u1072\'3f\u1095\'3f\u1072\'3f\u1077\'3f\u1090\'3f \u1085\'3f\u1080\'3f\u1082\'3f\u1072\'3f\u1082\'3f\u1080\'3f\u1093\'3f \u1087\'3f\u1088\'3f\u1080\'3f\u1082\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1099\'3f\u1093\'3f \u1080\'3f \u1085\'3f\u1086\'3f\u1074\'3f\u1086\'3f\u1084\'3f\u1086\'3f\u1076\'3f\u1085\'3f\u1099\'3f\u1093\'3f \u1096\'3f\u1090\'3f\u1091\'3f\u1095\'3f\u1077\'3f\u1082\'3f, \u1074\'3f\u1088\'3f\u1086\'3f\u1076\'3f\u1077\'3f \u1082\'3f\u1088\'3f\u1091\'3f\u1075\'3f\u1083\'3f\u1099\'3f\u1093\'3f \u1080\'3f\u1083\'3f\u1080\'3f \u1080\'3f\u1076\'3f\u1077\'3f\u1072\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1099\'3f\u1093\'3f \u1089\'3f\u1074\'3f\u1086\'3f\u1076\'3f\u1086\'3f\u1074\'3f). \u1047\'3f\u1072\'3f \u1080\'3f\u1089\'3f\u1082\'3f\u1083\'3f\u1102\'3f\u1095\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f\u1084\'3f \u1077\'3f\u1076\'3f\u1074\'3f\u1072\'3f \u1079\'3f\u1072\'3f\u1084\'3f\u1077\'3f\u1090\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1086\'3f \u1080\'3f\u1089\'3f\u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1103\'3f \u1094\'3f\u1074\'3f\u1077\'3f\u1090\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1086\'3f \u1086\'3f\u1089\'3f\u1074\'3f\u1077\'3f\u1097\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1103\'3f \u1074\'3f \u1086\'3f\u1090\'3f\u1076\'3f\u1077\'3f\u1083\'3f\u1100\'3f\u1085\'3f\u1099\'3f\u1093\'3f \u1084\'3f\u1077\'3f\u1089\'3f\u1090\'3f\u1072\'3f\u1093\'3f, \u1101\'3f\u1090\'3f\u1091\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1102\'3f \u1084\'3f\u1086\'3f\u1078\'3f\u1085\'3f\u1086\'3f \u1073\'3f\u1099\'3f\u1083\'3f\u1086\'3f \u1073\'3f\u1099\'3f \u1089\'3f\u1086\'3f\u1079\'3f\u1076\'3f\u1072\'3f\u1090\'3f\u1100\'3f \u1080\'3f \u1074\'3f \u1089\'3f\u1090\'3f\u1072\'3f\u1088\'3f\u1086\'3f\u1084\'3f DromEd. \u1044\'3f\u1072\'3f\u1078\'3f\u1077\'3f \u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1077\'3f\u1083\'3f\u1100\'3f\u1089\'3f\u1082\'3f\u1080\'3f\u1077\'3f \u1089\'3f\u1082\'3f\u1088\'3f\u1080\'3f\u1087\'3f\u1090\'3f\u1099\'3f \u1073\'3f\u1099\'3f\u1083\'3f\u1080\'3f \u1080\'3f\u1089\'3f\u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1099\'3f \u1083\'3f\u1080\'3f\u1096\'3f\u1100\'3f \u1080\'3f\u1079\'3f-\u1079\'3f\u1072\'3f \u1080\'3f\u1093\'3f \u1091\'3f\u1076\'3f\u1086\'3f\u1073\'3f\u1089\'3f\u1090\'3f\u1074\'3f\u1072\'3f, \u1072\'3f \u1085\'3f\u1077\'3f \u1080\'3f\u1079\'3f-\u1079\'3f\u1072\'3f \u1082\'3f\u1072\'3f\u1082\'3f\u1080\'3f\u1093\'3f-\u1090\'3f\u1086\'3f \u1080\'3f\u1093\'3f \u1086\'3f\u1089\'3f\u1086\'3f\u1073\'3f\u1077\'3f\u1085\'3f\u1085\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1077\'3f\u1081\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\qj\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1045\'3f\u1089\'3f\u1083\'3f\u1080\'3f \u1082\'3f\u1086\'3f\u1084\'3f\u1091\'3f-\u1090\'3f\u1086\'3f \u1080\'3f\u1085\'3f\u1090\'3f\u1077\'3f\u1088\'3f\u1077\'3f\u1089\'3f\u1085\'3f\u1086\'3f, \u1090\'3f\u1086\'3f \u1074\'3f\u1089\'3f\u1103\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1103\'3f \u1094\'3f\u1077\'3f\u1083\'3f\u1080\'3f\u1082\'3f\u1086\'3f\u1084\'3f \u1073\'3f\u1099\'3f\u1083\'3f\u1072\'3f \u1088\'3f\u1072\'3f\u1079\'3f\u1088\'3f\u1072\'3f\u1073\'3f\u1086\'3f\u1090\'3f\u1072\'3f\u1085\'3f\u1072\'3f \u1085\'3f\u1072\'3f \u1055\'3f\u1050\'3f \u1089\'3f Linux, \u1087\'3f\u1086\'3f\u1076\'3f WINE.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1041\'3f\u1083\'3f\u1072\'3f\u1075\'3f\u1086\'3f\u1076\'3f\u1072\'3f\u1088\'3f\u1085\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1080\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1052\'3f\u1086\'3f\u1077\'3f\u1081\'3f \u1087\'3f\u1086\'3f\u1076\'3f\u1088\'3f\u1091\'3f\u1075\'3f\u1077\'3f \u1052\'3f\u1072\'3f\u1088\'3f\u1080\'3f\u1089\'3f\u1077\'3f - \u1079\'3f\u1072\'3f \u1090\'3f\u1086\'3f, \u1095\'3f\u1090\'3f\u1086\'3f \u1091\'3f\u1073\'3f\u1077\'3f\u1076\'3f\u1080\'3f\u1083\'3f\u1072\'3f \u1084\'3f\u1077\'3f\u1085\'3f\u1103\'3f \u1074\'3f\u1077\'3f\u1088\'3f\u1085\'3f\u1091\'3f\u1090\'3f\u1100\'3f\u1089\'3f\u1103\'3f \u1082\'3f DromEd, \u1080\'3f \u1079\'3f\u1072\'3f \u1087\'3f\u1086\'3f\u1084\'3f\u1086\'3f\u1097\'3f\u1100\'3f \u1074\'3f\u1086\'3f \u1084\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1080\'3f\u1093\'3f \u1076\'3f\u1088\'3f\u1091\'3f\u1075\'3f\u1080\'3f\u1093\'3f \u1074\'3f\u1077\'3f\u1097\'3f\u1072\'3f\u1093\'3f. \u1041\'3f\u1077\'3f\u1079\'3f \u1077\'3f\u1105\'3f \u1074\'3f\u1082\'3f\u1083\'3f\u1072\'3f\u1076\'3f\u1072\'3f \u1101\'3f\u1090\'3f\u1072\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1103\'3f \u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1086\'3f \u1085\'3f\u1077\'3f \u1087\'3f\u1086\'3f\u1103\'3f\u1074\'3f\u1080\'3f\u1083\'3f\u1072\'3f\u1089\'3f\u1100\'3f \u1073\'3f\u1099\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Yandros - \u1079\'3f\u1072\'3f \u1077\'3f\u1075\'3f\u1086\'3f \u1074\'3f\u1086\'3f\u1086\'3f\u1076\'3f\u1091\'3f\u1096\'3f\u1077\'3f\u1074\'3f\u1083\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f \u1080\'3f \u1086\'3f\u1090\'3f\u1074\'3f\u1077\'3f\u1090\'3f\u1099\'3f \u1085\'3f\u1072\'3f \u1084\'3f\u1086\'3f\u1080\'3f \u1074\'3f\u1086\'3f\u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1099\'3f, \u1080\'3f\u1073\'3f\u1086\'3f \u1103\'3f \u1089\'3f\u1090\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1082\'3f\u1086\'3f \u1074\'3f\u1089\'3f\u1077\'3f\u1075\'3f\u1086\'3f \u1079\'3f\u1072\'3f\u1073\'3f\u1099\'3f\u1083\'3f \u1079\'3f\u1072\'3f \u1084\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1080\'3f\u1077\'3f \u1075\'3f\u1086\'3f\u1076\'3f\u1099\'3f, \u1095\'3f\u1090\'3f\u1086\'3f \u1085\'3f\u1077\'3f \u1087\'3f\u1088\'3f\u1080\'3f\u1082\'3f\u1072\'3f\u1089\'3f\u1072\'3f\u1083\'3f\u1089\'3f\u1103\'3f \u1082\'3f DromEd.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Nameless Voice - \u1079\'3f\u1072\'3f \u1087\'3f\u1086\'3f\u1083\'3f\u1100\'3f\u1079\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1090\'3f\u1077\'3f\u1083\'3f\u1100\'3f\u1089\'3f\u1082\'3f\u1080\'3f\u1077\'3f \u1089\'3f\u1082\'3f\u1088\'3f\u1080\'3f\u1087\'3f\u1090\'3f\u1099\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- SlyFoxx - \u1079\'3f\u1072\'3f \u1075\'3f\u1086\'3f\u1083\'3f\u1086\'3f\u1089\'3f \u1043\'3f\u1072\'3f\u1088\'3f\u1088\'3f\u1077\'3f\u1090\'3f\u1090\'3f\u1072\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Tannar \u1080\'3f Dussander - \u1079\'3f\u1072\'3f \u1092\'3f\u1086\'3f\u1088\'3f\u1091\'3f\u1084\'3f \u1087\'3f\u1086\'3f \u1090\'3f\u1077\'3f\u1089\'3f\u1090\'3f\u1080\'3f\u1088\'3f\u1086\'3f\u1074\'3f\u1072\'3f\u1085\'3f\u1080\'3f\u1102\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Nickie - \u1079\'3f\u1072\'3f \u1087\'3f\u1086\'3f\u1084\'3f\u1086\'3f\u1097\'3f\u1100\'3f \u1089\'3f \u1090\'3f\u1077\'3f\u1082\'3f\u1089\'3f\u1090\'3f\u1072\'3f\u1084\'3f\u1080\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1042\'3f\u1089\'3f\u1077\'3f\u1084\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1074\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ The Editors' Guild }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1085\'3f\u1072\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1092\'3f\u1086\'3f\u1088\'3f\u1091\'3f\u1084\'3f\u1077\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ TTLG.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- \u1041\'3f\u1077\'3f\u1090\'3f\u1072\'3f-\u1090\'3f\u1077\'3f\u1089\'3f\u1090\'3f\u1077\'3f\u1088\'3f\u1072\'3f\u1084\'3f - \u1079\'3f\u1072\'3f \u1080\'3f\u1093\'3f \u1087\'3f\u1086\'3f\u1084\'3f\u1086\'3f\u1097\'3f\u1100\'3f \u1080\'3f \u1090\'3f\u1077\'3f\u1088\'3f\u1087\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1041\'3f\u1077\'3f\u1090\'3f\u1072\'3f-\u1090\'3f\u1077\'3f\u1089\'3f\u1090\'3f\u1077\'3f\u1088\'3f\u1099\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Marukpa}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- ffox}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+- Gloria Creep}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- Nightwalker}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- Peter Smith}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+* }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1055\'3f\u1077\'3f\u1088\'3f\u1077\'3f\u1074\'3f\u1086\'3f\u1076\'3f\u1095\'3f\u1080\'3f\u1082\'3f\u1080\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- MoroseTroll: RU}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- Zappenduster: DE}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- Zappenduster/Athalle: FR}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+- Piesel: IT}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+* }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1048\'3f\u1085\'3f\u1092\'3f\u1086\'3f\u1088\'3f\u1084\'3f\u1072\'3f\u1094\'3f\u1080\'3f\u1103\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1087\'3f\u1086\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1079\'3f\u1072\'3f\u1075\'3f\u1088\'3f\u1091\'3f\u1079\'3f\u1082\'3f\u1077\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1077\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1088\'3f\u1072\'3f\u1089\'3f\u1087\'3f\u1072\'3f\u1082\'3f\u1086\'3f\u1074\'3f\u1099\'3f\u1074\'3f\u1072\'3f\u1081\'3f\u1090\'3f\u1077\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+, }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1072\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1086\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1079\'3f\u1072\'3f\u1075\'3f\u1088\'3f\u1091\'3f\u1078\'3f\u1072\'3f\u1081\'3f\u1090\'3f\u1077\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1095\'3f\u1077\'3f\u1088\'3f\u1077\'3f\u1079\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ FMSel }{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1080\'3f\u1083\'3f\u1080\'3f}{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+ NewDarkloader.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1033\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+* \u1040\'3f\u1074\'3f\u1090\'3f\u1086\'3f\u1088\'3f\u1089\'3f\u1082\'3f\u1086\'3f\u1077\'3f \u1087\'3f\u1088\'3f\u1072\'3f\u1074\'3f\u1086\'3f *}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1069\'3f\u1090\'3f\u1072\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1103\'3f \u169\'a9 \u1040\'3f\u1083\'3f\u1080\'3f \u1055\'3f\u1091\'3f\u1083\'3f\u1072\'3f\u1076\'3f\u1080\'3f (Haplo), 2018.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1056\'3f\u1072\'3f\u1089\'3f\u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1088\'3f\u1072\'3f\u1085\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1077\'3f \u1101\'3f\u1090\'3f\u1086\'3f\u1075\'3f\u1086\'3f \u1091\'3f\u1088\'3f\u1086\'3f\u1074\'3f\u1085\'3f\u1103\'3f \u1088\'3f\u1072\'3f\u1079\'3f\u1088\'3f\u1077\'3f\u1096\'3f\u1077\'3f\u1085\'3f\u1086\'3f \u1076\'3f\u1086\'3f \u1090\'3f\u1077\'3f\u1093\'3f \u1087\'3f\u1086\'3f\u1088\'3f, \u1087\'3f\u1086\'3f\u1082\'3f\u1072\'3f \u1101\'3f\u1090\'3f\u1086\'3f \u1076\'3f\u1077\'3f\u1083\'3f\u1072\'3f\u1077\'3f\u1090\'3f\u1089\'3f\u1103\'3f \u1073\'3f\u1077\'3f\u1089\'3f\u1087\'3f\u1083\'3f\u1072\'3f\u1090\'3f\u1085\'3f\u1086\'3f, \u1072\'3f \u1077\'3f\u1075\'3f\u1086\'3f \u1089\'3f\u1086\'3f\u1076\'3f\u1077\'3f\u1088\'3f\u1078\'3f\u1080\'3f\u1084\'3f\u1086\'3f\u1077\'3f \u1086\'3f\u1089\'3f\u1090\'3f\u1072\'3f\u1105\'3f\u1090\'3f\u1089\'3f\u1103\'3f \u1085\'3f\u1077\'3f\u1090\'3f\u1088\'3f\u1086\'3f\u1085\'3f\u1091\'3f\u1090\'3f\u1099\'3f\u1084\'3f. }
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1053\'3f\u1080\'3f\u1082\'3f\u1086\'3f\u1084\'3f\u1091\'3f \u1085\'3f\u1077\'3f \u1088\'3f\u1072\'3f\u1079\'3f\u1088\'3f\u1077\'3f\u1096\'3f\u1077\'3f\u1085\'3f\u1086\'3f \u1080\'3f\u1079\'3f\u1084\'3f\u1077\'3f\u1085\'3f\u1103\'3f\u1090\'3f\u1100\'3f, \u1072\'3f \u1087\'3f\u1086\'3f\u1090\'3f\u1086\'3f\u1084\'3f \u1088\'3f\u1072\'3f\u1089\'3f\u1087\'3f\u1088\'3f\u1086\'3f\u1089\'3f\u1090\'3f\u1088\'3f\u1072\'3f\u1085\'3f\u1103\'3f\u1090\'3f\u1100\'3f \u1101\'3f\u1090\'3f\u1091\'3f \u1084\'3f\u1080\'3f\u1089\'3f\u1089\'3f\u1080\'3f\u1102\'3f \u1073\'3f\u1077\'3f\u1079\'3f \u1084\'3f\u1086\'3f\u1077\'3f\u1075\'3f\u1086\'3f \u1103\'3f\u1074\'3f\u1085\'3f\u1086\'3f\u1075\'3f\u1086\'3f \u1088\'3f\u1072\'3f\u1079\'3f\u1088\'3f\u1077\'3f\u1096\'3f\u1077\'3f\u1085\'3f\u1080\'3f\u1103\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+\u1069\'3f\u1090\'3f\u1086\'3f\u1090\'3f \u1091\'3f\u1088\'3f\u1086\'3f\u1074\'3f\u1077\'3f\u1085\'3f\u1100\'3f \u1089\'3f\u1076\'3f\u1077\'3f\u1083\'3f\u1072\'3f\u1085\'3f \u1085\'3f\u1080\'3f Looking Glass Studios, \u1085\'3f\u1080\'3f Eidos Interactive \u1080\'3f \u1085\'3f\u1080\'3f Ion Storm, \u1080\'3f \u1085\'3f\u1077\'3f \u1087\'3f\u1086\'3f\u1076\'3f\u1076\'3f\u1077\'3f\u1088\'3f\u1078\'3f\u1080\'3f\u1074\'3f\u1072\'3f\u1077\'3f\u1090\'3f\u1089\'3f\u1103\'3f \u1080\'3f\u1084\'3f\u1080\'3f.}
+\par \pard\plain \s0\ql\nowidctlpar\hyphpar0\ltrpar\cf1\kerning1\dbch\af8\langfe1081\dbch\af8\afs24\alang1081\loch\f3\fs24\lang3081\li0\ri0\lin0\rin0\fi0{\cf1\kerning1\dbch\af9\langfe1025\dbch\af9\rtlch \ltrch\loch\fs24\lang1049\loch\f6\hich\af6
+=========================================}
+\par }
