@@ -1740,21 +1740,21 @@ public sealed class RtfToTextConverter
         (bool success, bool codePageWas42, Encoding? enc, FontEntry? fontEntry) = GetCurrentEncoding();
 
         /*
-        TODO: Handle invalid hex like LibreOffice (as described below)
-        If the hex is invalid, oh well, we'll just get a junk character. No point in adding more branches
-        to check for what's basically never going to happen.
         Other readers' behavior:
         -RichTextBox fails the whole read on invalid hex.
         -LibreOffice just skips invalid hex chars.
-        If we wanted to match LibreOffice, we'd just only add to the buffer if neither nibble was 0xFF.
-        Doing so makes us a little slower. Not catastrophically so, but meh.
+        
+        We're going to match LibreOffice here.
         */
         byte b = _rtfBytes[CurrentPos++];
         byte hexNibble1 = _charToHex[b];
         b = _rtfBytes[CurrentPos++];
         byte hexNibble2 = _charToHex[b];
-        byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
-        _hexBuffer.Add(finalHexByte);
+        if ((hexNibble1 | hexNibble2) > 0xF)
+        {
+            byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+            _hexBuffer.Add(finalHexByte);
+        }
 
         while (CurrentPos < _rtfBytes.Length)
         {
@@ -1768,8 +1768,11 @@ public sealed class RtfToTextConverter
                     hexNibble1 = _charToHex[b];
                     b = _rtfBytes[CurrentPos++];
                     hexNibble2 = _charToHex[b];
-                    finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
-                    _hexBuffer.Add(finalHexByte);
+                    if ((hexNibble1 | hexNibble2) > 0xF)
+                    {
+                        byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+                        _hexBuffer.Add(finalHexByte);
+                    }
                 }
                 else
                 {
