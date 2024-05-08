@@ -12,7 +12,6 @@ internal static class ByteSize
     internal const int GB = MB * 1024;
 }
 
-// TODO: Get rid of this and just take an array + length in the public Convert() method
 [StructLayout(LayoutKind.Auto)]
 internal readonly struct ByteArrayWithLength
 {

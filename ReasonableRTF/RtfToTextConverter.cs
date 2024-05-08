@@ -8,7 +8,6 @@ Notes and miscellaneous:
 -RichTextBox respects \v0 (hidden text) when it converts, but LibreOffice doesn't.
 -RichTextBox and LibreOffice both remove nulls.
 
-TODO: Allow returning a byte array and length rather than string?
 TODO: Try to make API good like with granularity levels and whatever
 */
 
@@ -117,11 +116,7 @@ public sealed class RtfToTextConverter
 
         charSetToCodePage[0] = 1252;   // "ANSI" (1252)
 
-        // TODO: Code page 0 ("Default") is variable... should we force it to 1252?
-        // "The system default Windows ANSI code page" says the doc page.
-        // Terrible. Fortunately only two known FMs define it in a font entry, and neither one actually uses
-        // said font entry. Still, maybe this should be 1252 as well, since we're rolling dice anyway we may
-        // as well go with the statistically likeliest?
+        // "The system default Windows ANSI code page" says the doc page. Terrible...
         charSetToCodePage[1] = 0;      // Default
 
         charSetToCodePage[2] = 42;     // Symbol
@@ -164,8 +159,6 @@ public sealed class RtfToTextConverter
     #endregion
 
     #region Lang to code page
-
-    // TODO: Re-enable support for all \langN languages
 
     private const int MaxLangNumIndex = 16385;
     private static readonly int[] LangToCodePage = InitializeLangToCodePage();
