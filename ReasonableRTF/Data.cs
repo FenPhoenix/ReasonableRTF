@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace ReasonableRTF;
 
@@ -9,6 +10,53 @@ internal static class ByteSize
     internal const int KB = 1024;
     internal const int MB = KB * 1024;
     internal const int GB = MB * 1024;
+}
+
+// TODO: Get rid of this and just take an array + length in the public Convert() method
+[StructLayout(LayoutKind.Auto)]
+internal readonly struct ByteArrayWithLength
+{
+    internal readonly byte[] Array;
+    internal readonly int Length;
+
+    public ByteArrayWithLength()
+    {
+        Array = System.Array.Empty<byte>();
+        Length = 0;
+    }
+
+    internal ByteArrayWithLength(byte[] array)
+    {
+        Array = array;
+        Length = array.Length;
+    }
+
+    internal ByteArrayWithLength(byte[] array, int length)
+    {
+        Array = array;
+        Length = length;
+    }
+
+    // This MUST be a method (not a static field) to maintain performance!
+    internal static ByteArrayWithLength Empty() => new();
+
+    /// <summary>
+    /// Manually bounds-checked past <see cref="T:Length"/>.
+    /// If you don't need bounds-checking past <see cref="T:Length"/>, access <see cref="T:Array"/> directly.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    internal byte this[int index]
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get
+        {
+            // Very unfortunately, we have to manually bounds-check here, because our array could be longer
+            // than Length (such as when it comes from a pool).
+            if (index > Length - 1) ThrowHelper.IndexOutOfRange();
+            return Array[index];
+        }
+    }
 }
 
 // How many times have you thought, "Gee, I wish I could just reach in and grab that backing array from

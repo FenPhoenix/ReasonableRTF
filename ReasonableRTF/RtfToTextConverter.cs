@@ -14,7 +14,6 @@ TODO: Try to make API good like with granularity levels and whatever
 
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text;
 using JetBrains.Annotations;
 using static ReasonableRTF.Enums;
@@ -1047,7 +1046,7 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private ArrayWithLength<byte> _rtfBytes = ArrayWithLength<byte>.Empty();
+    private ByteArrayWithLength _rtfBytes = ByteArrayWithLength.Empty();
 
     private bool _skipDestinationIfUnknown;
 
@@ -1113,57 +1112,12 @@ public sealed class RtfToTextConverter
 
     #region Public API
 
-    // TODO: Get rid of this and just take an array + length in the public Convert() method
-    [StructLayout(LayoutKind.Auto)]
-    public readonly struct ArrayWithLength<T>
-    {
-        public readonly T[] Array;
-        public readonly int Length;
-
-        public ArrayWithLength()
-        {
-            Array = System.Array.Empty<T>();
-            Length = 0;
-        }
-
-        public ArrayWithLength(T[] array)
-        {
-            Array = array;
-            Length = array.Length;
-        }
-
-        public ArrayWithLength(T[] array, int length)
-        {
-            Array = array;
-            Length = length;
-        }
-
-        // This MUST be a method (not a static field) to maintain performance!
-        public static ArrayWithLength<T> Empty() => new();
-
-        /// <summary>
-        /// Manually bounds-checked past <see cref="T:Length"/>.
-        /// If you don't need bounds-checking past <see cref="T:Length"/>, access <see cref="T:Array"/> directly.
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public T this[int index]
-        {
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get
-            {
-                // Very unfortunately, we have to manually bounds-check here, because our array could be longer
-                // than Length (such as when it comes from a pool).
-                if (index > Length - 1) ThrowHelper.IndexOutOfRange();
-                return Array[index];
-            }
-        }
-    }
-
     [PublicAPI]
     public (RtfError Result, string Text)
-    Convert(in ArrayWithLength<byte> rtfBytes)
+    Convert(byte[] source, int length)
     {
+        ByteArrayWithLength rtfBytes = new(source, length);
+
         Reset(rtfBytes);
 
         // TODO: Address all ifdefs and see if we want to add the symbols and whatnot
@@ -1188,14 +1142,14 @@ public sealed class RtfToTextConverter
         }
         finally
         {
-            _rtfBytes = ArrayWithLength<byte>.Empty();
+            _rtfBytes = ByteArrayWithLength.Empty();
         }
 #endif
     }
 
     #endregion
 
-    private void Reset(in ArrayWithLength<byte> rtfBytes)
+    private void Reset(in ByteArrayWithLength rtfBytes)
     {
         GroupStack.ClearFast();
         GroupStack.ResetFirst();
