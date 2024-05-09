@@ -80,43 +80,31 @@ public sealed class RtfToTextConverterOptions
     /// You can disable this by setting this property to <see langword="false"/>.<br/><br/>
     /// The default value is <see langword="true"/>.
     /// </summary>
-    public bool SwapUppercaseAndLowercasePhiSymbols { get; private set; }
+    public bool SwapUppercaseAndLowercasePhiSymbols { get; set; } = true;
 
     /// <summary>
     /// The character at 0xA0 in the Symbol font is nominally the Euro sign, but in older versions it may have
     /// been a numeric space or undefined.<br/><br/>
     /// The default value is <see cref="SymbolFontA0Char.EuroSign"/>.
     /// </summary>
-    public SymbolFontA0Char SymbolFontA0Char { get; private set; }
+    public SymbolFontA0Char SymbolFontA0Char { get; set; } = SymbolFontA0Char.EuroSign;
 
     /// <summary>
-    /// Sets the linebreak style (CRLF or LF) for the converted plain text.
+    /// Sets the linebreak style (CRLF or LF) for the converted plain text.<br/><br/>
+    /// The default value is <see cref="LineBreakStyle.CRLF"/>.
     /// </summary>
-    public LineBreakStyle LineBreakStyle { get; private set; }
+    public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
-    public RtfToTextConverterOptions()
-    {
-        SwapUppercaseAndLowercasePhiSymbols = true;
-        SymbolFontA0Char = SymbolFontA0Char.EuroSign;
-        LineBreakStyle = LineBreakStyle.CRLF;
-    }
-
-    public RtfToTextConverterOptions(
-        bool swapUppercaseAndLowercasePhiSymbols,
-        SymbolFontA0Char symbolFontA0Char,
-        LineBreakStyle lineBreakStyle)
-    {
-        SwapUppercaseAndLowercasePhiSymbols = swapUppercaseAndLowercasePhiSymbols;
-        SymbolFontA0Char = symbolFontA0Char;
-        LineBreakStyle = lineBreakStyle;
-    }
-
-    public static readonly RtfToTextConverterOptions Default = new();
+    internal static RtfToTextConverterOptions Default => new();
 }
 
 public sealed class RtfToTextConverter
 {
-    public RtfToTextConverter()
+    public RtfToTextConverter() : this(RtfToTextConverterOptions.Default)
+    {
+    }
+
+    public RtfToTextConverter(RtfToTextConverterOptions options)
     {
 #if !NETFRAMEWORK
 #pragma warning disable IDE0002
@@ -124,6 +112,8 @@ public sealed class RtfToTextConverter
         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 #pragma warning restore IDE0002
 #endif
+
+        Options = options;
 
         _windows1250Encoding = Encoding.GetEncoding(1250);
         _windows1251Encoding = Encoding.GetEncoding(1251);
@@ -133,9 +123,9 @@ public sealed class RtfToTextConverter
         InitSymbolFontData();
 
         ResetHeader();
-    }
 
-    private RtfToTextConverterOptions _options = null!;
+        SetOptions(options, Options);
+    }
 
     private readonly char[] Keyword = new char[KeywordMaxLen];
     private readonly GroupStack GroupStack = new();
@@ -1857,16 +1847,21 @@ public sealed class RtfToTextConverter
 
     #region Public API
 
+    // TODO: Add xml docs to all public APIs
+
+    [PublicAPI]
+    public RtfToTextConverterOptions Options { get; }
+
     [PublicAPI]
     public (RtfError Result, string Text)
     Convert(byte[] source)
     {
-        return Convert(source, source.Length, RtfToTextConverterOptions.Default);
+        return Convert(source, source.Length, null);
     }
 
     [PublicAPI]
     public (RtfError Result, string Text)
-        Convert(byte[] source, RtfToTextConverterOptions options)
+    Convert(byte[] source, RtfToTextConverterOptions options)
     {
         return Convert(source, source.Length, options);
     }
@@ -1875,32 +1870,17 @@ public sealed class RtfToTextConverter
     public (RtfError Result, string Text)
     Convert(byte[] source, int length)
     {
-        return Convert(source, length, RtfToTextConverterOptions.Default);
+        return Convert(source, length, null);
     }
 
     [PublicAPI]
     public (RtfError Result, string Text)
-    Convert(byte[] source, int length, RtfToTextConverterOptions options)
+    Convert(byte[] source, int length, RtfToTextConverterOptions? options)
     {
-        _options = options;
-
-        if (options.SwapUppercaseAndLowercasePhiSymbols)
+        if (options != null)
         {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
+            SetOptions(options, Options);
         }
-        else
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
-        }
-
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = options.SymbolFontA0Char switch
-        {
-            SymbolFontA0Char.EuroSign => '\x20AC',
-            SymbolFontA0Char.NumericSpace => '\x2007',
-            _ => _unicodeUnknown_Char,
-        };
 
         ByteArrayWithLength rtfBytes = new(source, length);
 
@@ -1934,6 +1914,31 @@ public sealed class RtfToTextConverter
     }
 
     #endregion
+
+    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    {
+        dest.SwapUppercaseAndLowercasePhiSymbols = src.SwapUppercaseAndLowercasePhiSymbols;
+        dest.SymbolFontA0Char = src.SymbolFontA0Char;
+        dest.LineBreakStyle = src.LineBreakStyle;
+
+        if (dest.SwapUppercaseAndLowercasePhiSymbols)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
+        }
+        else
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
+        }
+
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
+        {
+            SymbolFontA0Char.EuroSign => '\x20AC',
+            SymbolFontA0Char.NumericSpace => '\x2007',
+            _ => _unicodeUnknown_Char,
+        };
+    }
 
     private void Reset(in ByteArrayWithLength rtfBytes)
     {
@@ -2365,7 +2370,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void AddLineBreak()
     {
-        if (_options.LineBreakStyle == LineBreakStyle.CRLF)
+        if (Options.LineBreakStyle == LineBreakStyle.CRLF)
         {
             _plainText.Add('\r');
         }
