@@ -1,0 +1,468 @@
+========= IMPORTANT INFORMATION FOR TFIX USERS ======================================================
+
+You *will* need to use TFix 1.26a or newer, otherwise the custom scripts will not work and the mission will break.
+
+========================================================================
+
+Title           : Darkness Walk With Us!
+Filename        : TDP20AC_dunkel.zip
+Author          : Haplo
+Contact info    : Private message through TTLG forums
+Date of Release : 30.11.2018
+Version         : 1.00
+
+========================================================================
+
+* Playing Information *
+
+Game                : Thief Gold
+File Name           : miss23.mis
+Difficulty Settings : Yes (AI, clues, starting gear and loot requirement)
+Equipment Store     : No
+Map/Automap         : No
+New Graphics        : No
+New Objects         : No
+New Sounds          : No
+EAX Support         : No
+Briefing            : Yes
+
+* Construction *
+
+Time                : ~400 hours in total
+
+========================================================================
+
+* Story *
+
+During one of my recent 'wealth distribution' activities, I overheard the Hammers saying that a certain Brother Teobaldo was leaving the next day on a secret mission. Apparently he is headed to the "Hillview Inn" which is at the foot of a hill quite a distance from here. Hammers would not travel so far unless it was important. I have decided to follow this Brother Teobaldo and find out what he is up to. Not that I have anything better lined up anyway.
+
+========================================================================
+
+* Important Notes *
+
+- NewDark 1.25 or later is required.
+- TFix 1.26a or later is required.
+- Read the texts carefully, they contain vital clues. I have tried to keep them short.
+- With a exception of a couple of scripted encounters, it should be possible to ghost this mission.
+- This is a simple mission. I have tried to stay as faithful as I could to the original TG (which means no fancy features such as round cylinders or perfect arches). With the exception of subtle use of coloured light in a certain area, this mission could have been built in the old DromEd. Even the custom scripts have only been used for their convenience, and not for their special powers.
+- For those who might be interested, this mission was developed completely on a Linux machine under WINE.
+
+===================================================================
+
+* Credits *
+
+- My partner Marisa for convincing me to go back to DromEd, and for her help with so many things. Without her input this mission would not have existed.
+- Yandros for his encouragements, and for answering my questions as I had forgotten so much after years of not having touched DromEd.
+- Nameless Voice for the custom scripts.
+- SlyFoxx for Garrett's voice.
+- Tannar and Dussander for the testing forum.
+- Nickie for her help with the texts.
+- The people at The Editors' Guild on TTLG forum.
+- The beta testers for their help and patience.
+
+* Beta Testers *
+
+- Marukpa
+- ffox
+- Gloria Creep
+- Nightwalker
+- Peter Smith
+
+* Translations *
+
+- MoroseTroll : RU
+- Zappenduster: DE
+- Zappenduster/Athalle: FR
+- Piesel: IT
+
+============================================================================
+
+* Loading Information *
+
+Do not unzip, load with FMSel or NewDarkloader. Do not use the old Darkloader.
+
+========================================================================
+
+* Copyright Information *
+
+This Mission is © by Ali Pouladi (Haplo), 2018.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive, or Ion Storm.
+========= WICHTIGE INFORMATION FÜR TFIX-NUTZER =====================================================
+
+TFix 1.26a oder neuer ist obligatorisch, andernfalls arbeiten die Custom-Skripte nicht oder/und die
+FM bricht ab.
+
+============================================================================
+
+Titel           : Finsternis, folge uns!
+Dateiname       : TDP20AC_dunkel.zip
+Autor           : Haplo
+Kontakt über    : PM im TTLG-Forum
+Erschienen      : 30.11.2018
+Version         : 1.00
+
+============================================================================
+
+* Spiel-Information *
+
+Spiel               : Thief Gold
+Dateiname           : miss23.mis
+Schwierigkeitsgrade : Ja (AI, Hinweise, Startpunkt und Beuteanforderung)
+Ausrüstungsladen    : Nein
+Map/Automap         : Nein
+Neue Grafiken       : Nein
+Neue Objekte        : Nein
+Neue Geräusche      : Nein
+EAX                 : Nein
+Briefing            : Ja
+
+
+* Bau *
+
+Zeitbedarf          : ~400h insgesamt
+
+============================================================================
+
+* Handlung *
+
+Während meiner laufenden 'Wertumverteilungsaktion' schnappte ich bei den Hammeriten auf, daß ein gewisser Bruder Theobald im Begriff sei, zu einer Geheimmission aufzubrechen. Anscheinend macht er sich zum Gasthaus 'Hillview Inn' auf, welches sich am Fuße des Berges in einiger Entfernung von hier befindet. Niemand von den Brüdern würde sich ohne triftigen Grund auf eine solch weite Reise begeben. Daher habe ich beschlossen, diesem Bruder Theobald zu folgen und herauszufinden, um was es überhaupt geht. Zur Zeit liegen eh keine besonders lukrativen Vorhaben an.
+
+============================================================================
+
+* Wichtige Anmerkungen *
+
+- NewDark 1.25 oder neuer erforderlich.
+- TFix 1.26a oder neuer erforderlich.
+- Lies alle Texte aufmerksam durch, sie enthalten wertvolle Hinweise. Ich habe sie kurz gehalten.
+- Mit Ausnahme einiger gesscripteter Szenen sollte die FM ghostbar sein.
+- Dies ist eine einfache FM. Ich habe sie bestmöglich nach dem TG-Original gestaltet (also auch ohne 
+  aufwendige, runde Zylinder oder perfekte Bögen). Wenn man das dezente Lich in einem bestimmten
+  Bereich ausnimmt, hätte ich diese FM auch mit dem alten DromEd erstellen können. Selbst die
+  custom-Skripte wurden nur aus Vereinfachungsgründen eingesetzt, nicht wegen ihrer Leistungsfähigkeit.
+- Wen es interessiert: Diese FM wurde vollständig mit einer Linux-Installation unter WINE gebaut.
+
+=====================================================================================================
+
+* Dank an ... *
+
+- meine Partnerin Marisa, die mich überzeugte, mal wieder DromEd anzuwerfen und ihre weitere Hilfe. Ohne ihr Zutun gäbe es diese FM nicht.
+- Yandros für seine Ermutigung und Hilfestellung in Fragen, denn ich habe über die Jahre viele
+  DromEd-Fertigkeiten eingebüßt.
+- Nameless Voice für seine Custom-Skripte.
+- SlyFoxx für Garretts Synchronstimme.
+- Tannar und Dussander fürs Testforum.
+- Nickie für ihre Hilfe bei den Texten.
+- die Leute der 'Editors' Guild' im TTLG-Forum.
+- die Betatester für ihre Hilfe und Geduld.
+
+* Betatester *
+
+- Marukpa
+- ffox
+- Gloria Creep
+- Nightwalker
+- Peter Smith
+
+* Übersetzer *
+
+- MoroseTroll : RU
+- Zappenduster: DE
+- Zappenduster/Athalle: FR
+- Piesel: IT
+
+============================================================================
+
+* Ladeinformation *
+
+Nicht händisch entzippen, sondern nur per FMSel oder NewDarkloader installieren.
+
+============================================================================
+
+* Urheberrecht *
+
+Diese FM wurde © 2018 von Ali Pouladi (Haplo) erstellt. Ihre Weiterverteilung ist nur in
+unverändertem Zustand gestattet.
+
+Sie wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie
+von dort unterstützt.
+
+
+
+
+
+
+
+
+========= AVIS IMPORTANT POUR LES UTILISATEURS DE TFIX  ======================================================
+
+TFix 1.26a ou supérieur est obligatoire, sinon les custom scripts ne vont pas fonctionner et la
+mission va s'arrêter.
+
+============================================================================
+
+Titre                   : Obscurité suis-nous !
+Fichier                 : TDP20AC_dunkel.zip
+Auteur                  : Haplo
+Contact info            : MP à http://ttlg.com/forums
+Réalisée en             : 30.11.2018
+Version                 : 1.00
+
+============================================================================
+
+* Informations sur le jeu : *
+
+Jeu                     : Thief Gold
+Fichier                 : miss23.mis
+Niveaux des difficultés : Oui (AI, indications, point de départ et butin)
+Magasin                 : Non
+Carte                   : Non
+Nouveaux graphismes     : Non
+Nouveaux objets         : Non
+Nouveaux sons           : Non
+EAX                     : Non
+Briefing                : Oui
+
+* Construction *
+
+Temps                   : ~400 heures au total
+
+============================================================================
+
+* Histoire *
+
+Durant ma récente activité de "redistribution des richesses", j'ai entendu la rumeur qu'un certain Frère Teobaldo partait le lendemain pour une mission secrète. Aparemment il se dirige vers l'auberge "Hillview Inn" qui se trouve en bas d'une colline loin d'ici. Les Marteleurs ne font jamais un tel voyage sans une raison importante, donc j'ai décidé de suivre Frère Teobaldo afin de découvrir ses intentions. Et je n'ai rien d'autre à faire de mieux en ce moment.
+
+============================================================================
+
+* Merci à... *
+
+- ma partenaire Marisa pour m'avoir convaincu de retourner à DromEd, et pour son aide diverse. Sans son engagement, cette FM n'aurait jamais vu le jour
+- Yandros pour son encouragement et pour avoir répondu à un tas de questions car j'avais oublié beaucoup de
+  détails après être resté si longtemps loin de DromEd
+- Nameless Voice pour ses custom scripts.
+- SlyFoxx pour la voix de Garrett
+- Tannar et Dussander pour me mettre le forum de test à disposition
+- Nickie pour son aide avec les textes
+- les gens chez http://ttlg.com/forums
+- les beta-testeurs pour leur aide et leur patience
+
+* Beta-testeurs *
+
+- Marukpa
+- ffox
+- Gloria Creep
+- Nightwalker
+- Peter Smith
+
+* Traductions *
+
+- MoroseTroll : RU
+- Zappenduster: DE
+- Zappenduster/Athalle: FR
+- Piesel: IT
+
+============================================================================
+
+* Droit d'auteur *
+
+Cette FM a été construite © 2018 par Ali Pouladi (Haplo).
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive.
+========= INFORMAZIONI IMPORTANTI PER TUTTI GLI UTENTI DI TFIX ==============================================================
+
+*Dovrai* utilizzare TFix 1.26a o successivi, altrimenti gli script customizzati non funzioneranno.
+
+
+============================================================================
+
+Titolo                  : L'oscurità cammina con noi!
+Nome del file           : TDP20AC_dunkel.zip
+Autore                  : Haplo
+Contatti                : Messaggi privati attraverso i forum di TTLG 
+Data di pubblicazione   : 30.11.2018
+Versione                : 1.00
+
+============================================================================
+
+* Informazioni di Gioco *
+
+Gioco               : Thief Gold
+Nome del file           : miss23.mis
+Settaggi Difficoltà : Si (AI, indizi, equipaggiamento e richiesta di bottino)
+Negozio d'equipaggiamento     : No
+Mappa/Automappa         : No
+Nuove grafiche          : No
+Nuovi oggetti           : No
+Nuovi suoni             : No
+Supporto EAX            : No
+Briefing                : Si
+
+
+* Costruzione *
+
+Tempo                : in totale ~400 ore
+
+============================================================================
+
+* Storia *
+
+Durante una delle mie recenti attività di 'ridistribuzione di ricchezza', ho ascoltato gli Hammeriti dire che un certo Fratello Teobaldo, il giorno seguente, sarebbe partito per una missione segreta. Apparentemente è diretto alla "Locanda Hillview" che si trova ai piedi di una collina ad una certa distanza da qui. Gli Hammeriti non viaggerebbero così lontano se non fosse importante. Ho deciso di seguire Fratello Teobaldo e scoprire di che si tratta. Non che al momento abbia di meglio da fare comunque.
+
+============================================================================
+
+* Note Importanti *
+
+- E' richiesto NewDark 1.25 o successivi.
+- E' richiesto TFix 1.26a o successivi.
+- Leggi attentamente i testi, contengono indizi vitali. Ho provato a renderli brevi.
+- Ad eccezione di un paio di incontri scriptati, dovrebbe esser possibile non essere visti in tutta la missione (ghost).
+- Questa è una missione semplice. Ho cercato di rimanere il più fedele possibile all'originale TG (il che significa che non ci saranno cose come cilindri rotondi od arcate perfette). Ad eccezione di un leggero uso di luce colorata in una certa zona, questa missione avrebbe potuto essere fatta con il vecchio DromEd. Anche gli script customizzati sono stati utilizzati solo per la loro comodità, non per i loro poteri speciali.
+- Per chi potesse essere interessato, questa missione è stata interamente sviluppata su una macchina Linux dotata di WINE.
+
+============================================================================
+
+* Riconoscimenti *
+
+- La mia compagna Marisa per avermi convinto a ritornare a DromEd, e per aiutarmi con così tante cose. Senza la sua spinta questa missione non sarebbe esistita.
+- Yandros per i suoi incoraggiamenti, e per aver risposto alle mie domande dal momento che ho dimenticato molte cose dopo non aver più toccato DromEd per anni.
+- Nameless Voice per gli script customizzati.
+- SlyFoxx per la voce di Garrett.
+- Tannar e Dussander per il forum di prova.
+- Nickie per il suo aiuto con i testi.
+- I ragazzi della The Editors' Guild nel forum TTLG.
+- I beta tester per il loro aiuto e pazienza.
+
+* Beta Tester *
+
+- Marukpa
+- ffox
+- Gloria Creep
+- Nightwalker
+- Peter Smith
+
+* Traductions *
+
+- Piesel: IT
+- MoroseTroll : RU
+- Zappenduster: DE
+- Zappenduster/Athalle: FR
+
+=============================================================
+* Informazioni di Caricamento *
+
+Non unzippare, caricare con FMSel o NewDarkloader.
+
+=============================================================
+
+* Informazioni sul Copyright *
+
+Questa missione è (c) di Ali Pouladi (Haplo), 2018.
+
+La distribuzione di questo livello è permessa finchè sia gratuita ed il paccehtto sia tenuto intatto. 
+Nessuno può editare e redistribuire questa missione senza il mio esplicito permesso.
+
+Questo livello non è stato fatto e non è supportato da Looking Glass Studios, Eidos Interactive,
+o Ion Storm.
+
+
+
+
+
+
+
+ВАЖНАЯ ИНФОРМАЦИЯ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ TFIX
+=========================================
+Вам придётся воспользоваться TFix 1.26a или свежее, иначе пользовательские скрипты не сработают, а миссия не запустится.
+
+=========================================
+
+Название	: Darkness Walk With Us! / "Тьма, иди с нами!"
+Имя файла	: TDP20AC_dunkel.zip
+Автор		: Haplo
+Контакты	: Личное сообщение через форум TTLG
+Дата выхода	: 30.11.2018
+Версия	: 1.00
+
+=========================================
+
+* Игровая информация *
+
+Игра			: Thief Gold
+Имя файла		: miss23.mis
+Сложность		: Да (ИИ, подсказки, начальный набор инструментов и требования по сбору)
+Магазин		: Нет
+Карта/автокарта	: Нет
+Новая графика	: Нет
+Новые объекты	: Нет
+Новые звуки		: Нет
+Поддержка EAX	: Нет
+Брифинг		: Да
+
+
+* Создание *
+Время               : ~400 часов
+
+=========================================
+
+* История *
+
+Во время моей недавней операции по 'распределению богатства' я подслушал, как хаммериты говорили о некоем брате Теобальдо, что собирался отбыть на следующий день по тайному заданию Ордена. Очевидно, что он направляется в гостиницу 'Хиллвью', что расположена у подножья холма, на приличном расстоянии отсюда. Хаммериты не имеют привычки путешествовать просто так, а только по очень важным делам. Я решил проследовать за братом Теобальдо и выяснить, что он задумал. К тому же, ничего лучше у меня пока не наклёвывалось.
+
+=========================================
+
+* Важное *
+
+- Требуется NewDark 1.25 или выше.
+- Требуется TFix 1.26a.
+- Читайте тексты внимательно, они содержат важные подсказки. Я пытался сделать их как можно более короткими.
+- За исключением пары заскриптованных встреч, всю остальную миссию можно пройти в режиме призрака.
+- Эта миссия проста. Я пытался, насколько мог, следовать стилю оригинального Thief Gold (что означает никаких прикольных и новомодных штучек, вроде круглых или идеальных сводов). За исключением едва заметного использования цветного освещения в отдельных местах, эту миссию можно было бы создать и в старом DromEd. Даже пользовательские скрипты были использованы лишь из-за их удобства, а не из-за каких-то их особенностей.
+- Если кому-то интересно, то вся миссия целиком была разработана на ПК с Linux, под WINE.
+
+=========================================
+
+* Благодарности *
+
+- Моей подруге Марисе - за то, что убедила меня вернуться к DromEd, и за помощь во многих других вещах. Без её вклада эта миссия просто не появилась бы.
+- Yandros - за его воодушевление и ответы на мои вопросы, ибо я столько всего забыл за многие годы, что не прикасался к DromEd.
+- Nameless Voice - за пользовательские скрипты.
+- SlyFoxx - за голос Гарретта.
+- Tannar и Dussander - за форум по тестированию.
+- Nickie - за помощь с текстами.
+- Всем в The Editors' Guild на форуме TTLG.
+- Бета-тестерам - за их помощь и терпение.
+
+* Бета-тестеры *
+
+- Marukpa
+- ffox
+- Gloria Creep
+- Nightwalker
+- Peter Smith
+
+* Переводчики *
+
+- MoroseTroll: RU
+- Zappenduster: DE
+- Zappenduster/Athalle: FR
+- Piesel: IT
+
+=========================================
+
+* Информация по загрузке *
+
+Не распаковывайте, а просто загружайте через FMSel или NewDarkloader.
+
+=========================================
+
+* Авторское право *
+
+Эта миссия © Али Пулади (Haplo), 2018.
+
+Распространение этого уровня разрешено до тех пор, пока это делается бесплатно, а его содержимое остаётся нетронутым. 
+Никому не разрешено изменять, а потом распространять эту миссию без моего явного разрешения.
+
+Этот уровень сделан ни Looking Glass Studios, ни Eidos Interactive и ни Ion Storm, и не поддерживается ими.
+=========================================

@@ -1,0 +1,239 @@
+=========================================================================================================
+                                ENGLISH VERSION (French version below)
+=========================================================================================================
+
+
+Cathedral of St.Vincent
+================ 
+6/22/2012
+
+Title		 : Cathedral of St Vincent
+Filename	 : Cathedral_StVincent
+Author	             : Pedro Quintela (Cardia), Rod Peirson (DarthsLair)
+Contact info	 : TTLG Private Message or email me Pedroq1983@gmail.com, Darthslair@rocketmail.com
+Date of release	 : October, 05, 2012 updated to NewDark 1.25 (03-12-17) 
+Version              : 1.7
+
+
+
+
+Play Information:
+
+Game			 : Thief 2 The Metal Age
+Level Names		 : Cathedral of St.Vincent
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.         Beginner, Adept, Master
+Equipment store		 : No.
+Map/Automap		 : Yes/No 
+New graphics		 : Yes.
+New sounds		 : Yes.
+New conversations	 : Yes.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : Yes. English and French
+Briefing	                         : No.
+ 
+
+
+Story: Garrett having a little ale at the ole Burrick's Head Inn, overhears a couple Taffers just returning from the Isle of
+St.Vincent. He overheard just two words; "Hammerites, and Golden Hammers". A few weeks later Garrett steps foot on the small island
+weary and tired from the long journey across rough seas. A small eatery and pub known as Cookies Place offered some good fried fish
+and chicken at a decent price.  Garrett enjoys his meal, and sips on some aged ale, not knowing someone slipped a micky in his drink,
+forcing him to passout.
+
+He wakes up in jail, only to realize he has been framed for a local murder of a City Water Utiltiy Management worker by the name of
+Walter Muldale.  Seems someone, and more than likely the same person slipping the micky in his drink also planted a note in Garrett's
+pocket indicating a meeting that night with Walter.  Yeah, right, a setup!  
+
+Garrett will need to escape jail, and find out who set him up, and find some way to clear himself of the false murder charge. 
+Seems  A long trip to a small island has proven to be challenging for Garrett, but as always, there is a need to pay the rent.  After all,
+Garrett came to the island for Hammerite Treasure, so there is no better time than now to get started.
+
+Technical Notes: Runs fine in Garrettloader v 1.41 and v 1.42 Thanks to Pedro.  This is a custom mission with many custom textures and objects.  Use your own discretion on using ep
+or any enhancement package.
+
+Credits:A Great Thankyou to all of our great beta testers:bedwine,bikerdude,Dafydd,Dawggon,dbrilliant,Gloria Creep,Hellfier,itllrun10s,jonescrusher,Philflound,prjames,Sagittal,Soldi,Tannar
+
+Thanks to: to Dussander, Tannar at Shalebridge Cradle Testing Forum.  
+Special Thanks:To Tannar for editing all of the Readables. Philflound for helping with spelling and grammar.Dafydd for his valuable suggestions for ghosting.
+Pedro Says: special thanks to the album “Wind and Water” by Loess which was a big inspiration for this project.
+
+
+The Hammer Level contains elements multibrushed in from abandoned work by Dark Assassin, Glen, R Soul and Independent Thief,  Continued-Teamwork mission by Pedro, and Rod.2011-2012
+
+Music:
+
+"Love life" by Casino Vs. Japan (edited by Pedro Quintela)
+"Woven" by Loess (edited by Pedro Quintela)
+"Rückverzauberung 3.4" by Wolfgang Voigt (edited by Pedro Quintela)
+"Mulholland Drive" by Angelo Badalamenti (edited by Pedro Quintela)
+and free KJV/NKJV Scripture songs from
+http://www.pursuinglife.com/scripture-songs.php
+“Chimera” by chachi jones
+Other musics taken from Tomb Raider 1, Painkiller, Assassin´s creed 2/Brotherhood
+ 
+
+
+Models, Objects, Skins:
+Skins by DarkMax, Targa
+HDMK pack by Yandros
+Textures from Deus Ex, Golotha Textures, Thief 1, 
+Cardia1, various other games, 
+The Wadfather site, evil lair,
+Ar-Zimrathon-Blood Stained Book
+Water Textures by ZylonBane
+Alun Bestor-Map Parchment
+Blackjack Hand by ZylonBane
+Keys by Team CoSaS,and Zontik
+DarkMax
+DarthsLair Custom Banners,Custom Ledger, 5 Maps in mission.
+Eshaktaar-Beautiful Decorative war Hammer
+Greogorius
+New Hammer AI meshes and some skins and Woman Thief and HpCops by TDBonko (Dejan Tomic)
+Objects by Dark Arrow
+Metal Dawn-Bronze Griffin
+NamelessVoice
+Nielsen74
+Targa
+Schwaa
+BioTubes - created by Omer "G'len" Golan
+Jason Otto-OttoJ55  
+Yandros-Cleaning some .wav files for Hammer2, and working on Wind files.
+
+Voice Acting : by Yandros:Plays Gutsy Malone, and Pedro Quintela :Plays Mayor Pedro Quintela. Frere Staven (Steven Mafiodo)Plays Hammerite Priest Michael in the Main Cathedral, Gore_Torn plays Police Inspector, Slyfoxx plays Garrett.
+GUILD2 Voice Pack Terry Head (YcatX) Supported by -Mike Chrzanowski For Thief5
+Guild1 Voice pack Steve Schmith (Darkwarror)(JoJoman)(Backed up by-Mike Romatelli)
+Th7-Female TDS Property. Thief voice pack extracted and converted to Thief2 by DarthsLair
+Some misc mixed voicing from T3,owned by TDS.
+Dog barking sound from the game "El matador".
+
+Walktrough : By Ricebug
+ 
+
+                                          
+Creation Notes:(From abandoned mission by Independent Thief)
+
+
+
+We gratefully thank TTLG and all of its members for being top of the line. The site, the taffers there. Good hearted taffers
+to say the least!  Keep taffing!   Not supported by Looking Glass Studios, or Eidos Interactive..Runs best in Darkloader v 4.3
+
+Copyright: 2012  Cardia , DarthsLair
+
+
+
+* Loading information * 
+
+Garrettloader and Darkloader ready. Garrettloader version 1.41 and 1.42
+This has been beta-tested thoroughly in Windows Vista.Windows7 64bit, Windows xp, 32 and 64bit and it runs the best in Darkloader version 4.3
+Distribution of this level is allowed as long as it's free and you must leave the mission intact and give the author(s) credit for it.
+
+
+
+=========================================================================================================
+                                VERSION FRANÇAISE
+=========================================================================================================
+
+
+Cathédrale St.Vincent
+================ 
+22 juin 2012
+
+Titre		 : Cathédrale St.Vincent
+Nom du fichier	 : Cathedral_StVincent
+Auteur	             : Pedro Quintela (Cardia), Rod Peirson (DarthsLair)
+Contact info	 : message privé sur TTLG ou email me Pedroq1983@gmail.com, Darthslair@rocketmail.com
+Date de sortie	 : 5 Octobre 2012, MAJ pour New Dark 1.23 en 2015
+Version              : 1.4
+
+
+Information sur le jeu :
+
+Jeu			: Thief 2 L'âge de métal
+Nom de la mission	: Cathédrale St.Vincent
+Nom du fichier		: miss20.mis
+Choix difficulté	 	: Oui.         Débutant, Adepte, Maître
+Achat équipement	: Non.
+Carte/Carte auto	: Oui/Non
+Nouveaux graphismes	: Oui.
+Nouveaux sons		: Oui.
+Nouvelles conversations	: Oui.
+Nouveaux modèles	: Oui.
+Support de l'EAX	: Non.
+Support Multi Langues	: Oui. Anglais et Français
+Vidéo d'introduction	: Non.
+ 
+
+
+Histoire : En buvant une bière à la vieille auberge du Burrick's Head, Garrett surprend un couple d'idiots qui reviennent tout juste de l'île St Vincent. Il a juste entendu deux mots ; Marteleurs, et Marteaux d'Or. Quelques semaines plus tard Garrett pose le pied sur la petite île, las et fatigué du long voyage à travers les mers agitées. Un petit restaurant-bar du nom de Cookies Place offre poisson et poulet frit à un bon prix. Garrett apprécie son repas, et avale de petites gorgées de bière, ignorant qu'une drogue a été glissée dans son breuvage, le plongeant dans le sommeil.
+
+Il se réveille en prison, et réalise qu'il est accusé pour le meurtre d'un agent d'entretien du Service des Eaux nommé Walter Muldale. On dirait que quelqu'un, et plus que vraisemblablement la même personne qui a drogué Garrett, a également glissé une note dans sa poche qui parle d'une réunion cette nuit avec Walter. Ouais, c'est ça, un traquenard !
+
+Garrett devra s'échapper de la prison, découvrir qui l'a piégé, et trouver le moyen de se prouver son innocence. 
+Ce long voyage vers une petite île prend l'apparence d'un défi pour Garrett, mais comme toujours, il y a besoin de payer le loyer. Après tout, Garrett est venu sur l'île pour le trésor des Marteleurs, il n'y a donc pas une seconde à perdre pour commencer.  
+
+Notes Techniques : Fonctionne bien avec Garrettloader V1.41 et V1.42 Merci à Pedro. C'est une mission  avec beaucoup de textures et d'objets personnalisés. C'est à vous de décider si vous voulez utiliser l'Enhancement Pack ou tout autre pack d'amélioration graphique.
+
+Remerciements : Un grand merci à tous nos supers beta-testeurs : bedwine, bikerdude, Dafydd, Dawggon, dbrilliant, Gloria Creep, Hellfier, itllrun10s, jonescrusher, Philflound, prjames, Sagittal, Soldi, Tannar
+
+Merci à : Dusseter, Tannar du forum de test Shalebridge Cradle.
+Remerciements spécial : à Tannar pour l'édition de tous les textes. Philflound pour l'aide sur l'orthographe et la grammaire. Dafydd pour ses suggestions sur le mode fantôme. Pedro dit : un grand merci à l'album “Wind et Water” de Loess qui fut d'une grande inspiration pour ce projet.
+Le Niveau du Marteau contient des éléments provenant du travail abandonné de Dark Assassin, Glen, R Soul et Independent Thief, Travail d'équipe continu par Pedro et Rod. 2011-2012
+
+Musiques :
+
+"Love life" de Casino Vs. Japan (édité par Pedro Quintela)
+"Woven" de Loess (édité par Pedro Quintela)
+"Rückverzauberung 3.4" de Wolfgang Voigt (édité par Pedro Quintela)
+"Mulhollet Drive" d'Angelo Badalamenti (édité par Pedro Quintela)
+et musique libre KJV/NKJV Scripture songs de
+http://www.pursuinglife.com/scripture-songs.php
+“Chimera” de chachi jones
+Autres musiques provenant de Tomb Raider 1, Painkiller, Assassin's creed 2/Brotherhood
+ 
+
+Modèles, Objets, Textures:
+Textures de modèles de DarkMax, Targa
+HDMK pack de Yetros
+Textures de Deus Ex, Golotha Textures, Thief 1, 
+Cardia1, autres jeux variés, 
+Le site Wadfather, evil lair,
+Ar-Zimrathon-Livre Ensanglanté
+Textures d'Eau de ZylonBane
+Alun Bestor-Parchemin de la Carte
+Matraque de ZylonBane
+Clés de l'équipe CoSaS, et de Zontik
+DarkMax
+Bannières de DarthsLair, Livre de Compte, 5 Cartes dans la mission.
+Eshaktaar, Magnifique Marteau de Guerre Décoratif 
+Greogorius
+Nouveaux Modèles d'IA Marteleur, quelques textures de modèle, Voleuse et policiers de TDBonko (Dejan Tomic)
+Objets de Dark Arrow
+Metal Dawn-Griffon de Bronze
+NamelessVoice
+Nielsen74
+Targa
+Schwaa
+BioTubes, crées par Omer "G'len" Golan
+Jason Otto, OttoJ55  
+Yetros, Nettoyage de quelques sons pour Hammer2, et travail sur les sons du Vent.
+
+Doublage Voix : Yetros : joue Gutsy Malone, et Pedro Quintela joue le Maire Pedro Quintela. Frere Staven (Steven Mafiodo) joue le Marteleur Prêtre Michael dans la Cathédrale, Gore_Torn joue l'Inspecteur de police, Slyfoxx joue Garrett.
+Guild2 Pack de Voix de Terry Head (YcatX) Supporté par Mike Chrzanowski pour Thief5
+Guild1 Pack de Voix de Steve Schmith (Darkwarror)(JoJoman)(Backed up de-Mike Romatelli)
+Th7-Femelle propriété de TDS. Pack de Voix de Thief extrait et converti de Thief2 par DarthsLair
+Quelques musiques diverses mixées de T3, propriété de TDS.
+Aboiement de chien provenant du jeu "El matador".
+
+                                      
+Notes sur la création : (repris de la mission abandonnée d'Independent Thief)
+
+Nous remercions TTLG et tous ses membres. Le site et les taffers qui y logent. Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios ni Eidos Interactive. Fonctionne mieux sous Darkloader v4.3
+
+Droits d'auteur : 2012  Cardia , DarthsLair
+
+* Installation * 
+
+Fonctionne avec Garrettloader et Darkloade. Garrettloader version 1.41 et 1.42
+Cette FM a été testée à fond sous Windows Vista, Windows7 64bit, Windows XP, 32 et 64bit et elle s'exécute mieux avec Darkloader v4.3
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact et que vous indiquez le nom de(s) l'auteur(s)

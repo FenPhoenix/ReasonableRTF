@@ -1,0 +1,115 @@
+
+
+Author: AsyluM (Mark Smith)
+Version: 1.0
+Date of release: 11/05/04
+
+Description: Sources have led you to believe that Lord Gellard, a noble renowned
+for his vicious competitiveness, has gathered an exquisite collection of valuable
+artifacts and rare gems in the enormous mansion on his sprawling estate in Hightowne.
+You're in need of a big job right now to meet certain expenses, so the Gellard
+Estate should fit the bill.
+
+You've heard that Lord Gellard somehow manages to control portions of the city
+leadership and aristocracy... getting proof of how he's doing this would give you
+something you could use against him, or sell to one of his enemies.  Supposedly,
+Gellard even has a secret passage from his estate that comes out somewhere in
+or near City Hall... finding it could prove very useful.
+
+He is also reputed to have the best guards and security devices around... since he
+has close ties to the Mechanists, he has a number of their security devices on the
+grounds. Cleaning out the estate won't be easy, but then paying the rent never is...
+
+
+
+
+* Play Information * 
+
+Mission Title: Heist Society
+File name: miss25.mis
+Difficulty Settings: yes
+Equipment store: yes
+Map / Automap: yes / yes
+New graphics: yes
+Multi language support: no
+Briefing : no
+
+This is my second FM.  If you haven’t played my first, Hidden Agenda, give
+it a try too.  However, this is NOT a sequel, so doing so isn’t necessary.
+
+Difficulty level info:
+There are numerous differences between the difficulty levels:
+   - Numbers of AIs and their patrol routes
+   - Locations of keys and other important items
+   - Bonus objectives
+Also, your starting location varies:
+   Normal - Just inside the servant’s back entrance
+   Hard - On the grounds, by the front entrance
+   Expert - On the grounds, in the graveyard
+
+
+
+* Construction * 
+
+Base: Built from scratch
+Build Time: About a year, off more than on
+Completion Time (Gold phase): About eight months
+
+BIG Thanks to:
+Alpha / Beta Tester - RiCh
+Beta Testers - Nightwalker, Peter Smith
+
+Gold Development Team:
+Story completion/refinement: Moghedian, SlyFoxx
+Dromed work: Yandros, VladMidnight, Moghedian
+Additional Testers:
+Nightwalker, Morrgan, Peter Smith, Dafydd, FreddyFox
+
+Custom Textures and Objects:
+Balatro, GOB, AsyluM - Textures
+Targa - Various custom objects
+Eshaktaar – New flames
+Yandros – New bookcase
+Rob Hicks and the DedX team - DromEd Deluxe
+
+New sounds:
+Voice work – SlyFoxx, Cainam and Moghedian, prepared by Yandros
+Music - Vivaldi, The Four Seasons, Spring III
+Thunder ambient 1 – from Gaetane’s FM The Korrigans
+Thunder ambients 2 & 3 – Prepared by FreddyFox, taken from 
+	http://www.partnersinrhyme.com/soundfx/Weather.shtml
+
+If you spot your work in this mission and don't see your name in this list,
+please contact Yandros and this file will be updated.
+
+
+
+Additional Thanks To:
+Epithumia - File hosting
+Avalon - For creating the very useful TOW
+Posters on TTLG TEG forum - For making DromEding somewhat easier :)
+
+Yandros REALLY wants to thank:
+Mark (AsyluM) for creating such a great mission and nearly finishing it for us.
+Matt (VladMidnight) for so doggedly pursuing the completion of it.
+Melissa (Moghedian) for her tremendous effort on reworking the story and texts.
+The whole Gold team for all the hard work that went into getting this thing released.
+
+
+
+
+* Loading information * 
+
+This level is Darkloader ready.
+
+
+
+* Copyright * 
+
+This level is (c) by Mark Smith, 5th November 2004
+
+Distribution of this level is allowed as long as it is free and the package is
+kept intact. You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

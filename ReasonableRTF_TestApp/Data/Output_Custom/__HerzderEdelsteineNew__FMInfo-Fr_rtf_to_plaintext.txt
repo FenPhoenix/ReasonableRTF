@@ -1,0 +1,144 @@
+
+Le coeur des gemmes : La nuit de la lune rouge - Version 1.0 - Octobre 2016
+================================================================================
+
+Auteur : Terra
+Réalisée en : Octobre 2016
+
+Avis important :
+Ne jouez pas cette FM sans avoir installé la dernière version
+du TafferPatcher, sinon des bugs graphiques pourraient survenir !
+
+Cette FM a été testée seulement en utilisant FMsel et NewDarkloader, il n'y a pas de garantie si vous utilisez des autres logiciels. 
+
+================================================================================
+
+Description :
+
+Les événements suivants se déroulent 8 semaines après la FM toits d'or ...
+
+On manque d'argent et la maison dans la forêt n'est pas le meilleur des logements. Mais un vieux copain m'a refilé des
+informations sur une gemme très précieuse appellée le cœur des gemmes. On dit que sa valeur est inestimable
+et qu'elle recèle un secret. Il est temps de partir pour une nouvelle aventure, mais je ne suis pas le seul intéressé par ce trésor. Un ordre mystérieux est, parait-il, également à sa recherche.
+Je ferais mieux de me renseigner sur cet ordre et aussi de lui rendre une petite visite. Il n'y a pas le choix,
+il possède une des bougies rituelles qui servent à retrouver cette gemme.
+Une fois dans ce village il me faudra localiser l'épée d'Arkford qui, selon de la légende,
+apparaît seulement quand la lune s'embrase. Aujourd'hui semble être mon jour de chance car la lune devient rouge.
+Quel dommage que je n'aie pas beaucoup d'équipement avec moi, seulement ma hache qui doit se trouver quelque part
+dans la forêt. Il me faudra le retrouver d'abord.
+
+================================================================================
+
+Informations sur je jeu :
+
+Jeu: Thief 2 - L'Age de métal (NewDark 1.22)
+Titre: Le coeur des gemmes: La nuit de la lune rouge
+Fichiers: miss21.mis, gem.gam
+Niveaux des difficultés: Normal, Difficile, Expert
+Magasin: non
+Carte: Feuille de notices
+Nouveaux graphismes: Oui
+Nouveaux sons: Oui
+EAX: Non
+Langues: DE/FR/EN
+Briefing: Non
+
+================================================================================
+
+Temps de construction : 1 an 4 mois
+
+================================================================================
+
+Nouveaux objets de :
+
+Eshaktaar Broken Triad
+Dedx
+Jason Otto
+Schwaa
+Christine
+Greenhorn
+Zontiks Kings Sale
+Cosas-Team 
+Saturnine Rose Cottage
+
+Nouveaux Meshs de :
+
+Eshaktaar Broken Triad, Ominöse Erbschaft
+Saturnine Rose Cottage
+Dedx 
+Tdbonko
+SoulTear
+Gaëtane
+
+Nouveaux graphismes de :
+ 
+  Ardiana
+  Daraan        
+  David Gurrea Hernandez (www.davegh.com)
+  Gecko
+  GORT
+  LarryG
+  Nameless Voice 
+  Necrobob
+  Nicked
+  Purgator
+  Renzatic
+  Sensut
+  Soul Tear
+  Vurt
+  Xorak
+
+PhotoRealistic: 
+CGTextures (www.cgtextures.com)
+GenealogyInTime (www.genealogyintime.com)
+PlainTextures (www.plaintextures.com)
+Drk
+Jermi
+Saturnine Rose Cottage
+David Gurrea
+Gaëtane
+Vigil
+Eshaktaar Broken Triad, Ominöse Erbschaft
+Thief Deadly Shadows
+ Pathologic
+
+Beta-testeurs :
+
+Cardia
+nightshifter
+Zoro
+LeMalin76
+Atropos
+silent_thief
+
+
+
+Traductions FR/EN :
+Zappenduster, nickie, LeMalin76
+
+================================================================================
+
+Scripts de 
+
+Nameless Voice - http://www.geocities.com/nameless_voice/
+Telliamed - http://thiefmissions.com/telliamed/
+            http://whoopdedo.org/projects.php?scripts
+
+Musique et sons de :
+
+Unterwegs in Düsterburg von Grandy
+Vampires Dawn von Alexander "Marlex" Koch
+Eshaktaar 
+Thief2x Team
+
+================================================================================
+
+Droit d'auteur :
+
+Cette FM a été construite par Terra,  Octobre2016.
+
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive.
+
+================================================================================
+
+Si j'avais oublié quelqu'un informez-moi parce qu'après un an de construction ça peut arriver aux auteurs très occupés...

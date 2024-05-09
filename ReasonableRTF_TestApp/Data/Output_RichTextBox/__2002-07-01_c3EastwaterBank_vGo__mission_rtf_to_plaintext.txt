@@ -1,0 +1,282 @@
+ 
+
+Author			Yandros (Russ Robbins)
+Filename		EWBankGold.zip
+Release Date      	02.04.04
+Original Release	07.01.02 (Contest 3 mission)
+Version	 	1.1
+
+
+Mission Description
+
+"My best fence just tipped me off that the Eastwater branch of
+First City Bank has recently acquired three valuable artifacts, which
+they're keeping in their vault.  Since the rent's due, this place
+seems as good as any to hit for some stuff to pawn off for the
+needed cash.
+
+I managed to get some information about the bank from a guy I know
+who used to bank there.  He said most of the floors are marble, which
+means I'd better take some earth crystals.  Also, all the lights
+in the place are electric, so water crystals would probably be useless.
+Good thing, since I'm out of them anyway.  Finally, he said the front
+doors are always well lit, well guarded and well locked.... so I'm
+counting on being able to find another way in.
+
+The area around the bank is secured with city gates after nightfall,
+but that shouldn't be a problem for me.  I'll slip over a wall as
+soon as it's good and dark...."
+
+
+Updates for Gold Version
+
+1. Added German and French support.  Thanks to Ramirez’ Old Fat Burrick
+and flying_hope for their work.
+
+2. Since the original way into the bank was so unrealistic, a small basement
+area has been added.  There just wasn’t room for it in the original due to the
+size restriction… but that’s no longer a problem.
+
+3. Made three difficulty levels instead of just one.
+
+4. Reskinned the guards so they weren’t just bluecoats.  I wanted to do this
+in 2002 but didn’t know how back then.  Badges? We don’t need no stinkin’
+badges!
+
+5. Retextured and relighted the fourth floor (thanks to Peter Smith for his
+wonderful suggestions in this endeavor).  Also worked with the lights in
+elevator shafts so they weren’t always on.
+
+6. Tweaked the timing of patrols a bit, and moved one guard to the new
+basement area.
+
+7. Changed the vault combination just for fun.
+
+
+New Credits for Gold Version
+
+Nameless Voice – Base for new crate texture (I modified it slightly)
+Targa – New footlocker texture
+Rob Hicks – DEDx port of T1 textures in NewMageX family
+
+
+Betatesters for Gold Version
+
+Peter Smith, Nightwalker, Jabberwocky and Dark Arrow – THANK YOU ALL!
+
+
+
+Play Information
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : Eastwater Bank
+File names		 : miss26.mis
+Difficulty Settings	 : Yes
+Equipment store		 : No
+Map/Automap		 : No/No
+New graphics		 : Yes
+New sounds		 : No
+New conversations	 : No
+New models		 : No
+EAX Support		 : Yes
+Multi language support	 : English, French and German
+Briefing			 : No
+
+
+Objectives
+
+1. Get into the bank.
+2. Find the vault combination.
+3. Steal the three artifacts from the vault.
+4. Find at least 1500/1800/2000 loot.
+5. Get out of the bank.
+6. Kill no one. (Hard/Expert only)
+
+
+Loading Information
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file,
+but put the whole "EWBankGold.zip" file into whatever folder/directory you
+want to on your hard drive, then in Darkloader setup, point to this
+folder/directory, and the mission should show up in the Darkloader
+main screen.
+
+
+Thanks to:  Everyone at TTLG, especially the Editor’s Guild…. and Emrys.
+
+
+Copyright Information
+
+This level is ©2004 by Russ Robbins
+
+This level was not made by and is not supported by Looking Glass Studios
+or Eidos Interactive, or the Lords of Chaos for that matter.
+
+
+
+
+
+Version Française – Daniel Markarian (Ramirez's Old Fat Burrick)
+
+
+ 
+
+
+Auteur			Yandros (Russ Robbins)
+Fichier	 		EWBankGold.zip
+Date de realisation	04.02.04
+Date de traduction	15.03.03
+Version	 	1.1
+
+
+Description
+
+"Un de mes meilleurs contacts vient juste de m'apprendre que 
+la Banque de Eastwater s'est vu tout récemment confier la garde
+de trois objets de grande valeur. Comme tous bon citoyen, je 
+dois payer mon loyer et cette nouvelle tombe à point. J'ai donc
+décidé que j'irai faire une petite visite surprise aux gens de 
+la Banque.
+
+Evidemment, je ne vais pas me lancer tête baissée dans cette 
+entreprise. J'ai tout de même pris la peine de m'informer un 
+peu sur cette banque. J'ai appris que la plupart des planchers 
+sont faits de marbre et par conséquent il me faudra me procurer 
+quelques flèches à mousse. De plus, les lumières de la banque 
+fonctionnent à l'électricité. J'ai vite compris qu'il ne fallait 
+pas trop compter sur mes flèches à eau pour cette mission. 
+Pour finir, l'entrée principale est bien éclairée, bien gardée 
+et les portes sont solidement verrouillées. Mais pour quelqu'un 
+qui a déjà inscrit la Première Banque Urbaine de Dayport à son 
+tableau de chasse, ces difficultés ne devraient pas être 
+insurmontables. Je devrais pouvoir trouver une entrée alternative 
+assez facilement.
+
+Les environs de la banque sont bien gardés par la milice durant 
+la nuit. J'attendrai tranquillement le crépuscule avant d'escalader 
+un mur et je me glisserai dans la noirceur jusqu'à la banque."
+
+
+Information
+
+Jeu			: Dark Project2: L'Age de Métal
+Titre 			: La Banque de Eastwater
+Nom du Fichier		: miss26.mis
+Difficulté		: Oui
+Magasin 		: Non
+Carte/Auto		: Non/Non
+Nouv. graphismes	: Oui
+Nouv. sons		: Non
+Nouv. conversations	: Non
+Nouv. modèles		: Non
+EAX Support		: Oui
+Multi language support	: English, French and German
+Briefing		 	: Non
+
+
+Objectifs
+
+1. Entrer dans la Banque.
+2. Trouver la combination du Coffre-Fort.
+3. Voler les trois objets de valeur contenus dans le Coffre-Fort.
+4. Trouver au moins 1500/1800/2000 en trésors.
+5. Sortir de la banque en ayant tué personne.
+
+
+Info Chargement
+
+Dézippage  : Faites des backups de tous les fichiers qui pourraient être écrasés.
+             Dézippez ensuite dans le dossier Dark Project 2 et chargez avec Thief2.exe.
+
+Darkloader : Copiez EWBankGold.zip dans votre dossier "mission" et chargez la FM avec darkloader.
+
+
+Remerciements
+
+TTLG et Emrys.
+
+
+Info Copyright
+
+Copyright (c) 2004 par Russ Robbins
+
+Je permet qu'on joue et distibue gratuitement cette 'map'en autant que son contenu reste intact.
+
+Cette 'map' n'a pas été réalisé et n'est pas secondée par Looking Glass Studios ou Eidos Interactive
+ou par le Maître des Ténèbres en personne pour ce que ça peut faire.
+
+
+
+
+
+Deutsch: flying_hope
+
+
+ 
+
+
+Author			Yandros (Russ Robbins)
+Filename		EWBankGold.zip
+Release Date      	04.02.04
+Original Release	01.07.02 (Contest 3 mission)
+Version	 	1.1
+
+
+Beschreibung
+
+"Ich hab ein Glück, ein guter Kumpel hat was gehört, dass in der Eastwater
+ein paar Dinge zur Abholung auf mich warten, ich sollte schnellstens zuschlagen.
+
+Ich hab über jemand der dort Kunde ist ein paar Einzelheiten zum
+inneren der Bank erfahren.  Er meinte, fast alle Flure der Bank sind aus 
+Mamor, also sehr laut und unpraktikabel zum schleichen, ich sollte ein paar 
+Moospfeile einpacken.  Ebenso sind alle Lampen elektrisch, die Wasserpfeile
+kann ich also daheim lassen.
+Ausserdem ist der Haupteingang sehr gut gesichert, immer eine Wache und 
+immer gut verriegelt.... Er meinte es gibt aber einen alten vergessenen Weg.
+
+Um die Bak rum sind die Wege durch Gitter gesichert, egal, ich kann ja über
+die Mauer springen, sowas hält mich nciht auf, mich nciht ;)...."
+
+
+Play Information
+
+Game			: Thief 2: The Metal Age
+Level Names		: Eastwater Bank
+File names		: miss26.mis
+Difficulty Settings	: Yes
+Equipment store		: No
+Map/Automap		: Yes (leer) / No
+New graphics		: No
+New sounds		: No
+New conversations	: No
+New models		: No
+EAX Support		: Yes
+Multi language support	: English, French and German
+Briefing			: No
+
+
+Objectives
+
+1. Geh in die Bank.
+2. Finde die Tresorkombination.
+3. Stiehl die drei wertvollen Dinge.
+4. Finde mindestens 1500/1800/2000 an Goldwert.
+5. Verlasse die Bank und lass alle am Leben.
+
+
+Startinformationen:
+
+Mit Darkloader starten.  Die ZIP-Datei nicht öffenen, sondern gezippt in dein FM-Verzeichniss Ablegen.
+Im Setup von Darkloader das Verzeichniss angeben und von dort aus starten.
+
+
+Dank an... TTLG & Emrys.
+
+
+Copyright Information
+
+This level is ©2004 by Russ Robbins
+
+This level was not made by and is not supported by Looking Glass Studios
+or Eidos Interactive, or the Lords of Chaos for that matter.

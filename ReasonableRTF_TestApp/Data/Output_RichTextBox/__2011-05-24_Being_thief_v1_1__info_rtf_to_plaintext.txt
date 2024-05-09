@@ -1,0 +1,85 @@
+Being Thief
+- Be Smart, Be Quiet, Be Garrett -
+__________________________________________
+
+Playing Information:
+
+Game : Thief II - The Metal Age 1.18
+Title: Being Thief
+Language Support  : English, Hungarian, Russian.
+Version: 1.1
+
+
+Contact: csabisensut@gmail.com
+Released : 24 05, 2011.
+Updated: 29 05, 2011.
+
+
+Requirements:
+
+- Thief II - The Metal Age 1.18;
+- DarkLoader 4.3, GarrettLoader 1.4 or above;
+
+This mission is compatible with all latest Thief II patches on May 2011
+(NV’s EP1, COK’s Sound Pack and the latest DDFX and WideScreen patch).
+I highly recommend the use of these patches!
+
+
+
+Custom scripts by:
+
+Telliamed (tnhScript 2.1.0.0);
+VKGaylesaver (script 1.2.0);
+LGS’ T2 Gen (version 27 March, 2000.).
+
+*The renamed modules are included and are installed automatically.
+
+
+Construction:
+
+Base: from scratch.
+
+Editor : Dromed 1.18 updated with DromEdToolkit 1.0 by Nameless Voice.
+
+Programs used:
+Corel PaintShop Pro X (graphics);
+HDD FreeHexEditor 3 (objects).
+
+Build Time : 1 year and so ...
+
+
+
+
+Translations:
+
+Nickie, Nightwalker and Bernie, Winter Cat.
+
+
+
+Beta testers:
+
+Nickie, Nightwalker, Gloria Creep, Dawggon, kittykat, Ravenhook, prjames,
+bob_doe_nz, Silent Warrior, undead gamer.
+
+
+
+Objects by:
+
+Jason Otto, Nameless Voice, Pinkdot, Targa, Dark Arrow, Vigil, R Soul, Nielsen74,
+Schwaa, The Watcher, Sluggs, Zontic, Greenhorn, Yandros, Sterlino, Hrothgar,
+pkaa, Christine, Shadowspawn, Digital Nightfall, tdbonko, Eshaktaar, Dhin,
+Yametha.
+
+Victrola music from Blood (game).
+
+__________________________________________
+
+
+This FM is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

@@ -1,0 +1,60 @@
+===============================================================
+The Plot Thickens V1.0
+===============================================================
+Author			: Anonymous
+Contact Info		: After Contest
+Homepage		: After Contest
+Date of Release	: 15 September 2008
+
+Title			: The Plot Thickens
+
+Description		: Thief 2 Fan Mission
+
+Story			: The rent is due soon, and the landlord doesn’t accept stolen goblets.  I’m heading off to see a fence tonight to unload some loot.  Farkus Jr.’s shoppe is near the docks in a seedy corner of town, and he’s requested that I come unarmed.  This should be an easy night.
+
+Inspirations		:Act I was inspired by the opening portion of Assassins, I enjoyed following the thieves back to the hideout.  Act II was inspired by Life Of The Party, I enjoyed the roof climbing a lot and wanted to include that aspect.  It also contains some inspiration from Ambush, specifically the city watch in the streets.  Act III was inspired by Kidnap, the Mechanists involved in an archeological dig, they are looking for lost artifacts that may help them in some sinister plot, I enjoy the Garrett as Indiana Jones feeling of that mission.  Act III is also tainted with The Mages Tower, mages and magic, and Life Of The Party again, specifically the necromancer’s tower.
+
+Bugs			: A puzzle in Act III sometimes has triggered without being fully completed.  No idea why, but it hasn’t affected gameplay.  There are Found Secret messages in Act III that come up for no reason.  The secrets total in the mission end stats is correct.  Some testers report a set of fly away doors in Act III.
+
+Tips			: Crates are weapons, they can damage your enemies if you are in a pinch for equipment.  There is a lot of new things to use in Act III, enjoy our new items.
+
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: The Plot Thickens
+File Name		: Miss20, Miss21, Miss22 & Miss23
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: No
+New Sounds		: Yes
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Standard difficulties.                           
+
+* Construction *
+
+Base			: Uncandego base mission
+Build Time		: 10 months
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+* Testing Thanks *
+
+Pavlovscat, jmmisenka, LarryG, Tannar, Brethren and a big thanks to Dussander for Thief Missions Beta, how I tested before I don’t know.
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

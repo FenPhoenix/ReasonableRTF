@@ -1,0 +1,126 @@
+Resonance
+
+v.1.19+  New Dark
+
+Playing Information:
+
+Game: Thief II - The Metal Age v1.19+
+Title: Resonance
+Author: Jeremy Catlin (HipBreaker)
+Released: December 17th, 2013
+Language Support : English.
+Version: 1.19+
+
+
+Build time:
+
+From scratch
+
+18 Calendar Days
+
+
+
+Introduction
+
+Basso has been missing for days. In your efforts to locate him, you have narrowed down his location to a mansion in South Quarter. Naturally, it’s held in force by a radical group of the City Watch known as “The Veil.” As always, this risk comes with a welcome reward: A bounty has been placed on the leader of the Veil “Dead or Alive.” In addition, any identification of individuals in The Veil will yield a bonus. It’s time to save Basso before it’s too late!
+
+
+
+
+* Loading Information *
+  
+The files in the zip folder are set up to be able to run the mission from the Thief 2 new game option.
+ 
+ DarkLoader ready
+
+* Known Issues *
+
+1. When playing on Ghost (Expert) level, if any guard is alerted in the mission when you knock out any AI, the mission will fail. Guards may be alerted without showing any outward sign of it.
+
+2. If the intro video is partly cut off, you may need to do the following:
+- Uninstall the mission
+- In cam_ext.cfg under the heading "Movie Playback", place a semi-colon in front of crop_movies like this:
+;crop_movies
+
+- Reinstall the mission
+
+
+
+*BETA testers:
+
+Nickie
+&
+Tannar
+
+These two testers went above and beyond for me. I am so fortunate to have worked with such an amazing team and they have directly impacted the quality of the end result.
+
+
+
+
+
+
+*Credits:
+
+Objects, meshes and textures:
+
+Ottoj55, Team CoSaS, Sensut, Saturnine, Daraan, Pinkdot, Schwaa, R Soul, Yandros, Eshaktaar, Purgator, NecroBob, DrK, TDBonko, The Watcher, Nameless Voice, Vigil, Vurt
+
+
+*Loot List:
+
+Tannar
+
+
+*Audio:
+
+A. Tolonen
+Drew Bricker
+Jeremy Catlin
+
+
+*Menu Art:
+
+Jeremy Catlin
+
+
+*Narrative:
+
+Leigh Catlin
+
+
+*Edits:
+
+Tannar
+
+
+*Voice Acting:
+
+Yandros
+
+
+*Scripts:
+
+Nameless Voice
+GayleSaver
+Telliamed
+
+
+
+Very special thanks to:
+
+Tannar, Nickie, Yandros and to Dussander for the Shalebridge Testing Forum.
+
+
+
+Copyright information:
+
+This level is (c) by :  Jeremy Catlin
+
+Distribution of this level is allowed as long as it is free and the package is kept 
+intact.  Feel free to include this mission in FM collection disks as long as they 
+are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+

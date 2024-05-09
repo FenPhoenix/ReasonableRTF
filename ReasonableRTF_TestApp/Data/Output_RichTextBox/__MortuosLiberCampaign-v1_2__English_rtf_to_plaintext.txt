@@ -1,0 +1,112 @@
+ 
+Author : Beltzer
+Title: Mortuos Liber Campaign
+Contact info : beltzer2@hotmail.com
+Date of release : 26 October 2018
+Version : 1.2
+Description
+Garrett was on his way to a friend in old Quarter when he passing
+this little town. He heard a couple on the street talking about a
+rare and valuable ring. It belongs to Sheriff Argus.
+He has a mansion in this town. Take some loot too.
+
+Play Information
+Game : Thief 2: The Metal Age v 1.25
+Difficulty Settings : Yes
+Map/Automap : Yes/Yes (mission 3 and 4).
+Language: English, German, French, Italian and Russian.
+Bugs
+If the player is in disguise in mission 2, and then attacks or otherwise
+blows his cover, the inventory may become unusable for the rest of
+the mission. Don't blow your cover.
+Good to know
+If you are stuck, go back and look around again.
+Things could have change.
+My previous missions
+Reunification Campaign
+The Abandoned Castle
+The Favour
+
+Loading Information
+Tested with NewDarkLoader
+and FM-Selector
+
+Thanks To
+Beta testers
+Aemanyl
+cardia1
+Gloria Creep
+nightshifter
+
+Other thanks
+To Urgrue who proofread all texts.
+To zappen and baeuchlein for German translations. 
+To piesel for Italian translations. 
+To Athalle for French translations. 
+To MoroseTroll for Russian translations. 
+To Dussander for shalebridgecradle.
+
+Custom objects
+Ar-Zimrathon
+Blackthief
+Daraan
+DC Project
+Dark Arrow
+Eshaktaar
+Gort
+Greenhorn
+JasonOtto
+jeffy
+LarryG
+Lord Alan
+Nameless Voice
+nicked
+Nielsen74
+Phantom 
+RSoul
+Schwaa 
+Sensut
+Sluggs
+Soul Tear
+Targa
+Team CoSaS
+Team Rose Cottage
+The Watcher
+Vigil
+von.Eins
+www.worldofgothic.de
+Zontik
+
+Meshes and skins 
+Dark Arrow
+Eshaktaar
+JasonOtto
+Necrobob
+Paweuek
+Purgator
+Sensut
+Shadowspawn
+
+Textures
+Zappen
+C-BEAM
+Remedy
+Vigil
+cgtextures.com
+
+Custom Script
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sounds
+Beauty-Man
+DarioD
+
+And obviously thanks to my fiancee Sandra for the
+moral support and putting up with me working on it 24/7.
+Copyright Information
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit for it.
+This level was not made and is not supported by Looking Glass Studios.

@@ -1,0 +1,83 @@
+==================================================================================
+March 2nd 2015      March 13th 2015-Revised edtion Version 1.0            
+==================================================================================
+
+Title		 : A Lucky Hand
+Filename	 : A_Lucky_HandFRV1.0
+Author		 : Ramirez' Brother
+Contact info	 : TTLG
+Date of Release  : March 2nd 2015           March 13th 2015 Revised edition Version 1.0
+Version              : Release Version  NewDark Version 1.22    Nvscript Version 1.2.4  and TnhScript Version 2.1.0 are needed to play it. Fm-Selector Recommended.
+Contest:Word Challenge 2014-2015
+
+==================================================================================
+
+              
+* Play Information *
+
+Game			 : Thief 2 The Metal Age
+Level Names		 : A Lucky Hand
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.         Win, Lose, Draw
+Map/Automap		 :  No. 
+New graphics		 : Yes.
+New sounds		 : Yes.
+New conversations	 : Yes.
+New models		 : Yes.
+EAX Support		 :  No.
+Multi language support	 :  No.  English
+Briefing	       		 :  No
+Equipment store              : No.
+
+* Construction *
+Base: From scratch. Built for the Word Challenge Contest 2014-2015   Over a 1000 hours of build time. Date of Completion and into beta testing February 20th,2015.
+===================================================================================
+===================================================================================
+
+
+Story
+Tonight is a big night at the Ramirez mansion!  Many nobles, including Lord Bafford, will attend a party to drink and gamble.  This means they should be carrying large sums of gold to gamble with.  This will also be my chance to grab Ramirez's new silver fire poker, the one he bought to replace the one I stole earlier.  Even if I don't score big from the other nobles tonight, at least I know I can pay my rent with a few pounds of silver from the poker.
+
+Ramirez's main guest tonight is a rich noble, Mr. Desmond.  He lacks the enthusiasm to repay his long-standing debt to Ramirez.  Ramirez figures this to be his chance to collect this old debt and close the books on him.  Ramirez has hired a couple of his thugs to acquire Desmond's ring.  This ring is thought by some to be priceless, so Ramirez' scheme is in place for tonight. Ramirez is known for breaking legs to collect a debt, so this could get ugly.  This ring sounds like a chance for me to turn over some big bucks, so I am going after it.  Between the silver fire poker and the ring, I should do well tonight.
+
+
+I was nabbed by the city watch, and thrown in a cell, so first I must escape, then I will need to find a disguise and an invitation to the party.  Ramirez would surely recognize me without some sort of disguise, so this should get me in without his notice.  The mansion is only accessible through a gated tunnel.  I will have to be careful because I don't want my cover blown.  My idea is to get in and get out without incident, and not end up in jail again.
+
+
+Another concern tonight is the Thieves Guild and what they may have planned with all of the rich nobles in town tonight.  I better find out what they have up their sleeves so they don't rob me of my chance to score big. I figure they may rob the nobles on their way out of town, but usually that's not their style.
+
+The Hammers will be on patrol tonight, along with a few city watch guards, so I better stay on my toes.  It will be busy in town, and even busier at the mansion.
+
+Now, lets see about breaking this jail first, then, off to a party!
+
+Technical Notes:  There is a point of time in the game when the player will be frozen to watch a scene.
+A trap called: TrapFreezePlayer. Don't be alarmed. It is part of the game.  Momentarily near the end of the scene, some weapons will pop up in inventory.  Do not raise them, as this will alert the ai around you!
+Just put them back in inventory and you will be fine.
+
+Enjoy!
+
+Credits: 
+Beta Testers: Fortuni, Tannar, Ravenhook, Itllrun10s 
+Music and Sounds:149840__darthrevan182__scream2,   173944__johnsonbrandediting__human-male-scream-multi,    180350__jorickhoofd__scream-noooh,220694__pep-molina__loud-scream , Love Theme-Blade Runner,LGS Music from Thief Gold.  Some voices from TDS.
+Object Creation: Targa,Cosas and Team,Nielsen74,Christine,Schwaa,Greenhorn,TDBonko,Sluggs,pdackel,
+Ar-Zimrathon,LarryG,Eshaktaar,Alun Bestor,Asgaroth,R Soul,Purgator,Jason Otto,NecroBob,Pedro(Cardia1),
+CBeam,Darran, Chris <chris@starforge.co.uk, RedFace for a small multibrush.
+Special Thanks: Fortuni-Spelling and Punctuation,and a secret, and for his Loot List. Tannar-editing Readables,Hammer Speak,Ravehook-finding a crash point. R Soul-Handless Noble Model. Telliamed-Scripts, Nameless Voice-Scripts. To FireMage for Sponsoring the contest. To SouthQuarter (Brethren) for hosting files for download. TTLG for their great forums. Not to mention the Taffers that play Thief 1, Thief Gold, Thief2, and of course, TDS.
+
+ * Loading Information *
+Get the latest version of Darkloader and run it.V4.3 should do. Will in fm selector best for v.1.22. Made with NewDark V1.22 Fm-Selector is recommended! 
+May not run with Windows Vista and Garrettloader, but was tested in Darkloader v4.3
+DO NOT UNZIP THIS FILE!!  
+ * Copyright Information *
+Ramirez' Brother March 2015
+Technical Information: Scripts used: NvScript.osm, and TnhScript.osm -included in the zip. Has been made using New DarkV.1.22 for Thief 2.
+Revision edtion includes the following revisions: Tunnel Secret door replaced with storage door.  Bank door WeaponStim Abort.
+
+
+UnKnown Issues:  Has not been tested on Windows98, or Windows2000. 
+ ==========================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent.  Enjoy!!! This mission
+was intended to be for fun only. 

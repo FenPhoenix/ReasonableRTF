@@ -1,0 +1,65 @@
+===============================================================
+The Cinder Notes		January 8, 2021
+===============================================================
+Author	:	Anonymous
+Contest	: 1 Million Unit contest
+Date of Release	:	January 8, 2021
+
+Title	:	The Cinder Notes
+
+Description	:	Thief 2 Fan Mission
+
+Story	:  While searching for more information about the "Book of Ash", Garrett discovered that a group of rich people managed to acquire a few of its pages, known as the “Cinder Notes”.  Not only would these notes be of high interest for the keepers, but to secure them would most likely prevent a disaster in the making. One of these individuals rented a room in a nearby inn for a few days. The district is densely populated but there isn’t much activity during daytime, and today the inn is closed for a short time before sunset. It’s an opportunity Garrett cannot miss. Once again, there isn't time to wait till nightfall. . .
+
+Briefing(s)	:	No
+Cutscene	:	No
+
+===============================================================
+
+* Playing Information *
+
+Game	:	Thief 2 TMA
+Mission Title	:	The Cinder Notes
+File Name	:	Miss 21
+Difficulty Settings	:	Yes
+Equipment Store	:	No
+Map	:	No
+Auto Map	:	No
+New Graphics	:	Yes
+New Sounds	:	Yes
+Languages	:	English
+EAX Support	:	No
+Briefing(s)	:	No
+                                       
+* Construction *
+
+Base	:	From Scratch
+Build Time	:	3 months
+
+===============================================================
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+===============================================================
+
+* Credits *
+
+Many of the new sounds are either modified T2TMA files or simply lifted from T3DS
+
+Textures and objects sources:
+
+Mayang's Free Textures -  HYPERLINK "http://www.mayang.com" www.mayang.com
+Animax - www.animax.it
+Ottoj55
+T3DS
+Vigil
+
+===============================================================
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.     

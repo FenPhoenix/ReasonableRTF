@@ -1,0 +1,98 @@
+Roofs Of Gold - Version 1.1 - September 2017
+
+================================================================================
+
+Author: Terra
+
+Date of release: September 2015
+
+================================================================================
+
+Story:
+
+A successful night is drawing to an end, again Garrett hustled some money from a rich merchant.
+Time to have a drink, right?
+Seems the beer was too strong - when Garrett wakes up again, there is no trace nor of his loot nor
+of his equipment. Stolen? From the Master Thief himself?
+Having a look around he sees the same faces, all those people who were in the bar before. But
+what about those voices?
+Garrett leaves the bar, something draws him to the Hammerite church. What does he find? A scroll!
+He doesn't know what's going on here, but he has a bad feeling about it ...
+
+================================================================================
+
+Play Information:
+
+Game: Thief 2 - The Metal Age (Version 1.22 NewDark)
+Mission Title: Roofs Of Gold
+File names: miss20.mis, gold.gam
+Difficulty Settings: No
+Equipment store: No
+Map / automap:  Yes
+New graphics: Yes
+New sounds: Yes
+EAX support: Not yet
+Multi language support: DE/FR/EN
+Briefing: Yes
+
+================================================================================
+
+Build Time: 1 Month
+
+================================================================================
+
+Translation:
+
+Zappenduster
+
+Custom objects:
+
+Cosas-Team (comment)
+Broken Triad (Eshaktaar)
+Thief Enhancement Pack Team
+
+Custom meshes:
+
+Dedx (lich, Keeper sword)
+
+Custom Textures Credits:
+
+David Gurrea Hernandez, Gob, Targa, PhotoRealistic, Purah, Timothy Andrew Wilson (_unDuLe),
+          Mayang's Free Textures, Vigil (www.washboardabs.net/thief/. 
+
+: Deus Ex, Max Payne, MOHAA, Painkiller, RTCW, Rune, Splinter 
+          Cell, The Wheel of Time, Undying, Unreal, Unreal Tournament.
+ 
+"Curiosity"  "Calendra’s Legacy".  
+
+ The Circle of Stone and Shadow
+
+Beta test:
+fibanocci, silent_thief, radogoal, H3H3, Ravenhook
+
+================================================================================
+
+Custom Music & Sound Credits:
+
+NVScripts by NamelessVoice
+Scripts by Telliamend
+
+
+A Night in Rocksbourg
+Unterwegs in Düsterburg by Grandy
+Vampires Dawn by Alexander "Marlex" Koch
+Eshaktaar
+(Help Me,Remember,tension2,garm1408,bookend. Sound file from OminousBequestGold)
+Ambloopm1 (m01sounds)
+
+Briefing Video and Voice by RandomTaffer
+
+================================================================================
+
+Copyright:
+
+This level is (c) by Terra, September 2015.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+============================================================================

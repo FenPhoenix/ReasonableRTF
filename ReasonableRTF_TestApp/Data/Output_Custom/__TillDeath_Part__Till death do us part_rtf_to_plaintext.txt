@@ -1,0 +1,143 @@
+==================================================================================
+04.01.2013                          
+==================================================================================
+
+Title		 : Till Death Do Us Part
+Filename	 : Tilldeath_Part
+Author		 : Anonymous
+Contact info	 : Anonymous
+Date of release	 : April 1st 2013  
+Version              : 64 Cubed Contest Entry
+
+==========================================================================================================================================
+
+              
+* Play Information *
+
+Game			 :Thief 2 The Metal Age-New Dark Version 1.19
+Level Names		 :Till death do us part
+File names		 :miss20.mis
+Difficulty Settings	 :Yes.         Slow,Faster,Master    (Easy, Hard, Expert)        
+Map/Automap		 :No. 
+New graphics		 :Yes.
+New sounds		 :Yes.
+New conversations	 :No.
+New models		 :Yes.
+EAX Support		 :No.
+Multi language support	 :No.           
+Briefing	       		 :No
+Equipment store             :No.
+
+* Construction *
+Base: From scratch for 64x64x64 cube contest 2013 sponsored by FireMage and Brethren. Presented in TTLG.  
+
+
+==========================================================================================================================================
+==========================================================================================================================================
+Story: It may be a deadly night for Garrett's friends Basso and his wife Jenivere.  They have been kidnapped and are being held for ransom.  It is midnight as Garrett arrives at the Baron's 
+museum when a dark cloaked figure approaches him, and hands him a Ransom letter demanding 11,000 loot.  A quick collection of Art and Artifacts should bring enough loot to save them.
+The 11,000 loot is to be delivered to the Burrick's Head Inn no later than 1:30 a.m.  Not a good night for Basso and Jenivere's honeymoon.  Willie the Whacker always gets his way or someone dies.  Garrett should plan on getting at least 11,000 Loot,and will have to allow some time to find his fence in SouthQuarter.
+
+Time is of the essence, as 45 minutes to scrape up 11,000 loot and fence it, doesn't leave a whole lot of time for errors on Garrett's part.
+A crucial test of skill and speed will certainly place Garrett's masterful touch in a way where pressure is no fun at all, but for a master thief?  No problem at all!
+
+The Baron's museum is heavily guarded along with a state of the art alarm system.  Garrett must get in, and get out within 45 minutes.
+Garrett will be watching the clock carefully, as he becomes the super shadow he was meant to be.  His skill as a master thief better pay off tonight for his friends sake.
+A Masterthief should have no problem obtaining all of the loot. You just never know if Willie the Whacker will ask for more ransom.  The clock is ticking !
+
+Note: When you first arrive at the museum, you will read the Ransom Note which was just delivered to you.  You may refer to it anytime, as it is in your inventory.
+
+There are clocks on all levels that keep accurate time.  Keep a watchful eye on them, as your friends are counting on you... Garrett.
+
+This is a game of challenges, so everyone please post your times in the contest thread !  Better yet your screen shot of the stats.
+Difficulty Notes:
+Slower Difficulty:Requirement 11,000 loot in 45 minutes
+Faster Difficulty:Requirement  12,000 loot in 30 minutes
+Master Difficulty:Requirement 14,000 loot in 30 minutes
+
+
+
+ * Copyright Information *
+ * Anonymous*
+ 
+ *Special Thanks To Beta testers: bob_doe_nz,Ravenhook,bikerdude,dbrilliant,itllrun10s,Gloria Creep,skacky,Peter Smith (Expert Ghoster)
+ *Special Thanks to SlyFoxx for voice acting Garrett on Intro/Briefing Video
+ *Special Thanks to Lazarus for creating the Intro/Briefing Video
+ *Special Thanks to model makers: Nameless Voice,Targa,OttoJ55,Sluggs,Nielsen74,Purgator, Independent Thief,Cosas, and the Team,TDBonko,R Soul,Christine,Zontik,Necrobob,Eshaktaar
+   Yandros,Alun Bestor,Gort,Redface,Dark Arrow, Schwaa,Raetsel,Ar-Zimrathon, Greenhorn,Pdackel,Si,Vigil,Timon,Althalus,Omer
+ *Special Thanks to TTLG,Shalebridge Cradle beta testing forums. Thiefmissions,Dark Fate, SouthQuarter,and to FireMage and Brethren for sponsoring this contest.
+ *Music Thief Deadly Shadows:Museum Ambients
+
+
+
+
+
+
+
+============================================================================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent. Anonymous copyright 2013
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

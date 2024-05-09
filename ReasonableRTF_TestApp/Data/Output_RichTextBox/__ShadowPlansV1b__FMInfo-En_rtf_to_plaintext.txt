@@ -1,0 +1,69 @@
+ 
+V.1b
+
+A Thief 2 Fan Mission
+by Ricebug
+Release date: March 17th 2012
+
+A 2-mission campaign.
+
+Story
+
+Lord Gregory, a wealthy sophisticate with ties to the Mechanists, has hired you to find his daughter, whom he believes was captured and taken hostage by some pagans. Like others before him, he has promised you a fat reward. But since you’ve had a mutual profitable relationship in the past, you see this as a way to make some fast money. However, things aren’t what they seem to be, and you soon find yourself in the middle of a sinister plan that could destroy many lives.
+
+Beta Testers
+
+bob_doe_nz, dbrilliant, edudrekib, ffox, Gloria Creep, ittlsrun10s, Sensut, SirFreddieM, SlyFoxx
+
+Notes and Bugs
+
+For those who don’t have ddfix installed, there’s an Xtras folder in the zip file with the two missions. Drag them into your main Thief2 directory after you’ve installed the FM via DarkLoader or GarrettLoader. Don’t worry, your zip archive won’t be messed up.
+
+Player be warned: Mission 2 was based on an abandoned mission, which also included its own gamesys. During beta, we found that the original author had modified the gamesys so much that it caused a lot of weird things to happen. Since the mission was nearly complete, it would have caused a lot of grief to have had to replace the gamesys. We fixed all the bugs we found, but one or two may still be lurking about. 
+
+Credits
+
+Alun Bestor: Crates, barrels
+CoSaS Team: Flower models, tiffany lamps
+David Gurrea: Gazebo textures (http://www.davegh.com)
+Haplo: Blueprint template, ladder setup in mission 1
+Independent Thief: Conversation rigging, mission 1 objectives, stand-in voice actor
+Istvan Varga: Mission 2 base map
+Jason Otto: Improved AI and vine models
+Jermi: Clouds, sky & moon
+R Soul: Vmaw textures, growling dog sound, banquet table and chairs
+Renzo “Eshaktaar” Thönen: Water textures, levers
+Scarykitties: Sealed combat bot
+Sensut & ffox: Scripting and mission goals troubleshooting
+Sluggs: Trees & fences
+SlyFoxx: Intro voice acting & one-liners
+Targa: Custom AI
+Vigil: Cobwebs, lightshafts
+Zappenduster: German translation
+
+Custom voice sounds taken from Thief 3: Deadly Shadows ©
+
+Intro Briefing Movie Credits
+
+SlyFoxx – Narration
+Zontik – Upside Down
+JIS – Welcome To Thief 3
+The Sentinel original artwork by Medieval Magneto
+
+Game			 : Thief 2: The Metal Age
+Level Names 		 : Meeting, Secrets
+File name 		 : miss20.mis, miss20,gam, miss21.mis, miss21.gam
+Difficulty Settings	 : Normal, Hard, Expert
+Equipment store		 : No
+Map/Automap		 : Yes/No (Mission 2)
+New graphics		 : Yes
+New sounds		 : Yes
+New conversations	 : Yes
+New models		 : No
+EAX Support		 : No
+Multilanguage support	 : No
+Briefing			 : Yes
+
+Disclaimer
+
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive.

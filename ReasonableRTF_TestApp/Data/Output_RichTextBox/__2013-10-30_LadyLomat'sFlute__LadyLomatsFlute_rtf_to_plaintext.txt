@@ -1,0 +1,211 @@
+===================================
+Author: Murray Lorden
+Contact Info: muzboz@gmail.com
+Homepage: www.muzboz.com
+Date of first release: November 2001
+Most recent update: October 2013
+
+* Languages: English, German, Russian *
+* Scroll down to see other languages * 
+
+
+ENGLISH
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     L a d y   L o m a t ' s   F l u t e
+
+"Lord Lomat's mansion sits proudly amongst the other houses of the wealthy
+and noble, off on the edge of town.  He even has his own moat and private gardens.
+
+It's well known that Lomat has a love of antiques, many of them procured 
+through secret channels known only to him and the other members of The Brotherhood.
+
+A big time thief known as The Hand just got caught trying to rob the place.  
+Too bad for him...  I heard he was going after Lady Lomat's Flute.  It must be a fine 
+instrument indeed.  I think I might have to investigate myself.  If The Hand thought it 
+was worth the risk, then it might just be worth the trip across town.
+
+After a little investigation, I've chosen the night when Lord Lomat is in the city attending 
+one of The Brotherhood's clandestine meetings.  He's just left in his carriage, and now's 
+my chance to go in!  I'll have to get over the moat, get inside, and find the flute.
+
+Thanks to The Hand, there's now a double roster of guards.  Oh well, you know 
+the saying...  if you want to perfect your art, you have to practice every night."
+
+
+====== Play Information ================================
+Game: Thief 2  (NOTE: This is designed to run on version 1.21 or higher, and may not run on 1.18 or lower).
+Title: Lady Lomat's Flute
+File Name: LadyLomat'sFlute.zip
+Difficulty Settings: Yes (Taffer, Sneaksy, Looter)
+Equipment Store: No
+Map/Automap: No
+New Graphics: No
+New Sounds: No
+Multi Language Support: No
+Briefing Movie: Yes  (NOTE: The movie codec is Xvid, and may not run if you don't have Xvid installed).
+
+
+====== Credits ================================
+Level designed and created by Murray Lorden of MUZBOZ Games.
+
+The intro movie illustrations and voice over were created by Brendan Barnett, actor and illustrator.
+A humble and heartfelt thanks to Brendan for his help, and for his love of the Thief series!
+
+
+Thanks very much to these great mission testers!
+Nickie
+Nightwalker
+Zappen  (also provided German translation)
+Soldi      (also provided Russian translation)
+Gloria Creep
+Undead Gamer
+
+
+==== Construction =====================================
+Base: None.
+Build Time: Several months in 2001.  Then revisited for several weeks in 2013!
+
+
+==== Loading Information ================================
+Use DarkLoader (or an equivalent) to load LadyLomat'sFlute.zip
+
+
+==== Copyright =======================================
+This level is Copyright (C) 2013 - Murray Lorden.
+
+Distribution of this level is allowed as long as it is free and the 
+package is kept intact.  You may not include this level in any map
+pack without my permission.  No-one may edit and redistribute this 
+mission without my express permission.
+
+This level is not supported by Looking Glass Studios 
+or Eidos Interactive. 
+===================================================
+
+
+
+
+
+GERMAN
+
+===================================
+
+Autor: Murray Lorden
+Kontakt: muzboz@gmail.com
+http://www.muzboz.com
+Ersterscheinung: November 2001
+Neuerscheinung: Oktober 2013
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"Lord Lomats Anwesen vor den Toren der Stadt hebt sich stolz von den Wohnsitzen anderer
+0Edelleute ab. Sein Haus ist von einem Burggraben umgeben und er besitzt sogar eigene
+Gärten.
+
+Jeder weiß, daß Lomat Antiquitäten liebt, einige sollen durch fragwürdige Wege Eingang in
+seine Sammlung bekommen haben, Wege, die nur er und die anderen Mitglieder der
+Bruderschaft kennen.
+
+Ein berühmter Dieb namens 'Die Hand' wurde neulich während eines Einbruchs beim Lord erwischt.
+Dumm für ihn gelaufen ... ich hörte er wollte Lady Lomats Flöte stehlen. Das muß in der Tat ein
+herrliches Instrument sein. Ich sollte da mal recherchieren, denn wenn 'Die Hand' so ein
+Risiko einging, könnte sich der Weg zu dem Haus lohnen.
+
+Meinen Nachforschungen gemäß werde ich in der Nacht zuschlagen wenn Lord Lomat in der
+Stadt weilt um einer der Geheimsitzungen der Bruderschaft beizuwohnen. Eben ist er per Kutsche
+abgereist und das ist die Gelegenheit einzubrechen. Es gilt über den Burggraben zu kommen,
+ins Haus zu huschen nud die Flöte zu finden.
+
+Daß nun doppelt soviele Wachen dort herumstreifen verdanke ich 'Der Hand'. Nun gut, wir kennen
+ja den Spruch 'Übung macht den Meister' - und das jede Nacht."
+
+
+====== Spiel-Information ================================
+Spiel: Thief 2  (nur für NewDark 1.21 oder höher).
+Titel: Lady Lomats Flöte
+Datei: LadyLomatsFlute.zip
+Schwierigkeitsgrade: Ja (Taffer, Schleicher, Abstauber)
+Ausrüstungsladen: Nein
+Map/Automap: Nein
+Neue Grafiken: Nein
+Neue Sounds: Nein
+Mehrsprachig: Ja (en, de)
+Vorspannfilm: Ja  (Codec Xvid, läuft vielleicht nicht überall).
+
+
+====== Dank an ================================
+Design und Bau durch Murray Lorden (MUZBOZ Games).
+
+Vorspannfilm und -ton stammen von Brendan Barnett, Schauspieler und Zeichner.
+Herzlicher Dank an Brendan für die Unterstützung und seine Sympathie für Thief!
+
+
+==== Bau =====================================
+Basis: Keine
+Bauzeit: Etliche Monate 2001, dann 2013 einige Wochen Überarbeitung!
+
+
+==== Lade-Information ================================
+Nutzt DarkLoader (oder vergleichbare SW) um LadyLomat'sFlute.zip zu installieren.
+
+
+==== Urheberrechtliche Anmerkungen: ====================
+Diese FM wurde 2013 von Murray Lorden erstellt, ihre kostenlose Weitergabe ist
+gestattet, sofern sie nicht verändert wird.
+Sie wurde weder durch Looking Glass Studios oder Eidos Interactive erstellt
+noch wird sie von dort unterstützt.
+===================================================
+
+
+
+
+
+
+RUSSIAN
+
+===================================
+Автор: Мюррей Лорден
+Для контактов: muzboz@gmail.com
+Страничка: www.muzboz.com
+Дата первого выхода: Ноябрь 2001
+Последнее обновление: Октябрь 2013
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Ф л е й т а   л е д и   Л о м а т
+
+"Особняк лорда Ломата гордо возвышается на окраине города среди 
+других домов богачей и знати. У него есть даже свой ров и частный сад.
+
+Хорошо известно что Ломат питает любовь к антиквариату, много из него 
+закупается по тайным каналам, известным только ему и другим членам Братства.
+
+Не так давно вор, известный как Кистень, был пойман при попытке ограбить его дом.
+Хреново для него... Я слышал, что затем он хотел зайти за флейтой леди Ломат. Это 
+должно быть прекрасный инструмент. Я думаю, мне надо самому заняться ей. Если Кистень 
+хотел рискнуть из-за нее, то может быть она стоит моей поездки через весь город?
+
+После небольшой разведки, я выбрал ночь, когда лорд Ломат находится в городе, посещая 
+одну из тайных встреч Братства. Он уехал в своей карете и теперь мой шанс проникнуть 
+в дом! Я должен буду пересечь ров , проникнуть внутрь и найти флейту.
+
+Благодаря Кистеню здесь теперь удвоенное число охранников. Ну, вы знаете, говорят... 
+если вы хотите усовершенствовать свое искусство , вы должны тренироваться каждый вечер."
+
+
+====== Игровая информация ================================
+Игра: ВОР 2 (ПРИМЕЧАНИЕ: Разработано для версии 1.21 или выше и может не пойти для 1.18 или ниже).
+Название: Флейта леди Ломат
+Имя файла: LadyLomat'sFlute.zip
+Уровни трудности: Да (Воришка, Крадущийся, Добыватель)
+Снаряжение: Нет
+Карта/Автокарта: Нет
+Новая графика: Нет
+Новые звуки: Нет
+Языковая поддержка: Да (Русский - Soldi).
+Видеобрифинг: Да (ПРИМЕЧАНИЕ: Видеокодек - Xvid и может не пойти, если он у вас не установлен).
+
+
+==== Конструкция =====================================
+Основа: Нет.
+Время работы: Несколько месяцев в 2001. Затем несколько недель переделки в 2013!

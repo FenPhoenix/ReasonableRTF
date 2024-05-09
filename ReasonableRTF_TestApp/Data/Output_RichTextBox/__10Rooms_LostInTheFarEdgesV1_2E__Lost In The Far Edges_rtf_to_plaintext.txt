@@ -1,0 +1,127 @@
+
+LOST IN THE FAR EDGES
+
+for the 10 Rooms Contest
+
+
+
+           Author:	 		anonymous
+           Release date: 		02/24/2014
+           Version			1.2 (03/08/2014)
+
+
+                    SYSTEM REQUIREMENTS
+
+           Intel Core i5-4570 CPU 3.20 GHz, 8,00 Gb RAM, GeForce GTX 660
+           Used textures with a resolution of 1024 px and a scale of 14.                        
+           There are a lot of objects in the scenes.                     
+           It's possible that fps might be low in places on slower systems
+
+           Also requires:                        
+           Option new_mantle enabled in cam_ext.cfg.
+           Disable Enhancement Pack (I use other textures with the same names)                      
+            
+
+                    DESCRIPTION
+
+           Find out for yourself. Enjoy the game! 
+
+
+                    PLAY INFORMATION 
+
+           Game:				Thief 2: The Metal Age
+           File name:			miss20.mis
+           Difficulty Settings:		Yes
+           Equipment store:		No
+           Map/Automap:			No
+           New graphics:			Yes
+           New sounds:			Yes
+           New models:			Yes
+           EAX Support:			No
+           Multi language support:		English, Polish, Russian
+           Briefing:				No
+
+
+                   CONSTRUCTION 
+
+          Base:		                     From scratch
+          Map Size:	                     Medium
+          Build Time:	                     7:09:43:40 (178 hours).
+
+
+                CREDITS   
+
+                TRANSLATION
+
+
+            Dront
+            Keeper M.
+            MoroseTroll
+            nickie
+
+
+                SCRIPTS
+
+
+            Nameless Voice 
+            Telliamed
+
+
+                OBJECTS & TEXTURES
+
+
+           C-BEAM
+           Christine
+           Daraan
+           DrK
+           Elvis
+           Gecko
+           Necrobob
+           Ottoj55
+           PinkDot
+           Sensut
+           Sliptip
+           Sluggs
+           TDBonko 
+           Vurt
+           Xorak
+           Zontik
+           me...
+
+
+                TESTERS
+                
+           clearing
+           Mira
+           Zoro
+
+           Enhanced skies:
+           Jermi
+
+
+           Additional resources from: 
+           A Night In Rocksbourg 3.  
+           Enhancement Pack
+           Thief Gold HD Texture Mod
+
+
+           Additional sounds and music:
+           District 9, Dreamfall
+
+    
+           Paintings:
+           Dominus (HYPERLINK "http://dominus.ttlg.com/" dominus.ttlg.com) - main menu
+           Mancomb-Seepwood (HYPERLINK "http://mancomb-seepwood.deviantart.com/" mancomb-seepwood.deviantart.com) - paint19
+           HYPERLINK "http://wallpaperup.com/" wallpaperup.com - paint28
+
+
+          I'm sorry if I've forgotten to credit anyone. Most likely I didn't know who the creator was. 
+          I truly thank you for your work and if you let me know, I'll add you to the credits.
+
+
+
+
+                   Copyright Information 
+
+          Distribution of this level is allowed as long as it is free and the package is kept intact.
+          This level was not made and is not supported by Looking Glass Studios or EidosInteractive

@@ -1,0 +1,140 @@
+Datei: When still…
+Autor: Eternauta (E.R.)
+Kontakt: enco_1999@yahoo.it
+Erschienen: 12.30.2010
+Version:1.1
+
+
+
+Geschichte: Dunkle Zeitalter 
+
+Das Christentum hat sich etabliert und breitet sich aus. Es dringt in die Kloster der Hammeriten, die Heiligtümer der Heiden und viele Häuser. Es ist eine "Glaubensseuche", die Unruhe und Verwirrung allenortens auslöst. Zuerst traf es die Heiden, die wegen ihres Glaubens verfolgt wurden. Die zahlreicheren und besser gerüsteten Hammeriten konnten sich anfangs behaupten, wurden dann aber auch nach und nach in die Knie gezwungen. Nur wenige unbeugsame hielten durch, aber ihre Zahl nahm ab, da einer nach dem anderen spurlos verschwand.
+
+Viele Kloster wählten die Zusammenarbeit mit dem Vatikan, lieferten Heiden und Ketzer an die Schergen des Klerus aus und hofften sich durch die Zahlung einer “Unabhängigkeitssteuer” retten zu können. Das schaffte ihnen einige Freiräume, während damit aber das Christentum weiter an Stärke gewann.
+
+Derweil rückt ein bisher unbekannter, wohlhabender Edelmann namens Lord Robert Lelder ins Rampenlicht.
+
+Auf der Suche nach einflußreichen Verbündeten unter der begüterten und machthabenden Schicht sandte der Orden des Hammers auch Gesandte ins Lord Lelders Haus, um ihn für ihre Sache einzuspannen. Julius und Edward, jene zwei für das Vorhaben auserwählten Brüder, wurden angewiesen, in ständigem Kontakt zum Kloster zu bleiben und über ihre Aktivitäten zu informieren, doch bald riß die Verbindung ab. Zunächst wies Julius in einem Brief auf ein Tagebuch hin, das der Sache förderlich sein könnte, doch dann erwähnte er das nicht mehr.
+
+Die Hammeriten baten nun Dich, dieses Tagebuch aufzuspüren und das Verschwinden der Brüder aufzuklären.
+
+--- 
+
+Zwar bin ich nicht gerade als Wohltäter bekannt, doch ich schätze, die Hammeriten könnten meine Hilfe in diesen Zeiten mal wieder gut brauchen. Mit Recherchen in Lelders Herrenhaus wird die Sache wohl nicht getan sein. Ich kann mir nicht helfen, doch ich befürchte, das wird eine lange und schwierige Nacht werden ...
+
+
+
+*****************************************
+
+* Spiel-Informationen *
+
+                                                                                    
+Spiel:	Thief 2: Das Metallzeitalter
+Missionen:	Lord Robert Lelder, The Way, The Ritual, The Mystery
+Dateien:	miss20.mis, miss21.mis, miss22.mis, miss23.mis
+Schwierigkeitsgrade:	Ja: "Engel" (Normal), "Erzengel" (Hart), "Satan" (Experte)
+Ausrüstungsladen:	Nein
+Katre:	Ja
+Neue Grafiken:	Ja
+Neue Geräusche:	Ja
+Neue Objekte:	Ja
+EAX-Unterstützung:	Ja
+Mehrsprachig:	Ja: talienisch, Deutsch, Englisch
+
+*****************************************
+
+* Aufbau *
+
+Gundlage:	Neubau
+Größe:	Mittel-Groß
+Bauzeit:	Viele Sonnen und Monde
+
+*****************************************************************************************
+
+* Zusatzinformationen*
+
+
+Achtung: - Jedes Licht (außer Fenster) kann gesteuert werden, wenn man den Schalter findet oder Wasserpfeile nutzt.
+
+
+* Texturen von *
+
+David Gurrea Hernandez
+CgTextures
+Christian
+DarkDragon
+TeamCalendra
+Thief_gotcha
+Alun Bestor (http://www.washboardabs.net/thief)
+Undyng
+Rune
+Whell of Time
+Painkiller
+Unreal
+Unreal “Return to Napali”
+(C)1998-2001 Remedy Entertainment Ltd (Max Payne)
+
+* Objektkünstler *
+
+Alun Bestor - Dark Arrow - Jason Otto - PinkDot - R soul - Sluggs - Team Calendra - Watcher
+ Team CoSaS - Eshaktaar - Nameless Voice - Reatsel  
+ Schwaa - Targa - Wille - Christine - Ewald - Nielsen74 - Redface - Sensut - TdBonko - Von Eins Yandros - Shadowspawn  Thief Object Enhancement Package - Greenhorn - LarryG
+
+
+* Musik *
+
+Half - Life 2
+Vampire the Masquerade - Redemption
+Vampire The Masquerade -  BloodLines
+J. S: Bach (concert for two harps)
+A. Vivaldi (concert for two violins)
+The fabulous world of Amélie
+Thief III (Thanks to Eric Brosius)
+
+*Geräuscheffekte *
+
+Half-Life 2
+Ac-Dc (bells)
+
+* Mein Dank gilt *
+
+den Betatestern
+Hotlyx
+Jericho
+Lady Rowena
+Namdrol
+Nickie
+Peter Smith
+PotatoGuy
+Tannar
+
+
+Danke an all die lieben Leute im TTLG Forum.  
+
+* Besonderer Dank an *
+
+
+·	Tannar für seine geduldige Hilfe beim Gegenlesen von Texten und Karten, Wertliste und unschätzbare Hinweise. 1000 Dank!!
+·	Lady Rowena, sie hat mir einiges beigebracht. Ich schulde ihr vielen Dank.
+·	Namdrol für das Korrigieren der Texte und seine Hilfe.
+·	Nickie für das Korrigieren der Texte und seine Hilfe.
+·	Peter Smith für seine Unterstützung, die Kampagne ghostbar zu machen und seine Hilfe.
+·	Jericho für das Anfertigen der Karten. 
+·	darthsLair für seine Hilfe und das Aufspüren von Fehlern.
+·	kfort und intruder für ihre Hilfe mit den Laternen.
+·	zappenduster für die Übersetzung ins Deutsche.
+·	Dussander für den Eintrag in shalebridgecradle.co.uk, ein guter Ort für Betatester.
+·	Valentina und Lara halfen beim Englisch und gaben mir Hilfe.
+·	Paolo, er erstellte den HL2 Soundtrack.
+·	Chiara, obwohl sie durch mich lange vor Dromed hocken mußte, ist sie mir noch gut gesonnen.
+·	Schließlich Dank an Looking Glass welche die wunderbare Welt des Meisterdiebs schufen.
+
+
+
+* Urherberrecht *
+
+Diese Mission stammt von Eternauta (E. R.), ihre kostenlose Weitergabe ist gestattet, sofern sie nicht verändert wird.
+Sie wurde weder durch Looking Glass Studios oder Eidos Interactive erstellt noch wird sie von dort unterstützt.
+
+* Für Silvana und Opa Marcello *
+

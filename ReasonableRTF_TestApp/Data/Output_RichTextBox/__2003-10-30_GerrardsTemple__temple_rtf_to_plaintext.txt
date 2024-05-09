@@ -1,0 +1,130 @@
+Gerrard’s Temple, 
+  A ‘prelude’ FM to Lord Azaghal Campaign
+
+  By: Jericho Barimen 
+  Release Date: October 30th, 2003
+
+  This is a relatively small FM. I was bored with the creation of a larger mission, so the idea was to
+  ‘quick release’ a small level. Then I added a few other things, so it’s not really that tiny. This level is
+  supposed to be a ‘prelude’ FM to my upcoming campaign, if I ever release it.
+
+  Please notice that it doesn’t contain much custom stuff, very few objects, practically no custom
+  Ais nor textures. I based my work purely on the original T2 stuff and focused on creating the right
+  kind of atmosphere and story. As for the story, I did not present a complete one in this FM, it’s
+  more a kind of an initial ‘splash’, an introduction of main characters, who will be involved in the events
+  later on.
+
+  I must admit I was a little inspired by T1 Lord Bafford Manor and the same as with the first Thief mission,
+  the idea was to give Garrett a ‘quick and easy job’. Just as he refers to it as ‘I have a simple job plan for
+  tonight’. :-)
+
+  Now for some technical comments... When you explore the outside of the temple, you might experience
+  a decrease in the frame rate. This is due to the large number of the objects rendered. I tried to cut down 
+  on the ‘object budget’ in this particular area of the mission, but people with slower hardware might
+  experience slower performance. However there shouldn’t be any serious problems with polys, max I
+  was able to detect was around 500, which I think is acceptable. I modified the front gate of the temple,
+  because the original one didn’t have ‘block vision’ and that was a bit irritating to explore the inside with
+  the drop in the frame rate, caused by the outside objects. Also, I had some room brush problem at the 
+  area close to the front gate, but I think it’s working fine now.
+
+  Be careful with the movie. Avi’s sometimes work tricky in Thief. If you opened Windows Media Player,
+  reboot your computer before you play “Gerrard’s Temple”, else you might not get the movie. Either way,
+  it’s best to reboot anyways. :-)
+
+  The movie is a low-resolution one, so don’t be surprised to see some “pixel simplification” sometimes.
+  The reason is size, the movie is “only” 20M in size. :-) Words on the flamewall fade in a different way
+  than in the original Thief movies, I used ‘dissolve’ instead of ‘fade’ option, I think ‘fade’ looks better,
+  but I was too lazy to change that. :-) 
+
+  The rest should work just fine... I hope. :-)
+
+  Gerrard’s Temple is fully ‘ghostable’, yet some sections might be a bit of a challenge to be ghosted.
+
+  The whole thing took me about 2-3 weeks to complete. Releasing an FM is such a time-consuming effort.
+  Anyway, please enjoy this FM and in case anyone wants to share his impressions, I’d be very happy if 
+  you email me at jericho_data@o2.pl, in case you want to ask about something or you want to point
+  something out or have any comments or flames. I want to learn from this FM and improve in the future.
+
+  One final comment. I was lucky to have a GREAT team of beta-testers!!! These guys were true
+  watchdogs and hunted down all of the bugs, as well as provided valuable comments and suggestions
+  for improvements.
+
+  Have fun cracking the secrets of ‘Gerrard’s Temple’!
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Briefing (in case someone can’t download an AVI briefing)
+  “I have a simple job plan for tonight. A small, city Hammer temple has recently attracted my attention.
+  Not that I’d like to marvel at its architecture, but the  temple should hold some nice valuables and I think
+  I need them more than the Hammers do. A priest in charge, named Gerrard will be out of the temple
+  tonight, leaving on some kind of mission for the Hammer order. This should make my job easier. Still,
+  I should watch out for Hammer guards. The front entrance is guarded as always, so I’ll be looking for
+  another way in. I’m not sure, but there should be one. The tool I want is a crown, pure gold, adornments
+  and it should come out at a high price. A temple should hold some gold and jewelry as well, so I’ll make
+  sure they belong to the right person – me. An associate of mine has provided me with a map, which will
+  come in handy. OK, no point in waiting. The Hammers are burdened with wealth and I better hurry and
+  lift this burden off their shoulders. It’s time to go…”
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Mission Credits
+  - Story & Concepts: Peter Smith, Seth
+  - Voice Acting: Uncadonego, Seth
+- Objects: Schwaa, Namless Voice, DEDX, BlackRuin
+- Testers:  Peter Smith, azrarhn, Preno, Seth
+- Architecture: Alexius (for his ideas & tutorials)
+- Tutorials: Komag, Alexius
+- Special Thanks: TTLG community (Schwaa, frobber, Mortal Monkey, Yandros and others)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Contact info: jericho_data@o2.pl
+  Homepage: none
+  Description: Contains the first mission of the campaign.
+
+  Game: 			Thief 2: The Metal Age
+  Mission Title: 			Gerrard’s Temple
+  File name: 			miss20.mis
+  Difficulty Settings: 		Yes (Normal, Hard, Expert)
+  Equipment store: 		No
+  Map / Automap: 		Yes / No
+  New graphics: 			No
+  New sounds: 			Yes
+  Multi language support:	No
+  Briefing: 			Yes
+  Debriefing:  			No
+
+  * Construction * 
+  Base: 				From scratch
+  Build Time:			Less than a month
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Known Bugs
+- ‘Gerrard’s diary’ objective didn’t check off for one of the beta-testers, but since it worked OK for the others, I hope nobody will have problems with it.
+- I sometimes had some sound problems in front of the main temple’s gate, which I hope was successfully eliminated
+- Sounds inside the temple might sometimes seem unrealistic, AIs are often sensitive. This was improved in the final version and should now be a trade-off between unrealistic and fully realistic.
+- If the AVI briefing does not run, you need to reboot.
+- I struggled to make both outside ponds climbable, so you can mantle out of the water. It should work OK now, but still one of the beta-testers reported some difficulties with mantling out.
+- I had some duplicated objects in this FM, I tried to eliminate all of the doubles, but cannot guarantee I hunt them all, although I think I did.
+- There are a few sitting AIs in this FM. They sometimes might behave strange, but I had to edit their properties in order to avoid some bad looking things (like having them stand inside of the chairs or pews). So this is a lesser-evil. Sometimes when you BJ them, they might make a step forth or jump back before they fall onto the ground.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Loading information:  Play with Darkloader.  Do not unzip unless you really want to.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Copyright * 
+
+  Copyright (c) October 2003, Jericho Barimen
+  Permission is granted to freely play and distribute this level providing it remains whole and 
+  intact.  This level may not be used as a parachute replacement. This level was not made and is
+  not supported by Looking Glass Studios or Eidos Interactive.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  The names or likenesses contained herein are purely fictitious and any resemblance to real
+  people, living or dead is purely coincidental.
+
+  Enjoy this FM.

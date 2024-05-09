@@ -1,0 +1,147 @@
+File name: The Last Lighthouse Keeper
+Author: Eternauta (E.R.)
+Contact info: enco_1999@yahoo.it
+Date of release: 03/22/2011 
+Version: 1.1
+
+
+                                                   
+ Story:
+
+
+I have been having dreams lately. Disturbing dreams. Three years ago I did a job on Christmas night at an estate called Snowever, located near a lighthouse. The job ended badly. In addition to not finding a gem that I had been commissioned to steal, I got into a confrontation with the lighthouse keeper, one Brian McHarty. I caused McHarty to fall to his death. This was a mess that my client, Lord Ezio, frowned upon. Word got around, and I was unemployed for a while.
+Anyway, that was in the past.  I am over it now. Or am I?  Lately, in my dreams, I have been haunted by McHarty’s ghost. He wants something from me. I am not sure what it is. I think it is revenge.
+
+******************************
+
+* Play Information *
+
+                                                                                    
+Game:	Thief 2: The Metal Age
+Level Names:	The Last Keeper
+File names:	miss20.mis
+Difficulty Settings:	Yes
+	(Guilty        “Normal”)
+	(Suspected      “Hard”)
+	(Innocent       “Expert”)
+Equipment store:	No
+Map/Automap:	Yes/No
+New graphics:	Yes
+New sounds:	Yes
+New models:	Yes
+EAX Support:	Yes
+Multi language support:	English, Italian
+Briefing:	No
+
+***********************
+
+* Construction *
+
+Base:	From scratch
+Map Size:	Medium/Large
+Build Time:	Approximately, 10 months
+
+****************************
+
+* Fixed in Version 1.1 *
+
+* Mission no longer crashes when entering game world.
+* Mission no longer crashes when blackjacking or picking up
+  Hammerites.
+* Candles now attach to plates correctly.
+* I was unable to replicate several reported problems but they were     
+  likely related to a script error and may have been fixed.
+
+
+****************************
+
+* Textures Credits *
+
+CgTextures
+Olga's Gallery
+Eshaktaar
+Vigil
+* Additional Textures Credits *
+
+Painkiller
+Painkiller "Battle Out of Hell"
+Undying
+Rune
+
+* Artists of the objects *
+
+Shadowspawn - Nameless Voice – Team CoSaS – Christine - von.Eins – PinkDot – Sluggs – Gort – Dark Arrow – Schwaa – Tdbonko – Targa – Syi - R Soul – Eshaktaar – Yandros packenhancement – Hrothgar – watcher – Greenhorn – Elvis – Zontik – Nielsen74 – Master_edd – Raetsel – PinkDot
+
+
+* Music *
+
+Dario
+Sephy
+Celtic Woman
+Lakeview Terrace
+
+* Sounds effects *
+
+Painkiller
+Undying
+Whell of Time
+
+* Thanks To *
+
+Alpha Tester
+Tannar
+
+Betatesters
+Mabsy
+Peter Smith
+Tannar
+Undead gamer
+
+Thanks to all the wonderful people at the TTLG Forums.  
+
+* Special Thanks To *
+
+-  Peter Smith, who convinced me to change a little history; for having corrected the texts, and for the invaluable advice. 
+
+-	Tannar, for the loot and consumables lists, for having corrected the texts, and for the invaluable advice.
+
+-	Yandros, for coming to the rescue and fixing some bugs.
+
+-	Mabsy, for the invaluable advice.
+
+-	SlyFoxx, for dialogues in English.
+
+-	Lord Alan, for dialogues in Italian.
+
+-	Dussander, for having me at his testing site (shalebridgecradle.co.uk).
+
+-	Nameless Voice and Telliamed, for the scripts.
+
+-	Dialogues are written by Peter Smith.
+
+
+* Copyright Information *
+
+This level was made by Eternauta (E. R.)
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+* For my family *
+
+
+******************************************************************************************
+
+
+ITALIAN ONLY:
+
+Storia:
+
+
+Ho fatto dei sogni, ultimamente. Sogni inquietanti. Tre anni fa, durante la notte di Natale, ho eseguito un lavoro in una tenuta chiamata Snowever, situata nei pressi di un faro. Il lavoro è finito male. In aggiunta al fatto di non aver trovato una gemma che mi era stato commissionato di rubare, ho avuto uno scontro con il guardiano del faro, un certo Brian McHarty. Ho causato la morte di McHarty. Fu un pasticcio che il mio cliente, Lord Ezio, disapprovò. Le voci viaggiarono rapidamente, ed io rimasi senza ingaggi per un po'.
+
+Ad ogni modo, tutto questo fa parte del passato. Sono andato avanti, oramai. Oppure no? Di recente, nei miei sogni, sono perseguitato dal fantasma di McHarty. Egli vuole qualcosa da me... Non sono sicuro di che cosa sia. Credo che voglia vendetta.
+
+
+***********************

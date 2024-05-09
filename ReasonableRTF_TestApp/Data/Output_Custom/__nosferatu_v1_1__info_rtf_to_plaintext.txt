@@ -1,0 +1,63 @@
+Nosferatu
+
+
+
+Playing Information:
+
+Title: Nosferatu
+Game: Thief II - The Metal Age 1.25 (New Dark)
+Author: Sensut
+Language support: English
+Released: 30 Oct, 2017.
+Updated: 13 Nov, 2017.
+Version: 1.1
+
+
+Contact: csabisensut@gmail.com
+
+
+This mission requires New Dark v.1.25 with fog and new_mantle enabled.
+ The use of the built-in Fan Mission Selector is recommended.
+Any HD mods or improvement packs are not recommended!
+Custom scripts:
+
+Telliamed (tnhScript 2.1.0.0);
+Nameless Voice (nvscript 1.2.3a);
+Public Scripts (script-t2 2.1);
+LGS’ T2 Gen (version 27 March, 2000);
+LGS’ T2 Convict (version 27 March, 2000).
+
+
+Custom motions by Shadowspawn.
+
+
+Custom objects, skins, textures:
+
+Christine, Greenhorn, Cosas Team, PinkDot, Jason Otto, Eshaktaar, Schwaa, Dark Shadow, Elvis, Zontik, Soul Tear, Firemage, Sluggs, R Soul, Nameless Voice, Saturnine, Targa, TDBonko, Nielsen74, LarryG, Nicked, Gort, Daraan, Dale, Purgator, Cardia, Necrobob, GSC Gameworld and Sensut.
+
+
+Ambients:
+
+Popol Vuh, Lustmord, Atrium Carceri, Robert Rich, GSC Gameworld.
+
+
+Text editions:
+
+Nightwalker
+
+Beta testers:
+
+Nightwalker
+
+Strelok71, blind_dog and Sidor from the Zone.
+
+
+
+This FM is © by  Sensut, 2017.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

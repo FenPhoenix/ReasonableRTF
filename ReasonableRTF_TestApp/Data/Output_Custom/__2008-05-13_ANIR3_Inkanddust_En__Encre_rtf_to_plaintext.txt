@@ -1,0 +1,154 @@
+                  A NIGHT IN
+   ROCKSBOURG
+=====================================================
+* Episode N°3 *   
+                 Ink and dust
+
+
+Author                           :      DrK (Kubiac)
+Contact info                  :      Riku_479@hotmail.com
+Release date                 :      May 2008
+Version                          :      1.1
+
+=====================================================
+
+* Description *      
+
+The third mission of my six-mission campaign. This is a keeper-like mission
+
+This mission is the sequel to « Discovery ».
+
+=====================================================
+
+* Briefing *
+
+You'd better watch the video...  ;)
+
+To be brief, It happens just after the two previous missions. Garrett is in the sewers. He’s trying to escape from the city of Rocksbourg according to Keeper Artemus’ advices, but he is in the dark and hasn’t much equipement left. He hears sounds everywhere, from the ventilation shafts and the pipes, the place is invaded by zombies.
+
+He finds an old lantern on the ground, and decides to take it in order to have light. Unfortunately, what he feared happens, he is discovered by the undead. He runs for his life through the underground tunnels of the city, but ends up in a dead end.
+
+Suddenly, a portal opens, and a voice can be heard : «If your survival is important to you, come with me, right now ». As the undead are approaching him, he doesn’t wait long and jump into the portal. The mission begins.
+
+=====================================================
+
+* Game information *
+
+Game                                        :      Thief II - The metal age 
+Campaign name                      :      Une nuit à Rocksbourg (A Night in Rocksbourg)
+Level name                              :      Encre et poussière (Ink and dust)
+.zip file name                           :      UNAR3_EncreUs.zip
+.mis file name                          :      miss22.mis
+Difficulty                                  :      Yes                  - Pickpocket
+                                                                                - Thief
+                                                                                - Shadow
+Equipement store                    :      No
+Map/Automap                          :      No
+New objects                             :      Yes                   
+New textures                            :      Yes
+New sounds                             :      Yes
+New musics                              :      Yes
+New conversations                  :      Yes
+New AI models                         :      Yes
+EAX Support                             :      No
+Multi language support           :      Yes
+Language                                  :      French / English
+Briefing video                         :      Yes              
+
+=====================================================
+
+* Construction *
+
+Base                             :      My inspiration.
+Build time                     :      Something like 2 years...
+Additional Info              :      To be continued !
+
+=====================================================
+
+* Loading information *
+
+To place the zip file in your FM folder.
+To run with DarkLoader, do not unzip the zip file.
+
+=====================================================
+
+* Credits*
+
+If I forgot anybody, well I’m sincerely sorry, and you have to know that I truly thank you for your work, whatever it is. Just contact me, and I’ll fix that mistake ;).
+Great thanks to :
+
+- CoSaS team, Eshaktaar, GORT, Lady Rowena, Nameless Voice, Ottoj55, Purah, Schwaa, Sliptip, Syi, Targa, Tdbonko, Vigil, and Yandros for custom objects and textures.
+
+- Shadowspawn, for custom motions.
+
+- Remedy Entertainment -> textures from « Max Payne » ((C) 1998-2001 Remedy Entertainment Ltd.)
+
+- All the people who helped me on the various forums, especially R Soul and Yandros.
+Thanks to Yandros for his beta-testing forum, “Wearytaffer forums”, which helped us a lot.
+
+- Looking Glass Studios for having created Thief I and Thief II.
+
+
+* Special thanks*
+
+Huge thanks to :
+
+- Ben Leffler, who generously allowed me to use a few sounds from his games “Exmortis”.
+
+- Sliptip, who created custom objects for me.
+
+- Nameless Voice, for the Thief enhancement pack.
+
+- Ottoj55 and Spitter, who created the portable lantern tutorials.
+
+- The CoSaS team, especially Digital Nightfall, Zacharias and Crc, for the Old City map and a library texture which I used as a base to create my library texture.
+
+- Velvet Paw and Martlet, who helped me to translate the readables.
+
+- BrokenArts and Nickie, who helped me to correct the translated readables.
+
+- Stefan_Key, for Garrett’s french voice.
+
+- Bikerdude, Quincy Jones Wannabe, Karl, Lindsay and Slyfoxx, for their incredible works on the english voices of Garrett and the Souls.
+
+- Bikerdude, BrokenArts, Silent_warrior, Quincy Jones Wannabe, Medd and Gaetane, for their great help as beta-testers.
+
+=====================================================
+
+* BUGS BUGS BUGS *
+
+Some AI might act oddly or have a strange behavior, due to the complexity of the mission.
+
+The portable lantern might stop working at moments. The mission is so complex sometimes the light gets stuck in a wall, but only in complex zones, like a rotated brush or an architectural detail. This is a bug from the engine, nothing can be done for it, I pushed dromed too far. Still, you simply need to walk into the light and it gets back to Garrett. Hopefully, the mission can be finished without the lantern, it is just a bonus to help the players.
+
+DO NOT interrupt the conversations, and don’t forget to act (following an AI who’s speaking to you, like if you were having a conversation while having a walk).
+
+In large views, as there would be too many things in sight the game might slow down or lag, some objects might also disappear from the screen.
+
+=====================================================
+
+* Recommendations *
+
+Minimum System Requirements are higher than for T2, you'd better have an updated system if you want to play my fm. You should play the mission after a fresh boot.
+
+ATTENTION : you must have an original and clean installation of the game. Uninstall graphic packs, especially the Thief enhancement pack, before playing this mission. If you don’t want to uninstall the Thief enchancement pack, well expect major bugs...
+
+Listen to entire conversations. Some give you clues, others give new objectives. 
+
+You must create keys in the mission : only the keys to the Light Zone and the Dark Zone are necessary, the other keys are optionnals. You don’t need to visit everything in the mission to complete it.
+
+You don’t need to read everything in the mission. The important readables, the ones related to your objectives, end up in your inventory. You can skip the others, but you can also miss a few hints and secrets...
+
+Also, you should play with fog for best atmosphere.
+
+=====================================================
+
+* Copyright Information *
+
+This level, some sounds, textures & artworks, are ©2008 by Eric Bigou (aka DrK, aka Kubiac)
+If you wish to use some of my works (textures, sounds, …), then contact me and I’ll tell you what you could use in your fms.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.

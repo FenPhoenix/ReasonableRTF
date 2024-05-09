@@ -1,0 +1,88 @@
+Lauter Angeber
+
+Eine FM von Grandmauden
+zum Jubiläum "20 Jahre Thief - das Metallzeitalter"
+
+NewDark 1.27 erforderlich
+
+Datei		-   TMA20AC_ShowOff.zip
+TTLG Seite	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Erschienen	-   27.03.2020
+
+Handlung
+
+"Teile ein Geheimnis mit einem Vertrauten,
+so kommt es nie ans Tageslicht.
+Teile es mit einem Schwätzer,
+dann verbreitet es sich wie eine Feuersbrunst.
+Geheimnisse offenbaren die Loyalität einer Person,
+die Dich im Zweifelsfalle auch Gegnern ausliefern könnte."
+(Aus dem Buch der Meditation)
+
+	Die Edelleute der Stadt führen sich auf wie in einem Rudel. Ganz gleich, in welchem Bezirk sie leben oder wie groß die Goldhaufen sind, auf denen sie hocken, sie teilen dieselben Vorlieben und Leidenschaften. Mode, Veranstaltungen, Zigarren ... eigentlich alles sterbenslangweilig. Doch ihre neueste Marotte könnte Dir ungewollt eine Hilfe sein.
+	Vor gut zwei Monaten kamen Berichte auf, nach denen in den westlich gelegenen Bergen ungewöhnliche Edelsteine gefördert wurden: Dunkelrote Kristalle mit einem Glimmen im Inneren. Ihrer Farbe und ihrem gezackten Äußeren verdanken sie die Bezeichnung "Purpurscherben". Und die Edelleute können gar nicht genug davon bekommen. Ein jeder will Purpurscherben, sei es an Halsketten, Stirnreifen, Armbändern oder allem anderen, womit sie sich zu schmücken pflegen. Die städtischen Juweliere verdienen sich eine goldene Nase daran, und wenn Du Dich geschickt anstellst, fällt auch etwas für Dich ab.
+	Am Stadtrand von Hightowne befindet sich eine Ausstellung der schönen Künste, das Furlong-Museum, und es heißt, dessen Kuratoren würden dort aus Purpurscherben gefertigte Kunstobjekte präsentieren. Zur Zeit ist das Museum wegen Bauarbeiten unzugänglich, zweifellos zur Aufrüstung der Sicherheitssysteme. Das Wachpersonal dürfte ebenfalls auf beutesüchtige Diebe wie Dich sensibilisiert sein, daher wäre das eine maßgeschneiderte Herausforderung für einen Meisterdieb. Wenn Du dies also durchziehst, könnte es Dein weiteres Leben ziemlich verändern ...
+
+Die Ereignisse in dieser FM spielen sich einige Jahre nach dem Thief-Dreiteiler ab.
+
+Spielinformation
+
+Spiel					-   Thief II - Das Metallzeitalter
+Level Name			-   Lauter Angeber
+Datei				-   miss20.mis
+Schwierigkeitsgrade		-   Rot / Karmin / Purpur
+Ausrüstungsladen		-   Nein
+Map / Automap			-   Nein
+Neue Grafiken			-   Nein
+Neue Geräusche		-   Ja
+Neue Konversationen	-   Nein
+Neeue Modelle			-   Nein
+EAX					-   Ja
+Mehrsprachig			-   EN/DE/FR
+Vorspann				-   Siehe obigen Text
+
+
+Bau
+
+Grundlage			-   Keine
+Bauzeit			-   5 Monate
+
+Ladeinformation
+
+Kopiere diese ZIP-Datei unentpackt in Dein FM-Verzeichnis und installiere die Mission per FMSel, NewDarkLoader, oder AngelLoader.
+
+Anmerkung des Autors
+
+- Ein höherer Schwierigkeitsgrad bedeutet weniger Gesundheitspunkte, weniger Ausrüstung, mehr Beuteanforderung sowie mehr KIs.
+
+Dank an ...
+Beta-tester:
+	Mat99
+	Tannar
+	pukey brunster
+	Acolyte6
+
+Sprecher:
+	AndrosTheOxen als Garrett
+
+Übersetzer:
+	Zappenduster (DE)
+	Apiai (FR)
+
+Titelbild:
+	Mat99
+
+Mein besonderer Dank gilt:
+Meiner Familie und meinen Freunden für ihre Unterstützung und Ermutigung zu diesem Vorhaben.
+Den Looking Glass Studios und Ion Storm zur Erschaffung dieser phantastischen Spielreihe.
+TTLG, die diese Reihe so lange am Leben erhielt.
+Skacky und Yandros für die Organisation des Wettbewerbs.
+
+Urheberrecht
+
+Diese FM stammt von © 2020 Grandmauden (Kevin Kolpack)
+
+Ihr kennt die alte Leier: Ihre Weiterverteilung ist nur in unverändertem Zustand gestattet. Alles andere bedarf meiner Erlaubnis.
+Diese Mission wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie von dort unterstützt.

@@ -1,0 +1,353 @@
+ 
+
+
+10/22/2017
+
+	Ce fichier m'a été traduit rapidement à l'aide de Google. J'espère que tout cela aura du sens pour les lecteurs ...
+
+ 
+
+********** ATTENTION **********
+
+CETTE CAMPAGNE FM REQUIERE LE TYPE 2 À REMBOURSER AU MOINS V.1.24
+
+VEUILLEZ NE PAS UTILISER DE PACKS D'AMÉLIORATION:
+La plupart des textures de cette campagne FM utilisent des fichiers matériels personnalisés (.mtl) pour leurs propres effets. Les packs d'amélioration pourraient présenter des résultats indésirables.
+(ex: mise à l'échelle de la texture et manque de certains effets visuels).
+
+
+
+Author:   GORT (Shaun M.D. Morin)
+
+Title:   The Rebellion of the Builder 2
+
+Filename:   TROTB2_v1.22.zip
+
+Game:   "Thief 2 The Metal Age"
+
+Contact info:   HYPERLINK "../../Users/Shaun M. D. Morin/AppData/Local/Temp/Rar$DRa0.426/www.oonaglah@gmail.com"www.oonaglah@gmail.com
+
+Current File Size:  ~1.4 GB | Unpacked: ~2.3 GB
+
+ 
+
+Normal Mission Versions:
+	Miss21, Miss22, Miss23, Miss24, Miss25, Miss26, Miss27, Miss28, Miss29, Miss30, Miss31, Miss32
+
+Hidden Mission Versions:
+	Miss33 Miss34 Miss35
+
+Mission Select Version:
+	Miss20
+
+ 
+
+Mission Pack Version:
+	FINAL v1.22. Si vous voyez cela, cela signifie que j'ai finalement publié cette campagne HUGE FM. Il a fallu beaucoup de temps pour le faire, mais voilà.
+
+ 
+
+AVIS:  Cette campagne FM a été construite et testée sur un PC avec ces spécifications:
+
+		Windows 10 64-bit
+		1 Sapphire Dual-X R9 270X 2GB Radeon Graphic (PCIe)
+		AMD FX 8350 8-core Unlocked (Black Edition) 4.00Ghz
+		8GB of RAM
+		Sound Blaster X-Fi Extreme Music Sound Card (PCI)
+		ASUS M5A99FX Pro R2.0 Motherboard
+
+Avoir au moins au-dessus d'un processeur 2 cœurs de 2,00 Ghz dans votre PC. Il existe des fichiers musicaux / sonores chers. Avoir au moins 4 Go de RAM DDR. Idéal pour 8 Go ou plus en RAM DDR. En outre, une bonne carte vidéo PCIe (au moins 1 Go ou plus) avec flore activée est recommandée.
+
+Les anciennes versions de Darkloader et Garrettloader ne sont PAS prises en charge par cette campagne FM. Utilisez le sélecteur FM ou NewDarkloader à la place.
+
+
+Commentaire Note:
+	C'est la version finale de la campagne FM. Toutes les missions peuvent être complétées. Les scènes coupées sont terminées.
+
+AVERTISSEMENT:   Ces missions ont été faites pour les joueurs de base qui connaissent bien le voleur 2. Ils peuvent ne pas être faciles à jouer, mais ils ne sont pas impossibles à jouer et à compléter chaque mission. Les missions cachées ne sont pas si importantes pour l'histoire. Ce ne sont que des add-ons pour s'amuser.
+
+Comme certains d'entre vous le saurons, Thief 2 a le bogue de corde. Ce bogue permettra au joueur de rebondir sur les cordes à une grande vitesse et peut tuer le joueur en frappant le mur. Cette campagne FM a des cordes placées dans son intégralité. J'ai constaté que cela pourrait avoir une incidence sur la façon dont le joueur est sur le terrain. Donc, pour éviter ce bug, vous voudrez peut-être sauter en place avant d'aller pour la corde.
+
+
+*Remarquer*
+	Cette version de TROTB 2 est une version publique. C'est la version finale. Tout doit être poli!
+
+	Cette campagne FM utilise des scripts personnalisés pour que différents événements fonctionnent. Il est également important de ne pas avoir d'améliorations personnalisées activées lors de la lecture de cette campagne FM (packs de remplacement HD Texture et quoi de pas). Cela pourrait avoir des effets indésirables (taille de la texture et manque de certains effets visuels).
+
+* Mission 11 Flight Controls *
+	Dans cette mission, les contrôles de vol du joueur sont similaires à ceux de leurs contrôles normaux (selon la vue du joueur). Cependant, la machine volante ne va pas en arrière. Le saut va faire monter le joueur, et il y a une icône de levier où l'arme du joueur serait. Le joueur descendra. En outre, il y a une icône de vue d'oiseau où les éléments seraient. En cas d'utilisation, cela entraînera une disparition de l'icône du levier. Pour le ramener, utilisez l'une des clés du cycle d'arme.
+
+
+ 
+
+* Description de la mission normale *
+
+Mission 1: "Les sables du feu et de la glace"
+	Garrett se retrouve dans un désert sans sens du temps ou du lieu.
+Il voit un camp au loin. Peut-être quelqu'un pourrait-il l'aider à revenir là où il devait être.
+
+Mission 2: "A Travel Through Smelter Volcano"
+	Eh bien, au moins Garrett à son calendrier actuel. Mais qui aurait pensé qu'il finirait au Smelter Volcano? Cet endroit est très chaud! Il doit sortir de ce volcan.
+
+Mission 3: "Une confrontation inattendue"
+	Garrett quitte le volcan, mais il se trouve maintenant dans une forêt épaisse où il pourrait se perdre facilement. Cependant, il remarque que le sol est faible dans certains endroits. Peut-être que le sous-sol pourrait être la meilleure voie. Mais qui ou quoi ont-ils fabriqué ces tunnels?
+
+Mission 4: "Une ville avec des problèmes"
+	Après une confrontation inattendue, Garrett et Saria décident de faire équipe pour creuser de la terre sur ce que les marteaux font. Pour connaître les faits, cependant, Saria doit interagir avec les gens de la ville. Mais la ville a ses propres problèmes à résoudre.
+
+Mission 5: "Le secret des bois occultes"
+	Saria entre maintenant dans les bois occultes pour chercher dans la région où était Garrett. Mais les choses peuvent ne pas être les mêmes pour elle quand elle y arrive. Le grand prêtre Hammerite lui a parlé d'une écriture rare qui parle d'une pierre gemme étrange située dans ces très bois.
+
+Mission 6: "The King's Request"
+	Garrett est en mouvement parce que quelqu'un a dit à la ville de regarder Smelter City qu'ils l'ont repéré sur le côté nord de la ville. Alors qu'il tente de s'enfuir, Richter lui dit comment infiltrer Castle Magnus pour recueillir des informations sur Sir Edward.
+
+Mission 7: "Un voyage secrète infini"
+	En évitant la montre de la ville, il entre dans la porte principale de la fonderie. Mais les portes l'ont fermé à l'intérieur (ou cela semble de cette façon). Donc maintenant Garrett est coincé là.
+
+Mission 8: "The Imposter"
+	Alors que Saria revient de Occult Woods, elle découvre que Garrett est absent. Elle se dirige vers la fonderie de fonderie, pour découvrir que les portes refusent de s'ouvrir. Elle se rend à Plutonic City pour voir si quelqu'un a vu Garrett. Bien que là, elle trouve autre chose d'importance.
+
+Mission 9: "The Forgotten Kingdom"
+	Bien que n'étant pas en mesure de trouver Garrett, Saria a obtenu des informations vitales sur l'endroit où Garrett pourrait être, grâce au roi David. Elle se dirige maintenant vers un royaume longtemps oublié dans la chaîne de montagnes du nord, dans l'espoir de trouver des réponses.
+
+Mission 10: "Le plan d'invention de Sir Edward"
+	Saria se retrouve dans les hauts sommets de la chaîne de montagnes du nord. Per King Brian, Garrett devrait être à proximité. Mais ce qui précède ne correspond pas exactement à ses impressions initiales de son nouvel environnement.
+
+Mission 11: "Destination Zeppelin"
+	Garrett et Saria rencontrent Richter pour construire un plan pour aller au-devant de sir Edward avant qu'il ne fasse une invention qui détruira vraisemblablement la vie telle qu'elle le connait. Garrett doit monter à bord d'une machine volante et essayer d'entrer à l'intérieur du Zeppelin avec les explosifs que Richter lui a donnés. Semble une tâche assez simple.
+
+Mission 12: "L'Albatros tombant"
+	Garrett se retrouve dans un grand dirigeable (un porteur de manèges). Il semble que Richter ait eu raison d'avoir un autre navire aérien. Donc maintenant, Garrett doit trouver un moyen de supprimer ce grand dirigeable à l'aide des explosifs qui lui ont été donnés par Richter et ensuite s'échapper.
+
+
+* Descriptions des missions cachées *
+	(Les missions cachées seront des cartes listées de Miss33 et activées. Elles peuvent être buggy, mais le joueur peut les compléter).
+
+Mission cachée 1: "???" (Carte NES / Famicom Solstice)
+	O) _ (O Que regardez-vous?
+
+Mission cachée 2: "Conflits urbains" 
+	D'une façon ou d'une autre, Saria pourrait se retrouver avec ... Bien, Moi et je veux aller pour mon défi. Donc, elle pourrait être mise dans cette mission cachée. :-)
+
+Mission cachée 3: "Nightmare Garrett"
+	Garrett a dû se contenter d'une ancienne flûte près d'une statue de Cthulhu et se réveiller dans un tourbillon alors qu'il se dirigeait vers l'arrière de la région. La zone semble familière, mais pas tout à fait juste ...
+
+ 
+
+* Information de jeu *
+
+Jeu:
+	Thief 2: The Metal Age patch V.1.24 (requis)
+
+Nombre de missions:
+12 missions normales, 3 missions cachées
+
+Noms de la mission normale:
+Les sables du feu et de la glace
+Volcan à travers le fonderie
+Une confrontation inattendue
+Une ville avec des problèmes
+Le secret des bois occultes
+La demande du roi
+Un voyage secret peu satisfaisant
+L'imposteur
+Le Royaume oublié
+Le plan d'invention de Sir Edward
+Destination Zeppelin
+L'albatros en chute
+
+Noms des missions cachées:
+O) _ (O
+Conflits urbains
+Garrett's Nightmare
+
+Nom des fichiers:
+
+	MISSIONS: miss21.mis, miss22.mis, miss23.mis, miss24.mis, miss25.mis, miss26.mis, miss27.mis, miss28.mis, miss29.mis, miss30.mis, miss31.mis, miss32.mis, miss33.mis, miss34.mis, miss35.mis
+
+	GAMESYS: ROTB2A.gam (for Garrett), ROTB2B.gam (for Saria)
+
+Les sous-titres:
+Oui.
+
+Paramètres de difficulté:
+Oui. (Moyen, audacieux et mortwish)
+
+Magasin d'équipement:
+Nan.
+
+Carte / Automap:
+Il n'y en a pas. Pardon.
+
+Nouveaux films (séances d'information et scènes coupées): * Tous utilisent le codec X-Vid MPEG-4 *
+
+Nouveaux graphiques:
+Beaucoup.
+
+Nouveaux sons:
+Beaucoup. (la plupart des audio sont au format .ogg).
+
+Nouvelles BGM:
+Oui.
+
+Nouvelles conversations:
+Oui.
+
+ Nouveaux modèles:
+Oui.
+
+Nouveaux mouvements d'IA:
+Oui.
+
+Support EAX:
+Oui.
+
+Support multilingue:
+	L'audio est en anglais seulement. Pardon... :-(
+Cependant, des textes et des sous-titres français sont disponibles.
+
+Effets du brouillard:
+	Oui. Doit être sur ou quelques missions peuvent ne pas avoir l'air bien.
+
+Musique personnalisée et BGM ambiant:
+	Musique personnalisée de scène coupée: tous les thèmes personnalisés par Shaun M. D. Morin
+
+"The Sands of Fire and Ice": "Trespasser (for Lost Colony)" de Jun Senoue pour SEGA (Dreamcast - Sonic Adventure 2 Battle)
+
+"The Secret of the Occult Woods": "Tomb of Ou (tombe du roi)" par Chamy (Dreamcast - Climax Landers / Time Stalkers)
+
+"Un voyage secrète infini": tous les thèmes par Shaun M. D. Morin
+
+"The Forgotten Kingdom": thème de la ville, château de Brian et thème souterrain par Shaun M. D. Morin "Knightman Stage Theme" par l'équipe de son Capcom (NES - Rockman 6 / Megaman 6)
+
+"Le plan d'invention de Sir Edward": tous les thèmes par Shaun M. D. Morin
+
+"Destination Zeppelin": "Higher The Air (Air Force Stage)" par l'équipe de son Capcom (PS2 - Rockman X7 / Megaman X7) "Mission 2" de Suguru Ishida (N64 - Chopper Attack)
+
+«L'albatros en chute»: quelques personnalisés par Shaun M. D. Morin
+
+"???" O) _ (O: Toute la musique est de Tim Follin (NES - Solstice)
+
+"Urban Conflict": "Elevator music 1" de Jonathan Dunn (SNES / Super Famicom - Jurassic Park) "Achetez-les avant qu'ils ne vous obtiennent!" par Robert Prince (PC - Wolfenstien 3D avec SXG-50 Synth) "E1M1" de Kevin Schilder (PC - Heretic: Shadow of the Serpent Riders with SXG-50 Synth) "Cold Reality (Short Version)" Composé par Larry Peacock & Brad Cross & Leslie Spitzer Mixé par Bob Brown (PC - Descente 2)
+
+"Le cauchemar de Garrett": "Thèmes de Giygas" par Keiichi Suzuki et Hirokazu Tanaka (SNES / Super Famicom - Earthbound / Mother 2) Ces thèmes ont été regroupés et masqués par Shaun M. D. Morin
+
+ 
+
+* Chargement des informations *
+	Laissez le fichier ZIPPED - NE PAS INSZIP ce fichier, mais mettez le fichier entier "TROTB2_v1.22.zip" dans tout ce que vous utilisez pour votre dossier Thief 2 Fan Missions.
+
+ 
+
+* Merci à *
+
+
+Testeurs Alpha:
+		Cardia
+
+	Testeurs bêta:
+
+		Massimiliano Goi
+		Cardia
+		Athalle (Lili)
+		Apiai
+		undead gamer
+		Kirgo
+		Dahenjo
+		Squadarofl (Squadafroin)
+		Zoro
+		Gloria Creep
+		Jax64
+		Dan Kimerly
+		Fibanocci
+		Ricebug
+
+	Traduction Française:
+
+		Apiai 
+
+	Traduction Russe:
+	
+		Dront
+		MoroseTroll
+		Soldi
+
+	Éditeurs de texte Anglais:
+
+		Ricebug
+		Dahenjo
+
+	Scripts:
+		GayleSaver "Miss3.osm and darkhooks.dlx"
+		Nameless Voice "NVScript.osm"
+		Telliamed "tnhScript.osm"
+		Kevin Daughtridge (kdau) "KDScript.osm and ThiefLib.osl"
+
+	Vurt, pour ses belles textures de lave et d'eau
+
+
+	Acteurs de voix:
+
+
+		Andrew Bartmess:
+			Garrett
+
+		Amelia Fenoglio (Caradavin):
+			Saria
+
+		Frere Staven:
+			Collector
+			Trevor
+
+		Random_Taffer:
+			Greg
+
+		Ceamonks890:
+			King Brian
+			Mage Apparition
+
+		ticky:
+			Frank
+			Tim
+			Fredrick
+			Richter Kensington
+			Mission 4 Guard
+(côté gauche de l'entrée principale du château Magnus)
+
+		bikerdude:
+			Hammerite
+
+		goldwell:
+			Ammon
+			Gardes égyptiennes  (Tout)
+		
+		Saxmeister:
+			Sir Edward (Karras' Bastard Son)
+
+		dlw6:
+			Bill
+			Keeper Apparition
+
+		Jeanne French (redleaf):
+			King Magnus
+			Dorah
+			Femelle Mechanist (m12)
+
+		Shaun M. D. Morin (GORT):
+Lui-même
+Mission 4 Guard
+	(côté droit de l'entrée principale du château Magnus)
+			Willow
+			Thistle
+			Kurshoks
+			Brandon (cut-scene)
+
+	Et n'oublions pas tout le monde à ttlg.com: si ce n'était pas pour vous tous, tous mes FM ne seraient pas possibles.
+
+ 
+
+* Informations sur les droits d'auteur *
+
+Les missions dans ce fichier zip sont © par Shaun M. D. Morin
+
+Ces niveaux n'ont pas été réalisés et ne sont pas supportés par Looking Glass Studios ou Eidos Interactive. Bien qu'ils fonctionnent bien pour moi, ils peuvent ne pas être complètement compatibles pour les autres PC. Assurez-vous que votre codec vidéo "X-vid MPEG-4" est à jour.

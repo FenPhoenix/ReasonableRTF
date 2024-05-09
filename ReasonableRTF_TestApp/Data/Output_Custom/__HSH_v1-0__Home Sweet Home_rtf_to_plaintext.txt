@@ -1,0 +1,36 @@
+Home Sweet Home
+A Fan Mission for Thief 2
+by Lady Rowena  (R.I.P.)
+Release:  v1.0, Dec 24 2017
+Requires NewDark v1.25 or higher
+Language Support: English, French, Italian, Russian
+
+Briefing
+Hey, it's been awhile since I set foot inside here. This place has seen better days. I'm not here to stay, anyway, just long enough to take care of a little job.
+
+A man called Sebastian has come to me with a tempting proposal. He wants me to steal an ancient artifact, the Unknown God, from the house of Mercuzio who owns a pharmacy in Wayside. Besides being rich, the guy is also an art collector. Just out of curiosity, I dug up some information on this Sebastian, as I've never heard of him before. It turns out that he's the partner and the right arm of Alexandros, a rather bizarre character, a stranger who appeared in the City one day out of nowhere.
+
+He purchased and restored the manor which once belonged to Constantine, and made a Gentlemen's Club of it. Eh, I wonder what Constantine would say about that! But I don't really give a damn. As long as I get paid, I'm not going to ask where the money is coming from or why they want that item so badly. Mercuzio's house is inacessible and well guarded, but its weak point is the pharmacy, which is attached to the manor. It's protected by a gate with a strong lock, but Zack, an old buddy, promised to provide me with the key for it. The authorities announced a curfew was in effect for some reason... but do they even need a reason? I suspect that they do it every now and then just to keep things under control.
+
+By the way, Reuben Varden, the new Sheriff, is another sinister villain, even worse than Truart was, if that's even possible. Anyway, a curfew has never slowed me down, so I'm not going to change my plans. I'm just waiting for Zack to bring me the key, then I'm ready to go.
+ 
+Mission Information
+This is the first of a 3-mission campaign that Lady Rowena was working on when she passed away.  Luckily a benefactor who had been testing it decided it should be released, but the other two missions are lost. We do have some texts and the briefing for the second mission; these are included in a file named Unused Books.zip in the mission archive. Lady Rowena posted a handful of screenshots from the lost missions on TTLG; we have included those in an Easter egg area. Can you find it?
+
+Gameplay Notes
+The mission will end once you complete the main objective, so if you intend to complete the optional objectives, you should do so before proceeding to the pharmacy.  Also, because this was to be the first of three missions, it ends on a bit of a cliffhanger.  Rather than change the ending to something which might be more typical and satisfying, we decided to leave it as is out of respect for her legacy.
+
+Credits
+Completion, Packaging and Bugfixing:  Yandros (although the mission was about 99% complete when it was given to me)
+
+Testing:  Random_Taffer, Nightwalker, marbleman, fortuni, FreddyFox, nickie, Tannar, Goldwell and PukeyBrunster
+
+Resources:  Mostly unknown.  If any of your objects, sounds or textures are being used, notify Yandros at TTLG and he will update the readme at a future time.  No attributions were documented by Lady Rowena so I don’t know any of the sources, other than an ambient taken from “End Titles” by Atrium Carceri.
+
+Translations
+English proofreading:  Tannar, fortuni, Yandros
+French:  Athalle
+Italian:  piesel
+Russian:  Soldi, Dront, MoroseTroll, Fernan
+
+

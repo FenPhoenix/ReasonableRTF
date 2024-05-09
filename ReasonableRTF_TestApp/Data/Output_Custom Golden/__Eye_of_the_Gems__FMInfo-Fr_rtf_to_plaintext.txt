@@ -1,0 +1,96 @@
+L'œil des gemmes: Ombres et brouillard  - Version 1.0 - Août 2017
+
+================================================================================
+
+Auteur: Terra
+
+Réalisée en: Août 2017
+
+================================================================================
+
+Description:
+
+Que l'ombre paraisse éclairée de lumière
+Que la lumière enveloppe tout et anéantisse les ombres
+Mais ainsi disparaîtra également la lumière car, sans l'ombre, la lumière n'existe...
+--- Annales du Vieil Arkford --- 
+
+Après avoir sauvé le cœur des gemmes, les Gardiens vinrent finalement le prendre. C'est vraiment étrange la vitesse avec laquelle ces Gardiens se sont emparés de mon butin. Quelques semaines se sont passées depuis cette aventure et je suis encore triste quand je pense à Basso et Jenivere. Je me demande qui sont les hommes derrière cet attentat ? Il me faut rester concentré, grâce au cambriolage de l'Ordre je me suis fait une idée d'ensemble de ce qu'ils ont en vue. Il paraît qu'ils essayent de réanimer une vieille divinité. Mais évidemment depuis cette information les Gardiens sont restés tranquilles.
+
+Entre-temps j'ai reçu la lettre d'un vieux collègue. Il y décrit un vieux château en forêt, abandonné depuis plusieurs années. On dit qu'il y aurait encore beaucoup de trésors et aussi un certain diamant. Cela pourrait être une indemnité correcte pour compenser l'autre aventure. Mon copain va m'attendre à coté de l'entrée pour qu'on puisse aller faire cette razzia ensemble, comme au bon vieux temps. J'espère que tout ira bien, je vais laisser mon équipement ici, ainsi je n'aurai pas à trimbaler trop de charge...
+
+================================================================================
+
+Informations :
+
+Jeu : Thief 2 - L'âge de métal (Version 1.22 NewDark)
+Titre de la mission : L'œil des gemmes: Ombres et brouillard 
+Noms des fichiers : miss22.mis, eye.gam (Cosas.gam Nine Year Sleep)
+Niveaux de difficulté : Non
+Inventaire : Non
+Carte : Oui (Credits: Athalle)
+Nouveaux graphismes : Oui
+Nouveaux sons : Oui
+EAX : Pas encore
+Langues : DE/FR/EN
+Briefing : Oui
+
+================================================================================
+
+Construit en : 5 mois
+
+================================================================================
+
+Traduction:
+
+Zappenduster (corrigé par Stefan Key)
+
+Objets customisés :
+Cosas Team- The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+
+Meshes customisés :
+GORT - Grunt Model
+
+Graphismes customisés :
+Cosas Team- The Nine Year Sleep
+SoulTear
+
+
+
+
+Beta test: Ionisator, fibanocci,  Atropos 
+
+================================================================================
+
+Musique & Sons persos par :
+AndrosTheOxen (The Eye)
+Frictional Games
+Thief2x
+Square Enix
+
+
+NVScripts by NamelessVoice
+Scripts by Telliamend
+
+BriefingVideo und Stimme 
+Random_Taffer
+
+================================================================================
+
+Copyright:
+
+Ce niveau est (c) par Terra,  Août 2017.
+
+Ce niveau n’a pas été fait et n’est pas garanti par Looking Glass Studios ou Eidos Interactive.
+
+============================================================================

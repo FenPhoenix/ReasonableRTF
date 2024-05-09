@@ -1,0 +1,69 @@
+                                                             
+-Flip a Coin (A Thief Fan Mission by uncadonego for the UNPC)-
+(uncadonego's no pressure contest that is, a.k.a. the 50X100X100 Challenge)
+===================================================================================            
+ Dec 15, 2009
+===================================================================================
+
+Author                  : uncadonego(Don Adam)
+Contact Info          : uncadonego@hotmail.com
+Homepage             : none, but check out a little webpage of screenshots of my missions at http://www.3dgathome.com/theadams/
+Date of Release      : December 15, 2009
+
+Description             : I was drinking with a friend tonight. He had a little too much, and started talking. It turns out he overheard an argument through his apartment window. A group of three second rate nobles stole an ancient coin from one of their richer relatives while they were at a party. They consider this rare and ancient coin their ticket to greener pastures, but they don't trust each other. The coin is being kept in a safe in one house, but the key is in another house, locked in a combination safe. The last noble reset the combination and has it hidden in their house. They are moving the coin through a fence as soon as possible. I've decided to pull this job tonight. I haven't planned for it, and I don't have much equipment with me, but if I wait until tomorrow night, the coin may be gone by then. I'll bring it to my fence, and he'll flip it to another fence. Flipping this coin may come up heads.
+
+Briefing                : No
+
+===================================================================================
+
+* Playing Information *
+
+Game                    : Thief 2: The Metal Age
+Mission Title           : Flip A Coin
+File Name               : miss20
+Difficulty Settings     : Yes
+Equipment Store      : No
+Map                          :No 
+Auto Map                : No
+New Graphics            : m'eh...some paintings as usual
+New Sounds              : No
+Multi-Language Support  : No
+EAX:			: No
+
+Briefing                : No
+     Length             : n/a
+     Size               : n/a
+
+Difficulty Level Info   : Normal, Hard, Expert (changes only in number of AI)
+
+* Construction *
+
+Base                    : from scratch
+Build Time              : Nov 10th 2009 to Dec 7th 2009. Then beta.
+
+
+Thanks to Nightwalker for betatesting.
+===================================================================================
+
+* Loading Information *
+Put this zip untouched right in the folder you designated Darkloader, usually your T2 folder.
+If you know how to run Darkloader, you should have no problems. If you don't, 
+find out how a http://www.ttlg.com and go to the fan missions forum FAQ.
+
+===================================================================================
+
+* Copyright Information *
+
+This level is © by uncadonego(Don Adam) 2009
+
+Distribution of this level is allowed as long as 
+it is free and the package is kept intact. You may not include this level 
+to any map pack without my permission. No one may edit and re-distribute this 
+mission without my express permission. (Note that this part is up to you, 
+just make it clear)
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+have fun!
+uncadonego

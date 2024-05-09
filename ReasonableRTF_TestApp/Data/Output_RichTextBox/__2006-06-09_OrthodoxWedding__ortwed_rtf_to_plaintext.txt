@@ -1,0 +1,79 @@
+
+===================================================================================
+Orthodox Wedding
+===================================================================================
+Title		 : Orthodox Wedding 
+Filename                  : Ortwed.zip
+Author		 : TDBonko (with friends)
+Contact info	 :  HYPERLINK "mailto:tdbonko@yahoo.com" tdbonko@yahoo.com 
+Homepage	 :  HYPERLINK "http://www.geocities.com/tdbonko" www.geocities.com/tdbonko
+Date of release	 : ???.
+Version	                 : 1.0
+                
+
+Description: This FM is inspired by the novel “90 Years Later” from Laza Lazarevic. Garrett decided to take a rest from his job and to visit his old buddy Boris who lives in a nice mountain village. So, he didn’t take much of   his equipment. When he saw Boris and heard his sad story, things become complicated.”
+NOTE: Please, don’t interrupt conversations. There is a noticeable slow-down in fps outside the church area.
+============================================================
+System Requirements:
+Minimum Requirements:
+Pentium IV 1500 MHz or higher
+256 MB RAM
+GeForce 4  64 MB or higher
+Recommended Requirements:
+Pentium IV 2.4 GHz or higher
+512 MB RAM
+ATI Radeon 9200 128 MB or higher
+=============================================================
+
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : Orthodox Wedding
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.
+Equipment store		 : No. 
+Map/Automap		 :  No 
+New graphics		 : Yes.
+New sounds	 : Yes. Music themes: “Miris poljskog cveca”,  “Oj goro” Braca Teofilovici,  
+New conversations	 : Yes 
+New models		 : Yes
+EAX Support		 : Yes
+Multi language support	 : No.
+Briefing			 : No.
+
+=============================================================
+* Construction *
+
+Base		: Dedx.
+Map Size	: Small.
+Build Time	: ?????
+Build Info	: 		
+=============================================================
+* Loading Information *
+
+Run from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Ortwed.zip" file into whatever folder/directory you want to on your hard drive, 
+than in Dark Loader setup, point to this folder/directory, and the mission should show up in the Dark Loader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote very good tutorials I learned from and everyone who make fan missions.
+=============================================================
+Thanks to: (Please, let me know if I forgot someone for credits)
+Jason L Tibbitts III for hosting
+
+Rob Hicks for DromED deluxe, HYPERLINK "http://www.geocities.com/nameless_voice/"Nameless_Voice,  HYPERLINK "http://www.angelfire.com/games4/shadowspawn/"Shadowspawn,  HYPERLINK "http://208.49.149.120/schwaa/index.html"Schwaa,   HYPERLINK "http://www.thiefmissions.com/targa/"Targa,    HYPERLINK "http://homepage.ntlworld.com/vaughn.cooper"Sluggs (for creating, his new FM)
+	=================================================================================================
+	Special thanks to:
+Freddy Fox, Nightwalker
+ for beta testing.
+Gore_Torn 
+for voice acting ( Boris)
+====================================================================
+
+* Copyright Information *
+
+This level is © by TDBonko (with friends)
+
+Distribution of this level is allowed in any way, shape, or manner you wish as long as it free.  However, you must leave the mission intact and you are free to use any object you like.
+ (custom made object)
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

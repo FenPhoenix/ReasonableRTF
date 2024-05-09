@@ -1,0 +1,36 @@
+Informations
+
+Mission titel		: M.S. Gold - Rust
+File name    		: MSG_final.zip
+Author			: Ratzyy (3mdrin)
+E-Mail			: info@ratzyy.de
+Website			: <http://www.ratzyy.de/>
+Released			: 01/28/2013
+Game				: Dark Project 2: The Metal Age
+Version			: 1.19 (newdark)
+Languages			: German / English
+
+Alpha-/Betatester	: Mayar
+		  	   	  The_Cle@ner
+              		  Ionisator
+           	    	  Quit pro Quo
+               	  hjem
+               	  Darklady
+				  Tannar
+
+Translation		: zappenduster
+				: Tannar
+
+Plot:
+
+She appeared again overnight. The proud ship of the Mechanists called M.S. Gold. For several years she was believed to be lost without a trace and now lies again in the waters of our town. This is the biggest talking point and they say that the ship's name has not been chosen without a reason. It would be helpful to grab some precious items from the vessel in order to get by for the next few weeks.
+[…]
+Maybe it was a mistake to enter the ship during this damnable weather. I've lost all of my equipment. Well, I'll look  around a little bit - although I've got the feeling that I should hurry …
+
+Notes
+
+Play with medium brightness settings!
+
+Play with Tafferpatcher 2.0.7 (with Patch 1.19 and Visual Enhancements!)
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

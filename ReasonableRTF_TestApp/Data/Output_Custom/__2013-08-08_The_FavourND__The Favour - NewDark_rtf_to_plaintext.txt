@@ -1,0 +1,211 @@
+Russian and German players scroll down.
+
+The Favour
+Filename : The Favour v1.1 - 1.19 NewDark.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Date of release : Aug 08, 2013 (v1.1 Aug 11)
+Version : 1.1
+Description : Garrett received a letter from an old friend a couple of weeks ago.
+Gwendolyn  wants his help and he owes her a favour. Read the letter
+again so you have everything clear before you start this quest.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : The Favour
+File names : miss20.mis
+Difficulty Settings : Yes. Different loot totals and tools.
+Advanced lockpicking on higher difficulties.
+A few more places to explore on Hard & Expert.
+Equipment store : No.
+Map/Automap : Yes/No
+New graphics : Yes.
+New sounds : Yes.
+New conversations : No.
+New models : Yes.
+EAX Support : No.
+Multi language support : Yes [Russian and German].
+Briefing : Yes.
+=============================================================
+*Known Bugs*
+None.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Large.
+Build Time : Almost 6 month including beta testing, many hours a day.
+Build Info : This is my sixth mission. My previous: Ransom, Lord Beltzer’s Mansion,
+Mistress Guennean’s Castle, The Reunification and The Abandoned Castle.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file,
+but put the whole "The Favour v1.1 - NewDark.zip" file into whatever
+folder/directory you want to on your hard drive, then in Darkloader
+setup, point to this folder/directory, and the mission should show up
+in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Lazarus for making the briefing video.
+Slyfox for voice acting in the briefing video.
+To the Beta testers on shalebridgecradle:
+bob_doe_nz, dbrilliant, gigagooga, Gloria Creep,
+itllrun10s, Jordan_MAF, prjames, Ravenhook,  Soldi
+and undead gamer.
+To nickie who checked all the texts in the mission.
+To Tannar, the moderator who set up the beta forum on shalebridgecradle.
+To MysteryMan who helped me with some technical stuff.
+To Yandros who helped me with ambient.
+To Soldi and Zappen for translations. 
+---------------------------------------------------------------------------------------
+Custom objects:
+(I really hope I’ve remembered everyone, please tell me if I’ve missed
+crediting someone)
+Ar-Zimrathon, Christine, Elvis, Renzo "Eshaktaar" Thönen, G'len
+GORT, Greenhorn, Hrothgar, Jason Otto, Nameless Voice, Nielsen74,
+pdackel, R Soul, Schwaa, Sluggs, Targa, tdbonko, Team CoSaS and
+Digital Nightfall, von.Eins, Yandros, Zappen and Zontik.
+
+Meshes:
+JasonOtto, Sensut, Team CoSaS and tdbonko.
+
+Textures
+Renzatic, RSoul and LarryG.
+
+Custom Script
+NV Script and TnhScript.
+
+Sounds
+galaxykidgamma and Vosvoy.
+-------------------------------------------------------------------------------------
+And obviously thanks to my wife Sofie for testing and moral
+support and putting up with me working on it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit for it :-)
+This level was not made and is not supported by Looking Glass Studios
+or Eidos Interactive.
+=============================================================
+
+Одолжение
+Имя файла : The Favour - 1.19 NewDark.zip
+Автор : Beltzer
+Для контактов : beltzer2@hotmail.com
+Дата выхода : Июль 20, 2013
+Версия : 1.1
+Описание : Гаррет пару недель назад получил письмо от старой подруги.
+Опять возникли долги по аренде, а Гвендолин попросила о помощи.
+Прочитайте письмо снова и вам станет ясно, с чего вы начнете свои поиски.
+=============================================================
+* Игровая информация *
+Игра : Thief 2: The Metal Age
+Название уровня : Одолжение
+Имя файла : miss20.mis
+Уровни трудности : Да. Разное количество добычи и предметов.
+Более трудное вскрытие замков на высоких трудностях.
+Больше местности для исследований на Hard и Expert.
+Магазин снаряжения : Нет.
+Карта/Автокарта : Да/Нет
+Новая графика : Да.
+Новые звуки : Да.
+Новые разговоры : Нет.
+Новые модели : Да.
+Поддержка EAX : Нет
+Языковая поддержка : Да, русский – Soldi.
+Брифинг : Да.
+=============================================================
+*Известные баги*
+Нет.
+=============================================================
+* Конструкция *
+Основа : Нет.
+Размер карты : Большая.
+Время разработки : Почти 5 месяцев, включая бета-тест, много часов и дней.
+Информация : Это моя шестая миссия. Предыдущие: Ransom, Lord Beltzer’s Mansion,
+Mistress Guennean’s Castle, The Reunification and The Abandoned Castle.
+=============================================================
+
+
+Der Gefallen
+Datei: The Favour - 1.19 NewDark.zip
+Autor: Beltzer
+Kontakt: beltzer2@hotmail.com
+Erschienen: 08.08.2013 (v1.1 11/08)
+Version 1.1
+Beschreibung : Garrett erhielt vor einigen Wochen den Brief einer alten Freundin.
+Gwendolyn braucht seine Hilfe und er ist ihr einen Gefallen schuldig. Lies den Brief
+sorgfältig durch, damit Du alle Aufgaben im Kopf hast.
+=============================================================
+* Spiel-Information *
+Spiel: Thief 2 - Das Metallzeitalter
+FM-Name: Der Gefallen
+Dateiname: miss20.mis
+Schwierigkeitsgrade: Ja. Unterschiedliche Wertanforderungen und Hilfsmittel.
+Schwierigere Dietrichanwendung.
+Auf Hart und Experte mehr zugängliche Areale.
+Ausrüstungsladen: Keiner
+Map/Automap: Ja/Nein
+Neue Graphik: Ja
+Neue Geräusche: Ja
+Neue Konversationen: Nein
+Neue Modelle: Ja
+EAX-Unterstützung: Keine
+Mehrsprachig: Ja [Deutsch/Englisch/Russisch].
+Briefing: Ja
+=============================================================
+Bekannte Macken: Keine
+=============================================================
+* Aufbau *
+Grundlage: Keine
+Map-Größe: Groß
+Bauzeit: Um die 6 Monate einschließlich Test, mehrere Stunden am Tag.
+Bau-Info: Dies ist meine 6. FM nach Ransom und Lord Beltzer’s Mansion,
+Mistress Guennean’s Castle, The Reunification and The Abandoned Castle.
+=============================================================
+* Ladeinformation *
+Läuft mit Dark Loader. Datei "The Favour - NewDark.zip" 
+gezippt lassen, ins DL-Verzeichnis kopieren und dann Darkloader
+aufrufen, die FM sollte im Hauptfenster erscheinen und installierbar sein.
+=============================================================
+* Mein Dank gilt *
+Lazarus (Briefing-Video)
+Slyfox (Stimme fürs Video)
+Beta-Tester Bei Shalebridgecradle:
+bob_doe_nz, dbrilliant, gigagooga, Gloria Creep,
+itllrun10s, Jordan_MAF, prjames, Ravenhook,  Soldi
+and undead gamer.
+nickie fürs gegenlesen der Texte
+Tannar für das Einrichten des Testforums bei Shalebridgecradle
+MysteryMan für technischen Beistand
+Yandros für Hilfe mit Ambients
+---------------------------------------------------------------------------------------
+Zusatz-Objekte:
+(Ich hoffe keinen vergessen zu haben, sonst Meldung an mich)
+Ar-Zimrathon, Christine, Elvis, Renzo "Eshaktaar" Thönen, G'len
+GORT, Greenhorn, Hrothgar, Jason Otto, Nameless Voice, Nielsen74,
+pdackel, R Soul, Schwaa, Sluggs, Targa, tdbonko, Team CoSaS and
+Digital Nightfall, von.Eins, Yandros, Zappenduster und Zontik.
+
+Meshes:
+JasonOtto, Sensut, Team CoSaS and tdbonko.
+
+Texturen
+Renzatic, RSoul and LarryG.
+
+Custom-Scripte
+NV Script and TnhScript.
+
+Sounds
+galaxykidgamma and Vosvoy.
+-------------------------------------------------------------------------------------
+Speziell meiner Frau Sofie fürs Testen, für moralische
+Unterstützung und Ansporn 
+=============================================================
+* Urheberrechtliche Information *
+Diese FM ist von © Beltzer
+Unkommerzielle Weitergabe auf jedem Weg gestattet.
+ Gilt für die unveränderte Mission unter Namensnennunf des Autors
+Diese FM wurde nicht von den Looking Glass Studios
+oder Eidos Interactive erstellt noch wird sie von dort unterstützt.
+=============================================================

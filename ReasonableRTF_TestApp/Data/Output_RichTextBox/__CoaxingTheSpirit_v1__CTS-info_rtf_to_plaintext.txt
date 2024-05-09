@@ -1,0 +1,542 @@
+        Coaxing the Spirit
+
+                         NewDark 1.23
+
+
+           Author:	 		Dale
+           Contact: 		thieffmdale@gmail.com
+           Release date: 		April 1st, 2016
+           Version			1.0 
+
+
+                    FAQ - Important
+
+	Requirements:
+•	make sure you have NewDark 1.23 installed
+•	turn the slider on your ambient volume down to about one fourth in relation to your master volume. You can set this in menu > options > audio. 
+•	make sure Fogging is on. It can be found in Menu > options > video.
+
+	     Other information:
+•	The FM contains an intro movie explaining the story. If for some reason it does not play, please find it in the folder MOVIES and play it from there before starting. If the movie refuses to play due to technical issues, you can read the story below.
+•	The gameplay is a bit different. You are not a thief but an explorer. You can avoid confrontations but you will have to break doors/windows, stack crates etc.
+•	When stuck, make sure to re-read all text that is available to you.
+•	This FM also requires new_mantle to be enabled in cam_ext.cfg but the installation of the FM should enable it automatically.
+
+Languages:
+·	The default language is English. To enable other languages, find the file CTS_EnglishVersion.zip, CTS_RussianVersion.zip, or CTS_FrenchVersion.zip in your Thief folder, extract it there and overwrite the files. To uninstall it again, simply extract the previous language.
+·	There are subtitles available for all languages, in the English version they are turned off by default. To turn them on, open fm.cfg and remove the ; from enable_subtitles.
+
+
+                    DESCRIPTION
+
+You play as Ortis, an adventurer and explorer. The story takes place in the same universe as Thief but in a different location.
+
+(the following is the transcript of the intro movie, you only need to read this if you can't play the movie)
+
+Cryptic incidents, unexplained and mysterious events. I’ve always had a bit of a soft spot for those... It so happens that one of them has captured my curiosity and lured me into a remote village far north. The people here are in a bit of a predicament and they’re starting to turn on each other out of despair. Once every few days someone winds up missing without a trace. Always happens at night, nobody ever sees it. 
+The intriguing part about this is how they choose to explain it. On a hill a few miles east of the village stands an old wooden house, locked up and abandoned from what the sources say. The locals are convinced it is somehow tied to it. I'll go pay it a visit tonight and I'll see what I can find.
+Deserted houses rarely make me uncomfortable but this one might just come close. There's one thing the locals kept repeating - Nobody lives there, nobody has seen anything there for years. But on the nights the people disappeared... there was a flame burning in the top window.
+
+
+
+
+                    PLAY INFORMATION 
+
+           Game:				Thief 2: The Metal Age
+           File name:			miss20.mis
+           Difficulty Settings:		Yes
+           Equipment store:		No
+           Map/Automap:		Yes
+           New graphics:			Yes
+           New sounds:			Yes
+           New models:			Yes
+           EAX Support:			No
+           Multi language support:	English, French, Russian
+           Briefing:			Yes
+
+
+
+                    CONSTRUCTION 
+
+          Base:				From scratch
+          Map Size:			Medium-Large
+          Build Time:			6-8 months
+
+
+               CREDITS   
+
+	TESTERS    
+
+	John9818a
+	Lili
+	Gloria Creep
+Ravenhook
+Soldi
+	Dev_Anj
+	Undead Gamer
+            
+	TRANSLATIONS
+
+	Soldi (Russian)
+	Apiai (French)
+
+TEXTURES
+
+	CGtextures
+	Dale
+	Sliptip
+	Noor
+	Gecko
+	SoulTear
+
+	OBJECTS
+
+	Dale
+	SoulTear
+	Sliptip
+	NamelessVoice
+	LarryG
+	Pinkdot
+	Elvis
+	Daraan
+	Zontik
+	R Soul
+	Nicked
+	Schwaa
+	Christine
+	DarkShadow 
+	The Watcher
+	Ottoj55
+	Eshaktaar
+	FireMage
+	CoSaS team
+	GORT
+	Greenhorn
+
+	AI OBJECTS:
+
+	Sliptip
+	PinkDot 
+	TDBonko 
+
+	SCRIPTS 
+
+      Nameless Voice 
+
+	PAINTINGS
+
+      Noor
+	William Blake
+	Hieronymus Bosch
+	Jacopo de' Barbari
+
+	VOICE-ACTING:
+
+	Dale
+	Noor
+
+	STORY:
+
+	Dale
+
+	MENU, VIDEO, AND IN-GAME ART:
+
+	Noor
+
+	FIRE & WATER FX:
+
+	Sliptip
+	Gecko/Bentraxx
+
+	MENU MUSIC:
+
+	"Shores of Avalon" Kevin MacLeod (incompetech.com)
+	Licensed under Creative Commons: By Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/
+
+	"Past the Edge" Kevin MacLeod (incompetech.com)
+	Licensed under Creative Commons: By Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/
+
+	"Colorless Aura" Kevin MacLeod (incompetech.com) 
+	Licensed under Creative Commons: By Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/ 
+
+	SOUND:
+
+	Dale
+	freesound.org:
+https://www.freesound.org/people/klankbeeld/sounds/268819/
+https://www.freesound.org/people/Sclolex/sounds/177958/
+https://www.freesound.org/people/cmusounddesign/sounds/71983/
+https://www.freesound.org/people/Kyster/sounds/136294/
+https://www.freesound.org/search/?q=woodpecker
+https://www.freesound.org/people/pepv/sounds/188287/
+https://www.freesound.org/people/inchadney/sounds/124925/
+https://www.freesound.org/people/swoods800/sounds/136283/
+https://freesound.org/people/jhumbucker/sounds/250539/
+https://freesound.org/people/DavidFrbr/sounds/327519/
+https://freesound.org/people/bareform/sounds/218723/
+https://freesound.org/people/DJ%20Chronos/sounds/123562/
+https://freesound.org/people/dheming/sounds/240978/
+http://freesound.org/people/rickaldo09/sounds/327613/
+https://freesound.org/people/lukofinc/sounds/246227/
+https://freesound.org/people/RutgerMuller/sounds/104012/
+https://freesound.org/people/Corsica_S/sounds/65173/
+http://freesound.org/people/J_Bond/sounds/201811/
+http://www.freesound.org/people/steveygos93/sounds/80401/
+http://soundbible.com/1551-Large-Door-Slam.html
+https://freesound.org/people/tomtenney/sounds/126577/
+https://freesound.org/people/samsmyname/sounds/51364/
+http://freesound.org/people/felix.blume/sounds/140047/
+http://freesound.org/people/CGEffex/sounds/95755/
+http://freesound.org/people/ianoboe/sounds/150203/
+https://freesound.org/people/jorickhoofd/sounds/161592/
+https://freesound.org/people/mystiscool/sounds/7139/
+https://freesound.org/people/slumbermonkey/sounds/84457/
+https://freesound.org/people/Sethroph/sounds/323420/
+https://freesound.org/people/bennychico11/sounds/44408/
+http://freesound.org/people/sarson/sounds/195522/
+http://freesound.org/people/f4ngy/sounds/240784/
+https://www.freesound.org/people/soundscalpel.com/sounds/110625/
+http://www.freesound.org/people/Rollo145/sounds/320555/
+http://www.freesound.org/people/luckydigs/sounds/168563/
+http://www.freesound.org/people/RutgerMuller/sounds/104011/
+http://freesound.org/people/smokum/sounds/83204/
+https://www.freesound.org/people/Godowan/sounds/240465/
+http://freesound.org/people/Mediapaja2009/sounds/162156/
+http://freesound.org/people/YleArkisto/sounds/324645/
+http://freesound.org/people/Sparrer/sounds/50506/
+http://freesound.org/people/BranRainey/sounds/142351/
+https://www.freesound.org/people/reacthor/sounds/130982/
+http://freesound.org/people/Unaxete/sounds/329795/
+http://freesound.org/people/cormi/sounds/196130/
+http://freesound.org/people/the_very_Real_Horst/sounds/240932/
+http://freesound.org/people/Ryding/sounds/94358/
+http://freesound.org/people/thiagoassis82terror/sounds/277279/
+
+
+
+Copyright Information
+
+This level was made by Dale.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack without my permission. No one may 
+edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+
+
+
+
+
+
+
+
+
+     Уговаривая дух
+
+                     NewDark 1.23
+
+
+           Автор:	 		Dale
+           Контакт: 		thieffmdale@gmail.com
+           Дата выхода:		1 Апреля 2016
+           Версия:		1.0 
+
+
+                    FAQ - Важно
+
+Требования:
+•	У вас должен быть установлен NewDark 1.23
+•	Установите уровень ambient volume примерно на ¼ от вашей обычной установки. Вы можете сделать это в меню menu > options > audio. 
+•	Включите опцию Fogging. Ее можно найти в меню Menu > options > video.
+
+Другая информация:
+•	FM содержит видеобрифинг, поясняющий начало истории. Если он по какой-то причине не проигрывается, найдите папку MOVIES и проиграйте ролик перед началом. Если ролик не проигрывается по техническим причинам, вы можете прочитать описание ниже.
+•	Геймплей немного отличается от обычных FM. Вы не вор, вы – исследователь. Вы можете избежать конфронтации, хотя эта FM сделана не в стиле ghost. Вам предстоит ломать двери и окна, использовать ящики для продвижения по миссии.  
+•	Когда застрянете, перечитайте все доступные вам тексты. 
+•	Эта FM требует new_mantle, находящийся в cam_ext.cfg, но при установке FM он должен подключиться автоматически. 
+
+Языки:
+·	Языком по умолчанию является английский. Чтобы установить другой язык, найдите файлы CTS_EnglishVersion.zip, CTS_RussianVersion.zip, или CTS_FrenchVersion.zip в своей папке Thief, распакуйте его там и перезапишите файлы. Для удаления просто извлеките предыдущий язык. 
+·	Доступны субтитры для всех языков, для английского они отключены по умолчанию. Чтобы включить их, откройте fm.cfg и удалите [;] перед enable_subtitles. 
+·	ОТ ПЕРЕВОДЧИКА: Скопируйте содержимое папки obj/txt16/… перевода и замените этими файлами соответствующие файлы игры. 
+
+
+                        ОПИСАНИЕ
+
+Вы играете за Ортиса, авантюриста и исследователя. История происходит в той же самой вселенной, где происходят и приключения Гаррета, но в другом месте.
+
+(Далее следует стенограмма видеобрифинга, вы можете прочитать ее, если у вас не проигрывается видео). 
+
+Загадочные происшествия, необъясненные и таинственные события. Я всегда питал что-то вроде слабости к ним... Так уж произошло, что одно из них захватило мое внимание и сподвигло в путешествие в отдаленную деревню далеко на севере. Люди здесь находятся в опасном положении и они уже начали нападать друг на друга от отчаяния. Один раз в несколько дней кто-нибудь из деревни исчезает без следа. Это всегда происходит ночью, никто ничего не видит и не слышит. 
+
+Самое интересное в этом деле – это то, как они все объясняют это. На холме, в нескольких милях к востоку от деревни находится старый деревянный дом, запертый и заброшенный. Местные жители убеждены, что все эти исчезновения связаны с ним. Я навещу его сегодня вечером и посмотрю, что там можно будет найти. 
+
+Пустые дома редко бывают интересными, но сначала мне надо до него добраться. Все местные жители повторяли только одно - никто там не живет, никто ничего не видел там уже много-много лет. Но ночами люди исчезали... кто-то видел огонь, горящий в верхнем окне.
+
+                  ИГРОВАЯ ИНФОРМАЦИЯ 
+
+           Игра:				Thief 2: The Metal Age
+           Имя файла:			miss20.mis
+           Уровни трудности:		Да
+           Снаряжение:            Нет
+           Карта/Автокарта:		Да
+           Новая графика:		Да
+           Новые звуки:			Да
+           Новые модели:		Да
+           Поддержка EAX:		Нет
+           Языковая поддержка:	Да (Русский перевод – Soldi)
+           Брифинг:			Да
+                       
+
+                    КОНСТРУКЦИЯ 
+
+          Основа:				С нуля
+          Размер карты:			Средняя-большая
+          Время работы:			6-8 месяцев
+
+            Благодарности   
+
+	TЕСТЕРЫ    
+
+	John9818a
+	Lili
+	Gloria Creep
+Ravenhook
+Soldi
+	Dev_Anj
+	Undead Gamer
+
+
+
+
+Discours d'un Esprit
+
+                         NewDark 1.23
+
+
+           Auteur : 		Dale
+           Contact : 		thieffmdale@gmail.com
+           Date de sortie :	1er Avril 2016
+           Version			1.0
+
+
+                    FAQ - Important
+
+	Pré-requis :
+vous devez avoir NewDark 1.23 installé
+déplacez le curseur du volume ambiance à un quart par rapport au volume principal. Allez dans menu > options > audio. 
+assurez-vous que le brouillard soit activé. Vous le trouverez dans Menu > options > video.
+
+	     Autres informations :
+Cette FM contient une vidéo d'introduction expliquant l'histoire. Si la vidéo ne fonctionne pas, lisez-la depuis le répertoire MOVIES avant de commencer la partie. Si la vidéo refuse de fonctionner pour des raisons techniques, vous pouvez lire l'histoire ci-dessous.
+Le style de jeu est différent. Vous n'êtes pas voleur mais explorateur. Vous pouvez éviter toute confrontation, mais vous devrez casser des portes/fenêtres, caisses, etc...
+Si vous êtes coincé, assurez-vous de relire tous les textes qui sont disponibles.
+Cette FM exige aussi que l'option new_mantle soit activée dans cam_ext.cfg mais l'installation de la FM devrait l'activer automatiquement.
+
+Langues:
+·	La langue par défaut est l'anglais. Pour activer une autre langue, chercher les fichiers CTS_EnglishVersion.zip, CTS_RussianVersion.zip, or CTS_FrenchVersion.zip dans votre répertoire Thief, extrayez le fichier de votre choix et écraser les fichiers. Pour revenir en arrière, extrayez simplement la langue précédente.
+·	Les sous-sitres sont aussi disponibles dans les mêmes langues, dans la version anglaise, ils sont désactivés par défaut. Pour les activer, ouvrir fm.cfg et retirer le point virgule de la ligne contenant ;enable_subtitles
+
+                    DESCRIPTION
+
+Vous jouez Ortis, aventurier et explorateur. L'histoire se déroule dans le même univers que Thief, mais dans un lieu différent.
+
+(ce qui suit est la transcription de la vidéo d'introduction, lisez-la seulement si la vidéo ne fonctionne pas dans le jeu)
+
+Incidents énigmatiques, événements inconnus et mystérieux. J'ai toujours un petit point faible pour ça... il se trouve que l'un d'entre eux a piqué ma curiosité et m'a conduit dans un village éloigné au Nord. Les gens y sont dans une situation un peu fâcheuse et ils commencent tous à désespérer. Régulièrement quelqu'un fini par disparaitre sans laisser de trace. Cela arrive toujours la nuit, personne ne voit jamais rien.
+Le plus fascinant c'est la façon qu'ils ont de l'expliquer. Sur une colline à l'est du village, se trouve une vieille maison en bois, verrouillée et abandonnée d'après ce qu'on dit. Les gens du coin sont convaincus qu'elle est impliquée d'une manière ou d'une autre. J'irai jeter un oeil ce soir et je verrai ce que je peux trouver.
+Je suis rarement mal à l'aise dans une maison déserte mais celle-ci pourrait être l'exception. Une chose que les gens continuent de répéter - Personne ne vit là-bas, personne n'a rien vu depuis des années. Mais les nuits où des gens disparaissent... il y a une flamme qui brûle derrière la fenêtre du haut.
+
+
+
+                    INFORMATION SUR LE JEU
+ 
+           Jeu :				Thief 2: L'âge de métal
+           Nom du fichier :		miss20.mis
+           Choix difficulté :		Oui
+           Achat équipement :		Non
+           Carte/AutoCarte :		Oui
+           Nouveaux graphismes :	Oui
+           Nouveaux sons :		Oui
+           Nouveaux modèles :		Oui
+           Support de l'EAX :		Non
+           Support Multi Langues :	Oui
+           Vidéo d'introduction :	Oui
+
+
+
+                    CONSTRUCTION 
+
+          Base :				A partir de zéro
+          Taille Carte :			Moyen-Large
+          Temps de création :		6-8 mois
+
+
+               REMERCIEMENTS   
+
+	TESTEURS    
+
+	John9818a
+	Lili
+	Gloria Creep
+Ravenhook
+Soldi
+	Dev_Anj
+	Undead Gamer
+
+	TRADUCTIONS
+
+	Soldi (Russe)
+	Apiai (Français)
+            
+	TEXTURES
+
+	CGtextures
+	Dale
+	Sliptip
+	Noor
+	Gecko
+	SoulTear
+
+	OBJETS
+
+	Dale
+	SoulTear
+	Sliptip
+	NamelessVoice
+	LarryG
+	Pinkdot
+	Elvis
+	Daraan
+	Zontik
+	R Soul
+	Nicked
+	Schwaa
+	Christine
+	DarkShadow 
+	The Watcher
+	Ottoj55
+	Eshaktaar
+	FireMage
+	CoSaS team
+	GORT
+	Greenhorn
+
+	OBJETS IA
+
+	Sliptip
+	PinkDot 
+	TDBonko 
+
+	SCRIPTS 
+
+             Nameless Voice 
+
+	PEINTURES
+
+             Noor
+	William Blake
+	Hieronymus Bosch
+	Jacopo de' Barbari
+
+	DOUBLAGE DES VOIX :
+
+	Dale
+	Noor
+
+	HISTOIRE :
+
+	Dale
+
+	MENU, VIDEO, AND DESSINS :
+
+	Noor
+
+	EFFETS SPECIAUX FEU ET EAU :
+
+	Sliptip
+	Gecko/Bentraxx
+
+	MUSIQUE DU MENU :
+
+	"Shores of Avalon" Kevin MacLeod (incompetech.com)
+	License Creative Commons : par Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/
+
+	"Past the Edge" Kevin MacLeod (incompetech.com)
+	License Creative Commons : par Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/
+
+	"Colorless Aura" Kevin MacLeod (incompetech.com) 
+	License Creative Commons : par Attribution 3.0
+	http://creativecommons.org/licenses/by/3.0/ 
+
+	SONS :
+
+	Dale
+	freesound.org:
+https://www.freesound.org/people/klankbeeld/sounds/268819/
+https://www.freesound.org/people/Sclolex/sounds/177958/
+https://www.freesound.org/people/cmusounddesign/sounds/71983/
+https://www.freesound.org/people/Kyster/sounds/136294/
+https://www.freesound.org/search/?q=woodpecker
+https://www.freesound.org/people/pepv/sounds/188287/
+https://www.freesound.org/people/inchadney/sounds/124925/
+https://www.freesound.org/people/swoods800/sounds/136283/
+https://freesound.org/people/jhumbucker/sounds/250539/
+https://freesound.org/people/DavidFrbr/sounds/327519/
+https://freesound.org/people/bareform/sounds/218723/
+https://freesound.org/people/DJ%20Chronos/sounds/123562/
+https://freesound.org/people/dheming/sounds/240978/
+http://freesound.org/people/rickaldo09/sounds/327613/
+https://freesound.org/people/lukofinc/sounds/246227/
+https://freesound.org/people/RutgerMuller/sounds/104012/
+https://freesound.org/people/Corsica_S/sounds/65173/
+http://freesound.org/people/J_Bond/sounds/201811/
+http://www.freesound.org/people/steveygos93/sounds/80401/
+http://soundbible.com/1551-Large-Door-Slam.html
+https://freesound.org/people/tomtenney/sounds/126577/
+https://freesound.org/people/samsmyname/sounds/51364/
+http://freesound.org/people/felix.blume/sounds/140047/
+http://freesound.org/people/CGEffex/sounds/95755/
+http://freesound.org/people/ianoboe/sounds/150203/
+https://freesound.org/people/jorickhoofd/sounds/161592/
+https://freesound.org/people/mystiscool/sounds/7139/
+https://freesound.org/people/slumbermonkey/sounds/84457/
+https://freesound.org/people/Sethroph/sounds/323420/
+https://freesound.org/people/bennychico11/sounds/44408/
+http://freesound.org/people/sarson/sounds/195522/
+http://freesound.org/people/f4ngy/sounds/240784/
+https://www.freesound.org/people/soundscalpel.com/sounds/110625/
+http://www.freesound.org/people/Rollo145/sounds/320555/
+http://www.freesound.org/people/luckydigs/sounds/168563/
+http://www.freesound.org/people/RutgerMuller/sounds/104011/
+http://freesound.org/people/smokum/sounds/83204/
+https://www.freesound.org/people/Godowan/sounds/240465/
+http://freesound.org/people/Mediapaja2009/sounds/162156/
+http://freesound.org/people/YleArkisto/sounds/324645/
+http://freesound.org/people/Sparrer/sounds/50506/
+http://freesound.org/people/BranRainey/sounds/142351/
+https://www.freesound.org/people/reacthor/sounds/130982/
+http://freesound.org/people/Unaxete/sounds/329795/
+http://freesound.org/people/cormi/sounds/196130/
+http://freesound.org/people/the_very_Real_Horst/sounds/240932/
+http://freesound.org/people/Ryding/sounds/94358/
+
+
+
+Droits d'auteur
+
+Ce niveau a été créé par Dale.
+
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact. 
+Vous ne pouvez pas inclure ce niveau dans un pack de mission sans mon autorisation expresse. 
+Nul ne peut éditer cette mission ni la modifier.
+
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.

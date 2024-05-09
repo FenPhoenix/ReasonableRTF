@@ -1,0 +1,83 @@
+=============================================================
+11/02/2011
+=============================================================
+Title : Lord Beltzer’s Mansion
+Filename : Lord Beltzer’s Mansion.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Homepage : No
+Date of release : November 02, 2011
+Version : 1.0
+Description : After the incidents in our town, the kidnapping and murders, my wife and I left home. But we had not gone very far when I fell down a hole in the ground... 
+This is a sequel to my first mission "Ransom". It is recommended that you play Ransom first if you have not already done so.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : Lord Beltzer's Mansion
+File names : miss20.mis
+Difficulty Settings : Yes.
+Equipment store : No.
+Map/Automap : Yes (blank)
+New graphics : Yes.
+New sounds : No.
+New conversations : No.
+New models : Yes.
+EAX Support : Yes
+Multi language support : No.
+Briefing : No.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Medium.
+Build Time : 3 weeks, many hours a day
+Build Info : This is my second mission, a sequel to Ransom.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Lord Beltzer's Mansion.zip" file into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote the good tutorials that I learned from.
+Also, the people at the TTLG Forums who asked the right questions, and of course those
+who answered those questions so I could easily search for answers to the problems I had.
+
+To the Beta testers on shalebridgecradle:
+bob_doe_nz
+dbrilliant
+flying_hope
+Gloria Creep
+And to Dussander, the moderator who setup the beta forum on shalebridgecradle.
+---------------------------------------------------------------------------------------
+Custom objects:
+(I really hope i remember all, please tell me if i missed to credit some one)
+Flecha das Sombras, for the cutlery.
+JasonOtto, for animal trophies, leather sofa, modern looking toilet.
+R Soul, for the fancy bed, fireplace, doors, Banquet Chairs.
+Sluggs, for the picture light
+Targa, for footlocker skin, safedoor, desk fan, the two objectives Sceptres,
+crystal plates and goblets, two frosted windows, the dome, "BladeX" dagger,
+sewer lid, a desk, Heart jewelry box, lockbox, VicSwitch skin, picture frame,
+replacement turbine, decorative shield, tapestry, crystal ball, Decorative mirror,
+chain, bathtub faucet and the pipe.
+Team CoSaS, A lots of things, different beds, chairs, chests, lamps, tables, desks, cabinets,
+dressers, drapes, flowers, bookcases, pub set, bathroom set, gambling set.
+Light Gem & Health Shields. Too many things to list here :)
+
+Meshes:
+Targa, for the fat noble, overweight female, onearm guard, pegleg guard.
+Team CoSaS, for a Noble (Philip).
+
+Textures:
+Remedy Entertainment Ltd.
+Taffers Tavern
+AntiMatter_16 at TTLG
+Iikka Keränen, optimised for Thief 2 by MaJiC
+-------------------------------------------------------------------------------------
+And obviously my girlfriend Sofie for a test and the moral
+support, and standing out with me working with it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you wish. However, you must leave the mission intact and give me credit for it :-)
+This level was not made and is not supported by Looking Glass Studios or Eidos
+Interactive.
+=============================================================

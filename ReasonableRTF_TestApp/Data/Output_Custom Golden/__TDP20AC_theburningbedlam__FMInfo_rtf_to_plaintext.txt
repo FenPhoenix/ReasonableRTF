@@ -1,0 +1,233 @@
+=======================================================================
+A Thief: The Dark Project, 20th Anniversary Contest Mission
+Title: The Burning Bedlam
+File name: miss20.mis; bedlam.gam 
+Author: Phantom (Derrick Sallee)
+Contact: http://www.ttlg.com/forums/member.php?u=9788
+Date of release: 11/30/18
+Version: 1.0
+=======================================================================
+IMPORTANT
+- This mission was built using NewDark 1.25. You may need to update to at least 1.25 to play.
+- This mission uses NVScript and Squirrel scripts and the modules I used are included.
+- Due to the progression of the mission there are no loot goals. Once you reach certain points you will no longer be able to return to previous areas. However, there is plenty of loot to collect if you wish to challenge yourself to find it!
+- Using the HD texture mod may prevent you from spotting items hidden under water!
+=======================================================================
+STORY 
+Garrett owes his fence Adolpho a favor. Adolpho has asked Garrett to enter the Old Quarter to find his brother, Araphin. This task consists of exploring mines and sewers to find access to a derelict Hammerite asylum. Garrett must recover the body of Araphin and deliver it to Adolpho to repay the debt. 
+=======================================================================
+PLAY INFORMATION
+Game: Thief: The Dark Project (Gold)
+Mission Title: The Burning Bedlam
+File name: miss20.mis; bedlam.gam
+Difficulty settings: Yes
+Difficulty level info: Normal (A quicker path to the asylum and many more supplies), Hard (An extra objective and longer route to the asylum, less supplies), Expert (same as Hard with even less supplies).
+Equipment store: No
+Map: Yes
+New graphics: No
+New models: No
+New sounds: No
+EAX: No
+Multi-language support: Yes
+Briefing: No
+=======================================================================
+CONSTRUCTION
+Base: From scratch.     Build time:  265 hours over 11 months
+=======================================================================
+CREDITS
+Created by Phantom (Derrick Sallee)
+-------------------------------------------------------------------------------------------------------------------------
+Beta Testers: 
+marbleman, Cardia, vfig
+-------------------------------------------------------------------------------------------------------------------------
+Translators:
+piesel (Italian), Athalle (French), baeuchlein (German)
+-----------------------------------------------------------------------
+Acknowledgements:
+- To Looking Glass Studios for creating such an incredible game!
+- Special thanks to NamelessVoice for the invaluable custom scripts.
+- To skacky for hosting the contest.
+- To my beta testers for giving me such valuable feedback during beta.
+- To my translators for making this mission available in multiple languages.
+- And to everyone at TTLG for their DromEd knowledge and help.
+=======================================================================
+COPYRIGHT INFORMATION
+This level is © 2018 by Phantom.
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+=======================================================================
+=======================================================================
+Una missione per il concorso del 20° Anniversario di Thief: The Dark Project
+Titolo: La Bolgia Infuocata
+Nome del File: miss20.mis; bedlam.gam 
+Autore: Phantom (Derrick Sallee)
+Contatti: http://www.ttlg.com/forums/member.php?u=9788
+Data di Pubblicazione: 11/30/18
+Versione: 1.0
+=======================================================================
+IMPORTANTE
+- Questa missione è stata costruita utilizzando NewDark 1.25. Per giocare aggiornare almeno a 1.25.
+- Questa missione utilizza gli script NVScript e Squirrel ed i moduli utilizzati sono inclusi.
+- A causa della progressione della missione non ci sono richieste di bottino. Una volta raggiunte certe locazioni non sarà più possibile tornare indietro. Comunque, c'è molto bottino da raccogliere se si desiderasse  sfidarsi a trovarlo!
+- Utilizzare le texture HD potrebbe impedire di trovare oggetti nascosti sott'acqua!
+=======================================================================
+STORIA
+Garrett deve un favore al suo ricettatore Adolpho. Adolpho ha chiesto a Garrett di entrare nel Vecchio Quartiere e trovare suo fratello, Araphin. Questo compito consiste nell'esplorare le miniere e le fogne per trovare l'ingresso al diroccato manicomio degli Hammeriti. Garrett deve recuperare il ciorpo di Araphin e consegnarlo ad  Adolpho per estinguere il debito. 
+=======================================================================
+INFORMAZIONI DI GIOCO
+Gioco: Thief: The Dark Project (Gold)
+Titolo della Missione: La Bolgia Infuocata
+Nome del File: miss20.mis; bedlam.gam
+Settaggi Difficoltà: Si
+Informazioni sui livelli di difficoltà: Normale (più semplice raggiungere il manicomio e abbondanti risorse), Difficile (Un obiettivo extra ed una strada più lunga per il manicomio, meno risorse), Esperto (come Difficile ma con ancora meno risorse).
+Negozio Equipaggiamento: No
+Mappa Si
+Nuove Grafiche: No
+Nuovi Modelli: No
+Nuovi Suoni: No
+EAX: No
+Supporto Multi-Lingua: Si
+Briefing: No
+=======================================================================
+COSTRUZIONE
+Base: Da zero
+Tempo di costruzione: 11 mesi
+=======================================================================
+ACCREDITI:
+Creata da Phantom (Derrick Sallee)
+-------------------------------------------------------------------------------------------------------------------------
+Beta tester: 
+marbleman, Cardia, vfig
+-------------------------------------------------------------------------------------------------------------------------
+Traduttori:
+Italiano: Piesel, Tedesco: baeuchlein, Francese: Athalle
+-----------------------------------------------------------------------
+RINGRAZIAMENTI:
+- Un grazie speciale a NamelessVoice per i preziosissimi script customizzati.
+- Anche a Skacky per aver ideato il concorso.
+- Ai miei beta tester per avermi dato utilissimi riscontri durante la beta.
+- E a chiunque a TTLG per il loro aiuto e la loro conoscenza di DromEd.
+- Ai Looking Glass Studios per aver creato un così incredibile gioco!
+=======================================================================
+INFORMAZIONI SUL COPYRIGHT
+Questo livello è© 2018 di Phantom.
+La distribuzione di questo livello è consentita fin quando l'archivio e questo file siano mantenuti intatti .
+Questo livello non è stato creato e non è supportato da Looking Glass Studios o Eidos Interactive.
+=======================================================================
+================================================================
+Eine Mission für den Wettbewerb zum 20. Geburtstag von "Dark Project"
+Titel: Brennender Wahnsinn ("The Burning Bedlam")
+Dateinamen: miss20.mis; bedlam.gam 
+Autor: Phantom (Derrick Sallee)
+Kontakt: http://www.ttlg.com/forums/member.php?u=9788
+Veröffentlichungsdatum: 30. November 2018
+Version: 1.0
+================================================================
+WICHTIG:
+- Diese Mission benötigt mindestens NewDark Version 1.25.
+- Die Mission benutzt NVScript und die Squirrel-Skripte; sie sind der Mission beigefügt. 
+- Aufgrund des Ablaufs der Mission gibt es kein Beuteziel. Wenn man bestimmte Punkte erreicht, ist eine Rückkehr in vorherige Gebiete nicht mehr möglich. Es ist jedoch viel Beute vorhanden für Spieler, die das Finden als Herausforderung ansehen!
+- Wenn der HD-Textur-Mod benutzt wird, kann man einige unter Wasser versteckte Dinge möglicherweise nicht sehen.
+================================================================
+EINLEITUNG
+Garrett schuldet seinem Hehler Adolpho einen Gefallen. Adolpho möchte, dass er im Alten Viertel nach seinem Bruder Araphin sucht. Dabei müssen Minen und die Kanalisation erforscht werden, um Zugang zu einem verfallenen Heim für geistig Kranke zu erlangen, welches die Hammeriten betrieben haben. Garrett muss den Leichnam Araphins bergen und zu Adolpho bringen, um seine Schuld zu tilgen. 
+================================================================
+INFORMATIONEN ZUR MISSION
+Spiel: Dark Project Directors Cut ("Thief Gold")
+Titel der Mission: Brennender Wahnsinn
+Dateinamen: miss20.mis; bedlam.gam
+Verschiedene Schwierigkeitsstufen: Ja
+- Normal (schnellerer Weg ins Heim und viel Ausrüstung)
+- Hart (ein zusätzliches Ziel und ein längerer Weg ins Heim, geringere Ausrüstung)
+- Experte (wie Hart, aber mit noch weniger Ausrüstung)
+Ausrüstungsladen zu Beginn: Nein
+Karte: Ja
+Neue Grafiken: Nein
+Neue Objekte: Nein
+Neue Sounds: Nein
+EAX: Nein
+Mehrsprachen-Unterstützung: Ja (Englisch, Italienisch, Deutsch, Französisch)
+Briefing-Film: Nein
+================================================================
+KONSTRUKTION
+Basis: keine, alles von Grund auf neu
+Bauzeit: 11 Monate
+================================================================
+DANKSAGUNG & "CREDITS"
+Erbaut von Phantom (Derrick Sallee)
+---------------------------------------------------------------------------------------------------------
+Betatester: 
+marbleman, Cardia, vfig
+---------------------------------------------------------------------------------------------------------
+Übersetzer: piesel (Italienisch), baeuchlein (Deutsch), Athalle (Französisch)
+-----------------------------------------------------------------------
+Danksagungen:
+- Besonderen Dank an NamelessVoice für die unbezahlbaren Skripte.
+- Außerdem an skacky für das Ausrichten des Wettbewerbs.
+- An meine Betatester für das wertvolle Feedback beim Betatest.
+- Und an alle bei TTLG für deren DromEd-Wissen und ihre Hilfe.
+- An die Looking Glass Studios für das Erstellen solch eines unglaublichen Spiels!
+================================================================
+COPYRIGHT
+Diese Mission ist © 2018 by Phantom.
+Die Weitergabe der Mission ist erlaubt, solange das Archiv und diese Datei intakt bleiben.
+Diese Mission wurde nicht von den Looking Glass Studios oder Eidos Interactive erstellt, und Support leisten sie auch nicht dafür.
+================================================================
+=======================================================================
+Jeu: Thief - The Dark Project, Mission pour le Concours Anniversaire des 20 ans
+Titre: The Burning Bedlam
+Nom du fichier: miss20.mis; bedlam.gam 
+Auteur: Phantom (Derrick Sallee)
+Contact: http://www.ttlg.com/forums/member.php?u=9788
+Date de sortie: 01/12/18
+Version: 1.0
+=======================================================================
+IMPORTANT
+- Cette mission a été créée avec NewDark 1.25. Vous devrez pour y jouer mette à jour au minimum avec la version ND 1.25 ou supérieure.
+- Dans cette mission, les scripts et modules NVScript et Squirrel que j'ai utilisés sont inclus.
+- En raison de la progression dans cette mission, il n'y a pas d'objectif butin. Dès que vous aurez atteint certains points, il ne vous sera plus possible de retourner dans les zones précédentes. Quoiqu'il en soit, tout le long, il y a beaucoup de butin à collectionner si cela vous amuse de les chercher!
+- L'utilisation du "HD texture mod" pourrait vous empêcher de trouver certains objets cachés sous l'eau!
+=======================================================================
+HISTOIRE 
+Garrett doit une faveur à son receleur Adolpho. Adolpho lui a demandé d'entrer dans le Vieux Quartier pour retrouver son frère Araphin. Ce boulot consiste à explorer les mines et les égouts pour trouver l'accès d'un asile Marteleur abandonné. Garrett doit trouver le corps d'Araphin et le ramener à Adolpho pour rembourser sa dette. 
+=======================================================================
+INFORMATION DE JEU
+Jeu: Thief: The Dark Project (Gold)
+Titre de la Mission: The Burning Bedlam
+Nom du fichier: miss20.mis; bedlam.gam
+Niveaux de Difficulté: Oui
+Info Niveaux de Difficulté: Normal (Chemin plus rapide vers l'asile et plus d'équipement), Difficile (Un objectif supplémentaire, moins d'équipement et un chemin plus long vers l'asile), Expert (pareil qu'en mode Difficile mais encore moins d'équipement).
+Magasin d'Équipement: Non
+Carte: Oui
+Nouveaux graphiques: Non
+Nouveaux modèles: Non
+Nouveaux sons: Non
+EAX: Non
+Multi-language: Oui (Anglais, Italien, Français, Allemand)
+Briefing: Non
+=======================================================================
+CONSTRUCTION
+Base: de zéro
+Temps de Construction: 11 mois
+=======================================================================
+CREDITS
+Créée par Phantom (Derrick Sallee)
+-------------------------------------------------------------------------------------------------------------------------
+Béta-testeurs: 
+marbleman, Cardia, vfig
+-------------------------------------------------------------------------------------------------------------------------
+Traducteurs:
+piesel (Italien), baeuchlein (Allemand),  Athalle (Français)
+-----------------------------------------------------------------------
+Remerciements:
+- Un remerciement spécial à NamelessVoice pour les inestimables scripts personnalisés.
+- A skacky pour l'organisation du concours.
+- A mes bétatesteurs pour m'avoir fait des retours précieux durant le bétatest.
+- Et à tous les membres de TTLG pour leur connaissance de DromEd et leur aide.
+- A Looking Glass Studios pour avoir créé un jeu aussi incroyable!
+=======================================================================
+Droits d'Auteur
+Ce niveau est © 2018 par Phantom.
+La distribution de ce niveau est autorisée tant que l'archive et ses fichiers sont conservés intacts.
+Ce niveau n'a pas été fait et n'est pas supporté par Looking Glass Studios ou Eidos Interactive.
+=======================================================================

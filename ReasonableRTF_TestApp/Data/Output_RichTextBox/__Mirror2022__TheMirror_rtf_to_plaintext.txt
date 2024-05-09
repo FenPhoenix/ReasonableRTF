@@ -1,0 +1,110 @@
+THE MIRROR             ÇÅÐÊÀËÎ
+
+Author: Zontik
+Contact info: rZontik@rambler.ru
+Date of first release: 2008
+Date of last release: 2022
+Version: 1.2
+System requirements: New Dark 1.25 or later.
+
+Game: Thief II
+Build Time: 614 hours, or about 2 years from idea to release.
+
+Difficulty settings:
+On Normal you will have a bit less puzzles (but you will not miss something important).
+On Normal and Hard you can’t kill bystanders.
+On Expert you have more guards and some other troubles, but you are not allowed to kill anybody.
+Feel free to choose!
+
+Introduction
+One day I tried to imagine the world without mirrors - the world of Thief. The water has no reflection. You can’t see your face anywhere. You don’t even know how you looks like.
+And another day I tried to imagine the appearing of a mirror in this strange world...
+It supposed to be a simple small mission with single objective. But when I began to think, I discovered that this world has it’s own laws and rules, the characters don’t agree to obey me and live their own life. All what I could was to follow them discovering the story of the Mirror.
+Shortly, it’s the story about how the whole world gets crazy.
+But it seems to me we have already known such a story...
+
+This FM would never be created without:
+
+textures by Alun David Bestor (http://www.washboardabs.net/thief/textures/), Brenda Make (www.brendamake.com), Remedy Entertainment Ltd, R Soul, Sluggs;
+
+objects by Alun David Bestor, Ar-Zimrathon, Christine, Ewald Maria Ikemann, GORT, Greenhorn, Jeff Knez, Nameless Voice, Nielsen74, R Soul, Schwaa, Sluggs,  Tdbonko;
+
+creatures by Shadowspawn and Td_bonko;
+
+scripts by Nameless Voice and tnhScript Copyright (c) 2003-2005 Tom N Harris <telliamed@whoopdedo.cjb.net> All Rights Reserved;
+
+music by “Apocalyptica”, “Alan Parsons Project” , Beauty-man, Ennio Morricone, Jean Luc Ponty, Michael Giaccino (from “Ratatouille” movie), Jean Sibelius, Yann Tiersen
+and from “Full Throttle” and “Wolfenstein 3D” games;
+
+English localisation by Natalya Ageshina, HellFier, Nickie, Lemniscate, BazookaBear, Urgrue;
+
+voice actors: Andrey Fedorenko, Diver, Konstantin Perov, Tatyana Dvoretskaya;
+
+beta testers: Clearing, Winter Cat, Glypher, Odstavec;
+
+and invaluable advice by:  Fidcal, Nicked, Nameless Voice, R Soul, S.Siamsky
+and many, many others from TTLG and Dark Fate forums.
+
+Special thanks to Yandros for his Motion Tag Demo.
+
+Phrase about shinig light belongs to E. M. Remark.
+
+(c) copyright by Zontik, 2008
+Distribution of this FM is allowed as long as it is free and the package is kept intact.
+You may include this FM to any pack without my permission as long as this text file and archive remains intact.
+This FM was not made and is not supported by Looking Glass Studious or Eidos Interactive.
+
+-------------------------
+
+Àâòîð: Zontik
+Êîíòàêòíàÿ èíôîðìàöèÿ: rZontik@rambler.ru
+Äàòà ïåðâîãî âûïóñêà: 2008
+Äàòà ïîñëåäíåãî âûïóñêà: 2022
+Âåðñèÿ: 1.2
+Èãðà: Thief II
+Âðåìÿ ñîçäàíèÿ: 614 ÷àñîâ, èëè îêîëî 2 ëåò îò èäåè äî ðåàëèçàöèè.
+Ñèñòåìíûå òðåáîâàíèÿ: New Dark âåðñèè 1.25 èëè áîëåå ïîçäíåé.
+
+Óðîâíè ñëîæíîñòè:
+Íà íîðìàëüíîì óðîâíå ñëîæíîñòè ó âàñ áóäåò ÷óòü ìåíüøå ãîëîâîëîìîê (íî íè÷åãî ñóùåñòâåííîãî âû íå ïðîïóñòèòå).
+Íà íîðìàëüíîì è ñëîæíîì óðîâíå âû íå ñìîæåòå óáèâàòü áåçîðóæíûõ.
+Íà Ýêñïåðòå âû ïîëó÷èòå áîëüøå îõðàííèêîâ (è, âîçìîæíî, äðóãèõ íåïðèÿòíîñòåé), íî óáèâàòü íèêîãî áóäåò íåëüçÿ.
+Âû ñâîáîäíû â ñâîåì âûáîðå!
+
+Ââåäåíèå
+Îäíàæäû ÿ ïîïûòàëñÿ ïðåäñòàâèòü ñåáå ìèð áåç çåðêàë. È ýòî îêàçàëñÿ ìèð Thief, ãäå âîäà íè÷åãî íå îòðàæàåò, ãäå òû íå ìîæåøü óâèäåòü ñâîåãî ëèöà è, ñêîðåå âñåãî, äàæå íå çíàåøü, êàê îíî âûãëÿäèò.
+È â äðóãîé ðàç ÿ ïîïûòàëñÿ ïðåäñòàâèòü, ÷òî áû ñëó÷èëîñü, ïîÿâèñü âäðóã â ýòîì ñòðàííîì ìèðå çåðêàëî...
+Ïðåäïîëàãàëîñü, ÷òî ýòî áóäåò ìàëåíüêàÿ è ïðîñòàÿ ìèññèÿ ñ åäèíñòâåííûì çàäàíèåì. Íî êîãäà ÿ íà÷àë ðàçìûøëÿòü, îêàçàëîñü, ÷òî ó ïðèäóìàííîãî ìèðà åñòü ñâîè ïðàâèëà è çàêîíû, ïåðñîíàæè íå õîòåëè ïîâèíîâàòüñÿ àâòîðó è æèëè ñâîåé ñîáñòâåííîé æèçíüþ. È âñå, ÷òî ÿ ìîã ñäåëàòü - ýòî íàáëþäàòü çà íèìè, îòêðûâàÿ äëÿ ñåáÿ èñòîðèþ Çåðêàëà.
+Åñëè êðàòêî - òî ýòî èñòîðèÿ òîãî, êàê ìèð ñõîäèò ñ óìà.
+Âïðî÷åì, ñäàåòñÿ ìíå, ÷òî â ýòîé èñòîðèè íåò íè÷åãî íîâîãî...
+
+Ýòà ÔÌ íèêîãäà áû íå áûëà ñîçäàíà, åñëè áû íå:
+
+òåêñòóðû Alun David Bestor (http://www.washboardabs.net/thief/textures/), Brenda Make (www.brendamake.com), Remedy Entertainment Ltd, R Soul, Sluggs;
+
+îáúåêòû Alun David Bestor, Ar-Zimrathon, Christine, Ewald Maria Ikemann, GORT, Greenhorn, Jeff Knez, Nameless Voice, Nielsen74, R Soul, Schwaa, Sluggs,  Tdbonko;
+
+ïåðñîíàæè Shadowspawn è Td_bonko;
+
+ñêðèïòû Nameless Voice è tnhScript Copyright (c) 2003-2005 Tom N Harris <telliamed@whoopdedo.cjb.net> All Rights Reserved;
+
+ìóçûêà “Apocalyptica”, “Alan Parsons Project” , Beauty-man, Ennio Morricone, Jean Luc Ponty, Michael Giaccino (from “Ratatouille” movie), Jean Sibelius, Yann Tiersen
+è èç èãð  “Full Throttle” è “Wolfenstein 3D”;
+
+ïåðåâîä íà àíãëèéñêèé Íàòàëüè Àãåøèíîé, HellFier, Nickie, Lemniscate, BazookaBear, Urgrue;
+
+îçâó÷êà ïåðñîíàæåé Àíäðåÿ Ôåäîðåíêî, Diver, Êîíñòàíòèíà Ïåðîâà, Òàòüÿíû Äâîðåöêîé;
+
+áåòà-òåñòåðû Clearing, Winter Cat, Glypher, Odstavec;
+
+è áåñöåííûå ñîâåòû  Fidcal, Nicked, Nameless Voice, R Soul, S.Siamsky
+è ìíîãèõ, ìíîãèõ äðóãèõ ó÷àñòíèêîâ ôîðóìîâ TTLG è Dark Fate.
+
+Îñîáàÿ áëàãîäàðíîñòü - Yandros çà åãî Motion Tag Demo.
+
+Âûðàæåíèå î òîì, êîãäà íå ñâåòèò ñâåò, ïðèíàäëåæèò Ý. Ì. Ðåìàðêó.
+
+(c) copyright by Zontik, 2008
+Ðàñïðîñòðàíåíèå ýòîé ìèññèè ðàçðåøåíî ïðè óñëîâèè, ÷òî ZIP-ôàéë áóäåò â öåëîñòè è ñîõðàííîñòè.
+Ìîæåòå âêëþ÷àòü ýòîò óðîâåíü â ëþáîé êîìïëåêò äî òåõ ïîð, ïîêà âàì íå âçäóìàåòñÿ èñïðàâèòü ÷òî-íèáóäü âíóòðè àðõèâà.
+Óðîâåíü áûë èçãîòîâëåí áåç ïîìîùè Looking Glass Studious è Eidos Interactive è íå îáåñïå÷èâàåòñÿ èõ ïîääåðæêîé.

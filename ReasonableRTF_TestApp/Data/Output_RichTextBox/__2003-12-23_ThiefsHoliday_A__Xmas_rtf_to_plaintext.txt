@@ -1,0 +1,97 @@
+=============================================================
+Title		 : A Thief's Holiday
+Filename		 : ThiefsHoliday.zip
+Author		 : Yandros
+Contact info	 : robbinsr@lexmark.com
+Date of release	 : December 23rd, 2003
+Version	 	 : 1.0
+
+PLEASE NOTE:
+Gaylesaver’s scripts are required for this mission!
+
+=============================================================
+This mission is a simple virtual holiday retreat for weary taffers looking for a
+comfortable, nostalgic environment for the holidays.  A cozy fire, good books,
+a well-stocked kitchen, gentle snow falling outside, and holiday music on the
+stereo...
+
+And because the perfectionist in me couldn't simply release an "ambient" mission,
+there is also one objective:  Find a way to end the mission.  There are actually seven
+ways to end the mission, although one is only available on Expert.  The difficulty
+levels determine how well hidden the objects required to achieve mission's end are.
+
+
+=============================================================
+Play Information:
+
+Game			 : Thief 2: The Metal Age
+Level Name 		 : A Thief's Holiday
+File name 		 : miss25.mis, holiday.gam
+Difficulty Settings	 : Normal, Hard, Expert
+Equipment store		 : No
+Map/Automap		 : No/No
+New graphics		 : Yes
+New sounds		 : Yes
+New models		 : Yes
+EAX Support		 : No
+Multi language support	 : No, English only
+
+=============================================================
+Objectives:
+
+1. Find a way to end the mission (there are seven).
+
+Note: The seventh way is available only in Expert.  Obviously, since the mission
+ends, you'll have to reload or restart the mission to search for the other ways.
+
+Unfortunately, I ran out of time and couldn't implement #8, which involved
+holographic carolers.  Maybe if I do a v.2 next December...
+
+=============================================================
+Construction:
+
+Base		: Scratch
+Build Time	: Three weeks
+
+=============================================================
+Loading Information:
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file,
+but put the whole "ThiefsHoliday.zip" file into whatever folder/directory you
+want to on your hard drive, then in Darkloader setup, point to this
+folder/directory, and the mission should show up in the Darkloader
+main screen.
+
+=============================================================
+Known Problems:
+
+From a few vantage points, objects can vanish.  There are alot of objects in
+the mission for atmosphere, although most are non-interactive (not frobbable).
+This is an engine limitation and I did the best I could to minimize it by adding
+the extra walls in the living room, which was originally one large room.
+
+=============================================================
+Music Credits:
+
+Brass Medley, "O Christmas Tree" - RCA Victor Singers
+All music from the album "Christmas Sing-Along" by RCA Victor Singers,
+© 1993 BMG Music.
+
+=============================================================
+DEDx Credits:
+
+Textures:
+Dave Gurrea, Rob Hicks, Targa
+
+Objects:
+Ernie, Nameless Voice, Schwaa, Von Eins, Targa
+
+=============================================================
+Copyright Information
+
+This level is ©2003 by Russ Robbins.
+
+This level was not made by and is not supported by Looking Glass
+Studios (R.I.P.) or Eidos Interactive.
+
+=============================================================

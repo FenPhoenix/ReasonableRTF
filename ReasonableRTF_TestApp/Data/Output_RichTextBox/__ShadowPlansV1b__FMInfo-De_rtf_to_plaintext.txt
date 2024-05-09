@@ -1,0 +1,68 @@
+ 
+V.1b
+Eine zweiteilige Thief2-Fanmission
+von Ricebug
+Erschienen: 17 März 2012
+
+Handlung:
+
+Lord Gregory, wohlhabender Edelmann mit Verbindungen zu den Mechanisten, hat Dich engagiert seine Tochter zu finden, die seiner Ansicht nach von den Heiden als Geisel entführt wurde. Wie üblich winkt Dir eine fette Belohnung, Du glaubst an ein schnelles Geschäft. Nun, nichts ist wie es scheint, und schon bald befindest Du Dich als Spielball in einem düsteren Plan wieder, dessen Umsetzung viele Menschenleben zerstören könnte ...
+
+Beta-Tester
+
+bob_doe_nz, dbrilliant, edudrekib, ffox, Gloria Creep, ittlsrun10s, Sensut, SirFreddieM, SlyFoxx
+
+Notes and Bugs
+
+Wer kein DDfix installiert hat: Es existiert ein Verzeichnis Xtras in der ZIP-Datei mit den zwei Missionen. Extrahiere die nach der FM-Installation durch DarkLoader oder GarrettLoader in Dein Thief2-Verzeichnis. Keine Bange, das schaded der ZIP-Datei nicht.
+
+Achtung: Mission 2 basiert auf einer aufgegebenen Mission, die eine eigene Gamesys hatte. Während des Betatests entdeckten wir, daß der vorhergehende Autor seine Gamesys dermaßen verändert hatte, daß sie seltsame Dinge hervorrief. Da die Mission nahezu fertig war, wäre es unverhältnismäßig schwer gewesen, FM und Gamesys deswegen umzustricken. Wir haben alle Fehler behoben die wir entdeckt haben doch es mag noch der eine oder andere Fehler irgendwo lauern. 
+
+
+Dank an
+
+Alun Bestor: Kisten, Fässer
+CoSaS Team: Blumen, Zierlampen
+David Gurrea: Pavillon-Texturen (http://www.davegh.com)
+Haplo: Blaupause, Leitereinrichtung ni Mission 1
+Independent Thief: Konversation, Aufträge in Mission 1, Stimme
+Istvan Varga: Karte für Mission 2 
+Jason Otto: Überarbeitete AIs
+Jermi: Himmel und Mond
+R Soul: Vmaw-Texturen, Hundeknurren
+Renzo “Eshaktaar” Thönen: Wassertexturen
+Scarykitties: Kampfmaschine
+Sensut & ffox: Scripten und arrangieren der unmöglichen Aufträge in Mission 2!
+Sluggs: Bäume und Buschwerk
+SlyFoxx: Vorspann-Stimme
+Targa: Überarbeitete AIs
+Vigil: Spinnweben
+Zappenduster: Deutsche Übersetzung
+
+Stimmen aus Thief 3: Deadly Shadows ©
+
+
+Vorspann
+
+SlyFoxx - Erzählung
+Zontik - Upside Down
+JIS - Welcome To Thief 3
+The Sentinel Kunst von Medieval Magneto
+
+Spiel			 : Thief 2: Das Metallzeitalter
+Missionsnamen		 : Treffen, Geheminisse
+Dateien			 : miss20.mis, miss20,gam, miss21.mis, miss21.gam
+Schwierigkeitsgrade	 : Normal, Hard, Expert
+Ausrüstungsladen		 : Nein
+Karte			 : Ja (Mission 2)
+Neue Grafik		 : Ja 
+Neue Geräusche		 : Ja 
+Neue Konversationen	 : Ja 
+Neue Objekte		 : Nein
+EAX 			 : Nein
+Mehrsprachig		 : Ja 
+Vorspann		 : Ja 
+
+Hinweis:
+
+Diese FM wurde weder von Looking Glass Studios noch Eidos Interactive erstellt und wird auch nicht von diesen unterstützt.

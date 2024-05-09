@@ -1,0 +1,98 @@
+LA CHASSE
+--PARTIE 1: RECHERCHE--
+Une FM par Grandmauden
+pour le concours TDP 20ème anniversaire
+
+NewDark 1.26 requis
+
+Fichier		-   miss22.zip
+Profil TTLG	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Date			-   Nov. 30, 2018
+
+Resumé
+
+"La secousse quand, enfin, tes yeux trouvent ta proie.
+L'adrénaline pendant que tu attends, invisible et inouï.
+La douleur alors que tu te bats pour atteindre le moment idéal.
+L’excitation lorsque tu donnes enfin le coup fatal.
+La fierté triomphante de ton corps et esprit.
+Voici les joies d'être un chasseur. "
+- Seigneur William Brighting
+
+
+Hier, ton nouveau receleur t’a parlé d'une offre d'emploi qui vient juste d'arriver. Apparemment, un commerçant du nom de Marlon cherchait à acquérir quelque chose qu'il voulait vendre à un client important. Bien que tu préfères généralement ne pas prendre des missions de gens de classe ouvrière (ils n'ont pas vraiment beaucoup d’argent, après tout), tu étais intrigué d'apprendre que Marlon avait demandé tes services par ton nom.
+C'est pourquoi, plus tôt ce soir, tu t’es retrouvé dans le magasin d'armes de Marlon à Hightowne. Avant même que tu aies fini de te présenter, Marlon t’a soudainement fait taire et a insisté pour te parler à l'arrière, malgré la fermeture du magasin pour la nuit et l'absence d’âmes patrouillant dans la rue. Néanmoins, tu as suivi le marchand qui te signalait de venir chez lui.
+
+"... Désolé pour ça. Les Marteleurs se portent comme des fous ces derniers temps - enfin, plus fous que d'habitude. Ils pensent avoir le droit d'entrer par effraction chez nous au hasard pour chercher des preuves de crimes ou quelque chose comme ça. La dernière chose dont j'ai besoin est qu'ils me surprendent discutant d'un hold-up avec un voleur notoire. "
+"Pour quel genre de braquage quelqu'un comme toi aurait-il besoin de mon aide?"
+"Eh bien, malheureusement, mes affaires sont en chute libre depuis des mois. Toutes ces épées, flèches, matraques ... ne sont plus en demande, il semble. J'offre même un rabais à quiconque utilise mes armes pour éliminer les burriques dans les égouts, mais ... "
+"Dis ce que tu as à dire, Marlon. Tu commences à m'ennuyer."
+"D'accord, d'accord. D'accord. Connais-tu Lord Brighting? Celui qui vit dans le grand château quelques rues au nord?"
+"Le nom est familier. Il est censé être un chasseur de gros gibier, d'après ce que j'ai entendu dire."
+"Eh bien, la rumeur court que son succès de chasseur est dû à son arc spécial. Fabriqué à partir des meilleurs matériaux disponibles ... du bois de noyer et du chanvre, je crois. Les gens disent qu'il l'utilise depuis l'enfance, et que ses flèches manquent jamais leur marque. Bien des gens aimeraient un arc comme celui-là. Je parie que je pourrais facilement le vendre pour assez d'or pour garder mon magasin ouvert! "
+"Alors tu veux que je vole un arc de chasse? C'est tout?"
+"Je veux dire, je ne m'attends pas à ce que ce soit facile. Certainement pas quelque chose que je donnerais à un petit voleur de maison. Le premier obstacle, bien sûr, est la grande porte avant. Normalement, je suggère de passer dessous, par les égouts, mais les ouvriers ont paniqué avec les burriques qui y rôdent et ont scellé à peu près toutes les entrées, donc je doute que ce soit même possible. "
+"Alors je trouverai un moyen de sauter par dessus. Ça ne devrait pas être trop difficile."
+"C’est vrai. D'autre part, je connais aussi une entrée latérale au château, utilisée par le personnel pour entrer et sortir. J'ai vu un des serviteurs de Lord Brighting aller prendre un verre à L’auberge de la Bougie Jaune la plupart des nuits. Peut-être si tu y vas, tu pourras le trouver et obtenir la clef de la porte. Quant à l'intérieur, je suis sûr que Lord Brighting garderait son arc quelque part, mais j'imagine qu'il est sous garde lourde. "
+"Allons-donc. Les gardes ne sont pas à ma hauteur. J'espère seulement que t’as l'intention de faire en sorte que ça vaille mon temps."
+"Oh, bien sur! Je te paierai 2 000 pièces d'or quand je recevrai l'arc, plus un tiers de mes gains en le vendant. Tu as ma parole."
+"Je me souviendrai de ta promesse. Je serai de retour avec ton arc avant que le soleil ne se lève."
+
+Information de jeu
+Jeu					-   Thief: Gold
+Nom de niveau			-   La Chasse
+Nom de fichier			-   miss22.mis
+Difficultés				-   Normal / Difficile / Expert
+Equipment Store		-   Non
+Carte / Autocarte		-   Non / Non
+Nouveaux Graphiques	-   Non
+Nouveaux Sons			-   Oui
+Nouvelles Conversations	-   Oui
+Nouveaux Modèles		-   No
+Support EAX 			-   Oui
+Multi-Language Support	-   Anglais / Deutsch / Italiano / Français
+Briefing				-   Ce fichier texte 
+
+Construction
+Base					-   Aucune
+Temps de construction	-   La majorité de l’année
+
+Information d’installation
+Laissez le fichier compressé et placez-le dans votre dossier FM, puis chargez-le dans FMSel, Darkloader ou NewDarkLoader.
+
+Notes de l’auteur
+- Des niveaux de difficulté plus élevés signifient moins de santé, moins d'équipement, plus de besoin de butin, plus d'IA, et certaines zones deviennent plus difficiles d'accès.
+- Les gardes et civils dans la rue vous ignoreront tant que vous les laissez tranquilles et ne vous retrouvez pas pris à un endroit où vous ne devriez pas être.
+- Les IA parfois réagissent étrangement aux alarmes (figés sur place, etc). Peut-être qu’un intrus est trop terrifiant pour eux! :)
+- Quelques portes ne peuvent pas être ouvertes. Vous pourrez peut-être entrer certaines de ces portes dans la partie 2.
+- Une liste de butin est incluse dans le fichier .zip.
+Credits
+Testeurs:
+	Cardia
+	marbleman
+	vfig
+
+Acteurs de vois:
+	AndrosTheOxen		- Garrett
+	Phantom			- serviteur pervers, garde arrière, garde de galerie
+	McTaffer			- cuisinier, garde somnolent
+	Shadow Creepr	 	- barman, servante
+
+Traducteurs:
+	Zappenduster (Deutsch)
+	piesel (Italiano)
+	Azaran (Français)
+
+Remerciements spéciaux:
+Ma famille et mes amis pour m'avoir soutenus et encouragé tout au long de ce projet.
+Looking Glass Studios et Ion Storm pour avoir créé une fantastique trilogie de jeux.
+TTLG pour avoir gardé ces jeux bien en vie pendant si longtemps.
+skacky pour avoir organisé le concours du 20eme anniversaire de TDP.
+Copyright
+Cette mission © 2018 by Grandmauden (Kevin Kolpack)
+
+Vous le savez déjà. Vous pouvez librement distribuer cette mission tant qu'elle est gratuite et que tout dans l’archive est laissé intact. Si vous voulez changer quelque chose, demandez le moi d'abord.
+
+Cette mission n'a pas été réalisée et n'est pas supportée par Looking Glass Studios, Ion Storm ou Eidos Interactive.

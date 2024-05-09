@@ -1,0 +1,224 @@
+* Der Spiegel der Rückkehr (Version 1b) *
+
+ 
+
+Eine Fanmission von PsymH (M.H.)
+
+- Sequel zu "Ultima Ratio" -
+
+
+--- Wichtige Hinweise! ---
+
+Es wird der DarkLoader ab Version 4.2 vorausgesetzt. Andernfalls könnte dieser Text in der 
+falschen Sprache angezeigt und die meisten Musikdateien nicht abgespielt werden.
+
+Diese FM wurde nicht mit dem GarrettLoader getestet. Daher keine Gewähr!
+
+Diese Mission verwendet und enthält die Custom-Skripts von Telliamed
+(PublicScripts V2.1, tnhScript V2.1).
+
+Obwohl diese Mission unmittelbar nach Ultima Ratio anknüpft, führt sie die
+Geschehnisse in einem neuen Handlungsbogen fort. Es ist also nicht
+zwingend notwendig, die Vorgängermission vorher zu spielen.
+
+Viele Sachen, die man lesen kann, enthalten Hinweise zu Rätselelementen der FM. 
+Solltest du mal nicht weiterkommen, dann versuch dich an das bereits Gelesene zu
+erinnern.
+
+--- Beschreibung ---
+
+"Tja, wie sich manche Dinge doch ändern können. Glaubten meine Verfolger, sie hätten
+mich in der Hand, hatte ich sie eines Besseren belehren lassen. Bloß schade für Orin -
+im Grunde genommen war er eigentlich unschuldig. Zumindest hatte Nestor das
+bekommen, was ihm zustand. Und seine Aufzeichnungen waren sehr aufschlussreich.
+
+Zwar schweigen seine Papiere immer noch beharrlich über den Ort, wo sich nun
+das Element der drei Kräfte befindet. Aber ich weiß nun, warum er so an mir
+solch rege Interesse zeigte. Ihm ging es letzendlich darum, Kontakt zu einem
+gewissen Larius zu knüpfen. Und wer bietet sich als Vermittlungsmann zu ihm nicht besser
+an, als jemand, der schon vor längerer Zeit den Hütern den Rücken zugekehrt hat?
+Nestor muss irgendwie Wind davon bekommen haben, dass Larius ein Experte
+uralter Reliquien ist - besonders diejenigen, die über großes magisches Potential
+verfügen.
+Was Nestor aber nicht wusste, dass Larius selten in der städtischen Hüteranlage
+zu finden ist. Von Artemus weiß ich, dass er viel umherreist. Tja, irgendjemand
+muss ja den Gerüchten nachgehen. Sein letztes Reiseziel war in den südlichen
+Gebieten. Keine Ahnung, was er dort sucht. Gut möglich, dass es mit einer sehr
+alten Festung dort zusammenhängt, die auf einer starken magischen Quelle errichtet
+wurde.
+
+Wie bei vielen Dingen kann ich mir nicht sicher sein, ob Larius immer noch
+dort zu finden ist. Aber eine andere Quelle habe ich nicht. Denn wie preisen
+die Hammeriten immer? Stelle niemals das Wort des Erbauers in Frage...
+
+Und was Duncan betrifft: Ich hab ihn noch niemals zu Gesicht bekommen.
+Hoffentlich wird das sich auch nicht ändern."
+
+
+-- Informationen --
+
+Spiel: 	Dark Project 2 - The Metal Age
+Titel: 	Der Spiegel der Rückkehr
+Dateiname: miss22.mis, miss23.mis, miss24.mis
+Schwierigkeitsgrade: Anzahl der Ziele, Gegner und Schwierigkeitsgrade 
+der Rätsel variieren von Stufe zu Stufe
+Ausrüstungsshop: Nein
+Karte: Ja
+Autokarte: Nein
+Neue Texturen: Ja
+Neue Sounds: Ja
+Neue Objekte/AIs: Ja
+Mehrsprachig: Noch nicht
+Vorspann: Nein
+
+
+--- Änderungen in Version 1b ---
+
+Die Mission schlägt nun fehl, wenn man Beatrix KO schlägt
+oder angreift. Ebenso stürzt das Spiel nicht ab, wenn man
+ihren Körper aufhebt.
+
+Der Portalschlüssel öffnet nicht mehr den Tempel,
+sondern ordnungsgemäß nur das Grab. Ebenso
+existiert er nur noch auf den höheren
+Schwierigkeitsstufen.
+
+Das Schwert gibt es nun auch auf Experte.
+
+Der Erd-Talisman wird nicht mehr wie in manchen
+Fällen zurück zu dem Punkt teleportiert, wo man ihn
+am Anfang gefunden hat.
+
+Larius gibt dem Spieler das Auge der Offenbarung nicht mehr direkt,
+sondern legt ihn erst auf dem Boden ab, damit der
+Spieler es selber aktivieren muss.
+
+Ein als optional gekennzeichnetes Ziel ist nun tatsächlich optional.
+
+Gefixt: Eine Palme schwebte etwas über dem Boden.
+
+Auch mit Federfall stirbt man nun, wenn man in die Schwärze
+der Luftdimension fällt.
+
+Die Anzahl der Secrets wurde korrigiert - sollte nun
+hoffentlich stimmen.
+
+Gefixt: Man konnte bei einigen Stellen aus der Map klettern.
+
+
+--- Bekannte Bugs und Probleme ---
+
+Die Schatten, die von den Palmen geworfen werden,
+beeinflussen nicht den Sichtbarkeitsstein und können
+daher nicht als Versteck dienen.
+
+Die Palmen haben Transparenzprobleme, wenn
+man von oben auf sie herabsieht.
+
+Vorsicht, wenn die sich bewegenden Plattformen in der Lava
+ihre Richtung ändern - man kann herunterfallen!
+
+--- Konstruktion ---
+
+Basis: Meins!
+Bauzeit: Müsste irgendwann 2007 sein, als ich angefangen habe...
+
+
+--- Credits ---
+
+- Alphatest -
+Blackmen
+Fibanocci
+
+- Betatest -
+Blackmen
+Dainem
+Davidsung
+Fibanocci
+Suselsahne
+Valen
+Xrayalpha
+
+- Abschließender Betatest -
+bob_doe_nz
+undead gamer
+
+- Neue Objekte - 
+Ar-Zimrathon
+Dark Arrow
+GORT
+Greenhorn
+Hrothgar
+Jonquils
+Nameless Voice
+nielsen74
+Ottoj55
+PinkDot
+pdackel
+Schwaa
+Sluggs
+Targa
+Team CoSaS
+UglyEd
+Vigil <www.washboardabs.net/thief/>
+Yandros
+
+Besonderen Dank an Greenhorn, der für diese FM extra einiges beigesteuert hat.
+
+Besonderen Dank auch an Sterlino, der mir half, die Technologie des 
+"Auge der Offenbarung" zu verbessern, indem er mir einen modifizierten
+Mesh lieferte.
+
+- Neue Texturen -
+Balatro
+David Gurrea <http://www.davegh.com/blade/davegh.htm>
+Lemog3D <http://lemog.free.fr/lemog_v5/index.php?cat=4&lang=german>
+Nameless Voice
+Photorealistic-pack
+Thorin Oakenshield
+Vigil <www.washboardabs.net/thief/>
+Ville Paavolainen
+
+Animax <www.animax.it>
+Mayang's Free Textures <www.mayang.com>
+Diese wurden von Sliptip für Thief 2 optimiert. 
+
+- Neue Sounds -
+Sephy
+
+- Englische Übersetzung -
+Intruder
+tannar
+
+- Deutsche Stimmen -
+Turcaill
+Zappenduster
+Xrayalpha
+
+- Englische Stimmen -
+Turcaill
+Random_Taffer
+bob_doe_nz
+
+- Besonderen Dank an -
+Fibanocci für das Menübild
+Rob Hicks für DromEd Deluxe
+
+Besonderen Dank an Nameless Voice sowie an Vigil, Eshaktaar, R Soul und DarkDragon für 
+das Thief 2 Enhancement Pack!
+
+Danke auch an Sliptip, der mir gestattet hat, die Texturen aus „Ashen Age“ zu benutzen.
+
+Ebenfalls an Blackmen, der mir nicht nur mit Rat und Tat zur Seite stand,
+sondern für diese Mission sich Texte ausgedacht hat.
+
+...und all diejenigen, die mir in den Foren mit Rat und Tat zur Seite standen, 
+sowie diejenigen, die ich vergaß hier aufzulisten.
+
+
+--- Copyright ---
+
+@ 2010 PsymH (M.H.)
+Die Weitergabe dieser Mission ist gestattet, solange dies kostenlos geschieht und die Datei 
+intakt bleibt. Die Benutzung erfolgt auf eigene Gefahr. Dieses Level ist nicht von Looking Glass 
+Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 

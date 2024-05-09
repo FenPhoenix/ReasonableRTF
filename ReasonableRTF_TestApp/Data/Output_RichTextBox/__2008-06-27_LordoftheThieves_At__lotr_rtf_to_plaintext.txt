@@ -1,0 +1,97 @@
+
+===================================================================
+June 27, 2008
+===================================================================
+Title		: Lord of the Thieves:Attack of the Orcs
+Filename	: miss20.mis
+Author		: Cavalorn (Csongor Hős)
+Contact info	:  HYPERLINK "mailto:csongor@tippnet.rs" csongor@tippnet.rs
+MSN                       : csongor@tippnet.co.yu
+Homepage	: none
+Date of release	: June 27, 2008
+Version		: 1.0
+
+Mission Briefing	:
+
+ Last night I got a letter from the Keepers: 
+
+Garrett, 
+
+We need your help again. Yesterday evening an army of orcs sieged and took the city of Nahoras. We think this was the first step of a master plan, but we do not know exactly what it is. We fear that they are about to launch an assault on every city and village. It is very important to find out what they want, and that is why we need your skills. You must infiltrate the orc-occupied town and find out something about their plans. 
+One more thing: there is an ancient sword somewhere in the sieged city, named 'The Flame of the North'. It was once King Elendur's sword, but it is now shattered and has lost its power. Nevertheless, it's still a very valuable sword. 
+We will tell you more about it when you return. Unfortunately, it is locked in a tower and the key is nowhere to be found. We suspect the gatekeeper was trapped in the sealed mine. So get inside there and keep your eyes open but be extra careful, that place was sealed for a reason. 
+I know that you would reject this quest, but please consider it, if we don't stop the orcs they will wipe us out from this world. 
+
+Keeper E. 
+
+I hate the jobs given by the Keepers, but this sounds serious. I think I should pay a visit to Nahoras...
+
+
+
+Beta Testers	: Dussander, nickie, undead gamer
+
+Thanks to:
+-Sliptip: custom textures
+-Wille: custom textures
+-tdbonko: custom textures, a huge amount of help and testing
+-Sluggs: custom object and lots of help
+-Dark Arrow: custom gamesys
+-Schwaa: for his upgrade pack
+-Vigil: custom textures
+-Paweuek: custom skins
+-Moghedian: for her early test
+-Dussander: betatesting, proof-reading, and for making a great forum where we could discuss various things during beta-test  (shalebridgecradle.co.uk)
+-thief0: test
+-nickie: betatesting, proof-reading
+-undead gamer: betatesting
+-Yandros: lots of help, and setting up the fog
+-Nameless Voice: custom fog
+-Thanks for the KoMaG tutorial and to everyone at the TTLG forum who helped me
+
+Special thanks	: to tdbonko, I don't know how could I have finished this mission without his help and support
+                                  Dussander and nickie, who helped me a lot to improve the mission
+
+=====================================================================================
+* Play Information *
+
+Game			: Thief 2:The Metal Age
+Level Name		: Lord of the Thieves: Attack of the Orcs
+File name		: miss20.mis
+Difficulty Settings	: Normal, Hard, Expert 
+Equipment store		: No
+Map			: Yes (just a blank one to avoid crashes)
+Automap		: No
+New graphics		: No
+New sounds		: Yes
+EAX Support		: No
+Multi language support	: No
+
+Briefing		: No
+
+Known bugs		: 
+Update			: No
+Other info		: 
+
+=====================================================================================
+
+*  Construction  *
+
+Base			: Lord of the Rings
+Map Size		: medium
+Build Time		: many months
+
+=======================================================================================
+Unzipping information	   : Do Not Unzip!!!  Just play it through Darkloader
+		       
+Loading information	 : {See above.}
+
+* Copyright Information *
+
+This level is © 2008 by Csongor Hős
+
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+Cavalorn
+

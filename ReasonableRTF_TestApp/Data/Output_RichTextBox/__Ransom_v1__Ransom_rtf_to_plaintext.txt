@@ -1,0 +1,58 @@
+=============================================================
+10/07/2011
+=============================================================
+Title : Ransom
+Filename : ransom_v1.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Homepage : No
+Date of release : October 7, 2011
+Version : 1.0
+Description : It has been a long evening and I just want to go home to my wife.
+I hope she is home, I'm not sure because she had spoken about visiting a friend.
+I am sure she left a note in that case.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : Ransom
+File names : miss20.mis
+Difficulty Settings : No.
+Equipment store : No.
+Map/Automap : Yes (blank)
+New graphics : No.
+New sounds : No.
+New conversations : No.
+New models : No.
+EAX Support : Yes
+Multi language support : No.
+Briefing : No.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Small.
+Build Time : 3 weeks, many hours a day
+Build Info : This is my first mission.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "ransom_v1.zip" file into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote the good tutorials that I learned from.
+Also, the people at the TTLG Forums who asked the right questions, and of course those
+who answered those questions so I could easily search for answers to the problems I had.
+To the Beta testers on shalebridgecradle:
+Euphrosyne
+Gloria Creep
+jonescrusher
+nickie
+Ravenhook
+And to Tanner, the moderator on shalebridgecradle.
+And obviously my girlfriend for a test and the moral
+support, and standing out with me working with it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you wish. However, you must leave the mission intact and give me credit for it :-)
+This level was not made and is not supported by Looking Glass Studios or Eidos
+Interactive.
+=============================================================

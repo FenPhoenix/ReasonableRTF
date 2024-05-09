@@ -1,0 +1,81 @@
+
+
+Christmas Present
+
+
+Author                    	: Naks & P Forth
+Contact Info           	: naksoje@yahoo.com   
+Homepage               	: www.naksthiefland.webs.com
+Date of Release       	: It should have been December 25th 2008, but you never know with Dromed,….
+Version                    	: 1.0
+Title                         	: Christmas Present
+===================================================================================                         
+Discription.                         
+                        : It's Christmas Eve, but all is not well. The people of a
+                          nearby village have had their christmas presents stolen,
+                          and you have been hired by them to get their presents back.
+                          Yes, this is completely different to what you normally do, but
+                          hey, it's Christmas, so just for once it's time to give back,
+                          rather than take.
+                          It's time to play Santa Claus taffers,....oooohh yeah.
+                           
+
+
+Info.
+	            : Of course this FM is just a bit of fun,... so don't take the
+                          story too seriously. Have fun and Merry Christmas.
+
+
+
+===================================================================================
+
+* Playing Information *
+
+Game                    		: Thief 2: The Metal Age
+Mission Title           		: Christmas Present
+File Name               		: miss24.mis
+Difficulty Settings     		: Yes, but only to find more loot on expert
+Equipment Store         	: No
+Map/Automap             	: Blank
+New Graphics            		: No
+New Objects             		: Yes
+New Sounds              		: Yes
+Multi-Language Support  	: No
+Briefing                        	: No
+Length                         	: n/a
+Size                              	: n/a
+
+Difficulty Level Info   	: Normal ,Hard, Expert 
+* Construction *
+
+Base                    : from scratch
+Build Time          : you don’t want to know ,…
+
+Known bugs        : there are a few areas where sound doesn't work properly; frame rate will be a bit
+                               low  on older computers in outdoor areas because of particle effects and lights.
+==================================================================================
+Special thanks to: Shadowspawn for custom motion data base. 
+                             Christine Schneider for custom objects: torte, sledge, snowman, and of course donuts. ☺
+                             Nameless Voice for custom objects: NVCubicOven , NVCandlabrum.
+                             People of TTLG and to all who host the missions.
+===================================================================================
+
+* Loading Information *
+
+Darkloader ready.
+Do not unzip -- Place in fan mission folder and install using Darkloader. 
+
+===================================================================================
+
+* Copyright Information *
+
+   Copyright (c) a few days after December 25th 2008 by Naks & P Forth
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact. You may include this level in any map pack as long as this 
+copyright statement is distributed intact. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+     

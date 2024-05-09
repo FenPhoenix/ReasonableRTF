@@ -1,0 +1,248 @@
+English, scroll down for German, French, Italian:
+=============================================================================================
+     Through the Lookin' Glass - A Thief 2 Fan Mission by J.Knez (Schwaa)
+                          Low Poly Guild : http://thiefmissions.com/lpg
+
+Release Date:    Vers 1.0 - 11/12/06
+
+Schwaa's Rant:
+ This mission might possibly be expanded at some point, or worked into a small campaign, but for now enjoy as is.
+As corny as it is, I chose TTLG as the title. Now this was not my original title or intention, but I did decide to
+ dedicate this mission to Through the Looking Glass Studios (as thanks for a great game that is sucking
+ away all of my time, life and talent -does that sound bad?), and alternately to TTLG.com forums and the Taffers
+ who have helped and inspired me thru the years. It just seemed to fit so well too, I had to do it.
+=============================================================================================
+Intro:
+ Rumors around town have it that a cult up on the hill has found a way to extract diamonds from the sky.
+Sounds fishy, smells fishy too. But it surely isn't the strangest thing I've heard, anyway as sceptical
+ as I am I've decided to investigate this rumor for myself. What's the worst thing that could happen,
+ I find some regular old diamonds? 
+=============================================================================================
+Important gameplay info:
+ I used a few custom scripts. Some objects can only be used/frobbed/read when an item on top of them is moved first.
+ Dials use a custom script, to use press your mouse key (frob) and hold the button down.
+ Shadows: I used renderer:runtime object shadows on alot of objects like rocks and trees. If something is between you
+   and a light it probably casts a shadow (unless you can still see the light-like a small crate, no way you could actually
+   hide behind one anyway.
+ Bugs: There are some objects (by who, not sure) in circulation that have nice textures, unfortunately they use the same
+           model names as the originals, but happen to be rotated 90 degrees. A wood table is one of them, be sure to play
+           with a clean T2 folder to avoid these problems.
+=============================================================================================
+Playing Information
+
+Game                    :Thief 2: The Metal Age
+Mission Title          :Through the Lookin' Glass
+File Name             :miss35
+Difficulty Settings  :Yes
+Equipment Store   :Yes
+Map                       :Well...
+Scripts                   : tnhscript, vkscript (not included)
+
+Construction
+
+Base                      :An enormous solid void (can a solid be void?)
+Build Time:           :info_window in Dromed will tell you.
+
+=============================================================================================
+Loading Information/Requirements:
+
+Vkscripts - script.osm (UsrScriptT2_1x2BugFix.zip) [http://thiefmissions.com/scripts/] and thnscripts - tnhscript.osm (tnhScript_1.5.4)[http://thiefmissions.com/telliamed/] are required
+Public scripts - script-T2.osm (pubscripts-test3)[http://thiefmissions.com/telliamed/] WILL break a main objective. If you have them in
+ your Thief2 folder please remove before playing.
+
+Runs from Darkloader 4.3 (although earlier versions should work just fine).
+ Haven't tested with GarrettLoader.
+ Just leave the zipped file unzipped and put it in the folder/directory where you store your FM's.
+
+=============================================================================================
+Credits:
+Level Design: Schwaa
+Objects: Schwaa
+Object Textures: Schwaa, Vigil
+Meshes: Schwaa, Shadowspawn
+Scripts: Gaylesaver, telliamed
+Betatesters: NamelessVoice, Nightwalker, Overlord Nexus, Preno, UliB, Undead Gamer, The Watcher
+  (Thanks to the testers for pushing me to make the mission a little more complete and polished)
+Mulit-language support/ translations by:
+  German: UliB and snowcap21
+  Italian: Krenim 
+  French: NightWolf
+
+Special thanks to:
+TTLG.com/forums and everyone there who has helped me through the years.
+  I'll leave it at that, I think it covers all bases, this level was built on the shoulder of giants by a mere mortal.
+Jason Tibbits ( http://thiefmissions.com ) and Komag ( http://keepofmetalandgold.com ) for hosting Thief Fan Missions
+ 
+
+=============================================================================================
+GERMAN INTRO AND INFO -
+=============================================================================================
+     Through the Lookin' Glass - Eine Thief 2 Fan Mission von J.Knez (Schwaa)
+                          Low Poly Guild : http://thiefmissions.com/lpg
+
+Release Datum:   Vers 1.0 - 11/12/06
+
+Schwaa's Geschwafel:
+Diese Mission könnte vielleicht irgendwann weiter ausgebaut oder in eine kleine Kampagne eingebaut werden,
+aber vorerst geniesse sie in ihrem jetzigen Zustand.  Veraltet wie sie ist, wählte ich TTLG zum Namen. Dies war
+nicht mein ursprünglicher Titel bzw. Plan, aber ich entschied mich, diese Mission Through the Looking Glass Studios 
+zu widmen (als Dankeschön für ein großartiges Spiel, das meine ganze Zeit, mein Leben und Talent auffrisst -
+klingt das böse ?) und andererseits auch den TTLG.com Foren und den Taffern, die mir all die Jahre geholfen
+und mich inspiriert haben. Es schien auch sehr gut zu passen, also musste ich es tun.
+=============================================================================================
+
+Intro:
+Es gehen Gerüchte im Ort herum, nach denen ein Kult oben auf dem Hügel eine Methode gefunden
+haben soll, Diamanten aus dem Himmel zu extrahieren. Hört sich verdächtig an und riecht nach einer
+faulen Sache. Aber das ist sicher nicht das Seltsamste, das ich je gehört habe. Egal. Skeptisch wie ich bin,
+entschied ich mich, dieses Gerücht mal selber unter die Lupe zu nehmen. Was kann schon Schlimmes 
+passieren. Etwa, dass ich ein paar gewöhnliche alte Diamanten finde ?
+=============================================================================================
+
+Wichtige gameplay info:
+Ich verwendete ein paar "custom scripts". Manche Objekte können erst benutzt/angefasst/gelesen werden, wenn ein
+Gegenstand auf den Objekten bewegt/verschoben wird. Drehräder benutzen ein "custom script". Um sie zu benutzen,
+drücke die Maustaste für Anfassen und halte sie gedrückt.
+Schatten: Ich benutzte "renderer:runtime object shadows" bei vielen Objekten wie Felsen und Bäumen. Wenn etwas zwischen
+dir und dem Licht ist, wirft es wahrscheinlich einen Schatten. (Außer, du kannst noch das Licht sehen- wie z.B. bei einer kleinen Kiste,
+dahinter könntest du dich ja sowieso nicht verstecken)
+Fehler: Es sind manche Objekte im Umlauf (keine Ahnung, von wem die sind), die schönere Texturen haben. Dummerweise haben diese 
+denselben Modellnamen wie die Originale, aber sind um 90 Grad gedreht. Ein Holztisch ist eines von ihnen. Vergewissere dich, mit einem sauberen T2-Verzeichnis zu spielen, um dieses Problem zu umgehen. 
+=============================================================================================
+Spiel Information
+
+Spiel                     :Thief 2: The Metal Age
+Missionstitel          :Through the Lookin' Glass
+Dateiname             :miss35
+Schwierigkeits-
+Einstellungen        :Ja
+Ausrüstungsladen  :Ja
+Karte                     :Nun,...
+Scripts                   : tnhscript, vkscript - download von thiefmissions.com
+
+Construction
+
+Base                      :An enormous solid void (can a solid be void?)
+Build Time:           :info_window in Dromed will tell you.
+
+=============================================================================================
+Loading Information/Requirements:
+
+Vkscripts and thnscripts are required
+
+Runs from Darkloader 4.3 (although earlier versions should work just fine) and GarrettLoader.
+ Just leave the zipped file unzipped and put it in the folder/directory where you store your FM's.
+
+
+=============================================================================================
+FRENCH INTRO AND INFO - INTRO ET INFOS (VERSION FRANCAISE)
+=============================================================================================
+     Through the Lookin' Glass - A Thief 2 Fan Mission by J.Knez (Schwaa)
+                          Low Poly Guild : http://thiefmissions.com/lpg
+
+Release Date:   Vers 1.0 - 11/12/06
+
+Intro:
+ Le bruit court en ville qu'un culte en haut de la colline a trouvé le moyen d'extraire des diamants du 
+ciel. C'a l'air d'un canular, ça sent le canular, ça goûte même le canular, mais ce n'est pas la chose la plus
+bizarre que j'aie entendue, et sceptique comme je le suis, j'ai décidé de mener ma propre enquête. Après 
+tout, que pourrait-il m'arriver de pire ? Trouver de bons vieux diamats tout ce qu'il y a de normaux ?
+
+=============================================================================================
+Informations importantes :
+ J'ai utilisé quelques scripts personnalisés. Certains objets ne peuvent être utilisés / frobbés / lus que lorsqu'un objet
+sur eux est déplacé auparavant.
+
+ Ombres : j'ai utilisé les ombres d'objets renderer:runtime sur un tas d'objets, comme les rochers et les arbres. Si
+quelque chose se trouve entre vous et la lumière, il crée probablement une ombre (à moins que vous ne voyiez 
+encore la lumière, comme pour une petite caisse, de toutes manières vous ne pourriez pas vous cacher derrière elle)
+
+ Bugs: Certains objets (de qui, je ne suis pas certain) en circulation on de jolies textures, mais utilisent malheureusement
+les mêmes noms de modèles que les originaux, mais pivotés à 90 degrés. Une table en bois entre autres. Assurez-vous
+de jouer avec un dossier de DP2 propre pour éviter ces problèmes.
+=============================================================================================
+Scripts requis : tnhscript, vkscript - à télécharger sur thiefmissions.com
+
+
+=============================================================================================
+ITALAIN INTRO AND INFO -
+=============================================================================================
+
+     Through the Lookin' Glass – Una fan mission per Thief II di J.Knez (Schwaa)
+                          Low Poly Guild : http://thiefmissions.com/lpg
+
+Data di Rilascio:    Vers 1.0 - 11/12/06 
+
+Lamentele di Schwaa:
+ Questa missione potrebbe prima o poi essere espansa o inserita in una piccola campagna, ma per ora godetevela per quello che è.
+Per quanto possa sembrare sentimentale, ho scelto TTLG come titolo. Ora, questo non è certo il titolo originale che avevo scelto, ma ho deciso di dedicare questa missione ai Through the Looking Glass Studios (come ringraziamento per aver creato un grande gioco che mi succhia via tutta la vita, il tempo ed il talento –suona brutta, vero?) e alternativamente al forum del sito TTLG.com e a tutti i ladri che mi hanno aiutato ed ispirato nel corso degli anni. Mi è sembrato giusto farlo e l’ho fatto.
+==================================================
+Intro:
+ Gira voce in città che un piccolo culto sulle colline ha trovato il modo di estrarre diamanti dal cielo.
+ La cosa mi è sembrata strana, ma sicuramente non è la cosa più strana che ho sentito e per quanto sia scettico sulla faccenda ho deciso di investigare da me su questa voce. Qual è in fondo la cosa peggiore che mi potrebbe capitare, di trovare qualche normale grosso diamante? 
+==================================================
+Importanti informazioni di gioco:
+ Ho usato alcuni script custom. Alcuni oggetti possono essere utilizzati/attivati/letti solamente quando è rimosso un oggetto che vi sta sopra.
+ Certi elementi utilizzano script custom, per utilizzarli premete il tasto del mouse e tenetelo premuto.
+ Ombre: ho usato il renderer:runtime object shadows su molti degli oggetti come rocce e alberi. Se qualcosa si trova fra voi e una luce probabilmente proietterà un’ombra (a meno che non riusciate ancora a vedere la luce, come nel caso di una piccola cassa, in ogni caso non sarete in grado di nascondervi lì dietro.
+ Bug: ci sono alcuni oggetti (non so di chi siano) in circolazione con ottime texture, sfortunatamente usano lo stesso model name degli originali ma appaiono rotati di 90 gradi. Un tavolo di legno è uno di loro, per evitare questi problemi giocate con una cartella di Thief II pulita.
+==================================================
+Informazioni di Gioco
+
+Gioco                           :Thief II: The Metal Age
+Titolo missione           :Through the Lookin' Glass
+Nome File                    :miss35
+Livelli di difficoltà       :Si
+Acquisto attrezzatura :Yes
+Mappa                          :Ehm...
+Script                           : tnhscript, vkscript – scaricati da thiefmissions.com
+
+Costruzione
+
+Base                              :Un enorme e solido vuoto (se mai può esistere)
+Tempo di Costruzione :info_window in Dromed ve lo può dire.
+
+==================================================
+Informazioni di caricamento/requisiti:
+
+Vkscripts e thnscripts necessari
+
+Avviabile con Darkloader 4.3 (anche se dovrebbe andare bene anche con versioni precedenti).
+ Non l’ho testata con il GarrettLoader.
+ Lasciate l’archivio compattato e ponetelo nella vostra cartella con le altre FM del gioco.
+
+==================================================
+Crediti:
+Level Design: Schwaa
+Oggetti: Schwaa
+Meshes: Schwaa, Shadowspawn
+Scripts: Gaylesaver, telliamed
+Betatester: NamelessVoice, Nightwalker, Overlord Nexus, Preno, UliB, Undead Gamer, The Watcher
+
+   
+Ringraziamenti Speciali a:
+TTLG.com/forum e tutti coloro che mi hanno aiutato negli anni.
+Tutto qui, mi pare di aver coperto tutto. Questo livello è stato costruito sulle spalle di giganti da un mero mortale.
+Jason Tibbits ( http://thiefmissions.com ) e Komag ( http://keepofmetalandgold.com ) per hostare Thief Fan Missions
+ 
+Copyright
+
+Questo livello è © di Schwaa 
+
+La distribuzione di questo livello è consentita fino a quando rimarrà gratuita ed il pacchetto sarà tenuto intatto. Nessuno può editare e re-distribuire questa missione senza il mio permesso esplicito.
+
+Questo livello non è stato creato e non è supportato dai Looking Glass Studios o dalla Eidos Interactive.
+
+=============================================================================================
+Copyright Information
+
+This level is © by Schwaa 
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+
+

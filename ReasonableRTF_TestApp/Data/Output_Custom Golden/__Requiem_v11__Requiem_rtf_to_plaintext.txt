@@ -1,0 +1,27 @@
+Requiem for a Thief
+
+An FM Beauty Contest Mission
+Author: Yandros
+Release History:
+v1.0: April 15, 2005
+	Original release
+v1.1: Sept 9, 2009
+Fixed broken sound file
+Replaced distant art
+
+The greatest Thief has finally died…
+Who will come to pay their respects?
+
+Difficulty Levels:
+1. Guards (Benny delivers eulogy)
+2. Hammerites (Hammer Priest delivers eulogy)
+3. Keepers (Keeper Elder delivers eulogy)
+
+Credits:
+Voices:	SlyFoxx
+Objects:	Dark Arrow, Targa, AsyluM
+Textures:	DEDx, Polygon, Yandros
+AI Skins:	Yandros
+Skybox:	Adapted from a photo of Prague by Wille
+Music:	Requiem: Introït et Kyrie, by Gabriel Fauré
+

@@ -1,0 +1,63 @@
+
+Le labyrinthe de Doschtle
+
+================================================================================
+
+Auteur : Doschtle
+Réalisée en : Janvier 2008
+
+================================================================================
+
+Description : Voici ma deuxième FM 
+
+Un jour, lors de l'une de tes excursions nocturnes, on t'a malicieusement assommé. Tu te réveilles juste à l'instant où
+des bras puissants te jettent dans un puits. Tu as la tête qui tourne quand tu émerges de l'eau et tu te retrouves dans
+une pièce inconnue qui est seulement éclairée par un champignon lumineux.
+Des bruits lugubres sortent des diverses pièces voisines. Étant encore un peu hébété, tu sors du puits et découvres
+quelques objets et un parchemin sur une petite table. Y serait-il écrit quelque chose qui pourrait t'aider ?
+
+================================================================================
+
+Informations sur je jeu :
+
+Jeu: Thief 2 - L'Age de métal (1.18)
+Titre: Le labyrinthe de Doschtle
+Fichiers: miss22.mis
+Niveaux des difficultés: Normal, Difficile, Expert
+Magasin: non
+Carte: Oui
+Nouveaux graphismes: Oui
+Nouveaux sons: Non
+EAX: Non
+Langues: DE/FR/EN/IT
+Briefing: Non
+
+================================================================================
+
+Construction : 
+4 mois
+
+================================================================================
+
+Beta-testeurs :
+Mayan, Suselsahne, Blackmen, Mirko, Valen
+
+Correction des textes :
+Mayan
+
+Traductions FR/EN :
+Zappenduster (Athalle, Fortuni)
+
+Traductions IT:
+overmann, Lorenzo
+
+================================================================================
+
+
+Droit d'auteur :
+
+Cette FM a été construite par Doschtle
+
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive.
+
+================================================================================

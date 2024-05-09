@@ -1,0 +1,64 @@
+Castello Michele
+Una Thief 2 FM di Ricebug & Xorak
+Usa il Dark Engine V1.22
+
+
+ATTIVA IL TEMPO E LA NEBBIA PER GIOCARE QUESTA MISSIONE.
+
+La semplice trama :
+
+Garrett si sta avvicinando al pensionamento. L'ultima cosa di cui ha bisogno è di un'altra difficile sfida.
+Sfortunatamente, una lettera da Basso gli piomba inaspettatamente nella casella postale come una bomba accecante.
+Sembra che ci sia un losco affare dietro la dipartita di una donna, una lady che ricordi vagamente chiamarsi ‘Michele.’
+Lo ha tolto dai guai in Murkbell e i favori vanno restituiti. Decide quindi di compiere un lungo viaggio verso la provincia per svelare il mistero.
+
+Oggetti
+
+Christine: mobili, piatti, tende, arredo interno
+Daraan: albero, cassetti
+	DEDX: bestia ghiacciata, Annie, stalattiti
+Digital Nightfall (COSAS): porta, chiave, gioielleria, bottino
+Elvis: Statua nel corridoio del castello
+Eshkataar: fascio di Luce
+Jason Otto: mobili, grate, catena
+LarryG: dipinti, portoni del castello, modello ratto
+Pinkdot: libri, libreria, portacandela in ferro, candela
+Ricebug: tappeto di pelliccia animale, balaustra scale
+
+Textures
+
+C-BEAM
+	Genetica
+	Nameless Voice
+	Jason Otto (AI skins)
+
+Traduttori
+
+Apiai (French)
+Soldi (Russian)
+Overmann (Italian)
+Zappen (German)
+
+Controllo Qualità
+
+fortuni
+itllrun10s
+Peter Smith
+Yandros
+Apiai
+Soldi
+Smallman_647
+Overmann
+Zappen
+
+Filmato Iniziale
+
+Luogo: A Meeting With Basso (Calendra’s Legacy, di Purah)
+Dulcimer Musica: Bradley Fish
+Garrett Grasso: FireMage
+Sequenza treno: Train Simulator 2015
+Software: Sony Movie Studio Platinum
+
+Un ringraziamento speciale ad Yandros per l'assistenza tecnica.
+
+Questo livello non è stato fatto e non è supportato da Looking Glass Studios o Eidos Interactive.

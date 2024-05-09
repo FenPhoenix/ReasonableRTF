@@ -1,0 +1,151 @@
+
+Sensut's DRACULA 
+(FULL STORY – Final version 1.4) 
+Created by Szabo Csaba @ SENSUT 
+
+********************************
+including:  
+Chapter I - The Love Thief v.2.3
+Chapter II - The Return v.2.2
+Chapter III - Traitors Of Poienari (The Beginning) v.2.1
+Chapter IV - The Darkthrone v.2.1
+Chapter V - The Final Chapter v.1.3
+Bonus - Home Sweet Home v.1.2
+
+Intro and outro movie with credits.
+A hint program demo with lootlists (see in Hints subdir).
+Custon scripts for manual installation.
+
+with new features: 
+Full translation support incl. Objnames.str, blank book arts and subtitles for the briefings.
+Maps.
+EAX sound.
+
+**********************************************************************************
+
+Contact Info : csabisensut@yahoo.com 
+Homepage : www.sensut.extra.hu
+Date of Release : 14. May, 2007.
+		
+
+Playing Information:
+
+Game : Thief II - The Metal Age 1.18
+Mission Title: Sensut's DRACULA (full story) v.1.4 final
+File Name: dracula_campaign.zip
+File info: miss20; miss21; miss22; miss23;miss24;miss25; sensut_dracula.gam
+Difficulty Settings: yes
+Equipment Store: no
+Map: yes
+Auto Map: no
+New Graphics : yes
+New Sounds : yes
+EAX : yes
+FOG : only in chapter I.
+Multi-Language Support  : no
+Briefing  : yes
+
+Requirements : 
+- Thief II - The Metal Age original PATCHED to 1.18 (otherwise some ojectives don't works!)
+- DARKLOADER 4.3 or GARRETTLOADER 1.4 .
+- Recommended a system around of 1GHz with 128 Mb video, and 512 RAM.
+- Microsoft Windows XP SP2 recommended!
+- Indeo 5.11 media codec for briefings (found here: http://www.free-codecs.com/download/Indeo_Codec.htm)
+- A subtitler program like GDivX400 for briefing subtitles (installer included in Movies subdir).
+Note: if the briefing movies creates game starting problems, change the "Missflag.str" file from the "Hints/Nomovie" directory in the "Strings" directory.
+
+Tested on :
+ - AMD Athlon 64 3000+, GeForce 6600 250 MB, 1 GB RAM - WindowsXP SP2 / WindowsXP64 SP1 - maximum
+game resolution, fog on - PASSED.                                                                                                                
+- Pentium III 800, Intel850 on-board video 32 MB, 256 MB RAM - Windows 2000 SP4/98SE/Me - 800 x 600 game resolution, fog off -PASSED.
+
+This project uses custom scripts! If you see this message at the beginning, please install these files (included in the mission package) then try again.
+
+Scripts: 
+- Telliamed (tnhScript 1.5.2, version)
+- Gaylesaver (script 1.2.0)
+
+Construction:
+
+Base : Romania
+Editor : Dromed Deluxe 1.0 (DeDx)
+Build Time : 2 years
+
+*************************************************************************************************************
+
+Special thanks:
+
+To Nightwalker for the text editions of the Chapter IV,V and bonus; and beta testing!
+
+To Metal Dawn for the greatest mesh skins specially made for the Dracula campaign, text editions (Chapter I-III), and beta testings!
+
+To Hotlyx, Gloria Creep, SneaksieRaven, Jiri Misenka, Turi Robert, T.Nagy Levente, Slipknot,  and Sir Balu, for helps and beta testings. 
+
+To Rob Hicks and the authors for Dromed Deluxe, the greatest game editor of all times. 
+
+To Komag and Spike14 for tutorials, and to everyone who wrote the good tutorials I learned from.
+
+To KOSZEG GYORGY FOR HUNGARIAN TRANSLATION SUPPORT  (www.kgysoft.try.hu).
+
+To TELLIAMED, GAYLESAVER,TARGA, SLUGGS, YANDROS, R SOUL, NAMELESS VOICE, JASON OTTO, BALATRO, GORT, TDBONKO, ESHAKTAAR, ALUN BESTOR, CHRISTINE, VIGIL, DARK ARROW, YAMETHA, SYI, DrK, PDACKEL, SHADOWSPAWN, Nielsen74, DLW6, NAKS, RAETSEL, THE WATCHER, ASGAROTH, PURAH, and to everyone who created the rest of the great textures, objects and other resources what I used.
+
+Additional textures from Quake 3 Arena by id Software, jHeretic, jDoom, jHexen, and also thank you for KMAN, NECRO, PIZ and ANTHRAXSCARE (DOOMSDAY) for these textures.
+
+Sky textures (modified by me) from: http://skymatter.thegamecreators.com/?f=sample
+
+Dedicated to my wife Eszter, and my little taffer Gellert, and to all taffers on TTLG and other forums, who are playing this campaign.
+
+
+Media credits:
+
+WOJCIECH KILAR (Bram Stokers's Dracula movie) main and background music (Ch. I);
+SATYRICON (band) main 2 theme, background music (Chapter III, bonus mission);
+DISBELIEF (band) intro briefing background music;
+DARK PRINCE - THE TRUE STORY OF DRACULA (movie) briefing texts;
+
+DIMMU BORGIR (band) background music (Ch. I);
+BATHORY (band - RIP) background music (Ch. I);
+
+ANCIENT (band) background music (Ch. II);
+INKUBUS SUKKUBUS (band) background music (Ch. II);
+SAMAEL (band) lyrics sequences (Ch. II);
+CREMATORY (band) lyrics sequences (Ch. II);
+
+POPOL VUH (Nosferatu'79 movie) background music  (Ch. III);
+MARCIN "CEDYN" CZARTYNSKI (Painkiller game) background music  (Ch. III);
+SATYRICON (band) background music (Ch. III);
+THEATRES DES VAMPIRES (band) lyrics sequences (Ch. III);
+
+ANTON GARCIA ABRIL (Tombs Of The Blind Dead ’71 movie) background music (Ch. IV);
+
+SATURNUS (band) outro movie music, backround music (Ch. V);
+GRAVEWORM (band) background music (Ch. V);
+DEAD CAN DANCE (band) background music (Ch. V);
+
+On paints and images:
+
+Wynona Ryder (BS's Dracula),
+Isabelle Adjani and Klaus Kinski (Nosferatu '79),
+SKARLET from the Theatres Of Vampires band.
+
+Story resources:
+
+Bram Stoker's DRACULA movie by Francis Ford Coppola - 1992;
+NOSFERATU, THE VAMPYRE movie by Werner Herzog - 1979;
+DARK PRINCE - THE TRUE STORY OF DRACULA movie by Joe Chappelle - 2000;
+DRACULA book by Bram Stoker;
+My and the Romanian people's history.
+
+
+Copyright Information:
+
+This project is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+

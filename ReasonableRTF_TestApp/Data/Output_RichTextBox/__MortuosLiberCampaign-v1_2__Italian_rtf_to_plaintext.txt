@@ -1,0 +1,115 @@
+ 
+Autore: Beltzer
+Titolo: Campagna Mortuos Liber 
+Contatti: beltzer2@hotmail.com
+Data di pubblicazione: 26 Ottobre 2018
+Versione: 1.2
+Descrizione
+Per recarsi da un suo amico nel vecchio Quartiere è passato
+da una piccola cittadina. Per strada ha ascoltato una coppia parlare 
+di un raro e prezioso anello. Appartiene allo Sceriffo Argus.
+Abita in una villa di questa città. Raccogli anche del bottino.
+
+Informazioni di gioco
+Gioco: Thief 2: The Metal Age v1.25
+Settaggi di difficoltà: Si
+Mappa/Automappa: Si/Si (missione 3 e 4)
+Lingue: Inglese, Tedesco, Francese, Italiano e Russo
+Bugs
+Se durante la seconda missione il giocatore sta usando il travestimento
+e poi attacca o comunque fa saltare la sua copertura, l'inventario potrebbe 
+diventare inutilizzabile per il resto della missione. Non far saltare la tua copertura.
+
+Da ricordare
+Se sei bloccato, guardati ancora in giro.
+Le cose potrebbero essere cambiate dall'ultima volta.
+
+Mie precedenti missioni
+Reunification Campaign
+The Abandoned Castle
+The Favour
+
+Informazioni di caricamento
+Testato con NewDarkLoader e FM-Selector.
+
+Grazie a
+Beta testers
+Aemanyl
+cardia1
+Gloria Creep
+nightshifter
+
+Altri ringraziamenti
+Ad Urgrue per aver controllato tutti i testi.
+A zappen e baeuchlein per la traduzione Tedesca.
+A piesel per la traduzione Italiana.
+Ad Athalle per la traduzione Francese.
+A MoroseTroll per la traduzione Russa.
+A Dussander per Shalebridgecradle.
+
+Oggetti customizzati
+Ar-Zimrathon
+Blackthief
+Daraan
+DC Project
+Dark Arrow
+Eshaktaar
+Gort
+Greenhorn
+JasonOtto
+jeffy
+LarryG
+Lord Alan
+Nameless Voice
+nicked
+Nielsen74
+Phantom 
+RSoul
+Schwaa 
+Sensut
+Sluggs
+Soul Tear
+Targa
+Team CoSaS
+Team Rose Cottage
+The Watcher
+Vigil
+von.Eins
+www.worldofgothic.de
+Zontik
+
+Meshes e skins
+Dark Arrow
+Eshaktaar
+JasonOtto
+Necrobob
+Paweuek
+Purgator
+Sensut
+Shadowspawn
+
+Textures
+Zappen
+C-BEAM
+Remedy
+Vigil
+cgtextures.com
+
+Script customizzati
+Gaylesaver
+Nameless Voice
+Telliamed
+ 
+Suoni
+Beauty-Man
+DarioD
+
+Ed ovviamente grazie alla mia fidanzata Sandra per il
+supporto morale e per avermi permesso di lavorarci 24/7.
+
+Informazioni sul Copyright
+Questo livello è © di Beltzer
+La distribuzione di questo livello è permessa in ogni modo, forma o
+maniera voi preferiate. Dovrete lasciare la missione intatta ed accreditarmela.
+
+Questo livello non è stato fatto e non è supportato da Looking Glass Studios

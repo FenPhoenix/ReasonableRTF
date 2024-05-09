@@ -1,0 +1,79 @@
+
+    
+
+
+Author :  Andrea Aleotti – Milan Italy
+Contact Info :  lord.alan@tiscali.it
+Homepage :  http://devoted.to/Thief
+http://alan7777.interfree.it
+Date of Release :  December 2001 and July 2002
+
+** *** **
+§ Description §
+My first mission, originally made for Thief Gold,
+now transformed into a Thief 2 mission.
+
+§ Story §
+Four months ago a noticeable cache of silver disappeared from
+the City Bank. Your suspicions lead you to Lord Alan, who
+belongs to the Thieves Guild. He loves music and has a court
+musician: Maestro Andreas. You have obtained a map of Lord
+Alan's Basement and by all appearances, the cache is somewhere
+in there ... and probably something more.
+
+** *** **
+§ Playing Information §
+
+Game :  Thief 2
+Mission Title :  Lord Alan's Basement
+Version :  2
+File Name :  miss20.mis
+Difficulty Settings :  Yes
+Equipment Store :  Yes
+Map :  Yes
+Auto Map :  Yes
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support :  No
+Briefing : No
+Length : 0
+Size : 0
+
+Difficulty Level Info :  Hunt, Action, Sneak
+
+** *** **
+§ Construction §
+
+Base :  Lord Alan's Basement for Thief Gold
+Build Time :  ~290 h
+
+** *** **
+§ Acknowledgements §
+
+Thanks to Peter Smith, Vanguard and Hawklette for their precious suggestions.
+Very special thanks to Nightwalker for helping me in many ways.
+
+** *** **
+§ Loading Information §
+
+Use Darkloader.
+
+** *** **
+§ Copyright Information §
+
+Copyright (c) November 2001
+and
+Copyright (c) July 2002
+by Andrea Aleotti
+
+Permission is granted to freely play and distribute this level.
+My musics are copyrighted.
+
+This level was not made and is not supported by
+Looking Glass Studios or
+Eidos Interactive.
+
+
+
+
+

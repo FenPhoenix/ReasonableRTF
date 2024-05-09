@@ -1,0 +1,263 @@
+        Keeper of Infinity
+       Chapter I: Bad Venture
+       Chapter II: Raven's Nest
+
+                         NewDark 1.23
+
+
+           Author:	 		Soul Tear
+           Contact: 		soultear999@gmail.com, TTLG.com
+           Release date: 		January 4, 2016
+           Version			1.2 
+
+
+                    SYSTEM REQUIREMENTS
+
+           Intel Core i5-4570 CPU 3.20 GHz, 8,00 Gb RAM, GeForce GTX 660.                        
+           There are a lot of objects in the scenes.                     
+           It's possible that fps might be low in places on slower systems
+
+           Also requires:                        
+           Option new_mantle enabled in cam_ext.cfg.
+           Option sun_runtime_obj_shadows disabled.
+           Disable Enhancement Pack (I use other textures with the same names)                      
+           
+
+                    GAMEPLAY RECOMMENDATIONS
+
+The FM was intended to be dark and to play with 65% gamma, in a dark room, 
+but since these conditions are detrimental to the eyes, it’s up to you how and where to play it.
+
+
+                    TECHNICAL ISSUES
+
+If you think that the game is taking too long, then try quitting the game using Task Manager and 
+run  it once again. However, if you see untexturized polygons (they usually appear as white ones), 
+I don’t recommend saving at that point because the game will probably hang or crash, and the slot 
+you used to save will lose its content.
+
+                TACTICS 
+
+All the equipment you find in "Bad Venture" will be carried over into "The Raven's Nest." These two FMs have no regular shop, so if you use up your equipment in "Bad Venture," you'll probably find the beginning of "The Raven's Nest" too difficult. Later on in the mission, you'll find a shop à la Soul Tear where you can buy everything you need except perhaps large caliber catapults .
+
+The most important equipment in both FMs is rope arrows. Use them wisely. Search for them wherever you can without harming yourself.
+
+Also, use water and moss arrows where needed, otherwise you'll run into trouble with guards that can't be knocked out (let's name them No-KOs).
+
+
+                    THE SHOP
+
+In "The Raven's Nest," there is a shop that uses so-called wallets for money. That loot will be automatically added to a separate slot in your inventory when you find certain kinds of loot: a wallet or a big pile of coins.
+You see, I didn't want to use the usual loot system because, in this case, the stats show incorrectly.
+
+All goods in the shop cost just 1 (one) wallet but in exchange, you will get a different number of these goods. For example, 1 (one) wallet equals 8 simple arrows, or 4 water arrows, or 1 (one) speed potion.
+Most goods in the shop are inexhaustible except the invisibility potion, which is just 1 (one) piece, so take your chance with it!
+
+In this FM, there is indeed a lot of No-KO guys, so you could use air crystals from the shop on them but don't buy them all at once, only as you need them. The total number of wallets is limited, so otherwise you'll be constantly searching for loot.
+
+
+                    THE PURSES' BUG
+
+Please don't use the wallets for other purposes, such as on doors! Otherwise, your wallets will disappear - minus 1 (one) for each try. As everybody knows, when a player is stuck, (s)he might start to try all inventory equipment on all kinds of things (s)he can see in desperation. Usually, this "method" would help but not in this case. I won't be responsible for the money you lose this way!
+
+
+                    THE TELEPORT GLYPH
+
+Don't panic if you used the glyph 'Enter The Void' by mistake, it will come back in your inventory after 3 minutes.
+
+
+                    CONVERSATIONS
+
+You can talk with a few NPCs and get some quests from them, like in "Fable of the Penitent Thief." You cannot reach some places until you finish the appropriate quests.
+
+
+                    DIFFICULTY
+
+The quantity of equipment, enemies and loot depends on the difficulty you choose. 
+
+
+                    PROLONGED DIFFICULTY 
+
+Be aware that, for example, if you incapacitate several No-KO guards with gas, new guards will always be spawned somewhere else in the FM, and they will start patrolling. Otherwise, it would be too simple to KO all the guards and calmly gad about .
+
+
+                    GHOST MODE
+
+This FM can totally be played with no KOs and not being seen by aggressive guards or the Mechanists' Camera, with all loot & secrets.
+
+
+
+                    DESCRIPTION
+
+
+Read the diary.
+
+
+                    PLAY INFORMATION 
+
+           Game:				Thief 2: The Metal Age
+           File name:			miss21.mis, miss22.mis
+           Difficulty Settings:		Yes
+           Equipment store:		No
+           Map/Automap:		Yes
+           New graphics:			Yes
+           New sounds:			Yes
+           New models:			Yes
+           EAX Support:			No
+           Multi language support:	English, French, German, Russian
+           Briefing:			No
+
+
+
+                    CONSTRUCTION 
+
+          Base:				From scratch
+          Map Size:			Large
+          Build Time:			More than 1200 hours + searching and resource creating
+
+
+
+
+
+
+               CREDITS   
+
+
+
+                TRANSLATORS
+
+            Dront
+            MoroseTroll
+            Nickie
+            Nightwalker
+            Zappen
+
+
+                TESTERS
+                
+           
+            Artycool
+            Bob_doe_nz
+            Burrick
+            Dev_Anj            
+            Fibanocci
+            Fortuni
+            Kurhhan
+            Soldi
+            Zireal
+            Zontik
+
+
+                ACTORS
+                
+            Bjack (Tordis)
+            Necrobob (Edward, Garrett)
+            Random_Taffer (Bill, Tom)
+            Yandros (Joren, Sam)
+
+
+                MAP
+
+            Scrp007
+
+
+
+                 TEXTURES
+
+
+           Ardianna
+           Daraan
+           DrK
+           David Gurrea Hernandez (www.davegh.com)
+           Gecko
+           LarryG
+           Nameless Voice 
+           Necrobob
+           Nicked
+           Purgator
+           Renzatic
+           Sensut
+           Soul Tear
+           Vigil (www.washboardabs.net/thief/)
+           Vurt
+           Xorak
+           PhotoRealistic: 
+           CGTextures (www.cgtextures.com)
+          
+
+
+                OBJECTS
+ 
+            Christine
+            Chuzhoi
+            Daraan
+            Eshaktaar
+            LarryG
+            Nameless Voice 
+            Nicked
+            Ottoj55
+            PinkDot
+            R Soul
+            Schwaa
+            Sensut
+            Sliptip
+            Soul Tear
+            Targa
+            TDBonko 
+            The Watcher
+            Vigil 
+            Von Eins 
+            Yandros   
+            Zontik
+
+
+                 SCRIPTS 
+
+            Nameless Voice 
+            Telliamed
+
+
+
+                 PAINTINGS
+
+           Atque (atque.deviantart.com)
+           daRoz (daroz.deviantart.com) - Ripoff9
+           Dominus (dominus.ttlg.com) - Menu
+           Mancomb-Seepwood (mancomb-seepwood.deviantart.com) - Paint19
+           Ponponxu (ponponxu.deviantart.com) - Movie
+           Shivan - Movie
+           Wraithdt (wraithdt.deviantart.com) - Ripoff8
+           wallpaperup.com - paint28
+
+
+                 MUSIC AND SOUND
+
+            Atrium Carceri
+                 Knowledge
+                 Meltdown      
+                 Reborn
+
+	B Stoate
+            Curunir
+            Gigagooga
+            
+            Rune
+
+
+            Other resources from FM: 
+
+            Broken Triad, Cathedral of The Damned, DeathsTurbidVeil, Dracula - Reloaded, 
+            Fables of The Penitent Thief, Keeper of the Prophecies, A Job Well Done, 
+            A Night In Rocksbourg 3, Saints and Thieves, The Seven Sisters.
+
+
+Copyright Information
+
+This level was made by Soul Tear.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack without my permission. No one may 
+edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+

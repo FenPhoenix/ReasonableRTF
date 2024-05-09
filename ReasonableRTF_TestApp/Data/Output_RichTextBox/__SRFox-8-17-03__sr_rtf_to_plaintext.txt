@@ -1,0 +1,36 @@
+Switching Rails First DR Version Bugs and Requests List
+
+Bugs
+
+The Bandido conversation does not end if the bandidos are disturbed, making the mission unbeatable.  In addition, it's unrealistic for the objective change to happen if the player leaves.  I'll probably try adding a cinema trap.
+
+The pagan's shrine and back room are not roombrushed.
+
+The lamp in front of the station still looks lit when turned off.
+
+If two cops see the player, the alarm sequence does not go off.  In addition, if it's triggered twice things get messed up.
+
+The industrial area's bowman does not do his bow-stolen sequence correctly.
+
+One of the dungeon cops seems to get stuck at a certain point in his patrol, and after the alarm sequence.
+
+Bows can be grabbed from the cops while they're shooting at the player.
+
+The bow near the station doesn't go into the inventory after being frobbed.
+
+The police bows don't stack.
+
+
+
+Requests
+
+The street lamps should be dousable by water arrows (no, I didn't manage to get that in yet).
+
+Areas that still need loot/powerups: house near station, industrial area, house southeast of construction site, pagan's shrine.
+
+Ambients haven't been placed in the streets and station yet.
+
+A few more placeholder sounds would be good: the jailbreak shout, the comment Byron gives upon entering the lab, and a couple more new comments right him (after the bandido conversation, maybe?).
+
+The rails ought to visibly move when switched (this needs architectural changes and a new object). 
+

@@ -1,0 +1,69 @@
+ 
+New Dark
+Eine Thief2-Fanmission von Ricebug
+Erschienen:  29.10.2011
+
+HINWEIS:
+
+Sie müssen diese aufgabe unter New Dark 1.21.
+
+Zusammenfassung
+
+Gewisse Leute haben eine vor langer Zeit von der mysteriösen Sidhe-Gruppe verlassene Insel entdeckt. Schon bald erkunden Mechanisten, Hammeriten und eine Menge anderer Glücksritter die Stätte. Nachdem Du von den möglichen Reichtümern Wind bekommen hast, begibst Du Dich an Bord der Rose Cottage und beschließt, in der Sache mitzumischen.
+
+Willkommen in der Thief2-basierenden FM Heretic, abgeleitet vom Originalspiel.
+
+Heretic war eine Fantasy-First-person-Shooter-Spiel von Raven Software, veröffentlicht durch id Software, und vertrieben von GT Interactive 1994. Es wurde verfügbar gemacht durch Steam am 3.August 2007 (Wikipedia).
+
+Von den 45 Leveln habe ich 3 ausgesucht. Die meisten (ich bin alle 45 zweimal durch) beinhalten weite Flächen mit großen Entfernungen. Sie wurden offensichtlich für DeathMatch und Teamplay geschaffen und können somit nicht 1:1 in die Thief-Welt übertragen werden.
+
+Technische Hilfestellung durch
+
+Nameless Voice, R Soul, Haplo, Sensut, John9818a, ffox, darthslair, Yandros, und andere bei TTLG die ich vielleicht vergessen habe. Sie halfen mir so manche DromEd-Tücke zu begreifen.
+
+Deutsche Übersetzung
+
+Zappenduster
+
+Sonstige Infos
+
+Nutze die ‘Waffenauswahl’-Tasten (eckicke Klammern re. Und li. [ & ]) um den Elfen-Zauberstab auswählen zu können.
+
+Qualitätskontrolle (Beta)
+
+bob_doe_nz, ffox, Gloria Creep, MrMunkeePants, 
+Nickie, prjames, ravenhook, Sensut, tafferjim
+
+Danke an
+
+Hochauflösende Heretic Texturen, heruntergeladen von Steam. jHeretic Re-texuring Project 2003.
+Optimiert und zusammengefaßt von Cain.
+
+Heretic Vorspannmusik von Kevin Schilder, Raven Software.
+
+Vorspann-Szenen wurden in Murkbell aufgenommen.
+Calendras Legacy ist Eigentum von Purah und Saturnine.
+
+
+Besonderer Dank an:
+
+SlyFoxx (Scott Murchison): Stimme (Vorspann)
+GORT (Shaun Morin) für die Elfenstab-Animation.
+Sensut: Scripting
+Saturnine: Segelschiff
+Eshaktaar: Lampen, Möbel, Truhen, Dickwanst (Foster), Aschezombies, und anderes abgefahrenes Zeugs.
+Jason Otto: ÜberarbeiteteAI-Modelle, Flammeneffekte, Tor und Gitter.
+Nameless Voice: Verschiedene Objekte, Sonnenrechner & andere nützliche DromEd-Erweiterungen
+Vigil, Pinkdot: Spinnwebens,  Texturen
+Sluggs: Gittermodell (Mission 3)
+Sidhe-Modell (mission 1) erschlichen von Serious Sam, The Second Encounter
+Gamesys: DedX, Eshaktaar’s Broken Triad
+Hammeriten-Kampfmaschinen: DedX
+
+Anmerkung
+
+Je nach Schwierigkeitsgrad mehr oder weniger AIs. Ziele und Objekte nicht betroffen.
+
+Disclaimer
+
+Diese FM wurde weder erstellt noch wird sie unterstützt von Looking Glass Studios oder Eidos Interactive.

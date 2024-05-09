@@ -1,0 +1,12 @@
+St. Francis' Folly
+Abandoned by Yandros, 12/20/07
+http://www.wearytaffer.com
+
+This was my second attempt at porting the St. Francis' Folly level from Tomb Raider 1 to Thief 2.  I used mostly original TR1 textures, which look like shit of course but I was going for authenticity.  All that's there is the single big entrance room, but you can push the block, climb onto it and start jumping and mantling from pillar to pillar.  The ape room at the end is only partially complete, and there are no AI in the mission.
+
+I actually developed several menu screens, so they're included as well as the original TR1 menu music.  This mission, unlike most abandoned missions, is Darkloader-ready, although there is only the one big room and no objectives or any way to end the mission.
+
+All I ask if you take this mission is (unless you're simply borrowing resources) that if you try to finish it, please be as faithful to the original TR level as possible.  I was going to use a burrick in place of the crocodiles and lions, monkeys in place of apes, use NV's bats, and instead of Pierre whom you encounter near the end I was going to have Lara fight Garrett (kind of ironic, eh?)
+
+Cheers,
+Yandros

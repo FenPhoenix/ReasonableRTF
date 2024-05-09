@@ -1,0 +1,63 @@
+
+Le labyrinthe de Doschtle
+
+================================================================================
+
+Auteur : Doschtle
+Réalisée en : Janvier 2008
+
+================================================================================
+
+Description : Trama: Questa e' la mia seconda FM.
+
+Mentre eri in una delle tue scorrerie notturne, vieni colpito da dietro in un momento di distrazione. Ti svegli nel momento
+in cui alcuni teppisti ti buttano in una fontana. Ti ronza la testa mentre torni in superficie e ti accorgi di essere in una stanza
+sconosciuta illuminata solo da un fungo splendente. Senti suoni raccapriccianti venire da una delle numerose stanze vicine.
+Ancora un po' stordito scali la fontana e scopri un piccolo tavolo con degli oggetti e una pergamena. Forse la pergamena
+contiene informazioni utili?
+
+================================================================================
+
+Informations sur je jeu :
+
+Jeu: Thief 2 - L'Age de métal (1.18)
+Titre: Le labyrinthe de Doschtle
+Fichiers: miss22.mis
+Niveaux des difficultés: Normale, Difficile, Esperto
+Magasin: non
+Carte: Oui
+Nouveaux graphismes: Oui
+Nouveaux sons: Non
+EAX: Non
+Langues: DE/FR/EN/IT
+Briefing: Non
+
+================================================================================
+
+Construction : 
+4 mois
+
+================================================================================
+
+Beta-testeurs :
+Mayan, Suselsahne, Blackmen, Mirko, Valen
+
+Correction des textes :
+Mayan
+
+Traductions FR/EN :
+Zappenduster (Athalle, Fortuni)
+
+Traductions IT:
+overmann, Lorenzo
+
+================================================================================
+
+
+Droit d'auteur :
+
+Cette FM a été construite par Doschtle
+
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive.
+
+================================================================================

@@ -1,0 +1,111 @@
+ 
+Retrouvailles avec Basso
+
+Une campagne pour Thief 2 en trois parties de Zappenduster
+Réalisée en Aout 2012
+
+
+
+Jeu:				Thief 2 - L'Age de métal
+Titres des missions :		Garrett fait une cure / Sur les pas des Marteleurs / Retrouvailles avec Basso
+Noms des fichiers :		miss24.mis / miss25.mis / miss26.mis / neu.gam
+Niveaux de difficulté :	Normal, Difficile, Expert
+Magazin :			Non
+Carte :			Oui (FMs 25 et 26)
+Nouveaux graphismes :	Oui 
+Nouveaux sons :		Oui 
+Niveaux objets :		Oui
+EAX :				Non
+Langues :			DE, FR, EN, IT, RU
+Briefing :			b24.avi, b25.avi, b26.avi, cs26.avi 
+
+Description:
+Après l'affaire de Dame Rumford, Basso a decidé avec sa femme Jenivère de partir vivre dans une autre ville. Il faut croire que mon vieil ami me manque car j'ai décidé de lui rendre visite après de longs mois d'absence.
+Durant mon voyage j'espère trouver quelques lieux intéressants dans lesquels je pourrais exercer mon talent. J'ai entendu parler d'un riche établissement de cure thermale. Voilà de quoi pimenter mon périple avant de fêter les retrouvailles avec mon vieil acolyte Basso.
+
+Note:
+Garrett peut "souffler" les bougies qu'il peut atteindre, pour les autres il peut les éteindre en utilisant une flèche à eau.
+Quelques gardes parlent avec la voix VGuard7 ou VDrunk7. Les auteurs de FM peuvent utiliser ces voix si ils le désire (en DE, FR et EN).
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive.
+
+Dévolu à notre vieux copain et testeur de TTLG.DE, Blackmen, qui nous a quitté en 2011 irrémédiablement.
+
+Beta-Tester, corrections des textes:
+Mes filles, DarkThief, DarthsLair, Gaëtane, Mira, Schelfia, Tannar.
+
+Merci à ...
+Alun David Bestor: Texturen und Spinnweben von http://thief.washboardabs.net
+Amazing3D: Objekte mit freundlicher Genehmigung von http://amazing3d.com
+Ar-Zimrathon: Handtuchhalter, Schrubber von http://zinkchristine.de/Dromed.html
+Beauty-Man: Musik von http://www.ttlg.com/forums/showthread.php?t=130428
+Christine: Deckenlampe, Koffer, Palmen, Regale, Teller, Tonwaren, Türrahmen von http://zinkchristine.de/Dromed.html
+CoSaS Team: AIs, Kneipenausstattung, Schriftrollen, VDrunk2 von http://darklurker.com/cosasobjects.html
+Gort: Rollstuhl von http://zinkchristine.de/Dromed.html
+Greenhorn: Grabstein, Liegestühle, Pinbord, Praxiskittel, Tafel von http://zinkchristine.de/Dromed.html
+Don Willadsen: Gerissenes Seil, Umhang
+Elvis: Faß, Herd http://ttlg.com/FORUMS/showthread.php?t=134139
+Eshaktaar: AD-Lampe, Gruselfackel, Öllampe, Orgel, Wassertextur
+Jason Otto: Häuser, Anbau, Pentagramm von http://jasonotto.net
+Josef Kurz: Jede Menge toller Objekte von http://joes3dfantasyworlds.com
+Krenim: Traduction italienne ... mille grazie!
+LarryG: Ratty
+Master_Edd: Füller, Löwenkopf, Weinschild von http://dark-zone.npage.de/index.html
+NamelessVoice: Bücherregale, Eckschrank, Fledermaus, Kerzenständer, Kohl, Lampe, Replace-Rahmen
+Nielsen74: Haken, Trompete, Fackeln, Minifaß,
+RSoul: Tisch und Stühle
+Schwaa: Fackel, Laute, Säulen, Schreibfeder
+Sephy: Musik von http://musik.ardw.de/ambience/index.php
+Sluggs: Bäume und Buschwerk
+Syi: Tisch
+Targa: Kompaß, überarbeitete AIs, Weinfaß von http://thiefmissions.com/targa
+Telliamed: tnhScript
+Vaughan "Sluggs" Cooper: Gelände
+Vigil: Spinnweben
+Yandros: Hammerite Mission Development Kit, Hammer Loot Pack von http://wearytaffer.com
+Zontik: Blumenbeet, Brunnen, Spritze von http://ttlg.com/forums/showthread.php?t=131911
+Dann waren da noch ...
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle: Brunnen, Häuser, Karrenszene, Wachturm 
+http://opserver.de/coni_users/web_users/pirvu/au/models.html: Axt, Waage, Badewanne
+http://www.worldofgothic.de/?go=moddb: Marktstände, Möbel, 
+http://spiralgraphics.biz
+http://thewall.de/forum/thread/hl2-mauer-fachwerk-natur-texturen/49710.1.html
+http://mediacastle.de/texturen
+http://themedievalsmithysims2.blogspot.com
+http://texturehub.net
+http://dougturner.net/blendersite/index.html
+http://vgt.davegh.com
+http://au.conitec.net
+http://noctua-graphics.de/deutsch/freetex_d.htm
+http://gamebeep.com/textures
+http://bildburg.de/texturen
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+http://amazing3d.com
+http://opserver.de/coni_users/web_users/pirvu/au/models.html
+http://worldofgothic.de
+http://borsaci06.com/3d-Source.htm
+http://sounddogs.com
+http://freesfx.co.uk
+
+Programmes utilisées:
+Tout ça pour cette campagne - incroyable!
+DromEd118:		Na logo.
+ThiefEdit:		Sehr hilfreich beim Betrachten/Abhören von RES-Dateien
+ObjTree:		Zum leichteren Editieren der Gamesys, sie ist nach Abspeichern i.d.R. auch kleiner als per DromEd.
+ObjList:		Thorin-Oakenshields Objektliste - wenn das Suchen in der Objekthierarchie mal wieder länger dauert ...
+ParchEd98:		Tom N. Harris' effizientes Eingabeprogramm für Bücher und Schriftrollen.
+Ulead PhotoImpact:	Excellente Aufbereitung von Grafikdateien.
+IrfanView:		Irfan Skiljans Programm kann so ziemlich jedes Grafikformat ...
+360g:			Wandelt Texturen vom proprietären VTF-Format in gängige Bildformate um.
+DXTBmp:		Wandelt Texturen vom proprietären DDS-Format in gängige Bildformate um.
+Bright183:		Erik de Neves Programm erstellt aus BMPs batchmäßig spieltaugliche Grafik-Familien.
+XVI32:		Christian Maas' Hex-Editor mit dem man z.B. BIN-Dateien verändern kann.
+Anim8or:		Zum Erstellen/Bearbeiten von 3DS-Objekten.
+3DS2BIN:		Konvertiert 3DS-Dateien ins BIN-Format (von NamelessVoice).
+ProgMesh:		Parallelos praktische Software reduziert Polys von 3DS-Modellen im gewünschtem Grad.
+View:			Zeigt eine BIN-Datei an, mit Dreh- und Zoomfunktion.
+UVMapper:		Stephen L. Cox' Programm gestattet die alternative Gesamttexturierung eines Objektes.
+Sony SoundForge:	Aufbereitung von Tondateien - Aufnahme und einzelne Effekte.
+Audacity:		Aufbereitung von Tondateien - insbesondere Rauschunterdrückung.
+MS Audiorecorder:	Aufbereitung von Tondateien - Umwandeln in IMA ADPCM 22.050 Hz; 4 Bit; Mono.
+Ulead Filmbrennerei:	Überraschenderweise auch für Vorspann-AVIs geeignet.
+Et encore Notepad, WinZip, WinRar, ...

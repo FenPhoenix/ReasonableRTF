@@ -1,0 +1,275 @@
+The Circle of Stone and Shadow, 
+ Chapter 1, Mission 2
+
+ Mission X
+ By: Anarchic Fox, Finial, Yametha, R Soul, & Digital Nightfall
+ Directed by Daniel Todd
+ Version 1.00 Release Date: August 15th, 2008
+ Version 1.13 Release: October 1st, 2008
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Introduction
+
+I am Pavlovscat. Until now, my role has been behind the scenes doing research and keeping The Circle’s copious files organized and accessible. This is my closest involvement thus far with a live mission, and it is a crucial one. 
+
+Lord Raputo is in an excellent position to destroy the Circle of Stone and Shadow, ruin all of Master Nightfall’s work and kill any known or suspected agents of the Circle. My part is to ensure that information is accurate and accessible to the team who will be working against this threat. 
+
+The Ivory Rose Casino and Gentlemen’s Club is the key piece in controlling the district of Three Gates Bridge. Raputo must not be allowed to purchase the Ivory Rose.
+
+I have done as much as I can, but still much remains uncertain.  One of Master Nightfall’s associates, Lady Antonette, has agreed to serve as a distraction during the discussion of bids for the Casino. Without her aid, Raputo would have an easy purchase with no competition.  I hope she can do this without arousing suspicion, but I fear that there is nothing she can do besides delay him with her charms; she has no hope against Raputo’s wealth.  
+
+However, the factor that has me the most concerned is the agent Dante.  He has been with us since last winter, but this will be his first mission as part of a team.  Sheam feels he is ready.  Master Nightfall trusts Sheam, and so I must as well.  Still, I cannot help but worry what an inexperienced agent might do in a stressful situation like this one.
+
+I have done all that I can for now. The fate of the whole Circle may very well be in Dante’s hands.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+The Story Thus Far…
+
+Three seasons have passed since the late winter’s night when a small inn in a remote corner of The City was host to the Scepter Owner’s Society, and was infiltrated by the amateur thief Dante at the behest of the mysterious Master Nightfall, founder of The Circle of Stone and Shadow.  Since then, Dante has worked slowly through the ranks of The Circle, gaining the trust of those around him.  Now, as the cold of winter once again grips The City,  he stands ready to join the highest ranking agents in the organization, the Material Components (MCs), captained by Sheam and under the direct command of Master Nightfall himself.  
+
+Meanwhile, the face of The City is changing.  The old factions splinter and quarrel amongst themselves.  In these troubled, uncertain times, the Wardens thrive.  Emboldened, they work in broad strokes, manipulating the powers of The City as so many pieces on a chessboard.  However, in their bloated expansion to fill the power void left by the decline of other factions, frictions have turned to conflicts.  War has broken out amongst them.  Lord Raputo, one of the most powerful wardens, has turned his eyes upon The Circle and Master Nightfall.  Sensing a threat far greater than that of a petty crime lord, he struck out at once to smite Nightfall, and found his suspicions to be very well founded.  Raputo’s territory and resources are vast, and they surround Nightfall’s tiny foothold in Hightowne, but Nightfall’s alliances are firm and his organization holds many powerful secrets.
+
+In a laboratory deep below The Circle’s territory, the mad Doctor Hallming works.  The MCs deliver him goods, stolen from the powerful factions of The City which he uses to fuel his experiments, and he in turn supplies them with inventions.  Now, his latest creation, stolen from the hands of The Mechanist, Karras himself, is finally ready to be used.  
+
+It is at the collision of these threads that Mission X begins, at the northern gate to The Ivory Rose Casino in the small district of Three Gates Bridge; a pivotal strategic point in the war between the wardens.  Armed with the creations of Doctor Hallming, the MCs and their newest addition, Dante, set in motion a plan to defeat Lord Raputo’s designs for The Circle’s destruction.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+About Mission X
+
+All FMs have to start from something.  Many start from a setting, others from a story.  Mission X began with an idea on how to change fundamentally the way a Thief Fan-made Mission works.  Gathering at the Inn introduced the concept that you were joining an organization.  You were no longer Garrett the loaner, but Dante, a member of The Circle.  How far could we take this idea into the actual way the mission was designed?  How could we make a mission which is built upon the foundation that you are the member of a group?  Mission X was our solution.
+
+Mission X was always meant as just a working title.  It stood for Mission eXperimental.  It didn't take long for us to give up on finding a 'real' mission name though, and though the idea did crop back up that we needed a 'real' mission name, nothing anyone ever came up with could compete with "Mission X".
+
+But it almost didn’t happen.  There was a problem, and that was in the life choices the mission’s authors made.  We were all in college, and all taking part in very time and energy intensive programs.  The level of ambition required to complete MX, which required doing things no FM designer at the time knew how to do, demanded that we make a choice.  MX was an experiment, and as such it was unique even among CoSaS missions.  It was even isolated from the plot.  It could be cut.  It very nearly was.  But we came to a decision.  We asked ourselves, “If I could only finish one FM, and never touch another one after that, which one would it be?”  Put that way, it wasn’t a hard choice to make.  MX was it.
+
+MX has been in development since 2000.  In many ways, the delays in its release were a blessing, for a great deal of what we have done with the Dark Engine would not have been possible several years ago.  
+
+Still, as I write this, weeks before the mission is actually released, I feel that it is not premature to declare the experiment of MX a profound success.  If we do go forward with the rest of the CoSaS Project, and I feel strongly that we will, it will no longer be the case that MX will stand out as a unique experiment.  MX will become the rule, not the exception.   
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Difficulty Levels
+
+Expert
+Mission X is a very challenging mission, so it seemed only natural to name the lowest setting ‘expert’.  If you’re used to always playing missions at expert, you should consider starting here.  On this setting the other agents will usually supply you with most of the information you need in order to solve your various objectives and puzzles.  It’s rarely as simple as they make it sound, however.  Though your starting gear is (mostly) the same across the board, tools found in the mission are more abundant at this setting.
+
+Professional
+Here the information your fellows give you is more vague and has more holes in it.  You will have to figure out a lot on your own, but they will point you in the right direction.  A medium amount of in-mission gear is present.
+
+Impossible
+Be warned; your fellow agents won’t be very helpful, and may in fact become annoyed if you ask them for advice.  You will need to rely on your own wits in order to get anything done.  A minimum of in-mission gear exists, so be careful with what you have.  Oh yes, and there’s no lightswitch key.
+
+Additional Notes:
+Because the difficulty levels determine how much help you are given to solve the puzzles, their importance to replayability is diminished.  This is why there is a variance in player gear.  There is no loot goal, no objectives concerning how you may or may not behave towards your enemies (with one exception), and no artificially imposed restrictions on play style.  
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Tools of the Material Component Agent
+
+The Communications Mask
+This is the tool that allows the Material Component Agents to function as one.  Stolen from the heads of Karras’ Servants, the mechanical and arcane devices to receive transmissions were already present in many of the various forms of Mechanist creation.  Doctor Hallming had only to create a receptor which would  allow the wearer to reply.  It is heavy, uncomfortable, must be over-fastened with straps and buckles to keep it in place, and gives the wearer the appearance of a mechanical monstrosity.  (The Comm-Mask will appear in the inventory with the name of whatever statement you are able to make.  Selecting it will make Dante say this to his team mates.  Often multiple statements are possible in reply to a query, at which point the names will be marked with a (1 of 2) and (2 of 2).  When multiple masks are present in the inventory without this designation, choosing one will not override the others.  Sometimes there is a time limit for your reply, after which those waiting for your input will either assume you’ve been compromised, or a default option will be chosen for you.  Reporting in with the mask is often necessary in order to complete an objective, even if the task itself has been completed – it won’t be marked off until you report in.  Pay close attention to what the other agents are saying, as they may be offering valuable information.  You sometimes have the option of asking them to repeat their last statement, but not always.)  
+
+The Keychain
+Having more keys should give you more freedom, not encumber you.  Your trusty keychain will keep your keys organized and your inventory free of clutter.  (All keys stack into the keychain object.  This can be used to unlock any door you have the key to, without having to find that specific key. Additionally, when you pick a key up the name of that key will appear on-screen, and you will be given a permanent note listing all the keys you have.  You can view this list at any time on the last page of your automap and notes.)
+
+The Circle Dagger
+Though it doesn't deal nearly as much damage, the dagger is a much quicker weapon than the sword, meaning you'll be able to get three or more hits off before your enemy's sword arm comes down.  An overhead thrust can take down the strongest unaware enemy in one blow.  Its true power comes in concert with the Knockout Drops, however.  (Tap the attack button for a quick jab, or hold down to ready an overhead, underhand stab.)
+ 
+Knockout Drops
+A single application of the green vial is good for three attacks.  The knockout poison works instantaneously upon entering the target's bloodstream, sending them to blissful dreamland.  Just be careful not to hit them too hard – the dagger is no less sharp just because it’s poisoned.  (Use the Dagger Knockout Drops and then select the dagger.  Its next three attacks will now knock your enemies out rather than hurting them.  There is no time limit, and poison uses stack, so unused attacks will last as long as you need them to.)
+ 
+The Sap
+The shape and arrangement of studs on this small, specialized blackjack were designed by Doctor Hallming to produce an amnesic effect in those struck, as well as a minimum of swelling to further obscure the source of the assault.  On the other hand, it’s more delicate nature renders it useless against any form of head protection.  If you spot a guard with a helmet, use the knockout drops or a gas arrow instead.  (Works exactly the same as the blackjack, but any form of helmet will make the target resist the knockout.)
+
+Scouting Orb
+You may have noticed that the Comm-Mask has an eyepiece.  Hallming has modified this eyepiece to work with scouting orbs, as well as the standard zoom function.  Intelligence reports that the Ivory Rose has a network of crawlspace systems which often have narrow openings with poor vantage points.  Tossing the scouting orb out ahead of you could give you an advantage in timing your exit.  (Although the model has changed, the scouting orb functions exactly like it did in Thief 2.)
+ 
+Dust Bombs
+The most difficult problems sometimes have the simplest solutions.  The fine powder contained in the dust bomb is perfect for revealing greasy fingerprints, betraying the pressed numbers on a combination keypad, but not the order.  Also, our agents have taken to marking doorways which need to be indicated to other agents whom we cannot contact directly, as the dust is easy to notice but apparently innocuous.  Plus, I don't know about you, but I sure wouldn't want a bag of dust thrown in my face.  (To use, right-click to throw or R, or whatever you have drop bound to, in order to drop.)
+ 
+Vine Arrows
+The Mechanists aren't the only ones who have 'lent' us tools.  These vine arrows work just like rope arrows, but can attach to many more things.  In addition to wood, plaster, and earth, anything the vines can wrap around is fair game, including gratings, railings, or even sculpted relief moldings.  (Their use has not changed, but what they can be used on has been expanded.)
+ 
+Copy Kit
+You may have an excellent memory, but we'd rather you have a quick writing hand.  This kit contains everything you need in order to make a copy of any important documents you may come across.  Be careful never actually to move the document you are copying.  If it's sensitive information, we don't want to tip anyone off that it's been compromised.  We don't know how many important documents you may find, but if there's more than the quantity of copy kits we've given you, you may be able to find some in the field..  (Simply Simply use the copy kit on the document to copy it.  A copy of the document will go into your inventory, where it can be re-read.  They stack, so you can only re-read the last document you copied.)
+ 
+Torque Wrench and Lock Pick
+We've simplified the lockpicking process so you can focus on not getting caught instead of fumbling around with your lockpicks.  First apply pressure with the torque wrench, and then insert the lockpick to push the pins into place.  (It works just like the old lockpick system, except that you always use the torque wrench first, and then the lockpick one, two, or three times after that.)
+
+Mission Map, Notes & Hints
+As an agent, you always go into a situation with the best information to prepare yourself for what’s ahead.  In addition to the standard map (though ours are always more detailed, and come annotated with information from fellow agents who have scouted ahead beforehand) you’ll find information on important persons in the area, profiles of your teammates, and descriptions and directions for any new or unique gear at your disposal.  (You can view all of your notes by going to your map.  Hints are first, given on the fly during the mission depending on your difficulty level.  A quill in your inventory will take you to your most recent note. Maps are second, information third, and your key list last.)
+
+Noble Clothes
+Normally this would never work, but Dante didn’t grow up on the streets, and so putting on a set of fancy clothes allows him to completely blend in with high society.  (As long as the suit is in your inventory, you’re wearing it.  Once you gear up however it will be useless, so you may as well change into something more fitting for an agent.)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Credits
+
+Lead Design (alphabetical unless otherwise stated)
+· Eric “Anarchic Fox” Lastname: event & puzzle design, writing; dialogue & books, enemy patrols
+· Michael “Finial” Peers: ivory rose design & layout, primary mission architecture
+· Robin “R Soul” Collier: event & puzzle setup, conversations setup
+· Sarah “Yametha” Bruce, co-director: event & puzzle design, interactive dialogue systems, quest design & setup
+· Daniel “Digital Nightfall” Todd, director: original mission concept, additional ivory rose design, writing; dialogue & books, enemy patrols & behavior, loot, gear, & keys placement, additional automap setup, roombrushing, ambient music/sound setup, quest design & setup, game interface design
+
+Additional Design
+· d0om: rubber's chores
+· Mortal Monkey: important documents objective
+· Ottoj55: mistress clues & hints
+· Shadowspawn: craps players, dagger arm & animations
+· Sliptip: surrounding scenery
+· Starselah: automap setup
+· Vigil: front desk conversation
+· Yandros: the never-ending conversation
+
+Dark Engine Script Modules: 
+Mortal Monkey, NamelessVoice, Telliamed, Totality & VKGaylesaver
+
+Visual Design
+· Objects & Textures: Eshaktaar, Gron, Nameless Voice, pkaa, redleaf, R Soul, Schwaa, Vigil, Yametha, Wille & Digital Nightfall
+· Character Meshes: Nameless Voice, Schwaa & Yametha
+· Communications Mask Design: The Immortal Thief, redleaf, Yametha & Digital Nightfall
+· Additional Objects, Meshes & Textures: caffeinatedzombeh, Christine, Daemonite, Saturnine, Targa & tdbonko
+· Concept, In-Game & Interface Art: Dominus, Gumdrop, Ireth Kalt, Kin, Lady Taffer, Tazio, The Immortal Thief & Digital Nightfall
+
+Audio Design
+· Lead Audio Design: Rikhard “Sogax” Dukes
+· Music: Deliciound
+· Additional Media
+   CRC: main menu music 
+   Loanstar: suites harp
+   redleaf: vocalist, menu sounds 
+· Additional Music
+Pine Lounge: Sampled from “Diabolus” by Buddy Rich
+   Orchid Hall: Based on "Minuet in D Minor" by Henry Purcell (1659-1695)
+
+Mission Briefing
+· Design, Script & Storyboard: Digital Nightfall
+· Artwork: Faudau, Gumdrop, Ireth Kalt, Julia, LadyTaffer, Zacharias & Digital Nightfall
+· Proof-of-Concept Animation: DarkOwl & DrK
+· Final Animation: Trimfect & Digital Nightfall
+· Music, SFX & Audio Work: Sogax/Deliciound
+
+Meeting with Sheam Cutscene
+· Design, Script & Storyboard: Digital Nightfall
+· Artwork: Tazio
+· Animation: Lazarus
+· Music, SFX & Audio: Sogax/Deliciound
+
+Failure & Credits Movies
+· Artwork: Lady Taffer, Vigil & Digital Nightfall
+· Animation: Digital Nightfall
+· Music: Sogax/Deliciound
+
+Voice Cast (in order of appearance)
+· Wynne - Sheam (Agent Air)
+· David "Saturnine" Tonkinson - Dante (Agent Glass)
+· Shadow Creepr - Julie
+· Scott "Slyfoxx" Murchison - Mister Cloud
+· Scott "Slyfoxx" Murchison - Lord Raputo
+· Mara "Msledd" Love - Lady Antonette
+· Liz "Lizanneh" Muirhead - Agent Stone
+· Scott "Slyfoxx" Murchison - Agent Steel
+· Steve "Ibsen's Ghost" Boyes - Agent Rubber
+· Paul "Loanstar" Billo - Pomok
+· Jeanne "redleaf" French – Liselle
+· Quincy Jones Wannabe - Sergeant Dendrington
+· Himself - Lord Stounch
+
+Beta Testers
+Brethren, BrokenArts, clearing, d0om, Ermana, jtr7, Moghedian, Mortal Monkey, Nightwalker, pavlovscat, Pavlovcats Mom, Otto Dydactic, R Soul, redleaf, 
+Shadow Creepr, Sliptip, Slyfoxx, Telliamed, The Phantom, valatarsis & Yandros
+
+Version 1.13 Testers
+bob_doe_nz, CaptSyn, D Okamoto, EmperorSteele, Kyle Kellahshehskee, nightshifter & SneakyJack
+
+Created for Thief II: The Metal Age
+
+Inspired by Mission Impossible (1996) & Deus Ex
+
+Based on characters and events from the fan fiction novel Correspondence of Thieves, by:
+Alex Thomson, James Sterrett, Lytha, Steve Tremblay & Daniel Todd 
+Special Thanks
+Alphonse Mucha, Arkane Studio’s Arx Fatalis, Becky, CGTextures.com, Digital Thought, David Gurrea, Google 3D Warehouse, Harrison Fisher, Heirloom European Tapestries, ION Storm Austin, Jason Tibbits, Julia, Legend Entertainment’s Wheel of Time, Looking Glass Studio’s & Irrational Game’s Deep Cover, Mokkis, Nivardus & USF-SACD
+
+Extra Special Thanks
+Gretchen “pavlovscat” Uchello & R Soul 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Contact info: 	send PM to Digital Nightfall on www.TTLG.com/forums
+			dan@ttlg.com
+			detodd@gmail.com
+
+Homepage: 		http://cosas.ttlg.com 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Description: 	The Circle of Stone and Shadow; the second mission of the campaign. 
+
+  Game: 			Thief II: The Metal Age
+  Mission Title: 		Mission X
+  Version			1.055
+  File name: 			miss23.mis
+  Difficulty Settings: 		Yes (Expert, Professional, Impossible)
+  Equipment store: 		No
+  Map / Automap: 		Yes / Yes
+  New graphics: 		Yes
+  New sounds: 		Yes
+  Multi language support:	No
+  Briefing: 			Yes
+  Debriefing:  			Yes
+
+  Base: 			From scratch
+  Build Time:			Eight years
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Featuring:
+
+Artwork By
+Ireth Kalt… 	http://www.rwtodd.net/marianna 
+Dominus…	http://www.pandemoniumart.net  
+Tazio Bettin…	http://sunamori.deviantart.com 
+
+And Music by
+Deliciound … 	http://www.deliciound.net 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Loading information
+
+This is an extremely complex mission, and many issues that have arisen during playtesting have resolved themselves with a fresh reinstall of Thief 2. 
+
+All custom scripts are included.  If you begin the mission with a black screen (health and light gem visible) then there was a problem loading the scripts.  Try manually moving all osm, dll, and dlx files from the zip into the Thief 2 folder.  If the problem persists, seek help on http://www.ttlg.com/forums 
+
+Run with Darkloader 3.4 or GarrettLoader 1.42.  Does not work with Garrettloader 1.41 and earlier.  
+
+Works great with DDFix and the widescreen custom resolution patch, though at widescreen crashes in the courtyard will result from scene complexity visible with the larger field of view.  
+
+All of NV’s Enhancement Pack objects which MX uses are already included, however in some cases alternate models or skins are used.  
+
+Not tested with any other hacks or patches.  
+
+If you wish to remove the captioning for the agent dialog, once the mission is installed, open your Thief 2 folder and open the books folder within it.  Delete all .str files that begin with either CMS or VOTS.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Known Issues (Moved to the Patch Readme)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Copyright © 2008, Team CoSaS.  All rights reserved.
+
+Permission is granted to freely play and distribute this mission providing it remains whole and intact.  This mission may not be sold, for any price, on a CD or DVD by anyone without permission and supervision from the project director.  This mission may not be used as a floatation device. This mission was not made and is not supported by Looking Glass Studios, ION Storm, or Eidos Interactive.
+
+No media or data contained within this archive may be used in your own mission or project without the permission of the project director.  However, we are really generous and will probably say yes if you ask nicely and promise to credit the original creator.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+The names or likenesses contained herein are sometimes stolen from the names and likenesses of real people and any resemblance to real people, living or dead is purely intentional.  CoSaS is still not The Servithon Quest, though I doubt anyone remembers what that is.  We’re sorry, but this time the pickle jar is not loot.  On the other hand, where did Pomok leave his blueprints anyway?  They’re probably right under his nose.
+

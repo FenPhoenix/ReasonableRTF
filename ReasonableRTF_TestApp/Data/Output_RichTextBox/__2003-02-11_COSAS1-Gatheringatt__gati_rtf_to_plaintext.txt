@@ -1,0 +1,163 @@
+ The Circle of Stone and Shadow, 
+  Chapter 1, Mission 1
+
+  Gathering at the Inn
+  Based on 'Gathering at the Bar' by Toni "Trimfect" Hollming, 1999 (T1)
+  By: Markus "Mokkis" Lappalainen & Totality
+  Directed by Daniel Todd
+  Release Date: February 11th, 2003
+
+  This is Anarchic Fox, speaking to you as one who has, until recently, held a distant and aloof 
+  position - a judge of thieves, not a thief himself.  All of that changed last night, for I found myself    
+  put to the test by one Master Nightfall of the Circle of Stone and Shadow.
+
+  As I swam through the sewers under his target's foundations, I knew that the stain and shame of 
+  thievery had now marked me permanently, and as I slid, shivering, across the inn's roof, I 
+  foresaw years of hardship and bloodshed to come.  But the skill with which I slipped the riches 
+  of unsuspecting guests past their unseeing eyes spoke louder than my coward's conscience.  
+  The Circle of Stone and Shadow is here; its dark story has begun...
+
+  ...And I am caught fast in its grip.
+
+  The Circle is kind to its new agents; the initial assignment, this test of skill, will be joyful and 
+  easy compared to what is yet to come.  Some of you, the more experienced taffers, will find a 
+  small smile adorning your face as a familiar locale glides into view, as talented fingers dip into 
+  familiar pockets.  The rest of you will delight in the smooth performance of a mission, and the 
+  novelty of a new life.
+
+  Countless taffers will stalk the wooden hallways of the Grieving Burrick, and countless gloved 
+  hands will draw the priceless artifacts from their owners' chests; I hope many will haunt the inn's 
+  interior with the silent serenity that only a master thief knows, just as I have done.  After you 
+  have proven your worth, you will be a member of the Circle, its machinations your own, its tale 
+  set into motion by your actions.
+
+  Master Nightfall will be pleased.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Gathering at the Inn is meant as an introduction to the player character, Dante, as well as a 
+  training mission on the use of the key ring and note pages.  We hope all of these new elements 
+  will be self explanatory, and that you will enjoy the ideas.  Most of all, though, we hope you have 
+  lots of fun playing our first mission.  - Dan
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Mission Credits
+  - Architecture & Layout: Markus "Mokkis" Lappalainen
+  - Scripting: Totality 
+  - Additional Scripting by: Anarchic Fox 
+  - Custom Scripts Pioneered by: GayleSaver
+  - Story & Concepts: Toni Hollming, Daniel Todd
+  - Map Artwork & Character Portraits: screech 
+  - Skins & Textures: CRC, Daniel Todd 
+  - Books & Scrolls: Toni Hollming, Daniel Todd, Totality, Anarchic Fox 
+  - Music: CRC 
+  - Audio Processing: Loanstar & CRC
+  - 3D Objects: CRC, Schwaa, Phantom, Peter, Toni Hollming, Yametha
+  - Mesh Modifications: SilentSleep, Schwaa, Yametha
+  - Additional Debugging: Anarchic Fox, Shadowspawn, scumble, d0om
+  - Testers:  Anarchic Fox, CRC, Dashjianta, d0om, epithumia, Finial, GayleSaver, Hawklette, 
+    Lazarus, Little Girl Blue, Loanstar, Lytha, Nightwalker, Peter Smith, Purah, sailoreagle, 
+    Saturnine, scumble, ShadowSpawn, SlyFoxx, Silent Sleep, Thumper, Toni Hollming, 
+    Yametha
+
+  Briefing Credits
+  - Animation and Composition: Lazarus 
+  - Artwork: Faudau, screech
+  - Dromed Work: Daniel Todd 
+  - Music: CRC 
+  - Additional Animation & Support: Zombeh 
+  - Additional Animation: Faudau 
+  - Background Voice Work: Loanstar 
+  - Sound Effects by Loanstar 
+  
+  Debriefing Credits
+  - Animation and Composition: Toni Hollming 
+  - BlueScreen Actors: Toni Hollming, Sirkku 
+  - Music & Sound: CRC 
+  - Artwork & Additional Animation: Finial, Saturnine 
+  
+  Voice Acting Cast 
+  - Dante: Saturnine 
+  - Sheam: Wynne 
+  - Pomok: Loanstar 
+  - Fang: Mr. Billo 
+  - Joshua: Loanstar 
+  - Skarz: Steve Boyes 
+  - Romero: CRC 
+  - LeBlanc: Loanstar 
+  - Pearsall: Gonchong 
+  - Two Cops: Loanstar 
+
+  Directed by:  Daniel “Digital Nightfall” Todd
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Contact info: detodd@rwtodd.com
+  Homepage: http://cosas.ttlg.com (http://www.ttlg.com/cosas/)
+  Description: The Circle of Stone and Shadow. Contains the first mission of the campaign. 
+
+  Game: 			Thief 2: The Metal Age
+  Mission Title: 			Gathering at the Inn
+  File name: 			miss22.mis
+  Difficulty Settings: 		Yes (All Hints, Some Hints, No Hints)
+  Equipment store: 		No
+  Map / Automap: 		Yes / Yes
+  New graphics: 			Yes
+  New sounds: 			Yes
+  Multi language support:	No
+  Briefing: 			Yes
+  Debriefing:  			Yes
+
+  * Construction * 
+  Base: 				From scratch
+  Build Time:			Over three years
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Loading information:  Play with Darkloader.  Do not unzip unless you really want to.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Known Issues (contains spoilers)
+
+Skarz's second conversation can get messed up in all sorts of ways if the player wants to try and find them, such as frobbing him twice with the firewand, or moving after the initial frob.  It is possible to crash the game like this.
+Sometimes guards do not alert when they see broken windows.
+Ringing the gong sends the guards on an ineffective search, while each one feels compelled to ring it himself.  Often guards get clumped together in doorways, unable to get passed each other.  
+It’s possible to get stuck in the chimney passages, but not permanently.
+The cops sometimes investigate the nearby mansion after the player has broken in, but ignore the player while doing so.
+If the player loads their game any time after the generator has been turned off, Pomok will make the trek to the generator room and back to the bar again, regardless of weather or not the generator is off or on.
+The guards don't seem to want to go behind the bar where Fang is, nor up the stairs in the peasant's tenement.
+It is currently possible to lean inside all of the barrels.
+Pomok can easily be trapped on the staircase to the basement by using a nearby crate.
+An entry to the "My Keys" auto map page will not appear if a key is acquired by auto-searching a body.
+Dante doesn't say his comment when the Fang/Joshua conversation ends.
+North of the start point is a line that restarts the ambient music when you cross it.
+There are no footstep sounds when walking on crates.
+If the player takes the sword before Dante's "I wonder if he's at home" line is done playing, he won't say the "I hope Skarz won't mind" line.
+The cops sometimes yell about Sheriff Truart while searching for or attacking the player.
+The game does not play a sound when the smelly hanky is put into the player's inventory.
+The generator pistons keep moving even after the thing has been turned off.
+Some transparency errors still exist.
+The auto map errs in the following places: the house with the ruined attic, the apartments, and the 1st floor closet.
+Hall of mirrors effect in some doorways.  As of yet, no crashes reported.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Copyright * 
+
+  Copyright (c) February 2003, Team CoSaS
+  Permission is granted to freely play and distribute this level providing it remains whole and 
+  intact.  This level may not be used as a parachute replacement. This level was not made and is
+  not supported by Looking Glass Studios or Eidos Interactive.
+
+  No media or data contained within this archive may be used in your own mission or project 
+  without the permission of the project director.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  The names or likenesses contained herein are purely fictitious and any resemblance to real
+  people, living or dead is purely coincidental.  (Yeah, right…;)  CoSaS is not T2X, Thief III or
+  The Servithon Quest.  No baby burricks were harmed during the creation of this FM.
+
+  Enjoy the crackshake.  Thank you, and goodnight.

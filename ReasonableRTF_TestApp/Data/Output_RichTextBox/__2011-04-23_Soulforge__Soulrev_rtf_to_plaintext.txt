@@ -1,0 +1,61 @@
+        SOULFORGE REVISITED
+
+
+Sheriff Mosely contacted you the other day about a situation that
+has developed at Soulforge. Shortly after the Karras legions abandoned
+the cathedral they were replaced by hostile forces and consequently
+nobody has been able to penetrate very far into the complex. 
+Mosely does not know who or what these forces are but she suspects 
+that their activities are illegal or subversive. She sent in a 
+secret agent to investigate but he has not returned and nothing has 
+been heard of him.
+
+Mosely asked you to go in there, find out what is going on and tell
+her when it is safe to mount a raid.  As a reward she will turn a 
+blind eye if you choose to pocket any loot items you may find.
+That's not much inducement to undertake such a dangerous task,
+but you've heard rumours in town that there may be some priceless
+ancient artefacts hidden inside Soulforge.  Finding those would 
+justify the risk.
+
+-----------------------------------------------------------------
+
+Note: At some stage you may have to disable a combat bot. Mines, 
+2 fire arrows, 2 frogbeasts, or 2 water arrows(into the firebox)
+will disable bots at long range.  If you have to get up close,
+sword and blackjack will eventually prevail.
+
+-----------------------------------------------------------------
+
+Credits:  This FM is based on the T2 original mission 
+"Sabotage at Soulforge" by Eidos and Looking Glass Studios.
+
+Many thanks to the tireless testers for finding numerous bugs and making
+helpful suggestions.
+
+Alpha Tester: Nightwalker
+
+Beta Testers: Nightwalker
+           nickie
+           Peter Smith
+           Tannar
+           Ravenhook
+           Rufus
+
+Honorary testers: fibanocci, Lawviz, webe123
+
+Thanks also to the helpful residents of the TEG forum at TTLG.
+
+------------------------------------------------------------------------
+
+This mission is © 2011 by Freddy Fox.
+It is not supported by Eidos or Looking Glass Studios.
+
+Version: 04 27th July 2011
+
+Contact: fredffox@googlemail.com
+
+
+
+
+

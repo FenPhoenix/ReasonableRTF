@@ -1,0 +1,67 @@
+
+=============================================================
+Sneaking through Venice
+=============================================================
+Title		 : Sneaking through Venice
+Filename                  : Venice .zip
+Author		 : Water Contest
+Contact info	 : Water Contest
+Homepage	 : Water Contest
+Date of release	 : 2006.13.09.
+Version	 : 1.0
+
+Description	: ” My ex partner Negreto is hiding in Venice, somewhere near the Grand Canal. Recently we became business partners, but he tricked me and escaped with the treasure we had to share. While we were “in action” he was very nervous and killed two  innocent  people without reason. I don’t know why I made a deal with such a guy … I used to work alone. I heard he bought a Casino in Venice, so he has already spent the proceeds of our business. Now it’s time to pay him a visit.”
+=============================================================
+
+
+
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : Sneaking through Venice
+File names		 : miss21.mis
+Difficulty Settings	 : Yes.
+Equipment store		 : No.
+Map/Automap		 : No.
+New graphics		 : Yes.
+New sounds		 : Yes. Music themes: Luna Mystica by Angels of Venice 
+New conversations	 : No.
+New models		 : Yes
+EAX Support		 : Yes
+Multi language support	 : No
+Briefing			 : No.
+
+=============================================================
+* Construction *
+
+Base		: Dedx.
+Map Size	: 512000 
+Build Time	: two weeks
+Build Info	: From scratch
+		
+=============================================================
+* Loading Information *
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Sneaking through Venice .zip" file into whatever folder/directory you want to on your hard drive, 
+then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+* Thanks To *
+
+Everyone who wrote very good tutorials I learned from and everyone who make fan missions.
+
+=============================================================
+
+Special Thanks to:
+
+Rob Hicks for DromED deluxe, Nameless_Voice, Shadowspawn, Schwaa
+And for Beta testing: FFOX.
+
+=============================================================
+* Copyright Information *
+
+This level is © by Anonymous
+
+Distribution of this level is allowed in any way, shape, or manner you wish as long as it free.  However, you must leave the mission intact and you are free to use any object you like.
+ (custom made object)
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

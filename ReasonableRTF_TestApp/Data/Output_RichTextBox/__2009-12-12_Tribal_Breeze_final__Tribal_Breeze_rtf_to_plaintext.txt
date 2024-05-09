@@ -1,0 +1,92 @@
+=============================================================
+12/12/2009
+=============================================================
+
+Title		 : Tribal Breeze
+Filename	 :  TB2009.zip
+Author		 : ticky or D.P. 
+Co-Author       : scarykitties
+Contact info	 : somfa.alajos@gmail.com or PM at ttlg
+                          grapesareyum@gmail.com for co-author
+
+Date of release :  12th of December, 2009
+
+
+Description	 : 
+
+This summer the old ways are just not the same. I decided to not spend too much on the holiday, but I did. Now, I need some money. A friend told me about a man who lives in a modern house nearby. He is rich and often goes to far countries and small islands with his friends. Rumors say that he and his guards like to study tribes and other civilisations. I could imagine what kind of studying could it be… My friend said, he even stole an idea from a tribe, his guards wear a yellow helmet a few months ago. From one of his recent trips, he brought a nice tribal mask. I wonder if he got it without any violence.. So, this tribal mask is my goal now. Also, If I see some nice vases, or guard-payments around, I won’t hesitate to take them. I jumped in from the roof, because the house has some removeable roof-windows. Since this house is not too far from my place, I mustn’t get noticed while I’m here.
+
+Some advices :
+
+Look around everywhere carefully, some things are well hidden. Use your stleath, this is a true anti-Quake type of level. 
+
+Other:
+
+Note that the ’don’t alert anyone’ objective is checked until you fail it.
+
+Have fun with it, we’re glad to present you this level! J
+
+=============================================================
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Name		 : Tribal Breeze
+File name		 : miss26.mis
+Difficulty Settings	 : no.
+Map/Automap		 : no.
+New textures		 : YES
+New sounds		 : no
+New meshes		 : YES
+EAX Support		 : YES
+
+=============================================================
+* Construction *
+
+Base		: DromEd’s base.mis
+Build Time	: Around three or four months
+
+		
+=============================================================
+* Loading Information *
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file. 
+
+
+* Beta Testing *
+
+Potatoguy
+Namdrol
+
+Thank you very much, guys! You were detailed! 
+
+=============================================================
+* Thanks To *
+
+-GORT for carpet textures and inspiration for making custom meshes (Yangus guards!)
+-The Hammerite Imperium team for a sofa
+-Yandros for a white bed (from Phantasmagoria)
+-All the working, living, playing and FM making Thief community
+-To Co-Author for his ideas and work, and his different point of view also helped a lot for this level. He created nice places as well. 
+
+-Extra-thanks to Yandros again, for aligning the level properly. Thank you very much!
+-Thanks to Namdrol and Potatoguy for betatesting!
+
+=============================================================
+* Co-Author's Thanks To *
+
+-Everyone who helped out, offered advice, inspired, or otherwise contributed, in no particular order:
+nightshifter, Schizoid, qolelis, nicked, Melan, Queue, LarryG, Snake, john9818a, Zontik, Shadowspawn, Yandros, R Soul, Random_Taffer, intruder, darthsLair, gigagooga, Lady Rowena, Sensut, Digital Nightfall, Ottoj55, ghost_in_the_shell, Sliptip, all, NightRanger, cardia1, d'Spair, Dark Arrow, Tomi, casalor, seventyfour, ShadowSoul, Nameless Voice, SlyFoxx, Telliamed, theImmortalThief, Nightstroll, thief0, vexd, uncadonego, DarkMax, Marzec, Dront, tdbonko, and any others who were missed.
+
+-And, of course, to D.P. for the wonderful opportunity of assisting with his level. I had a lot of fun.
+
+=============================================================
+* Copyright Information *
+
+This level is © by ticky / D.P. 
+Additions made by scarykitties.
+
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive. Please ask for permission if you want to use any custom stuff from this FM. 
+
+=============================================================

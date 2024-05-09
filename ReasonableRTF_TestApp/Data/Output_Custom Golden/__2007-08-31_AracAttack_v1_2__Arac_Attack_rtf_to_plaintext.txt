@@ -1,0 +1,141 @@
+English text follows, scroll down please!
+
+Arac Attack
+
+Author:Theker
+
+Story
+
+In einer kleinen Anlage, sind seltsame Sachen passiert alle Menschen wurden getötet, manche wurden auch aufgefressen zurück blieben nur Knochen und auf den Knochen wurden Biss spuren gefunden,das einzige was am Tatort zurückgeblieben ist, ist ein Riss im Turm dort befindet sich ein Tunelsystem.
+
+
+
+Missionsziele
+
+1.Finde heraus was Passiert ist!
+2.Zerstöre die Bug-Eier im Tunnelsystem!
+3.Töte die Königin!
+4.Finde 1000 Gold!
+5.Verlass das Tunnelsystem wieder!
+
+Informationen
+
+Spiel: Thief 2
+Missions Title: Arac Attack
+Version: 1.1
+File Name: miss21
+Schwierigkeitsstufen: Normal,Mittel,Experte
+Notiz: Ja
+Neue Grafik: Ja
+Neue Sounds: Nein
+Neue Objekte: Ja
+Neue Ai,s: Ja
+Bauzeit: 30 Tage
+
+Theker: Author
+
+Eshaktaar: Neue Objekte
+Nameless Voice: Neue Objekte
+Paweuek: Neue Objekte
+by Schwaa: Neue Objekte
+Yametha: Neue Objekte
+Yandros: Neue objekte und Ai,s
+Neue Texturen von dieser Seite: http://www.thiefmissions.com/tafferstavern/Textures.htm
+Vigil:Neue objekte und Texturen
+von,Eins: Tutorial für Dromed
+Rob Hicks: DromeEd Deluxe
+Targa:Neue Objekte
+blackmen: Betatest
+Anne: Betatest
+SinisterShadow: Betatest
+
+Danke an allen Objektbastlern das ich eure Objekte benutzen darf
+
+Kontakt
+
+Falls ich ein Objektbastler in meiner Read.me vergessen habe eine E-mail an 2000gdi@gmx.de ich werde diesen Fehler schnell beseitigen.
+
+Copyright Information 
+Copyright (c) 2007
+by Theker
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+English
+
+Arac Attack
+
+Author:Theker
+
+Story
+
+In a small facility happened very strange things. All humans were killed, some of them were eaten. Only bones were left over, some of them with tooth marks. The only thing what was left on the site of crime is a big crack in the tower. Under the tower you ought to find a tunnel system.
+
+
+
+Mission Objectives
+
+1. Find out what happened here
+2. Destroy the bug eggs in the tunnel system
+3. Kill the queen
+4. Find 1000 loot!
+5. Leave the tunnel system
+
+Information
+
+Game: Thief 2
+Mission Title: Arac Attack
+Version: 1.1
+File Name: miss21
+Difficulty Settings: Normal, Medium, Expert
+Map: Yes
+New graphics: Yes
+New sounds: No
+New Objects: Yes
+New AIs: Yes
+Build Time: 30 Days
+
+Theker: Author
+
+Eshaktaar: New Objects
+Nameless Voice: New Objects
+Paweuek: New Objects
+by Schwaa: New Objects
+Yametha: New Objects
+Yandros: New Objects and AIs
+New textures from this site:: http://www.thiefmissions.com/tafferstavern/Textures.htm
+Vigil: New Objects and Textures
+von.Eins: Tutorial for Dromed
+Rob Hicks: DromeEd Deluxe
+Targa: New Objects
+blackmen: Betatest
+Anne: Betatest
+SinisterShadow: Betatest
+
+Many thanks to all creators of new objects, who allowed me to use them in this mission
+
+Contact
+
+In case I forgot someone in the Readme, please send an e-mail to 2000gdi@gmx.de and I will correct this immediately.
+
+Copyright Information 
+Copyright (c) 2007
+by Theker
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+

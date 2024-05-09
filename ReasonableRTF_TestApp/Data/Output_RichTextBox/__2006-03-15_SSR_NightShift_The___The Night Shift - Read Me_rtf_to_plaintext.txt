@@ -1,0 +1,65 @@
+===============================================================
+The Night Shift 1.1
+===============================================================
+Author			: Jason Otto
+Contact Info		: Ottoj55@Hotmail.com
+Homepage		: www.jasonotto.net
+Date of Release	: 15 March 2006
+
+Title			: The Night Shift
+
+Description		: Thief 2 Fan Mission
+
+Story			: A man came to me with a simple job, steal a book, no big deal I thought.  He’s interested in an ancient tome recently uncovered in Karath-Din.  He says its called the Book of Shadows and contains writing in runes no one can understand.  He’s not able to pay much for the job, but the book is on display in a tiny museum in Audale, a good place to find some loose change and maybe a trinket or two.  I hear they have a nice collection of Lost City artifacts, a cultivator might bring a nice price in black alley and the museums safe box should make my rent for a while too.  And while I’m at it getting a look at this book before I hand it over could be useful, if the runes are anything like the Keeper glyphs I might find some useful information in this book.  Looks like tonight I’m working the night shift.
+
+Bugs & Tips		: No known bugs.  
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+STOP RIGHT HERE! Do you have the custom scripts?  This mission requires scripts by Telliamed, Gaylesaver and Nameless Voice.  They are included, but if you experience trouble they might be acting up, check this first before freaking out and giving up.  This concludes this message. /warning
+
+Game			: Thief 2 TMA
+Mission Title		: The Night Shift
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: No
+New Sounds		: No
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Standard, more goals, more loot as you work your way up, also less gear on higher levels.
+
+* Construction *
+
+Base			: From Scratch
+Build Time		: One Month
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+* Special Thanks *
+
+Yandros for hosting this contest, it was great doing things stock for a little while.  Telliamed, Gaylesaver and Nameless Voice for writing the kick ass scripts that run the behind the scenes action.
+
+* Testing Thanks *
+
+*Alpha Test*
+Sluggs as always, a fine tester to have back in our community.
+
+*Beta Test*
+Sluggs, a huge help, I sent him copies of the mission and he tested them all, endless source of new ideas, pointed out all the bugs I’d missed and made this mission a lot better.  Yandros, a big thanks for finding a big old bug that I hadn’t even been able to get to.  
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

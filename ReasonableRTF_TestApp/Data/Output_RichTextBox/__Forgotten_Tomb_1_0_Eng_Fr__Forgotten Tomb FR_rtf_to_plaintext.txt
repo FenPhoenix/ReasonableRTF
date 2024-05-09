@@ -1,0 +1,162 @@
+Le Tombeau Oublié
+
+NewDark 1.23 (ou plus) requis.
+
+
+Auteur: Kurhhan
+Contact info: seb066@o2.pl
+Date de sortie: 02/12/2016 
+Version: 1.0
+
+
+
+Histoire :
+
+L'action se déroule longtemps après les événements de Thief 2.
+Les temps sont durs pour les personnes de ma profession. Avec le nouveau shérif, La Milice est plus puissante et efficace que jamais. Les Gardiens restent silencieux, les Mécanistes sont partis, ainsi que les Marteleurs. Pour payer mon loyer je dois chercher des opportunités en périphérie de la Cité.
+
+Il se trouve que Basso est entré en possession d'une vieille carte Marteleur. Le vieux papier indique l'emplacement d'un tombeau longtemps oublié, loin dans la forêt noire. Il semble que cette tombe servait de dernier lieu de repos aux gardes des divers avant-postes disséminés dans la forêt. Il pourrait également y avoir les restes d'un certain nombre de prêtres, voire même la chambre funéraire d'un Grand Prêtre, mort dans cette région, dans des circonstances inexpliquées. Voici l'occasion de trouver beaucoup d'or et de marchandises dans la tombe. Je dois prendre des risques, la vie dans la Cité est dure de nos jours. J'espère seulement que la tombe ne s'est pas effondrée et que je pourrai trouver le moyen d'y entrer. Un voyage long et dangereux m'attend. Je dois me préparer avec soin.
+...
+Bon sang, j'ai été pris au piège par les Burricks dans la forêt. J'ai perdu une partie de mon équipement. Heureusement, la fiole d'eau bénite est intacte. Elles sont presque impossibles à trouver en ces périodes profanes. J'ai le sentiment que, sans elle, je n'entrerai jamais dans la tombe, ni n'en sortirai vivant.
+...
+Hmm, finalement je suis près du lieu indiqué sur la carte. Les Burricks me traquent toujours mais ça ira. Il est temps de descendre travailler.
+
+ Information sur le Jeu
+- Cette mission nécessite NewDark v1.23 ou plus.
+- Assurez-vous que la commande « sun_runtime_obj_shadows » soit activée dans le fichier cam_ext.cfg.
+- Si vous n'avez jamais fait ceci avant, copiez la commande « small_portal_repel » (sans guillemets) dans le fichier cam_ext.cfg.
+- Il est plus prudent de désactiver tous les packs d'amélioration visuelle.
+- Cette mission exige des interactions entre les objets de votre inventaire et ceux du monde extérieur. Si un objet se place au centre de l'écran quand vous l'utilisez depuis l'inventaire, il sera probablement utile. Même si l'objet ne semble rien faire quand vous l'utilisez individuellement, il devra sûrement être utilisé sur un objet du monde qui apparaît en surbrillance.
+- Dans la première scène il est possible d'avoir des ralentissements sur des systèmes plus lents (beaucoup d'objets à polygones élevés).
+
+Bogues connus
+- Bug du Sun_runtime_obj_shadows (1.23) dans la première scène.
+- En utilisant la corde, des bruits aléatoires apparaissent parfois.
+
+Information sur le jeu
+                                                                                   
+                                     Jeu:                                 	Thief 2: L'âge de métal
+                                     Nom de la missions:	Le Tombeau Oublié
+                                     Nom du fichier:		miss20.mis
+                                     Choix difficulté:		Non / Deux fins
+                                     Achat équipement:		Non
+                                     Carte/AutoCarte:		Non
+                                     Nouveaux graphismes:	Oui
+                                     Nouveaux sons:		Oui
+                                     Nouveaux modèles:		Oui
+                                     Support de l'EAX:		Non
+                                     Support Multi Langues:	Oui Anglais et Français
+                                     Vidéo d'introduction:	Non
+
+
+
+Construction
+
+                                     		Base:                  		A partir de zéro
+		Taille de la carte:		Petite
+                                     		Temps de construction:	200h environ
+
+
+
+Remerciements pour les Textures
+
+Xorak
+Gecko
+EP 2.0
+Necrobob
+Zappen
+Purgator
+Team COSAS
+Cgtextures
+
+
+
+Auteurs des Objets
+
+Vurt
+Gecko
+EP 2.0
+Necrobob
+Daraan
+Vigil
+Yandros
+Nicked
+Shwaa
+Eshaktaar
+R Soul
+PinkDot
+Equipe COSAS
+Soul Tear
+Nielsen74
+Elvis
+JasonOtto
+Saturnine
+Sensut
+TDBonko
+Christine
+Targa
+
+Shadowspawn (animation)
+
+Première appararition dans une FM, vieille fiole sacrée de Soul Tear.
+
+
+
+Musique
+
+Vagrant Story: Bande son originale
+Composé, Arrangé & Produit par Hitoshi Sakimoto
+
+Thief Gold HDMOD
+
+
+Effets sonores
+
+Thief Gold
+Rune
+Doom
+
+
+Script
+
+Nameless Voice
+
+
+
+Corrections des textes
+
+Fortuni
+
+
+
+Beta testeurs
+
+Fortuni
+Cardia
+FireMage
+
+Peter Smith (Beta 1.0)
+
+
+
+Remerciements
+
+A Toutes les personnes des Forums de TTLG. Particulièrement ceux de la guilde des Editeurs pour leurs nombreux conseils.
+
+Créateurs des objets.
+
+Bon ami Fortuni. Toujours là pour le bon mot.
+
+Soul Tear pour beaucoup de choses.
+
+Tannar pour Shalebridgecradle, R Soul pour les objectifs, Yandros et Juliusz (PinkDot) pour les conseils.
+
+
+
+Droits d'auteur
+
+Ce niveau a été créé par Kurhhan.
+
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact. Vous ne pouvez pas inclure ce niveau dans un pack de mission sans mon autorisation expresse. Nul ne peut éditer cette mission ni la modifier.
+
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.

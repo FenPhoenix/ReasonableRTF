@@ -1,0 +1,173 @@
+==================================================================================================
+ENGLISH DESCRIPTION
+==================================================================================================
+
+
+author			            :	Schattengilde
+e-mail                                     :	dark.project@t-online.de
+version			            :	1.1
+released		            :	31.12. 2007
+
+Description:
+
+The story takes place when Karras was in charge and his influence on the city grew stronger...
+
+The Mechanists were eager to take over control of the city but this could be prevented by now. However, Karras is willing to do everything to achieve it, despite the costs.
+
+The resistance increased, especially the guardian's guild, which wasn't eager to serve under Karras. They and the remains of the Hammerite order formed the core of this resistance group. Karras attracted General Morbid, a former commander of the Baron's army, to his side and the tides in the conflict started to change.
+The general, suspended from military service, was now Karras’ right hand and willing to act unscrupulously without hesitation.
+
+First, he outlawed the guardian's guild and disbanded all private security services. He banned any private use and possession of weapons of all kinds and finally he "cleaned" the city of all local aristocrats, like Ramirez, Bafford, Donal, Reuben ...
+He smashed their estates and their inhabitants where never seen again.
+
+Some city districts resisted and despite the ban on weapons, arsenals were filled and the people ready to fight.
+The Mechanists had to retreat into their territories but continued their reign of terror.
+All the refugees seemed to have vanished and talk about a hidden retreat circulated through the city. In addition to that, there were rumors about a mysterious order with members well trained in the arts of fighting, spying, infiltration and assassination. Their guerrilla tactics seem to work well on the Mechanists...
+
+When General Morbid heard of these rumors, he banned all public meetings and imposed a curfew at night. In an attempt to regain control of the situation, he commanded his elite fighters to wipe out any resistance they might find.
+
+In the midst of all this chaos, a messenger appeared to bring Garrett a letter from the Keepers, referring to the "Book of Prophecies" which vanished out of their secret library. The one who owns this book may change the city forever...
+
+
+==================================================================================================
+
+*Playing information*
+
+Game			:	Dark Project 2 - The Metal Age
+Title of the mission        :	The Book of Prophecy – Part 1 (Dead letter box)
+File name        	:	miss20.mis
+Difficulty settings	:           normal, hard, expert
+Equipment store         	:	no
+Map			:	yes
+Automap		:	no
+New textures	            :	yes
+New sounds		:	yes
+New objects		:	yes
+Multi language	:	yes, English and German
+Briefing		:	no
+
+==================================================================================================
+
+*Construction*
+
+Base			:	will be mentioned at another place
+Build Time                   :	ca. 7 months
+
+==================================================================================================
+
+Important notes and hints :
+
+==================================================================================================
+
+Credits:
+
+Rob Hicks for Dromed Deluxe, MadBull#34 for the .str-Converter, Dainem for proofreading, von.Eins for the german translation des Dromed-tutorial and meril for the Betabase
+
+for new objects/mesh: Schwaa, von.Eins, Daemonite, Ernie, Rob Hicks, Nameless Voice und Alun Bestor
+> www.washboardabs.net/thief/
+
+for new textures: Dhin, Majic, textures from the "Night Falcon", Alun Bestor >www.washboardabs.net/thief/ and textures from local.wasp.uwa.edu.au/~pbourke/texture_color/ (modified for Dromed)
+
+Betatester: Anne, Valen, MH.TheFreak, fibanocci, Neferure, K.I.F.T., Raven
+
+for the english version: Intruder for the translation into english as well as Nightwalker and Bernie for editing
+
+.....and BIOHAZARD for their Rap-influenced Hardcore.....
+
+...and to anyone, who assisted me with help and advice in the forum, as well as to anyone I forgot.
+
+==================================================================================================
+
+*Loading Information*
+
+Darkloader Ready.  DO NOT UNZIP THIS FILE!!
+==================================================================================================
+
+*Copyright Information*
+
+This level is © by Schattengilde 31th December 2007
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+==================================================================================================
+==================================================================================================
+DEUTSCHE BESCHREIBUNG
+==================================================================================================
+
+
+Autor			            :	Schattengilde
+E-Mail                                    :	dark.project@t-online.de
+Version			:	1.1
+Erschienen am		:	31.12. 2007
+
+Beschreibung:
+
+Die Geschichte spielt irgendwann in der Zeit der Regentschaft von Karras
+
+Das ehrgeizige Vorhaben der Mechanisten, die Kontrolle über die Stadt zu übernehmen, konnte bis jetzt verhindert werden. Dennoch ist es nach wie vor das Ziel von Karras, dies zu erreichen, egal mit welchen Mitteln. Aber die Widerstände waren groß, vor allem von Seiten der Gilde der Wachmänner, die nicht unter der Fuchtel der Mechanisten ihren Dienst ausüben wollten. Sie und die Reste der Hammeriten waren die Keimzelle des Widerstandes. Doch seit dem es Karras gelungen ist, den Ex-Oberbefehlshaber des Barons, General Morbid, auf seine Seite zu ziehen, scheint sich das Blatt zu wenden. Der General, wegen paranoiden Vorstellungen vom Militärdienst suspendiert, ist Karras´ starker Arm, der dessen Befehle kompromisslos und ohne zu zögern ausführt.
+Die erste Amtshandlung des Generals bestand darin, die Gilde der Wachmänner zu verbieten und alle Wachdienste aufzulösen. Dann kam das Verbot des privaten Waffenbesitzes und –tragens hinzu. Und schließlich wurden in einer groß angelegten Säuberungsaktion sämtliche lokale „Größen“ wie Ramirez, Bafford, Donal, Reuben und andere angegriffen und ihre Anwesen dem Erdboden gleichgemacht. Ihre Bewohner sind seitdem verschwunden und wurden auch nie wieder in der Stadt gesehen.............
+
+Doch nicht überall konnten sich die Mechanisten durchsetzen. In einigen Stadtteilen regte sich massiver Widerstand und es zeigte sich, dass trotz Waffenverbot die Arsenale gut gefüllt waren. Die Mechanisten mussten sich zurückziehen und führten den Terror in dem von ihnen beherrschten Gebiet fort. All diejenigen, die vor den Mechanisten flohen, waren plötzlich wie vom Erdboden verschluckt, so dass das Gerücht über einen verborgenen Zufluchtsort unter der Stadt, in den sich die Flüchtlinge zurückziehen konnten, umging. Ebenso gab es Gerüchte über eine geheimnisvolle Organisation, deren Mitglieder Experten in Spionage, Infiltration, Mord und speziellen Kampfmethoden sein sollen. Ihr Untergrundkrieg gegen die Mechanisten verläuft anscheinend sehr erfolgreich.......
+
+Dies alles ist auch General Morbid zu Ohren gekommen und er verhängte deswegen ein öffentliches Versammlungsverbot und eine nächtliche Ausgangssperre. Um die Situation unter Kontrolle zu bekommen, erließ er die Befehle für den Einsatz der berüchtigten Mech-Spezialkräfte, die im Namen von Karras und dem Erbauer ihre Säuberungsaktionen durchführen.
+
+In dieser chaotischen Situation taucht plötzlich ein Bote bei Garrett auf, um eine Botschaft der Hüter zu überbringen. Es geht um das „Buch der Prophezeiung“, welches aus der Bibliothek der Hüter verschwunden ist. Wer dieses Buch besitzt, könnte die Geschicke der Stadt zu seinen Gunsten lenken.........
+
+==================================================================================================
+
+*Spielinformation*
+
+Spiel			:	Dark Project 2 - The Metal Age
+Titel der Mission	:	Das Buch der Prophezeiung - Teil 1  (Toter Briefkasten)
+Dateiname       	:	miss20.mis
+Schwierigkeitsgrade	:           Normal, Hart, Experte
+Ausrüstungsladen	:	Nein
+Karte			:	Ja
+Autokarte		:	Nein
+Neue Texturen	:	Ja
+Neue Sounds		:	Ja
+Neue Objekte		:	Ja
+Mehrsprachig		:	Ja, Englisch und Deutsch
+Briefing		:	Nein
+
+==================================================================================================
+
+*Konstruktion*
+
+Basis			:	Wird an anderer Stelle erwähnt
+Bauzeit                        :	ca. 7 Monate
+
+==================================================================================================
+
+Wichtige Bemerkungen und Hinweise :
+
+==================================================================================================
+
+Credits:
+
+Rob Hicks für Dromed Deluxe, MadBull#34 für den .str-Converter, Dainem für´s Textediting, von.Eins für die deutsche Übersetzung des Dromed-Tutorials und meril für die Betabase
+
+für neue Objekte/Mesh: Schwaa, von.Eins, Daemonite, Ernie, Rob Hicks, Nameless Voice und Alun Bestor
+> www.washboardabs.net/thief/
+
+für neue Texturen: Dhin, Majic, Texturen aus dem "Night Falcon", Alun Bestor >www.washboardabs.net/thief/ und Texturen von local.wasp.uwa.edu.au/~pbourke/texture_color/ (für Dromed modifiziert)
+
+Betatester: Anne, Valen, MH.TheFreak, fibanocci, Neferure, K.I.F.T., Raven
+
+Für die englische Version: intruder für die Übersetzung ins Englische sowie Nightwalker und Bernie für die Textkorrektur
+
+.....und BIOHAZARD für ihren Rap-beeinflussten Hardcore.....
+
+...und all diejenigen, die mir im Forum mit Rat und Tat zur Seite standen, sowie diejenigen, die ich vergaß hier aufzulisten.
+==================================================================================================
+
+*Loading Information*
+
+Darkloader Ready.  DO NOT UNZIP THIS FILE!!
+==================================================================================================
+
+*Copyright Information*
+
+This level is © by Schattengilde 31th December 2007
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+==================================================================================================

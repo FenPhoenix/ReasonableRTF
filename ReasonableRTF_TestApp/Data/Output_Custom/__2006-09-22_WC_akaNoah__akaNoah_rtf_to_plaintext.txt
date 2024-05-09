@@ -1,0 +1,91 @@
+=======================================================
+aka Noah 
+=======================================================
+
+Author			: Water Contest
+Contact Info		: Water Contest
+Title			: A.k.a. Noah
+Date of Release	: Sept 15 
+
+Description		: Thief 2 Fan Mission for KoMaG's Water Contest
+
+=======================================================
+Mission Description
+=======================================================
+
+It's been raining for days. A storm that seems to have no end. Just when you think it can’t go on any longer or fall any harder, it becomes worse. Rumours tell of the docks overflowing yesterday, and still the water keeps rising. For the first time in over one hundred years they have to shut the South Quarter's flood protection doors. I've never seen anything like this. This cannot be a natural storm. 
+
+People have sealed their doors and windows and are plugging every hole in a vain attempt to make their homes waterproof. Too bad the houses become thief proof at the same time. A few days ago I almost broke my neck when a rain soaked gust swept me off a roof.
+
+This weather is really starting to hurt business. 
+
+The mages have sent me a letter. Although I do not like their tone, what it says has made me curious. I think I will pay a visit to the man they speak of. And I WILL feel free to keep whatever valuables I find. 
+
+=======================================================
+Playing Information 
+=======================================================
+
+Game				: Thief 2
+Mission Title			: A.k.a. Noah
+File Name			: miss20.mis
+Difficulty Settings		: Yes 
+Equipment Store		: No
+Map				: Yes
+New Graphics			: Yes
+New Sounds			: Yes
+Multi-Language Support	: English
+Bugs				: Definitely (more like fish, though)
+                                  
+=======================================================
+Construction
+=======================================================
+
+Base				: m16b07tali.str
+Build Time			: Two months and 333 save files. That's halfway to hell!
+
+=======================================================
+Credits
+=======================================================
+
+This mission is not exactly only my work. Thanks to all of you who out there provide help or material, and in particular to (I hope I don't miss anybody):
+
+Berney Boy for photorealistic textures at thiefmissions.com
+Burt Abreu for more textures
+David Gurrea (even more textures)
+Rich DiGiovanni for releasing the "Josef's Tear Texture Set" 
+Slitip for high quality textures (and some very impressive screenshots showing me how much you can do *without* catching infinite coplanar errors (they be damned!))
+
+Vigil for The well-equipped Thief, a wonderful site with true Thief eye-candy and a lot of useful stuff (see it yourself at http://www.washboardabs.net/thief)
+
+Eshaktaar for loose papers
+Targa for the pretty dome
+von.Eins for a full and an empty bucket
+Dark Arrow for adding Dark Project AIs to the Metal Age 
+
+Nameless Voice for more pretty objects, a lot of useful and/or interesting tutorial-stuff and both helpful and funny object-descriptions 
+Ottoj55 for an AI named Thor that drove me insane two days and then suddenly worked. A great way to add lightning and a great tutorial on it, thanks for sharing.
+
+William The Taffer for a handy (but noisy) way to extinguish multiple flames at once (or do certain other things).
+
+sluggs for making the rain stop flooding the house before Garrett could think of it. You ARE a genius.
+
+xxcoy for smashing the buckets before time and not jumping off the cliffs.
+
+Griffin for beta-reading, beta-testing and general being there. Also for coming up with the very important three letters in the title. Your help was most valuable. Good luck with your own mission!
+
+=======================================================
+Loading Information
+=======================================================
+
+This mission works with DarkLoader. 
+
+=======================================================
+Copyright Information
+=======================================================
+
+Distribution of this level is allowed as long as it is free and the package is kept 
+intact.  Feel free to include this mission in FM collection disks as long as they 
+are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

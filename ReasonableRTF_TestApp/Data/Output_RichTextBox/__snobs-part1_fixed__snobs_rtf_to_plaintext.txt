@@ -1,0 +1,72 @@
+ 
+=============================================================
+Snobs
+=============================================================
+Title		 : Snobs 
+Filename                  : snobs-part 1.zip
+Author		 : Naks(with friends)
+Contact info	 :  HYPERLINK "mailto:naksoje@yahoo.com" naksoje@yahoo.com 
+Homepage	 : under construction
+Date of release	 : 07.09.2005.
+Version	                 : fixed
+                This is my first mission. Actually, this is the first part of story Snobs.
+
+Description:                “I became rich and famous, almost a legend, in this beautiful town named Richpoor. For the first time in my life I have a chance to live well,because I bought a nice house here and I have some good friends, too. They are very poor but honest.  Richpoor has perfect local  food and drinks...hmmm, I would like to stay here for a long time. Besides,something new has happened to me - love.Yes, I have a fiancee here in Richpoor named Lora. She is beautiful, and endlessly in love with me. Maybe I'll finally have a chance to live a  more dignified life? Maybe?"
+ IMPORTANT: Read scrolls and listen conversations (it’s not long and boring). The story “Snobs” does not follow original story line of “Thief”. Aim is only one - have a fun!
+System Requirements:
+Minimum Requirements:
+Pentium III 600 MHz or equivalent
+64 MB RAM
+GeForce 2  64 MB
+Recommended Requirements:
+Pentium IV 1500 MHz or higher
+256 MB RAM
+ATI Radeon 9200 128 MB or higher
+=============================================================
+
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : Snobs-part 1
+File names		 : miss21.mis
+Difficulty Settings	 : Yes.
+Equipment store		 : No.
+Map/Automap		 : Yes, No 
+New graphics		 : Yes.
+New sounds		 : Yes. Music themes: “Povratak otpisanih” movie, Gipsy Magic movie, sound track from Vlatko Stefanovski, Andalusian Nights,  Romi  Romi and Bethoven 
+New conversations	 : Yes (a sort of).
+New models		 : Yes
+EAX Support		 : Yes
+Multi language support	 : No.
+Briefing			 : No.
+
+=============================================================
+* Construction *
+
+Base		: Dedx.
+Map Size	: Very Small.
+Build Time	: 3 months
+Build Info	: This is my first mission ever.		
+=============================================================
+* Loading Information *
+
+Runs from DarkLoader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Snobs.zip" file into whatever folder/directory you want to on your hard drive, 
+then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote very good tutorials I learned from and everyone who make fan missions.
+=============================================================
+Special Thanks to:
+
+Rob Hicks for DromED deluxe, Nameless_Voice, Shadowspawn, Schwaa, Yandros, Sly Foxx
+And all Beta testers: FFOX, Maloo, Silent_Warrior, Slipknot, Fig455 and Marycwmbach
+And Jason L Tibbitts  III  for hosting
+
+* Copyright Information *
+
+This level is © by Naks (with friends)
+
+Distribution of this level is allowed in any way, shape, or manner you wish as long as it free.  However, you must leave the mission intact and you are free to use any object you like.
+ (custom made object)
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

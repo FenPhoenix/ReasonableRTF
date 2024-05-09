@@ -1,0 +1,62 @@
+QUITTE OU DOUBLE
+
+
+Auteur		:	DrK (Kubiac)
+Contact info	:	TTLG forums
+Date		: 	Aout 2013
+Nom du fichier	:	DoubleOrQuits48H.zip
+
+
+Un des lieutenants de Lord Raputo m'a contacté il y a quelques jours. Il a dit avoir une offre intéressante, une tâche facile à un très bon prix. Je préfère ne pas être impliqué avec les gardes de la ville, surtout avec les plus influents d'entre eux. J'ai un mauvais présentiment à ce sujet, j'ai donc refusé l'offre. Je suppose que Raputo n'a pas apprécié.
+
+Je ne peux pas dire que je regrette ma décision, étant donné que Basso a trouvé quelques informations intéressantes. J'étais supposé rendre visite à un collectionneur local à Auldale et voler une statue de grande valeur. Rien d'extraordinaire, mais il se trouve que c'était un traquenard. Lord Raputo a essayé de me piéger et voulait me faire chanter, et probablement aussi un retour sur investissement de ma petite affaire avec Ramirez. Je ne suis même pas surpris, mais maintenant je suis en difficulté, quand Raputo veut quelque chose, il l'obtient toujours. Je dois trouver un moyen de l'éviter et d'avoir une longueur d'avance sur lui.
+
+Je sais qu'il possède un casino caché quelque part dans New Market, dans la taverne 'Black Barrel'. Un petit repaire où ils ont trouvé une nouvelle façon de plumer la clientèle, leur permettant de gagner beaucoup d'argent illégal qui n'est pas détecté au 'Ivory Rose'. La rumeur dit qu'il y a un registre avec toutes leurs astuces énumérées, je dois mettre la main dessus.
+
+Cet oubli apparent est la clé de ma liberté, Raputo peut vouloir me faire chanter, mais sa réputation est plus importante que de me courir après. Si les gens savaient que l'établissement 'Ivory Rose' gagne de l'argent en trichant, aucun pot de vin ni aucune menace ne pourront le sauver, sa chute serait rapide.
+
+Il est temps de donner à Raputo une dose de son propre remède.
+
+ATTENTION: Cette mission n'a pas eu de phase de test approprié, elle est sortie telle quelle. J'espère que tout se passera bien, et si ce n'est pas le cas, désolé pour le désagrément.
+
+
+* Information sur le Jeu *     
+
+Game :		  Thief II - L'âge de métal (NewDark)
+Event :		  Concours 48H Newdark
+Level name :	  Quitte ou Double
+Base :		  La base de la mission a été fournie par AntiMatter_16
+Build time :	  48 heures
+Difficulty :	  Oui	
+Map/Automap :	  Non
+New objects :	  Oui                   
+New textures :	  Oui
+New sounds :	  Oui
+EAX Support :	  Non
+Language :	  Anglais et Français
+Briefing :	  Non             
+
+
+* Installation *    
+  
+Placer le fichier zip dans votre répertoire contenant vos Fan Missions pour Thief 2. Lancer Darkloader, Garrettloader.
+NewDark est requis.
+
+
+* Remerciements *    
+
+Objets personnalisés, textures et travail sonore :
+Atolonen, Christine, CoSaS team, DrK, Eshaktaar, FireMage, Lady Rowena, Nameless Voice, Ottoj55, Purgator, Random_Taffer, R Soul, Schwaa, Sliptip, Targa, Tdbonko, The Watcher, Vigil, et Yandros.
+
+Quelques objets proviennent de Thief 3.
+
+Spécial remerciement à AntiMatter_16 pour le concours et à bikerdude pour son aide avec les                                         textes à lire. 
+La traduction française a été faite par Apiai.
+
+* Droits d'auteur *    
+
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact.
+Vous ne pouvez pas inclure ce niveau à un pack de mission ou à une campagne. Nul ne peut modifier ni redistribuer cette mission sans mon autorisation expresse.
+
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.
+

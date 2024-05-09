@@ -1,0 +1,214 @@
+Stones and Glass Houses
+Version 1.1
+By R Soul
+
+English / Deutsch (nach unten scrollen) 
+
+This mission is a sequel to "All Torc". Scroll to the very bottom for an All Torc summary (useful as a recap)
+
+"Stones and Glass Houses" takes places a month or so after "All Torc".
+
+It has proven very difficult to find someone willing to buy the gems. Fortunately Lord Barnham doesn't want you as an enemy, so he has arranged for a jeweller to buy the gems off you.
+
+Title			Stones and Glass Houses
+Filename		sagh.zip
+Author			R Soul (Robin Collier)
+Contact info		(Via the TTLG forums)
+Website		http://catmanofiowa.com/RSoul/
+Date of release		6th August 2011
+
+
+=============================================================
+* Play Information *
+
+Game			Thief 2
+File names		miss20.mis, miss21.mis, miss22.mis, miss23.mis, miss24.mis, sagh.gam
+Difficulty Settings	Yes
+Map/Automap		Yes
+New graphics		Yes
+New sounds 		Yes
+New conversations	Yes
+New models		Yes
+EAX Support		No
+Multi languages	English and German
+Briefing/Cutscenes	Yes/Yes
+
+=============================================================
+* Construction *
+Base			Scratch, apart from the last mission. You'll know what it's based on when you play it.
+Build Time		Many years on and off
+
+Version 1.1 changes:
+Added the missing 5 loot (in a chest in the '3 roofs' building)
+Jeweller conv made more robust (very rare error fixed)
+
+=============================================================
+
+* Credits * 
+Beta testers:
+bikerdude 	
+bob_doe_nz	
+cardia1	
+dbrilliant
+downwinder	
+ffox	
+Gloria Creep	
+kittykat 	
+PotatoGuy	
+Ravenhook
+
+And Dussander for hosting a beta testing forum.
+
+Custom Scripts:
+Nameless Voice
+Telliamed
+GayleSaver
+(this mission wouldn't be what it is without custom scripts)
+
+Voice Actors:
+SlyFoxx (Garrett, plus many others)
+Yandros
+Bikerdude
+(For spoiler reasons I cannot be too specific. For full details, see the ‘credits’ file, mentioned below)
+
+German translator:
+zappen
+
+Textures, sounds, objects etc:
+There are far too many to list in here. Throughout development I tried to keep track of where I got things. While this FM is installed, go to your Thief2 folder and find the 'zzCredits' file. It should all be in there.
+
+=============================================================
+* Loading Information *
+
+Runs from Darkloader and Garrettloader. Place in your usual Thief 2 FM folder.
+
+=============================================================
+* Copyright Information *
+
+This mission may be distributed by any means as long as the following conditions are adhered to:
+* The content of the zip file is not altered (but the zip filename itself can be changed)
+* No profit is sought or made
+* You can pull the cloth from a fully laid table without disturbing the things
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+=============================================================
+* All Torc recap, with minor spoilers *
+
+You'd been living in Shalebridge for some time, since there were no bluecoats there to hassle you.
+A keeper found you and warned you that the bluecoats would soon be coming to Shalebridge specifically to look for you.
+On his advice, you went to a town called Robington, which also had a lack of bluecoats, and was quite far from the City.
+The Keeper must have known something, for soon after you arrived in Robington you were contacted by a servant of Lord Barnham, who had a job for you. Barnham's bitter rival, Lord Sarringham, had recently acquired the Serpentyle Torc, which used to belong to an ancestor of Barnham.
+As the undead rampaged through the Old Quarter, the Torc was thought to have been lost after the barricades went up, but someone must have stolen it at some point.
+You found a way to get to Sarringham's home, Fort Montoya, and you stole the Torc after finding where it had been hidden.
+You then met with Barnham's servant again, where the Torc was exchanged for the sort of gemstones that fetch a nice price on the black market.
+
+
+Wer im Glashaus Sitzt
+Version 1.1
+von R Soul
+
+Dies ist die Folgemission zu "All Torc", zur Erinnerung steht ganz unten eine
+Zusammenfassung jener Vorgängermission.
+
+"Wer im Glashaus sitzt" spielt einen Monat danach.
+
+Es hat sich als schwierig erwiesen, einen Käufer für die Edelsteine zu finden.
+Zum Glück will Graf Barnham Dich nicht zum Feind haben, daher hat er einen Juwelier
+aufgetrieben, der Dir die Steine abkaufen will.
+
+=============================================================
+Titel			Wer im Glashaus sitzt
+Datei			sagh.zip
+Autor			R Soul (Robin Collier)
+Kontakt über 		das TTLG-Forum
+Webseite		http://catmanofiowa.com/RSoul
+Erschienen		6. August 2011
+
+=============================================================
+* Spiel-Information *
+
+Spiel				Thief 2
+Dateien			miss20.mis, miss21.mis, miss22.mis, miss23.mis, miss24.mis, sagh.gam
+Schwierigkeitsgrade		Ja
+Karte				Ja
+Neue Grafiken			Ja
+Neue Geräusche		Ja
+Neue Konversationen		Ja
+Neue Modelle			Ja
+EAX Unterstützung		Nein
+Multi languages		Englisch und Deutsch
+Briefing/Cutscenes		Ja/Ja
+
+=============================================================
+* Konstruktion *
+Grundlage	Aus dem nix, ausgenommen etwas von der Vorgängermission. Sieht man dann im Spiel.
+Bauzeit	Etliche Jahre mit Auf und Ab.
+
+=============================================================
+* Danksagungen * 
+Betatester:
+bikerdude 	
+bob_doe_nz	
+cardia1	
+dbrilliant
+downwinder	
+ffox	
+Gloria Creep	
+kittykat 	
+PotatoGuy	
+Ravenhook
+
+Und an Dussander für die Betreuung des Betatester-Forums.
+
+Custom Scripts:
+Nameless Voice
+Telliamed
+GayleSaver
+(Diese Mission hätte ohne nicht so realisiert werden können)
+
+Stimmen:
+SlyFoxx (Garrett und etliche andere)
+Yandros
+Bikerdude
+(Um nichts zu verraten reicht das. Mehr unter 'Danksagungen')
+
+Deutsche Übersetzung:
+Zappenduster
+
+Texturen, Geräusche, Objekte usw.:
+Zuviel um sie hier zu erwähnen. Während des Baus versuchte ich, alles zu notieren.
+Nach Installierung der FM findet sich im Thief2-Verzeichnis ein Verzeichnis 'zzCREDITS'.
+Da sollte alles drin sein.
+
+=============================================================
+* Lade-Information *
+
+Läuft sowohl über Darkloader als auch Garrettloader.
+Alles in den T2-Ordner extrahieren lassen.
+
+=============================================================
+* Urheberrecht *
+
+Diese Mission darf unter Einhaltung der folgenden Bedingungen frei verteilt werden:
+* Die ZIP-Datei muß unverändert bleiben (außer dem Dateinamen selbst)
+* Eine Weitergabe darf nur unkommerziell erfolgen
+
+Diese Mission stammt weder aus den Looking Glass Studios noch von Eidos Interactive
+noch wird sie von dort unterstützt.
+
+=============================================================
+* Rückblende auf All Torc: *
+
+Seit einiger Zeit lebst Du in Shalebridge, dort lassen Dich die Blauröcke unbehelligt.
+Ein Hüter fand und warnte Dich, daß die Blauröcke schon bald nach Shalebridge kommen und nach Dir fahnden würden.
+Auf seinen Rat hin begabst Du Dich nach Robington, wo weniger Blauröcke sind und Du mehr Distanz hast.
+Die Hüter wußten wohl einiges, denn schon bald nach Ankunft in Robington nahm ein Diener Graf Barnhams Kontakt mit Dir auf, um Dir einen Auftrag anzubieten.
+Barnhams Erzfeind Graf Sarringham hatte derweil den Schlangenreif aquiriert, der eigentlich einem von Barnhams Vorfahren gehörte.
+Nach dem Spuk im alten Viertel und dem Hochziehen der Mauer galt der Reif als unerreichbar, offensichtlich jedoch wurde er trotzdem von dort entwendet.
+Du gingst also in Sarringhams Haus, Fort Montoya, fandest und stahlst den Reif.
+Danach trafst Du erneut Barnhams Diener. Dabei wurde der Reif gegen Edelsteine getauscht, die auf dem Schwarzmarkt einen fetten Preis erzielen sollten.
+
+=============================================================
+

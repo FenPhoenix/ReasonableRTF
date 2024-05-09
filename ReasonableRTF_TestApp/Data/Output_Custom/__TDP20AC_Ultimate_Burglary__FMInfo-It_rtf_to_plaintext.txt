@@ -1,0 +1,60 @@
+Il furto definitivo - Verzione 1.0 - Novembre 2018
+================================================================================
+
+Autore: Terra
+Data di pubblicazione: Novembre 2018
+
+Dovrai utilizzare NewDark V1.24 o successivi, si consiglia di disattivare il Thief Enhancement Pack prima di
+far partire la FM.
+
+================================================================================
+
+Descriptione:
+
+La citta' si e' ingrandita negli ultimi anni, i ricchi son diventati piu' ricchi ed i poveri piu' poveri. E' ora di fare il furto definitivo.
+Qui si trovano alcuni oggetti di grande valore, molte dimore e manieri pieni di tesori e parecchi coraggiosi cittadini che
+possiedono troppo denaro. Frughero' in ogni edificio per riempire la mia borsa. Tuttavia dovro' essere prudente visto che
+il numero delle guardie e' stato aumentato, del resto a volte si parla di avvenimenti misteriosi in questa citta'. Innanzitutto
+sara' meglio dare una visita al negozio d'armi ed equipaggiarmi bene.
+Allora Garrett, buona fortuna per la prossima notte...
+
+================================================================================
+
+Informazioni di Gioco:
+
+Jeu: Thief 1 - (Version 1.24 NewDark)
+Titre: Il furto definitivo
+Fichiers: miss20.mis, ult.gam
+Niveaux des difficultés: non
+Magasin: non
+Carte: oui (Athalle)
+Nouveaux graphismes: non
+Nouveaux sons: non
+EAX: non
+Langues: DE/FR/EN/IT/RU
+Briefing: non
+
+================================================================================
+
+Construttione : 12 mois
+
+================================================================================
+
+Beta-tester: vfig, Cardia
+Traductions (corrigé par) FR/EN :
+Zappenduster (Sacom, OldAndCunning)
+
+Traduction IT:
+Piesel
+
+Traduction RU:
+MoroseTroll
+
+================================================================================
+
+Informazioni sul Copyright:
+
+Cette FM a été construite par Terra, Novembre 2018.
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive
+
+================================================================================

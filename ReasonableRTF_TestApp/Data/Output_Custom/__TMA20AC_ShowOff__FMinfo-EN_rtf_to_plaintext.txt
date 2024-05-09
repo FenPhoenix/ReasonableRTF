@@ -1,0 +1,82 @@
+Show Off
+An FM by Grandmauden
+for the TMA 20th Anniversary Contest
+
+NewDark 1.27 is required
+
+Filename		-   TMA20AC_ShowOff.zip
+TTLG Page	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Release Date	-   Mar. 27, 2020
+
+Briefing
+"Keep a secret with someone trustworthy,
+And it will never see the light of day.
+Keep a secret with someone unreliable,
+And it will spread like wildfire.
+Just as secrets make it easy to prove one's loyalty,
+They will just as easily expose you to your adversaries."
+- The Encryptors' Book of Meditations
+
+	The nobles of The City are always behaving as if they share a hive mind. No matter which district they live in or how tall the piles of gold they sleep on, they seem to obsess over the exact same fashions and trends. Which dresses to wear, which balls to attend, which cigars to smoke...it's boring enough to lull you to sleep. But now, you have the opportunity to use their latest fad against them.
+	About two months ago, reports came in of some unusual gemstones dug up in the western mountains: dark red crystals that appear to have a glowing core. Their color and their jagged shapes earned them the name "crimson shards." And the nobles can't get enough of them. Everyone wants crimson shards set on their necklaces, their bracelets, their tiaras, and whatever else they adorn themselves with. The stonecutters of The City are making a fortune, and if all goes well tonight, so will you.
+	On the edge of Hightowne is a fine art gallery called the Furlong Museum, and word has it that the curators have purchased several pieces of jewelry with crimson shards to put on display. Currently, the museum is closed for renovations, no doubt to beef up security for their new exhibit. The guards are certain to be on high alert for jewel-hungry thieves like you, so you've got your work cut out for you. But pull this off, and it'll be you living the high life for a change...
+
+This mission occurs several years after the Thief trilogy.
+
+Play Information
+Game				-   Thief II: The Metal Age
+Level Name			-   Show Off
+File Name				-   miss20.mis
+Difficulty Settings		-   Red / Scarlet / Crimson
+Equipment Store		-   No
+Map / Automap		-   No
+New Graphics			-   No
+New Sounds			-   Yes
+New Conversations		-   No
+New Models			-   No
+EAX Support			-   Yes
+Multi-Language Support	-   English / French / German
+Briefing				-   This text file 
+
+Construction
+Base					-   None
+Build Time			-   5 months
+
+Loading Information
+Leave the file zipped and place it into your FM folder, then load it up in FMSel, NewDarkLoader, or AngelLoader.
+
+Author's Notes
+-   Higher difficulty settings mean less health, less equipment, a higher loot requirement, and more AI.
+-   While the museum gates looked fine to some beta-testers (and myself), others reported they were sized incorrectly. I'm not sure what's causing this.
+
+Credits
+Beta-testers:
+	Mat99
+	Tannar
+	pukey brunster
+	Acolyte6
+
+Voice Actors:
+	AndrosTheOxen		- Garrett
+
+Translators:
+	Apiai (French)
+	Zappenduster (German)
+
+Title Image:
+	Mat99
+
+Special Thanks:
+My family and friends for supporting and encouraging me throughout this project.
+Looking Glass Studios and Ion Storm for creating such a fantastic trilogy of games.
+TTLG for keeping these games alive and well for so long.
+skacky and Yandros for running the TMA 20th Anniversary contest.
+
+Copyright
+This mission is © 2020 by Grandmauden (Kevin Kolpack)
+
+You all know the drill. You can freely distribute this mission as long as it's free and everything in the archive is left intact. If you want to change something, just ask me first.
+
+This mission was not made and is not supported by Looking Glass Studios, Ion Storm, or Eidos Interactive.

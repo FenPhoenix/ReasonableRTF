@@ -1,0 +1,287 @@
+(deutsch bitte runterscrollen)
+=====================
+
+=============================================================
+Title:  Lost Souls
+Author:  TheNightTerror
+Contact info:  thenightterror@gmail.com
+Home page:  http://tnt.freylia.net
+Date of completion:  August 29, 2006
+Date of release:  September 22, 2006
+Date of update:  March 2, 2007
+Version:  1.4
+=============================================================
+Note:  Scroll down for note on minor saving related bug.
+
+This is the 1.4 release, which fixes both the lightning save bug, and a bug with the first 
+objective disappearing, a huge thank you goes out to Fidcal for first reporting the bug, 
+and NamelessVoice, who hunted down the bug himself for me!
+
+It’s an update from the 1.3a release, which contained a few changes from the original 
+contest release.  I fixed a few little bugs, and raised the ceiling considerably to make 
+the rain look better.  The playing area is still within the original contest limits, and 
+you can’t actually see the new area, so why not?
+
+Last, but most certainly not least, this release has a German translation, which 
+Dinksmallwood was too busy to do during beta-testing.
+=============================================================
+Briefing:
+
+Dayport is falling apart at the seams, courtesy of a storm like nobody has ever seen 
+before.  The coastal districts of the city are flooded, and nearby districts are being 
+evacuated.  The food supplies have stopped, and most of the city’s water is 
+contaminated.  A good number of people are fleeing even if their homes are safe.  
+With the number of bodies everywhere, a plague is inevitable.
+
+Basso, Jenivere and I can’t afford to leave, but we can if his mother, sister, and 
+niece come along and help with the money.  The problem is those three have 
+disappeared.  Basso said there was some trouble at the manor his sister was 
+working at, but his mother didn’t say what.  
+
+The entire district is flooding at a disturbing pace, so Basso and I decided to go 
+there and see if we could find out what’s happening, and why Basso’s family 
+disappeared.  We found a dead guard pinned underneath the gate, so it can’t be 
+anything good.  I have to find out what happened here and get the gate open so 
+Basso’s family can escape, if they’re still alive.
+=============================================================
+Play Information:
+
+Game			 : Thief 2: The Metal Age
+Level Name 		 : Lost Souls
+File name 		 : miss20.mis, wcm.gam
+Difficulty Settings	 : Easy, Hard, Expert
+Equipment store	 : No
+Map/Automap		 : No/No
+New graphics		 : Yes
+New sounds		 : Yes, Victrola music and thunder ambients
+New conversations	 : Not exactly . . . 
+New models		 : Yes, objects only 
+EAX Support		 : Yes
+Multi language support: Yes, English and German
+Briefing		 : Look up . . . 
+=============================================================
+Known Bugs:
+
+Don’t turn the portable lantern on and off too quickly, or you’ll get some temporary lag.
+
+Aside from that, my beta testers beat all the bugs out of this beast!
+=============================================================
+Construction:
+
+Base		: Built from scratch
+Build Time	: 111 hours and 7 minutes according to DromEd
+Map Size	: Under 512,000 cubic DromEd units
+=============================================================
+Custom resource credits:
+
+I want to apologize right away for not being able to offer a complete list of where the 
+textures came from, I forgot to save the URLs of the pages I got them from this time 
+around.  If anyone recognizes their work and isn’t credited, contact me and I’ll add the 
+proper credit.
+
+Terrain textures by Vigil, (his web-site is here, www.washboardabs.net/thief/) 
+David Guerra, NamelessVoice, Yandros
+
+I don’t know where the textures in the following folders came from:  LM, 
+Groundmaster, and everything with a max prefix
+
+Custom clouds and distant art by Vigil
+
+Custom fire bitmaps by Eshaktaar
+
+Custom Objects and accompanying textures by NamelessVoice, sluggs, Schwaa*, 
+Vigil, Von Eins*,
+
+*Objects from DEDX, which was created by Rob Hicks
+
+Custom gamesys taken from Annhilated, by sluggs
+
+Sound Credits:
+
+Thunder ambients -- recorded by frobber for the Keeper of the Prophecies series, used 
+with permission.
+
+waxytune.wav, which came with Thief 2, provided the scratchy recording sounds I 
+mixed with all the new Victrola music.
+=============================================================
+Miscellaneous Thank You’s
+
+I want to thank everyone who helped me with the problems I had, and OttoJ55 for his 
+lightning and portable lantern tutorials, Eshaktaar for creating Ominous Bequest, 
+which contained several effects I borrowed, NamelessVoice for his tutorial on making 
+genies to control conversations,  and last, but most certainly not least, Lady Rowena.  
+Had she not let me test an early version of The Seven Sisters, I never would’ve been 
+inspired enough to feel an urge to build something, and finished this mission.
+
+My beta testers, Dinksmallwood, ffox, john9818a, Nightwalker, and sluggs, had to 
+put up with me being particularly brain dead (due to a probable concussion, courtesy 
+of my cat Leo) through this beta testing session, so they really deserve an extra special 
+thanks.  My cat Rose kept me company during building and testing of the mission, as 
+she always does.  Last, but most certainly not least, my two good buddies, Jose Cuervo 
+and Jack Daniels, did a very good job of comforting me when DromEd tried to revolt, 
+so I have to thank them too.  ;-)
+=============================================================
+Loading Information:
+
+Runs from Darkloader and Garrettloader.
+=============================================================
+Copyright Information
+
+This level is ©TheNightTerror
+
+This level was not made by and is not supported by Looking Glass
+Studios or Eidos Interactive.
+=============================================================
+
+
+
+
+
+
+
+
+
+==================
+D E U T S C H
+==================
+
+
+=============================================================
+Titel: Verlorene Seelen
+Autor			: TheNightTerror
+Contact info		: thenightterror@gmail.com
+Home page		: http://tnt.freylia.net
+Datum Fertigstellung	: 29. August 2006
+Release-Datum	: 22. September 2006
+Version		: 1.4
+=============================================================
+Dies ist Release 1.4. Der Speichern-während-eines-Blitzes-Bug wurde beseitigt, ebenso der Bug, dass das erste Ziel verschwindet. Ein grosses Dankeschön an Fidcal für den Bug-Bericht und an NamelessVoice, der den Bug für mich zur Strecke gebracht hat!
+
+Dies ist die Version 1.3, die ein paar Unterschiede zur Original-Contest-Mission enthält.
+Ich habe ein paar Bugs ausgemerzt und die Decke angehoben, um den Regen besser 
+aussehen zu lassen. Der Spielbereich liegt aber immer noch in den Original-Contest-
+Grenzen und wirklich sehen kann man diesen neuen Bereich auch nicht, also warum nicht?
+
+Außerdem enthält diese Version dank Dinksmallwood auch eine deutsche Übersetzung.
+=============================================================
+
+Briefing:
+
+In Dayport ist der Teufel los, ausgelöst durch einen Sturm, wie ihn noch keiner je 
+gesehen hat. Die Küstenbezirke der Stadt sind überschwemmt und anliegende Viertel
+werden gerade evakuiert. Die Lebensmittel werden knapp, und fast das gesamte Trink-
+wasser der Stadt ist verseucht. Eine große Anzahl von Einwohnern flieht, selbst
+wenn ihre Häuser noch als sicher gelten. Überall liegen Leichen herum, und es 
+herrscht akute Seuchengefahr.
+
+Basso, Jenivere und ich, wir können es uns einfach nicht leisten, die Stadt zu 
+verlassen – außer Basso’s Mutter, Schwester und Nichte kommen mit und helfen
+uns mit ein bisschen Geld über die Runden. Allerdings gibt es da ein Problem:
+Die drei sind verschwunden. Basso hat erzählt, es gab irgendwelchen Ärger
+in dem Haus, in dem seine Schwester arbeitet, aber seine Mutter hat nicht
+erzählt, worum es ging.
+
+Das Hochwasser in diesem Viertel steigt in beängstigendem Tempo, also haben
+Basso und ich uns entschlossen, zu dem Anwesen zu gehen und herauszufinden,
+was dort los ist und warum Basso’s Familie verschwunden ist. Wir haben einen
+toten Wachmann zerschmettert unter einem Tor gefunden, das verheißt nichts 
+Gutes. Ich muß herausfinden, was hier passiert ist und das Tor aufbekommen,
+damit Basso’s Familie entkommen kann, wenn sie noch am Leben ist.
+
+=============================================================
+Spiel-Informationen:
+
+Spiel			 : Thief 2: The Metal Age
+Level-Name 		 : Verlorene Seelen
+Dateiname 		 : miss20.mis, wcm.gam
+Schwierigkeitsgrade	 : Leicht, Hart, Experte
+Ausrüstungs-Shop	 : Nein
+Karte/Auto-Karte	 : Nein/Nö
+Neue Grafiken		 : Ja
+Neue Sounds		 : Ja, Victrola-Musik und Donner-Geräusche
+Neue Gespräche	 : Nicht so richtig . . . 
+Neue Models		 : Ja, nur Objekte 
+EAX-Unterstützung	 : Ja
+Sprachen		 : Englisch, Deutsch
+Briefing		 : Schau mal nach oben . . . 
+=============================================================
+Bekannte Bugs:
+
+Wird die tragbare Laterne zu schnell hintereinander an- und ausgeschaltet, läuft das Spiel kurzzeitig langsamer.
+
+Ansonsten haben meine Betatester alle Bugs aus diesem Biest herausgekloppt!
+=============================================================
+Bau-Informationen:
+
+Basis		: keine, von Grund auf neu
+Baudauer	: 111 Stunden und 7 Minuten, laut DromEd
+Map-Größe	: Unter 512,000 cubic DromEd units
+=============================================================
+Die üblichen Quellen-Credits:
+
+Ich möchte mich hier entschuldigen, daß ich nicht mehr alle Quellen der Texturen habe.
+Ich habe vergessen, die URLs der Websites zu speichern, wo ich mir die Texturen 
+dieses Mal heruntergeladen habe. Wenn jemand seine Arbeit wiedererkennt und in den
+Credits nicht erwähnt wurde, möge er sich bitte bei mir melden, damit ich ihn mit in 
+die Credits aufnehmen kann.
+
+Terrain-Texturen von Vigil, (hier ist seine Website: www.washboardabs.net/thief/), 
+David Guerra, Nameless Voice, Yandros
+
+Ich weiß nicht, woher die Texturen aus den folgenden Ordnern herkommen: 
+LM, Groundmaster, and everything with a max prefix
+
+Wolken und 'distant art' von Vigil
+
+Feuer-bitmaps von Eshaktaar
+
+Objekte und zugehörige Texturen von Nameless Voice, sluggs, Schwaa*, 
+Vigil, Von Eins*,
+
+*Objecte von DEDX von Rob Hicks
+
+Spezielle gamesys , genommen von Annhilated, von sluggs
+
+
+Sound Credits:
+
+Donnergeräusche -- aufgenommen von frobber für die 'Keeper of the Prophecies Serie', 
+benutzt mit seiner Genehmigung.
+
+waxytune.wav, die die Kratz-Aufnahme-Geräusche enthält, die ich mit all der neuen 
+Victrola-Musik gemischt habe - die Datei stammt aus Thief 2.
+=============================================================
+Verschiedene Danksagungen
+
+Ich möchte jedem danken, der mir bei den Problemen geholfen hat, die ich hatte.
+Ottoj55 für sein Blitz- und tragbare Laterne-Tutorial, Eshaktaar dafür, daß er 
+Ominous Bequest mit zahlreichen Effekten versehen hat, die ich mir geliehen 
+habe, und nicht zuletzt Lady Rowena. Hätte sie mich nicht eine frühe Version
+von 'Die Sieben Schwestern' testen lassen, wäre ich nie genug inspiriert worden, 
+etwas zu bauen und auch zu Ende zu bringen.
+
+Meine Betatester, Dinksmallwood, ffox, John9818a, Nightwalker und sluggs mußten 
+damit klarkommen, daß ich teilweise fast schon hirntot war während des Betatests 
+(ausgelöst durch eine Fast-Gehirnerschütterung, die ich mir mit freundlicher 
+Unterstützung meiner Katze Leo zugezogen hatte), also verdienen sie ein Extra-Dankeschön. 
+Meine Katze Rosy hat mir - wie immer - Gesellschaft geleistet, während ich gebaut und getestet habe.
+Und nicht zu vergessen:
+Meine zwei guten Kumpels, Jose Cuervo und Jack Daniels haben mich gut verwöhnt,
+als DromEd versuchte zu rebellieren, also muß ich ihnen auch danken ;-).
+
+Deutsche Übersetzung von Dinksmallwood
+(Anmerkung: Dinky mußte einige Ziele in der Übersetzung stark kürzen, da sonst nicht
+alle Ziele auf den Bildschirm gepaßt hätten... nur daß mir keine Beschwerden kommen)
+=============================================================
+Installation:
+
+Läuft über Darkloader und Garrettloader.
+=============================================================
+Copyright Information
+
+Dieses Level ist ©2006 von TheNightTerror.
+
+Der ganze Kram hier ist nicht von Looking Glass Studios oder Eidos Interactive und 
+wird von diesen auch nicht unterstützt.
+=============================================================
+

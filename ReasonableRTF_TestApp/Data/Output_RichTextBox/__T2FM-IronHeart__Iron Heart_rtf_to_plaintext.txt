@@ -1,0 +1,46 @@
+English :
+
+"Iron Heart" 
+
+Story
+
+It has been a long time since I heard about mystical objects and great treasures. I am getting tired of robbing the same banks and cities over and over. Besides, those "magical" objects are incredibly prized by eccentric collectors. There is a mansion in a secluded valley far away from the city; the former owner has died recently and a certain Stalkreath has bought it. The former owner was a rich and solitary man with peculiar tastes in terms of art. Word has it that a tremendous treasure is buried under the mansion, within a city that sank in olden days. While there is no proof whatsoever that a city is somewhere down there, it is certain that the man had a lot of unique items when he was still alive. The rumour talks about an ancestral kingdom that sank because of its megalomaniac ruler who wished for a city made out of iron. This ruler was often represented by a crown, a large red "gem"-shaped iron nugget, and an iron mask. All of these are undoubtedly extremely valuable to someone out there, and they are probably of no use to a city of dead fellows. I had better snatch them and make my way back to the surface, if such a place truly even exists.
+______________________________________________________ 
+Note: 
+This is my first FM ever released. It will obviously have gameplay issues and won't have the same quality as other FMs since I am not the greatest Thief player, so be indulgent. This was done under the 1.23 version of NewDark (at least I do believe it was). I recommend that you often save (not only through quicksave) since the level has a lot of hazardous places and a lot of objects using properties that are not theirs.
+{Also, you may want to check out the preview trailer of this FM before you play it, just in case you'd miss something in there}
+Here's a link to it     : https://youtu.be/4Fhos7ZxkoM
+______________________________________________________
+
+Playing Information : 
+Date : 13/03/2016
+Game : Thief 2: The Metal Age 
+Mission Title : Iron Heart
+File Name : miss 22
+Difficulty Settings : No 
+Equipment Store : No 
+Map : No 
+Auto Map : No 
+New Graphics : No
+New Sounds : Yes (Kevin MacLeod - SEE THE "Youtuber note" if you are concerned) 
+Multi-Language Support : No
+EAX: : No 
+Briefing : No
+
+Author      : InsomniacBear (aka FrenchDecay)
+Construction : 
+Base : no base 
+Build Time : 7 months
+____________________________________________________________
+Many thanks : 
+TTLG, Shalebridge Cradle
+____________________________________________________________ 
+Beta-test : 
+- Tannar, Dev_Anj, john9818a
+____________________________________________________________ 
+Translation French-english : InsomniacBear (aka FrenchDecay)
+English proofreading : Tannar
+____________________________________________________________ 
+Copyright Information 
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without our express permission. 
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

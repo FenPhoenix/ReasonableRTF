@@ -1,0 +1,199 @@
+ 
+September --, 2022
+ 
+
+********** W A R N I N G **********
+
+PLEASE TRY NOT TO USE ANY ENHANCEMENT PACKS
+(Unless they try to stay true to the original textures’ geometry.):
+This FM campaign has the vanilla textures’ design in mind.  Having enhancement packs could present undesired results unless those packs stayed true to the geometry of the texture’s design.  (Ex: compare fig. 1, 2, & 3.)
+
+ 
+Fig. 1: Original	Fig. 2: Custom by GORT	Fig. 3: Custom from NecroAge
+
+In this image, the original vanilla texture (Fig. 1) is scaled up and tiled to match the others.  Fig. 2 is a custom texture that while higher res, is also trying to stay true to the original geometry.  Fig. 3 is a Hi-res texture and not too bad, but it is lacking the original geometry.  This may alter or ruin the original artistic intent in this fan mission.
+THIS FM CAMPAIGN REQUIRES THIEF 2 TO BE PATCHED TO AT LEAST V.1.27
+Important Commentary Note:
+	Although not very related to those OMs, this 3-mission campaign kind of takes place between the missions Framed and Ambush and picks up from the Thief Gold FM “An Enigmatic Treasure”.
+
+The difficulties are Normal, Daring, and… GORTTUFF.  If you are new to my FMs, you may want to work your way up by starting on Normal because it can get ruff on the harder difficulties.  FMs by this author usually expects the player to be well skilled and can take a hard challenge.
+However, if the player knows what he/she is getting into and want the author’s usual shenanigans (can be unforgiving at times), then go for GORTTUFF if player dares!
+
+Author:		GORT (Shaun M.D. Morin)
+Title:			The Pursuance of An Inscrutable Reciprocity
+Filename:		TPOAIR_Post_Contest_v.1.10.7z
+Game:			"Thief 2 The Metal Age"
+Contact info:		HYPERLINK "file:///C:/GAMES/Thief2/Users/Shaun M. D. Morin/AppData/Local/Temp/Rar$DRa0.426/www.oonaglah@gmail.com" www.oonaglah@gmail.com
+Current File Size:	~63 MB | Unpacked: ~515 MB
+
+ 
+
+Mission Pack Version:
+	Post-Contest Version 1.10
+
+ 
+
+NOTICE:  This FM campaign was constructed and tested on a PC with these specs:
+OS:			Windows 10 64-bit
+GPU:			AMD Radeon RX 5700 XT 8GB (PCIe)
+CPU:			*AMD FX 8350 8-core Unlocked (Black Edition) 4.00Ghz
+RAM:			32GB
+SOUND CARD:		Sound Blaster X-Fi Extreme Music Sound Card (PCI)
+MOTHER BOARD:	ASUS M5A99FX Pro R2.0 Motherboard
+
+	*This processor really has only four cores, but it does have eight logical processors.
+
+Have at least above a 2.00 Ghz 2-core Processor in your PC.  Have at least 8GB of DDR3 RAM.  Ideal for 32GB or higher in DDR3 RAM or higher.  Also, a good PCIe video card (at least 4 GB or more).
+	The FM loaders Darkloader and Garrettloader are NOT supported by this FM campaign.  Use FM Selector, AngelLoader, or NewDarkloader instead.
+
+WARNING: 
+There might be a chance that Thief 2 will have the rope bug in it.  This bug will make the player bounce off the ropes at a great speed and may kill the player by hitting the wall. It is possible that it might have something to do with how the player is on the terrain.  To avoid this bug, you may want to jump in place before going for the rope.
+
+*Notice*	
+	This FM campaign uses custom scripts needed for various events to function.
+
+ 
+
+* Mission Descriptions *
+
+Mission 1: “A City with Opportunities”
+Mission 2: “Collecting it All” 
+Mission 3: “An Urgent Get-away” 
+
+ 
+
+* Play Information *
+Game:
+	Thief 2: The Metal Age with at least the V.1.27 Patch (required)
+
+Number of Missions:
+	3 Normal Missions
+
+Normal Mission Names:
+	A City with Opportunities
+	Collecting it All
+	An Urgent Get-away 
+
+Subtitles:
+	Yes
+
+Difficulty Settings:
+	Yes. (Normal, Daring, and GORTTUFF)
+
+
+Equipment store:
+	Yes.  The first mission only.
+
+Maps/Automaps:
+	No.  Sorry.
+
+New Movies (Briefings): 
+Yes.  *All Use the X-Vid MPEG-4 codec*
+
+New graphics:
+	A few, but still within the contest rules.
+
+New sounds:
+	A good amount, but still within the contest rules.
+(Some of the audio is in .ogg format.)
+
+New BGM(s):
+	Yes.  Files are from Thief 1/G
+(Converted to .ogg format to save room and make it more compatible.)
+
+New conversations:
+	Yes.
+
+New models:
+	Some, but they are reskinned stock models (staying within the contest rules).
+
+New AI motions:
+	No.  Stock only
+
+EAX Support:
+	Yes.
+
+Multi language support:
+	Yes.
+
+Fog Effects:
+	Yes.  Third mission only.
+
+
+
+
+ 
+
+* Loading Information *
+	Leave the file ZIPPED - DO NOT UNZIP this file but put the whole "TPOAIR_Post_Contest_v.1.10.7z" file into whatever you are using for your Thief 2 Fan Missions folder.
+
+ 
+
+
+* Special Thanks to *
+
+Voice Actors
+
+Garrett -------------------------------------------------------------- Andrew Bartmess
+Southgate Guard (Rosswell) -------------------------- Shaun M. D. Morin (GORT)
+Dante (Guard talking to Josh) ------------------------------------- MattDistraction
+Josh ---------------------------------------------------------------------------- McTaffer
+Mage Ilveqtious ----------------------------------------- Shaun M. D. Morin (GORT)
+Fire Mage (with Request) -------------------------------------------------- McTaffer
+Air Mage (with Request) --------------------------------------------------- McTaffer
+Water Mage (with Request) ----------------------------------------------- McTaffer
+Earth Mage (with Request) ------------------------------------------------ McTaffer
+GORT (not Garrett) ------------------------------------ Shaun M. D. Morin (GORT)
+Heather ---------------------------------------------------------------------- Samantha1
+Herlewin ---------------------------------------------------------------------- McTaffer
+Isabella ---------------------------------------------------------------------- Samantha1
+Lucy Coupemanthorpp ---------------------------------------------------- Samantha1
+Rich ------------------------------------------------------- Shaun M. D. Morin (GORT)
+Peter ------------------------------------------------------------------- MattDistraction
+Mathew ---------------------------------------------------------------- MattDistraction
+Samson ------------------------------------------------------------------------ McTaffer
+Geoffrey ----------------------------------------------------------------------- McTaffer
+Diana ------------------------------------------------------------------------- Samantha1
+Sarah ------------------------------------------------------------------------- Samantha1
+
+
+FM Campaign Testers
+
+Alpha/Beta Testers (Contest Version):
+
+		DirkBogan
+		FlixXxer
+		marbleman
+		Zoro
+
+Alpha/Beta Testers (Post Contest version):
+
+		Jayrude
+		Zoro
+		JarlFrank
+		Mat99
+		lordhern
+		Pete
+
+Text Translator (for non-English):
+
+		Apiai
+		
+Scripts
+
+		GayleSaver 				"TelaMeta.osm and darkhooks.dlx"
+		Nameless Voice 			"NVScript.osm"
+		Telliamed 				"tnhScript.osm"
+		Kevin Daughtridge (kdau)		"KDScript.osm and ThiefLib.osl"
+ 
+
+* Copyright Information *
+
+The missions in this zip file are © by Shaun M.D. Morin
+	These levels were not made and are not supported by Looking Glass Studios, Eidos Interactive, and/or Square Enix.  Although they work fine for the author, they may not be completely compatible for other PCs.  Make sure that your "X-vid MPEG-4" video codec is up to date.
+
+
+
+
+
+ 

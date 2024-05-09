@@ -1,0 +1,93 @@
+================================================================================
+Right up there in the Mountains: Version 1.3 
+================================================================================
+
+Author                  : Troutpack
+Contact Info            : troutpack@yahoo.com
+Date of Release         : N/A
+
+Description		: I was contacted by a man with an interest in the occult.
+			He's asked me to acquire a certain tome for him. Apparently
+			it's an ancient book that deals with burial rites and things
+			of that nature.
+			The book was discovered at some ancient ruins by an old
+			professor and it is currently in his possession. He has
+			retreated to his cabin in the mountains to study it away
+			from prying eyes.
+			It shouldn't be too difficult to sneak in there and slip back
+			out with the book.
+			Then again, that's what I told myself before I had my eye
+			torn out. I'm sure everything will go fine this time though.
+
+Note:				:Contains new optimized gamesys. Shouldn't lag as much. 					Maybe.
+================================================================================
+
+* Playing Information *
+
+Game                    : Thief 2
+Mission Title           : Right up there in the mountains
+File Name               : miss17.miss
+Difficulty Settings     : Yes
+Equipment Store         : Yes
+Map                     : Yes
+Auto Map                : Nope
+New Graphics            : Yes
+New Sounds              : Yes
+Multi-Language Support  : No
+
+Difficulty Level Info   : Groovy, Evil, Dead
+
+* Construction *
+
+Base                    : Scratch
+Build Time              : On and off for years
+
+This mission requires Gaylesaver's scripts to function properly.
+They can be found here: http://www.thief-thecircle.com/dromed/tools.asp
+================================================================================
+
+Credits:
+
+* Objects by *
+von.Eins: anvil.bin, baum-1.bin, globus.bin, hsaege.bin
+Jaws_x: rocking chair and desk lamp
+Troutpack: Everything else!
+
+* Meshes *
+Ash and the gang by Troutpack
+Big treebeast and skin by Logan
+
+* Voice talent *
+Featuring the amazing voice of
+New Horizon
+
+some samples from the movie
+
+(and some stuff by me)
+
+* Thanks to *
+The betatesters and everyone who answered my queries at the Editor's Guild
+
+
+* Loading Information *
+Use DarkLoader 4.1. Do not unzip.
+
+================================================================================
+
+* Copyright Information *
+
+"Right up there in the mountains", the ultimate experience in grueling boredom, 
+was made by Troutpack 2005
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+
+
+
+================================================================================

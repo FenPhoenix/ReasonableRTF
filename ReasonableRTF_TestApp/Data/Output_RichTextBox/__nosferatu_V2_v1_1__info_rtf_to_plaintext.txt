@@ -1,0 +1,83 @@
+Nosferatu
+Volume 2
+
+
+Playing Information:
+
+Title: Nosferatu V2
+Game: Thief II - The Metal Age (New Dark)
+Author: Sensut
+Language support: English
+Released: 30.10.2019.
+Updated: 08.11.2019.
+Version: 1.1
+
+Includes:
+mission 1: A Love Thief
+Build: 2.43.1.20191108.0943.11
+mission 2: The Weird Sisters
+Build: 2.51.4.20191108.1004.11
+...
+
+This campaign requires at least New Dark v.1.26 with fog and new_mantle enabled!
+ The use of the built-in Fan Mission Selector IS recommended!
+Any texture mods, fixes or improvement packs are NOT recommended!
+Note: the useful in-game tips are available only on Normal and Hard difficulty levels!
+
+
+
+
+- CREDITS -
+
+Custom scripts:
+
+Telliamed (tnhScript 2.1.0.0);
+Nameless Voice (nvscript 1.2.3a);
+Public Scripts (script-t2 2.1);
+LGS’ T2 Gen (v27 March, 2000);
+LGS’ T2 Convict (v27 March, 2000);
+LGS’ T2 miss12 (v27 March, 2000).
+
+
+Custom motions by Shadowspawn.
+
+
+
+Custom objects, skins, textures:
+
+Christine, Greenhorn, PinkDot, Jason Otto, Eshaktaar, Schwaa, Dark Shadow, Elvis, Zontik, Soul Tear, Firemage, Sluggs, R Soul, Nameless Voice, Saturnine, Targa, Dark Arrow, TDBonko, Nielsen74, LarryG, Nicked, Gort, Daraan, Dale, Purgator, Cardia, Sterlino, Necrobob, Syi, Dhin, Zappen, G'len, The Watcher, Intruder, Xorak, Blackthief,  Cosas Team, Hammerite Imperium Team,  GSC Gameworld and Sensut.
+
+Ambients:
+
+Popol Vuh, Lustmord, Atrium Carceri, Robert Rich, GSC Gameworld, Raven Software.
+
+On Victrola:
+
+Johannes Brahms - Hungarian Dance No.4  by Claudio Abbado.
+
+Characters taken from:
+
+ Bram Stoker's "Dracula", F.W. Murnau's / Werner Herzog's "Nosferatu",
+Roman Polanski's "The Fearless Vampire Killers".
+
+Text editions:
+
+Nightwalker
+
+Beta testers:
+
+Nightwalker
+
+Strelok71, blind_dog and Sidor from the Zone.
+
+
+Contact: csabisensut@gmail.com
+
+This FM is © by  Sensut, 2017 - 2019.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

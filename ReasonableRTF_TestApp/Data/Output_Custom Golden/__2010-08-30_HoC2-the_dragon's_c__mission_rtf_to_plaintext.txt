@@ -1,0 +1,147 @@
+===================================================================
+Horns of Canzo part 2 – The Dragon’s claw
+Release Version 1.0
+===================================================================
+Author: Sterlino
+Contact info: Sterlinoy@libero.it 
+Homepage: http://sterlino.altervista.org/index.html
+Date of release: 8/2010
+
+
+Title:					Horns of Canzo part 2 – The Dragon’s claw
+Version:				1.0
+Author:					Sterlino
+Game:					Thief 2
+Difficulty settings:			yes - see the differences down below
+Map / Automap:			yes/no
+New graphics:				yes
+New Objects:				Yes - see below
+Multi language support:			No
+ 
+The actors:
+
+SlyFox - Garrett
+Undocanego - Vincent Greed, Sir. Alfios, the jail guard
+John D. - Mario Lombardi
+Sterlino - the shopman
+Moghedian - Madame Mathilde
+Yandros - Basso
+Gore_Torn - The monk, Carabinieri guard
+Lambizkit - Carabinieri guards
+
+__________________________________________________________________________________________________
+
+
+
+the story:
+
+
+In the first part of Horns of Canzo, the Brotherhood of Fire informed 
+Garrett that they had kidnapped his friend Basso.  Basso's "ransom" 
+required Garrett to travel to Italy, then journey to an Italian mountain 
+named the Horns of Canzo, near the small village of Canzo.
+
+Garrett's first challenge was to reach room 4 of the infamous Third 
+Alp's Inn.  After a bit of trouble, he arrived and took the room.  For 
+three long days he lay studying the detailed information given him by 
+the Brotherhood. They made their demands quite clear:  Garrett was to 
+steal the priceless Dragon's Claw.
+
+The Dragon's Claw artifact is owned by Lord Kanfass; but Garrett learns 
+that Kanfass allows his protege, Mario Lombardi, to keep the artifact at 
+his beautiful villa.  Lombardi is mayor of Castlebrick, a small clump of 
+houses, hardly even a village, surrounded by a security wall.  
+Lombardi's villa is just north of Castlebrick, and that is Garrett's 
+destination; for there the Claw is locked away in a huge, well-lit, 
+heavily guarded room that is watched night and day.
+
+In the third afternoon at the inn, Garrett grabs his weapons and 
+thieving equipment and sets out for Lombardi's villa.
+
+
+
+
+_________________________________________________________________________________________
+
+
+
+
+
+
+Special note:
+During the mission you will find a well customized and selfmade texturized Chapel, this is
+my personal and modest tribute to the beautyness of many chapels builded in italy 
+that are a magnificent witness of the hands of the men guided by the Lord's mind.
+
+--------------------------
+HOC2 –the dragon’s claw.zip
+--------------------------
+Beware: if you don’t like the idea to have a mission pack with the scripts inside BEFORE PLAY, in darkloader press to INSTALL only then go to thief2 folder and delete the files: script.osm thnscript.osm darkhooks.dlx ! after that download from the link down here the scripts modules directly from the original sites.
+
+http://www.thiefmissions.com/scripts/ 
+
+better setting:
+audio: channel 16, hardware acceleration=off, eax=off
+
+Construction *
+Base       : From mind, then to scratch then forcibly inserted in Dromed with the only help of my patience. (actually, after this experience, I became a Tibetan monk)
+Build Time : 2 full and mad/crazy years.. what i said ? 2... not exactly, 2 years of full mad work then other 4 years of discontinuous work on it.. so the result is in 6 years !! SIX DAMNED YEARS omg omg ._.  
+
+NOTE ABOUT THE ANTI-GAS MASK:
+in the game you will find a new tool for garrett, it's the AntiGasMask, it works as expected and when you wear it you don't suffer the letal effects of the gas.
+Important: to take off the mask you have to select it from your inventory again and click on it. A shortcut key is present, go to the player menu to 
+set a Keyboard’s key for select the Antigasmask in a faster way.
+Warning: when you wear the mask you cannot use your weapons and if you pick up a weapon, it will disable the Mask.
+Same thing if you find a Scouting Orb and use it..
+
+
+Difficulties differences:
+- a couple of secrets (with the pills) are not revealed in hard and expert difficulty.
+- the number of the guards increase with the difficulty
+
+know bugs:
+- a chandelier in ML villa upper floors sometimes disappear, i don't know the reason.
+
+
+Music&Sounds:
+The song: “the edge of the world” (that substitute the metal1.wav original sound of the thief2 main’s menu) is a whole proudly idea of mine.
+The opening classic music in 2nd mission is 'Handel Teseo, Overture'
+The party's ancient middle age music is 'Cantiga119'
+I used also a sample from Saturnine's excellent mission: the seventh crystal. (with permission)
+Thanks also to these contribute from freesounds.org:
+thanvannispen - witch laugh
+suonho - teleport effect
+fectoper - phaedra inspired sound - used in the pills sequence
+Zenko - musicalbox
+Harri - bass sounds
+J.Zazvurek - crickets sounds
+reinsamba - forest sounds
+elankford - machine sound
+
+
+thanks to:
+
+Yandros for two great music pieces, he also patiently supported me for many months encouraging me to not give up.
+Nameless Voice for his wonderful scripts pack and not only that, his precious support was important in any steps of the creation of this madness.
+SLyFox for his voices contributions, a very professional touch for an amateur's fan mission, thank u Sly !
+Dafydd for his great skill in testing and for some important suggestions.
+Tannar, he helped me a lot with translations and readables.
+Nightwalker for various helps, over all those years, in the thief's community.
+I just would say farewell to BikerDude: a very helping hand in the early days.
+All the Actors who played their voice role, finally they can see the result of their contributes... nothing was wasted.
+
+Other details:
+
+the phrase 'The man who follows the crowd will usually get no further than the crowd. The man who walks alone is likely to find himself in places no one has ever been.'
+is written by Alan Ashley-Pitt
+ 
+
+~@~ Copyright Information ~@~
+
+This level was made by Sterlino
+Distribution of this level is allowed as long as it is free and the package
+is kept intact. 
+You may not include this level to any map pack without my
+permission.
+ No one may edit and re-distribute this mission without my express permission. 
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

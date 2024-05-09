@@ -1,0 +1,77 @@
+                                  THE TOWER
+ 
+                  A mission for the 10th Anniversary Contest
+
+        DESCRIPTION
+
+The mission takes place after the events in Thief 2.
+
+"It has come to my knowledge that Lord Witherdale has recently acquired a small but highly valuable collection of ancient jewels. 
+The manor is well guarded and almost inaccessible, except from a tower which is connected to the back of the manor. An old guardian still lives in the tower, but it won't be hard to get rid of him or even to sneak through without being seen. I must be careful though. The tower is situated in a small courtyard and strangers are not welcome there, especially at night.
+There's not much time left. The guardian will soon be dismissed and the tower will be under restoration. I must act as quickly as possible. Tonight seems just perfect. Time to go!"
+
+
+             PLAYING INFORMATIONS 
+
+           Game:			       Thief 2: The Metal Age
+           Level Name:		       The Tower
+           Author                                     Anonymous
+           File names:		        miss20
+           Difficulty Settings:                   Normal and Expert only
+           Equipment store:		        No
+           Map/Automap:		        Yes/No
+           New graphics:		        Yes
+           New sounds:		        Yes
+           New models:		        Yes
+           EAX Support:		         No
+           Multi language support:	         No
+           Briefing:		                      No
+
+
+          Construction 
+
+          Base:		                    From scratch
+          Map Size:	                    Very small, a 64x64x64 cube 
+          Build Time:	                    53 days
+
+
+Many thanks to:
+ 
+- my betatesters: Nightwalker and nightshifter.
+- Nightwalker and her husband Bernie for proofreading my books and making sure that they made sense.
+- all the TTLG community, expecially to Nameless Voice, nightshifter and R Soul who helped me on specific problems. 
+
+
+   CREDITS
+
+Textures by John P.,PhotoRealistic,Mayang's Free Textures, CG Textures, Vigil (www.washboardabs.net/thief/.
+
+Other textures from the games Max Payne, MOHAA, Painkiller, RTCW, The Wheel of Time, Undying, F.E.A.R, Dark Messiah.  
+  
+New objects by Greenhorn, Nameless Voice, OttoJ55,  PinkDot, Redface, R Soul, Schwaa, Shadowspawn, Sluggs, Targa, The Watcher, Yandros.
+
+Improved original objects by Nameless Voice, R Soul, Schwaa.
+
+New AIs by Targa
+
+
+MUSIC
+
+Atrium Carceri
+  - Escape
+  - Reincarnation Chamber
+
+
+VOICE ACTING by Nightwalker
+Haunt2 Schema is taken from DEDX
+
+SCRIPTS by Nameless Voice and Telliamed
+
+
+ Copyright Information 
+
+This level was made by......Anonymous, for now. ;)
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

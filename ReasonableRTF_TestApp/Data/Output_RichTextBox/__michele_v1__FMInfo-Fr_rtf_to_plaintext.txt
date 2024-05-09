@@ -1,0 +1,66 @@
+Château Michele
+Une Fan Mission pour Thief 2 par Ricebug et Xorak
+Utilise le Dark Engine V1.22
+ 
+
+
+Je vous conseille d'activer la brume et la météo dans les options vidéos, afin de respecter l'ambiance de la mission.
+
+
+Intrigue :
+
+La retraite n'est plus très loin pour Garrett. La dernière chose dont il ait besoin est d'accepter une mission difficile.
+Malheureusement, une lettre inattendue de Basso est tombée telle une bombe éblouissante dans sa boite aux lettre. 
+Il semble qu'une affaire louche soit peut-être derrière la mort d'une femme, une Lady que Garrett a connu sous le nom de 'Michele'. 
+Elle l'avait sorti du pétrin à Murkbell. Se sentant redevable, Garrett décide de partir dans la région pour démêler ce mystère.
+
+Objets
+
+Christine : Meubles, plats, tentures, décor domestique
+Daraan : Arbre, cabinets
+Digital Nightfall (COSAS) : porte, clé, bijoux, butin
+Elvis : Statue dans le couloir d'entrée du château
+Eshkataar : rayons de lumières
+Jason Otto : Meubles, grilles, chaîne
+LarryG : Peintures, portes de château, rat
+Pinkdot : Livres, bibliothèques, chandelier en fer, bougie
+Ricebug : peaux de bêtes, rampe d'escalier
+
+Textures
+
+C-BEAM
+	Genetica
+	Nameless Voice
+Jason Otto (textures des IA)
+
+Traducteurs
+
+Apiai (Français)
+Soldi (Russe)
+	Overmann (Italien)
+Zappen (Allemand)
+
+Contrôle qualité
+
+fortuni
+itllrun10s
+Peter Smith
+Yandros
+Apiai
+Overmann
+Soldi
+Smallman_647
+	Zappen
+
+Vidéo d'introduction
+
+	Lieu : A Meeting With Basso (Calendra’s Legacy, de Purah)
+	Musique au Tympanon : Bradley Fish
+	Gros Garrett : FireMage
+	Séquences de Train : Train Simulator 2015
+	Logiciel : Sony Movie Studio Platinum
+
+
+Remerciement spécial à Yandros pour son assistance technique.
+
+Ce niveau n'a pas été créé et n'est pas supporté par Looking Glass Studios ou Eidos Interactive.

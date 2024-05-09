@@ -1,0 +1,51 @@
+Spoof: The Daft Project
+       Benny Hill Tribute
+
+Author:  Yandros (Russ Robbins)
+Release Date:  March 2, 2004
+Version: 1.1
+
+Gaylesaver’s latest scripts are required: http://thiefmissions.com/scripts/UsrScriptT2_1x2BugFix.zip
+
+About this mission
+
+This is more of a demo, really… I will likely never finish my mission Spoof: The Daft Project,
+which was to spoof well-known movies and TV shows.  So I’m releasing the only part of it
+which I’ve completed – a farce in the style of the old Benny Hill skits where everyone ran around
+at high speed to the strains of “Yakety Sax”.  The Trickster himself will run around and be silly
+along with plenty of your other Thief favorites.  Once it’s done, all the participants will fall down
+dead, and you can then go explore.  When you’re done, press the large button at the end of the
+hall.  There’s really nothing to this mission except a good laugh.
+
+
+Known Issues
+
+1. Don’t frob the victrola more than once.  It will very quickly become unfrobbable, but if you’re
+clicking like mad and manage to click it twice, you’ll break it so the AI’s don’t begin moving
+and will have to restart (not that that’s a big deal in a mission like this, but just so you know…)
+
+2. Once during testing, the game crashed to desktop just as the music ended and the AI’s were
+all supposed to die.  I have no idea why and can’t reproduce this, so if it happens, try replaying
+(if you’re masochistic enough to sit through it again).
+
+
+Thanks to:
+
+BIG Thanks to sluggs for help in fixing the problems with the initial release!
+
+Meshes:
+   Trickster – Rob Hicks and Schwaa
+   Burrick, Dwarf – Rob Hicks
+   Fireshadow – Daemonite
+
+Textures:  Dave Gurrea
+
+Music:   Yakety Sax
+
+
+Copyright Information
+
+This mission is ©2004 by Russ Robbins.
+
+This level was not made by and is not supported by Looking Glass Studios or Eidos Interactive.
+

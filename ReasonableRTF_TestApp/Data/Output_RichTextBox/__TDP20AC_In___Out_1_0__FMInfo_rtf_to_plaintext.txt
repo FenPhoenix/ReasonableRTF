@@ -1,0 +1,292 @@
+=======================================================================
+Title: In & Out
+Author: FrenchDecay, JarlFrank, and marbleman
+Contact: Our pages at TTLG
+Date of release: 01/12/2018
+Version: 1.0
+=======================================================================
+IMPORTANT
+- NewDark 1.25 or higher is required to run the mission.
+=======================================================================
+STORY 
+The Trickster is dead, and I can now return to my usual life of thievery. Yesterday, my landlord reminded me that the rent is due, further hinting that the world-saving adventures are finally over. I need to make some quick cash, and I already know how.
+The Church of St. Martello has recently come into possession of the Hammer of St. Martello, which is now proudly displayed in its reliquary. The church is small and not heavily guarded while the Hammer itself has quite a substantial value on the black market. 
+I just need to get inside, grab the relic, and leave quietly. With my skills, I should be in and out in a few minutes. I would have liked to go for a more challenging job, but a quick and easy score is just what I need right now.
+=======================================================================
+PLAY INFORMATION
+Game: Thief Gold
+File name: miss22.mis; TAC20.gam
+Difficulty settings: Yes
+Equipment store: No
+Map: Yes
+New graphics: No
+New models: No
+New sounds: Yes 
+EAX: No
+Multi-language support: English/German/French/Italian/Russian
+Briefing: Yes
+=======================================================================
+CONSTRUCTION
+Base: From scratch
+Build time: One year working on and off
+=======================================================================
+CREDITS
+Beta testers:
+- ffox
+- FireMage
+- Melan
+- Nightwalker
+- skacky
+- vegetables
+- WhaleOil1
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Translators:
+- Athalle: French translation.
+- MoroseTroll: Russian translation.
+- Piesel: Italian translation.
+- Zappenduster: German translation.
+-------------------------------------------------------------------------------------------------------------------------
+Acknowledgements:
+- Many thanks to Andy Bartmess for his performance as Garrett.
+- A very special thanks to WhaleOil1 who made briefing art for us, and to Yandros who drew the in-game map.
+- And to Yandros again, for helping us a LOT with scripting.
+=======================================================================
+COPYRIGHT INFORMATION
+This level is © 2018 by FrenchDecay, JarlFrank, and marbleman.
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+=======================================================================
+Titel: Rein und Raus
+Autor: FrenchDecay, JarlFrank, und marbleman
+Kontakt: Über htp://ttlg.com/forums
+Erschienen: 01.12.2018
+Version: 1.0
+=======================================================================
+WICHTIG
+- NewDark 1.25 oder neuer erforderlich.
+=======================================================================
+HANDLUNG 
+Der Schwindler ist tot, und ich kann wieder an mein normales Diebesdasein anknüpfen. Gestern hat mich mein Vermieter mal wieder ermahnt, zu zahlen, also ist mit dem Dasein des Weltretters schon deshalb endgültig Sense. Ich muß schnelles Geld machen und weiß auch schon, wie.
+Die Kirche St. Martello kam unlängst in den Besitz von St. Martellos Hammer, den man nun stolz im Reliquiar zur Schau stellt. Es ist eine kleine und nicht so schwer bewachte Kirche, und jener Hammer dürfte auf dem Schwarzmarkt einiges einbringen. Ich muß also nur rein, mir die Reliquie greifen und wieder diskret den Abgang machen. Mit meinen Fähigkeiten sollte das eigentlich in wenigen Minuten über die Bühne gehen.
+Natürlich wäre mir die Herausforderung eines anspruchsvollen Einbruchs lieber gewesen, aber angesichts der knappen Zeit muß das diesmal reichen.
+=======================================================================
+SPIELINFORMATION
+Spiel: Thief Gold
+Dateiname: miss22.mis; TAC20.gam
+Schwierigkeitsgrade: Normal/Hart/Experte
+Ausrüstungsladen: Nein
+Karte: Ja
+Neue Grafiken: Nein
+Neue Objekte: Nein
+Neue Geräusche: Ja 
+EAX: Nein
+Mehrsprachig: EN/DE/FR/IT/RU
+Briefing: Ja
+=======================================================================
+Bau
+Grundlage: Neubau
+Bauzeit: Ein Jahr etwa
+=======================================================================
+Dank an ...
+Betatester:
+- ffox
+- FireMage
+- Melan
+- Nightwalker
+- skacky
+- vegetables
+- WhaleOil1
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+ Übersetzer
+- Zappenduster: DE
+- Athalle: FR
+- MoroseTroll: RU
+- Piesel: IT
+-------------------------------------------------------------------------------------------------------------------------
+Anmerkungen:
+- Vielen Dank an Andy Bartmess für seine Garrett-Stimme.
+- Besonderer Dank gilt WhaleOil1, der den Vorspann erstellte, und Yandros, der die Karte entwarf
+- Und nochmal an Yandros, der uns VIEL in Sachen Skripte weiterhalf
+=======================================================================
+URHEBERRECHT
+Diese FM wurde © 2018 von FrenchDecay, JarlFrank, und Marbleman.erstellt. Ihre Weiterverteilung ist nur in unverändertem Zustand gestattet.
+Sie wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie von dort unterstützt.
+=======================================================================
+Titre: In & Out
+Auteurs: FrenchDecay, JarlFrank et marbleman
+Contact: sur TTLG
+Date de sortie: 01/12/2018
+Version: 1.0
+=======================================================================
+IMPORTANT
+- NewDark 1.25 est requit pour faire tourner cette mission.
+=======================================================================
+HISTOIRE 
+Le Malin est mort et je peux maintenant retourner à ma vie de voleur. Hier, mon propriétaire m'a rappelé qu'il fallait payer le loyer, laissant entendre que les missions de sauvetage du monde étaient enfin terminées. Je dois me faire de l'argent rapidement, et je sais déjà comment.
+L'Église de St. Martello est récemment entrée en possession du Marteau de St. Martello qui est maintenant fièrement exposé dans son reliquaire. L'église est petite et faiblement gardée alors que le Marteau a une valeur considérable sur le marché noir. 
+II me faut juste entrer à l'intérieur, prendre la relique et ressortir tranquillement. Avec mes compétences, entrer et sortir devrait me prendre quelques minutes. J'aurai aimé un travail plus stimulant, mais un truc simple et rapide est exactement ce dont j'ai besoin en ce moment.
+=======================================================================
+INFORMATION DE JEU
+Jeu: Thief Gold
+Nom du fichier: miss22.mis; TAC20.gam
+Niveaux de Difficulté: Oui
+Magasin d'équipement: Non
+Carte: Oui
+Nouveaux graphiques: Non
+Nouveaux modèles: Non
+Nouveaux sons: Oui 
+EAX: Non
+Support Multi-langages: Anglais, Allemand, Italien, Français, Russe
+Briefing: Oui
+=======================================================================
+CONSTRUCTION
+Base: De zéro
+Temps de construction: Une année de travail en intermittence
+=======================================================================
+CREDITS
+Béta-testeurs:
+- ffox
+- FireMage
+- Melan
+- Nightwalker
+- skacky
+- vegetables
+- WhaleOil1
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Traducteurs:
+- Athalle: Français
+- MoroseTroll: Russe
+- piesel: Italien
+- zappenduster: Allemand
+-------------------------------------------------------------------------------------------------------------------------
+Remerciements:
+- Mille mercis à Andy Bartmess pour sa performance doublage avec Garrett.
+- Un remerciement spécial à WhaleOil1 qui a créé la vidéo de briefing pour nous, et à Yandros qui a dessiné la carte in-game.
+- Et pour Yandros encore, pour nous avoir BEAUCOUP aidé avec le scripting.
+=======================================================================
+INFORMATION DE COPYRIGHT
+Ce niveau est © 2018 par FrenchDecay, JarlFrank et marbleman.
+La distribution de ce niveau est autorisée tant que l'archive et ses fichiers sont conservés intacts.
+Ce niveau n'a pas été créé et n'est pas supporté par Looking Glass Studios ou Eidos Interactive.
+
+=======================================================================
+Titolo: Dentro e Fuori
+Autori: FrenchDecay, JarlFrank, e marbleman
+Contatti: Le nostre pagine a TTLG
+Data di Pubblicazione: 01/12/2018
+Versione: 1.0
+=======================================================================
+IMPORTANTE
+- Questa missione richiede NewDark 1.25 o successivi.
+=======================================================================
+STORIA
+Il Trickster è morto, ed ora io posso tornare alla mia solita vita di furti. Ieri, il mio padrone di casa mi ha ricordato che devo pagare l'affitto, un'altra indicazione che le mie avventure per salvare il mondo sono finalmente finite. Devo trovare in fretta del denaro, e so già come.
+La Chiesa di San Martello è recentemente venuta in possesso del Martello di San Martello, che ora è orgogliosamente esposta nel suo reliquiario. La chiesa è piccola e scarsamente sorvegliata nonostante il Martello abbia un notevole valore sul mercato nero. 
+Devo solo entrare, afferrare la reliquia, ed andarmene silenziosamente. Con le mie abilità, dovrei entrare ed uscire in pochi minuti. Avrei preferito un lavoro più impegnativo, ma un guadagno rapido e semplice è proprio ciò che mi serve ora.
+=======================================================================
+INFORMAZIONI DI GIOCO
+Gioco: Thief Gold
+Nome del file: miss22.mis; TAC20.gam
+Settaggi Difficoltà: Si
+Negozio d'equipaggiamento: No
+Mappa: Si
+Nuove grafiche: No
+Nuovi modelli: No
+Nuovi suoni: Yes 
+EAX: No
+Supporto multi-lingua: Inglese, Francese, Tedesco, Italiano, Russo
+Briefing: Si
+=======================================================================
+COSTRUZIONE
+Base: Da zero
+Tempo di costruzione: Un anno con pause
+=======================================================================
+RICONOSCIMENTI
+Beta tester:
+- ffox
+- FireMage
+- Melan
+- Nightwalker
+- skacky
+- vegetables
+- WhaleOil1
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Traduttori:
+- Piesel: Italiano
+- Athalle: Francese
+- MoroseTroll: Russo
+- Zappenduster: Tedesco
+-------------------------------------------------------------------------------------------------------------------------
+Ringraziamenti:
+- Molte grazie ad Andy Bartmess per la sua interpretazione di Garrett.
+- Un ringraziamento davvero speciale a WhaleOil1 che ha creato l'arte del briefing, ed a Yandros che ha disegnato la mappa in gioco.
+- Ed ancora a  Yandros, per averci aiutato MOLTO con gli script.
+=======================================================================
+INFORMAZIONI SUL COPYRIGHT
+Questo livello è © 2018 di FrenchDecay, JarlFrank, e marbleman.
+La distribuzione di questo livello è permessa finchè l'archivio e questo file siano mantenuti intatti.
+Questo livello non è stato fatto e non è supportato da Looking Glass Studios o Eidos Interactive.
+
+=======================================================================
+Название: In & Out / "Вошёл & вышел"
+Авторы: FrenchDecay, JarlFrank, marbleman
+Контакты: наша страница на TTLG
+Дата выхода: 01.12.2018
+Версия: 1.0
+=======================================================================
+ВАЖНО
+- Нужен NewDark 1.25 или выше.
+=======================================================================
+ПРЕДЫСТОРИЯ
+Трикстер сдох, так что теперь я могу вернуться к своей обычной воровской жизни. Вчера мой арендодатель напомнил, что пора платить квартплату и что мои приключения по спасению мира наконец-то закончились. Мне срочно нужны деньги, и я уже знаю, как их добыть.
+Церковь Св. Мартелло недавно заполучила себе молот сего святоши, и теперь тот гордо красуется в тамошней раке. Церковь эта маленькая и не особо-то охраняется; а вот сам молот весьма ценен на чёрном рынке.
+Мне лишь надо будет проникнуть внутрь, забрать реликвию и спокойненько смыться. С моими-то способностями, я зайду и выйду за пару минут. Конечно, мне бы хотелось работёнку посложнее и поинтереснее, но сейчас сойдёт и такая.
+=======================================================================
+ИГРОВАЯ ИНФОРМАЦИЯ
+Игра: Thief Gold
+Имена файлов: miss22.mis; TAC20.gam
+Настройки сложности: Да
+Магазин: Нет
+Карта: Да
+Новая графика: Нет
+Новые модели: Нет
+Новые звуки: Да
+EAX: Нет
+Многоязычность: EN/DE/FR/IT/RU
+Брифинг: Да
+=======================================================================
+СОЗДАНИЕ
+Основа: С чистого листа.
+Время: Один год, с перерывами.
+=======================================================================
+БЛАГОДАРНОСТИ:
+Бета-тестеры:
+- ffox
+- FireMage
+- Melan
+- Nightwalker
+- skacky
+- vegetables
+- WhaleOil1
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Переводчики: 
+- MoroseTroll: на русский.
+- Athalle: на французский.
+- Piesel: на итальянский.
+- Zappenduster: на немецкий.
+-------------------------------------------------------------------------------------------------------------------------
+ЕЩЁ БЛАГОДАРНОСТИ:
+- Большое спасибо Энди Бартмессу за его роль Гарретта.
+- Очень большое спасибо WhaleOil1, который сделал нам арт брифинга, и Yandros, что нарисовал карту.
+- Снова Yandros за то, что ОЧЕНЬ помог со скриптами.
+=======================================================================
+АВТОРСКОЕ ПРАВО
+Этот уровень © 2018 FrenchDecay, JarlFrank, marbleman.
+Распространение этого уровня разрешено до тех пор, по архив и этот файл остаются нетронутыми.
+Этот уровень сделан ни Looking Glass Studios, ни Eidos Interactive, и не поддерживается ими.

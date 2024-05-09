@@ -1,0 +1,123 @@
+Cathedral of St.Vincent
+================ 
+6/18/2012
+
+Title		 : Cathedral of St Vincent
+Filename	 : Cathedral_StVincent
+Author	             : Pedro Quintela (Cardia1), Rod Peirson (DarthsLair)
+Contact info	 : TTLG Private Message or email me Pedroq1983@gmail.com, Darthslair@rocketmail.com
+Date of release	 : June 18th, 2012
+Version              : 1.2
+
+
+
+
+Play Information:
+
+Game			 : Thief 2 The Metal Age
+Level Names		 : Cathedral of St.Vincent
+File names		 : miss20.mis
+Difficulty Settings	 : yes.         Beginner, Adept, Master
+Equipment store		 : no.
+Map/Automap		 : yes/no 
+New graphics		 : yes.
+New sounds		 : yes.
+New conversations	 : yes.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : No.
+Briefing	                         : No.
+ 
+
+
+Story: Garrett having a little ale at the ole Burrick's Head Inn, overhears a couple Taffers just returning from the Isle of
+St.Vincent. He overheard just two words; "Hammerites, and Golden Hammers". A few weeks later Garrett steps foot on the small island
+weary and tired from the long journey across rough seas. A small eatery and pub known as Cookies Place offered some good fried fish
+and chicken at a decent price.  Garrett enjoys his meal, and sips on some aged ale, not knowing someone slipped a micky in his drink,
+forcing him to passout.
+
+He wakes up in jail, only to realize he has been framed for a local murder of a City Water Utiltiy Management worker by the name of
+Walter Muldale.  Seems someone, and more than likely the same person slipping the micky in his drink also planted a note in Garrett's
+pocket indicating a meeting that night with Walter.  Yeah, right, a setup!  
+
+Garrett will need to escape jail, and find out who set him up, and find some way to clear himself of the false murder charge. 
+Seems  A long trip to a small island has proven to be challenging for Garrett, but as always, there is a need to pay the rent.  After all,
+Garrett came to the island for Hammerite Treasure, so there is no better time than now to get started.
+
+Technical Notes: Disable ep, or any enhancement program you are using, as this mission is over 90 percent custom, and enhancement is 
+not needed. If you dont, you may experience crashes, as the pal count is near maxed. Some areas dont propagate sound correctly as resources were limited.
+This fm is maxed out on memory.  If you experience any issues regarding memory, start on a fresh reboot.
+
+Credits:A Great Thankyou to all of our great beta testers:bedwine,bikerdude,Dafydd,Dawggon,dbrilliant,Gloria Creep,Hellfier,itllrun10s,jonescrusher,Philflound,prjames,Sagittal,Soldi,Tannar
+
+Thanks to: to Dussander, Tannar at Shalebridge Cradle Testing Forum.  
+Special Thanks:To Tannar for editing all of the Readables. Philflound for helping with spelling and grammar.Dafydd for his valuable suggestions for ghosting.
+
+
+The Hammer Level contains elements multibrushed in from abandoned work by Dark Assassin, Glen, R Soul and Independent Thief,  Continued-Teamwork mission by Pedro, and Rod.2011-2012
+
+Music:
+
+"Love life" by Casino Vs. Japan (edited by Pedro Quintela)
+"Woven" by Loess (edited by Pedro Quintela)
+"Rückverzauberung 3.4" by Wolfgang Voigt (edited by Pedro Quintela)
+"Mulholland Drive" by Angelo Badalamenti (edited by Pedro Quintela)
+and free KJV/NKJV Scripture songs from
+http://www.pursuinglife.com/scripture-songs.php
+More ambients by Sephy,Sound Myst Album, Shadow Sneaker,[A.Tolenen(Unguarded Reliquary)] 
+“Chimera” by chachi jones
+ 
+
+Models, Objects, Skins:
+Skins by DarkMax, Targa
+HDMK pack by Yandros
+Textures from Deus Ex, Golotha Textures, Thief 1, 
+Cardia1, various other games, 
+The Wadfather site, evil lair,
+Ar-Zimrathon-Blood Stained Book
+Water Textures by ZylonBane
+Alun Bestor-Map Parchment
+Blackjack Hand by ZylonBane
+Keys by Team CoSaS,and Zontik
+DarkMax
+DarthsLair Custom Banners,Custom Ledger, 5 Maps in mission.
+Eshaktaar-Beautiful Decorative war Hammer
+Greogorius
+New Hammer AI meshes and some skins and Woman Thief and HpCops by TDBonko (Dejan Tomic)
+Objects by Dark Arrow
+Metal Dawn-Bronze Griffin
+NamelessVoice
+Nielsen74
+Targa
+Schwaa
+BioTubes - created by Omer "G'len" Golan
+Jason Otto-OttoJ55  
+Yandros-Cleaning some .wav files for Hammer2, and working on Wind files.
+
+Voice Acting : by Yandros:Plays Gutsy Malone, and Pedro Quintela :Plays Mayor Pedro Quintela. Frere Staven (Steven Mafiodo)Plays Hammerite Priest Michael in the Main Cathedral, Gore_Torn plays Police Inspector, Slyfoxx plays Garrett.
+GUILD2 Voice Pack Terry Head (YcatX) Supported by -Mike Chrzanowski For Thief5
+Guild1 Voice pack Steve Schmith (Darkwarror)(JoJoman)(Backed up by-Mike Romatelli)
+Th7-Female TDS Property. Thief voice pack extracted and converted to Thief2 by DarthsLair
+Some misc mixed voicing from T3,owned by TDS.
+Dog barking sound from the game "El matador".
+ 
+
+                                          
+Creation Notes:(From abandoned mission by Independent Thief)
+
+
+
+We gratefully thank TTLG and all of its members for being top of the line. The site, the taffers there. Good hearted taffers
+to say the least!  Keep taffing!   Not supported by Looking Glass Studios, or Eidos Interactive..Runs best in Darkloader v 4.3
+
+Copyright: 2012  Cardia1 , DarthsLair
+
+
+
+* Loading information * 
+
+Garrettloader and Darkloader ready.  Will not run in Garrettloader !
+This has been beta-tested thoroughly in Windows Vista.Windows7 64bit, Windows xp, 32 and 64bit and it runs the best in Darkloader version 4.3
+Distribution of this level is allowed as long as it's free and you must leave the mission intact and give the author(s) credit for it.
+
+

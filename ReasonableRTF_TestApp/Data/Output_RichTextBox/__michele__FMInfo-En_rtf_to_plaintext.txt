@@ -1,0 +1,64 @@
+Castle Michele
+A Thief 2 FM by Ricebug & Xorak
+Uses Dark Engine V1.22
+ 
+
+TURN ON WEATHER AND FOG TO PLAY THIS MISSION.
+
+Rather thin plot line:
+
+Garrett is approaching his retirement years. The last thing he needs is to take on another difficult challenge.
+Unfortunately, an unexpected letter from Basso drops like a flash bomb from his front door mail slot. It seems that
+some shady business may be behind a woman’s demise, a lady he vaguely remembers as ‘Michele.’ She got him
+out of a jam in Murkbell. What goes around comes around. He decides to take the long trip into the country to 
+unravel this mystery.
+
+Objects
+
+Christine: Furniture, dishes, drapes, home decor
+Daraan: Tree, cabinets
+	DEDX: Ice beast, Annie, stalactites
+Digital Nightfall (COSAS): door, key, jewelry, loot
+Elvis: Statue in castle hallway
+Eshkataar: Light beams
+Jason Otto: Furniture, grates, chain
+LarryG: Paintings, castle doors, rat model
+Pinkdot: Books, bookcases, iron hoop candle holder, candle
+Ricebug: Animal skin rugs, stair banister
+
+Textures
+
+C-BEAM
+	Genetica
+	Nameless Voice
+	Jason Otto (AI skins)
+
+Translators
+
+Apiai (French)
+Soldi (Russian)
+Smallman_647 (Italian)
+Zappen (German)
+
+Quality Control
+
+fortuni
+itllrun10s
+Peter Smith
+Yandros
+Apiai
+Soldi
+Smallman_647
+Zappen
+
+Intro Movie
+
+Location: A Meeting With Basso (Calendra’s Legacy, by Purah)
+Dulcimer Music: Bradley Fish
+Fat Garrett: FireMage
+Train Sequences: Train Simulator 2015
+Software: Sony Movie Studio Platinum
+
+Special thanks to Yandros for his technical assistance.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

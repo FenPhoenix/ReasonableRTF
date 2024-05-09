@@ -1,0 +1,328 @@
+_____________________________________________________________________________________________________________________________
+				Transitions in Chaos Part I :
+				  
+				- Conspiracies in the Dark -
+_____________________________________________________________________________________________________________________________
+*Version 2*
+
+Changes made since version 1
+1- Cobwebs. Now objects won’t disappear when looked through cobwebs.
+2- The objective "Don't kill anyone" now reads as “Don’t kill any human” and is now applied to ALL difficulty levels. 
+3- An old light switch that hasn't been replaced by an improved version yet.
+4- About the Old Woman's Key. The chest inside her bedroom is now to be open with lock-picks and not with the key anymore. 
+5- Lowered the fences' heights on the balcony in the cloister.
+6- The Garden door to the old woman’s house is now unfrobbable and will not be opened until the first objective is fulfilled. 
+7- The “New Testament” scroll is unreadable, as it was supposed to be at first.
+8- Added new flames by Eshaktaar. This aesthetic change was proposed by Yandros
+9- I Slightly tweaked some sounds issues. Nothing major though…sorry Ottoj55
+10- Add 3 wine bottles
+11- Improved this briefing
+_____________________________________________________________________________________________________________________________
+*IMPORTANT* : Make sure to have selected 'OPTION/GAME/AUTO-EQUIP/ON'. Otherwise you WON'T be able to complete the mission
+
+*WEATHER and FOG* : This mission was designed with the intent to have rain and fog. Turn the Weather and the fog ON!!! Select : 'OPTION/VIDEO/WEATHER and FOG/ON'
+_____________________________________________________________________________________________________________________________
+Author			: Ramirez's Old Fat Burrick
+Contact Info		: dmarkarian12@yahoo.com
+Date of Release	: 06/22/2006
+
+Translation French/English : Ramirez's Old Fat Burrick. Edited by Nightwalker and Bernie.
+_____________________________________________________________________________________________________________________________
+The Story :
+
+This story takes place between Thief Gold and Thief 2, while the emergent City Watch, lead by Truart, is raiding criminal organizations in order to take control of the City's black market.
+
+Lord Paul Marton is dead and the news has spread throughout the City. Somehow, Garrett has been fingered as the killer. The Baron's men and the Hammerites are on the lookout for the infamous thief. Knowing that proclaiming his innocence would be suicide, he decides that he will have to solve the problem himself. After some brief investigation, Garrett manages to find a rough map of Lord Marton's manor, as well as some information:
+
+- Lord Marton's sceptre is reputed to be a masterpiece of jewellery and its value on the market is high enough to inspire an artist such as Garrett. To make things easier, the famous sceptre will be laid out beside his Lordship's body. There won't be a better chance for Garrett to steal this sceptre.
+
+- Six rich guests have been invited to attend the funeral at the manor: Brother Reseda, Luther Dregger, Carmin Dumoulong (one of Lord Marton's associate), Madame DuBovin, Celadon Mordoré (The notary) and Martin Marton Jr (the Lord's young and silly brother)... what a perfect opportunity for Garrett to humiliate these ridiculous and snobbish people.
+
+It's a cold and rainy night, so there shouldn't be too many people in the street, nor too many guards near the manor. I've seen only two ways to get inside. One is an entrance to the sewers accessed inside a little enterprise owned by a guy named Harper. I'll have to find a way to get through its gate though. The more direct way is to find a way over the high wall that protects the front of the manor. No time to waste. I've got to go...
+_____________________________________________________________________________________________________________________________
+*Hints*
+
+-It might be a good idea to point out that the mission contains some objects, other than ladders, that can be climbed.
+
+-Most of the time, it will be easier to shoot a rope arrow into a wood ceiling and then jump on a beam than directly shoot the arrow into the beam and try to mantle on it.
+
+-Make sure to have selected 'OPTION/GAME/AUTO-EQUIP/ON'. Otherwise you WON'T be able to complete the mission.
+
+-WEATHER and FOG : This mission was designed with the intent to have rain and fog. Turn the Weather and the fog ON!!! Select : 'OPTION/VIDEO/WEATHER and FOG/ON'
+
+-You may experience some framerate lowering issues outside of the manor (on the streets at start) on older computers. Nothing bad I hope.
+_____________________________________________________________________________________________________________________________
+*Known Bugs*
+
+- Some AI may continue to move even after they have finished their speech. Subsequent events should occur normally after a short delay.
+
+- It is also possible that at a certain point a certain door and a certain ladder, both trigged by a certain AI, suddenly return to were they came. This will happen if you move under the descending ladder before it completely stops. Don’t worry though, because you’ll be able to get this ladder back with the right lever…
+
+- Shooting moss arrows on objects (railing, chandelier, table, doors, etc.) near the Lord’s bedroom may result in a large wood breaking sound that may alert AIs. Don’t know what to do for that one.
+
+- At certain places, you may hear Garrett talking about : “having a little light reading”. This comment is supposed to be triggered in the little library near the Lord’s bedroom, but for some reason it is sometime triggered elsewhere.
+_____________________________________________________________________________________________________________________________
+Playing Information
+
+Game				: Thief2 : The Metal Age
+Mission Title			: Transitions in Chaos Part I : Conspiracies in the Dark
+File Name			: miss22.mis
+Difficulty Settings		: Yes
+Equipment Store		: No
+Map				: Yes
+Auto Map			: No
+New objects			: Yes 				
+New Sounds			: Yes		
+New Textures			: Yes
+			
+Multi-Language Support	: Yes (English - French)
+
+Briefing			: You're reading it
+_____________________________________________________________________________________________________________________________
+Difficulty Level Info   : 
+
+-Normal	: Find out who killed the Lord, Steal the Sceptre, Loot 1000, Rob 3 guestrooms, Find 5 secrets, No Human Kills, Get Out, +2 Bonus objective, +1 Optional Objective
+
+-Hard		: Find out who killed the Lord, Steal the Sceptre, Loot 1300, Find compromising Information, Rob 5 guestrooms, Find 7 secrets, No Human Kills, Get Out, +2 Bonus objective, +1 Optional Objective, More AIs, less tools
+
+-Expert:	 Find out who killed the Lord, Steal the Sceptre, Loot 1600, Find compromising Information, Rob all 6 guestrooms, Find 9 secrets, No Human Kill, Get Out, +2 Bonus objective, +1 Optional Objective, More AIs, less tools 
+_____________________________________________________________________________________________________________________________
+* Construction *
+
+Base			: From scratch
+Build Time		: 9-12 months? maybe more...
+_____________________________________________________________________________________________________________________________
+*Many thanks to* 
+
+Beta testers	: Griffin, Nightwalker, Ottoj55, Sluggs, SlyFoxx, The Phantom, Yandros
+
+Translaters 	: Nightwalker and Bernie for their help editing the translation.
+
+Objects Artists 	: (files without extention refer to ‘bin’ files in the Obj or Mesh folder)
+- Alun Bestor		: book_br ; book_ham ; book_pgn ; cobweb1 ; cobweb2 ; cobweb3 ; 
+			crate ; cratelid ; crateold ; cropen ; cropenol ; dshaftbl ; footlock ; 
+lockboxl ; openbook ; pipe01_08 ; railing1_2_3 ; railpost
+(Alun Bestor's site: http://www.washboardabs.net/thief/ )
+- Chris			: wallamph
+- Dark Arrow		: 8cchandelier ; chandelier ; nchandelier
+- DEDX team		: Opglass ; v3; bug3; monkey1
+- Daemonite		: expmurus ; expwo3 ; opguestm ; merchan6 ; merchant ; constgu ; 
+expbafes ; expcobo ; magswgu ; opguarsw
+- Eshaktaar		: pfire.tga
+- Nameless Voice	: NVAhnkS ; NVBookCabinet01 ; NVBookcase01 ; NVBookcase02 ; 
+NVBookcase03 ; NVCoinC ; NVCoinG ; NVCoinS ; NVCoinsC ; NVCoinsG ; NVCoinsS ; NVCubicOven ; NVDresser01 ; NVGlobe ; NVGoblet ; NVInkwell ; NVLamp ; NVLamp02 ; NVLCJar01 ; NVLCJar02 ; NVStreetLamp01 ; NVStreetLamp02 ; NVTrSphereG ; NVWineShelf
+- Ottoj55		: Ottochain1 ; Ottofence ; Ottofencf ; Ottofencg ; Ottogauges1 ; 
+Ottogauges2 ; Ottogauges3 ; Ottorug01 ; Ottorug02 ; Ottotable ; Ottotap01 ; Ottotap02 ; Ottotap03
+- Rsoul			: paint1_32 ; RSVdoor2_3_6_8
+- Rob Hicks		: constgu ; conswd ; Opdoor2 ;
+- Schwaa		: bookssh1 ; bookstk2 ; bottle2 ; bunk03 ; bunk05 ; CerPot01 ; CerPotCl 
+; CerPotRD ; crmtrc00 ; crmtrc01 ; crmtrc02 ; crmtrc03 ; crmtrc04 ; crmtrc11 ; dartblue ; dartbord ; dartred ; dectable ; feather ; inkbottl ; jar ; lute ; mushgren ; newt01 ; newt02 ; newt03 ; newt04 ; newt05 ; openbookSchwaa ; pan02 ; pan03 ; shieldop ; TRBOTTLE ; trgoble2 ; trgoblet ; trvase ; trvase2 ; trvase3 ; trvase4
+- Sluggs		: flower ; pbench ; pipchim2 ; RUG8x8a ; slgstool ; slgtabl2 ; Slugbed ; 
+Slugbush1 ; SlugCompass ; SlugEWallLight ; Slugtrof ; StreetL ; vase&flo
+- Targa		: airpot ; arbor ; arbortop ; bottlamb ; bottlpur ; bottlred ; chair01 ; 
+desk01 ; gemstaff ; heartbox ; huntwin ; metcrate ; nymphwin ; plate003 ; sglass02 ;  shield2 ; silvdag ; speedpot ; tapest01 ; Targaturbine ; Tdoor91 ; theblade ; vile1 ; zchest ; fatnoble
+- Yandros		: monbox02 ; monbox03 ; monbox04 ; monbox05 ; monbox07 ; 
+monbox09 ; mshelfbr
+- VonEins		: hsaege ; uhr-2 ; eimerl ; flasa
+- Who did I forgot?	: pfosten ; updnlevr
+
+Textures Artists		: (All of these refer to the folders names in the ‘Fam’ directory)
+- Alun Bestor			: adb_brick ; adb_plaster ; adb_stone ; adb_street ; adb_tile ; 
+adb_wood
+					(Alun Bestor's site: http://www.washboardabs.net/thief/ )
+- DEDX Team			:BaffordX ; ConstantineX ; DungeonX ; GrappleX ; OperaX ; 
+RamirezX ; Sewer2X ; SewerX
+- Dhin				: ChambersX ; CrackedConcreteX
+- Nameless Voice		: NVDoors01 ; NVFrameW
+- Remedy Entertainment Ltd	: max_concrete ; max_tile
+- Team Calendra		: 1acp ; 1acp2 ; 1cc2a ; 1Chapel ; 1Core_1 ; 1Core_ 2 ; 1Core_3 
+; 1Prelude
+- Rob Hicks			: NatureX ; WoodX
+- Who did I forgot?		: 2swStone ; 2swWood ; 4_grndmast
+_____________________________________________________________________________________________________________________________
+*Special Thanks to*	
+
+- Ottoj55 for having 'pushing me' to improve the story a lot from what it was at start.
+- Yandros for having 'palettized' and slightly improved the map and the main.pcx files and for having found 2 major bugs
+- Sluggs for having 'found' a bug that could prevent some players to be able to complete all the objectives
+
+*All voices made by*	
+
+- Ramirez's old fat Burrick
+
+_____________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________
+
+*VERSION FRANÇAISE*
+
+			Transitions dans le Désordre. 1ère Partie :
+				  
+				         - Sombres Desseins -
+
+_____________________________________________________________________________________________________________________________
+*Version 2*
+
+Changements faits par rapport à la version 1
+1- Toiles d’araignées. Les objets ne disparaissent plus lorsqu’on les regarde au travers des toiles d’araignées.
+2- L’objectif “Ne tuez personne” devient “Ne tuez aucun être humain” et s’applique à tous les niveaux de difficultés.
+3- Un levier d’un ancien modèle a été remplacé par un levier de nouveau modèle. 
+4- La clé de la vieille n’est plus nécessaire pour ouvrir le coffre de sa chambre. Il se crochète avec les passe-partout. 
+5- Réduit la hauteur des garde-fou du balcon dans le cloître
+6- La porte de la vieille (côté jardin) n’est plus activable par le joueur. Elle ne sera ouverte que lorsque le 1er objectif sera accompli.
+7- Le parchemin “Nouveau Testament” ne peu plus être lu, comme cela devait être à l’origine. 
+8- Ajouté les nouveaux modèles de flammes par Eshaktaar. Ces changements esthétiques ont étés proposes par Yandros
+9- Modifié quelques sons. Rien de bien majeur toutefois…désolé Ottoj55.
+10- Rajouté 3 bouteilles de vin
+11- Amélioré ce briefing
+_____________________________________________________________________________________________________________________________
+*IMPORTANT* : Assurez vous de sélectionner 'OPTION/JEU/EQUIPEMENT AUTO/ OUI' car sinon il vous sera IMPOSSIBLE de compléter la mission. 
+
+*BRUME et MÉTÉO : Cette mission a été conçue pour contenir des effets de pluie et de brouillard. Profitez-en!!! Séléctionnez : 'OPTION/VIDÉO/BRUME ET MÉTÉO/ OUI'
+_____________________________________________________________________________________________________________________________
+Auteur               	: Ramirez's Old Fat Burrick
+Adresse mail          	: dmarkarian12@yahoo.com
+Date de diffusion	: 20/06/2006
+_____________________________________________________________________________________________________________________________
+L’Histoire :
+
+L'histoire se déroule entre DP1 et DP2 alors que la milice naissante, menée par Gorman Truart, élimine un à un les gros bonnets de la pègre afin de prendre le contrôle des organisations criminelles de la Cité :
+
+Lord Paul Marton est mort! La nouvelle s'est répandue comme une traînée de poudre dans toute la Cité. Le hic, c'est qu'on accuse Garrett du meurtre. Etant innocent, il décide de prendre lui-même les choses en main. Après de brèves investigations, Garrett est parvenu à mettre la main sur une carte plutôt approximative, ainsi que sur quelques informations:
+
+- Le sceptre de Lord Marton est réputé être un chef-d'oeuvre d'orfèvrerie et sa valeur sur le marché est suffisamment élevée pour inspirer un artiste de la trempe de Garrett. Et comme si c'était pour lui faciliter la tâche, la dépouille sera exposée avec le fameux sceptre. Ce sera là une occasion en or de vous approprier ce sceptre.
+
+- Six des plus richissimes relations de notre bon ami le Lord seront invitées à passer la nuit au manoir. Tous y seront : Frère Réséda, Luther Dregger, Carmin Dumoulong (un des associés de Lord Marton), Madame DuBovin, Céladon Mordoré (le notaire) et Martin Marton Jr (le jeune et très idiot frère du Lord). Voilà une occasion rêvée de ridiculiser toute cette bande de vauriens et de les déculotter tous à la fois.
+
+C'est une nuit fraîche et pluvieuse. Les rues doivent être désertes et les gens bien au chaud chez eux ou dans une taverne. Les gardes du manoir ne devraient pas s'aventurer trop loin des coins secs et abrités. Je devrais donc avoir la voie libre, du-moins jusqu'aux portes de la muraille du manoir.
+
+Je n'ai pu trouver que 2 entrées possibles. La première est un passage par les égouts. Pour y accéder, il me faudra toutefois trouver un moyen d'entrer dans la Tannerie qui y communique. La seconde : trouver un moyen de franchir la muraille, passer les gardes et entrer directement dans le manoir. Allons, il est inutile de s'attarder. En route!
+
+_____________________________________________________________________________________________________________________________
+*Conseils*
+
+-Il serait une bonne idée de souligner que certains objets peuvent être 'grimpés' comme des échelles...en aurais-je trop dit?
+
+-S'il vous prenait l'envie de grimper sur certaines poutres, sachez qu'il est souvent plus facile de tirer une flèche à corde dans le plafond ET PUIS de sauter sur la poutre que de tirer la flèche dans la poutre et de s'y hisser ensuite.
+
+-Assurez vous de sélectionner 'OPTION/JEU/EQUIPEMENT AUTO/ OUI' car sinon il vous sera IMPOSSIBLE de compléter la mission. 
+
+-BRUME et MÉTÉO : Cette mission a été conçue pour contenir des effets de pluie et de brouillard. Profitez-en!!! Sélectionnez : 'OPTION/VIDÉO/BRUME ET MÉTÉO/ OUI'
+
+-Certain ralentissement à prévoir dans les rues face au manoir (au commencement de la partie) si vous jouez sur un ordinateur des cavernes…rien de bien majeur j’espère !
+_____________________________________________________________________________________________________________________________
+*Bogues Possibles*
+
+- Il est possible que certains AI continuent de gesticuler un peu après avoir terminé de parler. Rien qui n’empêchera les événements subséquents de s’enclencher normalement. 
+
+- Il est possible aussi qu’une certaine porte et une certaine échelle, toutes 2 déclenchées par un certain AI, remontent et retournent subrepticement d’où elles sont venues. Cela se produira si vous avancez trop rapidement et ne laissez pas le temps à cet événement de s’exécuter. N’ayez crainte, vous pourrez tout de même faire ressortir le tout avec le bon levier…
+
+- Tirer des flèches à mousse sur des objets (balustrade, chandelier, table, portes, etc.) près de la chambre du Lord peut enclencher un énorme son de bois qui se brise et alerter les AIs qui patrouillent dans le coin. Là, je ne sais pas quoi faire !
+
+- A certains endroits, vous entendrez peut-être Garrett dire qu’il devrait : “faire une petite pause lecture”. Ce commentaire est supposé être déclenché dans la petite bibliothèque attenante aux quartiers du Lord, mais se déclenche parfois ailleurs pour des raisons étranges
+_____________________________________________________________________________________________________________________________
+* Information *
+
+Jeu				: Dark Project2: L'Age de Métal
+Titre de la Mission		: Transitions dans le Désordre (1ère Partie) : Sombres Desseins
+Nom du Fichier		: Miss22
+Difficulté			: Facile, Difficile et Expert
+Magasin d'équipement	: Non
+Carte				: Oui
+Carte Auto			: Non
+Nouv. Textures		: Oui
+Nouv. Sons			: Oui
+Nouv. Objets			: Oui
+Multi-Language Support	: Oui (Français-Anglais)
+
+Briefing			: Vous le lisez actuellement
+_____________________________________________________________________________________________________________________________
+Info Difficulté         :
+
+-Facile	: Trouver l'assassin du Lord, Voler le Sceptre, Voler 1000, Détrousser 3 invités, 
+Trouver 5 secrets, Ne tuer aucun humain, Sortir du manoir, +2 objectif Bonus, +1 Objectif facultatif
+
+-Difficile	: Trouver l'assassin du Lord, Voler le Sceptre, Voler 1300, Trouver information 
+compromettante, Détrousser 5 invités, Trouver 7 secrets, Ne tuer aucun humain, Sortir du manoir, +2 objectif Bonus, +1 Objectif facultatif, plus d’AIs, moins d’équipement
+
+-Expert	: Trouver l'assassin du Lord, Voler le Sceptre, Voler 1600, Trouver information 
+compromettante, Détrousser les 6 invités, Trouver 9 secrets, Ne tuer personne, 
+Sortir du manoir, +2 objectif Bonus, +1 Objectif facultatif, plus d’AIs, moins d’équipement
+_____________________________________________________________________________________________________________________________
+* Construction *
+
+Base				: Néant
+Temps de Construction	: Approx. 9-12 mois
+_____________________________________________________________________________________________________________________________
+*Grands grands mercis aux*
+
+Beta-testeurs	: Griffin, Nightwalker, Ottoj55, Sluggs, SlyFoxx, The Phantom, Yandros
+
+Traducteurs Franco-anglais :  NightWalker et Bernie pour leur aide sur la traduc.
+
+Objects Artists 	: (Les fichiers sans extention  sont de type ‘bin’ files et se trouvent dans les dossiers ‘Obj’ ou ‘Mesh’)
+- Alun Bestor		: book_br ; book_ham ; book_pgn ; cobweb1 ; cobweb2 ; cobweb3 ; 
+			crate ; cratelid ; crateold ; cropen ; cropenol ; dshaftbl ; footlock ; 
+lockboxl ; openbook ; pipe01_08 ; railing1_2_3 ; railpost
+(Alun Bestor's site: http://www.washboardabs.net/thief/ )
+- Chris			: wallamph
+- Dark Arrow		: 8cchandelier ; chandelier ; nchandelier
+- DEDX team		: Opglass ; v3; bug3; monkey1
+- Daemonite		: expmurus ; expwo3 ; opguestm ; merchan6 ; merchant ; constgu ; 
+expbafes ; expcobo ; magswgu ; opguarsw
+- Eshaktaar		: pfire.tga
+- Nameless Voice	: NVAhnkS ; NVBookCabinet01 ; NVBookcase01 ; NVBookcase02 ; 
+NVBookcase03 ; NVCoinC ; NVCoinG ; NVCoinS ; NVCoinsC ; NVCoinsG ; NVCoinsS ; NVCubicOven ; NVDresser01 ; NVGlobe ; NVGoblet ; NVInkwell ; NVLamp ; NVLamp02 ; NVLCJar01 ; NVLCJar02 ; NVStreetLamp01 ; NVStreetLamp02 ; NVTrSphereG ; NVWineShelf
+- Ottoj55		: Ottochain1 ; Ottofence ; Ottofencf ; Ottofencg ; Ottogauges1 ; 
+Ottogauges2 ; Ottogauges3 ; Ottorug01 ; Ottorug02 ; Ottotable ; Ottotap01 ; Ottotap02 ; Ottotap03
+- Rsoul			: paint1_32 ; RSVdoor2_3_6_8
+- Rob Hicks		: constgu ; conswd ; Opdoor2 ;
+- Schwaa		: bookssh1 ; bookstk2 ; bottle2 ; bunk03 ; bunk05 ; CerPot01 ; CerPotCl 
+; CerPotRD ; crmtrc00 ; crmtrc01 ; crmtrc02 ; crmtrc03 ; crmtrc04 ; crmtrc11 ; dartblue ; dartbord ; dartred ; dectable ; feather ; inkbottl ; jar ; lute ; mushgren ; newt01 ; newt02 ; newt03 ; newt04 ; newt05 ; openbookSchwaa ; pan02 ; pan03 ; shieldop ; TRBOTTLE ; trgoble2 ; trgoblet ; trvase ; trvase2 ; trvase3 ; trvase4
+- Sluggs		: flower ; pbench ; pipchim2 ; RUG8x8a ; slgstool ; slgtabl2 ; Slugbed ; 
+Slugbush1 ; SlugCompass ; SlugEWallLight ; Slugtrof ; StreetL ; vase&flo
+- Targa		: airpot ; arbor ; arbortop ; bottlamb ; bottlpur ; bottlred ; chair01 ; 
+desk01 ; gemstaff ; heartbox ; huntwin ; metcrate ; nymphwin ; plate003 ; sglass02 ;  shield2 ; silvdag ; speedpot ; tapest01 ; Targaturbine ; Tdoor91 ; theblade ; vile1 ; zchest ; fatnoble
+- Yandros		: monbox02 ; monbox03 ; monbox04 ; monbox05 ; monbox07 ; 
+monbox09 ; mshelfbr
+- VonEins		: hsaege ; uhr-2 ; eimerl ; flasa
+- Objets Perdus?	: pfosten ; updnlevr
+
+Textures Artists		: (Ces noms sont ceux des dossiers dans le dossier ‘Fam’)
+- Alun Bestor			: adb_brick ; adb_plaster ; adb_stone ; adb_street ; adb_tile ; 
+adb_wood
+					(Alun Bestor's site: http://www.washboardabs.net/thief/ )
+- DEDX Team			:BaffordX ; ConstantineX ; DungeonX ; GrappleX ; OperaX ; 
+RamirezX ; Sewer2X ; SewerX
+- Dhin				: ChambersX ; CrackedConcreteX
+- Nameless Voice		: NVDoors01 ; NVFrameW
+- Remedy Entertainment Ltd	: max_concrete ; max_tile
+- Team Calendra		: 1acp ; 1acp2 ; 1cc2a ; 1Chapel ; 1Core_1 ; 1Core_ 2 ; 1Core_3 
+; 1Prelude
+- Rob Hicks			: NatureX ; WoodX
+- A qui c’est ça?		: 2swStone ; 2swWood ; 4_grndmast
+_____________________________________________________________________________________________________________________________
+*Et en particulier*	
+
+- Ottoj55 pour m'avoir 'poussé' à améliorer grandement l'histoire grâce à ses suggestions
+- Yandros pour avoir 'palettisé' et amélioré légèrement la carte et le fichier main.pcx et aussi pour avoir trouvé 2 bogues majeurs
+- Sluggs pour avoir 'trouvé' un bogue qui aurait pu empêcher certains joueurs de compléter tous les objectifs
+
+*Toutes les voix sont jouées par* 
+
+- Ramirez's old fat Burrick
+_____________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________
+
+Loading Information 
+
+Place this zip file in the folder were you said to your DarkLoader/GarrettLoader look for Fan Mission.
+
+Copyright Information
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

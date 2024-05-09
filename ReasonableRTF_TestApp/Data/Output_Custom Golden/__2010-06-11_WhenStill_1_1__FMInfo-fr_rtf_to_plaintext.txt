@@ -1,0 +1,398 @@
+Nom du fichier: When Still…
+Auteur: Eternauta (E.R.)
+Contact info: enco_1999@yahoo.it
+Date de sortie: 30.12.2010
+Version: 1.1
+
+
+
+Histoire :
+
+
+Les Ages Sombres. 
+
+À ce jour la puissance du christianisme est stable et répandue.  Il est présent dans les abbayes des Marteleurs, dans les sanctuaires païens et dans chaque maison. Cette peste de la «foi» a effectué sa patrouille mortelle, entraînant panique et confusion dans toutes les cités de la région. Les premiers à ressentir ses effets étaient les païens, torturés puis tués pour leurs hérésies. Les Marteleurs, étant plus nombreux et plus organisés, ont violemment résisté mais ils ont quand même été forcés de plier genou devant l'Église. Il y avait quelques résistants qui ont refusé de se soumettre et ont continué à combattre mais leur nombre déclina et ils disparurent les uns après les autres sans laisser de trace.
+
+Beaucoup d'abbayes ont choisi de coopérer avec le Vatican, livrant les païens et les hérétiques aux émissaires du Clergé, assurant leur survie par le versement d'une « taxe de l'indépendance ».  Cela assurait la continuité de leur existence et leur donnait une petite liberté de pratiquer leur foi, tout en augmentant la puissance et la force du christianisme en même temps.
+
+Pendant ce temps, depuis son manoir dans les profondeurs de la forêt à l'ouest du Quartier Sud, un noble riche et inconnu commença à attirer l'attention du monde extérieur.  Son nom est Seigneur Robert Lelder. 
+
+Pendant qu'il essayait de choisir quelques alliés parmi les riches, pour les aider à les protéger de la puissance croissante de l'Église, l'Ordre Marteleur envoya une paire d'émissaires au manoir du seigneur Lelder afin d'essayer de le rallier à leur cause.  Jules et Edouard, choisis pour cette mission, furent sommés de contacter régulièrement l'Ordre, afin de l'informer de l'état des négociations, mais après leur première missive, il n'y eu plus rien d'autre que le silence. Dans sa lettre, Jules mentionnait un journal intime semblant important mais les Marteleurs n'en parlaient aucunement.
+
+Les Marteleurs demandent votre aide pour trouver le journal intime et pour découvrir le destin des deux émissaires…
+
+--- 
+
+Habituellement je n'effectue pas de travail bénévole mais cette fois je pense que les Marteleurs ont vraiment besoin de mon aide.
+
+Je pense qu'inspecter le manoir de Lelder ne suffira pas pour mener à bien ma mission. Je ne sais pas pourquoi mais j'ai 
+le sentiment inconfortable que cette nuit sera longue et difficile.
+
+
+
+*****************************************
+
+*  Information sur le jeu *
+
+                                                                                    
+Jeu:	Thief 2: L'âge de métal
+Nom des missions :	Lord Robert Lelder, Le Chemin, Le Rituel, Le Mystère
+Nom du fichiers :	miss20.mis, miss21.mis, miss22.mis, miss23.mis
+Choix difficulté :	Oui:	"Ange" (Normal), "Archange" (Difficile), "Diable" (Expert)
+Achat équipement :	Non
+Carte/AutoCarte :	Oui / Non
+Nouveaux graphismes :	Oui
+Nouveaux sons :	Oui
+Nouveaux modèles :	Oui
+Support de l'EAX :	Oui
+Support Multi Langues :	Anglais, Allemand, Italien et Français
+Vidéo d'introduction :	Non
+
+*****************************************
+
+*  Construction *
+
+Base:	A partir de zéro
+Taille Carte :	Moyenne/Large
+Temps de construction :	beaucoup de soleils et beaucoup de lunes
+
+*****************************************************************************************
+
+*  Info supplémentaires *
+
+
+Attention : Vous pouvez éteindre chaque lumière (excepté pour les fenêtres) en les actionnant, en trouvant le bon commutateur ou en employant des flèches à eau.
+
+*  Changements dans la version 1.1 *
+•	Nouvelle carte dans la mission 1 
+•	Objectifs n'apparaissant pas corrigés
+•	Les papillons ne peuvent plus être tués (Taffers…)
+•	Corrigé un problème de terrain dans la mission 2
+•	Corrigé une pièce dans la mission 2 pour empêcher le joueur de rester bloquer
+•	Ajouté une liste de butins au fichier zip (un grand merci Tannar !)
+
+
+*  Textures *
+
+David Gurrea Hernandez
+CgTextures
+Christian
+DarkDragon
+TeamCalendra
+Thief_gotcha
+Alun Bestor (http://www.washboardabs.net/thief/)
+
+*  Textures supplémentaires *
+
+Undying
+Rune
+Whell of Time
+Painkiller
+Unreal
+Unreal “Return to Napali”
+(C)1998-2001 Remedy Entertainment Ltd (Max Payne)
+
+*  Auteurs des Objets *
+
+Alun Bestor – Dark Arrow – Jason Otto – PinkDot – R soul – Sluggs – Team Calendra – Watcher
+ Team CoSaS – Eshaktaar – Nameless Voice - Reatsel  
+ Schwaa – Targa – Wille – Christine – Ewald – Nielsen74 – Redface – Sensut – TdBonko – Von Eins Yandros – Shadowspawn  Thief Objet Enhancement Package – Greenhorn - LarryG
+
+
+*  Musique *
+
+Half – Life 2
+Vampire The Masquerade - Redemption
+Vampire The Masquerade - BloodLines
+J.S : Bach (concert pour deux harpes)
+A. Vivaldi (concert pour deux violons)
+Le monde fabuleux d'Amélie Poulain
+Thief III (Merci à Eric Brosius)
+
+* Effects sonores *
+
+Half-Life 2
+Ac-Dc (cloches)
+
+*  Remerciements *
+
+Betatesteurs
+Hotlyx
+Jericho
+Lady Rowena
+Namdrol
+Nickie
+Peter Smith
+PotatoGuy
+Tannar
+
+
+Merci à toutes les merveilleuses personnes des Forums de TTLG.  
+
+*  Remerciements spéciaux *
+
+Un grand Merci à :
+
+•	 Tannar pour avoir été patient avec moi, pour avoir corriger les textes et la carte, pour les listes de butin et les conseils inestimables. Merci beaucoup !
+•	 Lady Rowena, elle m'a vraiment tout appris. J'ai une grande dette envers elle.
+•	 Namdrol pour avoir corrigé les textes et pour les conseils inestimables.
+•	 Nickie pour avoir corrigé les textes et pour les conseils inestimables.
+•	 Peter Smith pour avoir aider à rendre la campagne réalisable en mode fantôme et pour les conseils inestimables.
+•	 Jéricho pour avoir fait les belles cartes juste pour moi. 
+•	 darthsLair pour me venir en aide et corriger quelques bogues.
+•	 kfort et intrus pour l'aide avec les lanternes.
+•	 zappen pour la traduction allemande.
+•	 Dussander pour m'avoir accueilli sur son site de test (shalebridgecradle.co.uk), un bel endroit pour béta-tester les missions.
+•	 Valentina et Lara, elles m'ont aidé avec l'anglais et m'ont donné des conseils inestimables.
+•	 Paolo, il a extrait la bande sonore d'Half-Life 2.
+•	 Chiara, même si je lui ai fait perdre beaucoup de temps avec Dromed, elle est toujours avec moi.
+•	 Enfin, merci à Looking Glass pour la création d'un monde magique tel que Thief.
+
+
+
+*  Droits d'auteur *
+
+Ce niveau a été créé par Eternauta (E. R.)
+
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact. Vous ne pouvez pas inclure ce niveau à un pack de mission ou à une campagne. Nul ne peut modifier ni redistribuer cette mission sans mon autorisation expresse. Personne ne peut éditer cette mission ou la modifier d'aucune façon.
+
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.
+
+
+
+
+* À Silvana et à mon grand père Marcello *
+
+
+
+
+*****************************************************************************************
+
+
+File name: When Still…
+Author: Eternauta (E.R.)
+Contact info: enco_1999@yahoo.it
+Date of release: 12.30.2010
+Version: 1.1
+
+
+
+Story:
+
+
+The Dark Ages. 
+
+By now the power of Christianity is stable and widespread.  It has settled into the Hammerite Abbeys, into the Pagan Sanctuaries and into every house. This plague of “faith” has carried out its deadly patrol, causing widespread panic and confusion in all the cities of the land. The first to feel its effects were the Pagans, tortured and killed for their heresies.  The Hammerites, being both more numerous and more organised, resisted fiercely but even they were forced to bend their knee to the Church.  There were a stubborn few who refused to yield and continued to fight but their numbers grew fewer as one by one they disappeared without trace.
+
+Many Abbeys have chosen to co-operate with the Vatican, handing Pagans and heretics over to the emissaries of the Clergy, ensuring their survival by the payment of an “Independence Tax”.  This enables their continued existence and gives them some small freedom to practice their faith, while at the same time increasing the power and strength of Christianity. 
+
+Meanwhile, from his manor in the depths of the forest to the west of South Quarter, a wealthy, unknown noble has begun to come to the attention of the outside world.  His name is Lord Robert Lelder.  
+
+While trying to single out some allies from among the rich and politically powerful to help protect them against the increasing power of  the Church, the Order of the Hammer sent a pair of emissaries to the manor of Lord Lelder in an attempt to win him to their cause.  Julius and Edward, the two who were chosen for the mission, have been ordered to keep in regular contact with the Order, informing it of the state of negotiations, but after their first missive there has been nothing but silence. In his letter, Julius mentioned a diary which may be important but the Hammerite gives no further mention of it.
+
+The Hammers have asked your help in finding the diary and in discovering the fate of the two emissaries…
+
+--- 
+
+I usually don't do charity work but I think that this time the Hammers really do need my help.
+
+I think my tasks will not end simply with the inspection of Lelder's mansion. I don't know why but I have the 
+uncomfortable feeling that this will be a long and difficult night.  
+
+
+
+*****************************************
+
+*  Play Information *
+
+                                                                                    
+Game:	Thief 2: The Metal Age
+Level Names:	Lord Robert Lelder, The Way, The Ritual, The Mystery
+File names:	miss20.mis, miss21.mis, miss22.mis, miss23.mis
+Difficulty Settings:	Yes:	"Angel" (Normal), "Archangel" (Hard), "Devil" (Expert)
+Equipment store:	No
+Map/Automap:	Yes / No
+New graphics:	Yes
+New sounds:	Yes
+New models:	Yes
+EAX Support:	Yes
+Multi language support:	English, German and Italian
+Briefing:	No
+
+*****************************************
+
+*  Construction *
+
+Base:	From scratch
+Map Size:	Medium/Large
+Build Time:	many suns and many moons
+
+*****************************************************************************************
+
+*  Additional Info *
+
+
+Attention: - You can turn off every light (except for windows) by interacting with them, finding the right switch or using water arrows.
+
+*  Changes in version 1.1 *
+•	New map in mission 1 
+•	Fixed problem with objectives failing to appear
+•	Butterflies can no longer be killed (Taffers…)
+•	Fixed one terrain issue in mission 2
+•	Fixed one room in mission 2 to prevent player from becoming stuck with no way out
+•	Added consumables list to the zip archive (Thank you so much Tannar!)
+
+
+*  Textures Credits *
+
+David Gurrea Hernandez
+CgTextures
+Christian
+DarkDragon
+TeamCalendra
+Thief_gotcha
+Alun Bestor (http://www.washboardabs.net/thief/)
+
+*  Additional Textures Credits *
+
+Undyng
+Rune
+Whell of Time
+Painkiller
+Unreal
+Unreal “Return to Napali”
+(C)1998-2001 Remedy Entertainment Ltd (Max Payne)
+
+*  Artists of the objects *
+
+Alun Bestor – Dark Arrow – Jason Otto – PinkDot – R soul – Sluggs – Team Calendra – Watcher
+ Team CoSaS – Eshaktaar – Nameless Voice - Reatsel  
+ Schwaa – Targa – Wille – Christine – Ewald – Nielsen74 – Redface – Sensut – TdBonko – Von Eins Yandros – Shadowspawn  Thief Object Enhancement Package – Greenhorn - LarryG
+
+
+*  Music *
+
+Half – Life 2
+Vampire the Masquerade – Redemption
+Vampire The Masquerade -  BloodLines
+J. S: Bach (concert for two harps)
+A. Vivaldi (concert for two violins)
+The fabulous world of Amélie
+Thief III (Thanks to Eric Brosius)
+
+* Sounds effects *
+
+Half-Life 2
+Ac-Dc (bells)
+
+*  Thanks To *
+
+Betatesters
+Hotlyx
+Jericho
+Lady Rowena
+Namdrol
+Nickie
+Peter Smith
+PotatoGuy
+Tannar
+
+
+Thanks to all the wonderful people at the TTLG Forums.  
+
+*  Special thanks *
+
+A big thanks to:
+
+•	Tannar for having had the patience with me, for having corrected the texts and the map, for the loot lists and the invaluable advice. Thank you so much!
+•	Lady Rowena, she really taught me everything. I owe a great debt of gratitude to her.
+•	Namdrol for having corrected the texts for me and the invaluable advice.
+•	Nickie for having corrected the texts for me and the invaluable advice.
+•	Peter Smith for helping make the campaign ghostable and the invaluable advice.
+•	Jericho for making the beautiful maps just for me. 
+•	darthsLair for coming to the rescue and fixing some bugs.
+•	kfort and intruder for help with the lanterns.
+•	zappen for the German translation.
+•	Dussander for having me at his testing site (shalebridgecradle.co.uk), a beautiful place to beta test missions.
+•	Valentina and Lara, they helped me with English and gave me invaluable advice.
+•	Paolo, he procured the H.L.2 soundtrack.
+•	Chiara, even if I betrayed her a lot of the time with Dromed, she's still with me.
+•	Finally, thanks to Looking Glass for the creation of such a magic world as Thief.
+
+
+
+*  Copyright Information *
+
+This level was made by Eternauta (E. R.)
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+* To Silvana and my grandfather Marcello *
+
+
+
+
+*****************************************************************************************
+
+
+ - German -
+
+
+Geschichte: Dunkle Zeitalter 
+
+Das Christentum hat sich etabliert und breitet sich aus. Es dringt in die Kloster der Hammeriten, die Heiligtümer der Heiden und viele Häuser. Es ist eine "Glaubensseuche", die Unruhe und Verwirrung allenortens auslöst. Zuerst traf es die Heiden, die wegen ihres Glaubens verfolgt wurden. Die zahlreicheren und besser gerüsteten Hammeriten konnten sich anfangs behaupten, wurden dann aber auch nach und nach in die Knie gezwungen. Nur wenige unbeugsame hielten durch, aber ihre Zahl nahm ab, da einer nach dem anderen spurlos verschwand.
+
+Viele Kloster wählten die Zusammenarbeit mit dem Vatikan, lieferten Heiden und Ketzer an die Schergen des Klerus aus und hofften sich durch die Zahlung einer “Unabhängigkeitssteuer” retten zu können. Das schaffte ihnen einige Freiräume, während damit aber das Christentum weiter an Stärke gewann.
+
+Derweil rückt ein bisher unbekannter, wohlhabender Edelmann namens Lord Robert Lelder ins Rampenlicht.
+
+Auf der Suche nach einflußreichen Verbündeten unter der begüterten und machthabenden Schicht sandte der Orden des Hammers auch Gesandte ins Lord Lelders Haus, um ihn für ihre Sache einzuspannen. Julius und Edward, jene zwei für das Vorhaben auserwählten Brüder, wurden angewiesen, in ständigem Kontakt zum Kloster zu bleiben und über ihre Aktivitäten zu informieren, doch bald riß die Verbindung ab. Zunächst wies Julius in einem Brief auf ein Tagebuch hin, das der Sache förderlich sein könnte, doch dann erwähnte er das nicht mehr.
+
+Die Hammeriten baten nun Dich, dieses Tagebuch aufzuspüren und das Verschwinden der Brüder aufzuklären.
+
+--- 
+
+Zwar bin ich nicht gerade als Wohltäter bekannt, doch ich schätze, die Hammeriten könnten meine Hilfe in diesen Zeiten mal wieder gut brauchen. Mit Recherchen in Lelders Herrenhaus wird die Sache wohl nicht getan sein. Ich kann mir nicht helfen, doch ich befürchte, das wird eine lange und schwierige Nacht werden ...
+
+
+
+*****************************************
+
+
+Achtung: - Jedes Licht (außer Fenster) kann gesteuert werden, wenn man den Schalter findet oder Wasserpfeile nutzt.
+
+*****************************************************************************************
+
+
+- Italian -
+
+
+Storia:
+
+I Secoli Oscuri.
+
+Il potere del Cristianesimo è oramai solido ed esteso, esso si stabilisce nelle abbazie Hammerite, nei santuari Pagani, in ogni casa, in ogni dove.
+I primi a risentirne sono i Pagani, considerati eretici e per questo torturati e uccisi. Gli Hammeriti, più forti in numero ed organizzazione, oppongono una più strenua resistenza, tuttavia la maggioranza di essi viene comunque convertita, gran parte degli altri scompare senza lasciare traccia.
+In alcuni casi molte abbazie scelgono di collaborare con il Vaticano, consegnando agli emissari del Clero, Pagani ed eretici, assicurandosi inoltre la sopravvivenza per mezzo del pagamento di “tasse di indipendenza”. Gli Hammeriti possono così continuare a esercitare il loro Credo alimentando, però, il potere del Cristianesimo.
+Nel frattempo, dalla sua magione nel fitto della foresta ad ovest di South Quarter,  un ricco nobile del quale non si conosce che il nome, inizia a far parlare di sé: questi è Lord Robert Lelder.
+Nel tentativo di trovare negli uomini ricchi e politicamente potenti dei valorosi alleati che proteggano gli Hammeriti dal potere dilagante della Chiesa, l'Ordine del Martello invia due messi alla dimora di Lord Lelder, al fine di ottenere la sua alleanza.
+Jiulius e  Edward, i due Hammeriti scelti per la missione, sono incaricati di comunicare periodicamente per via epistolare lo stato delle trattative ma, dopo le prime missive, da parte loro non giunge che silenzio. Nell’ultima lettera inviata da Jiulius viene menzionato un diario, ma non vengono fornite dall’Hammerita ulteriori informazioni al riguardo. 
+
+Gli Hammeriti chiedono il tuo aiuto per recuperare il diario e scoprire quale sia stato il destino dei due emissari…
+
+---
+
+Solitamente non faccio opere di beneficenza ma credo che questa volta gli Hammeriti abbiano davvero bisogno del mio aiuto.
+
+Credo che il mio compito non finirà con l'ispezione della magione di questo Lelder. Non so il perchè ma ho la spiacevole sensazione che questa sarà una notte lunga e difficile.
+
+
+*****************************************
+
+
+Attenzione: -  Potrete spegnere qualsiasi fonte di luce (tranne in quelle delle finestre), interagendo con essa, trovando l’interruttore giusto o con una freccia d’acqua.
+
+*****************************************************************************************

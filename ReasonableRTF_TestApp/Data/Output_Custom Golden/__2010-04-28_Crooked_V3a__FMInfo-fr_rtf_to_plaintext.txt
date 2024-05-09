@@ -1,0 +1,58 @@
+Crooked Town (V3)
+La Cité Crochue
+Une mission en deux parties par Ricebug
+________________________________________________________________________________
+
+Auteur           	: Terry DeLaney
+Contact   	: ricebug@cableone.net
+Date de sortie	: 23 Avril 2010
+________________________________________________________________________________
+
+Seigneur Chancey, riche parvenu de l’aristocratie, est convaincu que sa femme et sa fille ont été kidnappées.
+Il vous a demandé de les retrouver et de les ramener toutes deux saines et sauves. Ainsi commence votre périple vers un endroit judicieusement nommé La Cité Crochue. 
+________________________________________________________________________________
+
+Information de jeu
+
+Jeu                	   	: Dark Project 2 : L’Âge de Métal
+Nom de la mission      	: Crooked Town
+Nom de ficher            	: Crooked.zip
+Niveaux de difficulté     	: Oui (Normal, Difficile, Expert)
+Briefing               	: Oui (en Anglais)
+Construction		: Parti de zéro
+Base                 		: Non
+Temps de construction	: 8 mois
+________________________________________________________________________________
+
+Crédits
+
+Textures : Lemog, Hrothgar, CG Textures, Genetica
+Beta Test : bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy, 
+Contenu spécifique :
+
+Greenhorn : Plantes et arbres
+Jason Otto : Grues et marchepieds
+Nameless Voice : Flammes, lanterne
+Vigil : Toiles d’araignées 
+COSAS/Digital Nightfall : Meubles, portes, serre-livres 
+LarryG : Porte en arche du prêteur sur gages
+Rob Hicks : Gamesys DedX
+Ma femme, Sherry : Voix de la païenne
+
+Bugs/Notes
+
+À un endroit bien particulier, l’eau ne produit aucun son. Il faut blâmer les angles bizarres des modèles.
+Dans la première mission, la matraque n’est pas disponible en Difficile et Expert.
+
+Informations techniques
+
+Vidéos réalisées avec Adobe Premiere
+Traitement audio réalisé avec Sound Forge 
+ 
+Installation
+
+Placez ce fichier zip dans le répertoire où vous gardez les autres Fan Missions. Exécutez avec votre lanceur favori.
+
+Copyright
+
+Cette mission n’est pas faite ou supportée par Looking Glass Studios ou Eidos Interactive. Malheureusement.

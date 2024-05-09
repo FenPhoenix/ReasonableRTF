@@ -1,0 +1,60 @@
+================================================================================
+
+Title:		The Blue Star
+Author:		Andreas Lilja(MoonAchilles)
+Contact Info:	achilles878@hotmail.com
+Homepage: 		n/a
+Date Finished:	2010
+
+A few days ago I was approached by a hooded man. It turned out that he was one of those mages in town and he offered me a job. They want me to steal an artifact for them, "The Blue Star", that is currently shown at the Shalebridge Museum. It is said that this gemstone is cursed, but that it also has hidden magical powers. I suppose the mages needs it for their own dark rituals. Normally I wouldn´t want to get involved in their business, but this time I will make an exception. I´ve had my eye on this museum for quite some time now, but I´ve been too busy running nightly "errands" for shady collectors in town to plan something serious. This will be a good opportunity to get to know the insides of that place. Maybe I can get something for myself as well..
+
+I will find my way inside using the abandoned sewers that run beneath the museum. The entrance happens to be at the backyard of one of my favourite inns, The Golden Pig. 
+
+I guess it pays off being out drinking once in a while.. 
+
+================================================================================
+
+* Playing Information *
+
+Game:				Thief Gold
+Title: 			The Blue Star
+File Name:			miss20.mis
+Difficulty Settings: 	Normal, Hard, Expert
+Equipment Store: 		No
+Map: 				Yes(as readables; they got messed up in the map-screen
+Auto Map: 			No
+New Graphics: 		No
+New Sounds: 		No
+Multi-Language Support: No
+
+Briefing: 			No
+
+* Construction *
+
+Base: 			Dromed base
+Build Time:			Some of the rooms date back to 2003. I worked some months on it then, but I wasn´t satisfied with the gameplay and got some graphical errors as well. I started to work again on this mission in 2009, changing the room layout and adding new areas. The total build time would be about a year.  
+
+  
+
+================================================================================
+
+* Loading Information *
+
+DarkLoader ready. Runs from Darkloader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole thing into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+
+================================================================================
+
+* Copyright Information *
+
+This mission is (c) 2010 by Andreas Lilja(MoonAchilles).
+
+Distribution of this level is allowed in any way, shape or manner you wish. However, you must leave the mission intact and give me credit for it. Have fun! 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+(This text file was copied from another Fan Mission and modified).
+
+Thanks to: GloriaCreep(tester), bob_doe_nz(tester, spell check),
+theBlackman, for giving some tips on how to get Darkloader to run. 
+All the helpful people at TTLG - Editor´s Guild.

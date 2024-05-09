@@ -1,0 +1,176 @@
+-==ASCEND THE DIM VALLEY==-
+=============
+
+BRIEFING:
+“My fence claims that, after years of searching, some eccentric old coot struck upon a way into Craggenmense, that sunken gash in the mountains up north. The whispers of riches from this ancient crevasse have been around forever, but nobody’s had the faintest idea how to get in until now. This geriatric wants me to make use of his discovery by acquiring The Iron Façade for him.
+Following a long stretch of decay after they were abandoned by whatever precursor culture built them, the immense ruins of Craggenmense became home to a tribe of supposedly human squatters. Either they forget how they stumbled their way in, or they found the debris so alluring that they ditched their nomadic lifestyle in favour of propping up their own ramshackle housing in its midst. 
+Rumour has it that some parochial power struggle is raging between two clans in this overstuffed fissure, but sourcing reliable information has proven difficult. Craggenmense is legendary, but I’ve only ever seen mention of The Iron Façade in the Keepers’ most profane archives... heh, guess that settles who the old timer is.
+I always suspected there’d be some passage above ground. One look at the towering landscape should have put that suspicion to bed. Good news is the cave system dumps me out at the squalor infesting the base of the valley. I’m not likely to stand out amongst the filth.
+It’s a chore, but I wouldn’t miss it. Besides the trinket my client wants, there should be enough… material culture lying around to make the arduous trip worth my while.”
+=============
+* Play Information *
+Game: Thief Gold (NewDark 1.26)
+Level Name: Ascend The Dim Valley
+File names: miss20.mis; ascend.gam
+Difficulty Settings: Normal/Hard/Expert
+Equipment store: No
+Map/Automap: Yes/No
+New graphics: Yes (mostly modified stock)
+New sounds: Yes (all modified stock)
+New conversations: No 
+New models: Yes (all modified stock)
+EAX Support: No
+Multi language support: No
+Briefing: See text above; no video
+Subtitles: No
++===+
+*Construction*
+
+Base: Starting 16x16x16 Jorge airbrush.
+Map Size: Large, but not gigantic. Fits within 300x300x300 unit cube.
+Build Time: Started April 27th 2020
+=============
++===+
+ IMPORTANT:
+—I recommend you don’t use any graphics mods to play this mission. My choice of textures and objects wasn’t slapdash; many terrain brushes exist only to allow me more granular control over texture alignment and appearance.
+—As of V1.1, the ‘ambient_volume 800’ line in the fm.cfg file is commented out. If you find the ambient volume too loud or too quiet, try removing the (;) from this line.
++===+
+GAMEPLAY NOTES (MAY CONTAIN VERY LIGHT SPOILERS)
+
+   —Remember that the lightgem isn’t just dependent on the floor being lit up! If you’re standing on a dark spot, but the wall behind you is in light, Garrett will be lit up by that light source if he goes between the source and the wall!
+   —You are not missing any gameplay or content on lower difficulties. Expert has slightly less equipment and slightly fewer guards, but loot is identical for all.
+   —There are no invisible enemies.
+   —There are no ‘cryptic’ clues in readables. If you can’t pick up a readable, it isn’t required to complete objectives. Most readables are shorter than one page.
+   —No keys/loot are hidden under furniture or inside solid objects.
+   —There are no micro-switches. Any hidden switches that may or may not exist would be normal size.
+   —Some windows can be opened. If you have trouble getting through window frames, trying holding space and/or leaning though them.
+   —Try mantling on everything! Doors, signs, lights, trees, windows, walls, balconies, everything. Even torches, if you don’t mind getting hot feet.
+
++===+
+TECHNICAL NOTES
+ 
+   —This FM only supports FMSel, AngelLoader, or NewDarkLoader — these can load fm.cfg files.
+   —This FM was made using NewDark 1.26. It might be compatible with 1.25, but I would recommend upgrading if only to play the dozens of excellent FMs that actually require 1.26 and newer.
++===+
+KNOWN ISSUES
+   —the ambient propagation is screwy in a few isolated spots. For these places, none of the variants I tried that avoided gaps in the roombrushing and no sound bleed through walls produced perfect ambient propagation. No doubt a more talented mapper could have achieved it, but alas, you’re stuck with me.
+=============
++===+
+Thanks:
+
+   —The current members of Feuillade —skacky, Squadafroinx, FireMage, DrK, marbleman, and Schlock— for countless suggestions, assistance, and years of inspiration for this FM and otherwise.
+   —Vfig for providing the groundwork for ‘rename.nut’ script.
+   —Twenty years’ worth of posts and knowledge stored on TTLG.com, Southquarter.com/dromed, Dromesday Book etc., and particularly posts and replies by Unna Oertdottir*, LarryG, Yandros, and R Soul, whose innumerable technical solutions on posts spanning many years I have silently benefitted from.
+	TESTERS:
+—PRE-BETA:
+   -marbleman
+   -Schlock
+   -skacky
+   -Squadafroinx
+
+—BETA:
+   -Korthak
+   -marbleman
+   -Psych0sis
+   -Schlock
+   -skacky
+   -Squadafroinx
++===+
+Credits:
+
+*IF I HAVE MISUSED OR MISAPPROPRIATED YOUR ASSETS, PLEASE DON'T HESITATE TO INFORM ME. IT IS MY INTENTION TO CELEBRATE THIEF 1/2, WITHOUT LEECHING OFF THE COMMUNITY.
+—While efforts have been made to individually credit all custom assets, occasionally the provenance becomes tangled by the dead web addresses, inactive creators and unclear attributions that have accumulated over the past twenty years. Consequently, if you recognise any assets whose credits I have missed or mistaken, please let me know.—
+	Textures (Source and/or Creator Credit):
+
+   —‘COLUMN1ABLU.png’; ‘COLUMN3BLU.png’ (taken from Rose Garden by Melan)
+   —‘BAFARM.gif’; ‘BTHRONE.gif’ (Squadafroinx/FireMage, taken from Rose Garden by Melan)
+   —‘rufgryruin1.tga’ (luminance blended variant of DrK original, Lost Among The Forsaken ruined pack)
+   —‘cris05brruin1.tga’ (saturation increased variant of DrK original, Lost Among The Forsaken ruined pack)
+   —‘servantA.png’ (TDP20AC stock mod mesh texture by skacky)
+   —‘Dark Paper 2/2b/3/3b/4.png’ (Vigil map background pack, 2006)
+	Objects/Meshes (see .bin for attendant texture files):
+
+   —‘RSwallspot.bin/RSwallspotd11.bin’ (R Soul, taken from Dirty Money FM)
+   —‘bookpile.bin’ (R Soul, taken from http://spirited-tech.com/thief/2018/08/08/pile-of-books-by-r-soul/)
+   —‘txpillar1-6.bin’ (Hammerite Imperium, taken from http://spirited-tech.com/thief/2018/06/08/reskinnable-pillars-by-hammerite-imperium/)
+   —‘rescube.bin’ (Yandros, taken from url linked here: http://www.wearytaffer.com/storage/object/ReskinnableObjects.zip)
+   —‘vindec4;5.gif’ (OttoJ55, green variant by pukey brunster? Taken from Morbid Curiosity FM)
+   —‘opguardsw.bin; herm.bin; expramsg.bin; expramg2.bin; expramb2.bin; unthglm.bin; thiefsw.bin; opguabow.bin; merchant.bin; expgar.bin; expbafes.bin; bowman2.bin; constgu.bin; thiefarr.bin’; ‘assxbf1.bin’ (DEDX/Daemonite, files taken from DEDX01 and Disorientation FM)
+   —‘bookstk1/2/3.bin’ (Schwaa)
+   —‘lily.bin; plantwa.bin’ (System Shock 2 stock)
+   —‘rELECSPO2.BIN’ (Child of Endeavour Prototype-J, taken from Builder’s Paradise)
+   —‘ShelfRS.bin’ (R Soul, taken from http://spirited-tech.com/thief/2015/04/27/shelf-by-r-soul/)
+   —‘mop.bin’ (Deep Cover stock, taken from http://spirited-tech.com/thief/2016/06/06/broom-by-dc-project/)
+   —Shelved Books Pack (Nielsen74, taken from http://spirited-tech.com/thief/2018/08/12/shelved-books-pack-by-nielsen74/)
+   —‘DOORX.bin’ (stock mod by Feuillade)
+   —‘PaintX.bin’ (stock mod by Feuillade)
+   —‘Pail.bin’ (Tfix variant packaged for compatibility)
+
+=====
+'ORIGINAL'/MODIFIED ASSETS 
+(insofar as I have permission to give, 
+feel free to use these in your fan missions!)
++OBJECTS/OBJ TEXTURES 
+   —Footlocker 'Footlockx.bin' (stock footlocker, but with parallel top metal bracing.)
+   —DOOR15-48.bin (door15 textures using door13 model so the handles don’t float)
+   —waaw1-8.png/tga (mirrored from misc. self-portraits of Rembrandt)
+   —lc24-1.png; lc24-2.png (cropped lc24 texture for object scaling)
+   —res*.bin (misc. stock objects with replace0/1/2/3.gif textures)
+   —gamble.gif (Enhancement Pack)
+   —newtap1.png (derived from The Unicorn is Found tapestry)
+   —newtap2.png (derived from illustrated Froissart's Chronicles)
+   —waawcon1.png (mirrored from Judith Beheading Holofernes by Caravaggio)
+   —waaw-ehlena.png (mirrored/edited Young Parisian by Renoir)
+   —waawglaen.png (mirrored from Rembrandt’s Son Titus by unknown artist)
+   —d11*.bin (stock objects using maw/d11 texture)
+   —ironfacade.bin (weldmask.bin with stock mod texture)
+   —motskull.bin (skull.bin with stock mod texture)
++TEXTURES
+   —COLUMNBLU/COLUMN1BLU.png (dark blue colorized COLUMN1ABLU.png; COLUMN3BLU.png)
+   —wgraindesat.png; wgrainsat.png (Thief 1 wgrain02, without palette and with saturation)
+   —WIN32UL.png (colorized unlit city/Win32l)
+   —b22unlit; b24unlit (colorized unlit bafford/b22;b24)
+   —stnwal3gr.png; BSTNWAL1gr.tga (greyscale core/stnwal3; greyscale core/bstnwal1)
+   —wdplnk2parq.png (core/wdplnk2 with pieces cut and pasted)
+   —palbasic.tga; palslant.tga (Thief 2 stock w/ GIMP brightness-contrast +20)
+   —wdpanel.tga (Thief 2 core_2/wdpanel w/ GIMP contrast +10)
+   —wood.tga (core/wood.pcx with awful green artifacts removed)
+   —woodbeam.tga (core_2/woodbeam w/ GIMP contrast +30, brightness -10)
+   —RPLAN03A;B.tga (ruined/rplan03a-b edited to fix really obvious tiling seam)
+   —RUSTGI4Aruin1.tga (city/rustgi4a with ivy from rplan04 added)
+
++SFX
+   —voxloop3.ogg (voxloop2 pitch shifted 1 semitone down)
+   —airtone1-6slow100.ogg (airtone1-6 slowed down 100%, fade in/out and high pass filter)
+   —belles50/75/100.ogg (belles slowed down 50/75/100%)
+   —hornofqslow100.ogg (hornofq slowed down 100%, fade in/out and high pass filter)
+   —mg1a0hu1rev.ogg (mg1a0hu with reverb)
+   —ABYSS1stretch.ogg (abyss1 paulstretch)
+   —CROWDBA2lo30.ogg (crowdba2 dropped 30 percent?)
+   —vox1/2/3stretch.ogg (self-explanatory)
+   —rising1/2slow.ogg (rising half speed and paulstretch)
+
++SCHEMA
+   —Guard1/2/3 'Guard1x/2x/3x; SG1x/2x/3x'; (schema and .wav files have been renamed so as to not conflict/overwrite stock Thief 2 vguard1/2/3 voice. Removed ‘schema_voice guard1 1 atlevelthree’ from sg1/2/3a1tcx to avoid clicking and coughing at Alert 3. Originally from Thief Gold.)
+   —MG1/2 (Mage schema with elemental language removed)
+   —TH1/2 (Thief schema with references to Garrett removed)
+
++MESH/MESH TEXTURES
+   —mesh\res*.bin (stock Thief 1/2 meshes with replace0.gif in lieu of stock texture)
+   —noblew04.png (stock mod Thief 2)
+   —opguard*.tga (opguard/2 with different stock faces/decals)
+   —ramguar*.tga (ramguar* with different stock faces/decals)
+   —opguest1a.tga (opguest with T2 pagan01 face/colorized)
+   —opguaest2a.tga (opguestw with T2 FemSEV02 face/colorized)
+   —ramsarVIN*.tga (ramsar with different stock faces/decals from T1/SS2)
+   —vizier.tga (earth.gif with T2 MecPrs01 face)
+   —supraward.tga (water.gif with T2 DivSol01 face)
+   —armciv*.tga (pris*/merchan2 with helm/sword)
++===+
+(HYPERLINK https://www.ttlg.com/forums/showthread.php?t=149679&p=2418085&viewfull=1#post2418085)IN https://www.ttlg.com/forums/showthread.php?t=149679&p=2418085&viewfull=1#post2418085)
+IN LIGHT OF THIS POST, IN THE EVENT THAT FIXES BEYOND THE SCOPE OF A .DML ARE REQUIRED FOR THIS MISSION, I GIVE EXPRESS PERMISSION FOR ANYONE TO MAKE ANY MODIFICATIONS NECESSARY TO FIXING BUGS.
++===+
+*COPYRIGHT INFORMATION*
+This level is © 2020 by DirkBogan.
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

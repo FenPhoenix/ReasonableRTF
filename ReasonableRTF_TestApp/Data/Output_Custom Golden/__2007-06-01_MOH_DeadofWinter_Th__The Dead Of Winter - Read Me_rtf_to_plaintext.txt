@@ -1,0 +1,73 @@
+===============================================================
+The Dead Of Winter 1.0
+===============================================================
+Author			: Anonymous
+Contact Info		: 
+Homepage		: 
+Date of Release	: 31 May 2007
+
+Title			: The Dead Of Winter
+
+Description		: Thief 2 Fan Mission
+
+Story			: With all the chaos in The City after the death of our beloved Father Karras, Brothers Glatzel and Sacco have moved a small band of us to a castle in the mountains far to the north.  Here we intend to complete Father Karras’ greatest design, a dimensional portal.  With this device we shall bring The Builder’s Paradise to the world.  All thy gears shall be lubricated and in good repair when the portal allows The Builder to walk among us.  Join us tonight as we again attempt to operate this greatest design of the immortal Father Karras and bring peace to the world.
+
+Bugs & Tips		: This mission is very resource intensive due to complex and detail architecture.  There are a few instances where objects or AI will disappear on screen because the renderer is over loaded.  Please, if you have a slower rig be warned that this is a problem.  I pushed the engine a little too far in a few places.
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+STOP RIGHT HERE! Do you have the custom scripts?  This mission requires scripts by Nameless Voice.  They are included, but if you experience trouble they might be acting up, check this first before freaking out and giving up.  This concludes this message. /warning
+
+Game			: Thief 2 TMA
+Mission Title		: The Dead of Winter
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Reduced health and equipment on higher levels, added some extra enemies at higher difficulty.
+
+* Construction *
+
+Base			: From Scratch
+Build Time		: Four Months
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+* Special Thanks *
+
+Bikerdude for all the voice work, and Dafydd for being a great beta tester.
+
+* Testing Thanks *
+
+*Beta Testing*
+
+SirFreddieM, Brokenarts, Bikerdude, Lightningline, Hotlyx, Maloo, Brother Renault, Jmmisenka, Yandros and Dafydd
+
+*Custom Resources*
+
+Objects and/or Meshes (Far too many for individual credits right now): Schwaa2, Vigil, Sluggs, Watcher, Thief Enhancement Pack, Ottoj55, Pinkdot, G’len, Sliptip, Eshaktaar, Gort, Nameless Voice, Dhin, Dromed Deluxe (DedX), Althalus, Targa, Raetsel and Nielsen74
+
+Voice Acting:  General Mechanists by Bikerdude, Mechanist technician by Random Taffer, Mechanist Doctor by Bob_Doe_Nz.  Additional Mechanist voices and player voice by author.
+
+Pfire.tga set and the derived bfire and rfire bitmap set based upon original work by Eshaktaar.
+
+Adb_cld1.pcx (cloud deck) by Vigil, nmoon01.tga (the moon) by Nameless Voice.  Pipe organ textures by Eshaktaar.
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

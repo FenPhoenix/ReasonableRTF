@@ -1,0 +1,129 @@
+==================================================================================
+04.30..2013                          
+==================================================================================
+
+Title		 : Dead Night Sweet Delight
+Filename	 : Dead_Night_T2
+Author		 : Anonymous
+Contact info	 : Anonymous
+Date of release	 : April 30th, 2013   
+Version              : 64 Cubed Contest Entry
+
+==========================================================================================================================================
+
+              
+* Play Information *
+
+Game			 :Thief the Metal Age-New Dark Version 1.19
+Level Names		 :Dead Night Sweet Delight
+File names		 :miss20.mis
+Difficulty Settings	 :Yes.         Tasty,Scrumptious,Delicious   (Easy, Hard, Expert)        
+Map/Automap		 :Yes. 
+New graphics		 :Yes.
+New sounds		 :Yes.
+New conversations	 :No.
+New models		 :Yes.
+EAX Support		 :No.
+Multi language support	 :No.           
+Briefing	       		 :No
+Equipment store             :No.
+
+* Construction *
+Base: From scratch for 64x64x64 cube contest 2013 Hosted by Brethren. Presented in TTLG. 
+Technical Notes:This version has an optional objective that was not available in the original Thief Gold edition. 
+
+
+==========================================================================================================================================
+==========================================================================================================================================
+Story: My fence, Argus has offered me double the loot on a rare gem called:"The Gem of the Lost Souls".  It is one of the most valuable gems in history, but no one has seen it for a couple
+hundred years, so finding it won't be easy.  Argus, and a couple of other fence's have chewed on the vine for a long time telling stories of the old" Black Raven Cemetary" on the other side of SouthQuarter.  It used to be open to the public, but an earthquake blocked off the entrance which was set in a lowland area. The old Caretaker, probably dead now,since he would have had no way to feed himself, although no one knows for sure.  Mr.Malcom Rundy, an old hermit type, who didn't care to be around city folk much, and for that matter anyone.
+
+The Black Raven Cemetery, a decade ago was looted my a small time thief, but the city watch recovered most of it, and the Caretaker, Mr. Malcolm probably placed the memorials back in place. It was once said that if anyone ever wondered near the Cemetery after dark, that they would be caught, killed, and eaten by Zombies.  Probably just a rumor although you never know.
+There have been a lot of local thieves from my area who have vanished without a clue to their whereabouts, so just maybe the story is not too far fetched.  I am not worried, as I have dealt with spooks before, and it just takes the right tools, and some careful steps.  I won't let fear rob me of an opportunity to make some Loot, even though the story tells of the dead who won't give up their treasures. Not that I care.
+
+Well, it is time to get busy and try to find that lucrative mysterious lost gem.  For ease of mind I will show up at Black Raven before it gets too late in the night.  Argus is anxious to sell the gem in another country, and I need to pay my rent again, so there is no better time than now.  Argus said that Eathan, a local petty thief hasn't been in to fence anything for a couple weeks, and suspects that he may have attempted a job in the cemetery.  According to Kentworth, another one of Argus' regulars, and a friend to this Eathan,he just wants him found, so I will try to find him as a favor to Argus.  It is still early in the evening so it is time for the job to begin. Hopefully, a sweet night!
+
+
+
+ * Copyright Information *
+ * Anonymous* April 30th,2013
+ 
+ *Special Thanks To Beta testers: Tom Manning,Jimmy Brown, and George Mathison. Tested on 64 bit and 32 bit machines. Windows XP, Windows 7, and Windows Vista.
+ *Special Thanks to model makers: Nameless Voice,Targa,OttoJ55,Sluggs,Nielsen74,Purgator, Independent Thief,Cosas, and the Team,TDBonko,R Soul,Christine,Zontik,Necrobob,Eshaktaar
+  Yandros,Alun Bestor,Gort,Redface,Dark Arrow, Schwaa,Raetsel,Ar-Zimrathon, Greenhorn,Pdackel,Si,Vigil,Timon,Althalus,Omer,Alun Bestor,Christian Art Exhibit, David Gurrea,BerneyBoy.
+   LarryG. TDS Ambient mix, and Shadow Sneaker.
+ *Special Thanks to TTLG,Shalebridge Cradle beta testing forums. Thiefmissions,Dark Fate, SouthQuarter,and to FireMage's idea and Brethren for Hosting this contest.
+
+
+
+
+
+
+
+===========================================================================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent. Anonymous copyright April 30th, 2013
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

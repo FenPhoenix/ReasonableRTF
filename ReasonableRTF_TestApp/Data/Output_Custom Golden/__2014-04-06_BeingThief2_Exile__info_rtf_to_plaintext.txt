@@ -1,0 +1,77 @@
+Exile
+(Being Thief 2)
+
+
+
+Playing Information:
+
+Author: Szabo Csaba @ Sensut
+Game: Thief II - The Metal Age 1.21 (New Dark)
+Title: Exile (Being Thief 2)
+Language support: English
+Version: 1.2
+
+
+Contact: csabisensut@gmail.com
+Released: 06 April 2014.
+Updated: 11 April 2014.
+
+
+
+This mission requires New Dark v.1.21 with the "new mantle" feature enabled!
+It is recommended that you play with FM Selector as Darkloader may cause rendering problems!
+
+Known bugs:
+- The background environment sometimes has some deficiencies when viewed from rooftops. 
+- Using Darkloader may cause water rendering glitches. 
+- Distant patrols sometimes fall from the air.
+- If the objectives "Don't let civilians see your weapons and don't harm or alert them!" in part 1 and "Make sure no one notices you!" in part 2 show as inactive at the end instead of complete, you can consider them complete. 
+
+
+
+Custom scripts:
+
+Telliamed (tnhScript 2.1.0.0);
+VKGaylesaver (script 1.2.0);
+Nameless Voice (nvscript 1.2.3);
+LGS’ T2 Gen (version 27 March, 2000);
+LGS’ T2 Convict (version 27 March, 2000).
+
+
+Custom motions by Shadowspawn and Zontik.
+
+
+Custom objects, skins, textures:
+
+Shadowspawn, Cosas Team, Lord Alan, Christine, Purgator, Jason Otto, Eshaktaar, Pinkdot, Redleaf, Schwaa, Dark Arrow, Zontik, Syi, Sluggs, Dhin, R Soul, Zappen, Greenhorn, Nameless Voice, Saturnine, Targa, TDBonko, Nielsen74, Vurt, Yandros, LarryG, Daraan, G'len, The Watcher, Intruder, Elvis, C-Beam, Xorak, Necrobob, Wille and T2X.
+
+
+Additional ambients:
+
+Vozrozhdeniya, Dereleech, Ego Ex Nihil, Atrium Carceri, Franz Bak, Michael Ortega.
+
+
+Translations, text editions:
+
+Nightwalker
+Nickie
+Bernie.
+
+
+Beta testers:
+
+Nickie, Nightwalker, prjames, skacky, Kurhhan, ffox, Ravenhook, Zoro, sycamoyr, Zaya_Ayame, bikerdude.
+
+Special thanks to Nickie, Nightwalker and ffox for the included lootlist.
+
+
+
+
+This FM is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

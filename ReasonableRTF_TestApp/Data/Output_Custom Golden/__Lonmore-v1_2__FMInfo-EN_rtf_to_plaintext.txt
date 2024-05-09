@@ -1,0 +1,139 @@
+
+
+
+Title	:	Lonmore
+Author 	:	Beltzer
+Contact info	:	beltzer2@hotmail.com
+Date of release	:	12 November 2021
+Version	:	1.2
+Description	:	I left the City because the cops were getting too close to me.
+		I've been in this city, Lonmore, for a month now.
+	I have a nice apartment, rather expensive, so my savings are getting thin.
+	I love this city. Lots of rich people with fat purses.
+	But I need something bigger. Something that brings me a lot of loot.
+	I guess I could visit some other houses tonight, while I'm out. Time to begin.
+
+==============================================================================
+Play Information
+
+Game	:	Thief 2: The Metal Age ND v1.27
+File names	:	miss20.mis, miss21.mis, miss22
+Equipment store	:	No
+Difficulty Settings	:	Yes
+Map/Automap	:	Yes/No
+New graphics	:	Yes
+New sounds	:	Yes
+Language	:	English, German, Spanish
+Briefing	:	Yes
+
+==============================================================================
+Known Bugs:
+
+- Nothing crucial.
+
+==============================================================================
+
+My previous missions
+Reunification Campaign
+The Abandoned Castle
+The Favour
+Mortuos Liber Campaign
+The Sister
+
+Loading Information
+Tested with AngelLoader and FMSelector
+
+Thanks To:
+
+Voice Actors
+Cardia (Male behind window)
+McTaffer (Prison Guard)
+Redleaf (Mech Lady)
+Samantha1 (Woman behind window)
+SlyFoxx (Garrett)
+
+Beta testers
+Dardo
+Draconigen
+Fortuni
+Mat99
+Myles
+Pete
+
+All the texts  - proofreading.
+Dardo
+McTaffer
+
+German translation:
+Baeuchlein
+
+Spanish translation:
+Dardo
+
+Custom objects
+Blackthief
+Christine
+Dale
+Darkmax
+DarkShadow
+Elvis
+Eshakataar
+Firemage
+Gamophyte
+GORT
+Greenhorn
+LarryG
+Lord Alan
+Nameless Voice
+Nicked
+OttoJ55
+R Soul
+Sensut
+Sliptip
+Sluggs
+Soul Tear
+T2X
+Targa
+TDBonko
+Team Calendra
+Team Cosas
+Team Rose Cottage
+Vladimiroquai
+Von.Eins
+Yametha
+
+Meshes and skins 
+Corsair
+Darkmax
+Purgator
+TDBonko
+Team Calendra
+Team T2x
+
+Textures
+Enhancement pack
+NecroAge
+textures.com
+sketchuptextureclub.com
+Esse
+
+Custom Scripts
+KDScript
+Nameless Voice
+TnhScript
+
+Sounds
+Dario D
+Tabias “Spadey” Scot
+
+And, obviously, thanks to my fiancee Sandra for her moral support whilst putting up with me working on it 24/7.
+
+==============================================================================
+Copyright Information
+
+This level is © by Beltzer. Distribution of this level is allowed in any way, shape, or manner you wish. However, 
+you must leave the mission intact and give me credit for it :-)
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+==============================================================================

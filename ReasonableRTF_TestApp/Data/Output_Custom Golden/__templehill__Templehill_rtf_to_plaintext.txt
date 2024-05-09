@@ -1,0 +1,150 @@
+=============================================================
+Title		Under Templehill v1.1
+Author		The Pixie (Andy Joel)
+Contact info	the_pix@hotmail.com
+Date of release	10/Jan/06
+
+Please e-mail me if you have enjoyed this mission, and let me know what you liked (or disliked).
+
+=============================================================
+Pre-amble
+
+Under Templehill is set part way through The Metal Age, about the time of First City Bank and Trust (perhaps just after MechBank).
+
+If you want to get straight into the game, there is no need to read this note at all; just make sure you check your inventory for a copy of the letter below (not the tip you can buy at the start), map and objectives so you know what to do and where to begin. One warning, however; there are some things you have to do, and certain areas will only become accessible when you have done them.
+
+There are a number of hidden objectives. If you buy the tip from the store you will get clues to some of them, and they will become visible – but optional - objectives.
+
+=============================================================
+Background
+
+"Me and Hrolf, we go back a long way. We used to hang out together as kids, getting into scraps, the usual. We fell out over something right about the time the Keepers found me, and I kind of lost track of him. Seems he fell in with a better crowd than me, and kept himself on the right side of the law.
+
+"Somehow he's become quite the respected business man, selling carpets to the rich. Even disposes of the old carpets as well, all part of the service. Then he cleans them, and selling them to the not-quite-so-rich. Got a wife and daughter too; I guess that's one benefit of going legit.
+
+"We keep on nodding acquaintance for old time's sake, but I think Hrolf is a little embarrassed about being associated with a crook – not the sort of thing you want Lord High-and-mighty to see. Then, I received a letter from him..."
+
+Garrett
+
+A grave misfortune has befallen me and, although we have not spoken much in recent years, I hope you will find it in your heart to help me. I understand you would appreciate a more tangible reward, and though I am not a wealthy man, I can offer you 500 gold coins if you will find me darling daughter Jemola for me with all urgency.
+
+She disappeared from her apartment last night, and Otis, a metalwright who has taken her as an apprentice, is convinced of foul play. Otis is, I think, an honest man, but you must of course use your judgement as you see fit.
+
+Otis reported her disappearance to the watch, but I need not tell you how effective they are.
+
+His workshop is the last on the left as you walk down the Shamblings in the Templehill District. Jemola has a room on the ground floor; perhaps that would be a good place to start. I have drawn a rough map of the district, I hope it is useful - and accurate. I have enclosed a locket too, that you might recognise her - please return it.
+
+Templehill is one of the more secure districts, and I think it most likely she is still there - somewhere. But this makes getting into it difficult. It is bounded to the North by the estuary, to the East and South by the river and to the west by the Electro-Mule Railroute, beyond which is the naval dockyard, which I imagine would tax even your skills to pass through. The only bridge over the river is secured, the gate operated from the guard station inside the district. I am afraid you will have to swim to the quayside to get in, and hope you can get Jemola out through the Bridge Street gate.
+
+Please - find my daughter.
+
+Hrolf
+
+"I figure he can afford a little more than 500 gold if I can save his daughter, but he's an old friend right? And he must know the interior of more mansions in this city than anyone else. Except me, perhaps."
+
+
+=============================================================
+Play Notes
+
+When you are trying to find your way in the city, note that many streets have nameplates, just frob them to find the street name. Hopefully with the map and compass you work out where you are.
+
+There is only one thing you have to do, and that is rescue Jemola. You can frob Jemola to make her follow you, frob her again and she will stop. She might get confused if you go around more than one corner, and she cannot swim, climb, etc.
+
+There is an optional loot objective, and five hidden objectives. There are also nine secrets; you do not have to find any secrets to complete any of the objectives. To be honest, the secrets and hidden objectives are a cheap trick to get you to explore every part of the city.
+
+Besides the differences between the levels are those built into Thief, you get less spending money at the start at higher difficulty, and there are a number of other differences relating to AIs. The objectives and plot are identical at all difficult levels.
+
+=============================================================
+Play Information
+
+Game			 : Thief 2: The Metal Age
+Level Name 		 : Under Templehill
+File name 		 : miss20.mis, pixie.gam
+Difficulty Settings	 : Easy-peasy, So-so, No hope
+Equipment store	 : Yes
+Map/Automap		 : Yes/No
+New graphics		 : Yes
+New sounds		 : Yes
+New conversations	 : Yes (barely)
+New models		 : Yes
+EAX Support		 : No
+Multi language support	 : No, English only
+Briefing			 : No
+
+=============================================================
+Loading Information:
+
+Runs from Dark Loader and GarrettLoader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "templehill.zip" file into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader
+main screen.
+
+=============================================================
+Known Issues
+
+There are three accessible areas where I get some lag, but my machine is pretty old, and it is not too bad. If you get up high, you may get some poly counts. Let the crate stacker beware!
+
+I have reskinned several objects from DEDx. If you have DEDx installed, you might have some .GIF files get overwritten when you install this. I think DarkLoader should handle this safely, but...
+
+If you explore certain underground areas in DromEd editor mode, you might get a crash (never seems to happen in game mode though)
+
+=============================================================
+Credits – People who have helped specifically with this mission:
+
+Custom Objects:
+For numerous custom objects: Flecha das Sombras
+The Watcher
+
+Voices
+SlyFoxx
+dwl6
+
+Early Run-through Comments
+Ottoj55
+Flecha das Sombras
+
+Beta Testing and Associated Advice
+SlyFoxx
+Freddie Fox (a lot)
+Nightwalker
+Eshaktaar
+Ottoj55
+
+Final Run-through
+Maloo
+Marycwmbach
+
+As a general comment I think it is great how people in the DromEd community will help each other, given that none of the above had any idea how serious I was and what state the mission might be in or even whether it would ever see the light of day.
+
+=============================================================
+Other Credits
+
+General Advice
+Komag for the tutorial that got me started
+spike14 for the tutorial that was my first point of reference once I was going
+The TTLG TEG forum for when that failed
+
+Custom objects from DEDx, etc.
+The "blade", pews - Targa 
+Staff - jonqilis
+Crane - ottoj55
+Bone demon, fire skeleton – Schwaa and Rob Hicks
+Skeletons – Schwaa
+More skeletons - Nameless_voice
+Necrotic eye – based on model by YcatX
+Rock beast, student, female water mage, mummy – Rob Hicks
+Merchant, servant, thief, water mage, keeper - Daemonite
+Others? My apologies if I have missed anyone out.
+... And putting together DEDX - Rob Hicks
+
+Custom textures
+Vigil (I only found these recently, and have not really done them justice)
+
+=============================================================
+Copyright Information
+
+This level is ©2005 by Andy Joel
+
+This level was not made by and is not supported by Looking Glass
+Studios or Eidos Interactive.
+
+
+=============================================================

@@ -1,0 +1,135 @@
+
+M y s t i c   G e m s   I   -   U n l u c k y   S o u l
+
+By Wille taffermail@hotmail.com
+
+-----------------------------------------------------------------------------------------------------------------
+
+Story
+
+I got a very intriguing offer last night. I need to aquire two gemstones I’m very familiar with: 
+
+Mystic Soul and Mystic Heart
+
+It’s been a while since I plundered them out of Bonehoard and since then they have been
+changing owners over and over again. My client informed me that Mystic Soul is currently in
+Lord Gillian’s possession who has an old mansion in Eastport. Getting the Mystic Soul should
+be routine but as for the Heart - well that is on display at The Bohn Baronial Museum.
+
+I was told that the inner city of Bohn is closed from general public, guess the nobility there 
+wants to keep streets clear from us disreputable people. Luckily my client has thought of this 
+too. There’s a big shipment of high class food suplies leaving to an inn in Bohn. This 
+shipment should provide an easy way into Bohn’s inner city. Once I’m done with the 
+mansion, I should find my way into Gilbert & Son Shipping Company warehouse and board 
+the right shipment there. I must be carefull not to alert or harm any of the warehouse guards or
+the plan will surely fail.
+
+Getting both stones will be tricky but for the amount I’m getting paid, I’m willing to take 
+some serious risks.
+
+-----------------------------------------------------------------------------------------------------------------
+
+FM Credits
+
+-Dark Arrow (wooden chandelier)
+  http://koti.mbnet.fi/~darkar/
+
+-Eshaktaar (levers)
+
+-Nameless Voice (wall lantern, food objects, red barrels, cubic stove, crates, doors, jars,  
+  candles, card deck, purse)
+  http://www.geocities.com/nameless_voice/index.html
+
+-Nielsen74 (Victorian chest)
+
+-Ottoj55 (table, iron fence, water tower)
+  http://www.jasonotto.net
+
+-R Soul (paintings, chandelier)
+  http://mysite.wanadoo-members.co.uk/another_website/index.html
+
+-Schwaa (book stacks, feather & ink bottle, oil lamp, double wall candle, sewer light)
+  http://thiefmissions.com/lpg/
+
+-Sluggs (water troughs, stool, park bench)
+
+-Targa	(wine barrels, rope crate, floor lever, office chair & desk, shield, safe door, fat guard)
+  http://www.grax.org/targa/
+
+-Team Calendra (cellar floor texture)
+
+-Telliamed (custom scripts)
+
+-Vigil (textures, pipes, foot locker, sea chest, barrels, books, lantern textures, sky, clouds,
+  rope, blank map backrounds)
+  http://www.washboardabs.net/thief/
+
+-von.Eins (basket, wooden railings)
+
+-Big dining room painting by Hans Gude (1847)
+
+-Victrola music by Gao Hong Music
+  http://www.chinesepipa.com/music.html
+
+-----------------------------------------------------------------------------------------------------------------
+
+Play testing
+
+-Spitter
+-Mousse420
+-NamelessVoice
+-Lightningline
+-Vigil
+
+-----------------------------------------------------------------------------------------------------------------
+
+Techical information
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			Mystic Gems I – Unlucky Soul
+File name: 			miss20.mis
+Custom Gamesys:		Yes (sumu.gam)
+Difficulty Settings: 		Yes (Easy, Normal, Hard)
+Equipment store: 		Yes
+Map / Automap: 		Yes / No
+New graphics:			Yes
+New sounds: 			Yes (ambients from Thief Gold)
+New motions:			No
+Multiple languages:		No
+Briefing: 			No
+Debriefing: 			No
+
+-----------------------------------------------------------------------------------------------------------------
+
+Construction
+
+Base:				Scratch
+Ideas:				Made during boring school classes
+Build Time:			four months and six days
+
+Mission is pretty detailed and some areas have high poly counts. Outdoor areas are heaviest 
+and old computers will start slugging. Indoors should run well enough for good Thief 
+experience. The whole mission can be played with at least 350Mhz Pentium II with 128Mb
+RAM and Nvidia TNT2 Pro 32Mb.
+
+Mission was made with following system:
+
+AMD A64 3700+ @2650Mhz
+Geforce 6800GS 256Mb
+1Gb 333Mhz DDR RAM
+
+-----------------------------------------------------------------------------------------------------------------
+
+Loading information
+
+Use DarkLoader to run the mission, unzip manually only if you know what you are doing.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Legal information
+
+Copyright (c) 2006, Wille
+
+Distribution of this fan mission is allowed freely as long as the the package remains in its 
+original form. This level was not made and is not supported by Looking Glass Studios (R.I.P.) or Eidos Interactive.
+

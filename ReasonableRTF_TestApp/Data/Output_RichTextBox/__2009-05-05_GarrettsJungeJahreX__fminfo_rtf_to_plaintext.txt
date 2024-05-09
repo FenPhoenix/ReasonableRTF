@@ -1,0 +1,364 @@
+deutsch	français	english		italiano
+========================================================================================
+Garretts junge Jahre XTra
+----------------------------------------------------------------------------------------
+Titel:			Garretts junge Jahre
+Spiel:			Thief 2 - Das Metallzeitalter
+Dateien:			miss20.mis miss21.mis miss22.mis miss23.mis
+Autor:			Zappenduster
+Kontakt			PM an Zappenduster bei http://board.ttlg.de
+Erschienen:		Februar 2010
+Version:			3.0
+Sprachen:		de/fr/uk/it
+Schwierigkeitsgrade:	Ja
+Neue Grafiken:		Ja
+Neue Geräusche:		Ja
+Karte/Kompaß/Schwert:	Teils/Teils/Nein
+Größe:			9,7/4,3/5,3/4,9 MB
+Bauzeit:			Glaubt mir eh kein Mensch.  ;o)
+
+----------------------------------------------------------------------------------------
+Beschreibung Miss20: Garretts junge Jahre
+	In einer hellen Mondnacht bist Du, ein junger Waise namens Garrett, auf dem Weg
+	zu Deiner Tante Beatrice. Lies zuerst ihren Brief, damit Du erfährst, wie Du sie
+	findest ...
+Beschreibung Miss21: Auf Durchreise in Burg Nasenstein
+	Der Talisman Deiner Tante ist von den Hammeriten konfisziert und in einer
+	einschlägigen Sammlung im Hammertempel der Stadt Hammerfels eingelagert
+	worden. Der Weg dahin führt eigentlich direkt durch die Burgfeste Nasenstein,
+	doch die ist verrammelt!
+Beschreibung Miss22: Immer dieser Talisman!
+	Endlich in Hammerfels! Zum Glück lebt hier Deine pfiffige Cousine Alwine, sie
+	hilft Dir weiter, damit Du den Talisman finden kannst.
+Beschreibung Miss23: Feuerprobe
+	Schon wieder in Hammerfels - irgendetwas ist wohl schiefgelaufen! Da ist
+	ausnahmsweise mal Zurückgeben statt Klauen angesagt ...
+----------------------------------------------------------------------------------------
+Lade-Information:
+Nicht händisch entpacken, sondern per Darkloader installieren.
+
+Bekannte Macken:
+Miss21.mis ... Manchmal löst das Missionsziel nicht aus, wenn Garrett den
+Kristall in die Nische legt. Einfach nochmal versuchen.
+Miss23.mis ... Manchmal löst das Missionsziel nicht aus, wenn Garrett den
+Bannstab aufs Podest legt. Einfach nochmal versuchen.
+
+----------------------------------------------------------------------------------------
+Mein Dank geht an Turcaill und andere Leute in board.ttlg.de, die mich tatkräftig berieten
+sowie an meine fleißigen Betatester:
+Blackmen, Darkman, DarkThief, dl94, Flying_Hope, Ionisator, Kaltric, 
+MrMunkeepants, Namdrol, Phil237, SinisterShadow, Snuggles, The_Cle@ner
+und VladMidnight.
+Merci an Gaëtane, Phil237 und LadyJo für die Korrektur der französischenen Version.
+Thanx an Tannar, MrMunkeepads und Namdrol für die Korrektur der englischen Version.
+Grazie an Krenim und Angelot für das Beisteuern der italienischen Version.
+
+Gewidmet meinen meisterdiebischen Töchtern Alwine und Annika  :O) :o)
+
+----------------------------------------------------------------------------------------
+Verwendet:
+Musik der Brobdingnagian-Barden (http://www.thebards.net)
+Engl. Stimme: AntiMatter_16
+Alun Bestor: Texturen und Spinnweben http://www.washboardabs.net/thief
+Cosa: Kneipenausstattung http://www.poienari.extra.hu/cosas/cosas_rp22_pubset.zip
+Dark Arrow: Barhocker http://koti.mbnet.fi/~darkar
+Eshaktaar: Bannstab, Öllanterne, Möbel, Mumie http://www.hulub.ch/customstuff.php
+Jason Otto: Lichter, er selbst ;o)  http://www.jasonotto.net/objects.html
+Master_Edd: Weinschild, Füller http://dark-zone.npage.de/index.html
+Melan: Texturen von http://www.cgtextures.com, aufgearbeitet für Dromed2
+Nameless Voice: NVLatern http://www.geocities.com/nameless_voice
+Nivellen: untote AIs http://rapidshare.com/files/232603243/Nivellen.zip.html
+Pdackel: Schreinerei- und Buchladen-Schild http://www.zinkchristine.de/pdackel.html
+R Soul: Tür- und Fenster-Texturen http://catmanofiowa.com/RSoul/textures.html
+Schwaa: Kreaturen, Fackel, Banner http://thiefmissions.com/lpg/Schwaa.html
+Syi: Wandkerze http://zinkchristine.de/syi.html
+Targa: Kompaß, div. AIs http://www.thiefmissions.com/targa
+TDBonko: Schild http://www.jasonotto.net/tbobjects.html
+The Watcher: Fackel http://t2.starforge.co.uk/index.cgi?op=objects
+Yandros: Hammerite Development Kit http://www.wearytaffer.com/tools/objects.html
+
+----------------------------------------------------------------------------------------
+Urheberrechtliche Anmerkungen:
+Diese FM wurde von Zappenduster erstellt, ihre kostenlose Weitergabe ist gestattet,
+sofern sie nicht verändert wird.
+Sie wurde weder durch Looking Glass Studios oder Eidos Interactive erstellt
+noch wird sie von dort unterstützt.
+
+========================================================================================
+
+
+========================================================================================
+Les jeunes années de Garrett XTra
+----------------------------------------------------------------------------------------
+Titre:			Les jeunes années de Garrett
+Jeu:			Thief 2 - L'Age de Métal
+Fichier:			miss20.mis miss21.mis miss22.mis miss23.mis
+Auteur:			Zappenduster
+Contact:			MP à Zappenduster dans http://ariane4ever.free.fr/ariane4ever
+Date de création:		Fevrier 2010
+Version:			3.0
+Langues:		de/fr/uk/it
+Niveaux de difficulté:	Oui
+Nouveaux graphismes:	Oui
+Nouveaux sons:		Oui
+Carte/boussole/epée:	(Oui)/(Oui)/Non
+Taille:			9,7/4,3/5,3/4,9 MB MB
+Temps de construction:	Vous ne me croirez jamais si je vous le dis.  ;o)
+
+----------------------------------------------------------------------------------------
+Description Miss20: Les jeunes années de Garrett
+	C'est par une de ces nuits où la lune semble si lumineuse qu'un jeune orphelin
+	du nom de Garrett se met en route pour retrouver sa tante Beatrice. Il devra
+	lire attentivement la lettre que lui a envoyée celle-ci, ainsi que prendre note 
+	du moindre indice qui pourrait le mettre sur la voie durant son périple ...
+Description Miss21: Dans la forteresse Nasenstein
+	Les Marteleurs ont confisqué le talisman et l'ont conservé dans une
+	collection qui se trouve dans un temple de Marteleurs dans la ville proche
+	d'Hammerfels. Dans la route il y a le château de Nasenstein, mais ses portes
+	sont fermées ...
+Description Miss22: Le talisman - encore une fois
+	Finallement à Hammerfels! Quelle chance que Alwine, la cousine de Garrett,
+	y vive, parce qu'elle est maligne et elle a une idée pour récupérer ce bijoux ...
+Description Miss23: Epreuve du feu
+	Une chose que Garrett a dérobé dans la collection magique des Marteleurs est
+	vraiment infernal. Garrett doit faire le contraire de ce qu'il fait
+	d'habitude - rendre quelque chose ...
+
+----------------------------------------------------------------------------------------
+Chargement:
+Ne pas dézipper manuellement. Utilisez Darkloader.
+
+----------------------------------------------------------------------------------------
+Bugs connus:
+Miss21.mis ... Quelquefois l'objectif ne se coche pas si on met le cristal
+dans la niche. Essayes encore une fois ...
+Miss23.mis ... Quelquefois l'objectif ne se coche pas si on met le sceptre
+magique dans le podium. Essayes encore une fois ...
+
+----------------------------------------------------------------------------------------
+Merci à Turcaill et les autres gents dans board.ttlg.de, qui m'ont conseillé souvent
+et aux betatesters:
+Blackmen, Darkman, DarkThief, dl94, Flying_Hope, Ionisator, Kaltric, 
+MrMunkeepants, Namdrol, Phil237, SinisterShadow, Snuggles, The_Cle@ner
+et VladMidnight.
+Merci à Gaëtane, Phil237 et LadyJo pour corriger la version française.
+Thanx à Tannar, MrMunkeepads et Namdrol pour corriger la version anglaise.
+Grazie à Krenim et Angelot pour faire une version italienne.
+
+Dédicacé à mes filles voleuses Alwine et Annika  :O) :o)
+
+----------------------------------------------------------------------------------------
+Utilisé:
+Musique des Brobdingnagian Bards (http://www.thebards.net)
+Voie anglaise: AntiMatter_16
+Alun Bestor: Textures et Spinnweben http://www.washboardabs.net/thief
+Cosa: meubles de bar http://www.poienari.extra.hu/cosas/cosas_rp22_pubset.zip
+Dark Arrow: tabouret de bar http://koti.mbnet.fi/~darkar
+Eshaktaar: sceptre magique, lampe à huile, meubles http://www.hulub.ch/customstuff.php
+Jason Otto: Torc, lui même ;o)  http://www.jasonotto.net/objects.html
+Master_Edd: Weinschild, stylo http://dark-zone.npage.de/index.html
+Melan: Textures de http://www.cgtextures.com, retravaillé pour Dromed2
+Nameless Voice: NVLatern http://www.geocities.com/nameless_voice
+Nivellen: AIs morts-vivants http://rapidshare.com/files/232603243/Nivellen.zip.html
+Pdackel: Schreinerei- et Buchladen-Schild http://www.zinkchristine.de/pdackel.html
+R Soul: Textures des portes et des fênetres http://catmanofiowa.com/RSoul/textures.html
+Schwaa: Torc, Banner http://thiefmissions.com/lpg/Schwaa.html
+Syi: Chandelles http://zinkchristine.de/syi.html
+Targa: boussole, div. AIs http://www.thiefmissions.com/targa
+TDBonko: Schild http://www.jasonotto.net/tbobjects.html
+The Watcher: Torc http://t2.starforge.co.uk/index.cgi?op=objects
+Yandros: Hammerite Development Kit http://www.wearytaffer.com/tools/objects.html
+
+----------------------------------------------------------------------------------------
+Information de Copyright:
+Cette FM a été réalisée par Zappenduster, pas par Looking Glass Studios ou Eidos
+Interactive.
+La distribution de cette FM est autorisée à condition qu'elle reste gratuite et que
+son contenu demeure inchangé.
+
+========================================================================================
+
+========================================================================================
+Garrett's  young  years XTra
+----------------------------------------------------------------------------------------
+Title:			Garrett's young years
+Game:			Thief 2 - The Metal Age
+Files:			miss20.mis miss21.mis miss22.mis miss23.mis
+Author:			Zappenduster
+Contact:			PM to Zappen on http://www.ttlg.com/forums
+Date of release:		February 2010
+Version:			3.0
+Languages:		de/uk/fr/it
+Difficulty Settings:	Yes
+New textures:		Yes
+New sounds:		Yes
+Map/compass/sword:	(Yes)/(Yes)/No
+Size:			9.7/4,3/5.3/4.9 MB
+Construction time:	You won't believe it.  ;o)
+
+----------------------------------------------------------------------------------------
+Description Miss20: Garrett's Young Years
+	It's a bright moonlit night and you, a young orphan named Garrett are
+	on your way to visit your Aunt Beatrice. The first thing you should do
+	is read her letter to find out how to get to her house...
+Description Miss21: A Visit To Castle Nasenstein
+	The Hammers have confiscated your Auntie's talisman and put it into 
+	their collection located in a Hammer temple in the nearby town of 
+	Hammerfels. The way to Hammerfels leads through Castle Nasenstein
+	but the gates are barred ...
+Description Miss22: That Damned Talisman Again!
+	Finally in Hammerfels! Luckily your cousin Alwine lives here, she's a 
+	smart girl and has an idea how you can get back that piece of jewelry ...
+Description Miss23: Ordeal
+	One of the things Garrett robbed from the Hammer's collection of magic 
+	items is a real bombshell. Garrett has to do the very reverse of what he
+	usually	does - he has to give something back...
+
+----------------------------------------------------------------------------------------
+Loading Information:
+Do not unzip this mission manually, only use Darkloader.
+
+Known bugs:
+Miss21.mis ... Sometimes the mission goal doesn't get activated when Garrett
+drops the seal crystal into the wall niche. Try again ...
+Miss23.mis ... Sometimes the mission goal doesn't get activated when Garrett
+drops the magic staff onto the pedestal. Try again ...
+
+----------------------------------------------------------------------------------------
+Credits to Turcaill and other people at board.ttlg.de, who gave me many advices
+and to my busy beta testers:
+Blackmen, Darkman, DarkThief, dl94, Flying_Hope, Ionisator, Kaltric, 
+MrMunkeepants, Namdrol, Phil237, SinisterShadow, Snuggles, The_Cle@ner
+and VladMidnight.
+Thanx to Tannar, MrMunkeepads et Namdrol for correcting the english versions.
+Merci to Gaëtane, Phil237 et LadyJo for correcting the french versions.
+Grazie to Krenim and Angelot for making an italian version.
+
+Dedicated to my thiefy daughters Alwine and Annika  :O) :o)
+
+----------------------------------------------------------------------------------------
+Contains:
+Music of the Brobdingnagian Bards (http://www.thebards.net)
+Engl. Voice: AntiMatter_16
+Alun Bestor: Textues and webs http://www.washboardabs.net/thief
+Cosa: Pub set http://www.poienari.extra.hu/cosas/cosas_rp22_pubset.zip
+Dark Arrow: Bar chair http://koti.mbnet.fi/~darkar
+Eshaktaar: Ban staff, oil lantern, furniture http://www.hulub.ch/customstuff.php
+Jason Otto: Torch, himself ;o)  http://www.jasonotto.net/objects.html
+Master_Edd: Weinschild, Füller http://dark-zone.npage.de/index.html
+Melan: Textures of http://www.cgtextures.com, remade for Dromed2
+Nameless Voice: NVLatern http://www.geocities.com/nameless_voice
+Nivellen: undead AIs http://rapidshare.com/files/232603243/Nivellen.zip.html
+Pdackel: Schreinerei- und Buchladen-Schild http://www.zinkchristine.de/pdackel.html
+R Soul: door and window textures http://catmanofiowa.com/RSoul/textures.html
+Schwaa: Torch, Banner, AIs http://thiefmissions.com/lpg/Schwaa.html
+Syi: Wandkerze http://zinkchristine.de/syi.html
+Targa: compass, div. AIs http://www.thiefmissions.com/targa
+TDBonko: Schild http://www.jasonotto.net/tbobjects.html
+The Watcher: Torch http://t2.starforge.co.uk/index.cgi?op=objects
+Yandros: Hammerite Development Kit http://www.wearytaffer.com/tools/objects.html
+
+----------------------------------------------------------------------------------------
+Copyright Information:
+This FM was made by Zappenduster, not by Looking Glass Studios or Eidos Interactive.
+There is no support by Looking Glass Studios or Eidos Interactive.
+Permission is granted to freely play and distribute this level providing it remains
+whole and intact.
+
+========================================================================================
+
+========================================================================================
+Il giovane Garrett XTra
+----------------------------------------------------------------------------------------
+Titolo:			Il giovane Garrett
+Gioco:			Thief 2 - The Metal Age
+File:			miss20.mis miss21.mis miss22.mis miss23.mis
+Autore:			Zappenduster
+Contatto:		PM a Zappen su http://www.ttlg.com/forums
+Data di rilascio:		Febbraio 2010
+Versione:		3.0
+Lingue:			de/uk/fr/it
+Livelli di difficoltà:	Sì
+Nuove texture:		Sì
+Nuovo sonoro:		Sì
+Mappa/bussola/spada:	(Sì)/(Sì)/No
+Dimensione:		9,7/4,3/5,3/4,9 MB
+Tempo di costruzione:	Non ci credereste.  ;o)
+
+----------------------------------------------------------------------------------------
+Descrizione Miss20: Il giovane Garrett
+	In questa notte nel cielo splende una bella luna e tu, un giovane orfano di
+	nome Garrett, stai andando a trovare tua zia Beatrice. Per prima cosa farai
+	meglio a	leggere la lettera che ti ha mandato e che ti informerà su dove
+	trovare la sua casa ...
+Descrizione Miss21: Visita a Nasenstein
+	I Martelli hanno confiscato il talismano e l'hanno riposto nella loro collezione
+	di artefatti magici nella vicina città di Hammerfels. Ma ci è il castello
+	Nasenstein sul sensoi ... ed il è barricato.
+Descrizione Miss22: Ancora il talismano
+	Finallemente a Hammerfels! Una fortuna che la cugina di Garrett, Alwine
+	viva lì, perché la ragazzina è abbastanza intelligente e ha un'idea su come
+	il ladro possa rubare l'oggetto...
+Descrizione Miss23: Ordalia
+	Sembra che una delle cose rubate da Garrett dalla collezione Hammerita sia
+	veramente magica. Garrett ora deve fare l'opposto da quello che fa
+	solitamente: deve restituire qualcosa...
+
+----------------------------------------------------------------------------------------
+Informazioni di caricamento:
+Non scompattare l'archivio manualmente. Usare il loader.
+
+Per giocare la missione in italiano, installarla normalmente con il Darkloader dopo 
+aver selezionato la lingua desiderata nel menù a tendina a destra.
+
+Bug conosciuti:
+Miss21.mis ... A volte l'obiettivo di missione non si attiva quando Garrett ripone il 
+cristallo in la nicchia. Bisogna riprovare più volte...
+Miss23.mis ... A volte l'obiettivo di missione non si attiva quando Garrett ripone la 
+statua sul piedistallo. Bisogna riprovare più volte...
+
+----------------------------------------------------------------------------------------
+Crediti ...
+... Turcaill ed altre persone su board.ttlg.de, che mi hanno dato molti consigli
+...e i beta tester
+Blackmen, Darkman, DarkThief, dl94, Flying_Hope, Ionisator, Kaltric,
+MrMunkeepants, Namdrol, Phil237, SinisterShadow, Snuggles, The_Cle@ner
+e VladMidnight.
+... Traduzione a cura di Krenim (testi) e Angelot (mappe).
+... Gaëtane, Phil237 und LadyJo per aver corretto la versione francese
+... Tannar, MrMunkeepads und Namdrol per aver corretto la versione inglese
+
+----------------------------------------------------------------------------------------
+Note alla traduzione:
+Per giocare la missione in italiano, installarla normalmente con il Darkloader dopo 
+aver selezionato la lingua desiderata nel menù a tendina a destra.
+
+----------------------------------------------------------------------------------------
+Contiene:
+Musica dei Brobdingnagian Bards (http://www.thebards.net)
+Voce inglese: AntiMatter_16
+Alun Bestor: Texture e ragnatele http://www.washboardabs.net/thief
+Cosa: Oggetti da pub http://www.poienari.extra.hu/cosas/cosas_rp22_pubset.zip
+Dark Arrow: Sedie da bar http://koti.mbnet.fi/~darkar
+Eshaktaar: Barra per stendardo, lanterna ad olio, mobilio http://www.hulub.ch/customstuff.php
+Jason Otto: Torcia, egli stesso ;o)  http://www.jasonotto.net/objects.html
+Master_Edd: Segno del vino, Penna http://dark-zone.npage.de/index.html
+Melan: Texture di http://www.cgtextures.com, rifatte per Dromed2
+Nameless Voice: NVLatern http://www.geocities.com/nameless_voice
+Nivellen: IA non morti http://rapidshare.com/files/232603243/Nivellen.zip.html
+Pdackel: Schreinerei- und Buchladen-Schild http://www.zinkchristine.de/pdackel.html
+R Soul: Texture porte e finestre http://catmanofiowa.com/RSoul/textures.html
+Schwaa: Torcia, stendardo, creature http://thiefmissions.com/lpg/Schwaa.html
+Syi: candela http://zinkchristine.de/syi.html
+Targa: bussola, IA http://www.thiefmissions.com/targa
+TDBonko: Segno http://www.jasonotto.net/tbobjects.html
+The Watcher: Torcia http://t2.starforge.co.uk/index.cgi?op=objects
+Yandros: Hammerite Development Kit http://www.wearytaffer.com/tools/objects.html
+
+----------------------------------------------------------------------------------------
+Copyright:
+Questa FM è stata creata da Zappenduster, non dai Looking Glass Studios o dalla Eidos Interactive.
+Non c'è nemmeno alcun supporto da parte loro.
+Consento la distribuzione libera di questo livello fino a quando rimarrà gratuita.
+
+========================================================================================

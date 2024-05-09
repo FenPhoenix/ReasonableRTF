@@ -1,0 +1,164 @@
+================================================================================
+=========================     ENGLISH DESCRIPTION  =============================
+================================================================================
+
+July 18th 2006
+================================================================================
+
+Author			:	Schattengilde
+E-Mail			:	dark.project@t-online.de
+Version			:	V1.1
+Released on		      :	July 25th 2006
+================================================================================
+
+Description:
+The story takes place after Thief 2: THE METAL AGE.
+Many of the remaining Mechanists returned contritely to 
+the Hammerites after the fall of Karras. They repudiated the heresy of Karras and assisted in the hunt for Mechanists not willing to renounce their faith. Only a few managed to escape this purge.
+
+Strengthened with new acolytes, the Hammerites resumed power. The High Hammerite council formally decreed the dissolution of the Order of the Gear. Following this, the members of the City Watch returned to their former professions, resulting in a power vacuum that the Hammerites couldn't fill. Several other groups took advantage of this to try to gain power for themselves. The Keepers, once again anxious to keep balance in the city, were forced to act. Of late, they have concentrated on a single person, Bassilus, a priest and self-proclaimed messiah.
+
+His plans have been difficult to discover and it is nearly impossible to enter his sphere of control. Unwanted guests disappear without a trace. The Keepers sense that he could become a great threat to the entire town so it's not really a surprise that one night Garrett receives a well-known visitor as well as a new mission.
+
+================================================================================
+
+*Playing information*
+
+Game			      :	Thief 2: The Metal Age
+Title of the Mission	:	Dark Messiah
+Mission's file name(s)	:	miss20.mis
+Difficulty levels	      :     Normal, Hard, Expert
+Equipment store		:	No
+Map			      :	Yes
+Automap			:	No
+New textures		:	Yes
+New sounds		      :	Yes
+New objects		      :	Yes
+Multi language		:	Yes: English and German
+Briefing		      :	No
+================================================================================
+
+*Construction*
+
+Base			:	A side quest of Baldur´s Gate - Tales of the Sword Coast
+Build time		:	2 1/4 years
+================================================================================
+
+Important notes and hints: In comparison to V1.0 texture problems are remedied.
+Some ambient sounds and texts were changed.
+
+================================================================================
+
+Thanks to:
+
+- von.Eins - German translation of the Dromed-Turorial
+- Christine - assistance with Schemas
+- Dainem - betatesting and correction of texts (German only)
+- MH.TheFreak - betatesting
+- Anne - betatesting
+- Raven - betatesting
+- fibanocci - betatesting
+- meril - provided Betabase
+- Alun David Bestor - new textures and objects / www.washboardabs.net/thief
+- Thorin Oakenshield - new textures
+- SinisterShadow – English translation
+- Nightwalker and Bernie – correction of texts and editing (English only)
+
+...and to anyone, who assisted me with help and advice in the forum, as well to anyone I forgot.
+================================================================================
+
+* Loading Information *
+
+The mission is compatible with Darkloader.
+
+================================================================================
+
+* Copyright * 
+
+This Mission is © by Schattengilde July 2006
+
+Distribution is only allowed as long as it's free and the package is kept intact. Use at your own risk.
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+================================================================================
+=========================   DEUTSCHE BESCHREIBUNG   ============================
+================================================================================
+
+18 Juli 2006
+================================================================================
+
+Autor			      :	Schattengilde
+E-Mail			:	dark.project@t-online.de
+Version			:	V1.1
+Erschienen am		:	25.07.2006
+================================================================================
+
+Beschreibung:
+Die Geschichte spielt in der Zeit nach DARK PROJECT 2: THE METAL AGE
+Nach dem Untergang von Karras sind viele der verbliebenen Mechanisten reumütig zu den Hammeriten zurückgekehrt. Sie schworen der Irrlehre des Karras ab und halfen mit, die verbliebenen Mechanisten die nicht abschwören wollten, aufzustöbern und zu töten. Nur wenige entkamen dieser Hetzjagd.
+Verstärkt mit neuen Gefolgsleuten konnten die Hammeriten wieder die Macht
+übernehmen. Nach der nun folgenden formellen Auflösung des Ordens des Zahnrades
+durch den Obersten Rat der Hammeriten liefen die Mitglieder der Stadtwache in alle Richtungen davon. Viele von ihnen kehrten wieder in ihre alten "Berufe" zurück. Durch die Selbstauflösung der Stadtwache war jedoch ein Machtvakuum entstanden, das von den Hammeriten nicht beseitigt werden konnte. Dies nutzen verschiedene Gruppen um sich ihr Stück vom Kuchen zu sichern.
+Diese kräftemäßige Zersplitterung ruft wiederum die Hüter auf den Plan, die einmal mehr derum bemüht sind, das Gleichgewicht der Stadt zu bewahren. Doch in letzter Zeit haben sie ihr Augenmerk auf eine Person gerichtet und ein Name macht die Runde: Bassilus, ein Priester und selbternannter Messias. Seine Pläne sind schwer zu ergründen und es ist kaum möglich in seinen Machtbereich einzudringen. Unerwünschte Besucher verschwinden spurlos von der Bildfläche und nichts deutet auf ihren Verbleib hin. Die Hüter spüren, daß er zu einer großen Gefahr für die ganze Stadt werden kann. Und so kommt es nicht überraschend, daß Garrett eines Abends wohlbekannten Besuch, verbunden mit einem neuen Auftrag, erhält.
+
+================================================================================
+
+*Spielinformation*
+
+Spiel			      :	Dark Project 2 - The Metal Age
+Titel der Mission	      :	Dunkler Messias
+Mission File Name(s)	:	miss20.mis
+Schwierigkeitsgrade	:     Normal, Hart, Experte
+Ausrüstungsladen	      :	Nein
+Karte			      :	Ja
+Autokarte		      :	Nein
+Neue Texturen		:	Ja
+Neue Sounds		      :	Ja
+Neue Objekte		:	Ja
+Mehrsprachig		:	Deutsch und Englisch
+Briefing		      :	Nein
+================================================================================
+
+*Construction*
+
+Basis		      	:	Eine Nebenhandlung aus Baldur´s Gate - Legenden   
+                              der Schwertküste
+Bauzeit			:	2 1/4 Jahre (zweieinviertel Jahre)
+================================================================================
+
+Wichtige Bemerkungen und Hinweise : Im Vergleich zur V 1.0 sind Texturprobleme behoben und vereinzelte Ambient Sounds und Texte geändert.
+
+================================================================================
+
+Danke an :
+
+- von.Eins - Deutsche Übersetzung des Dromed-Turorials
+- Christine - Hilfe bei den Schemas
+- Dainem - Betatesten und Textkorrektur (deutsche Version)
+- MH.TheFreak - Betatesten
+- Anne - Betatesten
+- Raven - Betatesten
+- Fibanocci - Betatesten
+- meril - zur Verfügung stellen der Betabase
+- Alun David Bestor - Neue Texturen und Objekte / www.washboardabs.net/thief
+- Thorin Oakenshield - Neue Texturen
+- SinisterShadow – Übersetzung ins Englische
+- Nightwalker und Bernie – Textkorrektur und Editing (englische Version)
+
+...und all diejenigen, die mir im Forum mit Rat und Tat zur Seite standen, sowie 
+diejenigen, die ich vergaß hier aufzulisten.
+================================================================================
+
+*Installationshinweise*
+
+Die Mission ist Darkloaderkompatibel.
+================================================================================
+
+*Copyright Information*
+
+This Mission is © by Schattengilde July 2006
+
+Die Weitergabe darf nur kostenlos erfolgen und die Datei muß intakt bleiben. Die
+Benutzung erfolgt auf eigene Gefahr.
+Dieses Level ist nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt.

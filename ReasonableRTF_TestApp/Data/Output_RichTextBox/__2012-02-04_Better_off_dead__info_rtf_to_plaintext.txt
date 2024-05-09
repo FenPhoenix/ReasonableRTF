@@ -1,0 +1,129 @@
+Better Off Dead
+Part 1 - 2
+
+W   A   R   N   I   N   G  !
+VISUALLY-INDUCED SEIZURES ARE POSSIBLE!
+DO NOT PLAY THIS FAN MISSION IF FLASHING
+LIGHTS ARE A TRIGGER.
+
+Playing Information:
+
+Game: Thief II - The Metal Age 1.18
+Title: Better Off Dead
+Author: Csaba Szabo @ Sensut.
+Language Support : English.
+Version: 2
+
+
+Contact: csabisensut@gmail.com
+Webpage: www.sensut.atw.hu
+Released: 04 February, 2012.
+Updated: 11 February, 2012.
+
+
+Known bugs:
+It is possible to get stuck to cylindrical walls or trees.
+It’s a known DarkEngine bug which you can avoid if you keep your distance from these walls/trees.
+
+Requirements:
+
+- Thief II - The Metal Age 1.18;
+- DarkLoader 4.3, GarrettLoader 1.4 or above;
+
+This mission is compatible with all latest Thief II patches on February 2012.
+(NV’s EP1, COK’s Sound Pack and the latest DDFix and WideScreen patch).
+I highly recommend the use of these patches!
+
+
+Custom scripts by:
+
+Telliamed (tnhScript 2.1.0.0);
+VKGaylesaver (script 1.2.0);
+LGS’ T2 Gen (version 27 March, 2000.).
+LGS’ miss10.osm
+
+*The renamed modules are included and are installed automatically.
+
+
+Construction:
+
+Base: from scratch.
+
+Editor: Dromed 1.18 updated with DromEdToolkit 1.0 by Nameless Voice.
+
+Programs used:
+Corel PaintShop Pro X2 (graphics);
+Sony SoundForge 7 (sounds);
+Sony Vegas Movie Studio 9 (video).
+
+Build Time: 1 year or so ...
+
+
+
+Translations, text editions:
+
+Nickie
+Nightwalker
+Bernie.
+
+
+Beta testers:
+
+Nickie
+Nightwalker
+Gloria Creep
+Dbrilliant
+jonescrusher
+ffox
+bob_doe_nz
+bikerdude (a.k.a. Edudrekib)
+undead gamer
+Maloo.
+
+
+Objects by:
+
+Saturnine
+Jason Otto
+Nameless Voice
+Pinkdot
+R Soul
+Schwaa
+Sluggs
+Targa
+Eshaktaar
+Gort
+Syi
+Greenhorn
+Christine
+Zontik
+Elvis
+G’len
+Wille
+Yandros’ HMDK
+COSAS
+DeDx
+and me.
+
+
+Additional textures by iD Software.
+
+Additional ambient musics:
+Pink Floyd
+Thorns
+Lustmord.
+
+Text quotes by Joseph Conrad and Thorns.
+
+Additional zombie sounds from Thief - Deadly Shadows, schemas by Yandros.
+__________________________________________
+
+
+This FM is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

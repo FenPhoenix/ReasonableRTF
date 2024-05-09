@@ -1,0 +1,69 @@
+ 
+ November 10, 2018
+********** W A R N I N G **********
+THIS FM REQUIRES THIEF 1 GOLD AND IS TO BE PATCHED TO AT LEAST V.1.26
+
+Author:
+GORT (Shaun M.D. Morin)
+Title:
+“An Enigmatic Treasure with a Recondite Discovery"
+Filename:
+TDP20AC_ An_Enigmatic_Treasure_With_A_Recondite_Discovery.zip
+Game:
+"Thief 1 The Dark Project GOLD"
+Contact info:
+	 HYPERLINK "http://www.oonaglah@gmail.com" www.oonaglah@gmail.com
+Current File Size:
+~80 MB
+Unpacked:
+~286 MB
+Mission:
+Miss21
+
+NOTICE:  This FM was constructed and tested on a PC with these specs:
+	Operating System:
+Windows 10 64-bit
+	GPU:
+1 Sapphire Dual-X R9 270X 2GB Radeon Graphic (PCIe)
+	CPU:
+AMD FX 8350 8-core Unlocked (Black Edition) 4.00Ghz
+	RAM:
+8GB of DDR3 RAM
+	Audio Devices:
+Realtek HD Sound [ALC892] (On-board)
+		SB X-Fi Extreme Music Sound Card (PCI)
+	Motherboard:
+ASUS M5A99FX Pro R2.0 Motherboard
+
+	Have at least above a 2.00 Ghz 2-core Processor in your PC.  Have at least of 8GB or higher in DDR RAM.  Also, a good PCIe video card (at least 1GB or more) with blooming enabled is recommended.
+	The programs Darkloader and Garrettloader are NOT supported by this FM.  Use FM Selector or NewDarkloader instead.
+
+Commentary Note:
+ 	This version is the final version (v.1.00).  This version should be ready for the general public.  This is an entry for the Thief: The Dark Project 20th Anniversary Contest. 
+
+WARNING: This mission was made for hard core players that know Thief Gold quite well.	This may not be easy to play, but it’s not impossible and can be completed.
+
+CREDITS
+
+Beta-testers
+
+marbleman
+FireMage
+skacky
+Squadafroinx
+Fortuni
+ffox
+
+
+Video Credits
+
+GORT (Shaun M. D. Morin):	for creating and editing
+Antimatter_16:			for the blank red flamewall
+FireMage:				for the text template
+Andrew Bartmess:			for being the voiceover for Garrett’s narrative
+
+
+
+ Copyright Information:
+The mission in this zip file is © by GORT (Shaun M.D. Morin)
+This level was not made and is not supported by Looking Glass Studios nor Eidos Interactive.  Although it may work fine for me, it may not be completely compatible for other PCs.  Make sure that your "X-vid MPEG-4" video codec is up-to-date.

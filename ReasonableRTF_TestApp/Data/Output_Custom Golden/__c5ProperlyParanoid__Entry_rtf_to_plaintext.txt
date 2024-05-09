@@ -1,0 +1,55 @@
+Title		Properly Paranoid
+Author		Jabberwocky (Kris)
+Contact info	DILLIGAFF@charter.net
+Date of release	Feb 29, 2004
+
+!!!!!GayleSaver’s Custom Scripts required to play!!!!!!
+http://www.thiefmissions.com/scripts/
+
+
+Briefing:
+
+All you really need to know:
+Klepto:
+	Garrett Vs. Loot; about half of the mission is locked out; minimal AI.
+
+Vengeance:
+	Garrett Vs. AI; Basement level 1 unlocked, no loot, AI
+
+Scuttle:
+	Full mission; All AI, All Loot, All Levels.
+The rest is in game
+
+
+A big old THANK YOU to those that suffered this mission in Beta form:
+Nightwalker
+Kfort
+Ottoj55
+Sluggs
+Moghedian
+Raetsel
+
+Non original DromEd tools and files used:
+
+Gaylesaver’s Custom scripts
+Thief Objective Wizard (TOW) by Avalon.
+DEDx Texture Index and health shields by Jabberwocky
+Re-skinned object graphics + DEDx Texture Menus by Yandros
+DromEd Deluxe (DEDx) assembled by Rob Hicks
+Several texture files from Calendra’s Legacy + light gem centers by Purah
+2 original sound loops and 5 single notes by Joshua Heinrich.  These loops and the permission to use them in Thief FMs can be found at http://www.cs.buffalo.edu/~jbh/thief_sounds.html 
+
+
+Copyright Information
+
+This level is ©2003 Jabberwocky (Kris)
+
+joshua_heinrich_beneath_the_flesh.MP3 is © 2003 Joshua Heinrich (Renamed m01drone.mp3)
+joshua_heinrich_remnants.MP3 is © 2003 Joshua Heinrich (Renamed m10boing.mp3)
+
+My version of Death.AVI is a combination of the original movie and laugh3.wav, both original Thief2 material.  If your mission is properly twisted enough to use it, feel free within the limits of the Thief Dromed EULAs.
+
+
+This level was not made by and is not supported by Looking Glass Studios or Eidos Interactive.
+
+=============================================================

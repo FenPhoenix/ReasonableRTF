@@ -1,0 +1,84 @@
+Parade
+Une FM de Grandmauden
+pour le Concours du 20ème Anniversaire de Thief 2
+
+NewDark 1.27 est requis
+
+Fichier		-   TMA20AC_ShowOff.zip
+Page TTLG	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Date Sortie	-   27 Mars 2020
+
+Introduction
+
+"Garde un secret avec quelqu’un de confiance,
+Et il ne verra jamais la lumière du jour.
+Garde un secret avec quelqu’un de peu fiable,
+Et il se propagera comme un feu de forêt.
+Les secrets permettent de facilement prouver sa loyauté,
+Ils vous exposeront aussi aisément à vos adversaires."
+- Livre des Méditations des Crypteurs
+
+      Les nobles de la Cité se comportent toujours comme s’ils partageaient collectivement le même esprit. Peu importe le quartier où ils vivent ou la hauteur des monticules d’or sur lesquelles ils dorment, ils semblent obsédés par les mêmes modes et tendances. Quelles robes porter, quels bals fréquenter, quels cigares fumer... c’est assez ennuyeux. Mais vous avez maintenant la possibilité d’utiliser leur dernière mode contre eux.
+
+       Il y a environ deux mois, des pierres précieuses inhabituelles ont été déterrées dans les montagnes de l’Ouest : des cristaux d’un rouge sombre qui semblent avoir un noyau lumineux. Leur couleur et leurs formes dentelées leur ont valu le nom « d’éclats pourpres » et les nobles n’en ont jamais assez. Tous les riches veulent des éclats pourpres sur leurs colliers, leurs bracelets, leurs diadèmes, et tout ce dont ils se parent. Les tailleurs de pierre de la Cité font fortune, et vous aussi, si tout se passe bien ce soir.
+
+       Sur le bord d’Hightowne se trouve une galerie d’art, le Musée Furlong, et on dit que les conservateurs ont acheté plusieurs bijoux parés d’éclats pourpres à exposer. Le musée est actuellement fermé pour rénovation, sans doute pour renforcer la sécurité de leur nouvelle exposition. Les gardes sont certainement en alerte pour les voleurs avides comme vous, vous avez donc du pain sur la planche. Mais si vous réussissez, c’est vous qui aurez la belle vie pour une fois...
+
+Cette mission a lieu plusieurs années après la trilogie Thief.
+
+Information sur le jeu
+Jeu						-   Thief II: L’âge de métal
+Nom de la mission			-   Parade (Show Off)
+Nom du fichier			-   miss20.mis
+Niveaux difficulté			-   Rouge / Ecarlate / Pourpre
+Magasin					-   Non
+Carte / Carte auto			-   Non
+Nouveaux Graphismes		-   Non
+Nouveaux Sons			-   Oui
+Nouvelles Conversations	-   Non
+Nouveaux Modèles		-   Non
+Support EAX				-   Oui
+Multi-Langues			-  Anglais, Allemand et Français
+Introduction				-   Ce fichier texte
+
+Construction
+Base					-   Aucune
+Durée de construction		-   5 mois
+
+Installation
+Placer le fichier zip dans le répertoire habituel contenant vos Fan Missions puis lancer la mission dans FMSel, NewDarkLoader, ou AngelLoader.
+
+Remarques de l’auteur
+-   Des réglages plus difficiles signifient moins de santé, moins d’équipement, plus d’exigences en matière de butin et plus d’IA.
+
+Remerciements
+Béta-testeurs :
+	Mat99
+	Tannar
+	pukey brunster
+	Acolyte6
+
+Voix :
+	AndrosTheOxen		- Garrett
+
+Traducteurs :
+	Apiai (French)
+	Zappenduster (German)
+
+Image du titre :
+	Mat99
+
+Merci à :
+Ma famille et mes amis pour m’avoir soutenu et encouragé tout au long de ce projet.
+Looking Glass Studios et Ion Storm pour avoir créé une telle trilogie de jeux.
+TTLG pour garder ces jeux en vie.
+skacky et Yandros pour avoir organisé le concours du 20ème Anniversaire de Thief 2.
+
+Droits d’auteur
+Cette mission est © 2020 par Grandmauden (Kevin Kolpack)
+
+Vous connaissez tous la rengaine. Vous pouvez distribuer librement cette mission tant qu’elle reste gratuite et que le fichier archivé reste intact. Si vous souhaitez changer quelque chose, demandez-le-moi d’abord.
+
+Cette mission n’a pas été faite et n’est pas supportée par Looking Glass Studios, Ion Storm, ou Eidos Interactive.

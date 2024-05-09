@@ -1,0 +1,58 @@
+===============================================================
+The Kill Factory		Dec 6, 2006
+===============================================================
+Author			:  Anon
+Contact Info		:  
+Date of Release	:  December 6, 2006
+
+Title			:  The Kill Factory
+
+Description		:  Thief 2 Fan Mission
+
+Story			:  You're in charge of the Kill Factory.  Productivity is low and the boss is watching!!!  Fire all the slackers, and call it a day.
+
+Known bugs 		:  . . .well there's definitely a bee.
+
+Briefing(s)	: No
+
+Cutscene	: No
+
+===============================================================
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: The Kill Factory
+File Name		: Miss 20
+Difficulty Settings	: No
+Equipment Store	: No
+Map			: No
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Languages		: English
+EAX Support		: No
+Briefing(s)		: 
+                                       
+* Construction *
+
+Base			: From Scratch
+Build Time		: 3 days
+
+===============================================================
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+===============================================================
+
+Special thanks to EVERYONE!  Thanks for playing!!!!
+
+===============================================================
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.     

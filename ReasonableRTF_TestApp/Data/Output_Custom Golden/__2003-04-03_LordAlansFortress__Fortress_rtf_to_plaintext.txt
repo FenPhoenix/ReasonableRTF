@@ -1,0 +1,122 @@
+
+    
+
+
+Author :  Andrea Aleotti – Milan,  Italy
+Contact Info :  lord.alan@tiscali.it
+Homepage :  http://devoted.to/Thief
+
+Date of Release : April 2003
+
+** *** **
+§ Description §
+
+My second mission.
+
+§ Story §
+
+This time Garrett has to steal a precious gadget from Lord Alan’s Fortress: The Cube.
+Nothing exciting. The usual break in and go out.
+
+** *** **
+§ Playing Information §
+
+Game :  Thief 2
+Mission Title :  Lord Alan's Fortress
+Version :  1a (KO limit fixed)
+File Name :  miss21.mis
+Difficulty Settings :  Yes
+Equipment Store :  Yes
+Map :  Yes
+Auto Map :  Yes
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support :  Yes
+(English, Italiano, Français, Deutch)
+Briefing : Yes
+Size : Very short
+
+Difficulty Level Info :
+Action – Thief – Sneak
+
+Action:
+You are a ruthless Taffer.
+You want speed and a quick getaway.
+Knock out as many people as you can - at least 22,
+and the more the merrier.
+Kill if you must.
+
+Thief:
+You are a practical Thief.
+You would prefer to remain undetected,
+but you will not hesitate to knock out people who get in your way.
+You do not want to face a murder charge.
+No killing.
+
+Sneak:
+You are a master Thief.
+Remaining undetected is a matter of honor.
+Knock out as few people as you can - no more than 7.
+You do not want to face a murder charge.
+No killing.
+
+** *** **
+§ Construction §
+
+Base :  My brain
+Build Time :  ~450 h / 14 months.
+
+** *** **
+§ Acknowledgements §
+I want to thank all my betatesters:
+Andrea Marchi (Nephentes)
+Barbara (Hawklette)
+Linda (Nightwalker)
+Peter Smith
+Scott Murchison (Slyfoxx)
+Sterlino
+And the friends who made translations and text reviews:
+ Hopper (German translation)
+Nightwalker and her husband, Bernie (final English edit) 
+Phylia and Stuart Carbery (first rough English translation)
+Ramirez's Old Fat Burrick (French translation)
+Thanks to Scott Murchison for his Garrett’s voice.
+Thanks to Andrea Marchi for some good paintings.
+A special thanks to Peter Smith who helped me to focus the story.
+He has written some good texts to improve it.
+He also provided me a lot of really constructive criticism.
+Thanks, in anticipation, to all the people who will host this mission on their site for
+download.
+I would like to take this opportunity to also thank all the people who sent me feedback and comments about my first mission:
+Lord Alan's Basement.
+Thanks again to Linda and Peter because their constant interest in this mission helped me to go on with my work.
+Just only one word again:
+THIEF IS ART
+IMPORTANT NOTE: I suggest you play this mission after a fresh boot. Both the complexity of the architecture and the high number of the objects require a lot of memory and powerful cpu (My pc is AMD 1500MHz, 512 RAM, ATI Radeon 8500 64MB).
+
+** *** **
+§ Loading Information §
+
+Use Darkloader version 4.1 or higher.
+A fresh boot is recommended before playing the mission.
+
+** *** **
+§ Copyright Information §
+
+Copyright (c) April 2003
+by Andrea Aleotti
+
+My musics are copyrighted.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios or
+Eidos Interactive.
+
+
+
+
+

@@ -1,0 +1,103 @@
+
+===================================================================
+20 August 2017
+===================================================================
+Title			: Chroniques des Caveaux: Terre Brûlée
+Filename	: miss20.mis
+Author		: Cavalorn (Csongor Hős)
+Contact info	: cavalorn88@gmail.com
+	Date of release	: 20 August, 2017
+Version		: 1.0
+
+Compte rendu de la Mission: 
+
+Dix ans passèrent depuis que Garrett activa le glyphe final et vainquit Gamall. Les Glyphes des Gardiens furent détruits et le monde paierait un prix terrible. Peu après ce tragique événement, un second Cataclysme, deux fois plus puissant que le précédent, s’abattit sur le pays. Personne ne sait ce qui est vraiment arrivé. Une seule chose est certaine: il n’y avait pas de Glyphes pour protéger l’humanité. Le Second Cataclysme terrassa le monde et détruit la plupart de ce qu’on connaissait de la Cité. Le désastre força le peuple à chercher le refuge et une nouvelle habitation dans les caveaux souterrains. Des centaines de caveaux furent construits à travers les années, et chaque faction avait le sien.
+
+L’Ordre des Gardiens fut dissoute et la plupart de ses anciens membres gardent des caveaux à présent. Ils font ce qu’ils peuvent pour protéger les caveaux et leurs habitants. 
+
+Les Mécanistes sont maintenant connus sous le nom de la Confrérie du Métal, sont revenus de leurs cendres et sont aussi puissants qu’auparavant. Personne ne sait ce qu’ils trament, mais sûrement rien de bon. On croit qu’ils complotent dans leurs caveaux, et un plan encore plus sinistre se prépare.
+
+L’Ordre du Marteau, encore dévouée au Maître Créateur, a une présence importante dans les caveaux et le pays. Ils ont juré de protéger la paix et s’assurent que la loi et l’ordre règnent partout. Heureusement, du mois pour eux, Cragscleft resta intacte après le Cataclysme, et ses corridors continuent de gronder avec les gémissements des prisonniers. 
+On sait peu sur les Païens, sauf qu’ils refusaient de vivre dans les caveaux. C’est dans les forêts qu’ils étaient chez eux, et cela n’a pas trop changé. Sauf que le nombre de forêts a changé un peu à cause de la catastrophe.
+
+Garrett le Maître voleur, continue à vivre comme un voleur. Il continue à adhérer au dicton: un voleur une fois, un voleur pour toujours. Son autre identité n’a pas non plus été oubliée, donc si le monde a besoin de lui, il pourrait ressortir des ombres. Mais jusqu’à ce que ceci arrive, il devrait vivre une vie simple et paisible dans les murs protecteurs du caveau 10. 
+=====================================================================================
+* Play Information *
+
+Game			Thief 2:The Metal Age
+Level Name		Vault Chronicles: Scorched Earth
+File name		miss20.mis
+Difficulty Settings	Normal, Hard, Expert 
+Equipment store		No
+Map			No
+Automap		No
+New graphics		Yes
+New sounds		Yes
+EAX Support		No
+Multi language support	Yes (French, German, Russian)
+	Briefing			No
+
+
+
+=====================================================================================
+
+*  Construction  *
+
+Base:			Fallout 3 and New Vegas
+Map Size:		medium
+Build Time:		3 weeks
+
+=======================================================================================
+
+						Beta Testers:
+
+・	Fortuni
+・	Nightwalker
+・	Tannar
+
+							Proofreading
+・	Nightwalker and Bernie
+							Translators
+
+・	Azaran
+・	MoroseTroll
+・	zappen
+							Textures Credits:
+
+・	Sliptip
+・	Vigil
+・	Wille
+
+							Music Credits:
+
+						Fallout 3 main theme – composed by Inon Zur
+
+							
+							Many thanks to:
+
+・	My betatesters for their competence, their help and their patience
+・	Members of TTLG The Editors' Guild who helped me with technical issues: Brethren, Daraan, GORT, john9818a, marbleman, nightshifter, LarryG, R Soul, Stringgod2, Unna Oertdottir, Yandros
+・	My translators
+・	Looking Glass Studios for making Thief
+・	TTLG
+・	Shalebridge Cradle
+・	Bethesda Softworks for making Fallout 3
+・	Obsidian Entertainment for making Fallout: New Vegas
+・	Inon Zur for composing the fantastic Fallout 3 main theme
+・	The whole Thief community
+・	You for playing my mission. :)
+
+						
+
+
+						Copyright Information *
+
+
+•	This level was made by Csongor Hős (Cavalorn) in 2017
+
+•	Distribution of this level is allowed as long as the archive and this file are kept intact.
+
+•	This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+

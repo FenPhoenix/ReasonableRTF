@@ -1,0 +1,167 @@
+* Ultima Ratio (Version 1.0)*
+
+
+
+Eine Fanmission von PsymH
+
+
+--- Wichtige Hinweise! ---
+
+Es wird der DarkLoader ab Version 4.2 vorausgesetzt. Andernfalls könnte dieser Text in der 
+falschen Sprache angezeigt und die meisten Musikdateien nicht abgespielt werden.
+
+Diese FM wurde nicht mit dem GarrettLoader getestet. Daher keine Gewähr!
+
+Diese Mission verwendet und enthält die Custom-Skripts von Telliamed.
+
+Diese FM knüpft direkt unmittelbar nach "Geheimnisvolle Einladung" an. 
+Deshalb empfehle ich dringend, vorher diese zu spielen. Ansonsten kann es schwer 
+fallen, die Zusammenhänge und Storyelemente zu verstehen.
+
+Viele Sachen, die man lesen kann, enthalten Hinweise zu Rätselelementen der FM. 
+Solltest du mal nicht weiterkommen, dann versuch dich an das bereits Gelesene zu
+erinnern.
+
+An manchen Stellen (wie z.b. Kamerawechsel) wird die Tastatur- und die Maus-
+steuerung vorübergehend deaktiviert. Das hat seine Gründe - also nicht in Panik
+geraten, weil der Rechner eingefroren sein könnte. ;)
+
+
+--- Beschreibung ---
+
+Nachdem ich Orin Cripplewoods Hilferuf gelesen hatte und beschloss, ihn zu Hilfe zu eilen, 
+entpuppte sich Lord Duncans Anwesen als eine Falle. Ich bin sicher, diese hinterhältige 
+Ratte macht mit Duncan gemeinsame Sache. Und wahrscheinlich sind sie alle nur zu gern an 
+meinen Ableben interessiert, nachdem sie ihre gewünschten Informationen 
+aus mir herausgequetscht haben. Ein seltsamer Hammerit, nicht minder an 
+dieser Sache beteiligt, forderte sogar lautstark meinen Kopf!
+Pech für die drei, denn ich konnte ihnen ein Schnippchen schlagen und aus Lord Duncans Kerker entkommen. 
+Während meiner Flucht aus dem Anwesen schnappte ich Informationen über ein seltsames 
+Artefakt namens "Element der drei Kräfte" auf. Das könnte sehr interessant und lukrativ werden, 
+zumal meine drei "Freunde" ebenfalls an diesem kleinen Spielzeug interessiert sind. 
+Grund genug, dieser Sache nachzugehen!
+Nach einer kleinen Rutschpartie auf einen Wasserfall bin in der Kanalisation angelangt. Hier, sicher vor meinen 
+Verfolgern, konnte ich ihn Ruhe nachdenken. Mir war klar, dass sie mich um jeden Preis in die 
+Finger bekommen möchten. Sich vor ihnen zu verstecken wird mir nichts bringen, denn 
+Orin kennt alle meine Schlupfwinkel, also muss ich zu drastischeren Maßnahmen greifen und den 
+Spieß umdrehen. Orin möchte sich heute Abend mit Duncan im "Tanzenden Burrick" treffen, diese Gelegenheit 
+sollte ich mir auf keinen entgehen lassen. Sobald ich alles Wichtige von den beiden weiß, muss ich sehen, 
+dass ich sie loswerde. Und ich bin sicher, dass Nestor ebenfalls ein dankbares Ziel abgibt, nicht nur für Informationen...
+
+
+-- Informationen --
+
+Spiel: 	Dark Project 2 - The Metal Age
+Titel: 	Ultima Ratio
+Dateiname: miss21.mis
+Schwierigkeitsgrade: Anzahl der Ziele, Gegner und Schwierigkeitsgrade 
+der Rätsel variieren von Stufe zu Stufe
+Ausrüstungsshop: Nein
+Karte: Ja
+Autokarte: Nein
+Neue Texturen: Ja
+Neue Sounds: Ja
+Neue Objekte/AIs: Ja (die AIs stammen aus DromEd Deluxe)
+Mehrsprachig: Noch nicht
+Vorspann: Nein
+
+
+--- Bekannte Bugs und Probleme ---
+
+Da während des Betatestes vermehrt Probleme mit dem Koch
+im "Luna Azure" auftraten, habe ich den Koch unempfindlich
+gegen den Knüppel gemacht. Also, lasst ihn einfach in Ruhe - er
+tut euch ohnehin nichts. ;)
+
+Wenn man einen Gast im Luna Azure blackjackt, dann "versinkt" er
+etwas im Tisch. Generell haben die AIs in Thief Probleme, richtig
+auf einen Stuhl zu sitzen. Ich bitte dies zu entschuldigen, falls jemand
+mal wieder zu tief im Stuhl versunken ist. 
+
+Die AIs haben manchmal die dumme Angewohnheit, gegen Laternen
+zu rennen. ;)
+
+Wenn man in den Höhlen an einem Seil hochgeklettert ist,
+sollte man etwas seitlich entlang gehen, weil Garrett event.
+stecken bleiben könnte und plötzlich stirbt.
+
+Desweiteren kann es passieren, sobald man Nestor ausgeschaltet hat,
+dass er über den Stuhl schweben könnte und man seine Leiche auch
+nicht aufheben kann. Ich habe ebenfalls keine Ahnung woran
+es liegt und bitte auch das zu verzeihen.
+
+
+--- Konstruktion ---
+
+Basis: Bei der Fabrik habe ich ein bisschen aus 
+"Verladen und Kassieren" abgeguckt
+Bauzeit: lange genug
+
+
+--- Credits ---
+
+- Betatest -
+blackmen
+Darklady
+Anne
+Theker
+PommesDieFritte
+
+Besonderen Dank an blackmen, Anne und
+Darklady!
+
+- Neue Objekte - 
+von.Eins
+Vigil <www.washboardabs.net/thief/>
+R. Soul
+Sluggs
+Targa
+Jason Otto
+Schwaa
+Nameless Voice
+The Watcher
+Hrothgar
+Nielsen74
+GORT
+Ar-Zimrathon
+Naks (aus Snobs2)
+
+- Neue Texturen -
+Balatro
+Vigil <www.washboardabs.net/thief/>
+David Gurrea <http://www.davegh.com/blade/davegh.htm>
+Thorin Oakenshield
+R. Soul
+Laurence Whitaker - The one true thief
+Yandros
+Lemog3D <http://lemog.free.fr/lemog_v5/index.php?cat=4&lang=german>
+
+Mayang's Free Textures <www.mayang.com>
+Animax <www.animax.it>
+Diese wurden von Sliptip für Thief 2 optimiert. 
+
+- Besonderen Dank an -
+Thomas Sehnert für neue Musikstücke
+Meril für das Startlogo und das Luna-Azure-Banner
+Rob Hicks für DromEd Deluxe
+Anne für Speisekarte Luna-Azure
+
+Besonderen Dank an Dainem, der nicht nur viele Text zu dieser FM beisteuerte, 
+sondern mir auch half, die Mission zu etwas besseren, als ich anfangs beabsichtigte, zu machen. ;)
+Die Videos gehen ebenfalls auf sein Konto. :D
+
+Besonderen Dank an Nameless Voice sowie an Vigil, Eshaktaar, R Soul und DarkDragon für 
+das Thief 2 Enhancement Pack!
+
+Danke auch an Sliptip, der mir gestattet hat, die Texturen aus „Ashen Age“ zu benutzen.
+
+...und all diejenigen, die mir in den Foren mit Rat und Tat zur Seite standen, 
+sowie diejenigen, die ich vergaß hier aufzulisten.
+
+
+--- Copyright ---
+
+@ 2007 PsymH
+Die Weitergabe dieser Mission ist gestattet, solange dies kostenlos geschieht und die Datei 
+intakt bleibt. Die Benutzung erfolgt auf eigene Gefahr. Dieses Level ist nicht von Looking Glass 
+Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 

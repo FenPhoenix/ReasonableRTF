@@ -1,0 +1,423 @@
+                                      
+
+                                           THE SEVEN SISTERS
+
+                                   A THREE MISSION SERIES FOR THIEF 2 BY LADY ROWENA
+ 
+                                                Contact info	        xladyrowena@yahoo.it
+                                                Date of release	        11/1/2008
+                                                Version	                     2.0
+
+         
+                      WARNING! - PLEASE READ BEFORE PLAYING!
+        
+            If you have the Thief  Enhancement Pack installed a crash may occur, due to the massive use of custom
+            resources, when loading Night Three.
+            The crash can be avoided by saving in the debrief screen of the previous mission, quitting the game, then 
+            restarting it and loading the save.
+            
+
+                                ADULT WARNING 
+
+            Some of the content is of an adult nature so these missions may not be suitable for children.
+
+            Changes in version 2:
+
+           I hope to have fixed Basso’s freezing bug when he is released. If the bug still shows up remember to not 
+            leave corpses in his sight and to save in another slot BEFORE releasing him.
+
+            Added some objects from Nameless Voice’s  Thief Enhancement Pack recently released. 
+
+            Corrected a pair of errors in the readables and made some minor adjusting
+.
+              
+                              INFORMATION - HINTS
+
+             This mini campaign, which is composed of a short prologue and three missions, was initially meant to be
+             only one FM. Since it got a bit out of hand, I had to divide it into three parts: Night One, Night Two and
+             Night Three.
+
+             You should, however, still think of it as if it were one. The first two levels take place in the same little town
+             that you will have to visit on two consecutive nights. Most of the significant places that you will visit on
+             Night One are closed to you on Night Two and you will have access to different buildings.
+ 
+             Lockpicks
+             On Night One you will have only one lockpick, so don't go crazy searching for the other one. Some of the
+             locks can only be picked half-way open on Night One. You will be able to finish opening them on Night 
+             Two.
+
+             Doors
+             If a door doesn't highlight and doesn't make any sound when hit, it means that it will never open, at least
+             during the current level.
+
+             AI's
+             There are a few interactive AI's, which means that they highlight and that you have to click (or use the "use"
+              key) on them. You can do this whether they are alerted or not.
+             Be warned though, that you will not be able to pick them up if you kill or blackjack them. 
+
+
+                                       DESCRIPTION
+
+            A few months have passed since Garrett helped Basso and Jenivere escape together. They are now happily 
+            married and have settled down in a small town close to the city: East Fording,  where Basso decided to open 
+            a locksmithing shop.  
+
+            Shortly thereafter, Basso invited Garrett to spend a few days at his home.  Garrett accepted the invitation 
+            and received a reply the next day.
+
+                    "Garrett,
+
+            Jenivere and I are thrilled that you will be spending time with us.  As mentioned in the invitation, we will be
+             waiting for you at the Carnival which is scheduled to begin in 20 days.
+           I can't wait to see you again. I miss the good old days.  I also have a suggestion: leave your "work tools" at
+           home...let's have some fun instead!
+           Your affectionate friends,
+
+                       Jenivere and Basso
+
+           P.S. We have had two or three cases of plague in town recently, therefore the city council has decided to
+           impose a curfew.  This will most likely be settled within a few days, but just in case it isn't, I have enclosed a 
+           map of my house.  There is a  hidden passageway just outside the city walls that was once used by smugglers.
+          The exit is in my storage hut, and from there you will be able to enter the city without being seen."
+    
+
+
+                      PLAY INFORMATIONS 
+
+           Game:			       Thief 2: The Metal Age
+           Level Names:		       Prologue, Night One, Night Two, Night Three
+           File names:		        miss21.mis, miss22.mis, miss23.mis, miss24.mis.
+           Difficulty Settings:                    Yes
+           Equipment store:		        No
+           Map/Automap:		        Yes/No
+           New graphics:		        Yes
+           New sounds:		        Yes
+           New models:		        Yes
+           EAX Support:		        No
+           Multi language support:	        English, Italian
+           Briefing:		                     Yes
+
+
+          Construction 
+
+          Base:		                     From scratch
+          Map Size:	                                  Medium/Large
+          Build Time:	                     An embarrassing amount of time which I prefer not to mention.
+
+ 
+
+                      MANY THANKS TO:
+
+            Early alphatesting: Doaal
+
+            Early betatesters for Night One and Night Two: Doaal, Nightwalker, Peter Smith and The Night Terror
+
+            Betatesters: ffox, nightshifter, Nightwalker, Peter Smith, Preno, Silent_Warrior, theBlackman, The 
+            Night Terror.
+
+
+            Thanks to Doaal, theBlackman, The Night Terror, Nightwalker and Bernie, who corrected my books
+            and made sure they made sense. ;)
+
+            Thanks to theBlackman for the name of East Fording and other suggestions.
+
+           Thanks to all the wonderful people of The Editor Guild Forums; without their help this mission
+            would never have seen the light of the day.
+
+           Special thanks to: Avalon, fidcal, Hit Deity, John9818a, mortal monkey, nightshifter, Ottoj55,
+           Nameless Voice,  R Soul, Shadowspawn, sluggs,  Sterlino, TF, Vigil, yandros for their precious 
+           suggestions.
+
+           A lot of thanks to Doaal for his continuous helping, encouragement, patience and friendship. 
+
+
+
+                            CREDITS
+
+
+                   SCRIPTS by Telliamed
+
+
+
+                 TEXTURES
+ 
+           David Gurrea Hernandez, Gob, Targa, PhotoRealistic, Purah, Timothy Andrew Wilson (_unDuLe),
+          Mayang's Free Textures, Vigil (www.washboardabs.net/thief/. 
+
+          Additional textures from the games: Deus Ex, Max Payne, MOHAA, Painkiller, RTCW, Rune, Splinter 
+          Cell, The Wheel of Time, Undying, Unreal, Unreal Tournament.
+
+           I also "borrowed" some clothes texture details from the FM's "Curiosity" and "Calendra’s Legacy".   
+
+
+
+                OBJECTS
+ 
+           Caffeinatedzombeh: 
+          model for custom secret doors and furniture, open book model.
+
+          Dark Arrow: http://koti.mbnet.fi/~darkar/ 
+          chains, barchair(texture modified).
+
+          Dhin: www.angelfire.com/id/Dhin/ 
+          Surgery knives.
+
+          Ernie: 
+          Wall Lamp2X
+
+          Eshaktaar: 
+          donuts, organ, custom flames, hanging lamp, facelite,  Karras' poster, new switches, improved lost city light, lc
+          canopic jar.
+
+          G'len: 
+          grates (texture modified), test tubes, Gjar, Printing Press 
+ 
+          Jonquilis: 
+          bottles, mortar.
+
+          mkadlec: http://flatstory.wz.cz/
+          scale.
+
+          Mrys
+          Big wine cask.
+
+          Naks & tdbonko: 
+          Phanter statue, Sarah.
+ 
+           Nameless Voice: www.geocities.com/nameless_voice/ 
+           Lanterns, tables, piano, spider chest, Aztec Priestess, Gas Lamp, bookcases, round table, cheese, sausages,
+           pocket watch, mantel watch, NVTrSphere, magnify, coffin, blacksmith.
+           Improved original objects: sword, detailed sword, dagger, Constantine sword, weapon display case, barrels, 
+           potions, candles, grey book, ground emergency Light, goblets, gems, potions, bottles, Ramirez furniture, 
+           necklace, sandbag, flashbomb, brazier, banner, bread, fine wine, bucket, necklace, gold plate, pews, mecpews. 
+
+           Nielsen74
+           BakersPallet, carpenter hammer, teacup, teaplate, bowl, dead tree.
+
+          Ottoj55: www.jasonotto.net/index.html 
+          Grouped pipes, milk bottles.
+
+          PinkDot
+          Tables, chandelier, torches, bookcase. 
+ 
+          Raetsel: www20.brinkster.com/raetsel/thief/thief.html
+           Bird and fountain.
+
+           Rob Hicks: 
+            microscope, beer mug
+  
+           R Soul: http://mysite.wanadoo-members.co.uk/another_website/index.html
+           wall spotlight, whip, guards without helmet, wheelbarrow  
+           Improved pipes, turbines, bell, chandelier, roulette table and lights.
+ 
+           Shadowspawn: www.angelfire.com/games4/shadowspawn/
+           coffee pot, coffee mug
+ 
+           Schwaa: http://208.49.149.120/schwaa/index.html
+            anvil, grouped books, crowbar (excuse me for the use I made of it), lit candle, portable candle lantern, oil
+            lamp, quill-pen set, screen wall(texture modified), square lantern, potbelly stove, trash can.
+            Improved sewer light and decorative vase.
+
+            Sliptip
+            Porticullis and grates.
+ 
+            Sluggs: http://homepage.ntlworld.com/vaughn.cooper/
+            d-light,trough(texture modified), stool, park bench, bag, black hat, bucket with water(texture modified),
+            canoe, worms, crates, cart with hay, big cart
+ 
+            Targa: (www.grax.org/targa) 
+            domes used as lamps (I hope he will forgive me for that ;), steak, crystal ball, fat noble, fat maids, fat guard,
+            new guy, metal footlocker, ratchet, locktarg,  bladex, silver dagger, the blade, swordx, nailed scroll, sink 
+            faucet, zchest, metal crate, crystals, crystal seeds, ropecrate, long chain, wine barrel, radiator, potions, bath 
+             tub.
+
+            The Watcher: ntorch 
+
+            Vigil (www.washboardabs.net/thief/):
+             lights, railings, footlocker, seachest, books, blueshaft
+
+             Von Eins: 
+              basket, rocking horse, clock, cuckoo clock, stripped tree. 
+
+             Yandros   http://www.wearytaffer.com/
+             Metal shelf, food trays
+ 
+             Special thanks to Nameless Voice, Nielsen74, Ottoj55 and R Soul, and who created unique objects 
+             just for me. :-)
+
+             Also thanks to Eshaktaar for giving me the permission to use his fabulous recruiting poster.
+
+
+
+                            VOICE ACTING
+
+             Nightwalker           as Mrs.Dowson.
+            Random_Taffer      as Basso
+            The Night Terror   as Jenivere  
+             Yandros                  as "Keef"
+
+
+
+            CUSTOM MOTIONS by Weyoun and Shadowspawn.
+
+
+                          MUSIC AND SOUNDS
+
+            Robert Fox - Maya2           free sample from www.eurock.com
+
+            Cyclotimia - Liturgy
+            Gor - Sulphuraria               free samples from www.gothic.ru
+            Corvus Corax - Titenka 
+
+            Atrium Carceri
+                 Ruins of desolation      
+                 Blue Moon
+                 Corridor
+                 Reborn
+                 Entrance                                                 free samples from www.coldmeat.com  
+                 Entrance(2)
+
+            Letum - Broken                      
+  
+            Megaptera - Sludgy Heads Found In A Handbag
+
+  
+             Christoph Haas - Lux Stellarum
+             Velvet Underground - Venus in Furs
+             Seamus Begley - Donncha Lynch's
+             Steve Roach - Airtribes
+             Tangerine Dream - Movements Of A Visionary
+
+             Other sounds from the games: Blood, Rune, Undying, The Wheel of Time.
+             Shaman Woman ported from Thief: Deadly Shadows
+
+
+                          Additional thanks to:
+
+              Avalon for Thief Objective Wizard.  
+              Mad Bull for Str-Converter.
+              Rob Hicks for DEDX
+              Shadowspawn for the Motion Database.
+              Thorin Oakenshield for Thief 2 Objects List.
+
+              The Looking Glass for making a fabulous game like Thief.
+
+
+                         Copyright Information 
+
+              This level was made by Lady Rowena (A.M.I)
+
+              Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include
+              this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+              This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+              ------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+                             ITALIANO
+
+              Come installare la Missione: 
+
+             Se usate la versione 4.3 di Darkloader (cosa che consiglio) non dovete far altro che porre la missione zippata
+              nella cartella che usate di solito. Quindi avviate Darkloader e selezionate Italiano nel menù.
+              Sconsiglio di usare la versione 4.2, sembra che possiate scegliere la lingua, ma non è così, vi ritroverete i file
+              sparpagliati qua e là senza sapere dove andarli a pescare.
+             Se usate la versione 4.1 o precedenti procedete in questo modo: installate la missione scegliendo "install 
+              only", quindi chiudete Darkloader e andate nella cartella dove avete installato Thief2. Trovate e aprite la
+              cartella "books", quindi rinominate la cartella "English" come volete e cambiate il nome della cartella 
+              "Italian" con "English".
+              Per leggere gli obiettivi in italiano: Aprite la cartella "Intrface", dentro vi troverete le cartelle miss21, miss22,
+              miss23, miss24. Aprite "miss21" e ripetete l'operazione che avete fatto prima, scambiando e rinominando le 
+              cartelle English e Italian.
+              Ripetete il tutto con le cartelle miss22, miss23 e miss24.
+
+
+                     ATTENZIONE! - PER FAVORE LEGGERE PRIMA DI GIOCARE!
+               
+              Se avete installato il Thief  Enhancement Pack si potrebbe verificare un crash, dovuto all’uso massiccio
+              di risorse personalizzate, durante il caricamento di Night Three.
+              Potete evitare che ciò avvenga salvando il gioco durante la schermata di caricamento della missione 
+              precedente ed arrestando il gioco. Riavviare quindi Thief 2 e richiamare la partita salvata.
+
+
+                               AVVISO CONTENUTI
+
+              Per alcune situazioni, contenuti ed immagini potreste considerare queste missioni non adatte ai bambini. 
+
+                              Cambiamenti nella seconda versione
+
+              Spero di aver posto rimedio al bug di Basso che si fermava quando veniva liberato. Se il problema si 
+               dovesse ripresentare ricordatevi di fare un salvataggio in un nuovo slot PRIMA di liberare Basso e di
+               non lasciare cadaveri o gente manganellata alla sua vista. Se Basso si ferma non riprenderà a camminare,
+               dovrete richiamare il salvataggio precedente.
+
+               Aggiunti alcuni oggetti dal Thief Enhancement Pack recentemente rilasciato da Nameless Voice.
+               
+               Corretti un paio di errori negli scritti e rimediato ad alcuni errori di minore importanza.
+
+                 Informazioni - suggerimenti
+
+              Questa mini campagna, composta da un breve prologo e tre missioni,  è stata inizialmente concepita come
+              un'unica FM, ma siccome mi è sfuggita di mano ho dovuto dividerla in tre: Night One, Night Two e Night
+              Three. 
+              Ciò nonostante dovreste ancora considerarla come cosa unica, specialmente i primi due livelli, che sono
+              ambientati nella medesima piccola cittadina e che dovrete visitare in due notti consecutive.
+              La maggior parte degli interni significativi che potrete visitare in Night One, in Night Two saranno chiusi, 
+              ma avrete accesso ad altre case, palezzi e strade.
+
+                  Grimaldelli
+             In Night One avrete un solo grimaldello, perciò non impazzite per cercare l'altro. Se riuscite ad aprire solo
+              metà di una serratura, ciò significa che potrete aprirla completamente solo in Night Two.
+
+                 Porte
+             Se una porta non si "illumina" e non emette nessun suono se percossa, significa che non si aprirà, perlomeno
+             non durante la missione corrente.
+
+                 Personaggi
+              Ci sono alcuni personaggi interattivi. Ciò significa che si "illuminano" e che dovrete cliccare (o usare il tasto
+             "usa") su di loro. Questo potrete farlo sia che siano consapevoli o meno della vostra presenza.
+             Attenzione però: se doveste tramortirli o ucciderli non potrete prenderne il corpo e trasportarlo altrove per
+              nasconderlo.
+
+
+                                            THE SEVEN SISTERS
+
+                                    mini campagna di 3 missioni per Thief 2
+
+                               Titolo:		        The Seven Sisters
+                               Filename:	                     The7Sisters.zip
+                                Autore:		        Lady Rowena (A.M.I) 
+                                Contatti:	                     xladyrowena@yahoo.it
+                                Data di rilascio:                 11/1/2008
+                                Versione:	                     2.0
+
+
+                                  DESCRIZIONE:
+
+                 Sono passati pochi mesi da quando Garrett ha aiutato Basso e Jenivere a fuggire. 
+                 Ora sono felicemente sposati e sono andati a vivere in una piccola cittadina vicina alla City, East Fording. 
+                 Qui Basso ha aperto un piccolo negozio di ferramenta.
+                  Poco tempo dopo Basso ha invitato Garrett a trascorrere qualche giorno a casa sua; Garrett accetta ed il 
+                  giorno dopo riceve un messaggio di conferma:
+
+                            "Garrett,
+
+                 Jenivere ed io siamo felici che tu abbia accettato il nostro invito. Come d'accordo ti aspettiamo tra una 
+                 ventina di giorni, in occasione del Carnevale.
+                Non vedo l'ora di rivederti e di passare qulche giorno con te come ai vecchi tempi. Ho solo una 
+                raccomandazione da farti: per una volta lascia a casa i "ferri del mestiere" e pensiamo solo a divertirci. 
+                I tuoi amici affezionati
+
+                         Jenivere e Basso 
+
+                P.S. Siccome abbiamo avuto due o tre casi di rabbia in città, al momento è in vigore il coprifuoco. Molto
+                probabilmente la cosa si risolverà in un paio di giorni, ma in ogni caso ti allego questa mappa, la mia casa si 
+                trova a ridosso delle mura della città, c'è un passaggio nascosto, che un tempo veniva usato dai
+                contrabbandieri, che sbuca nel capanno degli attrezzi, di là potrai entrare senza essere visto."
+
+
+                                     Per i crediti vi rimando alla versione inglese.
+

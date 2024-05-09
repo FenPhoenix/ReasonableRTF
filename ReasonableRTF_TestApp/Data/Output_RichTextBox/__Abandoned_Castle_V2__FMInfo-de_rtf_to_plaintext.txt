@@ -1,0 +1,133 @@
+ 
+
+Titel	:	The Abandoned Castle
+Dateiname	:	The Abandoned Castle - NewDark.zip
+Autor	:	Beltzer
+Kontaktinfo	:	beltzer2@hotmail.com
+Homepage	:	www.beltzer.nu
+Veröffentlichungsdatum	:	19. Januar 2013
+Version	:	2.0 (Mai 06, 2021)
+Beschreibung	:	Letzte Nacht hörte ich ein Gerücht über eine Naheliegende Burg in der Taverne
+		der Stadt welche ich besuchte. Ich hörte wie die Diebe, die sich darüber 
+		unterhielten, erwähnten dass sie verlassen ist - und das schon seit vielen Jahren. 
+		Das sollte ich wirklich überprüfen. Die Burg mag zwar verlassen sein aber 
+		scheinbar immer noch Wertgegenstände enthalten. Es ist ein sonniger Tage, 
+		warum nicht einen kleinen Spaziergang machen und die Burg etwas "säubern"?
+
+==============================================================================
+
+Spiel Informationen
+
+Spiel	:	Thief 2: The Metal Age
+Levelname	:	The Abandoned Castle
+Dateiname	:	miss20.mis
+Schwierigkeitsstufen	:	Ja. Verschiedene Loot-Ziele und Werkzeuge. Es gibt einige Rechenrätsel. 	
+		Auf Normal gibt es einen Hinweis wie man einen Code knackt.
+Ausrüstung kaufen	:	Nein
+Karte/Automap	:	Ja (leer)
+Neue Graphik	:	Ja
+Neue Sounds	:	Ja
+Neue Unterhaltungen	:	Nein
+Neue Modelle	:	Ja
+EAX Unterstützung	:	Nein
+Sprachunterstützung	:	Englisch, Deutsch, Spanisch (nur Texte)
+Briefing	:	Nein
+
+==============================================================================
+Bekannte Bugs
+
+- Keine Nennenswerten.
+
+==============================================================================
+Erstellung
+
+Grundlage	:	Keine.
+Kartengröße	:	Mittel.
+Bauzeit	:	Fast 9 Wochen inklusive Betatest, mehrere Stunden am Tag
+Info	:	Das ist meine fünfte Mission. Vorhergehende: Ransom, Lord Beltzer’s Mansion, 
+		Mistress Guennean’s Castle and The Reunification.
+
+==============================================================================
+Loading Information
+
+Tested with	:	AngelLoader and FMSelector
+
+==============================================================================
+Danksagung
+
+Die Leute auf TTLG und Shalebridgecradle.
+An die Beta-Tester auf Shalebridgecradle:
+itllrun10s
+jonescrusher
+Nickie
+Notesthes (auch deutsche Übersetzung)
+Ravenhook
+An Nickie der alle Texte überprüft hat.
+An Tannar, der Moderator der das Beta-forum auf shalebridgecradle eingerichtet hat.
+
+An die Version 2.0 Beta-Testers auf Discord:
+Akai™
+Bikerdude
+Dardo (Spanische Übersetzung)
+FlixXxer
+Mat99
+Zappenduster (Deutsche Übersetzung)
+Zoro
+
+Stimmen:
+RedLeaf (als das böse Kind)
+
+Von der Community erstellte Objekte:
+(Ich hoffe jeden genannt zu haben, bitte sagt mir falls ich jemanden vergessen habe)
+
+Alun Bestor www.washboardabs.net/thief/
+Ar-Zimrathon
+Bronze Griffin
+Christine
+DarkShadow
+Elvis
+Eshaktaar
+G'len
+Greenhorn
+Jason Otto
+Master_edd
+Nameless Voice
+Nielsen74
+Paweuek
+pdackel
+R Soul
+Schwaa
+Sluggs
+Soul Tear
+T2X
+Targa
+Team CoSaS and Digital Nightfall.
+von.Eins
+Yandros
+
+Meshes:
+Bronze Griffin
+DedX
+FireMage
+metal dawn
+Paweuek
+Purgator
+Sensut
+Team CoSaS
+
+Custom Script:
+Telliamed’s PublicScript
+NV Script
+
+Und natürlich Dank an meine Partnerin Sandra für die moralische Unterstützung und Toleranz gegenüber mir der 24/7 daran gearbeitet hat.
+
+==============================================================================
+Urheberrechtsinformation
+
+Dieses Level ist © vo Beltzer. Verteilung des Levels ist auf allen möglichen Wegen, Art- und Weisen gestattet - ihr
+müsst nur die Mission intakt lassen und mich als den Erställer erwähnen :-)
+
+Dieses Level wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt und wird auch nicht von ihnen 
+supported.
+
+==============================================================================

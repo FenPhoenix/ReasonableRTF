@@ -1,0 +1,75 @@
+=============================================================
+MechBank v1.0
+By The Pixie
+the_pix@hotmail.com
+
+=============================================================
+Play Notes
+
+This mission is set part way through Thief: The Metal Age, shortly after First City Bank and Trust, which is about all you need to know to play the mission. There is no background to read, you can just play the game...
+
+MechBank was the prize-winning entry for a competition for novices in September 2005. TO conform to the rules, it is built entirely inside a 1 000 000 sq foot box, and is about breaking into a bank. 
+
+Difficulty levels: Besides the differences between the difficulty levels that are those built into Thief, there are a small number of differences relating to AIs. The objectives and plot are identical; all areas are accessible on all levels.
+
+Objectives: This mission is all about breaking into a bank vault. That is, essentially, all you have to do. The loot requirement is such that breaking into the vault is necessary – but no other loot is required. This is a mission, not a shopping trip; it should have a single purpose. There is loot to be found elsewhere, but only in places you might reasonably expect to find loot; no need to check down every toilet...
+
+Keys: Garrett is a master thief; you will find that there are no keys anywhere in this mission, he can pick the all locks he might need to.
+
+Puzzles: This mission contains three puzzles. The first is vital to completing the mission; if you are playing on "No hope" and you get stuck, play on an easier level to get find more clues. There is also an arithmetic puzzle for a hidden (and so optional) objective that is more tricky at higher levels (much more tricky at "No Hope"). The third puzzle is rather more straightforward, but again is optional.
+
+Any feedback will be appreciated, either though TTLG or by e-mail to the_pix@hotmail.com.
+
+=============================================================
+Play Information
+
+Game			 : Thief 2: The Metal Age
+Level Name 		 : MechBank
+File name 		 : miss19.mis, mechbank.gam
+Difficulty Settings	 : Easy-peasy, So-so, No hope
+Equipment store	 : No
+Map/Automap		 : Yes (but not at the start)/No
+New graphics		 : Yes
+New sounds		 : Yes
+New conversations	 : No
+New models		 : Yes (DEDx)
+EAX Support		 : No
+Multi language support	 : No, English only
+Briefing			 : No
+
+=============================================================
+Credits – People who have helped me directly with this mission:
+
+Voices
+TheNightTerror: Put in a lot of effort with certain custom voices that sound just like the originals to me.
+
+Beta-testing and Associated Advice
+maloo
+marycymbach
+... and especially ffox for suggests on how to fix various problems
+
+Additional Beta-testers
+Krush the Second
+Asgaroth
+
+As a general comment I think it is great how people in the DromEd community will help each other, given that none of the above had any idea how serious I was and what state the mission might be in or even whether it would ever see the light of day.
+
+=============================================================
+Other Credits
+
+General Advice
+Komag for the tutorial that got me started
+spike14 for the tutorial that was my first point of reference once I was going
+ottoj55 for running the competition and putting up the prizes
+The TTLG TEG forum for when all else failed
+
+Custom objects from DEDx, etc.
+Rob Hicks – Putting together DEDX
+Rob Hicks and Daemonite – Custom AIs
+
+=============================================================
+Copyright Information
+
+This level is ©2005 The Pixie. This level was not made by and is not supported by Looking Glass
+Studios or Eidos Interactive.
+

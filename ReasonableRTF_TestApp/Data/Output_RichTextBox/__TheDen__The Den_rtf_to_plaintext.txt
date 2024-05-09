@@ -1,0 +1,218 @@
+
+THE DEN
+(4th and last mission of the series "L'Arsene")
+________________________________________________________________________________
+
+Author           	: Gaëtane (Gat).
+Contact info       : gat1@tiscali.fr
+Date of release	: 11-2005
+________________________________________________________________________________
+
+Translations french/english : Sidiherrero and Brother David.
+________________________________________________________________________________
+
+Summary of the previous fms:
+
+Part 1 - L'Arsene: The story begins with Garrett arriving to a distant unknown town. Everything our thief needs at the time is to get some rest in a comfortable hostel.
+But isn’t he shocked when he wakes up to find out all his goods have disappeared! Garrett must accept the fact, someone has robbed him!
+The larceny was signed by someone called L'Arsene who, as Garrett will later find out, is the local master thief and who is accompanied by solid group of tough brigands.
+Garrett will chase after L'Arsene in a confrontation that can only end with the fall of L'Arsene.
+
+Part 2 - Emilie Victor: Garrett inadvertently finds himself in the manor of no other than Sir Deloret, tyrannical and despotic lord of the corrupted town.
+Garrett will meet a strange person, Emilie, who will grant him a very useful key for his following mission.
+
+Part 3 - The Korrigans: L'Arsene has escaped from prison. This town is definitely too dangerous for Garrett and he’s had enough of it. He’s resolved to leave but bad luck seems to pursue him. The town is under quarantine due to the invasion of mysterious evil creatures commonly known as "Korrigans".
+Right now a ship is moored at the harbour, ready to set sail in a few hours. But all the accesses to the town are closely watched by the town militia, which has been reinforced due to the psychosis created by the apparition of the Korrigans.
+Time presses and Garrett cannot see a way to get into the ship and leave town. But then he receives a message by no other that L’Arsene’s sister, Berenice. And she proposes a strange deal.
+________________________________________________________________________________
+
+Part 4 - The Den 
+
+When Garrett regains consciousness, beaten up by L’Arsene’s thugs, he finds out that he is locked up in a dark and stinking cell. He can hear the moans of other prisoners around him.
+Raising his eyes he can make out on the opposite side of the bars a familiar proudly-smiling shape: L'Arsene. His implacable enemy. He seems to have been watching him sleep for some time. Beside him, a hooded man stands, La Bourrique undoubtedly, L'Arsene’s faithful lieutenant.
+They have both been waiting for their prisoner to wake up, to impose their humiliating victory on him.
+
+Garrett suffers, he’s been derided, and he is hungry, and all that makes him very angry.
+First thing to do, escape this stinking prison and try to find something to eat.
+Then it will all be between L’Arsene and him.
+_______________________________________________________________________________
+
+Game information:
+
+Objectives: Normal and hard difficulty levels imply more items and less AIs than Expert difficulty level.
+Expert level includes an additional objective.
+
+For all the acrobats among you, do not try to climb over the enclosure walls to reach apparently inaccessible places. You may spoil the logical development of the fm.
+________________________________________________________________________________
+
+Technical advice: For PC with a processor lower than 1 ghz, restart system after installing the mission. 
+I am sorry but the mission has a lag on small configurations.
+________________________________________________________________________________
+
+Playing Information
+
+Game                   	: Thief : The Metal Age
+Mission Title          	: The Den
+File Name            	: miss23.mis
+Difficulty Settings     	: yes
+Equipment Store        	: No
+Map                    	: yes
+Auto Map             	: No
+New Graphics        	: yes (by Rob Hicks, Daemonite, OttoJ55, Nameless Voice, Targa, Schwaa, Eshaktaar, Vigil)
+New Sounds             	: yes
+New Textures		: yes  (by Purah "Calendra Legacy", (C)1998-2001 Remedy Entertainment Ltd, Yandros, Alun Bestor aka Vigil (www.washboardabs.net/thief/news/))
+New musics		: yes ( "Lara at the Movies" soundtrack by Terry Barrett aka Dhama and Luis Martin (Legacy of Gods))
+Multi-Language Support 	: yes  (English - French - Spanish)
+Briefing               	: No
+Difficulty Level Info  	: Normal, hard and Expert
+
+File " Books " was written on the " Str-Converter " program conceived by MadBull.
+
+Construction :
+
+Base                   	: No
+Build Time              	: One year
+________________________________________________________________________________
+
+Great thanks: 
+
+Beta testers: Lady Jo, Louve, Frère David, Amelico, Super Mario, Eras, ffox, Sly Foxx, ShadowWolf421, Dafydd, Peter Smith, Eshaktaar, NightWalker, Yandros and Sidiherrero.
+Voices: Sly Foxx (L'Arsene's speech, Garrett, ) and Louve (the Arsene's song ;-)
+Proofreading : Sly foxx, ShadowWolf421, ffox and NightWalker.
+To Sidiherrero for his work on the translation.
+To Epithumia (Jason L. Tibbitts III) for hosting my fm. 
+________________________________________________________________________________
+
+Version  française
+
+L'ANTRE
+(4ème et dernier opus de la série "L'Arsène")
+_______________________________________________________________________________
+
+Auteure		: Gaëtane (Gat)
+Contact 	: gat1@tiscali.fr
+Date de sortie	: 11 - 2005 
+_______________________________________________________________________________
+
+Résumé des fms précédentes :
+
+Opus 1 - L'Arsène : Cette histoire commençe par l'arrivée de Garrett dans une petite ville inconnue et lointaine. Car tout ce dont à besoin notre  voleur pour le moment c'est prendre quelques jours de repos dans une auberge accueillante.
+Mais qu'elle ne fût pas sa surprise quand à son réveil, il constata que tous ces biens avaient disparu ! Garrett dû se rendre à l'évidence,  quelqu'un l'avait cambriolé !
+Le larcin était signé d'un certain L'Arsène dont Garrett apprendra plus tard qu'il est le maitre voleur des lieux et dispose d'une solide et coriace équipe de brigands.
+Garrett poursuivra L'Arsène dans une confrontation qui n'aura de cesse que par la chute de l'Arsène.
+
+Opus 2 - Emilie Victor : Garrett se retrouve par mégarde dans un manoir qui n'est autre que la maison de Sir Deloret, Seigneur tyrannique et  despotique de cette ville corrompue.
+Garrett fera ici la connaissance d'une étrange personne, Emilie, qui lui remettra une clé très utile pour la mission suivante.
+
+Opus 3 - Les Korrigans : L'Arsène s'est échappé de prison. Cette ville est décidemment trop dangeureuse et Garrett en a assez. Il a décidé de  partir mais le sort semble s'acharner contre lui, la ville est plaçée sous quarantaine suite à l'invasion de mystérieuses créatures malveillantes appelées communément "Korrigans".
+En ce moment un bateau est amarré au port, prêt à prendre le large dans quelques heures. Hélas tous les accès au port sont étroitement surveillés par la milice de la ville. Celle-ci a été renforçée suite à la psychose qu'à déchainée l'apparition des Korrigans.
+Le temps presse et Garrett n'entrevoit pour l'instant aucune solution pour accéder au bateau qui lui permettra de quitter cette ville. C'est  alors qu'il reçoit un message dont l'auteur n'est rien d'autre que la soeur de l'Arsène, Bérénice. Celle-ci lui propose un étrange marché.
+_______________________________________________________________________________
+
+L'histoire : 
+
+Opus 4 - L'Antre :
+
+Quand Garrett reprend conscience, après s'être fait joyeusement roué de coups par les sbires de L'Arsène, il s'aperçoit qu'il est enfermé  dans une geôle sombre et malodorante. Autour de lui il entend les plaintes d'autres prisonniers.
+Levant les yeux il discerne alors, de l'autre côté des barreaux et le toisant d'un sourire fier et vaniteux, une forme familière : L'Arsène.  L'ennemi implacable. Celui-ci semble l'observer depuis un moment. A ses côtés se tient un homme aux yeux dissimulés par un capuchon, La  Bourrique certainement, fidèle lieutenant de L'Arsène.
+Tout deux ont attendu le réveil de leur prisonnier afin de lui imposer leur humiliante victoire.
+
+Garrett souffre, il est bafoué, il a faim et tout cela fait qu'il est très très en colère.
+Première étape, sortir de cette prison puante et si possible manger quelque chose. 
+Ensuite cela sera une affaire entre L'Arsène et lui.
+_______________________________________________________________________________
+
+Informations de jeu :
+
+Les objectifs : Les modes faciles et difficiles comportent plus d'items et moins de AIs que le mode Expert.
+Le mode Expert possède un objectif supplémentaire.
+
+Pour les plus acrobates d'entre vous, ne cherchez pas à grimper sur les murs d'enceinte pour atteindre des endroits qui vous paraissent  inaccessibles. Vous risqueriez de gâcher le déroulement logique de la fm.
+________________________________________________________________________________
+
+Remerciements: 
+
+Beta testers: Lady Jo, Louve, Frère David, Amelico, Super Mario, Eras, ffox, Sly Foxx, ShadowWolf421, Dafydd, Peter Smith, Eshaktaar, NightWalker, Yandros and Sidiherrero.
+Voix : Louve (pour sa jolie voix chantante ;-) et Louis (pour avoir interprété le personnage de L'Arsène).
+________________________________________________________________________________
+
+Conseils techniques : 
+Pour les pc avec un processeur inférieur à 1 ghz, redémarrer le pc après installation. Je suis vraiment désolée mais la mission souffre d'un ralentissement sur les petites configurations :-(
+________________________________________________________________________________
+
+Versión española:
+
+EL ANTRO
+(4º y último capítulo de la serie "L'Arsene")
+_______________________________________________________________________________
+
+Autor:			Gaëtane (Gat)
+Contacto:		gat1@tiscali.fr
+Fecha de aparición:	11 - 2005
+_______________________________________________________________________________
+
+Resumen de las misiones anteriores:
+
+Capítulo 1 - Arsene (L'Arsène): La historia comienza con la llegada de Garrett a una pequeña ciudad lejana y desconocida. Todo lo que necesita nuestro ladrón en este momento es tomarse algunos días de descanso en un albergue acogedor.
+Pero cuál será su sorpresa al despertar, cuando se dé cuenta de que ¡todas sus posesiones han desaparecido! Garrett tiene que rendirse ante la evidencia, ¡alguien le ha robado!
+El robo es obra de un tal Arsene, quien, como Garrett descubrirá más adelante, es el maestro ladrón local, que tiene a su disposición una aguerrida banda de bribones.
+Garrett perseguirá a Arsene en una confrontación que sólo podrá terminar con la caída de Arsene.
+
+Capítulo 2 - Emilie Victor: Garrett se encuentra inesperadamente en una mansión que no es otra que la de Sir Deloret, el tirano y despótico Señor de esta ciudad corrompida.
+Garrett conocerá a una extraña persona, Emilie, que le facilitará una llave muy útil para su siguiente misión.
+
+Capítulo 3 - Los Korrigans: Arsene ha escapado de prisión. Decididamente, esta ciudad es demasiado peligrosa y Garrett ya ha tenido bastante. Está decidido a marcharse, pero la mala suerte parece cebarse en él. La ciudad está en cuarentena debido a la invasión de unas misteriosas y malvadas criaturas comúnmente conocidas como los "Korrigans".
+En este mismo momento hay un barco amarrado en el puerto, preparado para levar anclas en algunas horas. Pero todos los accesos al puerto están estrechamente vigilados por la milicia de la ciudad, que ha sido reforzada como consecuencia de la psicosis desencadenada por la aparición de los Korrigans.
+El tiempo apremia y Garrett no parece encontrar ninguna solución para acceder al barco que le permitirá abandonar la ciudad. Justo entonces recibe un mensaje de nada menos que la hermana de Arsene, Berenice, que le propone un extraño trato.
+_______________________________________________________________________________
+La historia: 
+
+Capítulo 4 - El Antro:
+
+Cuando Garrett recupera la consciencia, después de recibir una paliza de los esbirros de Arsene, se da cuenta de que está encerrado en un calabozo oscuro y apestoso. A su alrededor puede oir los lamentos de otros prisioneros.
+La levantar la mirada percibe, al otro lado de los barrotes y dedicándole una sonrisa orgullosa, una forma familiar: Arsene. Su implacable enemigo, que parece observarle desde hace rato. A su lado hay un hombre con los ojos ocultos por una capucha, La Bourrique sin duda, fiel lugarteniente de Arsene.
+Los dos llevan un rato esperando a que su prisionero se despertase para restregarle su humillante derrota.
+
+Garrett sufre, ha sido humillado, tiene hambre, y todo ello hace que esté muy furioso.
+Lo primero, salir de esta apestosa prisión y buscar algo de comer.
+Después será un asunto entre Arsene y él.
+_______________________________________________________________________________
+
+Información del juego:
+
+Objetivos: Los modos fácil y difícil incluyen más objetos y menos Ais y pistas que el modo Experto.
+El modo Experto incluye un objetivo adicional.
+
+Para los más acróbatas de entre vosotros, no intentéis escalar los muros exteriores para alcanzar lugares que parecen inaccesibles. Podríais estropear el desarrollo lógico de la misión.
+_______________________________________________________________________________
+
+Para instalar los textos y los objetivos en español lee atentamente lo siguiente:
+
+Instala la misión mediante Darkloader.
+Descomprime nuevamente la misión, esta vez de forma manual, en un directorio temporal.
+Abre el directorio "Spanish" que se encuentra en el directorio "Books".
+Copia el contenido de ese directorio en el directorio "English" que se encuentra en el directorio "Books" de la misión instalada por Darkloader.
+Haz lo mismo con los directorios Strings e Intrface, sustituye el contenido de los directorios "English" por el de los directorios "Spanish". No olvides el del directorio "miss23".
+________________________________________________________________________________
+
+Consejos técnicos:
+
+Para ordenadores con un procesador inferior a 1 ghz, reinicia el pc después de la instalación. Lo siento mucho, pero la misión sufre una ralentización con las configuraciones pequeñas :-(
+________________________________________________________________________________
+
+(Texture Remedy Entertainment Ltd : The textures in this file are property of Remedy Entertainment Ltd., and can be used only as long as the 
+work is recognized as original artwork by Remedy, and no financial profit is made in the process). 
+
+Loading Information 
+
+Place this zip file in the folder were you said to your DarkLoader look for Fan Mission.
+
+Copyright Informations
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

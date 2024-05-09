@@ -1,0 +1,127 @@
+Bad Hangover
+A mission for the Thief 2 Reloaded2 contest
+Author:  Brethren
+Release date:  April 15, 2012
+Updated to version 1.01
+
+Story:
+
+You went out drinking with Basso last night, and now you awake with a crushing headache.  Must have been that special reserve ale he couldn't stop talking about.  Man, this is going to be a bad day.
+
+
+Warnings & Known Bugs:
+
+There are many places in this level where you can escape the playable area.   I didn't have time to block them all off, so explore at your own risk, and save often.  There are plenty of areas to legitimately rope up to, but as a general rule don't go on top of or over buildings if you don't want to risk wrecking the mission.
+
+At one point in the mission, you'll need to rescue Basso (original, I know).  Do this last after everything else is completed.  You'll also get an in-game warning of sorts which mentions this.  Backtracking within the level after rescuing Basso can lead to crashes, of which I haven't been able to figure out a solution to yet.
+
+The zombies do strange things - they may float, move around after you "kill" them, smack you without making a sound, or other bizarre things.  Don't get too freaked out by this, it's normal (for zombies that is).
+
+There are objects in the mission placed by the original author that may appear as if you can rope up to them.  I didn't want to remove them for aesthetic purposes.  Keep your roping to the standard Thief 2 wood surfaces.
+
+Many lifelong Thief fans and regular FM players will automatically choose the "Expert" level of difficulty - use caution when doing this.  ;)
+
+Sometimes the lighting flashes do strange things, but not often
+
+The sound can be inconsistent and odd in some areas.
+
+
+Big thanks go out to...
+
+Child of Karras - for making it all possible with this great conversion from TDS.
+
+Looking Glass Studios for creating the Thief games, and TTLG (specifically the Editing and Fan Mission forums) for keeping them alive.
+
+My fantastic team of beta testers:  nickie, Sgt. Pinback, darthsLair, redface, Gloria Creep, ffox, bassmanret, & Shaz.  You guys rock, I never would have finished this level without you.
+
+Special mention to darthsLair, who went above & beyond the call of duty.  He helped me add & fix many things for this mission (see credits below), and was always offering to do more.
+
+R Soul, who helped me directly and indirectly many times through TTLG, whether he realized it or not.
+
+Tanner & Dussander and everyone else involved at the Shalebridge Cradle testing forums.
+
+Thanks to AMC's The Walking Dead for providing me with inspiration to create this level.  Great show.
+
+
+Bad Hangover credits:
+
+Southquarter/Stonemarket/Terces Courtyard/Docks levels from Thief Deadly Shadows ported to Thief 2 by Child of Karras.
+
+New zombie skins by Bronze Griffin, Jason Otto, metal dawn, DarkMax, and Rob Hicks.
+
+Ship multibrush courtesy of intruder (from his campaign:  Keeper Investigations -  mission 3, At The Wrong Party).
+
+Thief Deadly Shadows zombie voices property of Eidos, ported into Thief 2 by Yandros.
+
+Thunder/lightning effects by darthsLair.
+Title screen modifications by redface.
+Ship2 texture family created by Vigil (Alun David Bestor).
+Bucket model by Von Eins.
+In-game maps by darthsLair.
+Water textures by Eshaktaar.
+Hermit/Raoul skin from Thief Gold ported into Thief 2 by Jason Otto.
+New ledgers by darthsLair.
+Board prying sounds courtesy of MaximusDragonus at Freesound.org, tracked down by darthsLair.
+
+
+Playing Information:
+
+Title                   : Bad Hangover
+Filename          : BadHangover.zip
+Author               : Brethren
+Version             : 1.0
+
+
+* Playing Information *
+
+Game                   		: Thief 2: The Metal Age
+Level Name          		: Bad Hangover
+File Name             		: miss20.mis
+Difficulty Settings 		: Yes, based on # of AI
+Equipment Store  		: No
+Map/Automap      		: Yes/No
+New Graphics           		: Yes
+New Objects             		: Yes
+New Sounds              	: Yes
+EAX Support             	: Yes
+Multi-Language Support  	: No
+
+
+
+TDSCity319 Original credits:
+
+
+Author:		Johannes "Child Of Karras" Berthold
+
+Textures:		Thief DS (John P.), CG Textures, Child Of Karras
+Objects:		Thief DS
+Music:			Thief DS (Eric Brosius)
+AI:
+Targa (fat guards, servants), CoSaS (new nobles), Paweuek (new servant skins), John P (guard skins, converted by Child of Karras), tdbonko (hipoly guards).
+
+
+Title              	: The TDS City Project
+Filename        : TDSCity319.zip
+Author             : Child Of Karras
+Version           : Build 319
+
+
+* Playing Information *
+
+Game                    		: Thief 2: The Metal Age
+Level Name              		: The TDS City Project Beta
+File Name               		: miss20.mis
+Difficulty Settings     		: None
+Equipment Store         	: No
+Map/Automap             	: Yes/No
+New Graphics            	: Yes
+New Objects             		: Yes
+New Sounds              	: Yes
+EAX Support             	: Yes
+Multi-Language Support  	: Yes (EN/DE)
+
+
+This level was not made and is not supporting by Looking Glass Studios, Eidos Interactive, or Ion Storm.
+
+
+

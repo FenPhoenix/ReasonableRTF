@@ -1,0 +1,164 @@
+
+Forgotten Tomb
+
+NewDark 1.23 (or higher) is required.
+
+
+Author: Kurhhan
+Contact info: seb066@o2.pl
+Date of release: 02/12/2016 
+Version: 1.0
+
+
+
+Story:
+
+The action takes place long after the events of Thief 2.
+Times are hard now for people of my profession. The City Watch along with the new Sheriff are more powerful and effective than ever. The Keepers keep quiet, The Mechanists are long gone, as are the Hammerites. To pay the rent I must seek opportunities at the outskirts of the City.
+As it happens, Basso came into possession of an old Hammerite map. The old paper reveals the location of a long forgotten tomb, far away in the Dark Forest. It seems this tomb served as the final resting place for fallen guards from various posts scattered among the Forest. There may also be the remains of a number of Priests, and it could even a contain a chamber for a High Priest who died in unexplained circumstances in this region. Here is a opportunity to find a lot of gold and goods in the tomb. I have to take a chance, life in the City is hard these days. I only hope that the tomb has not collapsed and that I can find a way in. A dangerous and long journey awaits. I have to be well prepared.
+...
+Damn, I was ambushed by Forest's Burricks. I've lost some of the equipment. Luckily, the holy water vial is safe. They are almost impossible to find in these unholy times. I have a feeling that without it I will never enter the tomb or get out alive.
+...
+Hmm, finally I'm near the spot marked by the map. Burricks are still on my track but I will be fine. Time to get down to the real work.
+
+Gameplay Notes
+- This mission requires NewDark v1.23 or higher.
+- Make sure that "sun_runtime_obj_shadows" command is enabled in cam_ext.cfg.
+- If you have not done this before, copy "small_portal_repel" command (without the quotes) to the cam_ext.cfg file.
+- As a precaution disable all enhancement packs.
+- This mission requires some interaction between objects in your inventory and objects in the world. If an object moves out in front of you when you frob it from inventory, it probably has such a use, typically it will be used on an object in the world which highlights but appears to do nothing when you frob it individually.
+- It's possible that the frame-rate might be low on slower systems in the first scene (many high poly objects).
+
+Known Bugs
+- Sun_runtime_obj_shadows bug (1.23) in the first scene.
+- Sometimes when using rope, random sounds appear.
+
+Play Information
+                                                                                   
+                                     Game:                                 Thief 2: The Metal Age
+                                     Level Names:	                        Forgotten Tomb
+                                     File names:	                        miss20.mis
+                                     Difficulty Settings:	            No / Two endings
+                                     Equipment store:                  No
+                                     Map/Automap:	            No
+                                     New graphics:	            Yes
+                                     New sounds:	                       Yes
+                                     New models:	                       Yes
+                                     EAX Support: 	            No
+                                     Multi language support:	English
+                                     Briefing:	                        No
+
+
+
+Construction
+
+                                         Base:                  From scratch
+                                         Map Size:            Small
+                                         Build Time:	 About 200h
+
+
+
+Textures Credits
+
+Xorak
+Gecko
+EP 2.0
+Necrobob
+Zappen
+Purgator
+Team COSAS
+Cgtextures
+
+
+
+Creators of Objects
+
+Vurt
+Gecko
+EP 2.0
+Necrobob
+Daraan
+Vigil
+Yandros
+Nicked
+Shwaa
+Eshaktaar
+R Soul
+PinkDot
+Team COSAS
+Soul Tear
+Nielsen74
+Elvis
+JasonOtto
+Saturnine
+Sensut
+TDBonko
+Christine
+Targa
+
+Shadowspawn (motion)
+
+First time appearing in FMs, ancient holy vial by Soul Tear.
+
+
+
+Music
+
+Vagrant Story: Original Soundtrack
+Composed, Arranged & Produced by Hitoshi Sakimoto
+
+Thief Gold HDMOD
+
+
+Sound Effects
+
+Thief Gold
+Rune
+Doom
+
+
+Script
+
+Nameless Voice
+
+
+
+Texts corrections 
+
+Fortuni
+
+
+
+Beta Testers
+
+Fortuni
+Cardia
+FireMage
+
+Peter Smith (Beta 1.0)
+
+
+
+Special Thanks to
+
+All the great people at the TTLG Forums. Especially from The Editors' Guild for many advices.
+
+Creators of objects.
+
+Good friend Fortuni. Always there for good word.
+
+Soul Tear for many things.
+
+Tannar for Shalebridgecradle, R Soul for GoalMaster, Yandros and Juliusz (PinkDot) for advices.
+
+
+
+Copyright Information
+
+This level was made by Kurhhan.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+

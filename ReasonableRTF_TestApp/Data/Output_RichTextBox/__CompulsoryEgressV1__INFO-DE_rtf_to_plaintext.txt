@@ -1,0 +1,234 @@
+=== ZWANGSRÄUMUNG ===
+=============
+Vorgechichte:
+“Es kommt nicht oft vor, daß sich scheinbar leeres Geschwätz als guter Hinweis entpuppt.
+Über Wochen hörte ich Gerüchte, nach denen man im heruntergekommenen, südlichen Stadtteil Navenvolks eine aufkommende Krise  befürchtet. Ich maß dem keinerlei Bedeutung bei, bis in der Tribune zu lesen stand, daß eine Evakuierung angeordnet wurde - diese Entscheidung dürfte nicht einfach gewesen sein, wurde doch die örtliche Stadthalle erst vor wenigen Monaten eingeweiht, voller Pomp und mit Schätzen aus der Gegend.
+Tja, das war mit Aufwand verbunden und sollte die Gegend wieder attraktiv machen. Tatsächlich strömten etliche Schöne und Reiche mit der Absicht in den Bezirk, günstig Grund und Boden in einer aufstrebenden Gegend zu erwerben. So existierten Armut und Reichtum nahebei, und ich hörte von einer Familie bei den Docks, denen man ihr Mauerloch für ein paar Silbermünzen abluchste.
+Nachdem die Bedeutung des Viertels zugenommen hatte, stellte der Verwaltungschef Navenvolks eine gewinnsüchtige Truppe auf, welche die nun aufgestiegene Stadt verteidigen sollte, und zwar unter dem Kommando des hochdekorierten Oberst Ricardo. Man hört, er sei eine Art Held mit strategischem Denken. Nun, das könnte auf eine Belagerung hinweisen. Schätze, ich muß selber vor Ort recherchieren, denn mehr war nicht in Erfahrung zu bringen.
+Ich sollte aufbrechen. Navenvolk liegt zwei Tagesreisen entfernt, und ich bin gewiß nicht der einzige, der eine mit zurückgelassenen Reichtümern gespickte Stadt begutachten will …”
+=============
+* Spiel-Information *
+Spiel: Thief 2 - Das Metallzeitalter (NewDark 1.26)
+Titel: Verbindliche Räumung
+Dateinamen: miss20.mis, compeg.gam
+Schwierigkeitsgrade: Normal/Hart/Experte
+Ausrüstungsladen: Nein
+Map/Automap: Ja/Nein
+Neue Grafiken: Ja
+Neue Geräusche: Ja
+Neue Konversationen: Nein
+Neue Modelle: Ja
+EAX: Nein
+Mehrsprachig: EN / DE (Zappenduster) / FR (Azaran) / Russian (Soldi)
+Vorspann: Siehe Text, kein Video
+Untertitel: Nein
++===+
+*BAU *
+
+Ursprung: Mit einem 16x16x16 Jorge-Brush.
+Mapgröße: Beinahe 530x300x150 DromEd-Einheiten. Man muß rund 70 Sekunden rennen, um vom südlichsten Punkt aus direkt den nördlichsten zu erreichen.
+Bauzeit: Mehr als 53 Tage/1272 Stunden. Ich hatte die exacte Zeit, doch am 31. May setzte der Zähler des DromEd-Infofensters zurück auf Null. Ich glaube, das Zählfeld ist ein vorzeichenloses, 32-bit-Integerfeld; meine letzte Sicherung hatte den Stand 48:14:26:50, und dann sah ich es noch sicher bei 49:16. Jedenfalls habe ich das Abbruchfenster nicht sehen müssen.
+=============
++===+
+ WICHTIG:
+
+- Diese FM nutzt ‘jump_speed_boost 1.4’ in der fm.cfg, so daß die Einstellung in anderen Thief 2-FMen/OMen nicht wirkt. 1.4 ist Standard bei Thief 1/Gold, und diese FM soll mit dem Thief 1/Gold- Tempo spielbar sein. Sie kann auch mit dem Thief 2-Standard 1.05 beendet werden, doch ich garantiere, daß damit einige nicht spielentscheidende Sprünge erschwert werden (einige sind mit 1.05 sogar unmöglich, wenn man nicht diagonal springt, und das nervt ungemein!). Um den Effekt aufzuheben, setze man ein Semikolon (;) vor die entsprechende Zeile inder fm.cfg. Ich verstehe auch die, die sich die Einstellungen nicht von mir vorschreiben lassen wollen.
+- Ich rate dazu, keine Grafikmodifikationen zum Spielen einzusetzen. Meine Texturen- und Objekteauswahl hat ihren Grund, manche Brushes dienen nur dem räumlichen Eindruck und einer exakten Ausrichtung der Texturen.
++===+
+Anmerkungen (möglicherweise mit Spoilern)
+
+   — Man verpaßt keine Bereiche, wenn man nicht als 'Experte' spielt. Experte hat weniger Ausrüstung aber nicht weniger Beute.
+   — Es gibt keine unsichtbaren Feinde.
+   — Man findet keine ‘kryptischen’ Hinweise in den Texten, aufgelesene Texte sind zur Erfüllung der Aufträge nicht von Bedeutung. Die meisten sind kürzer als eine Seite.
+   — Weder Schlüssel noch Beute sind in Objekten oder unter Möbeln verborgen.
+   — Es gibt keine Mini-Schalter. Verborgene Schalter besitzen stets normale Größe.
+   — Es gibt anspruchsvolle Sprünge sowie Kletteraktionen, diese führen aber nie zu Missionszielen. Man versuche, diagonal zu springen, um höherzukommen!
+   — Einzelne Fenster können geöffnet werden. Falls man nicht durch den Rahmen passen sollte, einfach die Leertaste festhalten und/oder vorlehnen.
+   — Man versuche, alles zu erklettern! Türen, Schilder, Lampen, Bäume, Fenster, Mauern, Balkone, einfach alles. Selbst Fackeln, wenn Du Feuer an den Füßen nicht scheust.
+   — Erst am Ende des Seilpfeil-Taues abspringen! (ich empfehle dringend eine Sicherung vor Verwendung von Seilpfeilen in engen oder stickigen Bereichen…)
+   — Diese Mission kann nicht geghostet werden (manche Schlüssel verschwinden nach Verwendung, einige Alarme sind geskriptet und manche Beute kann nur durch Zerstörung erreicht werden usw.) Aber dort, wo Zerstörungen erlaubt sind, sollte Standardghosten möglich sein.
+   — Für diese nichtlineare FM ist ein Markieren der besuchten Bereiche auf der Karte ratsam. Zwei Karten weisen Farbnyancen zur Darstellung von Höhenunterschieden und Innen-Außenbereichen auf. Sie befinden sich im intrface/miss20-Verzeichnis und, wenn sie Dir besser gefallen, benenne squarecolour.png in page001 und mainncolour.png in page002.um.
+
++===+
+TECHNISCHE ANMERKUNGEN
+ 
+   — Diese FM ist nur per FMSel, AngelLoader oder NewDarkLoader installierbar, nur diese stellen die fm.cfg ein.
+   — Diese FM basiert auf NewDark 1.26 und könnte abwärtskompatibel sein. Ich rate dennoch zum Aufrüsten auf 1.26, schließlich basieren dutzende anderer FMen auch darauf. Sie läuft auch unter 1.23, aber vielleicht habe ich nicht alle Inkompatiblitäten entdeckt.
+   — Diese FM sollte auch auf nicht allzu neuen PCs laufen. Die Framerate sollte je nach System sein, NewDark wurde nicht bis ans Ende ausgereizt. Ich stellte sicher, daß die Framerate NIEMALS unter 120fps fiel, daher sollten 60fps auch auf älteren Systemen reichen.
++===+
+
+BEKANNTE MACKEN
+
+— Die Anzahl der Taschendiebstähle stimmt nicht, sie liegt bei 14. Selbst nach Entfernen der ‘CulpableFor’-Links bei den Pfeilen in den Köchern stimmt die Anzahl nicht. Bei Abzug der Pfeile kommt man so auf 5 oder 7, je nachdem, was als Taschendiebstahl angesehen wird.
++===+
+
+HINWEIS
+Diese FM wurde zur Nutzung von Tastatur und Maus entworten. Sie sollte auch per Gamepad spielbar sein, aber wenn es beim Springen oder Klettern hapert, nicht vergessen, daß das für Ego-Shooter nicht ideal ist und ich das nicht absichtlich erschwert habe. Ich habe viel Zeit darauf verwendet, Objekte und Brushes klettermäßig zu optimieren, ohne die Mission unansehlich zu machen. In jedem Fall ist ein Quicksave vor einer riskanten Aktion mmer ratsam — wer kann schon die Funktion des Seilpfeiles exakt vorhersagen?
+=============
++===+
+Dank an ...
+   — Nick Dablin/nicked für sein "HYPERLINK "https://nickdablin.wordpress.com/2014/01/13/absolute-beginners-guide-to-creating-a-thief-2-mission-part-one/" Absolute Beginner’s Guide to Creating a Mission for Thief 2". Dies regte mich an, als blutiger DromEd-Anfänger zu beginnen. Ich wußte nicht einmal, was ein Brush ist. Selbst nach Stunden mit DromEd nutze ich sein Werk immer wieder, sei es für die Missionsziele oder das Packen des FM-Archivs!
+   —Beim Nutzen der Thief 1-Parameter für Thief 2 geschah es unzählige Male, daß ich mich fragte: "Wie bekam Melan das hin?" und schaute bei Disorientation nach.
+   —Jeder Autor des TDP Jubi-Wettbewerbs, der mich letztlich zur TTLG-Gemeinschaft brachte und nach vielen durchgespielten FMen letztlich aktiv werden ließ.
+   —20 Jahre gesammelte Kenntnisse in TTLG.com, Southquarter.com/dromed, Dromesday Book usw., im Besonderen Beiträge von Unna Oertdottir*, LarryG, Yandros und R Soul, deren unzählige Beiträge mir sehr weiterhalfen.
+   —Tannar für die Oganisation der Betatesterei, im Besonderen für shalebridgecradle.co.uk!
+   —R Soul für https://dromed.whoopdedo.org/dromed/maps, mit dessen vielen Tips ich meine bis dahin eher einfachen Karten verbessern konnte.
+   —Nameless Voice für NVScript.osm
+   —Purgator für seinen ‘HYPERLINK "https://www.youtube.com/watch?v=68YVN_PEvfg" Art of The Dark Project: The Paintings’-Film.
+   —Unna Oertdottir für Bullet DromEd 1.26.
+   —GayleSaver für seinen Beitrag HYPERLINK "https://www.ttlg.com/forums/showthread.php?t=15380&p=216287&viewfull=1"https://www.ttlg.com/forums/showthread.php?t=15380&p=216287&viewfull=1#post216287, durch den ich batchmäßig den physischen Typ meiner bush01/02/03 Objekte ändern und Objekte anpassen konnte. Lebensrettend!
+   —Jason/epithumia für die Erlaubnis, die FM auf thiefmissions.com einstellen zu können!
+	*Merci Unna für den wohl besten DromEd-Hinweis den ich je las, zum Vermindern des Cellcounts: "HYPERLINK "https://www.ttlg.com/forums/showthread.php?t=145894&p=2351673&viewfull=1"https://www.ttlg.com/forums/showthread.php?t=145894&p=2351673&viewfull=1#post2351673" So änderte ich einmal die Folge EINES Airbrushes von 1441 Terrain-Brushes, und schon sank die Anzahl von 9203 auf 8746 ... beinahe 5% weniger durch Wechsel von 1/1441 aller Brushes. Schätze diese Technik hat den Cellcount um ~5000 verringert. Ohne ihren Tip wären mir wohl die freien Zellen in diesre Mission ausgegangen..
+
+BETA-TESTER:
+-Aemanyl
+-Korthak
+-marbleman
+-Mat99
+-Psych0sis
+-skacky
+-Schlock
+-Squadafroinx
+-zajazd
+
+Alle Tester steuerten wertvolle Fehlerhinweise und Aregungen bei. Ohne dem würde der FM einiges fehlen. Um das zu würdigen, habe ich alle Veränderungen ab der ursprünglichen Betaversion in der Datei CHANGELOG.txt mit Hinweis auf die Tester festgehalten. Ohne Hinweis handelt es sich um eigene Anpassungen. Manche Anregungen habe ich auch nicht berücksichtigt, so könnten  bestehende Schwachstelle in meiner Verantwortung liegen.
+
++===+
+
+*SOLLTE ICH JEMANDEN NICHT AUFGEFÜHRT HABEN, BITTE MELDEN. ICH WILL THIEF 1/2 NICHT WÜRDIGEN OHNE DIE GEMEINSCHAFT ZU ERWÄHNEN.*
+—Zwar wurden viele Helfer aufgeführt, zuweilen exisieren aber tote Webaddressen, Autoren im Ruhestand oder unklare Herkunft (z.B. das SwordGuard3X-Modell "mguard.bin/cal"; es stammt aus Melans Disorientation, der es Rob Hicks' DromEd Deluxe entnahm, was wiederum einem von Daemonite modifizierten Modell entstammte, der Thief 1/Gold-Teile entwarf). Also, wenn irgendeine Erwähnung fehlt, sagt Bescheid.—
+Texturen (Quelle und/oder Autor):
+   —Dirty Money* (DrK, 2015. Original thanks: CGTextures, Purah & Team Calendra, Clive Barker's Undying, DrK, Team Cosas, Undule, Lady Rowena, Sliptip, Melan, DarkMax, Vigil, Zacharias).
+   —'Wood01.png' (AntiMatter_16 texture pack, taken from Reunification Campaign by Beltzer)
+   —'WdPlnks1.png' (Unclear origin, taken from Five Nights At Dayport by –Terra-)
+   —Non-indexed '2arch.png'; ‘doorface.tga’ (taken from Music of Sibel by skacky)
+   —‘churchinwall1.png’ (Unclear origin. Taken from Endless Rain by skacky. Original thanks: The Dark Mod, CGTextures, Purah & Team Calendra, Lady Rowena, Sliptip, Melan, DarkMax, Vigil, Zacharias.)
+   —skacky TDP20AC custom/legal texture pack
+   —Enhancement Pack 2.0 alpha (Nameless Voice et al., 2008), 'cab1-9.gif' converted to unpalletized .png; ‘pceil06.png’ ‘pceil04.png’; ‘gamble.gif’
+   —‘COLUMN1ABLU.png’; ‘COLUMN3BLU.png’ (taken from Rose Garden by Melan) 
+   —Davegh.com (David Guerra, 199x-2019.)  In compliance with TOC clause 8.2: THESE IMAGES can be used to to create free environments (levels) for commercial video games, that is, environments created without any profit in mind that uses as a platform an existing commercial video game. This is allowed as long as these environments are not going to be part of any commercial package and doesn't generate any direct or indirect benefits.
+  —‘Dark Paper 2/2b/3/3b/4.png’ (Vigil map background pack, 2006)
+
+*[Zwei Gründe für die Nutzung der Texturen aus Dirty Money: Erstens sind sie unindizierte Echtfraben-Grafiken. Zweitens sind viele Mirrors der Originaltexturen tot. Ich habe versucht, den Ursprung zurückzuverfolgen, siehe ‘texture source.txt’]
+(Veränderte) Multibrushes:
+—Disorientation (Melan, 2009) 90°-Treppen (Koordinaten X:170, Y:501, Z:12).
+	*Das dürfte der einzige Multibrush sein, der es in die Endversion geschafft hat. Unten stehen FMen, die mich architektonisch inspiriert haben.*
+Objekte/Meshes (siehe .bin für verwendete Texturen):
+
+   —‘RSwallspot.bin’ (R Soul, taken from Dirty Money FM)
+   —‘bookpile.bin’ (R Soul, taken from http://spirited-tech.com/thief/2018/08/08/pile-of-books-by-r-soul/)
+   —‘Portcull.bin’ (OttoJ55, taken from http://spirited-tech.com/thief/2015/11/18/long-portcullis-by-ottoj55/)
+   — ‘DalePlane.bin’; ‘shuttrz.bin’ (Dale, taken from http://spirited-tech.com/thief/2016/09/01/reskinable-square-by-dale/; http://spirited-tech.com/thief/2016/09/01/reskinable-rectangle-by-dale/)
+   —‘NVDrawer02.bin; NVTable01/2/3.bin; NVLargeOvalTabl.bin; NVRoundTable.bin; nvbookcabinet01.bin; nvbookcase01/2/3.bin; nvdresser01.bin; nvdrawer02.bin; NVWineShelf.bin; nvcornercabinet.bin; NVbureau.bin’ (Nameless Voice, taken from http://www.wearytaffer.com/NV/)
+   —‘MirrorCupids.bin’ (LarryG, taken from http://spirited-tech.com/thief/2018/05/25/decorated-wooden-mirror-by-larryg/)
+   —‘smugmap.bin’ (T2X, taken from http://spirited-tech.com/thief/2018/03/16/underground-map-by-t2x/)
+   —‘txpillar4.bin’ (Hammerite Imperium, taken from http://spirited-tech.com/thief/2018/06/08/reskinnable-pillars-by-hammerite-imperium/)
+   —‘newtabl1.bin’ (Targa? Taken from Heist Society FM)
+   —‘res_cube.bin’ (Yandros, taken from url linked here: HYPERLINK "https://www.ttlg.com/forums/showthread.php?t=136305&p=2077382&viewfull=1"https://www.ttlg.com/forums/showthread.php?t=136305&p=2077382&viewfull=1#post2077382)
+   —‘VicCab.bin’ (Nielsen74, taken from http://spirited-tech.com/thief/2018/05/24/victorian-cabinets-by-nielsen74/)
+   —‘quillfeather.bin’ (T2X, taken from http://spirited-tech.com/thief/2018/03/08/quill-feather-by-t2x/)
+   —‘DCart1.bin; DCart2.bin’ (Daraan, taken from http://spirited-tech.com/thief/2016/05/04/carts-and-wheelbarrows/)
+   —‘vindec4;5.gif’ (OttoJ55, green variant by pukey brunster? Taken from Morbid Curiosity FM)
+   —‘colher3.bin; faca3.bin; garf3.bin’ (Flecha das Sombras, taken from http://www.wearytaffer.com/warehouse/flatwares.zip)
+   —‘opguardsw.bin; herm.bin; expramsg.bin; expramg2.bin; expramb2.bin; unthglm.bin; thiefsw.bin; opguabow.bin; merchant.bin; expgar.bin; expbafes.bin; bowman2.bin; constgu.bin; thiefarr.bin’; ‘assxbf1.bin’ (DEDX/Daemonite, files taken from DEDX01 and Disorientation FM)
+   —Numerous Thief 1/2 unused stock objects.
+Geräusche/Schemata:
+—AMB_T1G.sch (aus Marblemans Cracks In The Glass, ursprünglich aus DEDX?)
+—Grantick.wav (Geräusch und Schema Aus Frobbers Keeper of The Prophecies)
+—Mbreath (von FrenchDecays, JarlFranks und Marblemans In & Out)
+—ORGAN1/2.wav; BLUECRY1/2/3.wav; EEES1/2/3.wav; m17fh.wav; MINES2.wav; (Child of Karras, Sound Enhancement Pack)
+—German ‘VGuard7’ renamed to ‘Guard2x’/’Hammer3’ (provided by zappen)
+—French Thief Gold ‘Guard2’/’Hammer3’ (provided by Korthak)
+Skripte:
+—NVScript.osm [v1.2.6, 551kb, dated 31/12/2017] (Nameless Voice, 2010/2017)
+Design-Inspiration (also FMen, die ich ausgiebig per DromEd inspizierte):
+ 	=FMs
+­—Melan - Disorientation; Rose Garden.
+—DrK - Dirty Money; Lost Among The Forsaken.
+—Schlock - Shadow Play.
+—Morrgan – Saints of Redmound; Returning A Favour.
+—gaëtane – Goblins/Korrigans
+—ObservingEye - Precarious Business.
+—bbb - A Short Night's Work; Augustine's Revenge.
+—skacky – Shadow Politics; Music of Sibel; Between These Dark Walls; Endless Rain; Sound of A Burrick In A Room.
+—Firemage – Whistling of the Gears.
+—Mark Smith/AsyluM et al. - Hidden Agenda; Heist Society.
+—pukey brunster – Morbid Curiosity.
+—Tannar/pukey brunster – The Scarlet Cascabel.
+ 	=OMs
+—Thief 1 – Thieves Guild
+—Thief 2 – First City Bank & Trust; Blackmail.
+Reale Architektur-Inspiration
+-Div. Fachwerkhäuser; Rouen, France.
+-Stadtmauern; Carcassonne, France.
+-Bosco Verticale; Milan, Italy.
+-Pallazo Vecchio; Florence, Italy.
+-Div.  insulae; Rome, Italy.
+-Hatfield House; Hertfordshire, England.
+-Southampton Medieval Merchant’s House; Hampshire, England.
+-The Guildhall; Leicester, England.
+-Gainsborough Old Hall; Lincolnshire, England.
+-Gentrified Notting Hill streets; London, England.
+-Cambridge City Hall; Massachusetts, United States.
+'ORIGINAL'/MODIFIZIERTE TEILE (soweit ich es gewähren kann*, nutzt sie auch in euren FMen!)
++OBJECTS/OBJ TEXTURES 
+   —Footlocker 'Footlockx.bin' (stock footlocker, but with parallel top metal bracing.)
+   —RedTower 'roof2317x.bin/rooftil2.gif'; PlanRoof30x15 'roof3015x.bin/roo2.gif'; (object roofs using Ramirez roof texture instead of Thief 2 red roof.)
+   —tablfanb.bin, sofchairb.bin, ramdeskb.bin; tabcabrown.bin; cax1-7.png; caw6.png (colorized brown variants of Fancy/Ramirez furniture)
+   —cushcowb.bin, cushchaib.bin; cusx1-3.png (colorized dark brown variant of Cushy chair set)
+   —armiore1.bin/armiore2.bin (colorized light and dark brown variants of T1 Armoire object)
+   —cabt2.bin (cabinet.bin using Thief 2 core_2 wdpanel and wdplanks textures)
+   —tablet2.bin (table.bin using Thief 2 core_2 wdplanks texture)
+   —side01/04/08/09/13/desat/sat.bin (bedsitab.bin using MxxCeil3/wgrain textures)
+   —plankwd2.bin (plank5/BoardUp with coreT1 wdplnk2.png texture)
+   —fanbedb.bin; fanbedgre.bin; fanbedgra.bin (blue FancyBed with colorized brown, green and grey sheets)
++TEXTURES
+   —ROOFx.png textures; (made by desaturating and colourizing unpalletized ROOF texture in GIMP)
+   —WdPlnks02.png/WdPlnks03.png (modified from WdPlnks1.png texture, see above)
+   —COLUMNBLU/COLUMN1BLU.png (dark blue colorized COLUMN1ABLU.png; COLUMN3BLU.png)
+   —wgraindesat.png; wgrainsat.png (Thief 1 wgrain02, without palette and with saturation)
+
++SFX/SCHEMA
+   —Guard2 'Guard2x/SG2x'; (schema and .wav files have been renamed so as to not conflict/overwrite stock Thief 2 GUARD2 voice. Originally from Thief Gold.)
+   —Tension11.wav; (tension1 renamed to be compatible with Thief 2 tension1.wav)
+   —METALHRTFAST.wav (increase tempo METALHRT.wav)
+   —HM3.sch (Hammer3 schema with archaic and religious dialogue removed to make it suitable for non-Hammerite AIs)
+
++MESH/MESH TEXTURES
+   —expconri.gif (expcongu.gif recoloured, face taken from exprammc.gif)
+   —arcswd03.png (arcswd01.gif w/ face from actorm.gif)
+   —arcswd04.png (arcswd01.gif w/ face from police02.gif)
+   —arcswd2b.png (ArcSWd02.gif w/ face from expwo3.gif)
+   —ArcSWd2a.png (ArcSWd02.gif w/ darkened face from actorw.gif)
+   —ArcSWd01b.png (ArcSwd01.gif w/ face from Archer02.gif)
+   —opguars2.png (opguarsw.gif w/ face from opguabow.gif)
+   —opguars3.png (opguarsw.gif w/ face from prison03.gif)
+   —opguars4.png (opguarsw.gif w/ face from police01.gif)
+   —thiefs2.png (thiefs01.gif w/ adjusted contrast, face from thiefwz1.gif)
+   —bowmanB.png (expbafes.gif w/ arrow and quiver from bowman2.gif)
+   —thiefT1.bin/png (thiefsw.gif w/ mirrored face from Thief 1 Assassin)
+   —swgard2b.gif (SwGard02.GIF w/ colour-adjusted beard from swgad01d.gif)
+   —expcong2.png (expcongu.gif w/ face from keepbw03.gif; reduced brightness in parts to simulate shadow)
+   —exprams3.png (exprams2.gif w/ face from archer02.gif)
+   
+
+	*die Meshes sind eigene Modifikationen von DEDX/Daemonite T1 Meshtexturen. Das entspricht den ‘DEDX Ausgabehinweisen’, S. 3 [meine unterstrichen kursiv]: 
+2.	DEDX is distributed free to users and is created for the benefit of the Thief 2 editing community and not for profit.  The user of the package is free to use, modify and distribute the contents of the package strictly on the condition that no monies or other remuneration are sought, other than sundry amounts to cover consumables (i.e. discs) and/or postage and packing.
+Dieses Dokument sagt außerdem:
+3.	DEDX consists of collected works from many contributors.  The contents of the package remains the copyright (if such exists) of individual contributors.  If a user distributes any part of the package in any form, he/she must credit and acknowledge the copyright of the contributor(s) in supplementary documentation.  It is not sufficient to credit and acknowledge DEDX (see point 4).  If a user modifies and distributes any part of the package in any form he/she must still credit the contributor of the unmodified part.
+4.	In addition to proper crediting and acknowledgement of contributors' work, if a user distributes any part of the package in any form, he/she must also acknowledge DEDX as the supplier of the parts.
+Wer diese Meshes nutzen will, muß DEDX und Daemonite erwähnen. Meine Person wahlfrei
+Betreffend modifizierte LGS-Teile fand ich in den EULA(s) nur etwas über ausführbare Dateien, nicht aber .BINs, .PCXs, .GIFs oder .WAVs files. Da GOG.com über NewDark 1.26 verteilt wird, hoffe ich, daß deren Nutzung in Ordnung geht.
++===+
+(HYPERLINK "https://www.ttlg.com/forums/showthread.php?t=149679&p=2418085&viewfull=1"https://www.ttlg.com/forums/showthread.php?t=149679&p=2418085&viewfull=1#post2418085)
+SOLLTEN ZUR FEHLERBEREINIGUNG .DMLs ERFORDERLICH SEIN, SO ERLAUBE ICH DAS AUSDRÜCKLICH.
+
++===+
+
+* Urheberrechtliche Information *
+
+Diese FM ist © 2019 von DirkBogan.
+
+Unkommerzielle Weitergabe auf jedem Weg gestattet. Gilt für die unveränderte Mission unter Namensnennung des Autors.
+
+Diese FM wurde nicht von den Looking Glass Studios oder Eidos Interactive erstellt noch wird sie von dort unterstützt.

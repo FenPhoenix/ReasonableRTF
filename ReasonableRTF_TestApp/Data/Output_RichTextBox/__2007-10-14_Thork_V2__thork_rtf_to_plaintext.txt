@@ -1,0 +1,66 @@
+THORK
+
+Author :  Terry “Ricebug” DeLaney
+Contact Info :  ricebug@cableone.net
+Homepage :  http://www.ricebug.net
+Release Date: October 2007
+
+Zork meets Thief. 
+
+A Thief 2 mission made possible only by the patient help of those on the TTLG editing forum.
+
+Difficulty Settings
+
+On Normal, you have helpful notes strung throughout the mission to help you find your way. There aren’t as many AI, there is less loot to hunt down, and extra powerups are available. 
+
+On Hard, you also have notes, but they are more non-specific. All AI are present and there is more loot to find.
+
+On Expert, you’re on your own, with the most loot to track down.
+
+Notes/Bugs
+
+The beta-testers didn’t report any crashes during testing, but this mission may not run on machines with mediocre graphics cards due to the large, open spaces.
+
+When shooting arrows at the giant in the reservoir, they may go “through” him. Aim for his stomach.
+
+Once you have the poison arrows, and you switch to a different arrow, use the “next weapon” key (typically, ‘+’) to cycle back to them.
+
+This mission is non-ghostable.
+
+Playing Information
+
+Game :  Thief 2
+Mission Title :  Thork
+Version :  2.0
+File Name :  miss21.mis
+Difficulty Settings :  Yes (AI, loot, powerups)
+Equipment Store :  No
+Map :  No
+Auto Map :  No
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support :  No
+Briefing : No
+Size : 28 Mb
+
+Difficulty Level Info: Normal, hard, Expert
+
+Quality Control
+Nightshifter, SirFreddieM, Ticky, Bikerdude, Undead Gamer, Ganac, jmmisenka
+
+Custom Objects
+Sluggs (Jeweled Egg), Nameless Voice
+
+Custom Textures
+Nameless Voice, Lemog, Nivellen
+Castle Wolfenstein (iD Software)
+Serious Sam—the Second Encounter (Croteam)
+
+Custom Sounds
+ACD Systems and one of those cheesy Halloween SFX CDs
+
+Copyright © October 2007 by Terry DeLaney
+
+Permission is granted to freely play and distribute this level.
+
+This level was not made and is not supported by Infocom, Looking Glass Studios or Eidos Interactive.

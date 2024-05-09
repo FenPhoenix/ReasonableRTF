@@ -1,0 +1,68 @@
+
+
+
+by Random_Taffer & Marbleman
+Thief II: The Metal Age 20th Anniversary Contest
+Version: 1.0
+Release Date: 03/24/2020
+++++
+Nestled between Auldale and Dayport lies the Silversmoke district. Aptly named for its curious mixture of nobility and industry, Silversmoke rests in the shadow of St. Ives, a towering Hammerite cathedral. Step into the shoes of Conall as he makes his way across the Thieves' highway to steal a priceless artifact from the reliquary.
+++++
+Happy 20 Years!
+Briefing video included! If it doesn't work, feel free to open b17 from movies in the zipfile and watch it that way, or stream it on youtube here:
+https://youtu.be/h2wfBymblU8
+IMPORTANT PLAYING NOTES:
+THIS FAN MISSION REQUIRES THIEF 2 v1.27 OR HIGHER
+Enable New Mantle!
+To do this, find cam_ext.cfg in your Thief directory and open it in notepad. Find the line “;new mantle” and remove the “;”.
+DON'T BOTHER TRYING TO GET DOWN TO THE STREETS!
+But we won't stop you if you survive the fall. There is no street ban objective like in Life of the Party.
+This is a Thieves' Highway Mission and takes place almost entirely on the rooftops and upper floors of buildings. Where it is possible to get down to the ground will be very clear. While it is possible to get down to the street level and run around, there is nothing to loot or do there and we can't guarantee that you can get back up again. If you've got 2 rope arrows, you should be able to get back up using the window box above the canal north of Fort Romero. Due to engine limitations and the sheer size of this mission, we could not flesh it out more on the ground level, so you won't be missing anything by sticking to the roof. 
+Don't worry, there is still a ton to do and see!
+Known Bugs:
+Due to the massive size of this mission and some long views, there are a few places that may eat frames, but we've tried to mitigate this.
+It is possible to get stuck if you try and mantle over some of the graveyard walls- usually when you're mantling into a corner.
+If you press against the door to try and get out of the mausoleum after pulling the rope in the graveyard, it can sometimes not open all the way, trapping Conall to a cruel eternal fate!
+
+Credits:
+The Build Team:
+This mission was created by Random_Taffer & Marbleman. The map was created by Tannar and much of the fancy scripting was done by Yandros.
+Testers:
+DirkBogan, Melan, Pukey Brunster, Skacky, Tannar,  Zoro 
+
+Custom Content:
+Spoilers ahead, so you may want to play first
+Note: All custom content (except for voice lines) was made using stock assets as per contest rules.
+Objects, Meshes, and Textures:
+DrKubiac - Cleaned up Thief Gold sounds
+Firemage - Hand Crossbow Texture
+Zoro - Mesh textures
+Squadafroin - reskinnable bowl, mesh textures
+Yandros - Cleaned up mech banner, blood-stained sawblade, rolled up map
+Melan, Skacky, Vegetables - Modified Thief Gold textures
+Schwaa - Trickster model from Thief 1
+Random_Taffer - Recolored stock textures
+Artwork:
+Whaleoil1 - Sketches of Father Ira and Conall used in Briefing video
+Tannar - Pilgrimmage & Silversmoke maps
+Technical Assistance:
+DirkBogan, GORT, Yandros
+Audio:
+MasterThief3 - Conall, Demon, Brother Gurus
+Goldwell - Lord Pembrooke, Hammerite Guard
+Marbleman - Male Noble at Mage Party
+Yandros - Hammerite Novice
+Pukey Brunster - Female Noble at Mage Party
+Random_Taffer - Guard at Pembrooke's Estate
+Cardia1 - Los Cabrones Band Member
+
+
+This mission is © 2020 by Random_Taffer & Marbleman.
+It is not supported by Eidos or Looking Glass (R.I.P.)
+Should you need technical or gameplay assistance, search for a relevant thread at the TTLG Thief FM Forum: http://www.ttlg.com/forums/forumdisplay.php?forumid=100
+
+
+
+
+
+

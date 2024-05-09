@@ -44,14 +44,17 @@ sealed partial class MainForm
         ConvertOnlyWithCustom_Small_Button = new Button();
         ConvertOneButton = new Button();
         WriteOneButton = new Button();
+        DataDirResetButton = new Button();
+        groupBox1 = new GroupBox();
         ConvertAndWriteToDiskGroupBox.SuspendLayout();
         ConvertOnly_Full_GroupBox.SuspendLayout();
         ConverOnly_Small_GroupBox.SuspendLayout();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // Test1Button
         // 
-        Test1Button.Location = new Point(392, 192);
+        Test1Button.Location = new Point(392, 232);
         Test1Button.Name = "Test1Button";
         Test1Button.Size = new Size(91, 27);
         Test1Button.TabIndex = 0;
@@ -61,14 +64,14 @@ sealed partial class MainForm
         // 
         // DataDirTextBox
         // 
-        DataDirTextBox.Location = new Point(16, 16);
+        DataDirTextBox.Location = new Point(14, 25);
         DataDirTextBox.Name = "DataDirTextBox";
         DataDirTextBox.Size = new Size(392, 23);
         DataDirTextBox.TabIndex = 1;
         // 
         // DataDirBrowseButton
         // 
-        DataDirBrowseButton.Location = new Point(408, 15);
+        DataDirBrowseButton.Location = new Point(406, 24);
         DataDirBrowseButton.Name = "DataDirBrowseButton";
         DataDirBrowseButton.Size = new Size(75, 25);
         DataDirBrowseButton.TabIndex = 2;
@@ -80,7 +83,7 @@ sealed partial class MainForm
         // 
         ConvertAndWriteToDiskGroupBox.Controls.Add(ConvertAndWriteWithRichTextBoxButton);
         ConvertAndWriteToDiskGroupBox.Controls.Add(ConvertAndWriteWithCustomButton);
-        ConvertAndWriteToDiskGroupBox.Location = new Point(16, 56);
+        ConvertAndWriteToDiskGroupBox.Location = new Point(16, 96);
         ConvertAndWriteToDiskGroupBox.Margin = new Padding(4, 3, 4, 3);
         ConvertAndWriteToDiskGroupBox.Name = "ConvertAndWriteToDiskGroupBox";
         ConvertAndWriteToDiskGroupBox.Padding = new Padding(4, 3, 4, 3);
@@ -116,7 +119,7 @@ sealed partial class MainForm
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithRichTextBoxButton);
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithCustom20XButton);
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithCustomButton);
-        ConvertOnly_Full_GroupBox.Location = new Point(16, 136);
+        ConvertOnly_Full_GroupBox.Location = new Point(16, 176);
         ConvertOnly_Full_GroupBox.Margin = new Padding(4, 3, 4, 3);
         ConvertOnly_Full_GroupBox.Name = "ConvertOnly_Full_GroupBox";
         ConvertOnly_Full_GroupBox.Padding = new Padding(4, 3, 4, 3);
@@ -163,7 +166,7 @@ sealed partial class MainForm
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithRichTextBox_Small_Button);
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithCustom20X_Small_Button);
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithCustom_Small_Button);
-        ConverOnly_Small_GroupBox.Location = new Point(16, 224);
+        ConverOnly_Small_GroupBox.Location = new Point(16, 264);
         ConverOnly_Small_GroupBox.Margin = new Padding(4, 3, 4, 3);
         ConverOnly_Small_GroupBox.Name = "ConverOnly_Small_GroupBox";
         ConverOnly_Small_GroupBox.Padding = new Padding(4, 3, 4, 3);
@@ -207,7 +210,7 @@ sealed partial class MainForm
         // 
         // ConvertOneButton
         // 
-        ConvertOneButton.Location = new Point(392, 64);
+        ConvertOneButton.Location = new Point(392, 104);
         ConvertOneButton.Name = "ConvertOneButton";
         ConvertOneButton.Size = new Size(91, 27);
         ConvertOneButton.TabIndex = 6;
@@ -217,7 +220,7 @@ sealed partial class MainForm
         // 
         // WriteOneButton
         // 
-        WriteOneButton.Location = new Point(392, 96);
+        WriteOneButton.Location = new Point(392, 136);
         WriteOneButton.Name = "WriteOneButton";
         WriteOneButton.Size = new Size(91, 27);
         WriteOneButton.TabIndex = 6;
@@ -225,30 +228,51 @@ sealed partial class MainForm
         WriteOneButton.UseVisualStyleBackColor = true;
         WriteOneButton.Click += WriteOneButton_Click;
         // 
+        // DataDirResetButton
+        // 
+        DataDirResetButton.Location = new Point(480, 24);
+        DataDirResetButton.Name = "DataDirResetButton";
+        DataDirResetButton.Size = new Size(99, 25);
+        DataDirResetButton.TabIndex = 8;
+        DataDirResetButton.Text = "Reset to default";
+        DataDirResetButton.UseVisualStyleBackColor = true;
+        DataDirResetButton.Click += DataDirResetButton_Click;
+        // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(DataDirResetButton);
+        groupBox1.Controls.Add(DataDirTextBox);
+        groupBox1.Controls.Add(DataDirBrowseButton);
+        groupBox1.Location = new Point(16, 16);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(592, 64);
+        groupBox1.TabIndex = 9;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Test data base directory";
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(500, 313);
+        ClientSize = new Size(625, 403);
+        Controls.Add(groupBox1);
         Controls.Add(WriteOneButton);
         Controls.Add(ConvertOneButton);
         Controls.Add(ConverOnly_Small_GroupBox);
         Controls.Add(ConvertOnly_Full_GroupBox);
         Controls.Add(ConvertAndWriteToDiskGroupBox);
-        Controls.Add(DataDirBrowseButton);
-        Controls.Add(DataDirTextBox);
         Controls.Add(Test1Button);
         FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;
         Name = "MainForm";
         Text = "ReasonableRTF Test App";
         FormClosing += MainForm_FormClosing;
-        Load += MainForm_Load;
         ConvertAndWriteToDiskGroupBox.ResumeLayout(false);
         ConvertOnly_Full_GroupBox.ResumeLayout(false);
         ConverOnly_Small_GroupBox.ResumeLayout(false);
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
@@ -269,4 +293,6 @@ sealed partial class MainForm
     private Button ConvertOnlyWithCustom_Small_Button;
     private Button ConvertOneButton;
     private Button WriteOneButton;
+    private Button DataDirResetButton;
+    private GroupBox groupBox1;
 }

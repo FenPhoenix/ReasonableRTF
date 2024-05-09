@@ -1,0 +1,104 @@
+===================================================================
+20 August 2017
+===================================================================
+Title		: Vault Chronicles: Scorched Earth
+Filename	: miss20.mis
+Author		: Cavalorn (Csongor Hős)
+Contact info	: cavalorn88@gmail.com
+	Date of release	: 20 August, 2017
+Version		: 1.0
+
+
+            ---------------------------------------------------------------------------------------------------
+Vorgeschichte der Mission "Gewölbechroniken - Verbrannte Erde": 
+
+Zehn Jahre sind verstrichen, seit Garrett die letzte Glyphe aktivierte und Gamall bezwang. Die Hüter-Glyphen wurden vernichtet und die Welt sollte einen schrecklichen Preis bezahlen. Kurz nach diesem Ereignis kam eine zweite Heimsuchung, doppelt so schlimm wie die vorige, übers Land. Niemand weiß, was wirklich geschah. Nur eines war gewiß: Es gab keine Glyphen mehr zum Schutz der Menschheit. Die zweite Heimsuchung zerschmetterte die Welt und zerstörte die Stadt fast gänzlich. Diese Katastrophe zwang die Menschen, sich eine Zuflucht in unterirdischen Gewölben zu suchen. So entstanden im Laufe der Jahre hunderte von Gewölben, und jede Gruppe hatte ihre eigenen.
+
+Der Orden der Hüter wurde aufgelöst und viele ihrer ehemaligen Angehörigen leiten heute einige Gewölbe. Sie tun, was in ihrer Macht steht, um die Gewölbe und deren Bewohner zu schützen. 
+
+Die Mechanisten, die sich nun Metall-Bruderschaft nennen, sind aus der Asche auferstanden und mindestens so mächtig wie eh und je. Niemand ahnt, was sie vorhaben, doch das ist gewiß nichts Gutes. Man munkelt, daß sie in ihren Gewölben an einer Verschwörung arbeiten und einen noch finstereren Plan aushecken. 
+
+Der Orden des Hammers, noch immer dem Meisterschmied verbunden, ist weiterhin über die Gewölbe und das Land hinaus anzutreffen. Er hat sich der Erhaltung des Friedens und der Ordnung verschrieben. Zu seinem Glück blieb Cragscleft von der Heimsuchung weitestgehend unversehrt, so daß in den Gängen und aus den Zellen weiterhin das Jammern der unglücklichen Insassen hallt. 
+
+Über die Heiden weiß man wenig, denn sie weigern sich, in Gewölben zu leben. Stets waren die Wälder ihre Heimat, und das ist noch immer so. Nur hat die Zahl der Wälder seit der Katastrophe abgenommen.
+
+Unser Meisterdieb Garrett dagegen fristet noch immer sein altes Dasein. Sein Credo ist bekannt: Einmal Dieb, immer Dieb. Seine andere Indentität existiert auch weiterhin, sobald die Welt ihn braucht, taucht er wieder aus den Schatten auf.  Doch bis dahin verbringt er ein sicheres und einfaches Leben in den schützenden Mauern von Gewölbe 10 ...
+
+=====================================================================================
+* Play Information *
+
+Game			Thief 2:The Metal Age
+Level Name		Vault Chronicles: Scorched Earth
+File name		miss20.mis
+Difficulty Settings	Normal, Hard, Expert 
+Equipment store		No
+Map			No
+Automap		No
+New graphics		Yes
+New sounds		Yes
+EAX Support		No
+Multi language support	Yes (French, German, Russian)
+	Briefing			No
+
+
+
+=====================================================================================
+
+*  Construction  *
+
+Base:			Fallout 3 and New Vegas
+Map Size:		medium
+Build Time:		3 weeks
+
+=======================================================================================
+
+						Beta Testers:
+
+	Fortuni
+	Nightwalker
+	Tannar
+
+							Proofreading
+	Nightwalker and Bernie
+							Translators
+
+	Azaran
+	MoroseTroll
+	zappen
+							Textures Credits:
+
+	Sliptip
+	Vigil
+	Wille
+
+							Music Credits:
+
+						Fallout 3 main theme – composed by Inon Zur
+
+							
+							Many thanks to:
+
+	My betatesters for their competence, their help and their patience
+	Members of TTLG The Editors' Guild who helped me with technical issues: Brethren, Daraan, GORT, john9818a, marbleman, nightshifter, LarryG, R Soul, Stringgod2, Unna Oertdottir, Yandros
+	My translators:
+	Zappenduster (DE)
+	Looking Glass Studios for making Thief
+	TTLG
+	Shalebridge Cradle
+	Bethesda Softworks for making Fallout 3
+	Obsidian Entertainment for making Fallout: New Vegas
+	Inon Zur for composing the fantastic Fallout 3 main theme
+	The whole Thief community
+	You for playing my mission. :)
+
+						
+
+
+						Copyright Information *
+
+
+•	This level was made by Csongor Hős (Cavalorn) in 2017
+
+•	Distribution of this level is allowed as long as the archive and this file are kept intact.
+
+•	This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

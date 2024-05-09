@@ -1,0 +1,113 @@
+   
+Автор: Beltzer
+Название: «Сестра»
+Контакт: beltzer2@hotmail.com
+Дата выхода: 31-го октября 2019-го.
+Версия: 1.1
+Описание
+Гарретт получил письмо от своего старого друга Тимана.
+Кое-что в том письме стало для Гарретта громом посреди ясного неба и заставило крепко задуматься.
+А задуматься было над чем: Тиман утверждал, что у Гарретта есть сестра Уля.
+Возможно ли такое? Надо бы проверить.
+
+Игровая информация
+Игра : Thief 2: The Metal Age v1.27
+Настройки сложности : Да
+Карта/автокарта : Нет/Нет
+Многоязычность: Да.
+
+Глюки
+Игра может вылететь при попытке обчистить отдельный ИИ.
+Советую сохраняться перед этим.
+
+Хотелось бы знать.
+
+Мои предыдущие работы
+Кампания Reunification
+The Abandoned Castle
+The Favour
+Кампания Mortuos Liber
+Загрузка
+Тестировалась с AngelLoader
+
+Благодарности
+Голоса:
+antimatter_16
+Supremcee
+
+Бета-тестеры:
+Cardia
+Gloria Creep
+griswold
+john9818a
+Mat99
+Supremcee
+Unna Oertdottir
+zajazd
+
+Тексты:
+urgrue - выверка.
+zappenduster – перевод на немецкий. 
+Stefan_Key – перевод на французский. 
+MoroseTroll  – перевод на русский. 
+
+Самодельные объекты:
+Asgaroth
+Blackthief
+cgtextures.com
+Christine
+Dale
+Daraan
+DarkShadow
+Dhin
+Elvis
+Eshaktaar
+Firemage
+Gamophyte
+Greenhorn
+John Denison
+LarryG
+Nameless Voice
+nicked
+Nielsen74
+pdackel
+PinkDot
+RSoul
+T2X
+TDBonko
+Team Rose Cottage
+Team Calendra
+Team Cosas
+Schwaa
+Sluggs
+Soul Tear
+Vigil
+
+Сетки и шкуры:
+Meshes
+Eshaktaar
+LarryG
+Ottoj55
+Purgator
+Team T2x
+
+Текстуры:
+Necrobob
+Max
+
+Самодельные скрипты:
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Звуки:
+DarioD
+Tabias “Spadey” Scot
+Dromed Deluxe
+
+А ещё, само собой, спасибо моей невесте Сандре за её моральную поддержку,
+и смирение с моей загруженностью целыми сутками.
+Авторское право
+Эта миссия © Beltzer
+Распространение этого уровня разрешено любым способом и в любой форме, так, как сочтёте нужным. Однако при этом вы должны оставить саму миссию нетронутой и не забыть указать моё авторство.
+Этот уровень создан не Looking Glass Studios и не поддерживается ею.

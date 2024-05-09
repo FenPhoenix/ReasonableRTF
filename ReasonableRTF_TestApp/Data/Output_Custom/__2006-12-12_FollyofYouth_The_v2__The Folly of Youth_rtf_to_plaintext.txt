@@ -1,0 +1,324 @@
+(DEUTSCH   BITTE   RUNTERSCROLLEN)				
+		
+			
+				
+
+				File Name	:	The Folly of Youth.zip 
+				Author		:	The_Dude (Phil Shepherd) 
+				Contact info	:	I’ll Be Hanging Around the Forums 
+				Date of release	:	January 21st 2007
+				Version		:	2.0
+	
+				=============================================================
+
+					Story
+
+			This FM is set when Garrett was a little younger. The Hammers are just a disparate group of 
+			loosely interlinked  religious units and are not the all pervasive force they will become. 
+
+			"Garrett awakes his head thumping & his throat drier than a Burrick's armpit. As the mists clear
+			& the hammering subsides to a gentle drum, Garrett recalls attending the Randy Burrick the 
+			previous evening and meeting a distracting young ingenue called Charity. Under her doe-eyed
+			gaze (and the effects of too many pints of Blackjack Ale) he became unusually loquacious and
+			perilously ingenuous, bragging of glories past and future. The evening ended with a return to
+			his current lodgings to show her the tools of the trade and a rather drunken coupling ensued. 
+
+			The dawn reveals not only that Charity is long gone (leaving a short note thanking him for the
+			previous evening) but also that his equipment is missing (the note also apologises for this & 
+			promises its speedy return). 
+
+			Two days later there is still no sign of Charity. Later in the Crayman's Crotch Garrett comes across
+			Cutty who has some disturbing information. Last night he overheard two local Hammers discussing
+			a recent attempt to steal a sacred icon from their church. The local Bluecoats have not been informed
+			so it looks like the Hammers have dealt out their own form of justice. Garrett vaguely remembers 
+			Charity mentioning a valuable Hammer Icon which is currently stored at the local church St Catherines.
+
+			Time for Garrett to pay a visit to find out what happened to Charity. This is not going to be easy. St 
+			Catherines sits on the top of a hill overlooking the town. By all accounts it is well guarded and the 
+			Hammers will be on high alert after the recent attempted break in. Garrett is also missing the normal 
+			tools of his trade. 
+
+
+				=============================================================
+
+
+				Play Information:
+
+				Game			 : Thief 2: The Metal Age
+				Level Name 		 : The Folly of Youth
+				File name 		 : miss20.mis, Serendipity.gam
+				Difficulty Settings	 : Make, Your, Choice
+				Equipment store		 : No
+				Map/Automap		 : No
+				New graphics		 : Yes
+				New sounds		 : Yes
+				New conversations	 : No
+				New models		 : Yes (Dedx + assorted others)
+				EAX Support		 : No
+				Multilanguage support	 : Nein/ Non.
+				Briefing			 : Do you often suffer short term memory loss?
+				Objectives		 : See in-game.
+
+					Please note that there are many important clues contained within the readables so read them! Who knows you
+					might enjoy them as well. Don't throw things away. If they go in the inventory then hang on to them as they 
+					may be useful.
+
+
+				=============================================================
+
+
+				Construction:
+
+				Base		: From scratch
+				Build Time	: I have no life. Dromed has sucked it out of me.
+				Map Size	: Small.
+
+
+
+				=============================================================
+
+
+			Loading Information:
+
+
+			Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file,
+			but put the whole "The Folly of Youth.zip" file into your Thief 2 mission folder 
+			then in Darkloader setup, point to thisfolder, and the mission should show up 
+			in the Darkloader main screen.
+
+
+				=============================================================
+
+
+				Credits:
+
+			Thanks to everyone who helped create the Thief universe and keeps it alive today. You all 
+			had a hand in creating this mission . Thanks especially to Komag for his tutorial (without
+			which this mission would not exist – so you can blame him!) and to all those who answered
+			 my endless questions on the forums, you know who you are….
+
+			Many thanks to my beta testers. To Katy (kfort) for getting things rollings and making it playable.
+			To sluggs for breaking everything and Nightwalker and ffox for bringing some sanity to 
+			the project. 
+
+			Particular thanks to sluggs and Nameless Voice for making custom models for me. To Flecha 
+			de Sombra, Nielson74, Glen, Nameless Voice, RSoul, schwaa, Targa, The Watcher, Vigil, Von
+			Eins, Yandros and everyone who contributed to Dedx for allowing me the use of custom objects. To
+			Nieson74 for teaching me basic Anim8or. To Redface for the title page picture. To Nameless
+			Voice for his scripts. To Don and Lizanneh for the voice acting (sorry I didn't use them in the
+			end!). To Rob Hicks for Dedx. And everyone else I have forgotten (hopefully no one!).  
+
+
+				=============================================================
+
+
+				Copyright Information:
+
+			This level is ©2004 by its author. Anyone who distributes this level without my permission
+			will be shot. I will hunt you down like the dog you are.
+
+			This level was not made by and is not supported by Looking Glass Studios or Eidos
+			Interactive.
+
+
+				=============================================================
+
+		=============================================================
+
+D E U T S C H
+
+		
+Übersetzung von Dinksmallwood, (Beschwerden bitte an meine Sekretärin )
+Stimmen von Dinksmallwood + Ehemann
+
+Hinweis: 
+Wenige Worte, Textstücke und Namen habe ich nicht mitübersetzt, da dann der Witz komplett verloren gegangen wäre, ich aber auch kein deutsches Gegenstück finden konnte.
+
+
+
+		
+				
+
+Dateiname		:	Die Torheit der Jugend 
+Author			:	The_Dude (Phil Shepherd) 
+Kontakt		:	Ich hänge oft in den ttlg.com-Foren rum 
+Veröffentlichung	:	January 21st 2007
+Version		:	1.0
+	
+				=============================================================
+Geschichte:
+
+Diese FM spielt, als Garrett noch ein wenig jünger war. Die Hammeriten sind gerade erst locker miteinander verbundene Grüppchen und noch nicht die überall gegenwärtige Macht, die sie bald sein werden. 
+
+Garrett erwacht mit hämmernden Kopfschmerzen und einem Hals, trockener als die Achselhöhle eines Burricks. Als sich seine Benommenheit etwas gegeben hat und das Hämmern in seinem Schädel zu einem milden Wabern abgeklungen ist, erinnert sich Garrett langsam wieder, wie er am vorigen Abend im 'Rattigen Burrick' einen netten Abend verbringen wollte und dort eine betörend junge Unschuld namens Charity traf. Unter dem Einfluß ihres rehäugigen Blickes (und von viel zu vielen Knüppel-Bieren) wurde er ungewohnt redselig und begann, gefährlich freimütig mit seinen Taten zu prahlen. Der Abend endete damit, daß sie beide zurück in seine Unterkunft gingen und er ihr stolz seine Diebesausrüstung vorführte. Danach landeten sie beide ziemlich betrunken im Bett. 
+Bei Sonnenaufgang war nicht nur Charity schon lange verschwunden (sie hatte eine kurze Nachricht zurückgelassen, in der sie Garrett für den letzten Abend dankte), sondern auch seine gesamte Ausrüstung (in der Nachricht stand auch, daß Charity sie schnellstmöglich wieder zurückbringen würde).
+
+Zwei Tage später und immer noch kein Lebenszeichen von Charity. Später im 'Scherenbiest's Schritt' trifft Garrett auf Cutty, der beunruhigende Informationen für ihn hat. Letzte Nacht hatte Cutty zwei örtliche Hammeriten belauscht. Sie redeten darüber, daß kürzlich versucht wurde, ein heiliges Relikt aus ihrer Kirche zu stehlen. Die Blauröcke hier im Ort wurden darüber nicht informiert, also haben die Hammeriten den Dieb wohl selbst geschnappt und 'bestraft'.
+Während ihm Cutty all dies erzählt, erinnert sich Garrett vage daran, daß Charity irgendetwas von einem wertvollen Hammeriten-Relikt erzählt hat, das sich momentan in der St. Catherine Kirche befindet.
+Zeit für Garrett, dieser Kirche mal einen Besuch abzustatten und herauszufinden, was mit Charity passiert ist. Das wird nicht leicht werden. St. Catherine steht ganz oben auf einem Hügel, von dem man die ganze Stadt überblicken kann. Nach dem was man hört, ist es sehr gut bewacht und die Hammeriten werden nach dem kürzlich erfolgten Einbruchversuch ohnehin schon hoch alarmiert sein. Und dann fehlt Garrett auch noch seine Ausrüstung.
+ 
+
+				=============================================================
+
+Spiel Informationen:
+
+Spiel			: 	Thief 2
+Levelname		:	Die Torheit der Jugend
+Dateiname		:	miss20.mis
+
+Schwierigkeitsgrad	:	Triff, Deine, Wahl
+Ausrüstungsshop	:	Nein
+Karte/Auto-Karte	:	Nein
+Neue Grafiken		:	Ja
+Neue Sounds		:	Ja
+Neue Modelle		:	Ja (Dedx + andere)
+EAX-Unterstützung	:	Nein
+Versch. Sprachen	: 	Ja (englisch + deutsch)
+
+Briefing		:	Leidest Du öfter mal unter Kurzzeitgedächtnis-Verlust?
+
+Ziele			:	Siehst Du im Spiel...
+
+
+Hinweis:
+
+Die Schriftstücke im Spiel enthalten viele nützliche Tips und Hinweise. Ich empfehle daher, sie auch zu lesen. Wer weiß, vielleicht gefallen sie dem einen oder anderen Spieler ja sogar. 
+Und bitte nichts wegschmeißen, das Du im Spiel findest. Wenn es ins Inventar aufgenommen wird, könnte es für später nochmal nützlich sein.
+
+
+				=============================================================
+
+Erstellung:
+
+Basis			: 	von Grund auf neu
+Bauzeit			: 	Ich habe kein Leben, Dromed hat's mir ausgesaugt
+
+Map-Größe		: 	Klein (Übersetzerin würde eher sagen: Medium)
+
+	
+=============================================================
+
+Installation:
+		
+Darkloaderkompatibel
+
+
+				=============================================================
+
+Credits:
+		
+Danke an alle, die geholfen haben, das Thief-Universum zu schaffen und es heute noch am Leben erhalten.  Ihr alle habt dazu beigetragen, daß diese Mission entstehen konnte. Besonderen Dank an Komag für sein Tutorial (ohne das diese Mission gar nicht existieren würde - also kannst Du ihm die Schuld geben!) und an alle, die meine endlosen Fragen im Forum beantwortet haben - ihr wißt, wer ihr seid...
+
+Vielen Dank an meine Betatester:
+-	An Katy (kfort), die alles zum Laufen gebracht und spielbar gemacht hat
+-	An Sluggs der alles gelöst hat (oder 'durchbrochen/unterbrochen', das geht aus dem Satz nicht eindeutig hervor - Anm. d. Übersetzung) und an Nightwalker und ffox dafür, daß sie etwas gesunden Menschenverstand in dieses Projekt gebracht haben
+-	Besonderer Dank an Sluggs und Nameless Voice für das Erstellen von Custom Models für mich
+-	An Flecha de Sombra, Nielson74, Glen, Nameless Voice, RSoul, schwaa, Targa, The Watcher, Vigil, VonEins, Yandros und jedem, der an Dedx mitgearbeitet hat, weil ich deren Custom Objects benutzen durfte
+-	An Nielson74, weil er mir die Grundkenntnisse von Anim8or beigebracht hat
+-	An Redface für das Startseiten-Bild
+-	An Nameless Voice für seine Scripts
+-	An Don und Lizanneh für ihre Stimmaufnahmen (sorry, ich habe sie letztendlich leider doch nicht benutzt)
+-	An Rob Hicks für Dedx
+-	Und an alle, die ich hier vergessen habe (hoffentlich niemand!)
+
+
+
+				=============================================================
+
+Copyright:
+
+Diese Mission ist ©2006 von The_Dude. Jeder, der diese Mission ohne Erlaubnis weitergibt, wird erschossen. Ich werde Dich elenden Köter zur Strecke bringen.
+
+Dieses Level wurde nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch von 
+diesen nicht unterstützt.
+
+		
+
+				=============================================================
+
+
+
+
+Nome File	:	The Folly of Youth.zip 
+		Autore		:	The_Dude (Phil Shepherd) 
+		E-mail		:	Sarò qui in giro sui forum 
+		Data di rilascio	:	January 21st 2007
+		Versione	:	1.0
+	
+				=============================================================
+
+		Storia
+
+Questa FM è ambientata quando Garrett era un po’ più giovane. Gli Hammeriti erano solo un piccolo gruppo di unità religiose vagamente interconnesse e non erano ancora la forza pervasiva che sarebbero 
+poi diventati. 
+
+"Garrett si sveglia con la testa dolorante e la gola più secca della pelle di un Burrick. Man mano che la nebbia svanice e il dolore alla testa passa da un continuo martellare ad un lieve battere, si ricorda di essere  stato al Randy Burrick la sera prima ed aver incontrato una notevole ed innocente giovane chiamata Charity.
+Sotto il suo sguardo ammirato (e sotto gli effetti di troppe pinte di Birra Blackjack), è diventato insolitamente loquace e pericolosamente ingenuo, vantandosi di glorie passate e future. La sera è finita con il ritorno alla sua attuale abitazione per mostrarle i propri strumenti di lavoro, a cui è seguito un accoppiarsi piuttosto ubriaco. L’alba ha rivelato non solo che Charity se n’è da tempo andata (lasciando solo una breve nota in cui ringrazia per la piacevole serata) ma anche che la tua attrezzatura è sparita (la nota si scusa per questo e dice come ti verrà presto restituita). 
+Due giorni dopo non c’è ancora nessun segno di Charity. Più tardi, al Crayman's Crotch Garrett trova Cutty con informazioni abbastanza preoccupanti . La scorsa notte ha sentito due Hammeriti locali discutere di un recente tentativo di rubare un’icona sacra dalla loro chiesa. Le Giacche Blu locali non sono state informate, quindi sembra che gli Hammeriti abbiano sistemato le cose secondo il loro modo di intendere la giustizia. Garrett ricorda vagamente Charity menzionare un’importante Icona Hammerita che è attualmente conservata nella locale chiesa di St Catherines.
+È giunto il momento per Garrett di far visita in quella chiesa per scoprire cosa sia accaduto a Charity. Questo non sarà facile, St. Catherines si trova sulla cima di una collina che sovrasta la zona. Da quello che sai è ben sorvegliata e gli Hammeriti saranno in piena allerta dopo il recente tentativo d’irruzione. Garrett inoltre non dispone della sua solita attrezzatura. 
+
+
+				=============================================================
+
+Informazioni di Gioco:
+
+Gioco			 : Thief 2: The Metal Age
+		Nome Livello 		 : The Folly of Youth
+		Nome File		 : miss20.mis, Serendipity.gam
+		Livelli di Difficoltà	 : Fate la vostra scelta
+		Acquisto Attrezzatura	 : No
+		Mappa/Automappa	 : No
+		Nuova Grafica		 : Si
+		Nuovo Sonoro		 : Si
+		Nuove conversazioni	 : No
+		Nuovi Modelli		 : Si (Dedx + altri assortiti)
+		Supporto EAX		 : No
+		Supporto multilingua	 : Si, inglese, tedesco italiano.
+		Briefing			 : Soffrite di perdite di memoria a breve termine?
+		Obiettivi			 : Vedi in-game.
+
+Vi prego di notare come vi siano molti importanti indizi contenuti all’interno dei testi, quindi leggeteli attentamente! Chissà, magari vi piaceranno pure. Non gettate via gli oggetti. Se sono nell’inventario teneteveli stretti, perché saranno utili.
+
+
+				=============================================================
+
+
+Costruzione:
+
+Base			: dal niente
+Tempo di costruzione	: Non ho una vita. Dromed me l’ha completamente risucchiata.
+		Dimensione mappa	: Piccola.
+
+
+
+=============================================================
+
+Informazioni di caricamento:
+
+
+Avviare dal Darkloader. Lasciate il file COMPATTATO – NON SCOMPATTARE IL FILE, ma mettete l’intero "The Folly of Youth.zip" nella vostra cartella delle missioni di Thief II, poi impostate il Darkloader e ci penserà a tutto lui.
+
+
+				=============================================================
+
+Crediti:
+
+Grazie a chiunque abbia aiutato a creare l’universo di Thief e continui a mantenerlo vivo anche ai giorni nostri. Tutti voi avete aiutato a creare questa missione. Grazie specialmente a Komag per il suo tutorial (senza cui questa missione non esisterebbe – quindi incolpate lui!) e a tutti coloro che hanno risposto alle mie continue domande sui forum, sapete chi siete….
+
+Un grazie ai miei beta tester. A Katy (kfort) per aver fatto andare le cose e aver reso la missione giocabile.
+A sluggs, per aver rotto tutto e Nightwalker e ffox per aver portato sanità al progetto. 
+Ringraziamenti particolari a sluggs e Nameless Voice per aver creato per me dei modelli. A Flecha de Sombra, Nielson74, Glen, Nameless Voice, RSoul, schwaa, Targa, The Watcher, Vigil, Von Eins, Yandros e tutti coloro che hanno contribuito a Dedx per avermi permesso di usare i loro oggetti. A Nieson74 per avermi insegnato le basi di Anim8or. A Redface per l’immagine della pagina del titolo. A Nameless  Voice per i suoi script. A Don e Lizanneh per il doppiaggio (mi spiace, non l’ho usato alla fine!). A Rob Hicks per Dedx. E a tutti quelli che ho dimenticato (nessuno spero!).  
+
+
+				=============================================================
+
+Copyright:
+
+Questo livello è ©2004 dell’autore. Chiunque distribuisca questo livello senza il mio permesso sarà fucilato. Vi darò la caccia come i cani quali siete.
+
+Questo livello non è stato creato e non è supportato dai Looking Glass Studios o dalla Eidos Interactive.
+
+
+				=============================================================
+
+

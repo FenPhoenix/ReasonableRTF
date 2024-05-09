@@ -1,0 +1,102 @@
+===DÉPART OBLIGATOIRE===
+=============
+RESUMÉ: 
+“Ça arrive pas souvent que je reçoive une piste tellement bonne en écoutant de piètres commérages.
+Cela fait des semaines que j’entends des rumeurs selon lesquelles la ville délabrée de Navenvolk, située au sud du pays, était prise de crainte d'une crise imminente. Je n’y ai pas fait très attention, jusqu’à ce que la Tribune confirme qu’une évacuation fut annoncée - pas un choix facile, compte tenu qu’ils y ont construit un nouvel hôtel de ville il ya quelques mois à peine, avec plein de décors flamboyants.. et le trésorier régional.
+Eh, ce fut vraiment un plan, une initiative visant à “revitaliser la région”. Depuis, l’arrondissement fut inondé d’un flot de noblesse branchée, cherchant à engloutir de l’immobilier urbain bon marché dans un nouveau quartier en vogue. C’est devenu un nid de rats riches et pauvres. J'ai entendu une famille des Docks se plaignant d'avoir été forcée de sortir de leur trou dans le mur en échange de quelques piles d'argent.
+Étant donnée son importance civique, les conseillers municipaux de Navenvolk ont engagé une force mercenaire pour défendre la ville une fois qu'ils la quittent, sous le commandement du respecté capitaine Ricardo. J'entends dire qu'il est un vrai héros. Il possède l'esprit d'un vrai… stratège. Eh bien, je suppose que cela signifie qu’ils attendent un siège. Je devrai en dénicher plus moi-même; les détails ont pas été fournis.
+Je ferais mieux de m’en aller. Navenvolk est au moins 2 jours de voyage, et je dois pas être le seul voyou qui envisage de profiter d’une ville pleine de propriétés abandonnées…“
+=============
+* Information du jeu *
+Jeu: Thief 2 (NewDark 1.26)
+Nom de niveau: Départ obligatoire
+Fichier: miss20.mis
+Difficulté: Normal/Difficile/Expert
+Magasin d’équipement: Non
+Carte/Autocarte: oui/Non
+Nouveaux graphiques: oui
+Nouveaux sons: oui
+Nouvelles conversations: No 
+Nouveaux modèles: oui
+SupportEAX: Non
+Support multilangues: Anglais/Français/Allemand
+Briefing: See text above; no video
+Sous-titres: Non
++===+
+*Construction*
+
+Base: À partir d’un airbrush 16x16x16 Jorge.
+Dimensions du niveau: Approximativement 530x300x150 unités DromEd. Cela prend à peu près 70 secondes pour courir dans une ligne directe du point le plus lointain sud au nord.
+Temps de construction: Plus de 53 jours/1272 heures.
+=============
++===+
+ IMPORTANT:
+—Cette FM vient avec  ‘jump_speed_boost 1.4’ activé dans fm.cfg, donc cela n’affecte pas les autres OM/FM Thief 2. 1.4 c’est le défaut de Thief 1/Gold, et cette FM est désignée pour être jouée avec le mouvement de Garrett de Thief 1/Gold. Cette  FM peut être complétée avec la vitesse 1.05 de Thief 2, mais je vous garantis que ça fait de nombreux sauts non-essentiels plus difficiles qu’ils ne devraient (quelques uns sont même impossibles à moins de sauter diagonalement, et c’est TRÈS frustrant!). Pour désactiver cet effet, mettez un point virgule (;) devant la ligne dans fm.cfg. Je comprends si vous ne voulez pas que je dicte vos contrôles.
+—Le volume ambient de cet FM is 1100, ce qui permet d'obtenir mon rapport souhaité entre le volume sfx et le volume ambiant et d'éviter toute coupure au niveau de la ligne. Cette commande est désactivée par défaut dans fm.cfg, cependant si vous voulez entendre les ambients au même volume que je les ai entendus relativement aux pas et autres effets, vous pouvez enlever le ; devant la commande ‘ambient_volume 1100’.
+—Je vous recommande de pas utiliser de mods graphiques pour jouer à cette mission. Mon choix de textures et d’objets n’était pas aléatoire; de nombreuses brosses de terrain n'existent que pour me permettre un contrôle plus granulaire sur l'alignement et l'apparence des textures
++===+
+NOTES DE JEU (PEUT CONTENIR DE LÉGERS SPOILERS)
+—Vous ne manquez aucun jeu ou contenu sur des difficultés moins importantes. Expert a moins d'équipement, mais pas moins de butin.
+    —Il n'y a pas d'ennemis invisibles.
+    —Il n’existe pas d’indices "cryptiques" dans les éléments lisibles; si vous ne pouvez pas choisir un fichier lisible, il n’est pas nécessaire de remplir les objectifs. La plupart des lisibles sont plus courts qu'une page.
+    —Aucune clef / butin n'est caché sous un meuble ou à l'intérieur d'objets solides.
+    —Il n'y a pas de micro-boutons. Tous les boutons cachés qui pourraient ou non exister sont de taille normale.
+   —Il y a quelques sauts et hissements difficiles, pas pas nécessaires pour compléter des objectifs. Sautez diagonalement pour couvrir plus de distance!
+   —Certaines fenêtres peuvent être ouvertes. Si vous avez du mal à vous frayer un chemin à travers les fenêtres, essayez de garder de l’espace et / ou de vous pencher à travers.
+   —Hissez-vous sur tout! Portes, enseignes, lumières, arbres, fenêtres, murs, balcons, tout. Même les torches, si ça ne vous dérange pas d'avoir les pieds chauds.
+   — Attendez d’arriver au haut de la flèche corde avant de sauter/vous hisser! (Je vous conseile fortement de sauver le jeu avant d’utiliser des cordes dans certains endroits claustrophobiques et puants…)
+   —Cette mission ne peut pas être jouée dans le style Supreme ou Strict Ghost (certaines clés sont détruites lors de l’utilisation, il y a des réponses d’alerte personnalisées / scriptées, le butin maximum nécessite des dégâts matériels, etc.) Cependant, si les dégats matériels sont autorisés, un style Ghost standard devrait être possible.
+   —Compte tenu des éléments non linéaires du niveau, je vous recommande de marquer les endroits que vous avez explorés sur la carte. Les deux cartes extérieures ont des variantes des couleurs permettant de différencier les hauteurs et les intérieurs / extérieurs. Ceux-ci sont inclus dans le dossier intrface / miss20 et, si vous les préférez, vous pouvez renommer squarecolour.png en page001 et mainncolour.png à page002.
+
++===+
+NOTES TECHNIQUES
+ 
+   —This FM only supports FMSel, AngelLoader, or NewDarkLoader — these can load fm.cfg files.
+   —This FM was made using NewDark 1.26. It might be compatible with an earlier 1.2x version, but I would recommend upgrading if only to play the dozens of excellent FMs that actually require 1.26. It runs with 1.23, but there might be some bug or incompatibility I didn’t find.
+   —This FM should not require a top-end PC. The frame-rate should scale with how powerful your computer is, and not be strangled by pushing NewDark beyond its technical limits. I ensured that the actual frame-rate NEVER dropped below 120fps, so 60fps should be easily achievable even for older systems.
+—Cette FM ne supporte que FMSel, AngelLoader ou NewDarkLoader - ceux-ci peuvent charger des fichiers fm.cfg.
+    —Cette FM fut créée avec NewDark 1.26. Elle est peut-être compatible avec une version 1.2x antérieure, mais je recommanderais une mise à niveau, ne serait-ce que pour jouer les dizaines d'excellents FM nécessitant la version 1.26. Il fonctionne avec 1.23, mais il pourrait y avoir un bug ou incompatibilité que j’ai pas trouvé.
+    —Cette FM ne devrait pas nécessiter un PC haut de gamme. La cadence de prise de vue doit être adaptée à la puissance de votre ordinateur et ne pas être étouffée en poussant NewDark au-delà de ses limites techniques. Je me suis assuré que le taux de cadences réel ne descendait JAMAIS au-dessous de 120 par seconde. Par conséquent, 60 images par seconde devraient être facilement réalisables, même pour les systèmes plus anciens.
++===+
+PROBLÈMES CONNUS
+
+—Le nombre de pickpocket est hors normal, à 14. Même après avoir supprimé le lien ‘CulpableFor’ des flèches dans les carquois, le numéro est encore hors du normal. Sans compter ces flèches, cela devrait être 5 ou 7, selon ce que vous considérez comme un pickpocket. 
+=============
++===+
+Remerciements:
+   —Nick Dablin/nicked pour son "Absolute Beginner’s Guide to Creating a Mission for Thief 2". C'était le propulseur d'origine, sans lequel je n'aurais aucune compréhension de DromEd et aucune capacité de rien faire. Je ne saurais même pas ce qu'est un brush. Même ayant passé des centaines d’heures dans DromEd, je me suis toujours référé à ce guide pour définir les objectifs et les archives FM!
+   —Pour que les composantes de Thief 1 fonctionnent dans Thief 2, je ne peux pas compter le nombre de fois où j'ai pensé: "Comment Melan a-t-il fait?" et je me suis référé à Disorientation pour essayer d’extraire une solution.
+   -- Tout le monde impliqué dans le concours du 20e anniversaire de TDP, qui a été le véritable catalyseur me permettant de m’engager auprès de la communauté TTLG et de redonner quelque chose aux centaines de missions incroyables dont j’ai joui au fil des ans.
+
+
+ —Vingt ans de publications et de connaissance conservées sur TTLG.com, Southquarter.com/dromed, Dromesday Book, etc., et particulièrement de publications et de réponses de Unna Oertdottir *, LarryG, Yandros et R Soul, dont les innombrables solutions techniques depuis des années m’ont aidé.
+
+   —Tannar pour avoir organisé un certain nombre de choses liées aux bêta-tests, en particulier quand shalebridgecradle.co.uk redevint inactive!
+    —R Soul pour son guide sur https://dromed.whoopdedo.org/dromed/maps pour un certain nombre de conseils améliorant la qualité de mes propres cartes (beaucoup plus simples!).
+    —Nameless Voice for NVScript.osm
+    - Purgator pour sa vidéo ‘Art of The Dark Project: The Paintings’, qui m’a aidé à identifier de nombreux titres afin que mes répliques dans le jeu puissent correspondre aux originaux haute résolution le plus près possible.
+    —Unna Oertdottir pour Bullet DromEd 1.26.
+    —GayleSaver pour cet post https://www.ttlg.com/forums/showthread.php?t=15380&p=216287&viewfull=1#post216287 , qui m'a permis d'ajouter des physiques à tous mes objets concrets bush01/02/03 et toute propriété instanciée sur des objets concrets. Merveilleusement utile!
+    —Jason / epithumia pour sa permission de mettre cette FM sur thiefmissions.com!
+
+* Un grand merci spécial à Unna pour le meilleur conseil DromEd que j'ai jamais lu sur la réduction du nombre de cellules: "https://www.ttlg.com/forums/showthread.php?t=145894&p=2351673&viewfull=1#post2351673" À moment donné, j'ai changé l'heure d'un airbrush sur 1441 brushes de terrain et le nombre de cellules est passé de 9203 à 8746 ... soit une diminution de près de 5% en changeant 1 / 1441ème des brosses. Au total, je pense que cette technique a probablement réduit le nombre de cellules d'environ 5000. Sans cette astuce, j’aurais pas de cellules disponibles pour une bonne partie de la mission.
+	TESTEURS:
+-Aemanyl
+-Korthak
+-marbleman
+-Mat99
+-Psych0sis
+-skacky
+-Schlock
+-Squadafroinx
+-zajazd
+
+
+Tous mes testeurs ont fourni des conseils inestimables, corrections de bugs et suggestions. Sans ceux-ci, la mission ne serait pas aussi raffinée. Pour rendre justice à leurs efforts, j’ai répertorié toutes les modifications que j’ai apportées entre la version bêta originale et la version finale dans CHANGELOG.txt, avec attribution individuelle aux testeurs ayant fait les suggestions. Tout changement sans crédit était ma propre décision. Ils ont également formulé un certain nombre de suggestions utiles que je n'ai pas choisi de mettre en œuvre. Ainsi, toute lacune dans cette FM est donc ma responsabilité.
++===+
+* INFORMATION DE DROIT D’AUTEUR*
+Ce niveau est © 2019 par DirkBogan.
+La distribution de ce niveau est autorisée tant que l'archive et ce fichier restent intacts.
+Ce niveau n'a pas été créé et n'est pas supporté par Looking Glass Studios ou Eidos Interactive.
+
+

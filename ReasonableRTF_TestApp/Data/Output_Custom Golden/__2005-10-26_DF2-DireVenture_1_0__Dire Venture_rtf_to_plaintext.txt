@@ -1,0 +1,111 @@
+===================================================================================
+ October 2005		Darkness Falls: A Dire Venture
+===================================================================================
+
+Author                  : Hidden In Shadows (Janne Kahkonen)
+Contact Info            : jek84@hotmail.com
+Homepage                : none at the moment
+Date of Release         : October 2005
+
+
+
+
+----------------------------------------
+He was flawed and stumbled
+upon the past
+But his vigilance would be
+his salvation.
+
+Excerpt from The Last Book of The Awakening
+----------------------------------------
+
+
+The city sleeps. A nocturnal breeze blows up and down along the narrow streets of the docks, whistling gently. Garrett has stolen the garmyth, a mysterious gem from the other side of the oceans. Little is known of the garmyth except that it has been gone for a long time and now suddenly reappeared during the most untimely conditions. Whispers and worried glances are exhanged and those few who know of its secrets stand vigilant and pray for salvation. 
+
+
+It looks like I'll have to visit some old friends.
+Tonight's job went well enough but my gut feeling tells me something is not right. Last night I did not have time to stop and ponder but during my long walk there has been plenty of it. With the garmyth in my pocket I've started to hear things. First time was when I grabbed it from that crate and the voices have followed me ever since; haunting me. Time and time again I told myself that it was just my imagination but deep within I knew I acted in denial to cover my worst fears. I need to find out more about this so-called garmyth and learn of its pitfalls. I could just throw it away but then the all the effort would be for nothing and that would be a shame if I'm mistaken. There should be a 'place' just north of here where I can find the information I seek. When I have found what I'm looking for I need to leave the district to the west. The gates are probably locked this time of night so I'll have to procure a key. There should be one in the district warden's office on the top of the large warehouse. I truly hope I'm wrong else I might yet regret the day I embarked on this dire venture.
+	
+
+
+           
+	                               			       			 
+Briefing                : No
+
+===================================================================================
+
+* Playing Information *
+
+Game                    : Thief 2: The Metal Age
+Mission Title           : A Dire Venture (v1.0 First Public Release)
+File Name               : miss26
+Difficulty Settings     : Yes
+Equipment Store         : No
+Map                     : No
+Auto Map                : No
+New Graphics            : Yes
+New Sounds              : Yes
+Multi-Language Support  : No
+
+Briefing                : No (I'd love to have one but I'm stretched too thin as it is)
+     Length             : n/a
+     Size               : n/a
+
+Difficulty Level Info   : Easy, No Sweat, Normal (Note that there are no differences between difficulty levels just that more loot is required to finish the mission. That, and Garrett's hitpoints.)
+
+* Construction *
+
+Base                    : From scratch
+Build Time             : The time I've spend slaving over this feels like an eternity
+
+===================================================================================
+
+* Loading Information *
+
+Use Darkloader or GarrettLoader
+
+===================================================================================
+
+* Copyright Information *
+
+This level was made by Hidden in shadows
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission.
+
+Contact me if you need permission:)
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+===================================================================================
+
+Thanks to:
+
+-All my beta testers!:
+
+(In no particular order)
+
+SirFreddieM
+Ken Cooper
+B1kerdude
+Mary Sapkowski
+John D.
+Ralf/The Phantom
+Holger
+Mary
+Tom McCoy
+The Pixie (Andy)
+Duncan
+glenn
+Lightningline
+Gloria Creep
+
+If I have forgotten a name please tell me so I can make it right :)
+
+Also thanks to:
+
+-Peke for being there to bounce ideas about custom sounds
+-The Community for inspiring me to return back to the world of Thief. Without you there would be no missions.

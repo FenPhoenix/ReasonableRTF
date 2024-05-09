@@ -1,0 +1,77 @@
+                                   H a m m e r e d
+
+                                      
+
+=================================================
+2.24.2014     Revised 3.01.2014                  
+=================================================
+
+Title		 : Hammered
+Filename	 : Hammered_EnglishV.1.0
+Author		 : Anonymous
+Contact info	 : Private Message or email at TTLG
+Date of release	 : February, 24th,2014-Revised March,01,2014
+
+
+
+==================================================
+* Play Information *
+==================================================
+Game			 : Thief 2 The Metal Age  Note: NewDark V.1.21  Scripts Needed: NVScript.osm v.1.24 (If you don't have it in your T2 directory, it will not play!)
+Level Names		 : Hammered
+File names		 : miss20.mis, Dedx01H.gam,,NvScript.osm,Hammered.osm
+Difficulty Settings	 : Yes.         Easy, Hard, Expert
+Equipment store	             : No.
+Map/Automap		 : Ingame only.
+New graphics		 : Yes.
+New sounds		 : Yes.
+New conversations	 : Yes.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : Yes. English using fm-selector,German using Darkloader V.4.3
+Briefing	       		 : Yes. B20 Made with Indeo V.5.1 codec  Both Videos are English Scroll and German Narration.
+====================================================
+* Construction * 28 days (335 hours,26 minutes) -Made for the 10 Room Contest for Feb. 24th.2014  
+Starting on January 11th,2014  Beta testing began on Feb.10th,2014-Ended Feb.22nd,2014
+English Version Zip is named:Hammered_English.zip  German Edition is named:Hammered_German.zip
+The reason for this is because Darkloader V.4.3 may not display English on English editons of Thief.
+====================================================
+Made from scratch using NewDark V.1.2.1  Technical issues in sound propagation
+may occur since construction of the world was made with up to 26 sided cylinders. Also,
+low framerate may occur in some areas. Some of the framerate has been reduced in Revised Edition.
+If you do not have NvScipt.osm V.1.2.4 you may extract the version in the zip to your T2 directory.
+Hammered.osm must be in the zip to function properly.
+This was built uing an old 2004 xp machine-1gig ram,256mb nvidial video card, and 2 ghz processor.
+Disable ep.crf or any program used to enhance texture and object textures by renaming ep.crf to
+ep.crf_null.  You can remove the extention to resume your normal ep.crf function after playing this fm.
+No ep is required, as this fm is made with almost 100 percent custom content.
+
+====================================================
+
+
+Story
+The age of earthquakes,famine,and war has come!
+Times are rough, as Toxic rock is spewing from the earth.  Volcanoes are active, and water and land creatures are dying of Toxic poisoning.  Food and water are scarce.  The cities are suffering from being heavily reliant on mountain water run off.  People are moving about the globe, attempting to find safety and clean food to eat. 
+
+I overheard a couple of thugs speak of a Hammerite fortress located in the Mountains. They spoke of a Hammerite shipment of steel and rivets, and a precious war hammer known as the "BloodStone Hammer".  Supposedly, the Hammer was used in a great war, and was so named because of all the blood it spilled.  It is said to be spotted with rubies and gems, and inlaid with solid silver and gold.  I bought the thugs more mugs of ale and assessed the job as a good bet for shaking up some loot I need for catching up on my rent.  Food is worth almost as much as gold, and water is even more precious now.
+
+I will get to it, as there is no time to waste!
+
+Credits:
+Thanks to my beta testers: Cardia1, NightWalker, Zoro, Ravenhook, itllrun10s, dbrilliant, prjames, 
+bikerdude, Tannar, Gloria Creep, Zappen  
+
+Thanks to the model makers: Yandros, Zontik, Nielsen74, OttoJ55,  Eshaktaar, Targa, R Soul, Christine, Nameless Voice, Dark Arrow, 
+Christine, Team COSAS. Von Eins, Rob Hicks and J. Knez (Schwaa), Alun Bestor, Purgator, Gort, Ar-Zimrathon, Pdackel, Eshaktaar, Phantom, ShadowSpawn, The Watcher, The house of Dhin, Sensut, Vigil, Paweuek, And, mkadlec, epithumia, Timon, caffeinatedzombeh, Willie, Winter Cat, The Hammerite development kit team, Bronze Griffin, Digital Nightfall, Metal Dawn, taffer9, AntiMatter_16, threeviltritone, Willie, Gregorious, Sluggs, C-beam, necrobob
+Music: From the Hammerite Imperium, 7 Shades of Mecury, Thief Gold, Thief Deadly Shadows.  
+
+Special Thanks to Zappen: For the English to German Translation. He is Garrett on German Briefing
+Video,and the English version Briefing Video.  For english, just read the scrolling on the video.
+
+Special Thanks to Gnartsch: For discovering methods of reducing framerate problems, such as .png textures including .png skins, and the new animated water.
+
+
+
+This fan mission is not supported by Eidos Interactive or any of its affiliates, including Looking Glass Studios.
+
+Copyright@2014-Anonymous

@@ -1,0 +1,169 @@
+The Circle of Stone and Shadow, 
+ Chapter 1, Mission 2
+
+ Mission X
+ By: Anarchic Fox, Finial, Yametha, R Soul, & Digital Nightfall
+ Directed by Daniel Todd
+ Version 1.13 Release: October 1st, 2008
+
+ Testers
+bob_doe_nz, CaptSyn, D Okamoto, EmperorSteele, Kyle Kellahshehskee, nightshifter & SneakyJack
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+PATCHED ITEMS
+
+Major Fixes
+
+• The player will no longer begin in the black box under any conditions, even if they are missing script files.
+
+The black box was put in place to make sure that players who have a faulty T2 install will not be able to play until they’ve corrected the problem.  However with widespread use, it was shown that it was far more likely for the scripts involved to malfunction than it was for the installation to actually be bad.  Thus this safeguard was removed.	
+
+• Added a renamed gen.osm (i.e. MXgen.osm) to solve the problem of the bad gen.osm file out there.
+
+Some versions of Thief 2 were shipped with a bad gen.osm file, and this bad file would render MX unplayable (but would, ironically, not be caught by the black box safeguard.)	
+
+• Redunancies have been put in place to ensure that if any of the main-plot related timing scripts fail, a backup will be brought into play in order to allow the mission to move forward.
+
+It is believed that saving and loading the game at the precise right time in relation to the function of timed relay scripts would cause the relay to break and disallow the plot to continue.  Extensive and thorough safeguards and redundancies have been put in place to ensure that should this happen, and there’s no way we can make it never happen, other scripting objects would be triggered to take over, allowing the mission to continue with only a minor – and maybe unnoticeable – break.  The lion’s share of the work done on the patch involved creating these backup systems.	
+
+• AI issues with broken patrols and the inability to move or flee where they should which were caused by the keychain have been resolved. This includes 1 AI on the top floor (executive), 2 on the 3rd (guards), 3 on the 2nd (2 guards, one executive), and 4 on the 1st (3 servants and 1 executive).*
+
+This was caused by a problem with the keychain – Once the player has a key, all the AIs who also have that key (and AIs need keys to open locked doors just like the player does) would find their patrol paths impossible to complete, because the keys would become no longer useable.  This is why many guards could be seen standing in place, eternally.  Multiple solutions were employed to solve these broken patrols on a case by case basis.  Many doors previously unlockable by the hotel service key are now only pickable.	
+
+• The Messenger will no longer drop the scroll case until after he is on the ground.
+
+This note is a spoiler.  Attacking Raputo’s messenger would cause him to drop his scroll case.  If the player then escaped without killing or knocking out the messenger, he would continue on his path until he eventually generated a new scroll case, and potentially a scroll inside, causing a duplicate.  Now the messenger will only drop the scroll case if he is killed or knocked out.	
+
+• Put M-NeverEfficient on execs before they go alert.  This will keep the alarm-ringers from ringing the alarm automatically every time you enter a certain area.
+
+Some players reported the alarm being sounded in distant parts of the casino when they simply crossed over a certain point, even if no AIs were present.  This is caused by the way AIs in the dark engine deactivate once they are outside of a certain range from the player.  It is possible for one of the alarm-ringing executives to go alert when the player is not nearby – by seeing a body for instance – but the player can then go out of range before the alarm ringer completes their action.  Then when the player returns to within range, they resume, ring the alarm, and the mission fails.  Distant AIs ringing the alarm because of discovered bodies can still happen, but it will never be delayed and then triggered in this way.	
+
+• The player's loot will no longer spontaniously vanish.  
+
+This bug was not present in the 1.0 release, but rather in one of the early patch builds.  I include it here because it is amusing.  It was caused by a “fix” to another bug – the loot purse of one of Raputo’s guards would sometimes linger out in the courtyard after that guard has left the premises.  The fix involved deleting the purse when the guard was deleted.  However, if the player had already taken the purse, it deleted their entire loot cache along with it.  Isn’t the dark engine fun?	
+
+
+Minor Fixes
+• Dustbombing the drunk guard in the bar no longer wakes him up.
+• The bug that resulted in a coin purse floating in mid-air somewhere between the Pearl Hall and the back gate has been fixed.
+• Lady Antonette now turns back to face the others during the never-ending meeting when she should. Also, general improvements were made to the meeting by removing gaps between lines and shortening some pauses.
+• The gamblers should now always face the tables.
+• Changed the material of the icicles on the fountain to glass (to match T2 icicles).
+• Removed the boat from outside the courtyard.
+• Fixed a bug caused by gassing any of Raputo's men outside the Monarch Suite.
+• It should no longer be possible to fall through the gratings at any of the reservoirs.
+• The blueprints now give the loot sound when taken.
+• The following junk-items are no longer frobbable: Blue vase in the NE office on top floor, Wine bottle in dressing room, plate in hotel room with artist, bowl in mechanic's nook.
+• The red suit can no longer be dropped.
+• The door you must deliver the red suit to no longer makes 'trying to open' sounds when you interact with it without the suit.
+• The locks on the chests in the Minister's Suite now animate when you interact with them.
+• The scroll case no longer sinks into the table on a save/load while it's on the table.
+• Fixed typos on Antonette's Note page, the drunk note, Monarch Suite Plaque, Ambassador's Suite Plaque.
+• Fixed one set of doors at the top of the crawlspace shaft that didn't let the light in.
+• Fixed texture on fireplace (T2 bug).
+• The sheet listing Rubber's tasks no longer floats above the shelf.
+• The scroll talking about the shift change no longer floats above the counter.
+• Made the dishwasher and the bartender in the Monarch Suite never 'deactivate' to maybe keep them from merging with nearby objects.
+• Reduced the physical model of a blackjack table to make it less likely for the nearby guard to get stuck.
+• Invisible optimisations to the texture families
+• The odometer success sound will no longer play again when the player gets within range of the camera room after Steel successfully shuts off the cameras.
+• 'I'm leaving' mask now goes away when you re-enter the building via the crawlways.
+• The copy kit now reliably appears in the inventory when an important document is read on expert and professional.
+• Removed sound leak from the Clubhouse Office to the Monarch Suite.
+•Fixed color coding on Dante’s restaurant line.
+•Total pick pockets count corrected to 14.
+
+Balance Issues
+• The girl in the money change booth now leaves at the proper time, even after the casino key is taken. (See *)
+• Guards and Execs on all floors who, after collecting either the casino, hotel, or owner's keys, were standing idle and were very difficult to sneak past or ambush now always patrol properly. (See *)
+• Servants on the 1st floor now flee properly after the casino key is taken. (See *)
+• A broken patrol on the top floor which left a guard stationary by the Executive Suite, unrelated to the above issue, has been fixed.
+• Guards in the basement can no longer hear you when you're in the foyer and the front doors are open.
+• The windows between the arbitration room and the garden are no longer locked.
+• Moved the desk in the security office so it's easier to drop down onto it.
+• The door behind the drunk is no longer locked.
+• Added more health potions on Expert (3) and Pro (1).
+• Removed 2 guards from the 2nd floor on Expert and 1 on Pro.
+• Removed the office worker facing east in the accounting office on expert.
+• Changed some of the clerks in the Pearl Hall to Execs (who ring the alarm).
+• Set one of the execs to turn the lights back on if they're shut off in the Pearl Hall.
+• Added light switches to the 1st and 3rd floor public restrooms.
+• Changed the bystanders so that they flee out of the building, rather than running to the alarm. Only execs run to the alarm.
+• Many hotel room doors now swing in to allow better views out into the hall when hiding.
+
+Additions or other Changes
+• Redid the brochure readable image with less text, and larger text, so it can actually be read.
+• The 'get your gear' objective now only completes when you've taken both the gear collection on the toilet seat and the gear pack on the floor.
+• Increased frob distance for picking up the vent key.
+• Renamed Gambler's Attire (worn) to Noble Clothes (worn).
+• Changed texture above theater balcony to wood to make it clearer that it is vine-arrow attachable.
+• On the 3rd Floor Map, changed "his personal guard" to "his guards" to make it clearer that these are not his bodyguards.
+• On 4th Floor map, changed 'Cloud's Apartment' to 'Cloud's Suite' since that's what everyone calls it.
+• Changed Steel's "I left you my gear" line to include mention of the vent key (expert and pro) if the player chose the basement task.
+• At the beginning, when you're getting your mask, a message has been added which tells the player that it is HIGHLY recommended that they turn AUTO-EQUIP ON.
+• Added some nobles to the foyer area and who walk through the courtyard. They go away after you've gotten your gear.
+• Created a new voice for the conversational nobles.
+• Added back in Pomok's missing lines and updated the schema file.
+• Added a view to the sky above the tall that comes up outside the garden (but you still can't climb through it).
+• Changed the generic 'could you repeat that?' lines to two specific questions.
+• Finished options menu art added.
+• Added a new scroll to Cloud's Assistant’s office concerning the cameras and Pomok.
+• Textured and animated the call-bell at the front desk.
+• Chips added to all active gambling tables.
+• Added a brand new 'carrying a guy' icon.
+• Finished the Load Game interface art.
+• Brand new Save Game interface art.
+• Manual and readme both proof-read, synchronized with one another, and the credits therein updated to match the website.
+• Included Eshaktaar's water.
+• A new walking and landing sound effect has been added for the gratings in the crawlspaces, so that the player won't be afraid to walk over the bars over the water.
+• New version of the music in the Orchid Hall.
+• Flares replaced with new objects, names, & effects.  They work exactly the same.
+• Added a coat/hat rack to the clubhouse.
+• Added a sound effect to the camera room to keep pace with the cycle of the cameras, to add an audio clue when they're about to turn on.
+• Gave the central room of the Minister's Suite a decorative ceiling.
+• Changed the text of the note in the camera room to give another hint about the switches on the ceiling.
+• Added quote scroll.  Hint: Finding it involves combining camera room with switch room, and from it there is no return.  When does paper burn?
+• Changed color of soap slightly to make it easier to see in the dark on the white table top.
+• Changed loot purses to a variety of different colors, and adjusted their position on belts.
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+KNOWN ISSUES
+(i.e. The following problems have not been corrected by the patch, and are unlikely to ever be.)
+
+AI/Pathfinding
+• Guards can get stuck trying to go through doorways two at a time. This usually resolves after a minute or less.
+• In the Clubhouse, the guard that patrols into the blackjack area gets hung up on the edge of a table.
+• The servant in the Orchid dining hall sometimes gets stuck on the side buffet.
+• The dishwasher in the basement kitchen has been known to get stuck in the sink.
+• The cook in the basement kitchen can, when alerted, can get stuck on the corner of the table at the west end.
+• The 3rd floor exec gets stuck up on railing in mohagany hall 
+• One of the guards in the monarch suite stands on top of a dresser.
+• The bartender in the monarch suite can become merged with the bar.
+
+General
+• Frame rates are an issue at all bar locations, especially the Pearl Hall.
+• Loading a saved game which was saved during the Ivory Hall conversation will result in a badly broken conversation.
+• Many ladders can only be disembarked by jumping.
+• With some keys the key ring doesn't come to the top of the inventory if it is the first key you've taken. This has no effect on functionality.
+• The keys carried by guards in the Clubhouse sometimes float in mid-air only to vanish a moment later. The player is seeing the guard's starting location, and the key resets to its proper place once the guard approaches.
+• The game crashes on mission load if custom script path is used.
+• Document copying scribble sound sometimes retriggers.
+• The carrying icon is placed over the messages from team members when those appear on the screen.
+• The zap SFX doesn't play if you try to use a fuse on a live box, but you do take damage.
+• If a game is saved and then loaded and saved again during one of Pomok's routines in the switch room, he will repeat that routine every time a saved game is loaded.
+• If the player flips the switch to turn the power back on while Pomok is on his way, Pomok will stop in place and not move. Saving the game and reloading will allow him to move again, but also results in the above bug if the game is saved a second time.
+
+Serious but Rare
+• At random, on very rare occasions, an arrow (vine, noisemaker, gas?), will either freeze in place or bounce around rather than hit its target. Also, water arrows and gas arrows that won't go off when they hit, and broadhead arrows that can be picked back up once fired. Often loading a saved game will fix this problem. 
+• Sometimes on a reload the basement lights turn back on after they've been shorted out. The 'light' does not effect the player's visibility. Consecutive reloads usually fixes the problem.
+• Sometimes the mission doesn't fail when Dante dies.
+• It is possible to 'trap' or otherwise prevent one of Pomok's replacements from reaching the utility switch room, therefore allowing them to flip the switch back to "On" by telepathy.
+• Numerous and bizarre bugs have been reported concerning some combination of scouting orb malfunctions and acquiring a bow. The team has yet to be able to reproduce these bugs. 
+• Where the garden ledge passes over some windows, there's a gap that the player can get stuck in (and potentially S.H.A.S.!)
+• S.H.A.S. has been known to occur while navigating the ledge in the Upper Ivory Hall.
+
+

@@ -1,0 +1,56 @@
+VANISHING POINT
+
+
+Author :		  Anonymous
+Contact info :	  TTLG forums
+Filename :	  VanishingPoint72H.zip
+Release date :	  November 2015
+
+I was minding my own business in the local alehouse when three seedy-looking fellows hidden in the dark caught my attention. I crept on them during their conversation and, by carefully listening to them, I was able to piece together what might be a lucrative haul. 
+
+The cellar of the old Vane manor, located on the western edge of the Red Quarter is, according to them, filled with all kinds of shiny trinkets and baubles ripe for the picking, including the decrepit Lady Vane's family treasure. They were planning a raid there in the following days, but I decided to try and lay my greedy paws on that treasure before them.
+
+I couldn't shake this ghastly feeling off, though, that I somehow knew these three men.
+
+ATTENTION : This mission had no proper betatesting session, it got released as it is. I just hope everything runs fine, and if it doesn’t, sorry for the inconvenience.
+
+
+* Game information *      
+
+Game :		  Thief II: The Metal Age
+Event :		  72 Hour Challenge
+Level name :	  Vanishing Point
+Base :		  Base map by Brethren
+Build time :	  72 hours top
+Difficulty :	  Yes	
+Map/Automap :	  No
+New objects :	  Yes                   
+New textures :	  Yes
+New sounds :	  Yes
+EAX Support :	  No
+Language :	  English
+Briefing :	  No             
+
+
+* Loading information *    
+  
+Runs from FMSel, and Darkloader. Place in your usual Thief 2 FM folder.
+NewDark 1.23+ is required.
+
+
+* Credits *    
+
+Custom objects, textures and sound work :
+Akira Yamaoka, Amnesia: The Dark Descent, Christine, CoSaS team, DrK, Eshaktaar, FireMage, Lady Rowena, Nameless Voice, Ottoj55, Purgator, Random_Taffer, R Soul, Schwaa, Sliptip, Targa, Tdbonko, The Watcher, Vigil, and Yandros.
+
+A few objects from Thief 3.
+
+Special thanks to Brethren for the contest.
+
+
+* Copyright information *    
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.

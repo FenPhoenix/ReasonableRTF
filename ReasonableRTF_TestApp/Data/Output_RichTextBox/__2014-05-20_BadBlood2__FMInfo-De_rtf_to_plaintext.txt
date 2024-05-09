@@ -1,0 +1,95 @@
+Feindseligkeiten II
+von Ricebug (Terry DeLaney)
+NewDark 1.21
+20 Mai 2014
+Version 2.5
+
+Garrett kam nach Ottohausen, um einen alten Mitstreiter zu treffen. Da dieses Nest für seine Braukünste berühmt ist, möchte er auch vom örtlichen Bier kosten. Jedoch wird er, ohne davon zu wissen, für eine Sache belangt, die sich vor über 10 Jahren ereignet hatte.
+
+Bekannte Sachverhalte
+
+Die Lokomovive aus Mission 3 verhält sich bizarr, wenn man Körper auf die Gleise legt.
+
+Die Gleise geben nicht immer das ihnen zugedachte Schrittgeräusch wieder. Durch springen korrigiert sich das - ein Kompromiß, so daß auch KIs auf ihnen ohne festzuhängen laufen können.
+
+Dank an…
+
+Beta-Team: Azaran, Gloria Creep, itllrun10s, prjames, Silent Warrior, Undead Gamer, Yandros, Zappenduster, Zaya_Ayame
+
+ﾜbersetzer: Zappenduster (de)
+		Azaran, Apiai (fr)
+		Soldi (ru)
+
+Movie Voice Acting : SlyFoxx
+
+Custom Scripts:
+
+	GayleSaver, Nameless Voice, Telliamed, Twisty
+
+Custom Objects:
+
+Christine: Clocks, wall maps, drapes, luggage, flowers, furniture, moneybox, desk globe, mirror, office supplies (stamps, pad, etc), table doily, crystal ball, bookends
+
+Digital Nightfall (COSAS): Bar objects, bathroom fixtures, lights, furniture, books
+
+Greenhorn: Near mountains (textures replaced), model trains, dead trees, digging tools
+
+Jason Otto: Rusty grates & bars, dirty windows, fences, beams & girders, houses, shacks, water towers, clock towers, ropes & chains, ladders, commercial signs, furniture, spider webs, tavern stuff, firewood, Gypsy wagon, industrial vents, lights, electric gizmos, tool boards, bathroom fixtures
+
+LarryG: Locomotive, train cars, RR tracks & switches, train car hulk, train wheels, semaphore, rat model, logs, paintings in mission 3.
+
+Nameless Voice: Flames
+
+Nielson74: Burning barrel, wood stove, factory buildings, firewood
+
+Pinkdot: Bookcases
+
+R Soul: Wheelbarrow, lights, hooked ladder, electrical gizmos, furniture, fireplace, smoke stains, doors
+
+Ricebug: Lattice fencing, 2D trees, wire fencing, signs, telephone poles, train paintings (taffed from the Internet), rusty barrel, stain decals, stair banister & spindles, grass edge model
+
+Sluggs: Crates, light shaft, guard tower, buildings
+
+Schwaa: Bathroom fixtures, pot belly stove, trash can with lid
+
+Custom Textures:
+
+C-BEAM: Carpets and runners
+Croteam痴, Serious Sam, the Second Encounter
+CG Textures: Stain decals
+Necrobob: Bricks
+Skybox: Emil Persson, aka Humus. (HYPERLINK "http://www.humus.name/" http://www.humus.name); night version is the same skybox but with one of Turbo Squid’s star boxes grafted over the sky.
+Zappenduster: Window texture
+
+Custom AI:
+
+Greenhorn: Female sailor
+Jason Otto: Replacement AI skins
+LarryG: Yardman
+Schwaa: Thief archer
+
+Sounds:
+
+Voice files taken from Thief Gold, Thief 2, and Thief 3
+LarryG: Train sounds
+Lazy Day (heard in bar in mission one) composed with Acid loops by Ricebug.
+Eugenia by Scott Joplin. Performed by Ricebug
+
+Miscellaneous:
+
+Yandros: Bartender motions, guards’ arrest scene in mission one, general spit & polish
+Xorak: Troubleshooter and general fixer-upper
+R Soul: Dark Engine Object Converter
+Nameless Voice: Sunlight Calculator
+All the folks at the TTLG editing forum for putting up with me.
+
+
+Very special thanks to Tannar and Dussander for the Shalebridge testing forum.
+
+Urheberrechtliche Informationen:
+
+Diese FM stammt von Terry DeLaney, das heißt, niemand anderes darf für sich beanspruchen, diese FM erstellt zu haben. Einzelne Teile davon dürfen gerne für eigene Kreationen verwendet werden.
+
+Zug, Gleise und Signale sind urheberrechtlich geschützt und erstellt von LarryG, der die Nutzung seiner Objekte für diese FM gestattet hat. Andere Grafiken, Objekte etc. sind durch deren Erbauer geschützt.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt.

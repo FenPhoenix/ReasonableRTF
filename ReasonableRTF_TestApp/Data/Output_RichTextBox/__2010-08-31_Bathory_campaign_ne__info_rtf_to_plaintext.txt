@@ -1,0 +1,139 @@
+BáthoryZ
+The Woman With Dark Desire
+
+Prologue
+
+I. Blood And Ice
+
+II. All Souls’ Day
+
+III. Menial Faithfulness
+
+IV. Pagan Fear
+
+V. Fallen
+
+Epilogue
+
+__________________________________________
+
+Playing Information:
+
+Game : Thief II - The Metal Age
+Title: BÁTHORY – The Campaign
+Language Support  : English
+Version: 3.0
+
+
+Contact: csabisensut@gmail.com
+Released : 08 31, 2010.
+Updated : 24 03,  2013.
+
+
+Requirements:
+
+- Thief II - The Metal Age 1.19 (New Dark), or above!
+
+
+Custom scripts by:
+
+Telliamed (tnhScript 2.1.0.0, version 1.3.0.0);
+VKGaylesaver (script 1.2.0);
+LGS’ T2 Gen (version 27 March, 2000.).
+
+*The renamed modules are included and are installed automatically.
+For manual installation of these modules are details in „install_scripts” in the mission zip.
+
+
+Construction:
+
+Editor : Rob Hicks’ Dromed Deluxe 1.0 (DeDx) updated with DromEdToolkit 1.0 by Nameless Voice.
+
+Programs used:
+Corel PaintShop Pro X (graphics);
+Anim8tor 0.95 (objects);
+HDD FreeHexEditor 3 (objects);
+Sony Sound Forge 7 (sounds);
+Sony Vegas Movie Studio 6 (movies).
+
+Build Time : I don’t know. 3 years and a few hours J.
+
+__________________________________________
+
+
+Thanks…!
+
+
+… for the help  to:
+
+Nightwalker and Bernie (texts, beta test)
+Nickie (texts , beta test)
+Mabsy (texts, beta test)
+Gloria Creep (beta test)
+Bob_doe_nz (beta test)
+Chiron (beta test)
+Ravenhook (beta test)
+Kittykat (beta test)
+Undead Gamer (beta test)
+Sneaksie Raven (beta test)
+Garrett’s Shadow (beta test)
+Hotlyx (beta test)
+Bikerdude (beta test)
+
+
+
+… for the collaboration to:
+
+HgL (design)
+Attila (design)
+Emilia (voices)
+Lilith (voices)
+
+Special thanks to Teri Tordai for Elizabeth’s two hungarian comments in „Fallen”.
+
+
+
+… for the objects by:
+
+Greenhorn , Pinkdot, COSAS Team by Digital Nightfall ,Yametha and Redleaf; Targa, TDBonko,
+Jason Otto, Nielsen74, Nameless Voice, Schwaa, Sluggs, R Soul, Christine, The Watcher,
+Eshaktaar, Gort, Ar-Zimrathon, Hrothgar, Vigil, Dark Arrow, Timon,
+Flecha das Sombras, Alun Bestor, Syi, Ugly Ed, Raetsel, Troutpack, Zontic,
+Elvis and Don Willadsen.
+
+NOTE: I’ve reskinned some custom objects only for self usage, to reduce the palette counts and the size of the archive.
+
+
+… for the textures by :
+
+Pinkdot, Vigil and Purah;
+Quake III and other fan projects for the mighty  iD Software’s game series;
+Remedy Entertainment;
+Dreamworks Interactive;
+David Gurrea - http://www.davegh.com/blade/davegh.htm  ;
+Dark Fate site by Clearing - http://darkfate.ru/?show=files/editors/dromed/textures/textures ;
+CG Textures http://www.cgtextures.com ;
+Thief Gotcha.
+
+Menu designs by Annika Von Holdt - http://www.annikavonholdt.com .
+
+Special thanks to Jiansonz for the lootlists included in the package!
+
+Also thanks to Nameless Voice and the Authors of Thief Enhancemet Pack 1; and to the Authors for Dromed Deluxe.
+
+
+Game ambients by Lustmord, Jan Dusek and Shadow Sneaker.
+On victrolas Ennio Morricone and Randy Edelman.
+Movie themes by The Gathering.
+
+__________________________________________
+
+
+This FM is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

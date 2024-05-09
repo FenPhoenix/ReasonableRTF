@@ -1,0 +1,64 @@
+Unheimliche Nacht
+===============================================================================
+
+Autor	: Terra
+Erscheinungsdatum	: 31.12.2020
+
+===============================================================================
+Geschichte:
+
+Das Geld wird wieder knapp, und es wird Zeit, den Schwarzmarkt wieder anzukurbeln. In der Stadt kursieren
+Erzählungen, nach denen es tief im Wald eine alte Villa geben soll, die damals verlassen wurde. In dieser Villa
+sollte sicherlich die eine oder andere Kostbarkeit zu finden sein, wer weiß, vielleicht verbirgt sich auch irgendwo
+ein seltener Gegenstand. Dieses Abenteuer soll keine lange Geschichte werden, deshalb lasse ich meine
+Ausrüstung hier und nehme meine Laterne mit, um einige Räume zu beleuchten. Der Mond scheint zwar hell AM
+Himmel, aber sicher ist sicher.
+Dann mal los, Garrett, das Gold wartet schon.
+
+===============================================================================
+Spielinformationen:
+
+Spiel	: Thief 2 - Das Metallzeitalter (Version 1.27 NewDark)
+Missionstitel	: Unheimliche Nacht
+Dateien	: miss22
+Schwierigkeitsgrade	: Normal, Hart, Experte
+Ausrüstungsladen	: Keine
+Karte	: Nein 
+Ergänzungs-Grafiken	: Ja
+Neue Geräusche	: Ja
+EAX	: Keine
+Mehrsprachig	: DE/FR/EN
+Briefing	: Nein
+
+===============================================================================
+Bauzeit	: 3 Monate
+
+===============================================================================
+Credits:
+
+Betatest	: Aemanyl, Lord Taffer, Mat99
+Version Française	: Zappenduster/Stefan_Key
+English Version	: Zappenduster/Urgrue
+Amnesia Grunt	: Frictional Games (NewDark convert from FireMage)
+
+Cosas Team- The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+Soul Tear
+
+===============================================================================
+Urheberrecht:
+
+Diese FM stammt von Terra, Dezember 2020.
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt und wird auch nicht von diesen
+unterstützt.
+
+===============================================================================

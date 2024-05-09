@@ -1,0 +1,217 @@
+Deutsche Fassung unten!
+=============================================================
+19/01/2013
+=============================================================
+Title : The Abandoned Castle
+Filename : The Abandoned Castle - NewDark.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Homepage : No, but soon I hope.
+Date of release : January 19, 2013
+Version : 1.0
+Description : I heard a rumor at the bar in a town I visited last night about a castle
+nearby. The thieves I heard talking about it said that it is abandoned and that it
+had been for many years. I really have to check it out. It's empty, but not empty
+of loot apparently. It's a sunny day, why not take a walk up to the castle and clean it up a bit.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : The Abandoned Castle
+File names : miss20.mis
+Difficulty Settings : Yes. Different loot totals and tools.
+There are some mathematical calculations.
+On Normal there is a tip on how to break the code.
+Equipment store : No.
+Map/Automap : Yes (blank)
+New graphics : Yes.
+New sounds : Yes.
+New conversations : No.
+New models : Yes.
+EAX Support : No
+Multi language support : English, German (texts only).
+Briefing : No.
+=============================================================
+*Known Bugs*
+Some players may experience lag in the area of the tower staircase.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Medium.
+Build Time : Almost 9 weeks including beta testing, many hours a day.
+Build Info : This is my fifth mission. My previous: Ransom, Lord Beltzer’s Mansion,
+Mistress Guennean’s Castle and The Reunification.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file,
+but put the whole "The Abandoned Castle - NewDark.zip" file into whatever
+folder/directory you want to on your hard drive, then in Darkloader
+setup, point to this folder/directory, and the mission should show up
+in the Darkloader main screen.
+=============================================================
+* Thanks To *
+The people at TTLG and shalebridgecradle.
+To the Beta testers on shalebridgecradle:
+itllrun10s
+jonescrusher
+nickie
+Notesthes (german translation, too)
+Ravenhook
+To Nickie who checked all the texts in the mission.
+To Tannar, the moderator who set up the beta forum on shalebridgecradle.
+---------------------------------------------------------------------------------------
+Voice actor
+Sofie (wife)	As the evil child
+---------------------------------------------------------------------------------------
+Custom objects:
+(I really hope I’ve remembered everyone, please tell me if I’ve missed
+crediting someone)
+Alun Bestor www.washboardabs.net/thief/
+Ar-Zimrathon
+Bronze Griffin
+Christine
+Elvis
+Eshaktaar
+G'len
+Greenhorn
+Jason Otto
+Master_edd
+Nameless Voice
+Nielsen74
+Paweuek
+pdackel
+R Soul
+Schwaa
+Sluggs
+Targa
+Team CoSaS and Digital Nightfall.
+von.Eins
+Yandros
+
+Meshes:
+Purgator
+DedX
+Sensut
+Paweuek
+Bronze Griffin
+Team CoSaS
+metal dawn
+
+Custom Script
+Telliamed’s PublicScript
+NV Script
+-------------------------------------------------------------------------------------
+And obviously thanks to my wife Sofie for testing and moral
+support and putting up with me working on it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit
+for it :-)
+This level was not made and is not supported by Looking Glass Studios
+or Eidos Interactive.
+=============================================================
+
+
+
+
+
+=============================================================
+19/01/2013
+=============================================================
+Title : Die Verlassene Burg
+Dateiname : The Abandoned Castle - NewDark.zip
+Author : Beltzer
+Kontakt: beltzer2@hotmail.com
+Homepage: Nein, aber hoffentlich bald.
+Veröffentlichung: 18. Januar 2013
+Version : 1.0
+Beschreibung: Unten in der Stadt, die ich letzte Nacht besuchte, hörte ich ein Gerücht über eine Burg hier in der Gegend. Einige Diebe unterhielten sich darüber, erwähnten, daß die Burg verlassen sei und das bereits seit vielen Jahren. Das sollte ich überprüfen! Sie ist zwar verlassen, aber sicherlich nicht völlig ausgeräubert. Und da es gerade so ein schöner sonniger Tag ist, sollte ich mir diese Burg mal genauer ansehen – und sie ein wenig aufräumen.
+=============================================================
+* Spielinformationen *
+Spiel: Thief 2: The Metal Age / Dark Project 2: The Metal Age
+Missionsname: Die Verlassene Burg
+Dateiname: miss20.mis
+Schwierigkeitsstufen: Ja. Unterschiedlich viel Beute und Hilfsmittel.
+Es gibt einige mathematische Rechnungen zu lösen.
+Auf Normal und Hart gibt es einen Tip, wie man die Zahlenkombination lösen kann.
+Ausrüstungsladen: Nein.
+Karte/Autokarte: Ja (leer)
+Neue Graphiken: Ja.
+Neue Sounds: Ja.
+Neue Konversationen: Nein.
+Neue Modelle: Ja.
+EAX Support : Nein.
+Mehrsprachig: Englisch, Deutsch (nur Texte).
+Briefing: Nein.
+=============================================================
+*Bugs*
+Der Turmraum mit den Kettenstufen beinhaltet eine große Objektanzahl und kann zum Ruckeln führen.
+=============================================================
+* Konstruktion *
+Basis: Keine.
+Map-Größe: Medium.
+Bauzeit: Über zwei Monate, viele Stunden jeden Tag.
+Bauinfo: Dies ist meine fünfte Mission. Meine vorigen sind: Ransom, Lord Beltzer’s Mansion,
+Mistress Guennean’s Castle und The Reunification.
+=============================================================
+* Ladeinformationen *
+Ist mit DarkLoader kompatibel. Das ZIP-Archiv NICHT entpacken, es intakt in deinen FM-Ordner kopieren, auf den DarkLoader zugreift. Damit sollte die Mission in deinem DarkLoader angezeigt werden.
+=============================================================
+* Danke an *
+Alle auf TTLG.com und Shalebridgecradle.
+An die Betatester auf Shalebridgecradle:
+itllrun10s
+jonescrusher
+nickie
+Notesthes (auch Übersetzung ins Deutsche)
+Ravenhook
+An Nickie, welche die englischen Texte der Mission überprüft hat.
+An Tannar, der Moderator, der mir ein Testforum auf Shalebridgecradle eingerichtet hat.
+---------------------------------------------------------------------------------------
+Sprecherin
+Sofie (meine Frau)	als Geisterkind
+---------------------------------------------------------------------------------------
+Custom Objekte:
+(Ich hoffe wirklich, ich habe niemanden vergessen; ansonsten meldet euch bitte bei mir, dann trage ich denjenigen nach)
+Alun Bestor www.washboardabs.net/thief/
+Ar-Zimrathon
+Bronze Griffin
+Christine
+Elvis
+Eshaktaar
+G'len
+Greenhorn
+Jason Otto
+Master_edd
+Nameless Voice
+Nielsen74
+Paweuek
+pdackel
+R Soul
+Schwaa
+Sluggs
+Targa
+Team CoSaS and Digital Nightfall.
+von.Eins
+Yandros
+
+Meshes:
+Purgator
+DedX
+Sensut
+Paweuek
+Bronze Griffin
+Team CoSaS
+metal dawn
+
+Custom Scripte
+Telliamed’s PublicScript
+NV Script
+-------------------------------------------------------------------------------------
+Und vielen Dank an meine Frau Sofie fürs Testen und den moralischen Beistand, sowie ihre Ermutigungen, und daß 24 Stunden/7 Tage.
+=============================================================
+* Copyright Informationen *
+Diese Mission ist © von Beltzer
+Verteilung der Mission ist erlaubt auf jede Weise, die du willst, aber du mußt die Mission intakt lassen und mich als Author erwähnen. :-)
+Dieses Mission wurde weder gemacht noch wird sie unterstützt von Looking Glass Studios oder Eidos Interactive.

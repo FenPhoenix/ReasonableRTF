@@ -1,0 +1,101 @@
+
+Chronicle of the Metal Age
+
+Chapter I
+
+V2.0
+
+Created by Balázs “Sir Balu” Vágovits
+  
+
+Description: 			This quest is the first chapter of a long story,
+			  	that intends to connect Thief I and Thief II.
+			  	Come with us and see how the Metal Age began:
+			  	the weakening of the Hammers, birth of the 
+			 	Mechanists, intrigues, conspiracies and
+			 	many mysteries.	
+
+Contact Info : 		sirbalu@hotmail.com 
+Homepage :			Nope
+Date of Release: 		June, 2006
+		
+
+Special  Thanks to
+
+Alun David Bestor   –   3D Model Design, Texture Design
+Jano    –   Texture Design, Voice Acting
+Nameless Voice   –   3D Model Design
+Schwaa   –   3D Model Design
+SlyFoxx   –   Voice Acting
+Targa   –   3D Model Design
+The Phantom   –   Many-many useful advices
+Von Eins   –   3D Model Design
+
+
+Beta Testers
+
+Jano
+Jason Otto
+Nightwalker
+  
+
+
+* Playing Information *
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			Chronicle of the Metal Age – Chapter I
+File name: 				miss19.mis, miss20.mis
+Difficulty Settings: 			Yes 
+Equipment store: 			Yes
+Map / Automap: 			Yes / No
+New graphics: 			Yes
+New sounds: 				Yes
+Multi language support:		No
+Briefing: 				Yes
+ 
+* Construction *
+
+ Base: 				From scratch
+ Build Time:			A lot
+
+
+* Version history *
+
+v1.0 - 			– First release
+
+v1.1 - 			– Fixed texture bugs
+                  		– Shorter lock picking times
+                  		– Room brush corrections
+                 		– Briefing movies added
+– Difficulty settings update
+
+V2.0			– Texture upgrade
+– Object skins upgrade
+– Further room brush corrections
+– Minor changes in terrain setup
+– Coronas removed
+– New objects added
+			– New secret added
+
+* Known issues *
+ 	– Lord Seth is unkillable(due to the story)
+
+
+* Loading Information *
+
+Just run the zipped package with DarkLoader. 
+
+
+* Copyright Information *
+
+This level is copyrighted by Sir Balu. 
+
+Distribution of this level is allowed as long as 
+it is free and the package is kept intact. You may 
+not include this level to any map pack without my 
+permission. No one may edit and re-distribute this 
+mission without my express permission. 
+
+
+This level was not made and is not supported by 
+Looking Glass Studios or Eidos Interactive.

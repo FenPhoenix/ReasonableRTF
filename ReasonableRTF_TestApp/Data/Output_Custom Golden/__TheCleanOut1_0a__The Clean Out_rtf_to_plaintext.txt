@@ -1,0 +1,51 @@
+The Clean Out 
+
+A fan mission for Thief 2: The Metal Age
+Version 1.0a
+
+(C) 2005 Dark Gentleman (drkgntlmn@hotmail.com)
+
+
+Yesterday a particularly aggressive group of Hammerites from a nearby church you were going
+to explore and raid attacked you by surprise. You managed to escape, but noticed afterwards
+that your blackjack was missing. Give those Hammerites a lesson they'll remember for the rest of their lives. 
+Or, actually, just do what you were going to do anyway.
+You need no excuses.
+
+===========================================================================================================
+
+This is just a light mission constructed while making some bigger ones. I had some ideas with the dark engine 
+that I wanted to experiment with and instead of just a demo it became a whole level. 
+There are many ways to get into the church and many possible playing tactics, 
+so I hope the mission has some replay value. (The easiest level takes only a coffee break to complete, if you know what to do.)
+
+I hope you enjoy!
+
+=========================================================================================================
+
+Betatesters: Comfortably Numb, ffox, Invisibility, john9818a, Krush the Second, Nightwalker, Ottoj55, Preno, Silent_Warrior and TheBishop.
+
+Thank You!
+
+And special thanks to Nightwalker from proofreading. If there are any mistakes in the texts, they are made afterwards.
+
+Custom textures from Alun Bestor (www.washboardabs.net/thief/), PhotoRealistic Texture Pack (c) 2003 BerneyBoy, Max Payne (C)1998-2001 Remedy Entertainment Ltd., Dark Gentleman - and some unknown texture artist whose ground texture I downloaded from thiefmissions.com. If you recognise your work and want to be credited, please e-mail me.
+ 
+Thanks to everybody involved in Thief & Dromed stuff, especially to all the fm builders. I've enjoyed every single fm I've played. Praise the Builders! 
+=========================================================================================================
+
+Darkloader ready.
+Do not unzip -- Place in your Fan Mission folder and install using Darkloader 4.1. 
+This mission has not been tested with any other version of Darkloader.
+Objectives made with Thief Objective Wizard.
+
+=========================================================================================================
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may include this level in any map pack as long as this copyright statement is distributed intact.    
+
+This fan mission is provided "as is" without warranty of any kind, either expressed or implied.
+
+This level is not supported by Looking Glass Studios or Eidos Interactive or Ion Storm.
+
+========================================================================================================= 

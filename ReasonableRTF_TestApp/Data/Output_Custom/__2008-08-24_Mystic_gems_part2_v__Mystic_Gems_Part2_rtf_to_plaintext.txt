@@ -1,0 +1,168 @@
+
+M y s t i c   G e m s   II   -   H e a r t   o f   B o h n
+
+Version 1.1
+By Wille taffermail@hotmail.com
+
+-----------------------------------------------------------------------------------------------------------------
+
+Story
+
+Getting the Mystic Soul was easy just like I imagined. But here the game gets a bit trickier…
+
+I have never been to Bohn, one of the few main cities in the region. So far everything has
+gone by the plan, but during my years of thieving I have learned to expect the unexpected.
+And this time too I have a somewhat bad feeling of things to come. According to Lord
+Gillian’s diary this Mystic Soul that I stole from him is cursed. A few lines in some noble’s
+diary isn’t very convincing so I hope to stumble on some additional information.
+
+The Mystic Heart is the reason why I am in here, it is located inside one the main
+establishments of the city - the Baronial Museum. The museum is filled with valuables from
+different eras and cultures so security will be tight, however any guards patrolling the streets
+shouldn’t bother me unless I do something foolish. I was able to find only a simple map
+meant for museum visitors, it doesn’t show staff areas but it’s better than nothing. 
+
+In addition to the gemstone I am also going to find some valuable information about
+my…targets. There is sure to be some research notes in the museums archives. Once I have
+finished everything I have to get out of the city before dawn breaks.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Important!
+
+-This mission is heavy so expect some slowdowns on older hardware
+-You can walk through the red felt ropes. Guards and other NPCs can do the same too!
+-Turn fog ON for better visuals
+-Fog can look very different depending on your monitor. If you can see only greenish haze
+  then it’s best to turn the fog OFF
+
+-----------------------------------------------------------------------------------------------------------------
+
+FM Credits
+
+-Blackthief (textures)
+
+-David Gurrea (textures)
+  http://www.davegh.com/blade/davegh.htm
+
+-DreamWalker (readables)
+
+-ERH (museum ambient)
+  http://freesound.iua.upf.edu/usersViewSingle.php?id=215874
+
+-Eshaktaar (coronas, magical flames)
+
+-Nameless Voice (moon, globe, corner cabinet, Victorian tables, lectern, 
+  poker bin, spider chest, flames, custom scripts, rooftops, rosary)
+  http://www.geocities.com/nameless_voice/
+  http://www.geocities.com/nameless_voicetex/
+
+-Nielsen74 (book sets, columns, blue vase)
+  http://www.jasonotto.net/n74objects.html
+
+-Nivellen (warrior statue texture)
+  http://timon.thefreebizhost.com/Obj.html
+
+-Ottoj55 (door handles, guard texture bases, tapestries, metal bars, torches, lilypads, 
+  curved chains)
+  http://www.jasonotto.net
+
+-Pinkdot (stone pillars, cobwebs, textures)
+
+-redface (open books)
+
+-RSoul (wall candles, fixed No KO guard & gas arrow model)
+  http://catmanofiowa.com/RSoul/
+
+-Saturnine (plate mail guard texture)
+
+-Schwaa (coat racks, book stacks, street lamps)
+  http://thiefmissions.com/lpg/
+
+-Sliptip (clouds)
+
+-Sluggs (potted plants, buildings)
+  http://www.jasonotto.net/vcobjects.html
+
+-Targa	(fat guard, dome model, haunt model)
+  http://www.grax.org/targa/
+
+-TDBonko (banners, statues, steel breast plates, woman guard model)
+  http://www.jasonotto.net/tbobjects.html
+
+-Telliamed (custom scripts)
+  http://www.thiefmissions.com/telliamed/
+
+-thief_gotcha (textures)
+  http://www.ttlg.com/forums/showthread.php?t=119451
+
+-Vigil (lights shafts, textures, map base, water effects, open books)
+  http://thief.washboardabs.net/
+
+-Yandros (Hammerite coins & medallion, iron gates, metal shelves)
+  http://www.wearytaffer.com
+
+
+-Two floor textures were taken from Return to Castle Wolfenstein
+
+-----------------------------------------------------------------------------------------------------------------
+
+Play testing
+
+-bikerdude
+-DreamWalker
+-jericho
+-klatremus
+-LarryG
+-SlyFoxx
+
+-----------------------------------------------------------------------------------------------------------------
+
+Techical information
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			Mystic Gems II – Heart of Bohn
+File name: 			miss21.mis
+Custom Gamesys:		Yes (mg2.gam)
+Difficulty Settings: 		Yes (Easy, Normal, Hard)
+Equipment store: 		Yes
+Map / Automap: 		Yes / No
+New graphics:			Yes
+New sounds: 			Yes
+New motions:			No
+New scripts			Yes (NVScript.osm, tnhScript.osm)
+Multiple languages:		No
+Briefing: 			No
+Debriefing: 			No
+
+-----------------------------------------------------------------------------------------------------------------
+
+Construction
+
+Base:				Scratch
+Build Time:			About 2 years, work was started in November 2006
+
+Mission is pretty detailed and some areas have high poly counts. Outdoor areas are heaviest
+and old computers will start slugging. Most indoor areas should run well enough for good
+Thief experience.
+
+Mission was made with following system:
+
+Intel Core 2 Duo E6600 @3200MHz
+Geforce 8800GT 512MB
+2Gb 1000Mhz DDR2 RAM
+
+-----------------------------------------------------------------------------------------------------------------
+
+Loading information
+
+Use DarkLoader to run the mission, unzip manually only if you know what you are doing.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Legal information
+
+Copyright © 2008, Wille
+
+Distribution of this fan mission is allowed freely as long as the the package remains in its 
+original form. This level was not made and is not supported by Looking Glass Studios (R.I.P.) or Eidos Interactive.

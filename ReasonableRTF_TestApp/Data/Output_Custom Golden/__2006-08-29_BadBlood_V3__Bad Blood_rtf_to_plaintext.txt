@@ -1,0 +1,63 @@
+Bad Blood, v3.0
+
+This version includes numerous fixes, mostly dealing with texture and room brushing issues.
+I also added more loot to make the loot objective a bit easier. 
+________________________________________________________________________________
+
+Author           	: Terry DeLaney
+Contact info       : ricebug@cableone.net
+Date of release	: 08/2006 (Original) 07/2010 (Version update)
+________________________________________________________________________________
+
+Bad Blood: You have business in the sleepy town of Airsdale. Unfortunately, a serial rapist and 
+murderer has been on the loose, and the town folk are demanding the perp be found. The local 
+boys lay the blame on you. Thrown in jail and facing execution, you escape with only the clothes
+on your back. Alone, penniless, and hunted, you have 3 priorities: get your equipment back, steal
+the town blind, and find and kill the real perp. 
+________________________________________________________________________________
+
+Technical advice: Players with slow machines may have trouble due to the large outdoor areas.
+________________________________________________________________________________
+
+Playing Information
+
+Game                   	: Thief : The Metal Age
+Mission Title          	: Bad Blood
+File Name            	: miss21.mis
+Difficulty Settings     	: Yes
+Equipment Store        	: No
+Map                    	: Yes
+Auto Map             	: No
+New Graphics        	: No
+New Sounds             	: No
+New Textures		: Sluggs, LemogVeg, Vigil, DrK, Laurent Antoine, & Graphic Detail
+New music		: No
+Multi-Language Support 	: No
+Briefing               	: Yes
+Difficulty Level Info  	: Normal, Hard and Expert
+Construction :		: From scratch
+Base                   	: No
+Build Time              	: 8 months
+________________________________________________________________________________
+
+Credits
+
+Sluggs, Vigil, DrK, & Laurent Antoine for custom textures and skins.
+Studio of Schwaa for custom objects.
+Beta Testing: SirFreddieM & Hard Bop
+One Way or Another by Blondie. Copyright 10/01/02 Capitol Records.
+
+Technical Info
+
+Intro briefing made with Adobe Premier
+Audio Processing done with Sound Forge 
+ 
+Loading Information 
+
+Place this zip file in the folder where you keep your other Fan Missions. Run from DarkLoader
+
+Copyright Information
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may include this level in any map pack without my permission. You may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

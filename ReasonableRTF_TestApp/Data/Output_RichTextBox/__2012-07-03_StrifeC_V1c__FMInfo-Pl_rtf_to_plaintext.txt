@@ -1,0 +1,124 @@
+KAMPANIA STRIFE
+“ZMAGANIA: NIE UFAJ NIKOMU”
+
+By Ricebug (Terry DeLaney)
+Data wydania: 18 Czerwiec 2012
+
+
+Poprawki
+
+Niebo z Ddfixa Jermiego zastąpiło stare nieba z gry. Jeśli nie masz zainstalowanego Ddfixa, nie zauważysz specjalnej różnicy.
+Oświetlenie stworzono od nowa dzięki programowi Nameless Voice “Sunlight Calculator”.
+Aby pomóc zagubionym podróżnikom, w systemie kanalizacyjnym dodano strzałki ułatwiające orientację.
+Wszystkie teksty w grze zostały przetestowane i poprawione.
+
+Tło historyczne
+
+Strife to gra oparta na silniku DOS wypuszczona w maju 1996 przez Velocity Development i Rogue Entertainment. Stworzono ją na silnie zmodyfikowanym silniku DooM®. Jedną z nowości w grze była możliwość podróżowania pomiędzy (w sumie trzydziestoma czterema) poziomami.
+
+Niniejsza kampania jest konwersją gry Strife do Thief’a 2. Pierwsza misja była w rzeczywistości moim pierwszym rendez-vous z DromEdem. Jednak z powodu mojej nieznajomości edytora i stopnia skomplikowania mapy, kilkukrotnie “wybuchała”. Fabuła została stworzona w oparciu o realia Thief’a i niektórych dzieł literatury fanowskiej*, jednak mapy są w 90 % identyczne z oryginalnymi z gry Strife.
+
+Poziom trudności
+
+Na poziomie “Neofita” (tylko pierwsza misja) umieszczono wskazówki ułatwiające rozgrywkę. Jest także mniej przeciwników, więcej ekwipunku i dostępnych łupów.
+
+Błędy
+
+W czasie przeróbki misji wiele tekstur zostało usuniętych z gry. Wszystkie musiały być nakładane ponownie. Pomimo to mogłem jakieś przegapić. Jeśli napotkasz jakieś problemy z teksturami, skontaktuj się ze mną.
+
+Jeśli korzystasz z wody z Ddfixem o wysokiej rozdzielczości, może wystąpić błąd w postaci jej “błyszczenia”. To problem silnika. Zrób szybki zapis, wyłącz grę i wczytaj ją ponownie. Powinno pomóc. W pewnym momencie zauważyłem też, że niebo z Ddfixem o wysokiej rozdzielczości wyglądało dziwnie. Szybkie ponowne wczytanie naprawia błąd.
+
+Część z misji tej kampanii wykorzystuje DedX gamesys Roba Hicksa. Podczas przeróbki kampanii, większość z nich została oczyszczona z niewykorzystanych obiektów, tekstur i map.
+
+Tłumacze
+
+Zappen– niemiecki 
+Melissa Macunado (Keeper M) – polski
+
+Informacje o grze
+
+Gra:  Thief 2
+Tytuł misji: (Kampania) ZMAGANIA – NIE UFAJ NIKOMU
+Wersja:  1
+Nazwa pliku:  miss17.mis – miss30.mis
+Poziom trudności: Tak
+Sklep:  Nie
+Mapa:  Tak
+Automapa:  Nie
+Nowe grafiki:  Tak
+Nowe dźwięki:  Tak
+Wielojęzyczność: Tak
+Wprowadzenie: Tak
+Rozmiar: 
+
+Betatesterzy (w kolejności alfabetycznej)
+
+Acolyte6
+Albert
+Bikerdude
+bob_doe_nz
+Camille
+Cogline
+Dussander
+flying_hope
+Gloria Creep
+gunsmoke
+Hotlyx
+Lightningline
+nickie
+pavlovscat
+phil237
+Ravenhook
+Silent_Warrior
+SirFreddieM
+SneakyJack
+thief0
+Undead Gamer
+yondanbrad
+
+Nowe obiekty
+
+Digital Nightfall / Circle of Stone and Shadow: Meble
+Greenhorn: Kusza i rośliny
+Jason Otto: Łańcuchy/Ulepszone AI
+Nameless Voice: Płomienie
+Rob Hicks: Kobieta mag Ziemi, Szczuroczłek
+Vigil (Alun Bestor): Pajęczyny i Promienie światła
+William the Taffer: Droidy
+
+Nowe tekstury
+
+Eshaktaar
+Lemog
+ Majic
+ Nameless Voice
+
+Dodatkowe tekstury
+
+iD Software’s Medal of Honor & Castle Wolfenstein
+Strife textures: Rogue Entertainment
+
+Dodatkowe elementy
+
+3Delyvisions (http://www.3delyvisions.com): Ulepszony skybox:
+Jermi: Niebo o wysokiej rozdzielczości
+Jason Otto: Ustawienia wodospadu
+Sterlino: Tłocznia w misji “Kanały”
+
+Edytor gry Strife
+Deep97, by Jack Vermeulen and Sensor Based Systems
+
+Aby obejrzeć prezentację oryginalnej gry Strife:
+http://www.youtube.com/watch?v=5bGfU57F06Q
+
+Aby przeczytać recenzję oryginalnej gry Strife w serwisie GameSpot:
+http://www.gamespot.com/pc/action/strife/review.html?om_act=convert&om_clk=gssummary&tag=summary;review
+
+*Aby przeczytać powieść fanowską Melissy Macunado, “Mektub: Jest Zapisane”, w oparciu o którą opracowano świat gry:
+http://wyszczekani.hpu.pl/viewpage.php?page_id=26 
+
+Copyright © Czerwiec 2012 by Terry DeLaney
+
+Autor zgadza się na prywatny użytek i darmową dystrybucję niniejszej gry. Grę stworzono po uprzednim zapytaniu twórców oryginalnej gry Strife o zgodę na wykorzystanie ich tekstur i map. Pomimo kilku prób, ani Velocity Development, ani Rogue Entertainment nie odpowiedziało.
+
+Ta misja nie została stworzona przez Looking Glass Studios lub Eidos Interactive.

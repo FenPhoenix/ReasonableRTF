@@ -1,0 +1,140 @@
+
+
+Надувательство!
+
+Фан-миссия Zappenduster-а для Thief 2, в двух частях
+Выпуск: январь 2022-го
+
+
+
+Игра:			Thief 2 - The Metal Age (Version 1.18+)
+Название:		Странное послание / Надувательство!
+Имена файлов:	miss27.mis, miss28.mis, miss28.gam
+Скрипты:		convict.osm, gen.osm, miss16.osm, tnhScript.osm
+Уровни сложности:	Нормально, Тяжело, Эксперт
+Магазин:		Да
+Карта:		Да
+Новая графика:	Да
+Новые звуки:	Да
+Новые объекты:	Да
+EAX:			Нет
+Языки:		DE, EN, FR, IT, RU
+Видео:		-
+
+История:
+
+Я собрался было лечь спать, как услышал, что кто-то стучится в мою дверь, а потом улепётывает со всех ног. Похоже, гость оставил мне записку под дверью...
+
+Описание:
+
+Проходить линейно или нет – решать вам, но рекомендуется сначала выполнить главную задачу миссии. Кое-какие предметы и дополнительные цели, важные для продвижения истории, появятся позже, так что большой разницы нет: искать сперва подсказки или же обчищать окрестности.
+
+На сложности «Эксперт» есть дополнительные требования, которые не видны сначала, но станут видны позже, по ходу миссии. Для тех, кто не любит подобный подход, рекомендую другие уровни сложности.
+
+Кстати, свечи можно «задувать». Внимание: стражников со шлемами на головах оглушить дубинкой не выйдет (это ведь реалистично, верно?)! Помните миссии оригинальных игр и не забывайте, что стрелы с лозой работают не только на деревянных поверхностях. Ах да, никогда не сохраняйтесь во время разговоров...
+
+Я не рекомендую использовать текстурные моды и/или субтитры.
+
+
+
+Copyright:
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+Distribution of this level is allowed as long as it is for non-commercial use and the package is kept intact. No one may edit and re-distribute this mission without my express permission.
+
+Dedicated to the indefatigable administrators of http://ttlg.de, http://ttlg.com, http://ariane4ever.free.fr and http://shadowbox.forumactif.org ...
+
+Beta tester:
+
+Bäuchlein, DarkThief, Intruder, PsymH, Samantha1
+
+Proofreading FR/EN and Translation IT/RU:
+
+ urgrue (EN), ... (FR), Maga (IT), MoroseTroll (RU)
+
+Thanks to the object creators ...
+
+74Nielsen: Box, jug, column, vase
+Amazing3D: Objects courtesy of http://amazing3d.com
+Alun David Bestor: Textures, cobwebs, from http://thief.washboardabs.net
+Ar-Zimrathon: Towel rail
+Borsaci08: Bathroom cabinets, basin, fountain, column, coffin, from 
+http://borsaci06.com/3d-Source.htm
+CoSaS Team: AIs, bureau, bar and casino equipment, from 
+http://darklurker.com/cosasobjects.html
+Christine: Many objects!
+DarkShadow: Breastplate, lamp, armchair, table
+DarkThief: DE voice of the Chief of Police
+Don Willadsen: Cape
+Eshaktaar: AD lamp, oil lamp
+Brother Staven: FR voice of the Chief of Police
+Goldwell: EN voice of the Chief of Police
+Gort: Ceiling lamp
+GothicEditing: Wagon, from 
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+Greenhorn: Lock picks, various plants, smock, lamp, loungers, pub sign
+Hrothgar: Brushwood, oven
+Jason Otto: Bottles, houses, ladders, cross members, switch boxes, tanks
+Josef Kurz: Bench, ladder, chalice, pedestals, from http://joes3dfantasyworlds.com
+Jordan_Maf: Various machines
+LarryG: Ratty
+Looperman.com: SFX-ambients by Danke and Sushilbawa
+Master_Edd: Book, fountain pen, lion's head
+Miakhano: Karras picture
+
+
+
+
+NamelessVoice: Bookshelves, corner cupboard, bat, piano, scissors, clocks
+Nivellen: Hammerite ghost texture
+OpServer: Axe, bathtub, scales, from  http://opserver.de/coni_users/web_users/pirvu/au/models.html
+Raetsel: Gothic windows
+RSoul: Watering can, cart, shelf, coffin
+Schwaa: Books, trophies, shields, chest, quill pen, wine barrel, from 
+http://thiefmissions.com/lpg/schwaa.htm
+Sims: furniture, boxes, cactus, from http://themedievalsmithysims2.blogspot.com 
+Sluggs: Too many to list them all ... a huge pool of objects!
+Syi: Skeleton on chair
+Targa: Compass, park gate, glass dome, from http://thiefmissions.com/targa
+Telliamed: tnhScript
+TheFree3DS: Lamps, Quita figurines, shelves, signposts
+TheWatcher: Torch
+Team2X: Beds
+UglyEd: Shoes
+VonEins: Anvil, bucket
+WorldOfGothic: Bottles, stocks, chests of drawers, awnings, mushrooms, coffins, sales
+stands, workbench, cogwheel, fence, from http://www.worldofgothic.de/?go=moddb
+Yandros: Hammerite coins, valuables, from http://wearytaffer.com
+Zontik: Garland
+
+Programs used:
+
+... whereby some objects were edited so that standard textures could be used: saves resources
+
+I wanted to take the trouble to list the programs I worked with in connection with this FM series. Ugh, what a long list!
+
+DromEd118: Na logo.
+ThiefEdit: Very helpful when viewing / listening to RES files
+ObjTree: For easier editing of the Gamesys. After saving, it is usually smaller than with DromEd
+ObjList: Thorin-Oakenshield's object list - if searching the object hierarchy takes too long ...
+ParchEd98: Tom N. Harris' efficient Book and Scroll Reader
+Ulead PhotoImpact: Excellent processing of graphic files
+IrfanView: Irfan Skiljan's program that can handle pretty much any graphic format
+360g: Converts textures from the proprietary VTF format to popular image formats
+DXTBmp: Converts textures from the proprietary DDS format to common image formats
+Bright183: Erik de Neve's program that creates graphics families suitable for games in batches from BMPs
+XVI32: Christian Maas' hex editor with which binary files can be changed
+Anim8or: For creating / editing 3DS objects
+3DS2BIN: Converts 3DS files into BIN format (from NamelessVoice)
+ProgMesh: Parallelo's practical software reduces polys of 3DS models to the desired degree
+
+
+
+
+View: Displays BIN files, with rotation and zoom functions
+UVMapper: Stephen L. Cox 'program allows alternative overall texturing of an object
+Sony SoundForge: Processing of sound files: recording, effects, conversion to IMA ADPCM 22.050 Hz; 4 bits; Mono
+Audacity: Processing of sound files, especially noise reduction
+Ulead Movie Factory: Surprisingly, also suitable for opening credits AVIs
+Then there were Notepad, WinZip, WinRar, ...
+

@@ -1,0 +1,66 @@
+===================================================================
+24 Octobre 2003 // 21 Novembre 2007 (Version française)
+===================================================================
+Titre           : Le Bois Oublié, 1ère Partie
+Nom du fichier  : ZL_fr.zip
+Auteur          : Timon
+Contact info    : Tomeksz@poczta.fm
+Version         : 1.0
+
+Traduction en français      : Stefan Key
+Contact info                : Skeymare@hotmail.com
+Briefing :
+
+Première mission de la campagne.
+
+Le libraire Kielnia vous a engagé pour en apprendre davantage sur l'origine des objets de grande valeur mis en vente sur le marché par Marucha. Il ne fait aucun doute que Kielnia veut se les procurer. Votre tâche consiste à vous enrichir par la même occasion et vous apprendrez qui se trouve derrière Marucha. Un tel gueux ne peut organiser une telle vente d'antiquités. De plus, il est dans votre intérêt de connaître qui vous volez, cela pourrait vous sauver la vie ou vous être profitable d'une façon ou d'une autre. Après tout, de bonnes informations et la connaissance du milieu sont gages d'une bonne assurance-vie. Allons-y ! Espèrons que vous puissiez quitter ce bois oublié à l'aube. Ce bois... oublié des hommes et des dieux....
+
+ 
+===================================================================
+Le jeu : 
+
+Jeu                 : Dark Project 2 : L'Age de Métal
+Fichier             : miss25.mis
+Fichier Gamesys     : ZLas.gam 
+Niveaux de difficulté : Oui
+Inventaire          : non
+Carte               : non
+Carte auto          : non
+Nouveaux graphismes : Oui
+Nouveaux sons       : Oui
+Support EAX         : Oui
+Briefing            : non
+Multi langues       : non
+Bugs connus         : 
+
+
+Comment jouer : 		: Installer en utilisant le Darkloader, ne pas décompresser, à moins que vous le vouliez vraiment.
+
+====================================================================
+Info de construction
+
+Base               : Parti de zéro
+Taille de la carte           : Moyenne
+Temps de construction : Très long
+
+Grands mercis à : 
+
+Par ordre alphabétique 
+Anna
+Brzeszczot
+Bukary
+Jericho
+Nivellen
+Otello
+PiotrS
+Zlack
+
+
+Les objets par : Schwaa, vonEins, Targa, Jonquilis, Christine, Mrys, Nameless Voice, Timon et d'autres.
+Les textures par : Nivellen, Gob, David Guera, Purah, BerneyBoy et d'autres.
+ 
+====================================================================
+Disclaimer :
+
+Ce niveau n'a pas été fait et n'est pas garanti par Looking Glass Studios ou Eidos. Tous les 
+droits et obligations de LGS et Eidos accompagnent cette FM. J'autorise quiconque à distribuer gratuitement cette FM tant qu'elle n'a pas été modifiée, et que mon nom et ceux de LGS et Eidos soient mentionnés.

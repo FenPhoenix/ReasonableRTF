@@ -1,0 +1,27 @@
+Author			:	Shadowhide (OzZzy)
+E-Mail			:	ozzy1911@rambler.ru
+Version			:	v1.0
+
+Something hide somewhere in this place 
+
+Special  Thanks to:
+
+Dront
+clearing
+
+Playing Information *
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			DarkWood
+File name: 			        miss20.mis
+Difficulty Settings: 		       Yes 
+New graphics: 			Yes
+New sounds: 				no
+Multi language support:		No
+Briefing: 				no
+
+* Construction *
+ Build Time:			1week
+
+This level was not made and is not supported by 
+Looking Glass Studios or Eidos Interactive.

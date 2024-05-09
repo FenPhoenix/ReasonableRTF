@@ -1,0 +1,98 @@
+THE HUNT
+--PART 1: SEARCH--
+An FM by Grandmauden
+for the TDP 20th Anniversary Contest
+
+NewDark 1.26 is required
+
+Filename		-   miss22.zip
+TTLG Page	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Release Date	-   Nov. 30, 2018
+
+Briefing
+"The jolt when, at last, your eyes find your prey. 
+The adrenaline as you wait, unseen and unheard. 
+The pain as you fight to reach the perfect moment.
+The rush when you finally deliver the fatal strike.
+The pride as you stand triumphant in body and mind.
+These are the joys of being a hunter."
+- Lord William Brighting
+
+Yesterday, your new fence told you about a job offer that just came in. Apparently, a merchant named Marlon was looking to acquire something that he wanted to sell to a prominent client. While you generally prefer not to take jobs from the working class (they don't exactly have deep pockets, after all), you couldn't help but be intrigued upon learning that Marlon requested your services by name.
+That's why, earlier tonight, you found yourself stepping into Marlon's weapon shop in Hightowne. Before you could even finish introducing yourself, Marlon suddenly shushed you and insisted on talking in the back, despite the store being closed for the night and nary a soul patrolling the street outside. Nevertheless, you followed the beckoning merchant into his quarters.
+
+"...Sorry about that. The Hammerites have been acting crazy lately - well, crazier than usual. They think they're entitled to randomly burst into our homes to look for evidence of criminal behavior or something. The last thing I need is for them to walk in on me discussing a heist with a notorious thief."
+"What kind of heist would someone like you need my help with?"
+"Well, unfortunately, my business has been going downhill these past few months. All these swords, arrows, clubs...they just aren't in demand anymore, it seems. I'm even offering a discount to anyone who'd use my weapons to take out the burricks in the sewers, but..."
+"Get to the point, Marlon. You're starting to bore me."
+"Okay, okay. Fine. Do you know Lord Brighting? Lives in the big castle a few streets north?"
+"The name's familiar. Supposed to be a big game hunter, from what I hear."
+"Well, rumor has it that the reason he's such a successful hunter is because of the special bow he uses. Made from some of the best materials available...hickory wood and hemp, I think. People say that he's been using that same bow since childhood, and that its arrows never miss their mark. I can think of some folks who'd love a bow like that. I bet I could easily sell it for enough gold to keep my store afloat!"
+"So you want me to steal a hunting bow? That's all?"
+"I mean, I don't expect it to be easy. Certainly not something I'd trust a petty housebreaker to handle. The first obstacle, of course, is the big gate in the front. Normally, I'd suggest going under it via the sewers, but the workers freaked out with the burricks running amok and sealed pretty much all the entrances, so I doubt that's even possible."
+"Then I'll find a way to climb over it. Shouldn't be too difficult."
+"True. On the other hand, I also know of a side entrance to the castle, used by the staff to get in and out. I've seen one of Lord Brighting's servants go for drinks at the Yellow Candle Inn most nights. Maybe if you go there, you can find him and get a key to the door. As for the inside, I'm pretty sure Lord Brighting would keep his bow on display somewhere, but I imagine it's under heavy guard."
+"Please. Guards are no match for me. I just hope you intend to make this worth my time."
+"Oh, it will be! I'll pay you 2000 gold upon receipt of the bow, plus a third of the profits I make from selling it. You have my word."
+"I'll be holding you to that. I'll be back with your bow before the sun rises."
+
+Play Information
+Game				-   Thief: Gold
+Level Name			-   The Hunt
+File Name				-   miss22.mis
+Difficulty Settings		-   Normal / Hard / Expert
+Equipment Store		-   No
+Map / Automap		-   No / No
+New Graphics			-   No
+New Sounds			-   Yes
+New Conversations		-   Yes
+New Models			-   No
+EAX Support			-   Yes
+Multi-Language Support	-   English / Deutsch / Italiano / Français
+Briefing				-   This text file 
+
+Construction
+Base					-   None
+Build Time			-   Most of the year
+
+Loading Information
+Leave the file zipped and place it into your FM folder, then load it up in FMSel or NewDarkLoader.
+
+Author's Notes
+-   Higher difficulty settings mean less health, less equipment, harder objectives, more AI, and certain areas becoming harder to access.
+-   Guards and civilians out on the streets will ignore you as long as you leave them alone and you don't get caught somewhere you shouldn't be.
+-   The AI sometimes react strangely to the alarms going off (freezing in place, etc.). Maybe the thought of an intruder is too terrifying for them to handle! :)
+-   A few doors cannot be opened. You may be able to enter some of these doors in Part 2.
+-   A lootlist is included in the .zip file.
+
+Credits
+Beta-testers:
+	Cardia
+	marbleman
+	vfig
+
+Voice Actors:
+	AndrosTheOxen		- Garrett
+	Phantom			- lecherous servant, stern guard, gallery guard
+	McTaffer			- cook, sleepy guard
+	Shadow Creepr	 	- barkeep, maidservant
+
+Translators:
+	Zappenduster (Deutsch)
+	piesel (Italiano)
+	Azaran (Français)
+
+Special Thanks:
+My family and friends for supporting and encouraging me throughout this project.
+Looking Glass Studios and Ion Storm for creating such a fantastic trilogy of games.
+TTLG for keeping these games alive and well for so long.
+skacky for running the TDP 20th Anniversary contest.
+
+Copyright
+This mission is © 2018 by Grandmauden (Kevin Kolpack)
+
+You all know the drill. You can freely distribute this mission as long as it's free and everything in the archive is left intact. If you want to change something, just ask me first.
+
+This mission was not made and is not supported by Looking Glass Studios, Ion Storm, or Eidos Interactive.

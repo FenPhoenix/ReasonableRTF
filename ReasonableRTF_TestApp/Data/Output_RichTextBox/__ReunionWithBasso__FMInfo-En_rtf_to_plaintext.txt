@@ -1,0 +1,222 @@
+ 
+Reunion with Basso
+
+A three-part Thief2 FM from Zappenduster
+August 2012
+(Russian players please scroll down)
+
+
+
+Game:			Thief 2 - The Metal Age
+Mission Names:	Garrett Takes A Cure / On The Hammer's Tracks / Reunion with Basso
+Files:			miss24.mis / miss25.mis / miss26.mis / neu.gam
+Levels:		Normal, Hard, Expert
+Shop:			No
+Map:			Yes (Missionen 25 und 26)
+New Graphics:	Yes 
+New Sounds:		Yes 
+New Objects:		Yes
+EAX:			No
+Languages:		DE, EN, FR, IT, RU
+Movies:		b24.avi, b25.avi, b26.avi, cs26.avi  
+
+Story:
+Right now I'm on my way to visit my old pal Basso. After the business with Lady Rumford he and Jenivere left the city and now reside in a nearby town.
+That's not supposed to be an uneventful journey ...
+
+Advices:
+Most of the (hanging) candles can be doused. If the player can reach them they can be "blown out" - if not a water arrow can be useful.
+Some AIs speak with VGuard7 / VDrunk7 which is now available in DE, FR und EN. Those who want to build a new mission with lots of guards are welcome to use it ... please include all 3 languages then.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+Dedicated to our longstanding TTLG.DE member and tester Blackmen who left us in 2011 forever.
+
+Beta-Tester, language corrections:
+My thiefy daughters, DarkThief, DarthsLair, Gaëtane, Mira, Schelfia, Tannar.
+
+Thanks to ...
+Alun David Bestor: Texturen und Spinnweben von http://thief.washboardabs.net
+Amazing3D: Objekte mit freundlicher Genehmigung von http://amazing3d.com
+Ar-Zimrathon: Handtuchhalter, Schrubber von http://zinkchristine.de/Dromed.html
+Beauty-Man: Musik von http://www.ttlg.com/forums/showthread.php?t=130428
+Christine: Deckenlampe, Koffer, Palmen, Regale, Teller, Tonwaren, Türrahmen von http://zinkchristine.de/Dromed.html
+CoSaS Team: AIs, Kneipenausstattung, Schriftrollen, VDrunk2 von http://darklurker.com/cosasobjects.html
+Gort: Rollstuhl von http://zinkchristine.de/Dromed.html
+Greenhorn: Grabstein, Liegestühle, Pinbord, Praxiskittel, Tafel von http://zinkchristine.de/Dromed.html
+Don Willadsen: Gerissenes Seil, Umhang
+Elvis: Faß, Herd http://ttlg.com/FORUMS/showthread.php?t=134139
+Eshaktaar: AD-Lamp, Gruselfackel, Öllampe, Orgel, Wassertextur
+Jason Otto: Houses, Anbau, Pentagramm von http://jasonotto.net
+Josef Kurz: Lots of fantastic objects on http://joes3dfantasyworlds.com
+Krenim: Italian translation ... mille grazie!
+LarryG: Ratty
+Master_Edd: Füller, Löwenkopf, Weinschild von http://dark-zone.npage.de/index.html
+NamelessVoice: Bücherregale, Eckschrank, Fledermaus, Kerzenständer, Kohl, Lampe, Replace-Rahmen
+Nielsen74: Haken, Trompete, Fackeln, Minifaß,
+Ricebug: Reading the english texts
+RSoul: Tisch und Stühle
+Schwaa: Fackel, Laute, Säulen, Schreibfeder
+Sephy: Musik von http://musik.ardw.de/ambience/index.php
+Sluggs: Bäume und Buschwerk
+Syi: Tisch
+Targa: Kompaß, überarbeitete AIs, Weinfaß von http://thiefmissions.com/targa
+Telliamed: tnhScript
+Vaughan "Sluggs" Cooper: Gelände
+Vigil: Spinnweben
+Yandros: Hammerite Mission Development Kit, Hammer Loot Pack von http://wearytaffer.com
+Zontik: Blumenbeet, Brunnen, Spritze von http://ttlg.com/forums/showthread.php?t=131911
+Additionally mentioned ...
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle: Brunnen, Häuser, Karrenszene, Wachturm 
+http://opserver.de/coni_users/web_users/pirvu/au/models.html: Axt, Waage, Badewanne
+http://www.worldofgothic.de/?go=moddb: Marktstände, Möbel, 
+http://spiralgraphics.biz
+http://thewall.de/forum/thread/hl2-mauer-fachwerk-natur-texturen/49710.1.html
+http://mediacastle.de/texturen
+http://themedievalsmithysims2.blogspot.com
+http://texturehub.net
+http://dougturner.net/blendersite/index.html
+http://vgt.davegh.com
+http://au.conitec.net
+http://noctua-graphics.de/deutsch/freetex_d.htm
+http://gamebeep.com/textures
+http://bildburg.de/texturen
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+http://amazing3d.com
+http://opserver.de/coni_users/web_users/pirvu/au/models.html
+http://worldofgothic.de
+http://borsaci06.com/3d-Source.htm
+http://sounddogs.com
+http://freesfx.co.uk
+
+Software used:
+Didn't translate it ... but that's a list of all those programs I used relating to my FMs. Wow, pretty much stuff!
+DromEd118:		Na logo.
+ThiefEdit:		Sehr hilfreich beim Betrachten/Abhören von RES-Dateien
+ObjTree:		Zum leichteren Editieren der Gamesys, sie ist nach Abspeichern i.d.R. auch kleiner als per DromEd.
+ObjList:		Thorin-Oakenshields Objektliste - wenn das Suchen in der Objekthierarchie mal wieder länger dauert ...
+ParchEd98:		Tom N. Harris' effizientes Eingabeprogramm für Bücher und Schriftrollen.
+Ulead PhotoImpact:	Excellente Aufbereitung von Grafikdateien.
+IrfanView:		Irfan Skiljans Programm kann so ziemlich jedes Grafikformat ...
+360g:			Wandelt Texturen vom proprietären VTF-Format in gängige Bildformate um.
+DXTBmp:		Wandelt Texturen vom proprietären DDS-Format in gängige Bildformate um.
+Bright183:		Erik de Neves Programm erstellt aus BMPs batchmäßig spieltaugliche Grafik-Familien.
+XVI32:		Christian Maas' Hex-Editor mit dem man z.B. BIN-Dateien verändern kann.
+Anim8or:		Zum Erstellen/Bearbeiten von 3DS-Objekten.
+3DS2BIN:		Konvertiert 3DS-Dateien ins BIN-Format (von NamelessVoice).
+ProgMesh:		Parallelos praktische Software reduziert Polys von 3DS-Modellen im gewünschtem Grad.
+View:			Zeigt eine BIN-Datei an, mit Dreh- und Zoomfunktion.
+UVMapper:		Stephen L. Cox' Programm gestattet die alternative Gesamttexturierung eines Objektes.
+Sony SoundForge:	Aufbereitung von Tondateien - Aufnahme und einzelne Effekte.
+Audacity:		Aufbereitung von Tondateien - insbesondere Rauschunterdrückung.
+MS Audiorecorder:	Aufbereitung von Tondateien - Umwandeln in IMA ADPCM 22.050 Hz; 4 Bit; Mono.
+Ulead Filmbrennerei:	Überraschenderweise auch für Vorspann-AVIs geeignet.
+Dann waren da noch Notepad, WinZip, WinRar, ...
+
+
+
+ 
+Встреча с Бассо
+Фан-миссия для Thief2 из 3 частей
+Автор: Zappenduster
+Выход: 2012
+
+
+
+Игра:			Thief 2 - Эра Металла
+Названия уровней:	Гарретт на лечении / По следу хаммеритов / Встреча с Бассо
+Файлы:		miss24.mis / miss25.mis / miss26.mis / neu.gam
+Уровни сложности:	Нормально, Тяжело, Эксперт
+Лавка снаряжения:	Нет
+Карта:		Да (miss25/26)
+Новая графика:	Да 
+Новые существа:	Да
+Новые объекты:	Да
+EAX-поддржка:	Нет
+Мультиязычная
+поддержка:		НЕМ, АНГЛ, ФР, ИТ, РУС
+Брифинг:		Да 
+ 
+Перевод с немецкого на русский:
+Тексты и графика: Fernan
+Корректировка текстов: Mira, Schelfia
+Шрифты:  Force, Mira, Zontik
+
+Предыстория:
+Действие история происходит спустя некоторое время после дела с леди Рамфорд. Между тем Бассо со своей возлюбленной Джениверой переехал и теперь живёт в окрестностях другого города.
+Гарретт должен навестить своего старого приятеля. А тот, кто путешествует, может нарваться на неприятности.
+
+Советы:
+Имеющиеся в миссии свечи (на стенах) можно погасить. Свечи, находящиеся в радиусе действия игрока можно «задуть», в остальных случаях можно использовать водяные стрелы.
+Отдельные ИИ произносят расширенные фразы VGuard7 или VDrunk7, которые имеются в немецкой, французской и английской версиях. Тот, кто хочет создать миссию с большим количеством охраны, должен воспользоваться этими звуками...
+Эта ФМ не создана и не поддерживается Looking Glass Studios или Eidos Interactive.
+
+Посвящается нашему многолетнему соратнику по TTLG.DE и тестеру Blackmen, который в 2011 году навсегда покинул нас.
+
+Бета-тестеры:
+Мои воровские дочери, DarkThief, DarthsLair, Gaëtane, Mira, Schelfia, Tannar.
+
+
+Спасибо ...
+Alun David Bestor: текстуры с http://thief.washboardabs.net
+Amazing3D: объекты с http://amazing3d.com
+Beauty-Man: музыка с http://www.ttlg.com/forums/showthread.php?t=130428
+Christine: потолочные лампы, пальмы, полки, керамические вазы, двери с http://zinkchristine.de/Dromed.html
+CoSaS Team: ИИ, барменская стойка, VDrunk2 с http://darklurker.com/cosasobjects.html
+Elvis: бочка, плита с http://ttlg.com/FORUMS/showthread.php?t=134139
+Eshaktaar: водные текстуры, факелы, 
+Jason Otto: дома, строения с http://jasonotto.net
+Josef Kurz: огромное количество замечательных объектов с http://joes3dfantasyworlds.com
+Krenim: перевод на итальянский язык
+Nielsen74: труба, факел
+R Soul: стол и стул
+Schwaa: факел
+Sephy: музыка с http://musik.ardw.de/ambience/index.php
+Sluggs: деревья и кусты
+Targa: компас, переделанный ИИ с http://thiefmissions.com/targa
+Telliamed: tnhScript
+Vigil: паутина
+Yandros: Hammerite Mission Development Kit, Hammer Loot Pack с http://wearytaffer.com
+Zontik: клумба, источник, шприцы с http://ttlg.com/forums/showthread.php?t=131911
+Потом были еще ...
+http://spiralgraphics.biz
+http://thewall.de/forum/thread/hl2-mauer-fachwerk-natur-texturen/49710.1.html
+http://mediacastle.de/texturen
+http://themedievalsmithysims2.blogspot.com
+http://texturehub.net
+http://dougturner.net/blendersite/index.html
+http://vgt.davegh.com
+http://au.conitec.net
+http://noctua-graphics.de/deutsch/freetex_d.htm
+http://gamebeep.com/textures
+http://bildburg.de/texturen
+http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+http://amazing3d.com
+http://opserver.de/coni_users/web_users/pirvu/au/models.html
+http://worldofgothic.de
+http://borsaci06.com/3d-Source.htm
+http://sounddogs.com
+http://freesfx.co.uk
+
+Использовавшиеся программы:
+Однажды мне захотелось постараться и перечислить, с какими программами я работал во время создания этой ФМ. Уфф, какой же длинный список!
+DromEd118:		ну, само собой.
+ThiefEdit:		очень полезна при просмотре/прослушивании RES-файлов
+ObjTree:		для более легкого редактирования Gamesys, после записывания занимает меньший объем, чем при использовании DromEd.
+ObjList:		объект-лист от Thorin-Oakenshield - если поиск в иерархии объектов длится все дольше ...
+ParchEd98:		эффективная программа от Tom N. Harris для книг и свитков.
+Ulead PhotoImpact:	превосходная подготовка графических файлов.
+IrfanView:		программа от Irfan Skiljan дает возможность просматривать большое количество графических форматов ...
+360g:			преобразует текстуры из VTF-формата в подходящий формат изображения.
+DXTBmp:		преобразует текстуры из DDS-формата в подходящий формат изображения.
+Bright183:		программа от Erik de Neves преобразует из BMP-формата в подходящие для игры графически «семьи».
+XVI32:		Hex-Editor от Christian Maas, с помощью которого, например, можно изменять BIN-файлы.
+Anim8or:		для создания/обработки 3DS-объектов.
+3DS2BIN:		конвертирует 3DS-файлы в BIN-формат (от NamelessVoice).
+ProgMesh:		полезная программа от Paralelo, которая уменьшает количество полигонов у 3DS  моделей до желаемого уровня.
+View:			для просмотра  BIN-файлов, с функциями вращения и зума.
+UVMapper:		программа от Stephen L. Cox позволяет альтернативным способом текстурировать объект.
+Sony SoundForge:	подготовка звуковых файлов - запись и отдельные эффекты.
+Audacity:		подготовка звуковых файлов - insbesondere Rauschunterdrьckung.
+MS Audiorecorder:	подготовка звуковых файлов - переводит в ADPCM 22.050 Hz; 4 Bit; Mono. 
+Ulead Filmbrennerei:	неожиданно подходит для AVI-брифингов.
+Потом были еще Notepad, WinZip, WinRar.

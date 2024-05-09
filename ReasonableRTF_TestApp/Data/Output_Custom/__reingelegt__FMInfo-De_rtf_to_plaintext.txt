@@ -1,0 +1,120 @@
+
+
+Reingelegt!
+
+Zappendusters zweiteilige Thief2-Fanmission
+Erschienen Dezember 2021
+
+
+
+Spiel:			Thief 2 - Das Metallzeitalter (Version 1.18+)
+Missionsnamen:	Seltsame Nachricht / Reingelegt!
+Missionsdateien:	miss27.mis, miss28.mis, miss28.gam
+Skriptdateien:		convict.osm, gen.osm, miss16.osm, tnhScript.osm
+Schwierigkeitsgrade:	Normal, Hart, Experte
+Ausrüstungsladen:	Ja
+Karte:			Ja
+Neue Grafiken:	Ja 
+Neue Geräusche:	Ja 
+Neue Objekte:	Ja
+EAX:			Nein
+Mehrsprachig:	DE, FR, EN, IT, RU
+Vor-/Nachspann:	-
+
+Handlung:
+
+Ich wollte gerade ins Bett gehen, als ich ein Klopfen an meiner Tür hörte, gefolgt von eiligen, sich entfernenden Schritten. Jemand hat mir einen Brief unter die Tür geschoben ...
+
+Hinweise:
+
+Linear oder nicht, es ist ratsam, zunächst den Hauptauftrag der Mission zu erfüllen. Einige Gegenstände und weitere Aufgaben, die für den weiteren Verlauf wichtig sind, erscheinen erst danach ... es hat also wenig Sinn, die Stadt vorab nach Hinweisen oder Beute zu durchforsten.
+
+Der Schwierigkeitsgrad Experte birgt zusätzliche Anforderungen, die zu Spielbeginn nicht aus den Zielvorgaben alleine ersichtlich sind und sich erst im weiteren Verlauf ergeben. Daher im Zweifelsfalle lieber erst mal Normal oder Hart wählen.
+
+Die in der Mission vorhandenen Kerzenflammen lassen sich "auspusten". Achtung, Wachleute mit Helm lassen sich nicht niederknüppeln. Und nicht vergessen, Efeupfeile haften nicht nur an hölzernen Flächen! Und nie während einer Konversation speichern ...
+
+Von der Aktivierung irgendwelcher Textur-Mods oder Untertiteln wird dringend abgeraten.
+
+Urheberrecht:
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von dort unterstützt. Sie darf beliebig weiterverteilt werden, sofern sie unverändert bleibt und nicht kommerziell verkauft wird.
+
+Gewidmet den unermüdlichen Administratoren auf http://ttlg.de, http://ttlg.com und http://ariane4ever.free.fr sowie http://shadowbox.forumactif.org ...
+
+Beta-Tester:
+
+Bäuchlein, DarkThief, Intruder, PsymH, Samantha1 und ein bissi Ionisator
+
+Textkorrekturen FR/EN und Übersetzung IT/RU:
+
+ Urgrue (EN), Frère Staven (FR), Maga (IT), MoroseTroll (RU)
+
+Dank an die Objektmacher ...
+
+74Nielsen: Kiste, Krug, Säule, Vase.
+Amazing3D: Objekte mit freundlicher Genehmigung von http://amazing3d.com
+Alun David Bestor: Texturen und Spinnweben von http://thief.washboardabs.net
+Ar-Zimrathon: Handtuchhalter
+Borsaci08: Badezimmerschränke, Becken, Brunnen, Säule, Sarg von http://borsaci06.com/3d-Source.htm
+CoSaS Team: KIs, Bürokram, Kneipen- und Spielkasinoausstattung von http://darklurker.com/cosasobjects.html
+Christine: Irre viele Objekte!
+DarkShadow: Brustpanzer. Lampe, Sessel, Tisch
+Don Willadsen: Umhang
+Eshaktaar: AD-Lampe, Öllampe
+Frère Staven: FR-Stimme des Gendarmeriechefs
+Goldwell: EN-Stimme des Gendarmeriechefs
+Gort: Deckenlampe
+GothicEditing: Wagen http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+Greenhorn: Dietriche, div. Pflanzen, Kittel, Lampe, Liegen, Kneipenschild
+Hrothgar: Reisigbesen, Ofen
+Jason Otto: Flaschen, Häuser, Leitern, Querträger, Schaltkasten, Tanks
+Josef Kurz: Bank, Leiter, Kelch, Podeste von http://joes3dfantasyworlds.com
+Jordan_Maf: div. Maschinen
+LarryG: Ratty
+Looperman.com: SFX-Ambients von Danke und Sushilbawa
+Master_Edd: Buch, Füller, Löwenkopf
+Miakhano: Karrasbild
+NamelessVoice: Bücherregale, Eckschrank, Fledermaus, Klavier, Schere, Uhren
+Nivellen: Textur des Hammeritenphantoms
+OpServer: Axt, Badewanne, Waage von http://opserver.de/coni_users/web_users/pirvu/au/models.html
+Raetsel: Spitzfenster
+RSoul: Gießkanne, Karren, Regal, Sarg
+Schwaa: Bücher, Pokal, Schilde, Truhe, Schreibfeder, Weinfaß von http://thiefmissions.com/lpg/schwaa.htm
+Sims: http://themedievalsmithysims2.blogspot.com einige Möbel und Kisten, Kaktus
+Sluggs: Zuviel, um sie alle aufzuzählen ... ein riesiger Objekt-Fundus!
+Syi: Skelett auf Stuhl
+Targa: Kompaß, Parkgatter, Glaskuppel - http://thiefmissions.com/targa
+Telliamed: tnhScript
+TheFree3DS: Lampen, Quita-Figur, Regal, Wegweiser
+TheWatcher: Fackel
+Team2X: Betten
+UglyEd: Schuhe
+VonEins: Amboß, Eimer
+WorldOfGothic: Flaschen, Pranger, Kommoden, Markisen, Leuchtpilze, Sarg, Verkaufsstände, Werkbank, Zahnrad, Zaun http://www.worldofgothic.de/?go=moddb
+Yandros: Hammeriten-Münzen und -Wertsachen von http://wearytaffer.com
+Zontik: Girlande
+
+... wobei einige Objekte dahingehend editiert wurden, daß Standard-Texturen eingesetzt wurden - spart Ressourcen.
+
+Verwendete Programme:
+Ich wollte mir mal die Mühe machen und auflisten, mit welchen Programmen ich im Zusammenhang mit dieser FM-Reihe gearbeitet habe. Uff, was eine lange Liste!
+DromEd118:		Na logo.
+ThiefEdit:		Sehr hilfreich beim Betrachten/Abhören von RES-Dateien
+ObjTree:		Zum leichteren Editieren der Gamesys, sie ist nach Abspeichern i.d.R. auch kleiner als per DromEd.
+ObjList:		Thorin-Oakenshields Objektliste - wenn das Suchen in der Objekthierarchie mal wieder länger dauert ...
+ParchEd98:		Tom N. Harris' effizientes Eingabeprogramm für Bücher und Schriftrollen.
+Ulead PhotoImpact:	Excellente Aufbereitung von Grafikdateien.
+IrfanView:		Irfan Skiljans Programm kann so ziemlich jedes Grafikformat ...
+360g:			Wandelt Texturen vom proprietären VTF-Format in gängige Bildformate um.
+DXTBmp:		Wandelt Texturen vom proprietären DDS-Format in gängige Bildformate um.
+Bright183:		Erik de Neves Programm erstellt aus BMPs batchmäßig spieltaugliche Grafik-Familien.
+XVI32:		Christian Maas' Hex-Editor mit dem man Binärdateien verändern kann.
+Anim8or:		Zum Erstellen/Bearbeiten von 3DS-Objekten.
+3DS2BIN:		Konvertiert 3DS-Dateien ins BIN-Format (von NamelessVoice).
+ProgMesh:		Parallelos praktische Software reduziert Polys von 3DS-Modellen im gewünschtem Grad.
+View:			Zeigt eine BIN-Datei an, mit Dreh- und Zoomfunktion.
+UVMapper:		Stephen L. Cox' Programm gestattet die alternative Gesamttexturierung eines Objektes.
+Sony SoundForge:	Aufbereitung von Tondateien - Aufnahme, Effekte,.Umwandlung in IMA ADPCM 22.050 Hz; 4 Bit; Mono.
+Audacity:		Aufbereitung von Tondateien - insbesondere Rauschunterdrückung.
+Ulead Filmbrennerei:	Überraschenderweise auch für Vorspann-AVIs geeignet.
+Dann waren da noch Notepad, WinZip, WinRar, ...

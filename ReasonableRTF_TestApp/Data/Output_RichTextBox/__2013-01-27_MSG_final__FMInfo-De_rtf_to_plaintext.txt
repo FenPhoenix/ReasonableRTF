@@ -1,0 +1,37 @@
+Informationen
+
+Missionstitel		: M.S. Gold - Rust
+Dateiname    		: MSG_final.zip
+Autor				: Ratzyy (3mdrin)
+E-Mail			: info@ratzyy.de
+Webseite			: <http://www.ratzyy.de/>
+Ausgabedatum		: 28. Januar2013
+Spiel				: Dark Project 2: The Metal Age
+Version			: 1.19 (newdark)
+Sprachen			: Deutsch / Englisch
+
+Alpha/Betatester	: Mayar
+		  	   	  The_Cle@ner
+              		  Ionisator
+           	    	 	  Quit pro Quo
+               	 	  hjem
+               		  Darklady
+				  Tannar
+
+Übersetzung		: zappenduster
+				  Tannar
+
+Handlung:
+
+Über Nacht tauchte es wieder auf. Das stolze Schiff der Mechanisten, die M.S. Gold, galt seit Jahren als verschollen und liegt nun wieder in den Gewässern vor der Stadt. Die Stadt kennt nur noch dieses eine Thema und es heißt, dass der Name des Schiffes nicht umsonst so gewählt worden war.
+Wenn es dort etwas zu holen gibt, sollte es mir helfen die nächsten Wochen über die Runden zu kommen.
+[…]
+Ich hätte es mich nicht wagen sollen bei diesem Wetter auf dieses Schiff zu klettern. Ich habe meine gesamte Ausrüstung verloren. Nun gut, ich werde mich hier mal umsehen, auch wenn ich das Gefühl habe, dass ich mich beeilen sollte. 
+
+Hinweise
+
+Spiele mit mittleren Helligkeitseinstellungen!
+
+Spiele mit dem Tafferpatcher 2.0.7 (mit Patch 1.19 und Visuellen Verbesserungen!)
+
+Vervielfältigung und Versendung nur mit Angabe des Autors erlaubt! Der Verkauf ist verboten!

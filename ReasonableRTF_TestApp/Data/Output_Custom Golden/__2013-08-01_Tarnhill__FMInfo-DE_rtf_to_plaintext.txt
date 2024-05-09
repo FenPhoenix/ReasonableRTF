@@ -1,0 +1,45 @@
+Rückkehr nach Tarnhill
+Von Ricebug & Xorak
+Erschienen: 1  August 2013
+
+Garrett dachte, seine Zeit in Tarnhill läge hinter ihm, denn schließlich sandte er die Zeitreisenden zurück in die Zukunft, Gouverneur Meech wurde unschädlich gemacht und Grund und Eigentum, das dieser den Leuten gestohlen hatte, ging an die rechtmäßigen Besitzer zurück.
+
+Unglücklicherweise sagt man, daß einige Mönche - Mitläufer jener dubiösen religiösen Sekte, die Meech gegründet hatte - weiterhin im Geheimen an der Technik der Zeitreisenden aus der Zukunft weiterbasteln.
+
+Da Garrett nicht will, daß sich solch eine Zukunft wiederholt, entscheidet er sich, nach Tarnhill zurückzukehren - gegen den Willen seines Schätzchens Maggy.
+
+
+Danke an:
+
+Gamesys:		Pinkdot, Haplo
+
+Zusatz-Objekte:	Daraan (Bäume, Büsche)
+			Digital Nightfall (COSAS Sammlung)
+Greenhorn (Büsche, Pflanzen, Gras)
+LarryG (Fenster)
+Nameless Voice (Tore, Medaillon)
+Jason Otto (Erweiterte AIs, Klo, Waschbecken)
+Pinkdot (Türen, Wandlampen, Bänke, Tische, Mönchs-AI)
+R Soul (Feuerstelle, Krug, Vase)
+Sliptip (Flammen-/Warrer-FX)
+
+Texturen:		Serious Sam, The Second Encounter (Croteam)
+			Castle Wolfestein (iD Software)
+Rogue Entertainment/Velocity, Inc (Strife)
+
+Zusatz-Scripte:	Nameless Voice
+
+Prüfung:		dBrilliant
+			Guff
+itllrun10s
+Ravenhook
+			Soldi
+Stefan_Key
+			Undead Gamer
+			Zappenduster
+
+Translators:		Stefan_Key (Französisch)
+			Zappenduster (Deutsch)
+			Soldi (Russisch)
+
+Diese FM wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie von dort unterstützt.

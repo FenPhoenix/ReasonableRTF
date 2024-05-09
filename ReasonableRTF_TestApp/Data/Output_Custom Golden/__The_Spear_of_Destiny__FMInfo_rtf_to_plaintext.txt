@@ -1,0 +1,149 @@
+============================================================= 
+September 2016
+=============================================================
+Title		 : The Spear of Destiny
+Filename	 : The Spear of Destiny.zip
+Author		 : Nightshifter (Ger Hermans), redleaf (Jeanne French) 
+Contact info	 : ger.hermans@gmail.com
+Version	 :         1.0
+
+Description	 : The Spear of Destiny
+ 
+The story (being a sequel) starts where you ended with the Librarian. :)
+
+In the Librarian, you were on a quest to find the Spear of Destiny which is believed to give immense power to the one in possession of it.
+At the end of the mission, you arrived at the place where The Spear had been hidden for millennia, guarded by the spirits of Water, Fire, Air and Earth. But the Spear was not there. It had been taken by the Mechanists! The Mechanists were disbanded after the fall of their evil leader, Karras, but clearly they regained their powers, led by their new leader, Cavall.
+At this point the mission, The Librarian, ended and left you hanging ...
+
+So, Garrett, once again, it is up to you to save the world! Follow the trail left by the Mechanists to their secret hide out and prevent them from activating the Spear.
+
+So that is your mission in The Spear. You start in an abandoned compound of an ancient Numerology sect. Here you must find a passage to the new hideout of the Mechanists. In their mega-fortress you will have to find the Spear again ... and a way to destroy it ... maybe ....
+
+The Spear is packed full of intrigue and side-plots initiated by the evil Cavall. Expect the unexpected! And if you like to explore, your quest can lead you to some very strange, hidden locations.
+
+Proceed with caution, taffer ...
+
+	
+=============================================================
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : The Spear of Destiny/ The Old Compound
+File names		 : miss20.mis, miss21.mis
+Difficulty Settings	 : yes
+Equipment store		 : No
+Map/Automap		 : no/no
+New graphics		 : Yes
+New sounds		 : yes
+New models		 : yes
+EAX Support		 : no
+Multi language support	 : yes
+Briefing		 : No.
+
+=============================================================
+* Construction *
+
+Base		: all the way
+Map Size	: big. started before newdark, had to split it because of breaking all the limits. 
+Build Time	: only 9 years
+=============================================================
+
+ 
+
+=============================================================
+* Loading Information *
+this missions uses custom scripts from nameless voice and telliamed. to prevent the trouble of taffers not reading this or using old version, I included them in the zip
+Build with NewDark 1.24. tested with Fmselector, darkloader and NewDarkloader
+ DO NOT UNZIP THIS FILE!!
+
+
+
+
+You may find some music CDs in the mission. They will play if you select them in your inventory and "use" them. 
+
+The mission uses subtitles. They are turned on by default.
+If you want them off, go to the fm.cfg file and place a ”;” in front of the line: enable subtitles
+
+
+
+
+
+* Credits *
+First of all: all the fine people at TTLG for their help, patience, suggestions, tips and tuts. 
+Special thanks to Yandros, Larry G, R Soul, nameless voice for helping out on the many questions I had.
+Special thanks also to Telliamed and Nameless Voice for their custom scripts. 
+Also a very special thanks to "le Corbeau" for giving us New Dark and R Soul for his  convmaster- and goalmaster-tools.Man, what a joy to have them
+
+
+
+Personnel: 
+Nightshifter: general layout, initial story, scripting
+Redleaf: decorating the whole mission, making new textures and objects, new AI, lighting, voice acting, singing, nagging me to get the mission ready, writing all the side stories, endless advice and so on and so on.
+
+
+My alpha-testers: Gloria Creep, redleaf, Downwinder
+ 
+My beta-testers: ffox, garrett42, Gloria Creep, nickie, Nightwalker, Peter Smith, Ravenhook, redleaf, Soldi, the Phantom, Undead Gamer.
+
+“Custom” custom stuff: 
+Unarmed mechanist female: R. Soul
+Spear of Destiny: Gort
+JDbottles: Christine
+Jars: Judith
+Scrolls:Daraan
+Windballs: Lady Rowena
+Painting “moot in chains : Moot Leijen (http://www.mootleijen.nl)
+
+Thank you all for making “ The Spear of Destiny” complete!!
+
+Further credits: see the folder “credits” in the zip. ( sp much stuff nicked, borrowed and adjusted, that would make this readme a book.)
+
+
+
+Translation to Russian: Soldi
+
+
+
+
+Voice acting:
+Jeanne French (redleaf) www.jeannemariefrench.com
+Yandros
+Slyfox
+
+
+Songs: 
+Dewdropsong: G&G Hermans
+Drunk Again: Jeanne French / the cabin sessions
+Garrett's (not so) blues: G. Hermans, arr. T.Hes
+
+On victrolas:
+Intro Grapefruit moon: Tmbb/lady in black 
+Per Te: G Hermans
+Cavall's song: translation G. Hermans, sung by Yandros ( org.:t'is moeilijk bescheiden te blijven/ Peter Blanker)
+7 steps to heaven: take6/the Standard
+
+ 
+Goodtaffers-rewards: 
+Somebody will know someday/ Mean Jeanne and the (dutch) Bluesmachine
+Duet Mimi and Rodolfo/ La Boheme by Puccini
+
+The midwinterhorn of quintus: the unknown midwinterhorn-player, we heard playing on new-yearsday on the other side of lake "kibbelkoele"
+(we never had the chance to meet but thank you for the great experience)
+
+
+
+
+  
+
+ 
+
+
+
+=============================================================
+* Copyright Information *
+
+This level was made by nightshifter and redleaf.
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+

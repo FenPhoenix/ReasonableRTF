@@ -1,0 +1,136 @@
+==================================================================================
+03.19.2011                           
+==================================================================================
+
+Title		 : The Tower of St.Moria
+Filename	 : Tower_St_Moria
+Author		 : DarthsLair
+Contact info	 : darthslair@hotmail.com
+Date of release	 : March 19,2011 
+Version              : Final Version
+
+==================================================================================
+
+              
+* Play Information *
+
+Game			 : Thief Gold
+Level Names		 : Tower of St.Moria
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.         Easy, Hard, Expert
+Equipment store		 : No.
+Map/Automap		 : Yes. 
+New graphics		 : No.
+New sounds		 : yes.
+New conversations	 : No.
+New models		 : Yes.
+EAX Support		 : Yes.
+Multi language support	 : No.
+Briefing	                         : No.
+
+* Construction *
+Base:      From Scratch :170 hours. Construction started May,4th 2008- Finished Version 200 hours, and a little more. ( 1 month total)
+Build Time: Many bottles of Headache medicine!  Some Cussing, but nothing abnormal ! Sound is complete in Thief Gold.
+Releasing it was better than trashing it, or maybe:" One bird in Hand is better than Two in the bush ?"
+
+
+===================================================================================
+
+* Story *
+It is time for a Peaceful and Serene Holiday, and my place of Choice is Saint Moria.  Situated high in the Mountains with quiet
+meadows, and nothing but the song of birds singing, fresh air, and Peace and quiet away from the city.  No City Watch, but the Hammerites have an interesting community there which is right in my ball game.  According to some old Hammerite documents I picked up from my fence in exchange for a small siver nugget, a compound the Hammerites have built to provide a Serene place to bury their own. The map shows a huge underground Crypt, and from where the map is torn, it looks like another area having some ancient symbols. I am sure the Hammerites there will have some information on it, and if not, I should be able to dig something up.
+
+My fence also spoke of Rare Birds in St.Moria.  It seems as though the High priest finds serenity and peace in raising rare and exotic birds, one in particular a Cuckoo bird.  The fence also asked to be first in appraising some of the birds if I can steal them.  He guarantees a high price for them.  He mainly spoke of the Cuckoo Bird. It may just be that the High Priest is alittle cuckoo, as rumor has it he uses birds in his own life philosophy as well as speaking in Riddles.  This may be interesting ! One bird in hand is better than two in a bush ?
+
+Like I always say, why not relax and enjoy the Mountain Air, and pile up some Loot. The Rent is always due, and times are getting expensive.
+Getting away from the noise and confusion of Society may just be my ticket to some place better. The Compound will no doubt be heavily guarded, as these Crypts usually hold some nice Gold artifacts. As usual, I will try to make my self invisible. Get in, and get out in one piece. Off to my Holiday !  
+
+===================================================================================
+
+ * Loading Information *
+Get the latest version of Darkloader and
+run it.   DO NOT UNZIP THIS FILE!!  Does not run with Vista Windows, and Garrettloader.
+
+ * Copyright Information *
+   DarthsLair May 2008, DarthsLair--- March 19th, 2011 (Released to Public)
+
+ * Special Thanks *
+Special Thanks to: Yandros, Garrett's Shadow, Tannar, Nickie, and Sagittal, and Cardia1, and to Through The Looking Glass. And to everyone who can tolerate my fms.
+Special Thanks to model makers: Yandros, Zontik, Raetsel, Hrothgar, Nielsen74, OttoJ55, Schwaa, Eshaktaar, Targa, R Soul, Christine, Nameless Voice, Dark Arrow, Sluggs.
+Special Thanks to Garrett's Shadow for his idea on the Birds and Riddle, also some Hammerite Readables.
+Special Thanks to Tannar, Dussander,Nickie, Sagittal,Cardia1,Garrett's Shadow for their great beta testing skills.
+Special Thanks to Shadow Sneaker for his Ambient Music in the Crypts. (made for Dark is the Lair)
+Special Thanks to Sagittal for his Loot List. Included in the Package.
+Special Thanks to Tannar for editing readables.
+Special Thanks to All the Hosts who make playing Fms possible. Also Thanks to all the Taffers who still play Thief Gold Fms.
+
+==========================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent.  Enjoy!!! This mission
+was intended to be for fun only. The author does not assume any liability
+in misuse. Ha! Ha! Enjoy Taffer!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================================================================================
+
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+ 
+
+===================================================================================
+
+
+
+
+
+===================================================================================
+
+
+
+
+
+   

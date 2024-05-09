@@ -1,0 +1,62 @@
+Eine schräge Stadt (V3)
+Eine zweiteilige FM von Ricebug
+________________________________________________________________________________
+
+Autor           	: Terry DeLaney
+Kontakt		: ricebug@cableone.net
+Erschienen	: April 23, 2010
+________________________________________________________________________________
+
+Der wohlhabender Adlige Lord Chancey befürchtet, daß seine Frau und Tochter entführt wurden.
+Er wendet sich mit der Bitte an Dich, die beiden ausfindig zu machen und zurückzubringen.
+Deine Recherchen beginnen in Schiefstadt. 
+________________________________________________________________________________
+
+Spiel-Information
+
+Spiel                   	: Thief : Das Metallzeitalter
+Missionstitel          	: Eine schräge Stadt (Crooked Town)
+Datei    		        	: Crooked.zip
+Schwierigkeitsgrade     	: Ja
+Einführung               	: Ja
+Schwierigkeitsgrade  	: Normal, Hart, Experte
+Konstruction :		: Aus dem Nchts
+Grundlage                   	: Keine
+Bauzeit              	: 8 Monate
+________________________________________________________________________________
+
+Dank an ...
+
+Texturen : Lemog, Hrothgar, CG Textures <http://www.cgtextures.com/>, Genetica <http://www.spiralgraphics.biz/gen2tour/index.htm>
+Beta-Tester: bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy, 
+Zubehör:
+
+Greenhorn: Pflanzen und Bäume
+Jason Otto: Kräne und Wege
+Nameless Voice: Flammen, Laternen
+Vigil: Spinnweben 
+COSAS/Digital Nightfall: Möbel, Türen, Buchvorlagen 
+LarryG: Bogentür des Leihauses
+Rob Hicks: DedX Gamesys
+Meine Frau Sherry: Stimme des Heidenmädchens
+
+Macken/Anmerkungen:
+
+In einem Bereich ist das Wasser aufgrund der schrägen Brushes geräuschlos.
+Im ersten Teil gibt es keinen Prügel unter Hart/Experte.
+
+Technische Infos
+
+AVIs erstellt mir Adobe Premier
+Audioarbeiten mit Sound Forge gemacht
+ 
+Ladeinformation 
+
+Diese Zip-Datei gehört in das Verzeichnis, in dem die anderen FMen gespeichert sind.
+Start mit Deinem bevorzugten FM-Ladeprogramm
+
+Urheberrechtliche Anmerkungen
+
+Diese Mission wurde weder durch Looking Glass Studios oder Eidos Interactive erstellt
+noch wird sie von dort unterstützt. Schade.
+

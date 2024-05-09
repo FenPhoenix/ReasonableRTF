@@ -1,0 +1,69 @@
+===================================================================================
+INCUBUS
+ Version beta and final release too !
+===================================================================================
+Author: guess who ??
+Contact info: Thief 2 Fan Mission for the CRAP CONTEST
+Homepage: ehmmm….  www.somethingidunnoremeberwell.ouch
+Date of release: 4/12/06
+PLEASE READ THE IMPORTANT NOTES DOWN BELOW
+
+
+Title:					INCUBUS 
+Version:				0.99999999
+Author:				(removed for contest rules reasons)	
+Game:					Thief 2
+Difficulty settings:			no – and don’t loose your time pushing on buttons, press START
+Map / Automap:			no
+New graphics:				hmmm… may be yes, may be not
+New Objects:				hmmm…. yes ….but i’m not sure.
+Multi language support:		what ??
+ 
+the story:
+
+It was a long day taffin’ around the city then you got a BIG BIG Headache,
+After gulpin’ some Aspirin you just fall on the bed and…… 
+
+Uhh, What you said ?..! No aspirin in the Middle Ages ? ….well….. who cares…… 
+--------------------------
+Incubus.zip
+--------------------------
+
+Important Notes:
+There are a couple of .AVI that would be nice to see, 
+so to be sure before begin to play (since i experienced some troubles)
+reinstall the INDEO CODEC that you can find in the thief2 original cd 
+(the 2nd cd), just click on the (seems like a) red box icon.
+Be sure also to have Thief2 updated with the official Thief2Patch107-1182
+I have a lot of fun creating these little missions, hope you will 
+like them…
+
+Construction 
+Base       : From a dangerous mind
+Build Time : 7 full crazy days  
+
+Note:
+to play this mission you don’t need scripts or whatever, play it and shutup… !
+
+Difficulties differences:
+there are no differences at all !
+
+thanks to:
+Sluggs that pulls me to join this contest (damn…) 
+Thanks to SlipTip for a couple of sounds effects and the wonderfull shaft.
+Thanks to SlyFox for his actin’ role of Garrett that faces the death.
+Thanks also to ME for all the actin’ voices you can find in the mission Garrett’s 
+most parts too.
+A special thanks to Schwaa for the whole list of objects he made until now
+for all of us and for the pinetree model that you could find inside this mission.
+And Thanks to anyone else at TTLG forum, simple the best community of the world…
+
+
+Copyright Information ~@~
+
+This level was made by ??
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack without my
+permission.
+No one may edit and re-distribute this mission without my express permission. 
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

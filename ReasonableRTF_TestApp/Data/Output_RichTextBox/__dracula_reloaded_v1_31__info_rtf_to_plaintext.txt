@@ -1,0 +1,144 @@
+
+DRACULA
+Reloaded 
+Version 1.31
+(18 08 2010)
+
+- Carpathian Tales vol. 1 -
+
+Created by Csaba Szabo @ SENSUT 
+
+********************************
+
+Contact Info : csabisensut@gmail.com 
+Support : http://www.ttlg.com/forums/showthread.php?t=123968
+Date of Release : 03. january, 2009.
+Update: 18 Aug, 2010.		
+
+Playing Information:
+
+Game : Thief II - The Metal Age 1.18
+Mission Title: DRACULA Reloaded
+File Name: dracula_reloaded_v1.31.zip
+File info: miss19; miss20; miss21; miss22; miss23;miss24;miss25; dracula.gam
+Difficulty Settings: yes
+Equipment Store: no
+Map: yes
+Auto Map: no
+New Graphics : yes
+New Sounds : yes
+EAX : no
+FOG : no
+Multi-Language Support  : English, Italian.
+
+Requirements : 
+
+- Thief II - The Metal Age 1.18;
+- DARKLOADER 4.3 or GARRETTLOADER 1.4 or above;
+- A T2 compatible computer, the more powerful, the better;
+- Microsoft Windows XP SP3 recommended!
+
+This mission is compatible with all latest Thief II patches (NV’s EP, COK’s Sound Pack and the latest DDFX patch). I highly recommend the use of these patches!
+
+This mission uses custom scripts by:
+
+- Telliamed (tnhScript 2.1.0.0, version 1);
+- VKGaylesaver (script 1.2.0) ;
+- T2 Gen (version 27 March, 2000.).
+
+* For manual installation of these modules are details in "Install_scripts” in the mission zip !
+
+Version 1.31 update details since 1.3:
+
+removed keyrings to keep Windows 7 compatibility.
+
+
+Construction:
+
+Editor : Rob Hicks’ Dromed Deluxe 1.0 (DeDx) updated with DromEdToolkit 1.0 by                   Nameless Voice;
+
+Programs used:
+-    Corel PaintShopPro X (graphics);
+-    Sony Vegas Movie Studio 6 (movies);
+-    Sony Sound Forge 7 (sounds). 
+
+Build Time : 3 years
+
+*********************************************************************************************************************
+
+Text editing:
+
+Nightwalker and Bernie;
+Metal Dawn;
+Robert Turi.
+Krenim (Italian translation)
+
+Beta testers:
+
+-  the original version -
+
+Nightwalker;
+Gloria Creep;
+Hotlyx;
+Robert Turi;
+Levente T.Nagy;
+Jiri Misenka;
+Sir Balu;
+Metal Dawn;
+Sneaksie Raven;
+Slipknot.
+
+-  the Reloaded version -
+
+Nightwalker;
+Pavlovscat;
+Gloria Creep;
+Metal Dawn;
+Philflound.
+
+Dromed materials:
+
+-    Greenhorn, Targa, Sluggs, Nameless Voice, R Soul, Metal Dawn, Jason Otto, Gort, TDBonko, Eshaktaar, Digital Nightfall, Redleaf, Yametha, Alun Bestor, Christine, Vigil, Dark Arrow, SYI, Dark Angel, Purah, DRK, PDackel, Yandros, Shadowspawn, Nielsen74, DLW6, Naks, Raetsel, The Watcher, Asgaroth and me;
+
+-    Additional textures from Quake 3 Arena by id Software, Doomsday projects by Kman, Necro, Piz and Anthraxscare; and Remedy Entertainment.
+
+Extra thanks to:
+
+- Nameless Voice and the Authors of Thief Enhancemet Pack 1;
+
+- The Authors for Dromed Deluxe.
+
+NOTE: I’ve reskinned some custom objects only for self usage, to reduce the palette counts and the size of the archive !
+
+
+Ambient materials:
+
+-    Wojciech Kilar, Popol Vuh, Anton Garcia Abril, Pawel Blaszczak, Marcin „Cedyn” Czartynski, Shadow Sneaker,
+
+and
+
+-     Bathory, Dimmu Borgir, Burzum, Cradle Of Filth, Graveworm and Delerium bands.
+
+
+
+
+Story and special materials:
+
+Story by me based upon the "Dracula” novel by Bram Stoker;
+"Bram Stoker’s Dracula” movie by Francis Ford Coppola;
+"Dark Prince – The True Story Of Dracula” movie by Joe Chappelle;
+Other quotations taken from Theatres Des Vampires, Crematory and Samael.
+
+**********************************************************
+
+Copyright Information:
+
+This project is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

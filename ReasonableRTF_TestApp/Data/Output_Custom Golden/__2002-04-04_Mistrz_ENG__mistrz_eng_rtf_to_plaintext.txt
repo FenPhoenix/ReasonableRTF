@@ -1,0 +1,50 @@
+This is my very first thing I've made in droomed... I had a plans to make a big city, but due to lot of errors (poor optimisation and ect.) and unsatisfizing results I decided to leave it. Just added a few objects in haste and made it darkloader ready just to show you what I made. I hope you forgive me that, because I'm not going to correct either improve it. 
+
+Ernie
+
+
+
+
+Stone Street, one of the smallest streets in the city. It's not a good place for a Thief and wouldn't like to go there. But looks like that I will have to..
+
+I've received a letter from The Keepers. They writed that they need my help. I must found some stolen book that was stolen by someone. They didn't write anything about book, and neither from where it was stolen....
+
+It seems that that book was stolen by someone called Camellon. And he lives probably at Stone Street. It can be taugh so I must take some hardware. I hope I found this Camellon quick. A then out of this city as far as I can...
+
+
+
+-------TRANSLATED by BUKARY & ERNIE -------
+The Engish is not our native language, so be understanding ;)
+
+
+General Information:
+Game:                     Thief 2: The Metal Age
+Mission Title:            Mistrz: DEmo
+File name:                miss20.mis
+Difficulty Settings:     no !
+Equipment store:          no
+In-game store:            no
+Map / automap:            no/no
+New graphics:             no
+New sounds:               no
+New monsters:             no
+EAX support:              probably ;)
+
+ Construction  
+
+Base:             From scratch.
+Build Time:       Don't remember.. ;)
+
+Thatnks to:
+Bukary for generous help, Nikita, all from TTGL Forums ang GOL.
+
+
+
+
+Copyright Information 
+
+This level is made © by Ernie
+
+Distribution of this level is allowed in any way, shape, or manner you wish.  However, you must leave the mission intact and give me credit for it (not that you'd want to claim credit for this mission!).  
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

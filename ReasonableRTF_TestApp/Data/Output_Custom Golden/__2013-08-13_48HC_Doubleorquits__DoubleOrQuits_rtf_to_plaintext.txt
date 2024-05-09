@@ -1,0 +1,60 @@
+DOUBLE OR QUITS
+
+
+Author :		  Anonymous
+Contact info :	  TTLG forums
+Filename :	  DoubleOrQuits48H.zip
+Release date :	  August 2013
+
+One of Lord Raputo’s lieutenants’s contacted me a few days ago. He said he had an interesting offer, an easy task at a very good price. I’d rather not be involved with the City Wardens, especially with the most influential of them. I had a bad feeling about this, so declined the offer. I guess Raputo didn’t appreciate it.
+
+I can’t say I regret the decision, as Basso found some interesting information. I was supposed to pay a visit to a local collector in Auldale and steal a statue of high value. Nothing fancy, but it turns out it was bait. Lord Raputo tried to set me up and wanted to blackmail me, probably as a payback to my little business with Ramirez. I’m not even surprised but now I’m in trouble, when Raputo wants something, he always gets it. I must find a way to avoid him and keep one step ahead of him.
+
+I know he owns a hidden casino somewhere in New Market, around the Black Barrel Inn. A small gambling nest where they come up with new ways to cheat the clientele, allowing them to earn a lot of illegal money undetected at the Ivory Rose. The rumor is there is a registry book with all their tricks listed, I must get my hands on it. 
+
+This apparent oversight is my key to my freedom, Raputo may want to blackmail me, but his reputation is more important that coming after me. If people knew that the Ivory Rose earns money through treachery, no amount of bribes or threats would save him, his demise would be swift.
+
+Its time to give Raputo a dose of his own medicine
+
+ATTENTION : This mission had no proper betatesting session, it got released as it is. I just hope everything runs fine, and if it doesn’t, sorry for the inconvenience.
+
+
+* Game information *      
+
+Game :		  Thief II - The metal age (NewDark)
+Event :		  Newdark 48 Hour Challenge 
+Level name :	  Double Or Quits
+Base :		  Base mission supplied by AntiMatter_16
+Build time :	  48 hours top
+Difficulty :	  Yes	
+Map/Automap :	  No
+New objects :	  Yes                   
+New textures :	  Yes
+New sounds :	  Yes
+EAX Support :	  No
+Language :	  English
+Briefing :	  No             
+
+
+* Loading information *    
+  
+Runs from Darkloader and Garrettloader. Place in your usual Thief 2 FM folder.
+NewDark is required.
+
+
+* Credits *    
+
+Custom objects, textures and sound work :
+Atolonen, Christine, CoSaS team, DrK, Eshaktaar, FireMage, Lady Rowena, Nameless Voice, Ottoj55, Purgator, Random_Taffer, R Soul, Schwaa, Sliptip, Targa, Tdbonko, The Watcher, Vigil, and Yandros.
+
+A few objects from Thief 3.
+
+Special thanks to AntiMatter_16 for the contest, and to bikerdude for his help with readables.
+
+
+* Copyright information *    
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.

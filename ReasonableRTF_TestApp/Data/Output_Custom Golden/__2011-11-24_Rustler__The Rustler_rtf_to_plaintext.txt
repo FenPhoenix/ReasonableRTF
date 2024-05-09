@@ -1,0 +1,67 @@
+
+===================================================================================
+The Rustler
+===================================================================================
+Title		 : The Rustler 
+Filename            : Rustler. zip
+Author		 : Naks 
+Contact info	 : naksoje@yahoo.com 
+Homepage	 :http://www.naksthiefland.webs.com
+Date of release	 : December, 2011
+Version             : 1.0
+                
+
+Description: "Garrett, my friend,
+Be careful tonight. Someone reported you to the City Watch for stealing a very valuable Horse Statue from the famous statue collector, Lord Blackwood. The City Watch will soon knock on your door, so better escape via rooftops.
+I also noticed another thing. Recently, a wealthy merchant called Rob, bought the nice castle in the suburb of the town. High society accepted him with respect, although nobody knows what his real profession is.
+I just know that he hired two the best city archers to keep his estate protected and a bunch of guards too. I wonder what is behind such a strange
+behavior? Or, maybe he is just another eccentric noble?"
+Anyway, when you finish your job planed for tonight, I'll wait for you at my home.
+Basso"
+IMPORTANT:
+This is a small FM where Garrett finally is riding a horse called Midnight Storm.:) Before you “frob” the horse for riding , please check if all gates around the house are opened, otherwise you can break the mission.
+============================================================
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : The Rustler
+File names		 : miss22.mis
+Difficulty Settings	 : Yes.
+Equipment store		 : No. 
+Map/Automap		 :  No 
+New graphics		 : Yes.
+New sounds	 : Yes. 
+New conversations	 : No
+New models		 : Yes
+EAX Support		 : Yes
+Multi language support	 : No.
+Briefing			 : No
+Beta testers: P Forth and me
+=============================================================
+* Construction *
+
+Base		: Template mission for Classic Thief Contest I never finished
+Map Size	: Small.
+=============================================================
+* Loading Information *
+
+Run from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the "Rustler. zip" file into whatever folder/directory you want to on your hard drive, 
+Than  in Dark Loader setup, point to this folder/directory, and the mission should show up in the Dark Loader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote very good tutorials I learned from and everyone who make fan missions.
+=============================================================
+Thanks to: (Please, let me know if I forgot someone for credits)
+Jason L Tibbitts III for hosting
+
+Rob Hicks for DromED deluxe, Nameless_Voice, Shadowspawn, Schwaa, Targa,  Telliamed 
+	=================================================================================================
+	 
+====================================================================
+
+* Copyright Information *
+
+This level is © by Naks 
+Horse object is free for non- commercial use. If you want to use it in your FM, please give me a credit.
+This level was not made and is not supported by Looking Glass Studios or Eidos
+Interactive.

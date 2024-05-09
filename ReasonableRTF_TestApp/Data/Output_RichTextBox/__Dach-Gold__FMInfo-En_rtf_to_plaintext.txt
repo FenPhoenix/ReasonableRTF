@@ -1,0 +1,84 @@
+Roofs Of Gold - Version 1.0 - September 2015
+
+================================================================================
+
+Author: Terra
+
+Date of release: September 2015
+
+================================================================================
+
+Story:
+
+A successful night is drawing to an end, again Garrett hustled some money from a rich merchant.
+Time to have a drink, isn't it?
+Seems the beer was too strong - when Garrett wakes up again, there is no trace nor of his loot nor
+of his equipment. Stolen? From the Master Thief himself?
+Having a look around he sees the same faces, all those people who were in the bar before. But
+what about those voices?
+Garrett leaves the bar, something draws him to the Hammerite church. What does he find? A scroll!
+He doesn't know what's going on here, but he has a bad feeling about it ...
+
+================================================================================
+
+Play Information:
+
+Game: Thief 2 - The Metal Age (Version 1.22 NewDark)
+Mission Title: Roofs Of Gold
+File names: miss20.mis, gold.gam
+Difficulty Settings: No
+Equipment store: No
+Map / automap:  No
+New graphics: Yes
+New sounds: Yes
+EAX support: Not yet
+Multi language support: DE/FR/EN
+Briefing: No
+
+================================================================================
+
+Build Time: 1 Month
+
+================================================================================
+
+Translation:
+
+Zappenduster
+
+Custom objects:
+
+Cosas-Team (comment)
+
+Custom meshes:
+
+Dedx (lich, Keeper sword)
+
+Custom Textures Credits:
+
+Thief 2x Shadows of the Metal Age (sunnysnow1, sunnysnow2)
+
+Beta test:
+fibanocci, silent_thief, radogoal
+
+================================================================================
+
+Custom Music & Sound Credits:
+
+NVScripts by NamelessVoice
+
+Unterwegs in Düsterburg by Grandy
+Vampires Dawn by Alexander "Marlex" Koch
+Eshaktaar
+(Help Me,Remember,tension2,garm1408,bookend. Sound file from OminousBequestGold)
+Thief2x Team
+Ambloopm1 (m01sounds)
+
+================================================================================
+
+Copyright:
+
+This level is (c) by Terra, September 2015.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+============================================================================

@@ -1,0 +1,247 @@
+Deutsch bitte runterscrollen!
+========================
+
+
+
+In dubio pro Garrett  
+
+
+
+
+Authors: Dainem und PsymH   
+
+
+
+Prologue
+
+
+Broken door, destruction and chaos in every room ... footprints everywhere! It's as clear as daylight. You have been robbed, and even worse, this bugger, Lord Andre, has the gall to offer to let you buy back your valuables from him, including your precious Horn of Quinus. This means war!
+
+Well, Lord Andre is an ‘honourable’ member of society. Wouldn’t it be convenient if there were something that would jeopardize his good reputation? Luckily you have some useful information about this swine. He has a finger in a lot of pies, some of which involve criminal actions. Rumor has it he is blackmailing the Mayor. You shouldn’t have any problem finding something incriminating. One of your friends drew a map of Andre’s estate for you and hinted that the well is in a bad state. Perhaps it’s possible to reach the estate via the sewers.
+As soon as you’ve found something incriminating against Andre, take it to the office of Commissar Smith. Though this man is a blue coat, he is said to be upright and incorruptible. As I like to say… 
+The enemy of my enemy is my friend…
+
+
+Important! Attention!
+
+You must use Darkloader Version 4.2 or else the mission won’t start!
+
+
+
+Playing Information
+
+Game :  Thief 2
+Mission Title: In dubio pro Garrett  
+Version :  1.0
+File Name :  miss20.mis
+Difficulty Settings :  Yes
+Equipment Store :  Nope
+Map :  Yes
+Auto Map :  No
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support :  English, German
+Briefing : Yes (quite simple)
+
+
+Dramatis Personae
+
+Dainem: Author
+ MH.TheFreak: Creating new worlds
+Meril: Our Van Gogh
+Al-Zimrathon: Video
+Sluggs: New objects
+Schwaa: New objects
+Yandros: New door textures
+Targa: New objects/bow
+Homepage: www.thiefmissions.com/targa/
+Vigil: New textures and objects
+Homepage: www.washboardabs.net/thief/
+Nameless Voice: New objects
+
+The betatesters
+(The only good bug is a dead bug!)
+Anne (the baby-burricks are for you), neferure, Fibanocci, meril, Raven, Valen, Xrayalpha
+
+English Translation
+Dinksmallwood
+Edited by Nightwalker and Bernie
+ 
+
+Music
+
+The following music is used in the FM:
+
+L. v. Beethoven: Die Schicksalssymphonie
+W. A. Mozart: Eine kleine Nachtmusik
+R. Wagner: Ritt der Valkyren
+
+
+Loading Information
+
+Use Darkloader version 4.2 or higher.
+A fresh boot is recommended before playing this mission.
+
+
+Contact
+
+I would be terribly happy if you tell me your opinion about this FM, at either ttlg.de-forum or ttlg.com-forum or even better via email to dainem@web.de (German, English, French or Esperanto)
+
+
+Copyright Information 
+
+Copyright (c) 2006
+by Dainem
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my explicit permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================
+DEUTSCH
+=======================
+
+
+
+
+  In dubio pro Garrett  
+
+
+
+
+Autoren: Dainem und PsymH   
+
+
+
+Prolog
+
+
+Eingetretene Tür, Verwüstungen und Chaos in allen Räumen, Fußspuren überall. Klarer Fall: Du wurdest beraubt. Doch nicht nur das: Dieser Kerl, Lord Andre, besitzt auch noch die Frechheit, dir anzubieten, deine wertvollen Sachen bei hm zurückzuverkaufen. Darunter dein innig geliebtes Quinushorn. Das bedeutet Krieg! 
+
+Nun gut, Lord Andre ist ein „ehrenwertes“ Mitglied der Gesellschaft. Wäre doch zu schade, wenn etwas seinen Ruf gefährden würde. Glücklicherweise besitzt du einige nützliche Informationen über den Schweinehund: Er hat wohl seine Finger in etlichen kriminellen Dingen drin, Gerüchten zufolge erpresst er den Bürgermeister. Es dürfte dir also nicht schwer fallen, etwas Kompromittierendes zu finden. Zum Glück hat dir ein Bekannter eine Karte des Anwesens gezeichnet und dir den sehr wertvollen Hinweis gegeben, dass sich der Brunnen in einem miserablen Zustand befindet. Es sollte möglich sein, über die Kanalisation auf das Anwesen zu gelangen.     
+Sobald du etwas Passendes hast, was du gegen Andre verwenden kannst, bringe es unbemerkt in das Büro von Kommissar Smith. Der Mann ist zwar ein Bulle, aber er gilt als knallhart und unbestechlich. Und wie heißt es so schön:
+Der Feind meines Feindes ist mein Freund…        
+
+Wichtig! Achtung!
+
+Es wird zwingend die Darkloader-Version 4.2 benötigt. Andernfalls lässt sich die Map nicht starten! 
+
+Missionsziele:
+
+Normal:
+Dringe bei Lord Andre ein und finde Material, das ihn belastet.
+Bringe es in das Büro von Kommissar Smith. Er ist wenigstens unbestechlich.
+Stehle 1000 Gold.
+Finde zurück zum Ausgangspunkt.
+Töte keine unbewaffneten Personen!
+
+Hard:
+Dringe bei Lord Andre ein und finde Material, das ihn belastet.
+Bringe es in das Büro von Kommissar Smith.
+Stehle 1500 Gold.
+Finde das Buch, mit dem Andre den Bürgermeister erpresst.
+Befreie Carlos aus dem Gefängnis.
+Finde zurück zum Ausgangspunkt.
+Töte niemanden!
+
+Experte:
+Dringe bei Lord Andre ein und finde Material, das ihn belastet.
+Bringe es in das Büro von Kommissar Smith.
+Stehle 2000 Gold.
+Finde das Buch, mit dem Andre den Bürgermeister erpresst.
+Befreie Carlos aus dem Gefängnis.
+Lass dich von niemandem entdecken!
+Finde zurück zum Ausgangspunkt.
+
+
+Playing Information
+
+Game :  Thief 2
+Mission Title: In dubio pro Garrett  
+Version :  1.0
+File Name :  miss20.mis
+Difficulty Settings :  Yes
+Equipment Store :  Nope
+Map :  Yes
+Auto Map :  Not
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support :  Not yet
+Briefing : Yes (quit simple)
+
+Dramatis Personae
+
+Dainem: Autor
+ MH.TheFreak: Erschaffer neuer Welten
+Meril: Unser Van Gogh
+Al-Zimrathon: Video
+Sluggs: Neue Objekte
+Schwaa: Neue Objekte
+Yandros: Neue Türtexturen
+Targa: Neue Objekte/Bogen
+Homepage: www.thiefmissions.com/targa/
+Vigil: Neue Texturen und Objekte 
+Homepage: www.washboardabs.net/thief/
+Nameless Voice: Neue Objekte
+
+Die Betatester
+(Nur ein toter Bug ist ein guter Bug!)
+Anne (Die Babyburricks sind für dich), neferure, Fibanocci, meril, Raven, Valen, Xrayalpha,
+ 
+Musik
+
+Folgende Musikstücke wurden verwendet:
+
+L. v. Beethoven: Die Schicksalssymphonie
+W. A. Mozart: Eine kleine Nachtmusik
+R. Wagner: Ritt der Valkyren
+
+
+Loading Information
+
+Use Darkloader version 4.2 or higher.
+A fresh boot is recommended before playing this mission.
+
+Kontakt
+
+Ich würde mich außerordentlich über Meinungen zu der FM freuen. Am besten im ttlg.de oder ttlg.com– Forum oder noch besser per Email an dainem@web.de (Deutsch, Englisch, Französisch oder Esperanto)
+
+Copyright Information 
+
+Copyright (c) 2006
+by Dainem
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+
+
+
+
+

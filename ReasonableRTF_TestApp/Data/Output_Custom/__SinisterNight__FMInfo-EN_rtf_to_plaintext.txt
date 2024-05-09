@@ -1,0 +1,61 @@
+Unheimliche Nacht / A Sinister Night
+===============================================================================
+
+Author	: Terra
+Date of release	: 12/31/2020
+
+===============================================================================
+Story:
+
+The money is getting low and it is about time to get back to the black market. Word in the city has it that deep In
+the forest there is an old abandoned mansion. In this building there are supposed to be several precious things and,
+who knows, maybe there is hidden some sort of rare object. But I don't want to be this adventure to be a long
+episode, that's why I'll leave my equipment here, all I'll need is a lantern to lighten the rooms. Well, it's full moon
+but better safe than sorry.
+Here we go! Garrett, the gold is waiting...
+
+===============================================================================
+Game information:
+
+Game	: Thief 2 - The Metal Age (Version 1.27 NewDark)
+Mission title	: Sinister Night
+Files	: miss22
+Levels	: Normal, Hard, Expert
+Shop	: No
+Map	: No 
+New graphics	: Yes
+New sounds	: Yes
+EAX	: No
+Multi language	: DE/FR/EN/RU
+Briefing	: No
+
+===============================================================================
+Construction time	: 3 month
+===============================================================================
+Credits:
+
+Betatesters	: Aemanyl, Lord Taffer, Mat99
+Version Française	: Zappenduster/Stefan_Key
+English Version	: Zappenduster/Urgrue
+Amnesia Grunt	: Frictional Games (NewDark convert from FireMage)
+
+Cosas Team - The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+Soul Tear
+
+===============================================================================
+Copyright:
+
+This FM was made by Terra, December 2020.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+===============================================================================

@@ -1,0 +1,198 @@
+=============================================================
+11/19/2012
+=============================================================
+Title : Reunification Campaign
+Filename : Reunification Campaign - NewDark.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Homepage : No
+Date of release : November 19, 2012
+Version : 1.0
+Description : It has been a long evening and I just want to go home to my wife.
+I hope she is home, I'm not sure because she had spoken about visiting a friend.
+I am sure she left a note in that case.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : Ransom, Lord Beltzer's Mansion, Mistress Guennean's Castle
+and The Reunification. 
+File names : miss20.mis, miss21.mis, miss22.mis, miss23.mis
+Difficulty Settings : Yes. (in some)
+Equipment store : No.
+Map/Automap : Yes (blank)
+New graphics : Yes.
+New sounds : Yes in some..
+New conversations : No.
+New models : Yes in some.
+EAX Support : Yes in some.
+Multi language support : Yes, in last.
+Briefing : No.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Medium.
+Build Time : Total about 4 month, many hours a day
+Build Info : This is a four mission campaign. They are released one by one
+before this campaign.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Reunification Campaign - NewDark.zip" file into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote the good tutorials that I learned from.
+Also, the people at the TTLG Forums who asked the right questions, and of course those
+who answered those questions so I could easily search for answers to the problems I had.
+To the Beta testers on shalebridgecradle:
+Ransom:
+Euphrosyne
+Gloria Creep
+jonescrusher
+nickie
+Ravenhook
+Lord Beltzer's Mansion:
+bob_doe_nz
+dbrilliant
+flying_hope
+Gloria Creep
+Mistress Guennean's Castle:
+bob_doe_nz
+Gloria Creep
+kittykat
+Ravenhook
+The Reunification:
+bob_doe_nz
+dbrilliant
+Gloria Creep
+Ravenhook
+Soldi
+undead gamer
+Reunification Campaign:
+Gloria Creep
+nickie
+Ravenhook
+Sofie (Girlfriend)
+Soldi
+To nickie who checked all the texts in the mission.
+To Tannar and Dussander, the moderator who set up the beta forum
+on shalebridgecradle.
+-------------------------------------------------------------------------------------
+Custom objects:
+(I really hope I’ve remembered everyone, please tell me if I’ve missed
+crediting someone)
+Ransom:
+Sluggs: Park Bench, Fire Lamp.
+Cosas: Light Gem & Health Shields, Bookcases, Drapes.
+Renzo "Eshaktaar" Thönen: New Water.
+Jason-Otto: Fences, Gate, Ceiling Lamp, Ball Lamp.
+Nameless Voice: Balloons, Teddybear, Bathtub, Wall Lantern 02.
+von.Eins: Rocking Horse, Cabinet.
+Schwaa: Bathroom Set, 8x8 Doorway.
+Targa: VicSwitch reskin.
+Nielsen74: Full Cabinets, Green Lamp.
+Lord Beltzer's Mansion:
+Flecha das Sombras, for the cutlery.
+JasonOtto, for animal trophies, leather sofa, modern looking toilet.
+R Soul, for the fancy bed, fireplace, doors, Banquet Chairs.
+Sluggs, for the picture light
+Targa, for footlocker skin, safedoor, desk fan, the two objectives Sceptres,
+crystal plates and goblets, two frosted windows, the dome, "BladeX" dagger,
+sewer lid, a desk, Heart jewelry box, lockbox, VicSwitch skin, picture frame,
+replacement turbine, decorative shield, tapestry, crystal ball, Decorative mirror,
+chain, bathtub faucet and the pipe.
+Team CoSaS, A lots of things, different beds, chairs, chests, lamps, tables, desks, cabinets,
+dressers, drapes, flowers, bookcases, pub set, bathroom set, gambling set.
+Light Gem & Health Shields. Too many things to list here :)
+Mistress Guennean's Castle:
+Ottoj55: Twisted Torch,  Argon Lamp.
+Asgaroth: Red Skull.
+Targa: Arrows, Undead with a Human Femur, Crate with Rope Spools,
+Floor Lever, Vicswitch Replacement, Radiator, Plates, HeartBox.
+Yandros (Russ Robbins): For the Hammerite Mission Development Kit.
+Renzo "Eshaktaar" Thönen: Lockbox and Key, Pyramid Lamp, Chest,
+New water, Art Deco Lamp, Button, Museum Pedestal.
+LarryG: Bones.
+R Soul: Reskinnable Sarcophagus, Wheelbarrow, Body on Table,
+Strong Table, Rake, Watering Can, Coffins, Sewer Grate, Enormous
+Hanging Light, Basic Wooden Fences, Glass Chandelier, Improved
+Paintings, Simple Chair.
+Nameless Voice: Claw Table, Candelabrum II, Leafplant, Light Orb,
+Poker Bin, Chair 01, Round Table 01, Piano and Stool, Corner Cabinet,
+Plate & Bowl Set, Gold Goblet, Desk Lamp, Gold Pocket Watch,
+Chess Table, Gold Spheres, Ink Well, Mantelpiece Clock, Gold Ankh,
+Wicker Basket 2, Toy Pack, Balloons.
+CoSaS Team: Lamps, Doors, Keys, Drapes, Towel Rail, Beds.
+Nielsen74:  Chisels-Screwdrivers Set, DrillSet, Black Candle, Crank,
+Shields, A Scale, Books, Book Case, Clay Pot, Tobacco, Fire Wood,
+Victorian Cabinets, Keg,  Dish, Knife Block, Soap, Mirror, Desk,
+Toilet Paper, Victorian Hutch.
+Sluggs: Skull, Desk, Matchbox, Wall Light, Window Frame, Empty
+Trough, Flower, Ball Lamp, Water Bucket, Trash Can.
+JasonOtto: Leather Sofa, Portcullis, Glyph Decal, Plant, Chain Link
+Fence Gate, Chain, Fancy Dining Room Table, Red Drape, Fancy
+Chairs, Animal Trophy, Giant Chess Pieces, Wood Cabinets,
+Tea Kettle, Tapestry.
+Elvis: Lion Statue, Dog statue.
+Ar-Zimrathon: Full Pot.
+Schwaa: Stove, Toilet Set.
+The Reunification:
+Jason Otto: Operating Nut, Wrench, Metal Door Texture, Ceiling Lamps, Rugs, Bulletin boards, Fixed 'SheriffsNoKO', Leather Sofa, Wood Cabinets, Table, Danger sign, Power Sign, Mechanist Banner.
+Targa: Pendulum, Cage, Bot That Never Was, Improved Arrows And Crystals, Replacement "Sunburst Device", Heartbox, Door, Chain, Improved Gaslight, Sword, Shield, Locker, Button.
+Renzo "Eshaktaar" Thönen: New Water, Hanging Lamp, Blackjack Table.
+RSoul: Sewer Grate, Simple Bed, Doors, Filing Cabinets, Pipes, Exterior Door, Wall Mounted Spotlight, Lamp Posts, Basic Wooden Fences, Banquet Table, Simple Chair, Rake, Watering Can, Wooden Shelves, Shelf, Improved Holy Water.
+Von Eins: Doors, Railing.
+Christine: Blood Splatter.
+Sluggs: Flower, Big Case, Park Bench.
+Dark Arrow: Flower Table.
+Otto55: Badge.
+Schwaa: Coat Rack, Bathroom, Quill Set, Mech Locker, Posters, Shield, Stove, Trashcan, Bronze Spot Light, Trash Can.
+Elvis: Statue.
+Yandros: White Doors.
+Nameless Voice: Chair 01, Round Table, Lectern, Silver Comb, Gold Bracelet, Silver Locket, Silver Ankh, Gold Pocket Watch, Inkwell, Candle, Wall Lantern, Wall Lamp, Lantern, Mushroom Table, Street Lamp, Fern 01, Leaf Plant, Crates, Barrel, Victorian Table, Street Signs.
+Nielsen74: Necklace Stand, Vase, 2 Necklaces, Shields, Pole Arms, Flail, Pirate Hook, Sword, Green Lamp, Leaf Table, Cannon.
+Eshaktaar: Talisman.
+Cosas Team: Drapes, Book Cases, Flowers, New torch v2, Hanging Brazier, Hexagonal Streetlamp, Light Gem & Health Shields, Bow & Quiver.
+Randall Taylor: Switch.
+
+Meshes:
+Ransom:
+Targa: New guy.
+DedX: Patchguy, Female Actor, Male Actor.
+Cosas: Nobles.
+Lord Beltzer's Mansion:
+Targa, for the fat noble, overweight female, onearm guard, pegleg guard.
+Team CoSaS, for a Noble (Philip).
+Mistress Guennean's Castle:
+Yandros (Russ Robbins): For the Hammerite Mission Development Kit.
+Metal Dawn: For the devil.
+The Reunification:
+Jason Otto
+DedX
+Targa
+
+Textures:
+Lord Beltzer's Mansion:
+Remedy Entertainment Ltd.
+Taffers Tavern
+AntiMatter_16 at TTLG
+Iikka Keränen, optimised for Thief 2 by MaJiC
+Mistress Guennean's Castle:
+DarkMax
+AntiMatter_16
+Melan
+The Reunification:
+DedX: A lot of textures
+Wille: Distant Art
+
+Scripts:
+Telliamed
+Nameless Voice
+Gaylesaver's scripts
+-------------------------------------------------------------------------------------
+And obviously thanks to my girlfriend Sofie for testing and moral support and putting up with me working on it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this campaign is allowed in any way, shape, or manner you wish. However, you must leave the missions intact and give me credit for it :-)
+This campaign was not made and is not supported by Looking Glass Studios or Eidos
+Interactive.
+=============================================================

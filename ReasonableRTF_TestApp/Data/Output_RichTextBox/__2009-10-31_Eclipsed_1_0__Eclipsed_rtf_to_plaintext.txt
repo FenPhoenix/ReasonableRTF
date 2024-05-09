@@ -1,0 +1,153 @@
+Eclipsed
+
+By: Jeremy Catlin
+Release date: October 30th , 2009
+
+
+****Disclaimer:
+
+ If you have the Thief Enhancement Pack installed a crash may occur, due to the massive use of custom resources.
+
+This mission uses hi-res textures and may have a lower frame rate on older systems. If you are having stutter problems it may be caused by the widescreen patch.
+
+
+
+*Introduction
+
+Welcome to Port Aerinth, a small, wealthy, and powerful harbor town. Its inhabitants abandoned it after some still unknown tragedy struck there, but rumor has it that in their terror they left behind their considerable wealth and possessions. While most see this as a tragedy, shake their heads, and get on about their lives, you see an opportunity. An opportunity to plunder without consequence, to finally get the wealth you desire…and deserve, after all these years spent crawling through the shadows.  But strange things occur the moment you set foot in Port Aerinth. It seems that not everyone – or everything – has fled the town. Maybe tonight, the darkness isn’t your friend…
+
+
+
+
+  *Play information*
+
+Game                : Thief 2
+Level name        : Eclipsed
+File name           : Miss23.mis
+Difficulty Settings :   Yes
+Equipment store     :   No
+Map/automap         :   Yes
+New graphics        :   Yes
+New sounds          :   Yes
+New Conversations   :   No
+New models          :   Yes
+Multi Language Support :  No
+Briefing            :   Yes
+
+*Construction:
+
+Mission size: Large
+Build time: Consistently for two and a half years. Some areas are from over four years ago.
+
+
+* Loading Information *
+  
+ The files in the zip folder are set up to be able to run the mission from the thief 2 new game option.
+ 
+ DarkLoader ready
+
+
+*Pre-BETA testers:
+
+Digital Nightfall
+Yandros
+
+*BETA testers:
+
+Tannar, Nickie, PotatoGuy, Digital Nightfall, undead gamer, bikerdude, Gloria Creep
+
+A BIG thank you to Dussander for his beta forum that was absolutely amazing for testing. The forum made the process of beta testing easy and very accessible for both testers and authors!  http://shalebridgecradle.co.uk/testing/
+
+Another big thank you to Yandros for his help involving the AI system.
+
+
+
+
+
+*Credits:
+
+Objects, meshes and textures:
+
+Jason Otto  http://www.jasonotto.net/
+Eshaktaar   http://www.hulub.ch/customstuff.php
+Christine, Greenhorn and Syi  http://www.zinkchristine.de/Dromed.html
+DrK
+DarkArrow http://koti.mbnet.fi/~darkar/
+Nameless Voice  http://www.geocities.com/nameless_voice/
+Naks&TDBonko  http://dejtom3.freehostia.com/
+R Soul  http://catmanofiowa.com/RSoul/limbo.html
+The Watcher  http://t2.starforge.co.uk/index.cgi?op=objects
+Targa  http://www.thiefmissions.com/targa/
+Vigil  http://thief.washboardabs.net/news/
+Pinkdot
+SlyFoxx from  HYPERLINK "http://www.cgtextures.com" www.cgtextures.com
+Nielsen74
+Phantom
+Yametha
+Redleaf
+Digital Nightfall  http://cosas.ttlg.com/
+Schwaa  http://schwaa.0catch.com
+Yandros  http://www.wearytaffer.com/
+Sensut http://www.sensut.extra.hu/
+Sluggs
+
+If I missed any please let me know and I will include you!
+
+*Audio:
+
+Drew Bricker with Wicked Waves recording studio
+http://www.freesound.org/ featuring the artists: Arctura, sagetyrtle, ERH, digifishmusic, Chronos, jesges, patchen
+Sensut
+Eshaktaar
+Yandros
+Dario
+Lady Rowena for the menu music
+Zombie sound ported and remixed from Thief 3
+Music Box by Sirfinix  http://www.newgrounds.com/audio/listen/59389
+
+
+*Menu Art:
+
+Digital Nightfall
+
+*Narrative:
+
+Leigh Morris
+
+*Voice Acting:
+
+SlyFoxx:        Garrett
+Jeremy Catlin: Drucius
+
+*Scripts:
+
+Nameless Voice
+GayleSaver
+Telliamed
+
+
+
+Very special thanks to:
+
+Leigh Morris
+Digital Nightfall
+Yandros
+Nameless Voice
+Eshaktaar
+Sean Sweeney
+
+All of my BETA testers who went above and beyond anything I could have expected. This mission could have not been completed without all of your hard work!
+
+
+
+Copyright information:
+
+This level is (c) by :  Jeremy Catlin on the Thirtieth day of October year of 2009
+
+Distribution of this level is allowed as long as it is free and the package is kept 
+intact.  Feel free to include this mission in FM collection disks as long as they 
+are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+

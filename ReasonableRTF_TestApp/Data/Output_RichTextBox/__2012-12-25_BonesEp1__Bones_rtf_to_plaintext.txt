@@ -1,0 +1,208 @@
+=============================================================
+
+The spider weaves the curtains 
+In the palace of the King,
+The mouse scurries in the wall
+Where the Hammer choirs sing.
+The owl calls the watches 
+In the mage’s silent towers,
+The bat flies in the forest
+With the Pagans and their flowers.
+All their secrets spoken
+Said without a care
+Never are they knowing
+Who is listening there.
+	-Old Keeper lullaby
+
+=============================================================
+
+**Bones**
+Part 1
+25 Dec 2012
+Version 1.04. Minor fixes.
+- Please update Thief 2 to version 1.19 to play this mission.
+
+=============================================================
+Title		 : Bones
+Filename	 : Bones.zip
+Authors	 :Paul Harvey and Jason Sinclair
+Contact info	: pharv@hotmail.com
+		  storybuilder@yahoo.com
+_____________________________________________________________
+_____________________________________________________________
+
+Lieutenant Stroud suddenly stopped writing her report, halting midway through a word. Her quill remained on the paper, a blossoming circle of black ink obliterating her previous work. A chill ran through her, like mice running over dry bones. Something was wrong. 
+Her years in the city watch had honed her senses, and subtle clues--minute shifts in the light, a gentle puff of air--told her she wasn't alone.
+"Don't turn around," said a man's voice. His voice. Rage filled her blood, her mouth tasting of copper.
+Her hand blurred towards her belt. Panic seized her when she found the scabbard empty, her dagger missing. A small needle of pain flared in her throat. "Looking for this?" the voice asked as a blade pricked her skin. 
+"Lieutenant Stroud, this is the third time you've tried that. You've really got to stop."
+Her rage fell away and a horrible, defeated sadness replaced it. "Leave me alone," she said.
+"In due time, Lieutenant. But not just yet."
+"What do you want?" she asked. "What more of my dignity can you strip from me?"
+"I want what everybody wants. You know; comfort, security, a home in Lampfire Hills. But what I want from you, Lieutenant Stroud, is information."
+She paused. "I...can't keep doing this."
+"Yes, you can."
+She closed her eyes, hating this man, this carrion bird, with all her soul. 
+"People are getting suspicious. Even Captain Phillips. You burglarized the museum right after--" 
+The man sighed. 
+"Lieutenant Stroud...May I call you Jessica?"
+"No."
+"Jessica, I have no interest in your relations with your fellow bulldogs. All I'm interested in hearing from you are the answers to a few questions." 
+His voice became icy. "And you will answer them, because if you don't, your loving husband Arthur will discover that his son was sired by another man."
+A peculiar mix of longing and shame swept through her. Images of that summer with Kevin, all those years ago, spun through her mind, all fragmented, beautiful, and sad, like crushed flowers. "Damn you..." she whispered, her voice hitching.
+"You're not the first to say that, Jessica."
+"I know your name," she said suddenly. 
+The man fell silent. She felt a change in the air; her words had startled him. 
+"Do you now?" he asked carefully.
+"Your name is Garrett." She had been saving that fact to use if she really needed it. Now seemed as good a time as any.
+The man, the notorious thief named Garrett, fell silent again, almost pensive. Then he chuckled.
+"Bravo, Jessica, bravo. Fine detective work, my dear."
+"We'll catch you."
+"No, you won't. But you did show me I'm getting careless, and for that I thank you. Thus, an exchange...you answer a few questions right now, and then I'll leave you alone. Agreed?"
+She nodded. Anything to be rid of this wood tick.
+"Yesterday, you oversaw the security detail for the unloading of a riverboat named The Spangled Cur. Rumor has it there was a very valuable spice shipment onboard. Is this true?"
+"Yes."
+"Where is this shipment now?"
+"In the Eastport Beach dockhouse."
+Her tormentor paused. "Where?"
+"The Eastport Beach dockhouse. In the Old Quarter."
+She shook her head. "The re-opened Old Quarter, I mean." 
+He grunted. He apparently wasn't used to the Old Quarter being open again either. 
+"Where in the dockhouse?"
+"I don't know. Tendgaff, the dockmaster, took it."
+"Do you have a map of the Old Quarter? A current one, made after all the re-building?"
+She nodded, moving her hand to open a desk drawer. The blade asserted itself at her throat once more.
+"Ahh-ahh. Slowly," he cautioned. She did as he said, pulling the map out and handing it to him. It disappeared behind her.
+She waited for his next question, but none came. Curiosity began to gnaw at her, and she carefully turned around.
+Her office was empty. She leaped out of her chair, ready to fling open her door and charge out into the hall when a bit of movement caught her eye. Looking up, she saw the end of some rope disappear over the edge of her open skylight and into the darkness beyond. As she watched, a folded piece of paper suddenly fluttered down through the opening, turning in a lazy spiral. It made a small scuffing noise when it hit the ground.
+She snatched it off the floor. On the outside, in a neat, crabbed printing read a single phrase:
+NICE WORKING WITH YOU.
+She furiously tore open the paper, then froze when she saw what it was.
+It was a letter, one written in her hand. A letter to Kevin, telling him she bore his son. A letter she never delivered.
+That was how Garrett knew. And now it was hers again.
+Lieutenant Jessica Stroud sank to her knees, covered her face with her hands, and began to weep.   
+
+_____________________________________________________________
+
+
+(TRANSCRIPT OF BRIEFING MOVIE:)
+
+GARRETT:
+
+After Karras had met his untimely death in Soul Forge--not that I would know anything about that--the remaining Mechanists were not well received by the City Aldermen. They needed goodwill, and fast. A Mechanist named Sister Flywheel presented the City a proposal...The Mechanists would reclaim the Old Quarter for them--for a modest fee, of course. After all, The Eye was gone--something else I know nothing about--so no NEW undead were being created.
+
+The Aldermen were dubious, but agreed. So the Mechanists built their war machines and told them to destroy the restless dead. A hole was breached in the Palisade, and the machines went into the Old Quarter. You could hear the sounds of combat for weeks. The undead are nothing to trifle with, but steel and explosives won out.
+
+A few months ago the Aldermen allowed people inside, and the rebuilding began. The ruined Old Quarter had fallen into deep decay, but people didn’t care. Every noble and land baron moved as one to grab as much land as they could. Greed overshadowed planning, so the Old Quarter is now a maze, a hodge-podge of conflicting styles and buildings running into each other. The land barons have offered incentives to get people to move in, but not many want to live where the dead recently roamed about.
+
+The spice shipment I'm after is in the harbor building at EastPort Beach. Since some collapsed sewer tunnels were widened into canals to ferry goods, I should just follow them to the harbor. 
+
+One of my contacts was involved in construction all over the district, and heard many rumors of valuable objects in need of a good home--all of which he was happy to tell me for another bottle of wine. If I poke around the area, this could be a very lucrative night. 
+
+Of course, if I poke around in the wrong places, I might meet some undead that the war machines missed. Some undead have been spotted here and there, so at night the gates are locked up tighter than the Grand Hammerite’s chastity belt. However, there’s a bluff I can use to get in, if I don’t mind a little swim. 
+
+Ugh. I never wanted to return to the Old Quarter again. Something always seems to go wrong...    
+
+
+_____________________________________________________________
+
+
+* Play Information *
+
+Game			: Thief 2: The Metal Age v 1.19
+Level Names		: The Old Quarter
+File names		: Miss20.mis
+Difficulty Settings	: Yes
+Equipment store	: Yes 
+Map/Automap		: Yes (not an automap)
+New graphics		: Yes
+New sounds		: Yes(DEDX)
+New conversations	: No
+New models		: Yes (DEDX)
+EAX Support		: No
+Multi language		: No
+Briefing		: Yes
+_____________________________________________________________
+     
+
+* Construction *
+
+Base			: DEDX gamesys, terrain from scratch
+Build Time		: Quite a long time
+
+Credits:
+=========
+
+Architecture, DromEd work, Scripting, story, artwork, some readables: Paul Harvey
+Story, Intro script and Briefing text, Readables: Jason Sinclair
+Briefing Movie: Laz (Steve Flake)
+Voice Acting & Briefing Music: LoanStar (Paul Billo)
+New weapons (IceBomb, Detonation & Necro Arrows) and new AI by Rob Hicks
+Textures by Undule, GOB, Sliptip.
+Additional textures from a pack put together by Xorak.
+Couple of textures used from COSAS mission 1.
+
+Thanks to/further credits:
+----------
+Looking Glass Studios for Thief and DromEd.
+All the taffers at the Editor's Guild, TTLG.
+Epithumia for hosting.
+Apache for Carryover Tut.
+Avalon for Thief Objective Wizard.
+Tomi for the New Map Pages and for a very early attempt to debug.
+Preno, EmperorSteele and Jericho for very early iteration Alpha Testing.
+RSoul for Guard Helmet Fix and Fence Fix Objects.
+SilentSleep for the BlackOutBomb Technique.
+Nameless Voice for the vRand Tut and Lantern Objects.
+Gaylesaver for his work on custom scripts.
+Targa for the Dome Rooftop objects.
+Purah for the compass/lightgem/some AI textures, and for making great FM's.
+Huge thanks to Rob Hicks for creating Dromed Deluxe and everyone who contributed to it.
+
+Big thanks to Tannar, all at Shalebridge Cradle testing forums and the Testing team for all their work on this:
+
+Alpha Tester: Daraan
+Beta testers: nickie, Nightwalker, The Phantom, Jones Crusher, bob_doe_nz, itllrun10s, Gloria Creep, gigagooga.
+
+This mission was abandoned and then re-started in part thanks to version 1.19. Special thanks to the taffers who worked on 1.19.
+If I have missed anyone, please email me and I'll be happy to include you here.
+
+
+Gameplay Notes:
+---------------------
+
+Please map the 'next weapon' function to a key in your custom binds to access the new arrow types in-game.
+
+Icebombs: If used on an AI they will become immobile for a time and see through. Later if you blackjack them it will count as a kill (as if the AI is frozen and then cracked). 
+
+If you swim outside (blue water) the player will take a bit of damage. It's freezing!
+In the sewers (green water) the player won't take any damage from the water.
+
+Please turn Fog and Weather Effects ON (if your vid card supports these features).
+
+Known Bugs: 
+It snows in the water some places. 
+AI path finding anomalies from time to time.
+Some reports of disappearing doors from some testers.
+====================
+
+* Loading Information *
+
+Leave zipped and run in Darkloader
+
+====================
+
+* Copyright Information *
+
+This level is © by Paul Harvey and Jason Sinclair
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level in any map pack without my permission. 
+You MAY edit and re-distribute this mission. Please credit me with the base or whatever you use. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+   
+
+
+

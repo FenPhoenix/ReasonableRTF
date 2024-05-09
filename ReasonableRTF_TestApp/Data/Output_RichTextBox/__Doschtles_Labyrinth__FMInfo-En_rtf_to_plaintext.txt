@@ -1,0 +1,67 @@
+
+Doschle's Labyrinth
+================================================================================
+
+Author: Doschtle
+Release date: January 2008
+
+================================================================================
+
+Plot: This is my second FM.
+
+Whilst on one of your nightly forays, you are knocked down from behind during a careless moment. You wake up just
+at the moment you are thrown into a fountain by someone who was incredibly powerful. Your head is roaring as you
+surface and realise that you are in an unknown room which is only lit by a glowing mushroom. You hear creepy sounds
+coming from one of the neighbouring rooms, of which there are a number. Still a little bit light-headed you climb out of
+the fountain and discover a small table with some useful objects and a parch upon it. Lets see if the parch contains
+some information which could serve you well?
+
+================================================================================
+
+Game informations:
+
+Game: Thief 2 - The Metal Age (Version 1.18)
+Mission title: Doschle's Labyrinth
+Files: miss22.mis
+Levels: Normal, Hard, Expert
+Shop: No
+Map: Yes
+New graphics: No
+New sounds: No
+EAX: No
+Multi language: DE/FR/EN/IT
+Briefing: No
+
+================================================================================
+
+Construction:
+
+Construction base: new
+Construction time: 4 months
+Map size: ca 260x360
+Construction info: My 2nd FM, inspired by vonEins' tutorial
+
+================================================================================
+
+Beta testers:
+Mayan, Suselsahne, Blackmen, Mirko, Valen
+
+Text corrections:
+Mayan
+
+Translations FR/EN:
+Zappenduster (Athalle, Fortuni)
+
+Translation IT:
+overmann, Lorenzo
+
+
+================================================================================
+
+Copyright:
+
+This FM was made by Doschtle
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+================================================================================

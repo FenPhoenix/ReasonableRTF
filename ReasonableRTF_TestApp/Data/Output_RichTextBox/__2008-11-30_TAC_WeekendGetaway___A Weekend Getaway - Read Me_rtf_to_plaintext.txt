@@ -1,0 +1,60 @@
+===============================================================
+A Weekend Getaway Version 1.0
+===============================================================
+Author			: Anonymous
+Contact Info		: 
+Homepage		: 
+Date of Release	: 30 November 2008
+
+Title			: A Weekend Getaway
+
+Description		: Thief 2 Fan Mission
+
+Story			: Two years after Basso and Jenivere were married they were planning a romantic getaway for the weekend of their anniversary.  They checked into The Wishing Well Inn, it’s a nice little place on the edge of the city, a little rough around the edges, but the price is right.  Some people say the place is haunted, but Basso says he’s never seen a ghost.  They were hoping for a relaxing weekend, but a little while ago it started to rain, then they started to hear noises.
+
+Bugs & Tips		: You are playing as Basso in this mission, but a nearly as stealthy as Garrett.  This mission uses a unique progression to pack more gameplay into the level.  First you play Part 1 (Normal), then Part 2 (Hard), then Part 3 (Expert).  Some objects are only available to you on certain levels, some books and scrolls can only be read on certain levels.  The AI also changes on each difficulty level as do the goals.  The story will make no sense if played out of order.
+
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: A Weekend Getaway
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: See Bugs & Tips above, this mission must be played on Normal, then Hard, then Expert to complete the story.                           
+
+* Construction *
+
+Base			: None
+Build Time		: Two months
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+*Material Credits*
+
+Team COSAS objects, Nameless Voice, Thief 2 Enhancement Pack, Vigil, Eshaktaar, Schwaa (or Schwaa2 if you prefer), Nielsen74, Targa, Thief: Deadly Shadows, Ottoj55, Pinkdot, The Watcher, Raetsel.  Should cover everyone, I’ll get a more complete list after the contest.  Zombie voice pack by Yandros.
+
+* Testing Thanks *
+
+Tannar, Pavlovscat and Lightningline
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

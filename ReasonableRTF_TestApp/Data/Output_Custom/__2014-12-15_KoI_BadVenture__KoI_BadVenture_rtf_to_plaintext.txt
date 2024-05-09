@@ -1,0 +1,264 @@
+        Keeper of Infinity
+       Chapter I: Bad Venture
+
+                         NewDark 1.22
+
+
+           Author:	 		Soul Tear
+           Contact: 		soultear999@gmail.com
+           Release date: 		30.12.2014
+           Version			1.2
+
+
+                    SYSTEM REQUIREMENTS
+
+           Intel Core i5-4570 CPU 3.20 GHz, 8,00 Gb RAM, GeForce GTX 660
+           Used textures with a resolution of 1024 px and a scale of 14.                        
+           There are a lot of objects in the scenes.                     
+           It's possible that fps might be low in places on slower systems
+
+           Also requires:                        
+           Option new_mantle enabled in cam_ext.cfg.
+           Disable Enhancement Pack (I use other textures with the same names)                      
+           
+           
+
+                    GAMEPLAY RECOMMENDATIONS
+
+            The FM was intended to be dark and to play with 65% gamma, in a dark room, 
+but since these conditions are detrimental to the eyes, it’s up to you how and where to play it.
+
+
+                    TECHNICAL ISSUES
+
+If you think that the game is taking too long, then try quitting the game using Task Manager and run it once again.
+I can’t guarantee that you’ll be able to even run my FM, and/or its fps will be decent. My mission 
+has reached some NewDark limits (it contains more than 6000 user objects). But since I’m not the
+author of that nice patch, I did my best on my own.
+On my rig, the FM crashes the game sometimes, especially in outdoor places, where fps is lowest. So 
+if you’re having problems in such an area, it would be better to quit the game and reload. You may 
+save as often as you want – there is no problem with that. However, if you see untexturized polygons 
+(they usually appear as white ones), I don’t recommend saving at that point because the game will 
+probably hang or crash, and the slot you used to save will lose its content.
+
+
+                    DIFFICULTY
+
+In this mission, I'm trying to avoid some stereotypes you might find in the old FMs. In particular, 
+I'm using a different intensity values of the Receptor/Source settings than you probably got used 
+of (I mean the situation when you'll have to use an inventory item on the outside item).
+About tips: they do exist, but they are not specific. If you're lost, please ask me on forums, and I'll
+help you. Everything is OK with my mission logic, you just need to understand it.
+The quantity of equipment, enemies and loot depends on the difficulty you choose. Choose “Easy,”
+if you want a walk in the NewDark park. If you play on "Easy," a bonus objective will be omitted.
+If you’re afraid to miss some loot but are not afraid of lots of enemies, then choose “Hard.” 
+Veterans should choose “Expert.”
+Thus, this is a beautiful and difficult FM. Now, when you're aware of it, you can make your informed
+choice: to play or not to play.
+
+
+
+                    DESCRIPTION
+
+
+      The Keepers want me to visit Konigsforst, a remote yet wealthy town. It seems that they are
+ afraid something happened down there, but sometimes I just don't have the energy to laugh at
+ their paranoia. On this occasion, a burst of anomalous energy occurred resulting in blue smoke
+ belching from the windows. The Keepers’ Council worried that this could lead to disaster but if
+ you ask me, I'd say that some egghead had dropped a vial with some chemicals and forgotten to
+ clean his laboratory up. However, the Keepers never give me the whole picture.
+I decided not to argue with them. Konigsforst had attracted my attention a long time ago –
+ they say it has a jewel mine somewhere underneath the town. Besides, my landlord has raised
+ the rent for the tiny room where I live which he calls “an apartment.” Actually, I just have a
+ simple choice: either I get some money, or I leave. The last option is… well, not an option.
+As usual before the “job,” I visited my old fence Jacob. He has relatives all over the country
+ and he owes me for the low prices I set especially for him. Jacob is a man of few words which 
+I appreciate very much. But this time he has insisted on a… remote communication and the
+answer to my last query to him will be delivered by his man to a previously agreed place. The
+only thing I know about his answer is that it’ll have some conditions.
+
+
+
+                    PLAY INFORMATION 
+
+           Game:				Thief 2: The Metal Age
+           File name:			miss21.mis
+           Difficulty Settings:		Yes
+           Equipment store:		Yes
+           Map/Automap:		Yes
+           New graphics:			Yes
+           New sounds:			Yes
+           New models:			Yes
+           EAX Support:			No
+           Multi language support:	German, English, Russian
+           Briefing:			No
+
+
+
+                    CONSTRUCTION 
+
+          Base:				From scratch
+          Map Size:			Large
+          Build Time:			23:07:34:38 (559 hours) + searching and resource creating
+
+
+
+
+
+
+               CREDITS   
+
+
+
+                TRANSLATORS
+
+            Dront
+            MoroseTroll
+            Nickie
+            Fortuni
+            Zappenduster
+
+
+                TESTERS
+                
+           
+            Bikerdude
+            Bob_doe_nz
+            Chuzhoi
+            Fortuni
+            Gamophyte
+            Garrett42
+            Kurhhan 
+            Ravenhook
+            Soldi
+            Xorak
+
+
+
+                MAP
+
+            Scrp007
+
+
+
+                 TEXTURES
+
+
+           Ardianna
+           Daraan
+           DrK
+           David Gurrea Hernandez (www.davegh.com)
+           Gecko
+           GORT
+           LarryG
+           Nameless Voice 
+           Necrobob
+           Nicked
+           Purgator
+           Renzatic
+           Sensut
+           Soul Tear
+           Vigil (www.washboardabs.net/thief/)
+           Vurt
+           Xorak
+           PhotoRealistic: 
+           CGTextures (www.cgtextures.com)
+           GenealogyInTime (www.genealogyintime.com)
+           PlainTextures (www.plaintextures.com)
+
+           Enhanced skies:
+           Jermi
+
+
+          Additional textures from games:
+          Pathologic, Thief Deadly Shadows
+
+
+
+                OBJECTS
+ 
+            Christine
+            Chuzhoi
+            Daraan
+            Eshaktaar
+            LarryG
+            Nameless Voice 
+            Nicked
+            Ottoj55
+            PinkDot
+            R Soul
+            Schwaa
+            Sensut
+            Sliptip
+            Soul Tear
+            Targa
+            TDBonko 
+            The Watcher
+            Vigil 
+            Von Eins 
+            Yandros   
+            Zontik
+
+          Special thanks to elvis for his perfect objects:
+           10fence, beermug, beermugh, beermuge, boarhead, bochka, dblwheel, drova, fence22, fence3x8, 
+           goddess, kamin, moose, nail, perilla, skaf, stairway
+
+
+
+                 SCRIPTS 
+
+            Nameless Voice 
+            Telliamed
+
+
+
+                 PAINTINGS
+
+           Dominus (dominus.ttlg.com) - main menu
+           Mancomb-Seepwood (mancomb-seepwood.deviantart.com) - Paint19
+           Wraithdt (wraithdt.deviantart.com) - Ripoff8
+           daRoz (daroz.deviantart.com) - Ripoff9
+           wallpaperup.com - paint28
+
+
+
+                 MUSIC AND SOUND
+
+            Asmorod - Dark-Heart Procession
+
+            Atrium Carceri
+                 A Path Through Remembrance
+                 A Stroll Through The Ancient City
+                 Illusion Breaks
+                 Knowledge
+                 Meltdown      
+                 Reincarnation Chamber
+
+          Additional music from the games: 
+                 Pathologic (Andriesh Gandrabur)
+
+             Other sounds from FM: Broken Triad, Dracula - Reloaded, A Night In Rocksbourg 3, 
+                 Rowena’s Curse, Ruins of Originia, The Seven Sisters
+
+              Class Tag “VicSwitch” by Frobber
+              Portable Lantern from Cathedral of The Damned
+
+
+
+Special thanks to DrK for his “A Night In Rocksbourg”, and to Lady Rowena for her 
+“The Seven Sisters.” I designed my mission trying to combine the atmosphere of these 
+two perfect campaigns.
+Thanks to Zontik for his detailed explanation on DromEd.
+Also, thanks to everybody who creates FMs & resources for them, and to all taffers who play them.
+
+
+Copyright Information
+
+This level was made by Soul Tear.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack without my permission. No one may 
+edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+

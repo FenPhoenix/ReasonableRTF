@@ -1,0 +1,62 @@
+Burg Michelle
+Eine Thief2-FM von Ricebug & Xorak
+Für Dark Engine V1.22
+ 
+
+Handlung
+
+Garrett nähert sich seinem Ruhestand, doch ihn erwartet eine letzte Herausforderung, denn unerwartet geht
+ihm ein Brief von Basso zu, der wie eine Blitzbombe im Briefschlitz einschlägt. Es scheint um eine frühere
+Mission zu gehen, in der eine Dame namens Michelle eine Rolle spielte, an die er sich kaum noch erinnert.
+Sie verhalf ihm einst zum Ausbruch aus dem Knast in Murkbell. Wie du mir, so ich dir - so bricht Garrett
+zu einer neuen Mission auf, um sich in dieser Sache zu revanchieren.
+
+Objekte
+
+Christine: Furniture, dishes, drapes, home decor
+Daraan: Tree, cabinets
+	DEDX: Ice beast, Annie, stalactites
+Digital Nightfall (COSAS): door, key, jewelry, loot
+Elvis: Statue in castle hallway
+Eshkataar: Light beams
+Jason Otto: Furniture, grates, chain
+LarryG: Paintings, castle doors, rat model
+Pinkdot: Books, bookcases, iron hoop candle holder, candle
+Ricebug: Animal skin rugs, stair banister
+
+Texturen
+
+C-BEAM
+	Genetica
+	Nameless Voice
+	Jason Otto (AI skins)
+
+Einleitungsfilm
+
+	Location: A Meeting With Basso (Calendra’s Legacy, by Purah)
+	Dulcimer Music: Bradley Fish
+	Fat Garrett: FireMage
+	Train Sequences: Train Simulator 2015
+	Software: Sony Movie Studio Platinum
+
+Übersetzer
+
+Apiai (French)
+Soldi (Russian)
+Smallman_647 (Italian)
+Zappenduster (Deutsch)
+
+Tester
+
+fortuni
+itllrun10s
+Peter Smith
+Yandros
+Apiai
+Soldi
+Smallman_647
+Zappenduster
+
+Mein besonderer Dank gilt Yandros für seinen technischen Beistand.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt und wird auch nicht von diesen unterstützt.

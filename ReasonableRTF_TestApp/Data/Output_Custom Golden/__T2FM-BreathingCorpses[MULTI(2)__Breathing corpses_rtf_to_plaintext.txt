@@ -1,0 +1,355 @@
+=========================== ENGLISH ===========================
+
+"Breathing Corpses"             
+
+Story:
+
+Quickly after leaving Stalkreath's mansion with the artefacts and the deed of property, I met my employer who was extremely satisfied with my services. Usually I do not meet with my contacts, but considering the value of the objects I had to steal, it was preferable to not go through the regular route. I was surprised to meet a strange man, somewhat reminiscent of Constantine. As much as I dislike that uncanny resemblance, I cannot give up such a large amount of money.
+After handing over my well deserved salary and praising my thieving abilities, the old man offered me another job.
+This time, I have to infiltrate yet another ancient place: a hammerite catacomb located far away from the City. It should contain a great deal of treasures, among which an orb called «The Rotten Sun» and a hammer called «The First Icon». 
+The old man warned me about the complexity of the whole area, but he did provide me with a rudimentary map. I should expect these catacombs to be labyrinthine and crawling with both hammerites and undead. Luckily, the sword I stole from the lowest part of the Iron City will allow me to dispose of any undead, should holy water run scarce on my way down.
+______________________________________________________             
+
+Note:
+This is my second FM and it takes place right after Iron Heart. You don't need to play Iron Heart first. Worst case scenario, you will be confused about a place or an object being mentioned in some texts. This was done under version 1.23 of NewDark (at least I believe it was). I highly recommend enabling new mantle for this mission.
+
+New tools can be found within this gloomy place:
+
+– You will find coins (non-loot) throughout the mission. They are meant to be used on little bowls only (they will produce an oddly satisfying noise, you can't miss it). There are as many coins as there are bowls.
+– You can find up to 4 talismans if you are thorough enough. These talismans can be used to make things easier for Garrett (at the cost of some HP, so that you cannot overdo it). They act like weapons so you can equip them using the «next weapon» key.
+– The sword deals a small amount of holy damage on its strong attack, so you can use it to deal a coup de grâce to your foe.
+
+New surfaces are ropeable in this mission: you can rope up mossy gargoyles and catacomb textures such as bones and corpses with a pinkish background.
+
+One last thing worth noting: choose your difficulty wisely! The order of the difficulties is not representative of the actual difficulty; depending on your play style, «Heretic» might be harder for you than «Saint» although the amount of HP is still changed and the amount of loot needed is higher.
+In that sense, «Thief» and «Saint» act as regular difficulties while «Heretic» is just my attempt at bringing something different to the mission.
+______________________________________________________
+
+Playing Information:             
+Date: 25/02/2017
+Game: Thief 2: The Metal Age (NewDark)
+Mission Title: Breathing Corpses
+File Name: miss23
+Difficulty Settings: Yes
+Equipment Store: Yes
+Map: Yes
+Auto Map: No             
+New Graphics: Yes
+New Sounds: Yes
+Multi-Language Support: DE/FR/EN/RU/ITA
+EAX: No             
+Briefing: Yes
+
+Author: FrenchDecay (aka InsomniacBear)
+Voice actors (amazing ones!): PsymH, Zappenduster (DE)
+	   Frère Staven (FR)
+	   McTaffer; Random_Taffer; bjack; Azaran; Anti_Matter16 (EN)
+Base : no base             
+Build Time: 24 480  minutes
+Cups of coffee: >102
+Average playtime: 1h10
+Tools used: ParchEd v1.21 (Tom N Harris); Thief Objective Wizard (Avalon)
+____________________________________________________________
+
+Many thanks:             
+TTLG, Shalebridge Cradle, Lucanator (aka TaleOfATaffer), gamophyte, Cardia (for sharing music that inspired me), fortuni and many others!
+____________________________________________________________             
+
+Beta-testers:             
+Cardia; downwinder; H3H3; john9818a; marbleman; TaleOfATaffer; Gloria Creep
+____________________________________________________________             
+
+French-English translation: Myself for the first draft, 
+English-French translation: Azaran, Athalle
+German translation: Zappenduster
+Italian translation: overmann
+Russian translation: MoroseTroll
+English proofreading: H3H3; marbleman, fortuni
+____________________________________________________________             
+
+Copyright Information:
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without my express permission.             
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+=========================== DEUTSCH ===========================
+
+"Atmende Tote"           
+
+Handlung:
+
+Schon bald nach Verlassen von Stalkreaths Anwesen mit den Artefakten und der Grundbuchurkunde traf ich meinen Auftraggeber, der sich mit meinen Diensten überaus zufrieden zeigte. Normalerweise meide ich den direkten Kontakt mit meinen Auftraggebern, doch angesichts des Werts der zu stehlenden Objekte machte ich eine Ausnahme. Der Typ erinnerte mich zu meiner Überraschung an Constantin. Wenn das für mich auch unangenehm war, so kann ich deshalb einen solch lukrativen Auftrag nicht einfach sausen lassen.
+Nach Übergabe meiner Entlohnung und anerkennenden Worten bot mir der Mann einen weiteren Auftrag an. Diesmal sollte ich wieder einen altertümlichen Ort aufsuchen: Eine alte Hammeriten-Grabstätte weit außerhalb der Stadt. Die soll voller Schätze sein, darunter auch eine Kugel namens "Verfluchte Sonne" und ein Hammer, der unter dem Namen "Erste Ikone" bekannt ist.
+Der Alte warnte mich ausdrücklich vor der unübersichtlichkeit der Grabanlage, stattete mich jedoch immerhin mit einer primitiven Karte aus. Besagte  Anlage sei ein verwirrendes Labyrinth und ich solle mich sowohl auf Hammeriten und Untote gefaßt machen. Zum Glück wird mir das gestohlene Schwert aus dem unteren Teil der eisernen Stadt die Untoten vom Leib halten, sollte das Weihwasser auf dem Weg nach unten rar werden.
+______________________________________________________           
+
+Hinweis:
+
+Des ist meine zweite FM und spielt gleich nach "Eisenherz". Die muß man aber nicht vorher spielen. Schlimmstenfalls wirst Du verwirrt, wenn Du etwas von einem solchen Ort oder einem Gegenstand im Text findest.
+Diese FM wurde unter NewDark-Version 1.23 erstellt, ich empfehle die Aktivierung von "NewMantle" für diese Mission.
+
+In diesem schummrigen Ort finden sich neue Hilfsmittel:
+
+– Es finden sich (wertlose) Münzen überall in der Mission. Sie dienen zur Ablage in Schalen und bringen ein seltsam erfreuliches Geräusch hervor, es wird Dir nicht entgehen. Es finden sich genausoviele Münzen wie Schalen.
+– Du kannst bis zu vier Talismane aufstöbern, wenn Du gründlich genug spielst. Diese vereinfachen Garrett einiges (zu Ungunsten einiger Gesundheitspunkte, aber maßvoll). Sie können wie Waffen angewendet werden und lassen sich mit der "Nächste Waffe"-Taste aufrufen.
+– Das Schwert verfügt über etwas heilige Kraft, also hole kräftig über den Kopf zum Schlag aus.
+
+An einigen Oberflächen dieser Mission haften auch Seilpfeile: Auf vermoosten Gargoylen und Katakomben-Texturen wie Knochen und Leichen mit rosafarbenem Hintergrund.
+
+Zu guter Letzt: Wähle den Schwierigkeitsgrad mit Bedacht aus! Die Folge der Schwierigkeitsgrade ist nicht representativ zum Normalfall; sie hängt von Deinem Spielverhalten ab, «Ketzer» könnte härter sein als «Heiliger», obwohl die Menge an Gesundheitspunkten verändert und die Wertanforderung höher ist.
+So gesehen sind «Dieb» und «Heiliger» eher regulär, wärend «Ketzer» die Mission ein wenig alternativ gestalten soll.
+______________________________________________________
+
+Spiel-Information:           
+Datum: 25.02.2017
+Spiel: Thief 2 - Das Metallzeitalter (NewDark)
+Missionstitel: Atmende Tote
+Datei: miss23
+Versch. Schwierigkeiten : Ja
+Laden : Ja
+Karte/Autokarte: Ja/Nein
+Neue Graphiken : Ja
+Neue Sounds : Ja
+Mehrsprachig: DE/FR/EN/RU/ITA
+EAX: Nein           
+Briefing: Ja
+
+Autor: FrenchDecay (aka InsomniacBear)
+Stimmen: PsymH, Zappenduster (DE)
+	   Frère Staven (FR)
+	   McTaffer; Random_Taffer; bjack; Azaran; Anti_Matter16 (EN)
+Basis : keine
+Bauzeit: 24 480  Minuten
+Ausgetrunkene Kaffetassen: >102
+Spielzeit im Durchschnitt: 1:10
+Benutze Hlfsmittel: ParchEd v1.21 (Tom N Harris); Thief Objective Wizard (Avalon)
+____________________________________________________________
+
+Danke an:           
+TTLG, Shalebridge Cradle, Lucanator (aka TaleOfATaffer), gamophyte, Cardia (for sharing music that inspired me), fortuni ...
+____________________________________________________________           
+
+Betatest:           
+Cardia; downwinder; H3H3; john9818a; marbleman; TaleOfATaffer; Gloria Creep
+____________________________________________________________           
+
+FR-DE-Übersetzung von Zappenduster
+____________________________________________________________           
+
+Urheberrechtliches:
+
+Die Verbreitung dieser Mission ist erlaubt, solange dies kostenlos geschieht. Du musst die Mission intakt lassen,
+sie darf ohne meine ausdrückliche Genehmigung nicht verändert werden.
+
+Diese Mission wurde nicht von Looking Glass Studios oder Eidos Interactive gebaut und wird auch nicht von ihnen
+unterstützt.
+
+=========================== FRANCAIS ===========================
+
+"Breathing Corpses"          
+
+Histoire:
+
+Peu après avoir quitté la maison de Stalkreath avec les artefacts et l'acte de propriété, je rencontrais mon employeur qui était extrêmement satisfait de mes services. Habituellement, je ne rencontre pas mes contacts, mais compte tenu de la valeur des objets que j'avais dû voler, il était préférable de faire les choses différemment. J'ai été surpris de rencontrer un homme étrange, me rappelant vaguement Constantine. Bien que n'aimant pas cette curieuse ressemblance, je ne pouvais pas faire l'impasse sur une telle quantité d'argent.
+Après m'avoir remis mon salaire bien mérité et loué mes capacités de voleur, le vieil homme me proposa un autre boulot. Cette fois, je devais infiltrer un autre lieu ancien: les catacombes des Marteleurs situées loin de la ville. Elles devraient contenir beaucoup de trésors, dont un orbe appelé le «Soleil Maudit» et un marteau appelé «La Première Icône».
+Le vieil homme me mis en garde concernant la complexité cette zone et me fournit une carte rudimentaire. Je devrais m'attendre à ce que ces catacombes soient labyrinthiques et à me frotter à des marteleurs et des morts-vivants. Heureusement, l'épée que j'ai volée dans la partie inférieure de la Cité de Fer devrait me permettre de m'occuper des morts-vivants si jamais l'eau bénite venait à se faire rare durant ce périple.
+______________________________________________________          
+
+Note:
+Ceci est ma seconde FM et elle se déroule juste après Iron Heart. Il n'est pas nécessaire d'avoir jouer à Iron Heart au préalable. Dans le pire des scénarios, vous pourriez être confus au sujet d'un endroit ou d'un objet cités dans quelques textes. Crée sous NewDark 1.23 (du moins, je le crois). Je recommande hautement d'activer "new mantle" pour cette mission.
+
+De nouveaux outils pourront être trouvés dans ce sombre endroit :
+
+– Vous trouverez des pièces (pas de valeur pour le butin) tout au long de la  mission. Ils sont supposés être uniquement utilisables sur des petits bols (Ils produiront un drôle de son, vous ne pourrez pas les rater. Il y a autant de pièces que de bols.
+– Dans le meilleur des cas, vous trouverez 4 talismans. Ceux-ci pourront être utilisés afin de faciliter la vie à  Garrett (Au prix de quelques HP afin de ne pas en abuser). Ils s'utiliseront comme des armes, s'en équiper avec la touche "arme suivante".
+– L'épée inflige une petite quantité de dégâts "eau bénite" lors d'une attaque puissante et peut être utilisée pour donner le coup de grâce à l'ennemi.
+
+Les flèches à cordes pourront être utilisées sur de nouvelles surfaces dans cette mission:  gargouilles moussues et les textures des catacombes comme les os et les cadavres avec un fond rose.
+
+Une dernière chose : Choisissez attentivement votre niveau de difficulté! L'ordre des difficultés n'est pas représentatif des difficultés habituelles ; selon votre style de jeu, "Barbare" pourrait être plus difficile que "Saint" bien que le nombre de HP soit supérieur et le montant du butin moins élevé.
+En ce sens, "Voleur" et "Saint" sont des difficultés normales tandis que "Barbare" est une tentative pour apporter quelque chose de différent à la mission.
+______________________________________________________
+
+Information de jeu:          
+Date: 25/02/2017
+Jeu: Thief 2: The Metal Age (NewDark)
+Titre de la mission: Breathing Corpses
+File Name: miss23
+Niveaux de difficulté: Oui
+Magasin d'équipement: Oui
+Carte: Oui
+Auto Map: Non          
+Nouveaux graphiques: Oui
+Nouveaux sons: Oui
+Multi-Language: Oui (Anglais, Français, Allemand, Russe, Italien)
+EAX: Non          
+Briefing: Oui
+
+Auteur: FrenchDecay (aka InsomniacBear)
+Voice actors (incroyables!): 
+Anglais :McTaffer; Random_Taffer; bjack; Azaran; Anti_Matter16
+Français : Brother Staven
+Allemand : Zappenduster; PsymH
+Base : pas de base          
+Durée de construction: 24 480  minutes
+Tasses de café nécessaires : >102
+Durée de jeu: 1h10
+Outils utilisés: ParchEd v1.21 (Tom N Harris); Thief Objective Wizard (Avalon)
+____________________________________________________________
+
+Remerciements:          
+TTLG, Shalebridge Cradle, Lucanator (aka TaleOfATaffer), gamophyte, Cardia (pour avoir partagé de la musique qui m'a inspirée), et beaucoup d'autres!
+____________________________________________________________          
+
+Beta-test:          
+Cardia; downwinder; H3H3; john9818a; marbleman; TaleOfATaffer; Gloria Creep
+____________________________________________________________          
+
+Traduction française: moi pour les premiers essais, Azaran; Athalle
+Traduction allemande: Zappenduster
+Traduction russe: MoroseTroll
+Traduction italienne: Overmann
+Relecture de l'anglais: H3H3; marbleman
+
+____________________________________________________________          
+
+Copyright Information          
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without our express permission.          
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+=========================== RUSSIAN ===========================
+«Дышащие тела» / "Breathing Corpses"
+
+Предыстория:
+Быстро смывшись из имения Стокрит, захватив с собой артефакт и купчую на собственность, я встретился со своим работодателем, и он оказался весьма доволен моими услугами. Обычно-то я лично не встречаюсь со своими контактами, но, учитывая ценность стянутого мной добра, было бы предпочтительнее пойти вопреки своим правилам. Я был удивлён, увидев незнакомого человека, несколько напоминающего Константина. Но как бы мне не нравилось это зловещее сходство, я не мог отказаться от предложенной им большой суммы денег.
+Отдав мне вполне заслуженное вознаграждение и похвалив мои воровские способности, старик предложил ещё одно дельце.
+В этот раз мне надо было проникнуть в ещё одно древнее место: в катакомбы, что далеко к северу от города. Они должны хранить в себе немало сокровищ, среди которых есть шар под названием «Распавшееся Солнце» и молот под названием «Первая Икона».
+Старикашка предупредил о том, что место очень сложное, и дал мне простейшую карту. Полагаю, эти катакомбы будут больше похожи на лабиринт, кишащий как Хаммеритами, так и нежитью. К счастью, меч, что я стянул в нижней части Железного Города, позволит мне расправиться с любой нежитью, главное – чтоб, на моём пути вниз, хоть изредка встречались бы источники святой воды.
+_____________________________________________________         
+
+Информация:
+Это моя вторая миссия, где дело происходит сразу после событий в «Железном Сердце». Кстати, хотя вам необязательно играть в оную, вы, возможно, будете смущены упоминанием здесь мест или названий из неё.
+Данная миссия сделана под NewDark 1.23 (по крайней мере, так было). Настоятельно рекомендую включить настройку «new_mantle».
+
+Новые инструменты и предметы, которые можно будет найти в этом мрачном месте: 
+
+– По мере прохождения, вы будете находить монеты, которые попадут в ваш инвентарь, а не сразу в карман. Их можно будет использовать только для маленьких мисок (они будут издавать странный шум, так что вы их не пропустите). Монет таких ровно столько же, сколько и мисок.
+– Если постараться, то можно найти 4 талисмана. Они могут облегчить Гарретту выполнение стоящей перед ним задачи (правда, ценой снижения здоровья, так что не переусердствуйте!). Они работают как оружие, так что вы сможете взять их в руки, используя клавишу «Следующее оружие».
+– Меч имеет небольшой святой эффект в своей сильной атаке, так что можете использовать его для добивания своих врагов.
+
+В этой миссии появились новые поверхности, по которым можно забираться: мшистые горгульи доступны для верёвочных стрел, а некоторые текстуры в катакомбах, такие как кости и тела на розоватом фоне, позволят перемещаться по вертикали.
+Хотелось бы отметить ещё одну вещь: выбирайте сложность с умом! Порядок, в котором она перечислена, не отражает, собственно, трудности. В зависимости от вашего стиля игры, вполне может оказаться, что сложность «Еретик» окажется сложнее, чем «Святой», хотя здоровье и требования к сбору драгоценностей во втором случае выше.
+В этом смысле, сложности «Вор» и «Святой» работают как обычные, тогда как сложность «Еретик» – всего лишь моя попытка привнести что-то новое в данную миссию.
+______________________________________________________
+
+Игровая информация:
+Дата: 25.02.2017
+Игра: Thief 2: The Metal Age (NewDark)
+Название миссии: «Breathing Corpses» / «Дышащие тела»
+Имя файла: miss23
+Режимы сложности: Да
+Магазин: Да
+Карта: Да
+Автокарта: Нет
+Новая графика: Да
+Новые звуки: Да
+Многоязычность: Теперь да (прим. переводчика)
+EAX:: Нет
+Брифинг: Да
+
+Автор: FrenchDecay (он же InsomniacBear)
+Озвучка (удивительные голоса!): McTaffer; Random_Taffer; bjack; Azaran; Anti_Matter16
+Основа: с чистого листа
+Время построения: 24    480 часов / 408 часов / 17 суток
+Чашек кофе: >102
+Приблизительное игровое время: 1ч 10 мин.
+Использовавшиеся инструменты: ParchEd v1.21 (Tom N Harris); Thief Objective Wizard (Avalon)
+____________________________________________________________
+
+Большое спасибо:         
+TTLG, Shalebridge Cradle, Lucanator (aka TaleOfATaffer), gamophyte, Cardia (за то, что поделился музыкой, которая меня вдохновила), и многим другим!
+____________________________________________________________         
+
+Бета-тест:         
+Cardia; downwinder; H3H3; john9818a; marbleman; TaleOfATaffer; Gloria Creep
+____________________________________________________________         
+
+Перевод с французского на английский: черновая версия – я сам
+Проверка английской версии: H3H3; marbleman
+Перевод с английского на русский: Morose Troll
+____________________________________________________________         
+
+Авторское право 
+Распространение этой миссии разрешено до тех лишь пор, пока это делается бесплатно, а её содержимое остаётся нетронутым. Никому не разрешено редактирование и распространение изменённой версии миссии без моего разрешения.
+Эта миссия сделана не Looking Glass Studios или Eidos Interactive и не поддерживается ими.
+
+=========================== ITALIANO ===========================
+
+"Corpi Sospiranti"        
+
+Storia:
+
+Appena lasciata la villa di Stalkreath con gli artefatti e l’atto di proprietà, ho incontrato il mio mandante che fu estremamente soddisfatto dei miei servizi. Di solito non mi incontro con i miei contatti, ma considerando il valore dell’oggetto che ho rubato, era preferibile non seguire la normale procedura. Fui sorpreso di incontrare uno strano uomo con qualcosa che mi ricordava Constantine. Anche se odiavo la sconcertante somiglianza non potevo lasciare lì quella gran somma di denaro.
+Dopo avermi dato il mio meritato salario e aver lodato le mie capacità, il vecchio mi ha offerto un altro lavoro.
+Stavolta dovrò infiltrarmi in un altro posto antico: una catacomba hammerita molto lontana dalla Città. Dovrebbe contenere una grande quantità di tesori, tra i quali un globo chiamato “Il Sole Marcito” e un martello chiamato “La Prima Icona”. 
+Il vecchio mi ha avvertito della complessità dell’area, ma mi ha fornito di una mappa rudimentale. Dovrò aspettarmi un labirinto di catacombe con sia hammeriti che non-morti. Per fortuna, la spada che ho rubato nella parte bassa della Città di Ferro mi permette di sbarazzarmi dei non-morti, se l’acqua santa dovesse scarseggiare.
+______________________________________________________        
+
+Nota:
+Questa è la mia seconda FM e si svolge appena dopo Cuore di Ferro (Iron Heart). Non serve giocare prima a Cuore di Ferro. Nel peggiore dei casi si potrebbe esser confusi su di un posto o un oggetto menzionato in qualche testo. E’ stata creata usando la versione 1.23 di NewDark (o almeno credo che lo fosse). Raccomando fortemente di abilitare l’opzione “new mantle” per questa missione.
+
+Nuovi strumenti possono esser trovati in questo posto cupo:
+
+– Troverai monete (non sono bottino) durante la missione. Devono essere usate solo in delle piccole ciotole (produrranno uno strano e soddisfacente suono, non puoi mancarle). Ci sono tante monete quante ciotole.
+– Puoi trovare fino a 4 talismani se cerchi bene. Questi talismani possono essere usati per semplificare le cose per Garrett (al costo di qualche HP, quindi non strafare). Funzionano come armi e puoi selezionarli tramite il tasto “prossima arma”.
+– La spada arreca una piccola quantità di danno sacro durante l’attacco forte, quindi puoi usarla per dare il colpo di grazia ai tuoi nemici.
+
+Le nuove superfici sono “frecciacordabili” in questa missione: puoi issarti sulle gargolle muschiose e sulle texture delle catacombe come ossa e corpi dallo sfondo rosato.
+
+Un’ultima cosa importante: scegli con attenzione la difficoltà! L’ordine delle difficoltà non è rappresentativo della difficoltà reale; a seconda dello stile di gioco, «Eretico» può essere più difficile rispetto a «Santo» anche se l’ammontare di HP sia diverso e il bisogno di bottino sia maggiore.
+In tal senso, «Ladro» e «Santo» agiscono come difficoltà regolari mentre «Eretico» è solo il mio tentativo di portare qualche cambiamento alla missione.
+______________________________________________________
+
+
+
+Informazioni di Gioco:        
+Data: 25/02/2017
+Gioco: Thief 2: The Metal Age (NewDark)
+Titolo Missione: Corpi Sospiranti (Breathing Corpses)
+Nome File: miss23
+Scelta Difficoltà: Si
+Negozio Equipaggiamento: Si
+Mappa: Si
+Auto Mappa: No        
+Nuova Grafica: Si
+Nuovi Suoni: Si
+Supporto Multi-Lingua: No
+EAX:: No        
+Introduzione: Si
+
+Auore: FrenchDecay (alias InsomniacBear)
+Doppiatori (fantastici!): McTaffer; Random_Taffer; bjack; Azaran; Anti_Matter16
+Base : no base        
+Durata Lavori: 24 480  minuti
+Tazze di Caffè: >102
+Durata Media di Gioco: 1h10
+Strumenti usati: ParchEd v1.21 (Tom N Harris); Thief Objective Wizard (Avalon)
+____________________________________________________________
+
+Tante grazie:        
+TTLG, Shalebridge Cradle, Lucanator (aka TaleOfATaffer), gamophyte, Cardia (per aver condiviso la musica che mi ha ispirato), e molti altri!
+____________________________________________________________        
+
+Beta-test:        
+Cardia; downwinder; H3H3; john9818a; marbleman; TaleOfATaffer; Gloria Creep
+____________________________________________________________        
+
+Traduzione Francese-Inglese: FrenchDecay stesso per la prima bozza
+Controllo Testi Inglesi: H3H3; marbleman
+____________________________________________________________   
+
+Traduzione Italiana: Overmann
+____________________________________________________________          
+
+Copyright Information        
+Distribution of this level is allowed as long as it is free and the package is kept intact. No one may edit and re-distribute this mission without our express permission.        
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

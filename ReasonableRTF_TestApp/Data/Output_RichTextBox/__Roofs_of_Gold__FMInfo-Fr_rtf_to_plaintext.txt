@@ -1,0 +1,99 @@
+Toits d'or - version 1.1 - Septembre 2015
+
+================================================================================
+
+Auteur: Terra
+
+Réalisée en: Septembre 2015
+
+================================================================================
+
+Description:
+
+Une nuit avec succès tire à sa fin. Encore une fois, Garrett a volé beaucoup d'argent d'un marchand
+très riche. Une raison suffisante de prendre une bière, n'est-ce pas ?
+Il semble que cette bière était trop forte. Quand Garrett se réveille, il n'y a aucune trace de son butin et
+de son équipement. Volé ? Des mains du maître des voleurs ?
+Hmm, il y a encore les mêmes gens dans ce bar, mais ces voix ... qu'est-ce que cela veut dire ?
+Garrett sort du bar, il se sent diriger à l'église des Marteleurs. Qu'est-ce qu'il y trouve là ? Un parchemin !
+Il ne sait pas ce qu'il se passe ici mais il a un mauvais pressentiment ...
+
+================================================================================
+
+Informations :
+
+Jeu : Thief 2 - L'âge de métal (Version 1.22 NewDark)
+Titre de la mission : Les Toits d'or
+Noms des fichiers : miss20.mis, gold.gam
+Niveaux de difficulté : Non
+Inventaire : Non
+Carte : Oui
+Nouveaux graphismes : Oui
+Nouveaux sons : Oui
+EAX : Pas encore
+Langues : DE/FR/EN
+Briefing : Oui
+
+================================================================================
+
+Construit en : 1 mois
+
+================================================================================
+
+Traduction:
+
+Zappenduster (corrigé par Stefan Key)
+
+Objets customisés :
+
+Cosas-Team (comment)
+Broken Triad (Eshaktaar)
+Thief Enhancement Pack Team
+
+Meshes customisés :
+
+Dedx (liche, épée de Gardien)
+
+Graphismes customisés :
+
+
+           David Gurrea Hernandez, Gob, Targa, PhotoRealistic, Purah, Timothy Andrew Wilson (_unDuLe),
+          Mayang's Free Textures, Vigil (www.washboardabs.net/thief/. 
+
+: Deus Ex, Max Payne, MOHAA, Painkiller, RTCW, Rune, Splinter 
+          Cell, The Wheel of Time, Undying, Unreal, Unreal Tournament.
+ 
+"Curiosity"  "Calendra’s Legacy".   
+
+The Circle of Stone and Shadow
+
+
+
+Beta test:
+fibanocci, silent_thief, radogoal, H3H3, Ravenhook
+
+================================================================================
+
+Musique & Sons persos par :
+
+NVScripts by NamelessVoice
+Scripts by Telliamend
+
+A Night in Rocksbourg
+Unterwegs in Düsterburg par Grandy
+Vampires Dawn par Alexander "Marlex" Koch
+Eshaktaar
+(Help Me,Remember,tension2,garm1408,bookend.. Fichier de son venant de OminousBequestGold)
+Ambloopm1 (Sons m01)
+
+Briefing Video and Voice by RandomTaffer
+
+================================================================================
+
+Copyright:
+
+Ce niveau est (c) par Terra, Septembre 2015.
+
+Ce niveau n’a pas été fait et n’est pas garanti par Looking Glass Studios ou Eidos Interactive.
+
+============================================================================

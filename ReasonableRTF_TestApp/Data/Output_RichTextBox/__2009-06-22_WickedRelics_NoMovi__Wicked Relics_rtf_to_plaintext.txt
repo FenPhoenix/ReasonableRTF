@@ -1,0 +1,98 @@
+===================================================================
+Wicked Relics
+===================================================================
+===================================================================
+
+* Playing Information *
+
+Game                     : Thief: The Metal Age
+Mission Title             : Wicked Relics
+File Name                : miss20.mis
+Difficulty Settings      : Yes
+Equipment Store         : Yes
+Map                       : Yes
+Auto Map                 : No
+New Graphics             : Yes
+New Sounds               : Yes
+Multi-Language Support  : No
+Briefing Movie            : Yes
+Difficulty Level Info     : Apprentice, Journeyman, Master
+
+Background Info:
+
+Last week I had a talk with an associate of mine, Tricky Nick.  Nick is a small time gambler and cheat.  We like some of the same taverns, but we aren't what you would call 'close'.  So it was a surprise when he approached me with an offer to partner up on a lucrative job.  However, it was a sweet deal … an opportunity too good to pass up.
+
+The night before, Nick had gone to his favorite pub to celebrate a winning streak.  The place was packed so he found himself sharing a table with a rather talkative old man.  Nick had hardly been there ten minutes before he felt as if he’d heard the man's entire life story.  He was about to duck out, when the old codger's tale turned more interesting.  
+
+You see, the man was the former mechanic of a certain Lord Bradley.  Lord Bradley is a treasure hunter and collector of rare items, but being his mechanic was rather ordinary work up until a couple of months ago.  Then, Bradley returned from a month-long excursion, followed by several wagons loaded down with treasure!  
+
+Not surprisingly, this got Nick's attention, and mine, as well.
+
+Apparently, Bradley had struck it rich somehow and his mansion was soon lavishly decorated with his haul.  He even commissioned the construction of a new wing expressly for the display of his newly-acquired relics.  Occupying the place of honor in his collection is the Ruby Scepter of Malov.  From the sound of it, this bauble on a stick is worth a king's ransom all on its own.  
+
+At first, the mechanic had been quite excited by the change.  The addition of a Mechanist security system promised interesting new problems to be solved.  However, Lord Bradley turned out to be extremely paranoid about his new Reliquary and wouldn't even let his old mechanic near the exhibits, let alone the security system.  Bradley was also becoming increasingly short-tempered and hard to deal with.  The final insult came when the old man was informed that he was being replaced by a mechanist engineer who, in Lord Bradley’s own words, 'actually knew what he was doing.'  The ex-mechanic had come to his favorite tavern in an effort to forget his problems, without much success.
+
+Nick, known for his quick thinking, asked as many questions as he could about the place.  The old man was quite helpful, even going as far as sketching out a quick map of the estate, before he finally passed out.  The mechanic also mentioned that Lord Bradley would be hosting a gathering of his peers in just one week to show off the Reliquary's treasures and boast about his new-found wealth.   
+
+Nick knows a ripe target when he sees one, but he's no great thief.  He may be a con-man, a liar and a cheat, but he isn't a thief.  That's where I come in.  
+
+The plan is for Nick to go in first and check the place out.  After all, it is generally not a good idea to trust the words of a drunkard and a second-hand map.  Nick's forged himself an invitation to the gala, so he should be able to get in through the front gate.  He will go in, have a look around, and get back outside before anyone starts to suspect anything.  When he gets out, he’ll pass on to me any information he was able to gather about the security system and guard placement.  I'll go in after midnight, when the guests are asleep, and empty the place out.  At the end, we split the take and go our separate ways.  
+
+I don't trust Nick, really (they call him 'Tricky' for a reason, after all!) but he was right when he called this a golden opportunity.  I've already lined up a buyer for the scepter, so even if I pass by everything else in the place, it'll be worth the risks.  I'd drop Nick and do the job alone, but he's a pretty decent guy so long as you don't play cards with him.  I'd rather give him the benefit of the doubt . . . for now. 
+
+Tonight we arrived at Bradley's to carry out our plan.  Unfortunately, Nick has been in there for a couple of hours now, and shows no sign of leaving.  I’ll have to go in early to see if something's gone wrong.  Maybe Nick's just having a little too much fun pretending to be nobility, but if he's in trouble, I'd best know before walking into a trap.  Once I find out about Nick, I’ll go ahead and grab the scepter.  No point in waiting until after midnight, at this point.  I need to be especially careful, though.  The party is still in full swing.  There will certainly be guests and servants about, as well as the usual guards.  Not to mention that this map is a little incomplete . . . 
+
+
+* Construction *
+
+Base                    : From scratch
+Build Time              : A Long Long Time (2003-2009)
+
+Thank You to:
+My little sister - For playing my level dozens of times and offering good advice and welcome praise (even after she had become sick of playing it :-)
+Epithumia - For hosting my early beta mission and providing an amazing service to the Thief community
+Dussander and pavlovscat – For helping me and other FM authors beta-test our missions and set up forums at their site.  Really great job, guys!
+Komag - For his wonderful tutorial and contests which have guided and inspired me
+Jabberwocky - For his awesome support and contributions.
+Tannar - For diligently hunting down all the loot and consumables in my over-flowing mansion and tirelessly testing for errors.
+All my wonderful beta testers - For excellent advice and much-needed constructive criticism
+The Forum - A well of Dromeding knowledge which I value beyond all else
+All the wonderful people who created custom content for my mission:
+LarryG – For creating custom re-textures of the bench, gold tray, and rose-colored glasses just for this mission and fixing the harp, piano and mummy.  He is a master builder! 
+Shar – For the myriad colorful dewdrops, rustling bush sounds and beautiful ballroom music.  And most of all, the beautiful new briefing.
+Shadowspawn – For creating a certain special weapon. Thank you!
+Targa - Many of the beautiful new objects used in my levels come from him - he is a genius!  (decorative plates, crystal goblets, crystal plates, fancy elevator button, ratcheting lever, holy water bottle, health potion, speed potion, elemental crystals and arrows, wooden bow site, etched nymph window, glass dome, decorative mirror, pendulum, aristocratic woman, new guy, veteran archer/swordman, fat guard, fat cook, maid, safe door, explosive charge, silver dagger, heart-shaped jewelry box, one-arm guard, fat guard, steak, vine window)
+Everyone involved in CoSaS, especially Digital Nightfall (flowers, bathroom objects, lights, loot, gambling tables, doors, pub set, piano, tables, and organizing the release of the object packs), Daemonite (ai meshes), SilentSleep (lights), Willie (noble textures), Yametha (bathroom objects, lights, tables, wine storage, gambling tables), Christine (loot), Gron (harp), Redleaf (doors, chairs, tables, drapes, piano bench and plant stand), Eshaktaar (victrola, loot) Saturnine (doors, tiffany lamps), tdbonko (loot), pkaa (loot), CRC (doors), Phantom (lights), R Soul (hanging glasses) Nameless Voice (anhk, pocketwatch, loot, flowers, pub objects) & Zombeh (tiffany lamps) – They have done amazing work!  Thank you all so much J
+Yandros – For the scary purple/yellow guard skin and his help during beta-testing.
+Eshaktaar – For the jackal statue, decorative hammer, sleeper statue, mummy, pyramid lamp, and stone sarcophagus. 
+Greenhorn – For the wonderful falcon statue 
+Dhin – For the adorable teddy bear
+Rob Hicks – For the giggling voice, mech haunt and ice beast
+Alun Bestor – For the lovely new cloud deck
+AWange – For the child’s voice
+Bronze Griffon – For the custom mech servant skin
+Jason Otto – For the green-coated noble, warning sign, glyph ring, golden glyphs, tapestries, hand prints and blood stains
+Schwaa – For the scepter, new gems, moon flower, wine keg, lights, and skully skull
+Myself – For the red-dressed lady, mech worker, and female mech retexture, purple health shields, title screen, 
+
+And anybody and everybody I may have forgotten
+===================================================================================
+
+******KNOWN BUGS*******
+Patrolling guards occasionally lingering in doorways or climb on furniture.  
+
+===================================================================================
+
+* Loading Information *
+     DarkLoader!  ;-)
+
+===================================================================================
+
+* Copyright Information *
+
+This level is © by Kfort
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my permission. No one may edit and re-distribute this mission without my express permission. Just ask, I'll probably give it to ya! ;-)
+
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive, or Ion Storm.

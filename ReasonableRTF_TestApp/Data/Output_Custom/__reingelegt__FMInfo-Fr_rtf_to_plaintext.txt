@@ -1,0 +1,122 @@
+
+
+Doublé !
+
+Une campagne pour Dark Project/Thief 2 en deux parties par Zappenduster
+Réalisée en Decembre 2021
+
+
+
+Jeu:				Dark Project 2 - L'Age de métal (1.18+)
+Titre des missions :		Une drôle de note / Doublé !
+Nom des fichiers :		miss27.mis, miss28.mis, miss28.gam
+Scripts :			convict.osm, gen.osm, miss16.osm, tnhScript.osm
+Niveaux de difficulté :	Normal, Difficile, Expert
+Magasin :			Oui
+Carte :				Oui
+Nouveaux graphismes :	Oui 
+Nouveaux sons :		Oui 
+Nouveaux objets :		Oui
+EAX:				Non
+Langues :			DE, EN, FR, IT, RU
+Cinématique :			Non
+
+Description :
+
+J'étais en train d'aller au lit quand j’entendis quelqu'un frapper à ma porte, puis le bruit d'une personne s'éloignant au pas de course... je vis alors une lettre sous ma porte !
+
+Note :
+
+Linéaire ou pas, il est conseillé d'accomplir la tâche principale de la mission d'abord. Quelques objets et plusiers objectifs qui sont essentiels pour l'action suivante vont surgir après... il est donc inutile de fouiller le village afin de trouver des indices ou du butin.
+
+Au niveau de difficulté Expert il y aura plusieurs exigences qui ne sont pas visibles au début.
+
+Garrett peut "souffler" les bougies. Attention, vous ne pouvez pas assommer les gardes casqués. N'oubliez pas, les flèches à liane ne s'accrochent pas que sur les surfaces en bois ! 
+Ne jamais sauvegarder pendant qu'une conversation est en cours.
+
+Il est déconseillé de jouer cette FM avec d’autres mods de texture installés ou des sous-titres.
+
+Droit d'auteur :
+
+Ce niveau n’a pas été créé et n’est pas soutenu par Looking Glass Studios, Ion Storm ou Eidos Interactive.
+Vous êtes autorisé à distribuer cette FM à partir du moment où le fichier zip reste intact et que cela reste gratuit.
+
+Dédié aux administrateurs infatigables sur http://ttlg.de, http://ttlg.com, http://ariane4ever.free.fr et http://shadowbox.forumactif.org...
+
+Beta-Tester:
+
+Bäuchlein, DarkThief, Intruder, PsymH, Samantha1
+
+Corrections des textes FR/EN et traduction IT/RU:
+
+ Urgrue (EN), Frère Staven (FR), Maga (IT), MoroseTroll (RU)
+
+Merci aux auteurs des objets, sons etc...
+
+74Nielsen: Kiste, Krug, Säule, Vase.
+Amazing3D: Objekte mit freundlicher Genehmigung von http://amazing3d.com
+Alun David Bestor: Texturen und Spinnweben von http://thief.washboardabs.net
+Ar-Zimrathon: Handtuchhalter
+Borsaci08: Badezimmerschränke, Becken, Brunnen, Säule, Sarg von http://borsaci06.com/3d-Source.htm
+CoSaS Team: KIs, Bürokram, Kneipen- und Spielkasinoausstattung von http://darklurker.com/cosasobjects.html
+Christine: Irre viele Objekte!
+DarkShadow: Brustpanzer. Lampe, Sessel, Tisch
+Don Willadsen: Umhang
+Eshaktaar: AD-Lampe, Öllampe
+Frère Staven: FR-Stimme des Gendarmeriechefs
+Goldwell: EN-Stimme des Gendarmeriechefs
+Gort: Deckenlampe
+GothicEditing: Wagen http://gothic-editing.de/index_tuts.php?page=downloads_3dmodelle
+Greenhorn: Dietriche, div. Pflanzen, Kittel, Lampe, Liegen, Kneipenschild
+Hrothgar: Reisigbesen, Ofen
+Jason Otto: Flaschen, Häuser, Leitern, Querträger, Schaltkasten, Tanks
+Josef Kurz: Bank, Leiter, Kelch, Podeste von http://joes3dfantasyworlds.com
+Jordan_Maf: div. Maschinen
+LarryG: Ratty
+Looperman.com: SFX-Ambients von Danke und Sushilbawa
+Master_Edd: Buch, Füller, Löwenkopf
+Miakhano: Karrasbild
+NamelessVoice: Bücherregale, Eckschrank, Fledermaus, Klavier, Schere, Uhren
+Nivellen: Textur des Hammeritenphantoms
+OpServer: Axt, Badewanne, Waage von http://opserver.de/coni_users/web_users/pirvu/au/models.html
+Raetsel: Spitzfenster
+RSoul: Gießkanne, Karren, Regal, Sarg
+Schwaa: Bücher, Pokal, Schilde, Truhe, Schreibfeder, Weinfaß von http://thiefmissions.com/lpg/schwaa.htm
+Sims: http://themedievalsmithysims2.blogspot.com einige Möbel und Kisten, Kaktus
+Sluggs: Zuviel, um sie alle aufzuzählen ... ein riesiger Objekt-Fundus!
+Syi: Skelett auf Stuhl
+Targa: Kompaß, Parkgatter, Glaskuppel - http://thiefmissions.com/targa
+Telliamed: tnhScript
+TheFree3DS: Lampen, Quita-Figur, Regal, Wegweiser
+TheWatcher: Fackel
+Team2X: Betten
+UglyEd: Schuhe
+VonEins: Amboß, Eimer
+WorldOfGothic: Flaschen, Pranger, Kommoden, Markisen, Leuchtpilze, Sarg, Verkaufsstände, Werkbank, Zahnrad, Zaun http://www.worldofgothic.de/?go=moddb
+Yandros: Hammeriten-Münzen und -Wertsachen von http://wearytaffer.com
+Zontik: Girlande
+
+... wobei einige Objekte dahingehend editiert wurden, daß Standard-Texturen eingesetzt wurden - spart Ressourcen.
+
+Verwendete Programme:
+Ich wollte mir mal die Mühe machen und auflisten, mit welchen Programmen ich im Zusammenhang mit dieser FM-Reihe gearbeitet habe. Uff, was eine lange Liste!
+DromEd118:		Na logo.
+ThiefEdit:		Sehr hilfreich beim Betrachten/Abhören von RES-Dateien
+ObjTree:		Zum leichteren Editieren der Gamesys, sie ist nach Abspeichern i.d.R. auch kleiner als per DromEd.
+ObjList:		Thorin-Oakenshields Objektliste - wenn das Suchen in der Objekthierarchie mal wieder länger dauert ...
+ParchEd98:		Tom N. Harris' effizientes Eingabeprogramm für Bücher und Schriftrollen.
+Ulead PhotoImpact:	Excellente Aufbereitung von Grafikdateien.
+IrfanView:		Irfan Skiljans Programm kann so ziemlich jedes Grafikformat ...
+360g:			Wandelt Texturen vom proprietären VTF-Format in gängige Bildformate um.
+DXTBmp:		Wandelt Texturen vom proprietären DDS-Format in gängige Bildformate um.
+Bright183:		Erik de Neves Programm erstellt aus BMPs batchmäßig spieltaugliche Grafik-Familien.
+XVI32:		Christian Maas' Hex-Editor mit dem man Binärdateien verändern kann.
+Anim8or:		Zum Erstellen/Bearbeiten von 3DS-Objekten.
+3DS2BIN:		Konvertiert 3DS-Dateien ins BIN-Format (von NamelessVoice).
+ProgMesh:		Parallelos praktische Software reduziert Polys von 3DS-Modellen im gewünschtem Grad.
+View:			Zeigt eine BIN-Datei an, mit Dreh- und Zoomfunktion.
+UVMapper:		Stephen L. Cox' Programm gestattet die alternative Gesamttexturierung eines Objektes.
+Sony SoundForge:	Aufbereitung von Tondateien - Aufnahme, Effekte,.Umwandlung in IMA ADPCM 22.050 Hz; 4 Bit; Mono.
+Audacity:		Aufbereitung von Tondateien - insbesondere Rauschunterdrückung.
+Ulead Filmbrennerei:	Überraschenderweise auch für Vorspann-AVIs geeignet.
+Dann waren da noch Notepad, WinZip, WinRar, ...

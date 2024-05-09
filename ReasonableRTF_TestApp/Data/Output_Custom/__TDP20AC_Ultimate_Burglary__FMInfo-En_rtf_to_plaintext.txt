@@ -1,0 +1,64 @@
+
+Ultimate Burglary - Version 1.0 - November 2018
+================================================================================
+
+Author: Terra
+Release date: November 2018
+
+You'll need to use NewDark V1.24 or newer, please deactivate the Thief Enhancement Pack before starting
+this FM. 
+
+================================================================================
+
+Plot:
+
+The city has grown in recent years. The wealthy people have become richer and those with little have become poorer. It's
+about time to commit the ultimate burglary. Besides a few special objects of high value, several houses and mansions are
+full of valuable wares. All in all, too many honest citizens own too much money. I'll search every building in order to fill my
+purse. Nevertheless, I should be careful because the number of watchmen has been recently increased, not to mention
+those creepy occurrences here and there. I better visit the armory first to grab some useful equipment.
+Well, Garrett, have a successful night ...
+
+================================================================================
+
+Game information:
+
+Game: Thief 1 - (Version 1.24 NewDark)
+Mission title: Ultimative Burglary
+Files: miss20.mis, ult.gam
+Levels: none
+Shop: none
+Map: yes (Athalle)
+New graphics: no
+New sounds: no
+EAX: no
+Multi language: DE/FR/EN/IT/RU
+Briefing: no
+
+================================================================================
+
+Construction: 12 month
+
+================================================================================
+
+Beta testers: vfig, Cardia
+
+Translations (corrections) FR/EN:
+Zappenduster (Sacom, OldAndCunning)
+
+Translation IT:
+Piesel
+
+Translation RU:
+MoroseTroll
+
+
+================================================================================
+
+Copyright:
+
+This FM was made by Terra, November 2018.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+================================================================================

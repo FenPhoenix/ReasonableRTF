@@ -1,0 +1,96 @@
+The Eye Of The Gems: Shadows And Fog  - Version 1.0 - August 2017
+================================================================================
+
+Author: Terra
+
+Date of release:  August 2017
+
+================================================================================
+
+Story:
+
+May the shadow vanish and be illuminated by light ...
+May the light enwrap all and devastate the shadow ...
+But the light will destroy itself since since without shadow there will be no brightness ...
+--- From the books of the Old Arkford ---
+
+Soon after having discovered the Heart of the Gems the first Keepers showed up to take it away from me. It's really strange how fast those Keepers are to take possession of my stolen goods. Some weeks went by after that trip but I'm still sad when I think about Basso and Jenivere. Who is behind that assassination? I must remain concentrated, the burglary in the order gave me a review about that what they have in mind. It seems they are trying to revive an old deity. In face of those informations the Keepers remained remarkably quiet.
+
+Meanwhile I received a letter from an old pal. He wrote about an old castle in the middle of the forest which is supposed to be abandonned for many years. They say that it still contains many treasures and a special diamond. I guess that would be a good compensation for the last adventure. My colleague will await me at the entrance so that we can start our foray like in good old days. I hope everything will go well. I will leave my equipment here, I don't want to drag too much stuff with me ...
+
+================================================================================
+
+Play Information:
+
+Game: Thief 2 - The Metal Age (Version 1.22 NewDark)
+Mission Title: The Eye Of The Gems: Shadows And Fog  
+File names: miss22.mis, eye.gam (Cosas.gam Nine Year Sleep)
+Difficulty Settings: No
+Equipment store: No
+Map / automap:  Yes (Credits: Athalle)
+New graphics: Yes
+New sounds: Yes
+EAX support: Not yet
+Multi language support: DE/FR/EN
+Briefing: Yes
+
+================================================================================
+
+Build Time: 5 Month
+
+================================================================================
+
+Translation:
+
+Zappenduster
+
+Custom objects:
+Cosas Team- The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+
+
+Custom meshes:
+GORT - Grunt Model
+
+
+Custom Textures Credits:
+Cosas Team- The Nine Year Sleep
+SoulTear
+
+
+Beta test: Ionisator, fibanocci,  Atropos 
+
+
+================================================================================
+
+Custom Music & Sound Credits:
+AndrosTheOxen (The Eye)
+Frictional Games
+Thief2x
+Square Enix
+
+NVScripts by NamelessVoice
+Scripts by Telliamend
+
+BriefingVideo und Stimme 
+Random_Taffer
+
+
+================================================================================
+
+Copyright:
+
+This level is (c) by Terra, August 2017.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+============================================================================

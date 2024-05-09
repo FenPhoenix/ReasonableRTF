@@ -1,0 +1,149 @@
+Title:Unnecessary Risk
+Author: SlyFoxx
+Contact Info: murkman@hotmail.com
+Homepage: none
+Date of Release: November 29, 2007
+Version: 1
+
+
+
+Description: A Thief 2 Fan Mission  
+                       This is the sequel to "A Friend In Need."
+                       It's not necessary to play AFIN first but it is recommended.
+
+
+Briefing:  You've broken into the law offices of Dewey, Cheatem & Howe in order
+                  to discover the location of Lord Bafford's new summer residence.  Now that
+                  you have it, it's time to pay the place a visit.  It's really an unnecessary risk
+                  as you don't need the money...but hey...it's another chance to piss off
+                  Lord Bafford!
+
+                  No sense in waiting...It's time to begin. 
+
+
+Note From SlyFoxx:  If you cause a lot of commotion in certain locations and/or knock out 
+                                      certain AI, you'll be missing out on key bits of information.  So if you 
+                                      plan to run around like this is Unreal Tournament don't be surprised if 
+                                      you get surprised or can't find most of the loot!  That said, there are things
+                                      in this mission that you can only experience if you are a bloodthirsty taffer
+                                      who likes to slice people up! 
+
+                                     If you get up in the guard towers and look back towards the main house
+                                     you'll be getting a view that will test the limits of the game engine.  I have
+                                     experienced no crashes but do suggest a quick save before doing so.
+
+                                     There are some AI conversations in this mission.  They are triggered by
+                                     something called a Bounds Trigger.  The trigger is destroyed almost 
+                                     immediatly after it does its thing so the conversation only plays once.
+                                     What that means to you is that if you keep moving while inside the
+                                     trigger area before it gets destroyed the conversation will keep starting
+                                     over.  So if you just hold still for a few seconds everything will be good.
+
+                                     As is often the case the pick pocket stats at the end of the mission are
+                                     incorrect.  The correct total is 9.
+
+                                    This mission is not very difficult.  It's not supposed to be.  It almost didn't
+                                    get finished but I had promised a sequel to "A Friend In Need" and I do
+                                    my best to keep my promises.  It also served as a learning experience as to
+                                    how to implement more "fancy DromEd stuff."  So though the game-play
+                                    is on the easy side this is by far the most complex and challenging mission
+                                    I have ever released from a design standpoint.  
+
+                                   
+
+
+
+
+CONSTRUCTION 
+
+Base: My Contest 5 mission..."Bafford's Bone Collection"
+
+Build Time: I don't know but my butt is sore.
+
+
+
+Credits:  
+
+             Custom Textures: Vigil       http://thief.washboardabs.net/news/ 
+                                              Nameless Voice       http://www.geocities.com/nameless_voice/
+                                              MaJiC   Tudor house textures
+
+             
+              Custom Objects: Nameless Voice
+                                             Vigil
+                                             Sluggs
+                                             Rob Hicks (DromEd Deluxe)
+
+             Helpful Tech Help:  R Soul
+                                                Nameless Voice
+                                                Yandros
+                                                Sluggs
+                                                John9818a
+
+            Bafford Archers & Map provided by Digital Nightfall
+
+            Custom Voices: SlyFoxx
+             
+            AVI & Music:  SlyFoxx
+
+            Custom Scripts:  Telliamed.   tnhScript Copyright (c) 2003-2005 Tom N Harris 
+                                                               <telliamed@whoopdedo.cjb.net>
+                                                               All Rights Reserved. THIS SOFTWARE IS PROVIDED 
+                                                              "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER 
+                                                               EXPRESSED OR IMPLIED.
+                                                                  
+
+
+           Testers:  Nightwalker, Digital Nightfall, Peter (smithpd) Smith & Nameless Voice
+           
+           Special thanks to: Saam Tariverdi & Daniel (Digital Nightfall) Todd for 
+                                            that little chunk of cyberspace known as www.ttlg.com
+                                                               
+                                            MsLedd  (TTLG Server Goddess)  for the extra time.
+
+                                            Jason (epithumia) Tibbets...for Thief Missions...may he return to us soon.
+                                                               
+                                            All the good folks from Looking Glass Studios
+                                                 
+                                           The Keeper Of Metal And Gold
+                                                          
+                                           The Circle Of Stone And Shadow
+
+                                           W.T. Smithers...burgers, beer & happy hour mayhem
+
+                                          Frobber, Purah, Belboz, Saturnine, AsyluM, Doaal, 
+                                          Gaetane, Silent Sleep, Kung Fu Gecko, Trimfect, Lord Alan,
+                                          The Gingerbread Man, Sledge, Thorin Oakenshield,
+                                          Shadowspawn, Lady Rowena, Don Mazur, Uncadonego,
+                                          Eshaktaar, Thiefs_Pawn, Gumdrop, Sperry, Schwaa, 
+                                          Banshee, Morrgan, Twisty, Metalhead, John D., Dark Angel,
+                                          Gonchong, William The Taffer, Apache, Yandros, R Soul, Totality
+                                          Sluggs, Sliptip, Fidical, The_Dude, Dashjianta, mad god, RiCh, Mokkis
+                                          Hit Diety, Hengist, Yametha and every other taffer out there who 
+                                          had what it takes to wrangle a mission out of the evil little program 
+                                          known as...(Nope! It's dangerous to even speak its name!)
+   
+                                                              
+                                                     
+Darkloader ready.
+Do not unzip! -- Place in your Fan Mission folder and install using Darkloader. 
+
+
+
+====================================================================
+
+* Copyright Information *
+
+Copyright (c) November, 2007  "SlyFoxx"  
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact. You may include this level in any map pack as long as this 
+copyright statement is distributed intact.  If you were charged for this mission
+contact me via email and provide the link or necessary information about who
+sold it to you.  Me and a few others will fix his/her little red wagon!  
+
+THIS FAN MISSION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+ANY KIND, EITHER EXPRESSED OR IMPLIED.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive. 

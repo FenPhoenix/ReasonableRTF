@@ -1,0 +1,119 @@
+=============================================================
+	Title		:	Cryptic Cravings
+
+	File Name	:	Cryptic Cravings.zip 
+	Author		:	Anonymous 
+	Contact info	:	I’ll Be Hanging Around the Forums 
+	Date of release	:	March 15th 2006
+	Version		:	1.0
+
+	=============================================================
+
+
+
+
+				Story
+
+		Times are bad. Your face adorns every wall. Wherever you turn citizens stare, recalling
+		but not recognising... quite yet. It's time to move on. Just in the nick of time you escape
+		the clutches of the law and escape to a province new and unexplored. Travelling light 
+		(just your faithful friend for company) you find slim pickings moving from town to town 
+		sleeping rough. Fortunately you still have some connections even this far away from "real"
+		civilisation. A local contact has overheard a local band of cutpurses talking about a lost 
+		crypt beneath the ruins of an old Hammerite church long abandoned by the Brotherhood.
+		Talk of unimagined riches brings a sardonic smile to your face but further research among
+		the town's records and local church archives reveals that there may be some truth to the
+		rumours. It appears that the crypt was sealed long ago by the Hammerites when a dreadful
+		tragedy beset the church. The Hammerites have tried to cover up its existence and all maps
+		of its location are long destroyed. However the local Thieves Guild is hot on the trail and has
+		located the ruins of the church and it is only a matter of time before they break into the crypt.
+		Time to slip into the shadows and steal a march on these country bumpkins.....
+
+
+	=============================================================
+
+
+	Play Information:
+
+	Game			 : Thief 2: The Metal Age
+	Level Name 		 : Cryptic Cravings
+	File name 		 : miss20.mis, C7.gam
+	Difficulty Settings	 : Warrior, Cutpurse, Ghost
+	Equipment store		 : No
+	Map/Automap		 : No
+	New graphics		 : No
+	New sounds		 : No
+	New conversations	 : No
+	New models		 : No
+	EAX Support		 : No
+	Multi language support	 : Nein/ Non.
+	Briefing			 : Do you often suffer short term memory loss?
+	Objectives		 : See in-game.
+
+
+	=============================================================
+
+
+	Construction:
+
+	Base		: From scratch
+	Build Time	: 8 aardvark years.
+	Map Size	: See competition rules.
+
+
+
+	=============================================================
+
+
+	Loading Information:
+
+
+	Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file,
+	put put the whole "Cryptic Cravings.zip" file into your Thief 2 mission folder 
+	then in Darkloader setup, point to this folder, and the mission should show
+	up in the Darkloader main screen.
+
+
+	============================================================
+
+
+	Gameplay Tips:
+
+			1.The strange doughnuts on the crypts are magical seals. These have to be removed afore
+			    they can be opened.
+
+			2. I know it's dark. It is meant to be! Look around at the start for a solution.
+
+			3. Resources are tight! Waste 'em and you may get stuck later on. You've been warned!
+
+			4. Save often! Once those haunts get alerted you have no chance!!
+	
+	5. There are three difficulty levels. On Warrior you start with a sword, on Cutpurse a blackjack
+	    and on Ghost (guess what) nada! So have I tested each difficulty level? No! Can you ghost 
+	    this mission? Dunno. Don't care! I play it on Cutpurse with my faithful friend and it is fun!!!
+
+	=============================================================
+
+
+	Credits:
+
+Thanks to everyone who helped create the Thief universe and keeps it alive today. You all 
+had a hand in creating this mission . Thanks especially to Komag for his tutorial (without
+which this mission would not exist – so you can blame him!), to Yandros for hosting this
+contest and to all those who answered my endless questions on the forums, you know who 
+you are…. Well actually you don’t at the moment do you. D’Oh!
+
+
+	=============================================================
+
+
+	Copyright Information:
+
+This level is ©2006 by its author. Anyone who distributes this level without my permission
+will be shot. I will hunt you down like a dog.
+
+This level was not made by and is not supported by Looking Glass Studios or Eidos
+Interactive.
+
+
+	=============================================================

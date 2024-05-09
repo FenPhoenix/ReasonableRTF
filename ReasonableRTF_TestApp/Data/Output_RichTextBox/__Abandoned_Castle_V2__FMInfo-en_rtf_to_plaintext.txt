@@ -1,0 +1,130 @@
+ 
+
+Title	:	The Abandoned Castle
+Filename	:	The Abandoned Castle - NewDark.zip
+Author	:	Beltzer
+Contact info	:	beltzer2@hotmail.com
+Homepage	:	www.beltzer.nu
+Date of release	:	January 19, 2013
+Version	:	2.0 (May 06, 2021)
+Description	:	I heard a rumor at the bar in a town I visited last night about a castle nearby. The
+		thieves I heard talking about it said that it is abandoned and that it had been for
+		many years. I really have to check it out. It's empty, but not empty of loot
+		apparently. It's a sunny day, why not take a walk up to the castle and clean it up
+		a bit.
+
+==============================================================================
+Play Information
+
+Game	:	Thief 2: The Metal Age
+Level Names	:	The Abandoned Castle
+File names	:	miss20.mis
+Difficulty Settings	:	Yes. Different loot totals and tools. There are some mathematical calculations. 
+		On Normal there is a tip on how to break the code.
+Equipment store	:	No
+Map/Automap	:	Yes (blank)
+New graphics	:	Yes
+New sounds	:	Yes
+New conversations	:	No
+New models	:	Yes
+EAX Support	:	No
+Multi language support	:	English, German and Spanish (texts only)
+Briefing	:	No
+
+==============================================================================
+Known Bugs
+
+- Nothing crucial.
+
+==============================================================================
+Construction
+
+Base	:	None.
+Map Size	:	Medium.
+Build Time	:	Almost 9 weeks including beta testing, many hours a day.
+Build Info	:	This is my fifth mission. My previous: Ransom, Lord Beltzer’s Mansion, Mistress
+		Guennean’s Castle and The Reunification.
+
+==============================================================================
+Loading Information
+
+Tested with	:	AngelLoader and FMSelector
+
+==============================================================================
+Thanks To:
+
+The people at TTLG and Shalebridgecradle.
+To the Beta Testers on Shalebridgecradle:
+itllrun10s
+jonescrusher
+Nickie
+Notesthes (German translation, too)
+Ravenhook
+To Nickie who checked all the texts in the mission.
+To Tannar, the moderator who set up the beta forum on shalebridgecradle.
+
+To the version 2.0 Beta Testers on Discord:
+Akai™
+Bikerdude
+Dardo (Spanish Translation)
+FlixXxer
+Mat99
+Zappenduster (German Translation)
+Zoro
+
+Voice actor:
+RedLeaf (as the evil child)
+
+Custom objects:
+(I really hope I’ve remembered everyone, please tell me if I’ve missed crediting someone)
+
+Alun Bestor www.washboardabs.net/thief/
+Ar-Zimrathon
+Bronze Griffin
+Christine
+DarkShadow
+Elvis
+Eshaktaar
+G'len
+Greenhorn
+Jason Otto
+Master_edd
+Nameless Voice
+Nielsen74
+Paweuek
+pdackel
+R Soul
+Schwaa
+Sluggs
+Soul Tear
+T2X
+Targa
+Team CoSaS and Digital Nightfall.
+von.Eins
+Yandros
+
+Meshes:
+Bronze Griffin
+DedX
+FireMage
+metal dawn
+Paweuek
+Purgator
+Sensut
+Team CoSaS
+
+Custom Script:
+Telliamed’s PublicScript
+NV Script
+
+And obviously thanks to my fiancee Sandra for the moral support and putting up with me working on it 24/7.
+
+==============================================================================
+Copyright Information
+
+This level is © by Beltzer. Distribution of this level is allowed in any way, shape, or manner you wish. However, 
+you must leave the mission intact and give me credit for it :-)
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+==============================================================================

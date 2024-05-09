@@ -1,0 +1,137 @@
+
+
+
+Title:					The Abominable Flying Machines of Dr.Zeppelinger    
+Version:				final release (1.18) + Loolist (see below)
+Author:				            Sterlino
+Game:					Thief 2
+Difficulty settings:			yes
+Map / Automap:			Actually no/no
+New graphics:				yes
+Multi language support:		           Actually No
+Contact Info:				  Sterlinoy@libero.it
+Homepage:				  http://sterlino.altervista.org/index.html
+A very special thanks to:                      Freddy Fox for all the help during the beta time
+
+Install this mission pack in the normal way.
+Warning - this mission uses the latest version of gen.osm. Check the file in your main Thief2 folder - it should be ''gen.osm 420kb 27/03/2000''. If it isn't, extract the gen.osm file from the mission pack into your main Thief2 folder.
+
+
+The Abominable 
+Flying 
+Machines of 
+Dr. Zeppelinger
+
+
+INTRODUCTION :
+
+Note: This mission takes place some years after the death of Karras 
+
+the story:
+
+The Mechanists are in confusion. Many of them turned back to the Hammer religion, many passed through a mystic crisis. But once more something is moving. A scientist with a new progressive thinking called “illuminarium” has attracted the attention of the remaining mechanists. Dr. Zepellinger, a colleague of Karras a long time ago, has now built various new weird mechanisms. 
+
+The strangest of these is a big dangerous and absurd machine that FLIES! Yes it flies, and unbelievable but true, it is not the only thing that flies. Many new bizarre machines have originated from Dr. Zeppellinger's manor. The enthusiastic locals are impatient because it has been announced that Dr Zepellinger will unveil a marvellous Giant Balloon tomorrow.
+
+Some of the pagans are seriously concerned about the environment. 
+These are the sons and daughters of the old pagans, children of the forest who grew up in the city and were educated in a normal school. When they reached the age of maturity they didn’t forget their origins, but banded together to battle against all technology. They founded a secret guild to establish a network of spies around the city. You have heard rumours that the name of that guild is "The Green Leaf" 
+
+
+The agents of The Green Leaf are really worried about the way events are unfolding. They remember your participation in the Assault at the Gas Station and decide to contact you, considering you to be the best man to assist in the battle against this new menace of the Dark Age. First they tried the simple method of asking you ... but after your negative response they decided to use a more subtle way!
+
+prelude
+
+"I'm Denlock, from The Green Leaf. Just to update you about the current situation: Karras is dead, the mechanists have collapsed, and now this guy Dr. Zeppellinger, abetted by the Duke Von Braum, is conspiring against us all by the creation of those weird strange Flying Machines. Garrett, you must help us to defeat this new threat. Dr. Zeppellinger is about to unveil his most fiendish creation, a giant flying balloon machine named Zeta One! You must infiltrate and steal the " Propelliser machine" (*) because that will render all those bizarre flying machines utterly useless."
+ 
+The Propelliser machine
+
+It is a machine that serves to convert some simple minerals to a kind of fuel that is useful for all the kind of flying machines. It has to be moved from Dr Zeppellinger's manor to a more secure secret location, and the doctor has decided to use the big airship Zeta One to do so. 
+
+------------------
+
+It seemed just another day, but then you found a message scroll near the entrance door. It was an invitation to a good restaurant to meet a fabulous blonde woman, Cassandra. After you had finished eating (the most delicious meal ever) a Green Leaf agent appeared and let you know that they had put a very small green crystal in your champagne glass. That crystal contained a powerful and deadly poison; within 36 hours the crystal envelope will disintegrate and release the poison directly into your blood. They have a method to remove that crystal with no problems, but you must follow their instructions and do everything they want in less than two days. 36 hours or you will die.
+
+------------------------------
+FlyingAge.zip Final (Ver 1.18)
+------------------------------
+
+Version history:
+
+Version. 1.16 (15/03/08)
+fixed an objective for fly level in mission 6.
+fixed rare bug with the primary objective that fails without reasons at the end of mission 4.
+fixed texts on the goals for mission 4.
+
+
+Version. 1.17 (16/03/08)
+Adjusted a sequence in mission 2 that made the game too much frustrating. 
+Fixed an objective on mission 2.
+
+Version 1.18 (19/03/08)
+Fixed and adjusted a problem with AIpathfind database on mission2.
+
+
+
+LootLists: (thanks to FreddyFox)
+http://sterlino.altervista.org/Escape_Lootlist.html
+http://sterlino.altervista.org/Zeta_One_Lootlist.html
+http://sterlino.altervista.org/Time_Flies_Lootlist.html
+
+Construction *
+Base       : From an idea taken watching old movies about the subject
+Build Time : a year 
+
+Note:
+to play this mission you don’t need scripts or whatever, play it and shutup… !
+
+Difficulties differences: 
+The levels are: thief, fly and high.
+The Only difference is the number of the guards. 
+
+Sounds:
+All The music and some SFX (except for the original Thief1&2 TTTLG package) 
+are created by Sterlino with the help of some house tools and the the ModPlug Traker version 1.11.0113.
+‘FlyWarfare’ is the name of the song you can listen on the start menu 
+(that replace the Metalp1.wav orginal thief2 sound) and was created using
+a single, modified and rearranged sample sound taken from thief2.
+
+Beta team:
+Freddy Fox – chief
+Dafydd
+Gloria Creep
+Bikerdude
+Maloo
+Xaussienanny
+Dooh nibor
+Lightingline
+Undead Gamer
+Jmmisenka
+
+thanks to:
+Eshaktaar for his amazing job on texturing the Elgato object model.
+Everyone at the TTLG forum,
+Thanks to Melan for the report about a problem with moss carpets and to Winter Cat
+to have fixed it
+NamelessVoice for some advices and some important objects
+Sluggs for a couple of skybox models, some objects, moral support and any kind of other helps (coffee, movies and money he gived to me dunno yet exactly why).
+Pinkdot for his amazing library objects 
+A very special thanks to the voice actors, expecially those who, for technical reasons, do a good job but didn’t find a way to use their work.
+The actors are:
+SlyFox as Garrett
+TheCapedPillager as Garrett
+Master H called by his friend JewelThief as Garrett
+Bikerdude as a guard called benny hehe
+Don Willadsen aka better know as dlw6 as denlock
+BrokenArts as the phantom child
+
+
+
+~@~ Copyright Information ~@~
+
+This level was made by Sterlino
+Distribution of this level is allowed as long as it is free and the package
+is kept intact. 
+You may not include this level to any map pack without my
+permission.
+ No one may edit and re-distribute this mission without my express permission. 
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

@@ -1,0 +1,45 @@
+Mech Angelo
+
+Eine Thief2-Fanmission
+von Ricebug
+Erschienen: November 5, 2012
+
+
+This version of Mech Angelo was re-worked for the New Dark engine, released in September 2012. It takes advantage of high-resolution textures, 32-bit lighting, EAX, and other upgrades.
+
+Bekannte Probleme
+
+Beim Bau konnte ich ab einem bestimmten Punkt keine weiteren Texturen mehr hinzufügen. Mit Mond und Himmel sind nur 13 dieser Texturen im Spiel; der Rest sind Standard-Thief .pcx. Ich selbst konnte keinen Unterschied zwischen DDFix- und Normalversion feststellen.
+
+Tester
+
+bob_doe_nz, Freddie Fox, Gloria Creep, Haplo, mabsy
+nickie, Ravenhook, SirFreddieM, Undead Gamer
+
+Deutsche Übersetzung
+
+Zappenduster
+
+Mein Dank gilt ...
+
+Daraan: Bäume
+jermi: Wolken, Himmel und Mond
+Jason Otto: Überarbeitete AIs, Fackel, Wagentextur, TDS-Gebäude, Rostgitter (für die Käfigwände).
+LarryG: Fenster modelle
+Sluggs: Bäume und Gitter
+Renzo “Eshaktaar” Thönen: Wassertexturen, rote Möbel
+Redleaf, Yametha, & Digital Nightfall: COSAS Betten, Eßzimmerstühle, Leitern, Leuchtstäbe.
+Wille: Distant Art (Alpen)
+Nameless Voice: Lichtstein
+Rob Hicks: Heidenfrau, Kobold, Baumwesen
+Texturen und verschiedene Objekte: Serious Sam: The Second Encounter (SSSE)
+Kryptatexturen: DedX, Castle Wolfenstein
+Deckenmalerei der Sixtinischen Kapelle aus Wikipedia.
+
+AVIs mit Lightwave 3D, Adobe Premier, Paint Shop Pro, Acid Pro Audio erstellt.
+Snidley Whiplash rights owned by Bullwinkle Studios
+Garrettportrait von Through the Looking Glass
+
+
+
+Die Weitergabe dieser Mission ist erlaubt, solange dies kostenlos und komplett geschieht. Gerne kann diese Mission auch für eine FM-CD benutzt werden, sofern diese ohne finanziellen Gewinn produziert werden. Dieses Level ist nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt.

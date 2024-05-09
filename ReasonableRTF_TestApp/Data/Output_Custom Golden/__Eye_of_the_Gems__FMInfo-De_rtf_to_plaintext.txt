@@ -1,0 +1,92 @@
+Das Auge der Edelsteine: Schatten und Nebel  - Version 1.0 - August 2017
+================================================================================
+
+Autor: Terra
+Erscheinungsdatum: 31.08.2017
+
+================================================================================
+Handlung:
+
+Möge der Schatten weichen und das Licht erhellen ...
+Möge das Licht alles umhüllen und den Schatten vernichten ...
+Doch vernichtet sich das Licht selber, denn ohne Schatten gibt es kein Licht ...
+--- Aus den Büchern des Alten Arkford ---
+
+Nachdem ich das Herz der Edelsteine endlich geborgen hatte, tauchten schon die ersten Hüter auf, um es mir wieder abzunehmen. Es ist schon seltsam, wie schnell diese Hüter sind, mir mein Diebesgut wieder abzuknöpfen. Nach diesen Trip vergingen einige Wochen, doch trüben mich immer noch die Gedanken an Basso und Jenivere. Wer steckt hinter diesem Attentat? Ich muss konzentriert bleiben, der Einbruch bei dem Orden verschaffte mir ein Überblick über das, was sie vorhaben. Es scheint, als würden sie versuchen, eine alte Gottheit wiederzubeleben. Die Hüter blieben anscheinend ziemlich ruhig angesichts dieser Informationen.
+
+Mich erreichte derweil ein Brief von einem alten Kollegen. Er beschrieb darin ein altes Schloss mitten im Wald, das schon viele Jahre verlassen sei. Darin sollen viele Schätze sowie ein gewisser Diamant noch enthalten sein. Ich glaube, das ist eine gute Entschädigung für das andere Abenteuer. Mein Kollege wird mich am Eingang erwarten, damit wir wie in guten alten Zeiten gemeinsam auf Beutezug gehen können. Ich hoffe es geht alles gut, ich werde meine Ausrüstung hierlassen, damit ich nicht unnötig Last mitschleppen muss ...
+================================================================================
+
+Spielinformationen:
+
+Spiel: Thief 2 - Das Metallzeitalter (Version 1.25 NewDark)
+Missionstitel: Das Auge der Edelsteine: Schatten und Nebel  
+Dateien: miss22.mis, eye.gam (Cosas.gam Nine Year Sleep)
+Schwierigkeitsgrade: Normal, Hart, Experte
+Ausrüstungsladen: Keine
+Karte: Ja (Credits: Athalle)
+Ergänzungs-Grafiken: Ja
+Neue Geräusche: Ja
+EAX: Keine
+Mehrsprachig: DE/FR/EN
+Briefing: Ja
+
+================================================================================
+
+Bauzeit: 5 Monate
+
+================================================================================
+
+Ergänzungs-Objekte von:
+Cosas Team- The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+
+Ergänzungs-Meshs von:
+GORT - Grunt Model
+
+
+Ergänzungs-Grafiken von:
+Cosas Team- The Nine Year Sleep
+SoulTear
+
+Übersetzung: 
+Zappenduster
+
+
+Betatest: Ionisator, fibanocci,  Atropos 
+
+
+================================================================================
+
+Ergänzungs-Musik und -Geräusche von:
+AndrosTheOxen (The Eye)
+Frictional Games
+Thief2x
+Square Enix
+
+NVScripts by NamelessVoice
+Scripts by Telliamend
+
+
+BriefingVideo und Stimme 
+Random_Taffer
+
+================================================================================
+
+Urheberrecht:
+
+Diese FM stammt von Terra, August 2017.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt
+und wird auch nicht von diesen unterstützt.
+
+============================================================================

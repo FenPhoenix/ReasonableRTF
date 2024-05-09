@@ -1,0 +1,70 @@
+ 
+New Dark Version
+A Thief 2 Fan Mission Campaign
+by Ricebug
+Release date: 29 Oct 2013
+
+NOTE
+
+You must play this mission under New Dark 1.21. Failure to do so may cause some features to become unstable.
+
+Thin Story Line
+
+Certain interests have discovered an island, long abandoned by a mysterious group named the Sidhe. In the ensuing destruction, the Mechanists, Hammerites, and a host of greedy others are exploiting the archeological find. Hearing about the potential wealth, you climb aboard the Rose Cottage and decide to get in on the action.
+
+Welcome to Heretic, a Thief 2 mod based on the original game.
+
+Heretic was a fantasy first-person shooter video game created by Raven Software, published by id Software, and distributed by GT Interactive in 1994. It was made available on Steam on August 3, 2007. (Wikipedia)
+
+Of the 45 levels, I’ve selected 3. Most of the levels (and I toured all 45 twice) are wide open spaces with long site distances. They were obviously designed for death match and team type game play, and therefore unsuitable for translation into the Thief universe.
+
+Spit & Polish
+
+Nameless Voice, R Soul, Haplo, Sensut, John9818a, ffox, darthslair, Independent Thief, Yandros, and few other taffers at TTLG I may have missed.
+
+Translation
+
+Zappen (German)
+Smallman47 (Italian)
+
+Notes & Issues
+
+Use the ‘cycle weapons’ keys (left & right brackets [ & ]) to access the Elven Wand.
+
+Quality Control (Beta Team)
+
+bob_doe_nz, ffox, Gloria Creep, MrMunkeePants, 
+Nickie, prjames, ravenhook, Sensut, tafferjim
+
+Credits
+
+Heretic high-resolution textures downloaded from Steam. jHeretic Re-texuring Project 2003.
+Optimized and repacked by Cain.
+
+Heretic intro music by Kevin Schilder, of Raven Software.
+
+Briefing movies filmed on location in Murkbell.
+Calendra’s Legacy courtesy Purah & Saturnine
+
+SlyFoxx (Scott Murchison): Voice acting (Intro)
+GORT (Shaun Morin): Elven wand dynamics
+Sensut: Scripting, AI tweaking
+Saturnine: Sailing ships (from Rose Cottage)
+Jermi: High resolution skies
+Eshaktaar: Custom lamps, furniture, chests, fat man (Foster), Ash Zombies, and other cool stuff.
+Jason Otto: Improved AI models, flame effects, gates, & fences.
+Nameless Voice: Various models, sun calculator.
+Vigil, Pinkdot: Cobwebs, textures
+Sluggs: Fence model (mission 3)
+
+Sidhe model (mission 1) taffed from Serious Sam, The Second Encounter
+Gamesys: DedX, Eshaktaar’s Broken Triad
+Hammer Bots: DedX
+
+Notes
+
+Difficulty levels change number of AI. No other objectives, loot, etc are affected.
+
+Disclaimer
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

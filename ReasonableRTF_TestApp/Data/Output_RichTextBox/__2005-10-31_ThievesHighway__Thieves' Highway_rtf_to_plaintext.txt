@@ -1,0 +1,57 @@
+     Thieves' Highway- A Thief 2 Fan Mission by Uncadonego
+                           contact me at uncadonego@hotmail.com
+
+Release Date:    Oct 30, 2005
+
+This mission is not meant to be complicated. There is no huge mystery to unlock, no major objectives to hurdle. It's a mission meant for people to have fun climbing the 
+rooftops of Dayport, snooping everywhere the can find, and stealing loot galore.
+
+A while back you cleaned out the Escarpment Gallery. You assumed that the curator's 
+career would be finished, but you were surprised to see his name in the Dayport Society Page. James David Figalily has a new exhibit on the west end at the Fembound Gallery. You just can't resist easy pickings, and plan on hitting his new establishment tonight.
+
+No Briefing
+
+Thanks to beta testers!!!: maloo, Dussander, Dafydd,& Schwaa.
+Missions need to be played so they can be tweaked, and beta testers are an invaluable part of the mission building process.
+As always, I must give special thanks also to Nightwalker for putting up with constantly being pestered by me during the entire mission process. I must be more annoying to her than a little kid constantly tugging on her pantleg, but she always has comments and suggestions for me.
+
+==================================================
+
+Playing Information
+
+Game                   :Thief 2 The Metal Age
+Author                   :uncadonego
+Mission Title           :Thieves' Highway
+File Name              :miss20
+Difficulty Settings    :Yes
+Equipment Store      :No, but a factory to manufacture some equipment in game
+Map                      :No, it wouldn't help you much anyway, crawling out of windows,
+                             rope arrowing and jumping everywhere.
+
+Difficulty levels simply involve a higher loot requirement. The map doesn't change. You may run into a greater number of AI, and perhaps have less equipment.
+
+Construction
+
+Base                    :A hearty chicken stock.
+Build Time:            :About 4 months, give or take. June 5th to Oct. 25, with time off for                     
+                            real life.
+
+==================================================
+
+Loading Information
+
+Runs from Darkloader. Just leave the zipped file unzipped and put it in the folder/directory where you store your FM's.
+
+Copyright Information
+
+This level is © by Uncadonego 
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+
+Have fun!
+Uncadonego

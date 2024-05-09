@@ -1,0 +1,120 @@
+Zwist - Die Kampagne
+“Traue keinem”
+
+Von Ricebug
+Erschienen: 18 Juni 2012
+
+
+Optimierung
+
+Ddfix-Himmel von jermi ersetzen ältere Himmeltypen. Das entgeht Dir, wenn Du ddfix nicht installiert hast.
+Das Licht wurde nachberechnet mit NVs Sunlight Calculator.
+Richtungspfeile im Kanalgewirr erleichtern Verirrten die Orientierung.
+Texte überprüft.
+
+Hintergrund
+
+Strife war ein DOS-basierndes, im Mai 1996 erschienens Spiel von Velocity Development und Rogue Entertainment. Es wurde auf einer sehr modifizierten DooM® engine gemacht. Eine der ungewöhnlichen Spieleigenschaften war daß die Spieler zwischen den Missionen (insgesamt 34) wechseln konnten.
+
+Dies ist die Thief 2-Konversion von Strife. Die erste Mission war mein erster Start mit DromEd. Nun, bedingt durch die Komplexität des Levels und meine Unerfahrenheit mi DromEd lag es mehrmals auf Eis. Die Geschichte wurde der Thief-Welt angepaßt, doch die Maps sind mapstabsgetreu und 90% genau.
+
+Schwierigkeitsgrade
+
+Auf Normal (nur Mission 1) finden sich querbeet Hilfestellungen. Einige AIs fehlen, die Loot-Anforderungen sind geringer und es gibt mehr Hilfsmittel. 
+
+Bugs
+
+Beim Kompilieren verschwanden etliche Texturen, sie mußten händisch wieder aufgetragen werden. Trotz aller Sorgfalt könnten hier und da noch welche fehlen.
+
+Sollte nuter ddfix (hi-res) das wasser 'blitzen' - das ist ein Engine-Problem. Per quick-save und Neustart sollte das enden. Git auch für seltsame 'Himmelsphänomene'.
+
+Einige Levels nutzen Rob Hicks' DedX-Gamesys. Beim Entwickeln wurde sie telweise von unbenutzen Texturen, Objecten und Meshes entschlackt.
+
+Information
+
+Spiel :  Thief2
+Titel :  Strife 
+Version :  1
+Dateien:  miss17.mis - miss30.mis
+Schwierigkeitsgrade:  Ja (AI, loot, Ausrüstung)
+Laden:  No
+Karte :  Yes
+Automap :  No
+Neue Grafiken:  Yes
+Neue Geräusche:  Yes
+Mehrsprachig: Ja (DE, EN, ...)
+Vorspann : Yes
+Größe:
+
+Betatester
+
+Acolyte6
+Albert
+Bikerdude
+bob_doe_nz
+Camille
+Cogline
+Dussander
+flying_hope
+Gloria Creep
+gunsmoke
+Hotlyx
+Lightningline
+nickie
+pavlovscat
+phil237
+Ravenhook
+Silent_Warrior
+SirFreddieM
+SneakyJack
+thief0
+Undead Gamer
+yondanbrad
+
+Deutsche Version
+
+Zappenduster
+
+
+Eigene Objekte
+
+Digital Nightfall / Circle of Stone and Shadow: Möbel
+Greenhorn: Bäume
+Jason Otto: Ketten/verbesserte AI
+Nameless Voice: Flammen
+Rob Hicks: Erdmagierin, Rattenmann
+Vigil (Alun Bestor): Spinnweben & Strahlen
+William the Taffer: Droids
+
+Zus. Texturen
+
+Eshaktaar
+Lemog
+ Majic
+ Nameless Voice
+
+Weitere Texturen
+
+iD Software’s Medal of Honor & Castle Wolfenstein
+Strife textures: Rogue Entertainment
+
+Div. Erwähnungen
+
+3Delyvisions (http://www.3delyvisions.com): Custom Skybox:
+Jermi: Hi-Resolution skies
+Jason Otto: Waterfall settings
+Sterlino: Piston machine in the Sewers mission
+
+Strife Editor
+Deep97, by Jack Vermeulen and Sensor Based Systems
+
+Strife auf YouTube
+http://www.youtube.com/watch?v=5bGfU57F06Q
+
+Strife-Bewertung
+http://www.gamespot.com/pc/action/strife/review.html?om_act=convert&om_clk=gssummary&tag=summary;review
+Copyright © June 2012 by Terry DeLaney
+
+Permission is granted to freely play and distribute this level. Emails were sent to the original makers of Strife, asking for use of their textures and maps. Neither Velocity Development nor Rogue Entertainment responded after several attempts.
+
+Diese FM wurde weder erstellt noch wird sie unterstützt von Looking Glass Studios oder Eidos Interactive.

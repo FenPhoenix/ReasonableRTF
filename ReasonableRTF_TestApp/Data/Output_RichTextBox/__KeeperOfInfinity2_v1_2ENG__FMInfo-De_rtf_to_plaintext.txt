@@ -1,0 +1,269 @@
+      Hüter der Unendlichkeit
+       Teil 1: Böses Spiel
+       Teil 2: Rabennest
+
+                         NewDark 1.23
+
+
+           Autor:	 		Soul Tear
+           Kontakt: 		soultear999@gmail.com, TTLG.com
+           Erschienen: 		
+           Version			1.0 
+
+
+                    SYSTEMERFORDERNISSE:
+
+           Intel Core i5-4570 CPU 3.20 GHz, 8,00 Gb RAM, GeForce GTX 660
+           Enthält Texturen mit Auflösung 1024 px und Maßstab 14.                        
+           Viele Objekte erscheinen in einer Szene.                     
+           Auf langsamen Systemen kann es daher zu verminderten Frameraten kommen.
+
+           WICHTIG:
+           Option new_mantle in der Datei cam_ext.cfg aktivieren.
+           Option sun_runtime_obj_shadows in der Datei cam_ext.cfg deaktivieren.
+           Deaktivieren des Enhancement Packs erforderlich (weil gleichnamige Eigentexturen verwendet werden)        
+           
+
+                    SPIELEMPFEHLUNGEN:
+
+Die FM soll dunkel sein und sollte mit 65% Gammaeinstellung in verdunkeltem Raum gespielt werden, 
+wessen Augen das aber zu sehr anstrengt, kann es auch anders einstellen.
+
+
+                    TECHNISCHE DETAILS:
+
+Sollte das Spiel für jemanden zu lange laden, kann man es per Taskmanager versuchen zu unterbrechen
+und neu starten. Wer untexturierte Polygone sieht (normalerweise weiße Flächen), 
+sollte den Spielstand eiligst sichern, da es sich aufhängen oder abstürzen könnte, dabei könnten die
+Spielstände verlorengehen.
+
+
+                    TAKTIKEN:
+
+Alle im ersten Missionsteil erworbenen Gegenstände werden in den zweiten überführt. Beide Teile
+haben keinen Ausrüstungsladen. Also für den, der seine Ausrüstung im ersten Teil verbraucht, könnte
+sich der Anfang des zweiten Teils schwierig gestalten. Im weiteren Verlauf des zweiten Teils gelangt
+man an einen Laden à la SoulTear, wo man sich wieder mit allem eindecken kann - ausgenommen
+Belagerungsgeschütze.
+
+Am wichtigsten sind in beiden Teilen Seilpfeile, die man sich gut einteilen und überall aufsammeln
+sollte, natürlich ohne sich in Gefahr zu begeben.
+
+Man nutze auch reichlich Wasser- und Moospfeile, um Konflikte mit Wachen zu vermeiden, die man
+nicht besinnungslos schlagen kann (NoKOs).
+
+
+		DER LADEN:
+
+Im "Rabennest" ist ein Geschäft, das sogenannte Brieftaschen für Geld nutzt. Dessen Gegenwert geht 
+unmittelbar ins Inventar, sobald man gewisse Wertsachen findet, Brieftaschen oder Münzstapel.
+Man sieht, ich wollte hier nicht das reguläre Wertsachensystem nutzen, das wid nicht statistisch erfaßt.
+
+Alle Waren im Laden kosten eine Brieftasche, man erhält dafür eine verschiedene Anzahl der jeweiligen
+Gegenstände. So etwa für eine Brieftasche acht einfache Pfeile, vier Wasserpfeile oder einen Eiltrank.
+Die meisten Waren des Ladens sind uneingeschränkt erhältlich, ausgenommen der Unsichtbarkeitstrank
+mit nur einem Exemplar, den also mit Bedacht einsetzen!
+
+Diese FM weist echt viele NoKO-Wachen auf, man kann auch Gaspfeile aus dem Laden auf sie feuern,
+man kaufe aber nur nach Bedarf. Es gibt nicht beliebig viele Brieftaschen und man käme so in den Zwang
+ständig nach neuer Beute zu suchen.
+
+
+		FEHLER MIT DEN BRIEFTASCHEN
+
+Man nutze die Brieftaschen nicht für andere Zwecke wie an Türen! Sonst verschwinden die Brieftaschen
+zuweilen - eine bei jedem Versuch. Wie jeder weiß, sobald ein Spieler mal festhängt, probiert er gerne mal
+alle möglichen Inventargegenstände aus, um weiterzukommen. Das geht hier also nicht so einfach. Daß
+mich niemand verantwortlich macht, wenn jemand so sein Geld verjubelt!
+
+
+                    KONVERSATIONEN
+
+Man kann einige Figuren wie in der FM "Die Sage vom reumütigen Dieb" ansprechen und sie antworten. Man
+kann auch nur zu einigen Orten gelangen, wenn diese Gespräche abgwickelt sind.
+
+
+		SCHWIERIGKEITSGRADE:
+
+Die Menge an Ausrüstung, Gegnern und Beute variiert mit dem Schwierigkeitsgrad.
+
+
+		VERLÄNGERTE SCHWIERIGKEIT
+
+Obacht, wer allzuviele NoKOs mit Gas unschädlich macht, provoziert andernorts eine Neurekrutierung,
+diese neuen AIs gehen dann auch auf Streife - sonst wäre das doch zu einfach!
+
+
+		GHOST-MODUS
+
+Diese FM kann in Gänze ungesehen geghostet werden, ohne AIs niederzuknüppeln, wobei man alle
+Beute und Geheimnisse trotzdem aufspüren kann.
+
+
+
+                    BESCHREIBUNG:
+
+
+Siehe Tagebuch.
+
+
+                    SPIELDATEN
+
+	Spiel:				Thief 2: The Metal Age
+	Dateinamen:			miss21.mis, miss22.mis
+	Schwieirgkeitsgrade:		Ja
+	Ausrüstungsladen:		Nein
+	Map/Automap:		Ja
+	Neue Grafiken:		Ja
+	Neue Geräusche:		Ja
+	Neue Objekte:		Ja
+	EAX:				Nein
+	Mehrsprachig:			RU, DE, FR, EN
+	Briefing:			Nein
+
+
+
+                    BAU: 
+
+          Grundlage:			Neubau
+          Mapgröße:			Riesig
+          Bauzeit:				Mehr als 1200 Stunden zzgl. Suche und Erstellung von Ressourcen
+
+
+
+
+
+
+               DANK AN:   
+
+
+
+                ÜBERSETZER:
+
+            Zappenduster (DE)
+
+
+                TESTER:
+                
+            Dev_Anj            
+            Bob_doe_nz
+            Burrick
+            Fibanocci
+            Fortuni
+            Kurhhan
+            Soldi
+            Zireal
+            Zontik
+
+
+	SPRECHER:
+                
+            Bjack (Tordis)
+            Necrobob (Edward, Garrett)
+            Random_Taffer (Bill, Tom)
+            Yandros (Joren, Sam)
+
+
+                MAP
+
+            Scrp007
+
+
+
+                 TEXTUREN VON:
+
+
+           Ardianna
+           Daraan
+           DrK
+           David Gurrea Hernandez (HYPERLINK "http://www.davegh.com" www.davegh.com)
+           Gecko
+           LarryG
+           Nameless Voice 
+           Necrobob
+           Nicked
+           Purgator
+           Renzatic
+           Sensut
+           Soul Tear
+           Vigil (HYPERLINK "http://www.washboardabs.net/thief/" www.washboardabs.net/thief/)
+           Vurt
+           Xorak
+           PhotoRealistic: 
+           CGTextures (HYPERLINK "http://www.cgtextures.com" www.cgtextures.com)
+
+
+                OBJEKTE VON:
+ 
+            Christine
+            Chuzhoi
+            Daraan
+            Eshaktaar
+            LarryG
+            Nameless Voice 
+            Nicked
+            Ottoj55
+            PinkDot
+            R Soul
+            Schwaa
+            Sensut
+            Sliptip
+            Soul Tear
+            Targa
+            TDBonko 
+            The Watcher
+            Vigil 
+            Von Eins 
+            Yandros   
+            Zontik
+
+
+                 SCRIPTE VON: 
+
+            Nameless Voice 
+            Telliamed
+
+
+
+                 GEMÄLDE:
+
+           daRoz (HYPERLINK "file:///C:\Games\DromEd2v121\daroz.deviantart.com"daroz.deviantart.com) - Ripoff9
+           Dominus (HYPERLINK "file:///C:\Games\DromEd2v121\dominus.ttlg.com"dominus.ttlg.com) - Menu
+           Mancomb-Seepwood (HYPERLINK "file:///C:\Games\DromEd2v121\mancomb-seepwood.deviantart.com"mancomb-seepwood.deviantart.com) - Paint19
+           Ponponxu (ponponxu.deviantart.com) - Movie
+           Shivan - Movie
+           Wraithdt (HYPERLINK "file:///C:\Games\DromEd2v121\wraithdt.deviantart.com"wraithdt.deviantart.com) - Ripoff8
+           HYPERLINK "file:///C:\Games\DromEd2v121\wallpaperup.com"wallpaperup.com - paint28
+
+
+
+                 MUSIK UND GERÄUSCHE VON:
+
+            Atrium Carceri
+                 Knowledge
+                 Meltdown      
+                 Reborn
+
+	B Stoate
+            Curunir
+            Gigagooga
+
+
+	Aus anderen FMen:
+	Broken Triad, Dracula - Reloaded, Fables of The Penitent Thief,  A Job Well Done, 
+	A Night In Rocksbourg 3, Saints and Thieves, The Seven Sisters.
+
+	Class Tag “VicSwitch” von Frobber
+	Tragbare Lampe aus Cathedral of The Damned
+
+
+	Urheberrecht:
+
+	Diese FM stammt von Soul Tear.
+
+	Ihre entgeltfreie Verteilung in unveränderter Form ist gestattet. 
+	Sie darf ohne Erlaubnis des Autors nicht in andere Missionen eingebettet oder/und durch
+	niemanden editiert und verändert werden.
+
+	Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt
+	und wird auch nicht von diesen unterstützt.

@@ -1,0 +1,63 @@
+================================================================================
+
+Title:		Augustine's Revenge
+Author:		Bryan Gleason (alias BBB)
+Contact Info:	bgleason@evare.com
+Homepage: 		n/a
+Date Finished:	November 2009
+
+Briefing:  You got a strange note under your door 2 nights ago to meet a stranger at the Fatted Calf. When you arrived you saw he was a hunched over sad looking man who dragged his left leg. It was from Prince Augustine. Evidently many years ago there was a duel between Augustine and the then Prince Robert for the hand of Lady Veronica. Knowing Prince Augustine was the stronger man, Robert had a local sorcerer drug Augustine so that he could hardly stand on his own for the duel. Robert then hit Augustine time and time again with a heavy mace and Augustine was so injured he was not supposed to live. He did live but has a noticeable limp and has no use of his left hand. Augustine wants revenge and will pay you handsomely to break into Lord Robert's manor and steal his prize possession - his stash. It is hidden somewhere on the top floor. It is impossible to get in to the manor from the west even though you can see the manor across the canal, so you will need to follow a long and complex route which involves some climbing and swimming. It heads south initially, then east and then north where eventually you can gain access to the manor cellars from the sewer. Also, Augustine has inside information that Robert is having an affair with a young servant girl. He wants you to find information about the affair and drop the info at Lt. Davis's office at the police station. This should ruin Robert in the community. Augustine kept saying please help me make things right. It was kind of creepy but he offered a big big sum for the job, the biggest payoff you have ever been offered. How could you say no? He gave you a substantial down payment and will pay the rest after the job is done. You get to keep the stash as well. Finally, you should pick up some additional loot for yourself along the way. This is a dream job. He wants it done tonight. No time for planning, It is dark and time to go to work.
+
+
+================================================================================
+
+* Playing Information *
+
+Game:				Thief: The Dark Project
+Title: 			Augustine's Revenge
+File Name:			miss20.mis
+Difficulty Settings: 	Normal, Hard, Expert
+Equipment Store: 		No
+Map: 				Yes
+Auto Map: 			No
+New Graphics: 		No
+New Sounds: 		No
+Multi-Language Support: No
+
+Briefing: 			No
+
+Difficulty Level Info: 	Normal 8000 Loot, Hard 10000 Loot, Expert 12000 Loot 
+
+* Construction *
+
+Base: 			Dromed base
+Build Time:			Longer than I thought for a TDP mission. About 1 1/2 years part time.
+
+  
+
+================================================================================
+
+* Loading Information *
+
+DarkLoader ready. Runs from Darkloader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole thing into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+
+================================================================================
+
+* Copyright Information *
+
+This mission is (c) 2009 by Bryan Gleason.
+
+Thanks to KOMAG for getting me started with his famous tutorial.
+Thanks to voice actors - Lizaneth, Random Taffer, eepcat, and Garras.
+Thanks to terrific testers who made this mission much much better - Nightwalker, Freddy Fox, Peter Smith, Lady Lisa and Pavlovscat.
+Thanks to everyone at the TTLG forums for their help! Best community on the planet. It is truly extraordinary.
+Finally, thanks to Looking Glass Studios who have provided me with years of enjoyment. I have been mesmerized ever since I played Lord Bafford and it had never changed. Absolute genius work!
+
+Distribution of this level is allowed in any way, shape or manner you wish.
+However, you must leave the mission intact and give me credit for it. Have fun! 
+
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+(This text file was copied from another Fan Mission and modified).

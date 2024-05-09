@@ -1,0 +1,136 @@
+==================================================================================
+11.02.2012                           
+==================================================================================
+
+Title		 : Tell Tale Heart
+Filename	 : Tell_TaleHeartV1.2
+Author		 : DarthsLair
+Contact info	 : darthslair@rocketmail.com
+Date of release	 : Nov 2st  2012 For updated Version 1.2 Date of update Nov.12th 10 days after initial release.
+Version              : Tell Tale Heart-Halloween Contest 2012
+
+==================================================================================
+
+              
+* Play Information *
+
+Game			 : Thief 2 The Metal Age
+Level Names		 : Tell Tale Heart
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.         Trick or Treat            
+Map/Automap		 : Yes. 
+New graphics		 : Yes.
+New sounds		 : Yes.
+New conversations	 : Yes.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : No.           English
+Briefing	       		 : Link to youtube only
+Equipment store              : No.
+
+* Construction *
+Base:      From OttoJ55 abandoned Mechanist Map.  The mission has been updated to use Fm-Selector. Fixed a bad texture that was overlooked, 
+and fixed 2 readables that were truncated. Some textures missed during beta testing. Fixed the Morgue door so it can be obliterated if the switch fails.
+Fixed the floor trap door to the cellar incase the switch fails on some systems. Fixed all 13 secrets once found will tick off as completed.
+Build Time: Many bottles of headache medicine, not including gallons of Jack Daniel's.   Many fits thrown, when Dromed turns into Dromzilla.
+Doing most of this blindly as I am almost completly blind.
+
+
+===================================================================================
+===================================================================================
+Story: It is Halloween night, and the City Watch are busy with the local Trick or Treaters, so I have a job in the old industrial area just outside 
+the city.  Basso and Jennivere are to meet me behind the old Trumble house.  They will have already cased the area by the time I arrive.
+Hopefully it will be a good treat for all of us, because as usual, the rent is due again.   Trick or Treat !
+ * Loading Information *
+Get the latest version of Darkloader and run it.   DO NOT UNZIP THIS FILE!!  
+May not run with Windows Vista and Garrettloader.
+
+ * Copyright Information *
+   DarthsLair October 2012
+* Special Thanks:To Beta testers, Gloria Creep, Tom Manning, Jimmy Brown, and George Mathison
+* Special Thanks *  To all of the voice actors: Yandros , FireMage, Uncadnego, frere staven (Steven Mafidio),Masterthief3,Shadow Creepr, Gore_Torn,Dront,Msledd,
+  Random_Taffer, Don Williamson-Dlw6,Slyfoxx is Garrett,Metal Dawn, Antimatter, Fizbop,Procession.
+* Special Thanks *  Special Thanks to model makers: Yandros, Zontik, Raetsel, Hrothgar, Nielsen74, OttoJ55,  Eshaktaar, Targa, R Soul, Christine, Nameless Voice, Dark Arrow, Sluggs.
+  Christine, Redface,LarryG,Cosas,and the team. Von Eins,Althalus,Omer "G'len" Golan,Rob Hicks and J.Knez(Schwaa),Alun Bestor,Purgator,Gort.Ar-Zimrathon,Greenhorn,DarkMax, 
+  Pdackel, Syi,Eshaktaar, Master_edd,Phantom,ShadowSpawn,The Watcher,The house of Dhin,Sensut,Vigil,Paweuek,And,mkadlec,epithumia,Timon,caffeinatedzombeh,Willie,Winter Cat,
+  Bronze Griffin, Digital Nightfall, Metal Dawn,taffer9,AntiMatter_16,redface,threeviltritone,Willie,Gregorious,Haplo
+  Special Thanks to:, Keyla The Otter, for providing some excellent ambient music.
+. Special Thanks to: Thiefmissions.com, and Ttlg and SouthQuarter for their wonderful sites.
+
+
+Technical Information: Script used: NvScript.osm,thn.script This version has 2 custom made videos: Introduction,and Death.  All .avi movies made with mpeg codec.
+UnKnown Issues:  Has not been tested on Windows98, or Windows2000. The only two reported problems was not being able to drop fish if frobbed in the water, and
+mission ending as soon as all objectives complete, and not at the starting point. Could be a memory usage problem, as the mission is large.
+This mission used ottoj55 abandoned mechanist mission. Have fun, as it was made for fun only !
+
+
+==========================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent.  Enjoy!!! This mission
+was intended to be for fun only. The author does not assume any liability
+in misuse. Ha! Ha! Enjoy, Taffer!  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================================================================================
+
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+ 
+
+===================================================================================
+
+
+
+
+
+===================================================================================
+
+
+
+
+
+   

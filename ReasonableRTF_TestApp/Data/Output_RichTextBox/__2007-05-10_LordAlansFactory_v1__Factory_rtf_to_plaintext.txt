@@ -1,0 +1,181 @@
+
+            
+
+
+
+Author :  Andrea Aleotti – Milan,  Italy
+Contact Info : send a message on TTLG forums or visit Lord Alan’s homepage
+Homepage :  http://lordalan.altervista.org
+
+Date of Release :  10 May 2007
+
+** *** **
+
+§ Forward §
+
+Greetings, SlyFoxx here.
+
+I've just returned from a long night's work and I've got to say my feet are sore.
+I've stolen from gods, nobles, vagabonds and thieves.  
+I've travelled time, reversed the order, solved mysteries, fought the dead,
+explored forbidden places, uncovered prophecy, loved and lost.
+But I must say, none of that quite prepared me for what I experienced in Lord Alan's Factory.
+Amidst the whirring machinery and the perilous heights of narrow catwalks,
+I uncovered a story of one man's avarice and another's tragedy...
+all set upon one of the grandest stages ever constructed for your amusement.  
+
+I'll go no further into the nature of the evening's events here. 
+I have had my time and now you will have your’s.  
+So dim the lights and lock your doors.  
+
+It's time to begin...
+
+§ Story §
+
+“Basso delivered to me a letter hiring me for a new job.
+ An unknown person has asked me to sneak into ROENT,
+ best known as Lord Alan's Factory, and find a way to use a series of codes. 
+Apparently, it's industrial espionage.
+ It is strange that the message does not mention a reward.
+ I don't see the reason why I should sneak into that noisy factory for nothing.
+ Perhaps I'll wait to find the connection between these codes and Lord Alan's business,
+ then I will set my price.”
+
+** *** **
+
+§ Difficulty Level Info §
+
+Tips – Thief – Timed
+
+All the levels can be ghosted or played without limit to the style of play.
+
+Tips :
+You have Basso’s tips in your inventory and a series of useful clues in game.
+This level is for the player who does not love challenging missions
+as well as for the player that usually gets confused in big and complex maps.
+
+Thief :
+No special tips are available in the mission.
+Take your time to achieve all the objectives.
+This level is for the good and experienced player.
+
+Timed :
+You have to achieve your goals within a given hour.
+If you prefer, you can buy some tips in the loadout screen.
+This level is for the player that loves challenges.
+Good for a second play.
+
+
+** *** **
+
+§ Playing Information §
+
+Game :  Thief 2
+Mission Title :  Lord Alan's Factory
+Version :  1
+File Name :  miss21.mis
+Difficulty Settings :  Yes
+Equipment Store :  Yes
+Map :  Yes
+Auto Map :  Yes
+New Graphics :  Yes
+New Sounds :  Yes
+EAX Support:  Yes
+Multi-Language Support :  Yes
+(English, Français, Deutch; Italian version also included, look for italiano_books.zip)
+Briefing : Yes
+Final movie : Yes
+Size of the miss file : 35MB
+NO CUSTOM SCRIPTS OR EXPANSION MODULES ARE REQUIRED
+
+** *** **
+
+§ Acknowledgements §
+
+Story consultancy :
+Peter Smith
+
+
+Text editing :
+Peter Smith
+Linda – Nightwalker
+Bernie
+
+
+Garrett’s voice :
+Scott Murchison – SlyFoxx
+
+
+Betatesters :
+Linda – Nightwalker
+Peter Smith
+
+Dafydd
+Dave – ffox
+Dusty – theBlackman
+Gretchen – pavlovscat
+Jason Hunt – mrsmr2
+Ken Kooper
+Mika – mol
+Preno
+Random_Taffer 
+Scott Murchison – SlyFoxx
+Snowcap21
+
+
+Translators :
+Heliocairo for Italian to English translation
+Ramirez’s Old Fat Burrick (French)
+Snowcap21 (German)
+
+
+Also:
+Cheap Thief Missions
+TTLG forums
+All the people that posted on TTLG forums for support on Dromed
+Steven Glanville for Anim8or
+Avalon for ThiefObjectiveWizard
+Nameless Voice for 3ds to bin utility
+BerneyBoy and unknown people for the base of the textures
+MadBull34 for STR-Converter
+Mark Russinovich for DebugView
+Many thanks even to :
+Corel suite
+CoolEditPro
+CreativeVienna
+LGS for Thief and Dromed
+and
+Garrett, for his immense endurance and patience with me
+
+** *** **
+
+§ Construction §
+
+Build Time : this project has been started on February 2005
+Dromed time : 24:07:06:11 (1200 hours including other jobs)
+
+** *** **
+
+§ Loading Information §
+
+Use Garrettloader or Darkloader
+
+** *** **
+
+§ Copyright Information §
+
+Copyright © 2007
+by Andrea Aleotti
+
+The custom music used in this level is my creation and is copyrighted.
+
+Permission is granted to freely play and distribute this level.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.
+
+
+THIEF IS ART
+
+
+ 
+

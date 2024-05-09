@@ -1,0 +1,88 @@
+==================================================================================================
+				DESCRIPTION FRANÇAISE
+==================================================================================================
+
+
+Auteur			:	Schattengilde
+E-mail			:	dark.project@t-online.de
+Version		:	1.1
+Date de sortie		:	31.12. 2007
+
+Histoire :
+
+L'histoire se déroule quand Karras était responsable et que son influence sur la cité s'était renforcée...
+
+Les Mécanistes désiraient prendre le contrôle de la cité mais n'avaient pas réussi jusqu'à présent. Karras est cependant enclin à tout faire pour y arriver, quel qu'en soit le prix.
+
+La résistance s'est accrue, particulièrement chez la guilde des gardiens, qui ne désirait pas servir Karras. Eux ainsi que le reste de l'ordre des Marteleurs ont formé le cœur de ce groupe de résistance. Karras a attiré le Général Morbid, un ancien commandant de l'armée du Baron, de son côté et les tendances dans le conflit ont commencé à changer. 
+Le général, suspendu du service militaire, était maintenant le bras droit de Karras et désirait d'agir sans scrupule et sans hésitation.
+
+Il proscrit d'abord la guilde des gardiens et fit dissoudre tous les services privés de sécurité. Il interdit toute utilisation privée et possession d'armes de toutes sortes et finalement il "nettoya" la cité de tous les aristocrates locaux, comme Ramirez, Bafford, Donal, Reuben...
+Il écrasa leurs propriétés et leurs habitants comme jamais auparavant.
+
+Quelques quartiers de la cité résistèrent et malgré l'interdiction d'armes, les arsenaux furent remplis et le peuple était prêt à se battre.
+Les Mécanistes durent reculer leurs territoires, mais continuèrent leur régime de terreur.
+Tous les réfugiés semblaient avoir disparu et des conversations sur une retraite cachée commençaient à circuler en ville. En plus de cela, des rumeurs parlaient d'un ordre mystérieux composé de membres spécialisés dans l'art du combat, l'espionnage, l'infiltration et l'assassinat. Leur tactique de type guérilla semble bien marcher sur les Mécanistes...
+
+Quand le Général Morbid entendit ces rumeurs, il interdit toutes réunions publiques et imposa un couvre-feu. Tentant de reprendre le contrôle de la situation, il ordonna à ses combattants d'élite d'écraser toute résistance qu'ils pourraient trouver.
+
+Au milieu de tout ce chaos, un messager apporta à Garrett une lettre des Gardiens qui faisait référence au "Livre des Prophéties", disparu de leur bibliothèque secrète. 
+Celui qui possède ce livre changera peut-être la cité à jamais...
+
+==================================================================================================
+
+*Information sur le jeu*
+
+Jeu				: Thief 2: L'âge de métal
+Nom des missions		: Le Livre de la Prophétie, partie 1 (Lettre Morte)
+Nom des fichiers		: miss20.mis
+Choix difficulté		: normal, difficile, expert
+Achat équipement		: non
+Carte				: oui
+Carte automatique		: non
+Nouveaux Graphismes	: oui
+Nouveaux Objets		: oui
+Nouveaux Sons		: oui
+Langues			: oui, Anglais, Allemand, et Français
+Vidéo d'introduction		: non
+
+==================================================================================================
+
+*Construction*
+
+Base				: sera mentionné à un autre endroit
+Temps de construction	: à peu près 8 mois
+
+==================================================================================================
+
+*Remerciements*
+
+Rob Hicks pour Dromed Deluxe, MadBull # 34 pour le convertisseur de fichiers str, Dainem pour la relecture, von.Eins pour la traduction allemande des tutoriaux sur Dromed et Meril pour la Betabase.
+
+pour les nouveaux objets/modèles : Schwaa, von.Eins, Daemonite, Ernie, Rob Hicks, Nameless Voice et Alun Bestor
+> www.washboardabs.net/thief/
+
+pour les nouvelles textures : Dhin, Majic, textures de la FM "Night Falcon", Alun Bestor> www.washboardabs.net/thief/ et textures provenant de local.wasp.uwa.edu.au/~pbourke/texture_color/ (modifié pour Dromed)
+
+Betatesteurs : Anne, Valen, MH.TheFreak, fibanocci, Neferure, K.I.F.T., Raven
+
+pour la version anglaise : Intruder pour la traduction en anglais ainsi que Nightwalker et Bernie pour l'édition
+
+..... et BIOHAZARD pour l'influence de leur Rap Hardcore.....
+
+... et à tout ceux qui m'ont assisté avec de l'aide et des conseils dans le forum, ainsi qu'à tous ceux que j'ai oublié.
+
+==================================================================================================
+
+*Installation*
+
+Compatible avec Darkloader.  NE PAS EXTRAIRE LE FICHIER ZIP !!
+
+==================================================================================================
+
+*Droits d'auteur*
+
+Ce niveau est © par Schattengilde, 31 décembre 2007
+
+La distribution de ce niveau est permis tant qu'elle reste gratuite et que le fichier zippé reste intact. Vous ne pouvez pas inclure ce niveau à un pack de mission ou à une campagne. Nul ne peut modifier ni redistribuer cette mission sans mon autorisation expresse.
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.

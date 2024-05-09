@@ -1,0 +1,155 @@
+Geheimnisvolle Einladung (MH's 2007 Rework)                      
+Autor:		MH.TheFreak
+Kontakt:	Ich bin per PN oder Boardmailer im ttlg.de zu erreichen.
+Version:	2.0 Final
+Release 1.0:	27. November 2005
+Release 1.1:	17. Januar 2006
+Release 2.0:	17. März 2007
+
+Wichtige Hinweise!                                                                        
+-	Es wird der DarkLoader ab Version 4.2 vorrausgesetzt. Andernfalls könnte
+	dieser Text in der falschen Sprache angezeigt werden.
+-	Diese FM wurde nicht mit dem GarrettLoader getestet! Daher keine Gewähr.
+-	Diese Mission verwendet und enthält die Custom-Skripts von Telliamed.
+-	Dies ist meine erste Mission für Thief II und der erste Teil einer möglichen Serie.
+-	Findet möglichst früh den Bogen! Dies trägt ein bisschen zum Realismus bei, 
+  	wenn man erst den Bogen und dann die Pfeile findet. Falls nämlich die Pfeile 
+	nicht funktionieren - das ist kein Bug!
+-	Passt gut in den Räumen mit Fenstern auf! Es könnte Euch eine Wache von 
+	draußen erblicken.
+-	Nicht alle Räume sind von Anfang an zugänglich, manche überhaupt nicht.
+-	Sucht erst nach dem Rückweg, sobald alle anderen Ziele erfüllt sind. Wenn es 
+	kein Zurück mehr gibt, ist es zu spät. (... oder doch nicht, aber dieser Weg ist
+	geheim ;) )
+
+Versionsgeschichte:                                                                                                    
+Änderungen in Version 1.1
+-	Es ist jetzt eine Rückkehr möglich, falls man zu früh am Ausgang angelangt ist.
+-	Englische Sprachunterstützung wurde hinzugefügt (nochmals besten Dank an
+  	Vogelfrei sowie an nil8hate, Bikerdude, marycwmbach und Griffin).
+-	Beseitigung anderer kleinerer Bugs.
+
+Änderungen in Version 2.0
+-	Der lästige Bug mit den südlichen Türen des Speisesaals wurde behoben.
+-	Kein Absturz im Labyrinth mehr. (Danke an SinisterShadow, der mir bei 
+	diesem Problem geholfen hat.)
+-	Überarbeitete Himmelseinstellungen und Außenbeleuchtung.
+-	Story wurde modifiziert.
+-	Ein neuer Bereich wurde hinzugefügt.
+-	Grafische-Verbesserungen (ein paar Texturen wurden durch neue ersetzt,
+	das Thief 2 Enhancement Pack wurde integriert).
+-	Es gibt nun eine optionale Zusatzaufgabe.
+-	Beseitigung anderer kleinerer Bugs.
+
+Beschreibung:                                                                                                             
+Die letzten bedeutsamsten Ereignisse liegen glücklicherweise schon eine ganze Weile 
+zurück. Und egal, was geschah, es war nichts Angenehmes. Das Enttäuschende daran ist, 
+dass mir wieder nicht die Chance auf den Ruhestand vergönnt ist. Weder die Million 
+Goldstücke, die mir Constantine damals hochherzig versprochen hat, noch unglaublich 
+wertvolle Schätze der Mechanisten, über die man neuerdings munkelt, haben vor meinen 
+Augen das Tageslicht (oder die nächtliche Dunkelheit) erblickt. Ich hatte mich schon damit 
+abgefunden, wieder einen Gang durch die Stadt zu machen, um mir den nötigsten 
+Lebensunterhalt zu verdienen, als unverhofft am frühen Morgen das Schicksal in Form eines 
+ungeladenen Besuchers an meine Tür klopfte. Mit dem Dolch griffbereit am Gürtel näherte 
+ich mich der Tür und öffnete sie einen Spalt weit, aber niemand war weit und breit zu sehen. 
+Gerade wollte ich mich umdrehen, da fiel es mir auf. Ganz unscheinbar lag ein versiegeltes
+Briefcouvert vor meinen Füßen. Ich vergewisserte mich, dass mich niemand beobachtete 
+und nahm den Brief an mich...
+Sieh an, jetzt habe ich schon einen Brieffreund. Dazu kommt, dass es jener Kerl ist, der 
+mich damals mit Kindesbeinen aufgenommen hat. Er bittet mich um Hilfe, er sitzt im 
+Anwesen eines Adeligen fest. Sicher, ich verdanke ihm Vieles, aber dass er sich aus 
+heiterem Himmel bei mir meldet, finde ich sehr seltsam.
+In Gedanken zerknüllte ich den Brief, kramte meine Ausrüstung zusammen und 
+begab mich auf die Straße. Und dann passierte es: Als ob sie es genau wussten, haben sie 
+mir am Marktplatz aufgelauert. Reuben hat mein impertinentes Benehmen satt und 
+endgültig nicht nur seine Jungs auf mich gehetzt, sondern zu allem Überfluss auch die 
+Stadtwache sowie die Hammeriten. Zum Glück gelang es, mit Hilfe meiner zuverlässigen 
+Ausrüstung, zu entkommen. Aber es werden fast alle Straßen kontrolliert und alle Bürger sind 
+nun vor mir gewarnt. Als ich mich für einen ruhigen Augenblick in eine dunkle Ecke 
+zurückziehen konnte, ging ich nochmal Orins Brief in Gedanken durch und mir wurde klar: 
+Schlimmer als hier auf der Straße kann es in Lord Duncans Anwesen nicht mehr werden.
+Und außerdem: Ein Anwesen bei Tageslicht zu besichtigen ist auch eine willkommene
+Abwechslung zu den eintönigen Nachtausflügen.
+
+FM-Informationen:                                                                                                         
+Spiel:				Dark Project 2 – The Metal Age
+Titel:				Geheimnisvolle Einladung
+Miss-Dateiname:		miss20.mis
+Schwierigkeitsgrade:		Normal, Hart: Blackjack und Alarmieren der Wachen 
+				erlaubt
+				Experte: weder Blackjack, noch Alarmieren der Wachen 
+				erlaubt
+Ausrüstungsshop:		Nein
+Karte:				Ja
+Auto-Karte:			Ja
+Neue Texturen:		Ja
+Neue Sounds:			Ja (aus Thief1G)
+Neue Objekte/AIs:		Ja (die AIs sind aus Thief1G/DromEd Deluxe)
+Mehrsprachig:		Ja (Deutsch/Englisch)
+Vorspann:			Nein
+
+Bekannte Bugs und Probleme:                                                                                          
+-	Die Anzahl der Taschendiebstähle stimmt nicht überein. Tatsächlich gibt es nur
+	9 mögliche Taschendiebstähle.
+-	Gelegentlich kann es vorkommen, dass die AIs auf die Tische klettern und nicht
+	mehr hinunterkommen. Dies ist ein Bug in der DarkEngine.
+-	Wenn man sich direkt neben so manch eines der Podeste stellt, folgen die Wachen 
+	einem nicht weiter.
+-	Beim Betatest wurde gemeldet, dass sich die AIs an verschiedenen Stellen im
+	Anwesen "verirren" können. Das kann ich jedoch nicht bestätigen.
+-	Manchmal greifen die AIs bei Alarmierung den Spieler nicht an, sondern bleiben
+	erst eine Zeit lang stehen.
+-	Springt man auf den Beckenrand vom Pool, kann ein SHAS auftreten.
+
+Konstruktion:                                                                                                                      
+Basis:		Die Himmelseinstellungen sind von frobbers KoP 9 - "Under the Raven Moon"
+Bauzeit:	lange, dazwischen große Pausen
+
+Credits:                                                                                                                                 
+-	MadBull#34 - Str-Converter und Tutorials (möge TTLG.DE niemals aussterben!)
+-	von.Eins - neue Objekte und Tutorials (ein wirklich guter DromEd-Lehrer)
+-	Rob Hicks - DromEd Deluxe
+-	Targa - neue Objekte
+-	Hrothgar - neue Objekte
+-	Nameless Voice - neue Objekte
+-	Dark Arrow - neue Objekte
+-	Sluggs - neue Objekte
+-	Yandros - neue Objekte und Texturen
+-	Schwaa - neue Objekte
+-	Ville Paavolainen - neue Texturen
+-	Silentsigh - Gestaltung des Duncan-Banners
+-	Vogelfrei - Gestaltung des Startlogos und Übersetzung ins Englische
+-	Tom N Harris - Custom Script (und natürlich DarkLoader!)
+-	Vigil - Map-Templates, Texturen (Homepage: HYPERLINK "http://www.washboardabs.net/thief/" www.washboardabs.net/thief/)
+-	Dainem - Betatesten (Version 1.0) und Berichtigung der Texte
+-	Valen - Betatesten (Version 1.0) und Verbesserung der Story
+-	fibanocci - Betatesten (Version 1.0)
+-	Xrayalpha - Betatesten (Version 1.0)
+-	nil8hate - Übersetzung
+-	Bikerdude - Übersetzung
+-	marycwmbach - Übersetzung
+-	Griffin - Übersetzung
+-	Raven - Betatesten (Version 2.0) 
+-	SinisterShadow - Betatesten (Version 2.0), Textkorrektur und Hilfe bei
+	Bugfixing
+-	Cúthalion - Übersetzung (Version 2.0) 
+-	ganac - Übersetzung Korrekturlesen (Version 2.0) 
+
+Besonderen Dank an Nameless Voice sowie an Vigil, Eshaktaar, R Soul, Targa, G'len und
+DarkDragon für das Thief 2 Enhancement Pack!
+
+...und all diejenigen, die mir im Forum mit Rat und Tat zur Seite standen, sowie diejenigen, die 
+ich vergaß hier aufzulisten.
+
+Diese FM verwendet Gemäldegrafiken von www.vispix.com, die von folgenden Künstlern
+gemalt wurden: 
+  - Sisley 1839-1899, Alfred, Paris, France (pai01.gif)
+  - Solimena 1657-1747, Francesco, Canale di Serino, Italy (pai02.gif)
+  - Vermeer 1632-1675, Johannes, Netherlands (painting02.gif, painting03.gif, painting04.gif, pai03.gif)
+  - Hokusai 1760-1849, Katsushika, Japan (painting01.gif)
+
+Copyright:                                                                                                                               
+Mission erstellt von MH.TheFreak
+Die Weitergabe dieser Mission ist gestattet, solange dies kostenlos geschieht und die Datei 
+intakt bleibt. Die Benutzung erfolgt auf eigene Gefahr. Dieses Level ist nicht von Looking Glass 
+Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 

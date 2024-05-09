@@ -1,0 +1,104 @@
+=======================================
+Assault At The Gas Station
+Release Version 1.9 Gold scripts included
+=======================================
+Author: Sterlino
+Contact info: Sterlinoy@libero.it 
+Homepage: http://sterlino.altervista.org/index.html
+Date of release: 22/9/06
+
+
+Title:					Assault At the Gas Station - see the introduction
+Version:				1.9 ‘Gold’ (3/29/2009)
+Author:					Sterlino
+Game:					Thief 2
+Difficulty settings:			yes - see the differences down below
+Map / Automap:			yes/no
+New graphics:				yes
+New Objects:				Yes - see below
+Multi language support:			No
+ 
+INTRODUCTION :
+
+Note: This mission takes place a FEW DAYS BEFORE 
+the end of the metal age. 
+
+the story:
+
+Since you were involved in Victoria's plot, things are going to be harder for
+you. The Mechanists increased their vigilance and you're not so free to go everywhere without taking
+careful measures.
+Yesterday a man from the Pagans came knocking on your door. When he came in,
+you tried to breathe as little as possible because of the smell emanating from him.
+"We need your help, Garrett. The Mechanists are going to build a new secret weapon. We don't
+know exactly what is it but we know that it will have a deadly effect on everything surrounding
+us: woods, air, water...everything could be poisoned by that weapon.
+They've created a front to disguise the evil thing and it's called "Gas Station".
+Karras fooled the people, telling them it was to bring light and warmth into every house but the truth 
+is that this man wants to make slaves of us and destroy all the vegetation.
+We must stop this plan. The gas station is the source of many problems and must be destroyed.
+We have a plan for you to follow. Remember the promise you made to Victoria...
+Find a way to sneak inside the station. Your first objective is to locate the blue shiny node that 
+keeps the gas field around the Station up, so do whatever is in your power to get it or destroy it.
+If you don't succeed, we risk dying before the assault even begins.
+Afterwards, look around to see if there are any other possible dangers to us. When you're sure that everything looks safe, find an exit to the sewer where we will await you. Then we can begin our assault." 
+
+So, on a dark and rainy night your fate will be tied with the destiny of an entire age...
+
+------------------------------
+GasStationAssault 1.9.Gold.zip
+------------------------------
+this version was released to fix a couple of final bugs that in the beta stage
+we didn’t find and to include the scripts modules used to prevent some
+system defaults problems.
+Beware: if you don’t like the idea to have a mission pack with the scripts inside BEFORE PLAY, in darkloader press to INSTALL only then go to thief2 folder and delete the files: script.osm thnscript.osm darkhooks.dlx ! after that download from the link down here the scripts modules directly from the original sites.
+
+http://www.thiefmissions.com/scripts/ 
+
+better setting:
+audio: channel 16, hardware acceleration=off, eax=off
+
+Construction *
+Base       : From mind
+Build Time : A full occupied month (and another month for beta-testing)
+
+NOTE ABOUT THE ANTI-GAS MASK:
+in the game you will find a new tool for garrett, it's the AntiGasMask, it works as expected and when you wear it you don't suffer the letal effects of the gas.
+Important: to take off the mask you have to select it from your inventory again and click on it. A shortcut key is present, go to the player menu to 
+set a Keyboard’s key for select the Antigasmask in a faster way.
+Warning: when you wear the mask you cannot use your weapons and if you pick up a weapon, it will disable the Mask.
+Same thing if you find a Scouting Orb and use it..
+Since you have the mask ON, you can’t eat but you can use the potions.
+
+Extra note about this ‘Gold’ version:
+-	A new better model of the Anti-Gas Mask.
+-	New explosions at the end.
+-	Some minor bug fixing and improved gameplay.
+
+Difficulties differences:
+The only two differences between Easy and Med/Expert are the number of the guards and the location of one of the Primal Node keys. 
+(obviously except the loot that is 2500 easy, 3500 med, 4500 expert).ù
+
+Sounds:
+The music gascel,gaslinder,timrs,timersII and the effects vader,dig1 and dig2 are created by Sterlino with the help of some house tools.
+
+thanks to:
+Everyone at the TTLG forum, Sluggs (my dear friend), Fidcal, Rsoul (the wise), Yandros, Dr Sneak.
+A special thanks to ShadowSpawn and The Watcher who helped me with the ranout trouble.
+Thanks to Nameless Voice for some things like the GasParticle effect that is a modified version of his nice cemetery fog.
+Thanks also to Ottoj55 for his minelamp model. (Otto I wanna play A Debt Repaid II)
+and my C.S.I. betatesting team: GRIFFIN, FFOX, SILENTWARRIOR & MOTLEYCAT.
+And one last and very important thanks to Epithumia for the support and the patience with me (as always), Ffox for the same reasons and a very special mention 
+to Bikerdude (the benefactor) for his precious gift, Bikerdude you’re a great person  !   
+
+
+
+~@~ Copyright Information ~@~
+
+This level was made by Sterlino
+Distribution of this level is allowed as long as it is free and the package
+is kept intact. 
+You may not include this level to any map pack without my
+permission.
+ No one may edit and re-distribute this mission without my express permission. 
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

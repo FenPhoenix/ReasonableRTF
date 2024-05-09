@@ -1,0 +1,70 @@
+Sombres Plans
+
+V.2
+New Dark 1.23
+Une Fan Mission pour Thief 2
+par Ricebug
+Date de sortie : 17 mars 2012
+
+Une campagne en 2 missions.
+
+Histoire
+
+Lord Gregory, une riche personne raffinée lié aux Mécanistes, vous a engagé pour trouver sa fille, qu'il croit avoir été capturé et prise en otage par quelques païens. Comme d'autres avant lui, il vous a promis une grosse récompense. Mais puisque vous avez eu une relation profitable mutuelle dans le passé, vous voyez ceci comme une façon de faire de l'argent rapide. Cependant, les choses ne sont pas ce qu'elles semblent être et vous vous trouvez bientôt au milieu d'un sombre plan qui pourrait détruire de nombreuses vies.
+
+Beta Testeurs
+
+bob_doe_nz, dbrilliant, edudrekib, ffox, Gloria Creep, ittlsrun10s, Sensut, SirFreddieM, SlyFoxx
+
+Notes et Bugs
+
+Joueur soit averti : la mission 2 est basée sur une mission abandonnée, qui comprenait son propre gamesys. Au cours de la bêta, nous avons trouvé que l'auteur original avait tellement modifié le gamesys que cela causait de nombreuses choses étranges. Comme la mission était presque finalisée, cela aurait demandé beaucoup de travail et de douleur d'avoir eu à remplacer le gamesys. Nous avons corrigé tous les bugs que nous avons trouvés, mais il en reste peut-être un ou deux qui rôdent. 
+
+Remerciements
+
+Alun Bestor: Caisses, barils
+CoSaS Team: Modèle de fleurs, lampes tiffany
+David Gurrea: Gazebo textures (http://www.davegh.com)
+Haplo: Modèle Blueprint, configuration de l'échelle dans la mission 1
+Independent Thief: Truquage conversation, objectifs de la mission 1, voix du remplaçant
+Istvan Varga: Base de la mission 2
+Jason Otto: IA améliorée et les modèles de vigne
+Jermi: Nuages, ciel et lune
+R Soul: Vmaw textures, grognement du chien, table de banquet et chaises
+Renzo “Eshaktaar” Thönen: Textures d'eau, leviers
+Scarykitties: Robot de combat
+Sensut & ffox: Scripting et correction des objectifs de la mission
+Sluggs: Arbres et clôtures
+SlyFoxx: Voix vidéo d'intro & jeux de mots
+Targa: AI personnalisée
+Vigil: Toiles d'araignée, puits de lumières
+Zappenduster: traduction en allemand
+Apiai: traduction en français
+
+Sons des voix repris de Thief 3: Deadly Shadows ©
+
+Remerciements Vidéo d'introduction
+
+SlyFoxx – Narration
+Zontik – Upside Down
+JIS – Welcome To Thief 3
+The Sentinel dessin original de Medieval Magneto
+
+Jeu			: Thief 2 - L'âge de métal
+Nom des missions	: Rencontre, Secrets
+Nom des fichiers		: miss20.mis, miss20,gam, miss21.mis, miss21.gam
+Choix difficulté		: Normal, Difficile, Expert
+Achat équipement	: Non
+Carte/Carte auto		: Oui/Non (Mission 2)
+Nouveaux Graphismes	: Oui
+Nouveaux Sons		: Oui
+Nouveaux conversations	: Oui
+Nouveaux Modèles	: Oui
+Support de l'EAX		: Oui
+Langues			: Anglais, Allemand, Français
+Introduction		: Oui
+
+
+Droits d'auteur
+
+Ce niveau n'a pas été fait et n'est pas pris en charge par Looking Glass Studios, Ion Storm ou Eidos Interactive.

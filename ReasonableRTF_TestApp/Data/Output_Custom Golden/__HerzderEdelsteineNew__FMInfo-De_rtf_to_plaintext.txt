@@ -1,0 +1,146 @@
+
+Das Herz der Edelsteine: Nacht des roten Mondes - Version 1.0 - Oktober 2016
+================================================================================
+
+Autor: Terra
+Erscheinungsdatum: Oktober 2016
+
+Hinweis!
+Diese FM nur mit den neusten Patch des Tafferpatcher spielen,
+es kann sonst zu grafischen Fehlern kommen!
+
+Diese FM wurde nur mit FMsel und NewDarkloader getestet, auf andere Programme gibt es keine Garantie. 
+
+
+================================================================================
+
+Handlung:
+
+Die Ereignisse spielen 8 Wochen nach Goldene Dächer ...
+
+Das Geld wird knapp und das neue Haus mitten im Wald scheint auch nicht das ganze zu sein. Aber ein alter Freund hat euch
+einige Infos über ein wertvollen Edelstein zukommen lassen, das sogenannte Herz aller Edelsteine. Es soll vom unschätzbarem
+Wert sein und außerdem ein Geheimnis bergen. Es sieht so aus,  als wäre es wieder Zeit für ein Abenteuer, doch scheint in der
+Sache ein seltsamer Orden mitzumischen und ebenfalls den Edelstein zu begehren.
+Ich denke, ich sollte paar Informationen über diesen Orden besorgen und ihn einen Besuch abstatten, anscheinend führt eh kein
+Weg daran vorbei, da sie in Besitz einer der zur Bergung des Edelsteins nötigen Ritualkerzen sind.
+Wenn ich schon mal in der Stadt bin, sollte ich die Augen offen halten nach dem seltenen Schwert von Arkford, das ja laut
+Legende immer erscheinen soll, sobald der Mond sich rot färbt. Heute scheint mein Glückstag zu sein, denn in dieser Nacht
+nimmt der Mond rote Farbe an ... leider hab ich nicht viel an Ausrüstung dabei, nur meine Axt sollte sich noch irgendwo im
+Wald befinden, ich sollte sie mir zunächst wiederholen.
+
+================================================================================
+
+Spielinformationen:
+
+Spiel: Thief 2 - Das Metallzeitalter (Version 1.22 NewDark)
+Missionstitel: Das Herz der Edelsteine: Nacht des roten Mondes
+Dateien: miss21.mis, gem.GAM
+Schwierigkeitsgrade: Normal, Hart, Experte
+Ausrüstungsladen: Keiner
+Karte: Notizettel
+Ergänzungs-Grafiken: Ja
+Neue Geräusche: Ja
+EAX: Keine
+Mehrsprachig: DE/FR/EN
+Briefing: Keines
+
+================================================================================
+
+Bauzeit: 1 Jahr 4 Monate
+
+================================================================================
+
+Ergänzungs-Objekte von:
+
+Eshaktaar Broken Triad
+Dedx
+Jason Otto
+Schwaa
+Christine
+Greenhorn
+Zontiks Kings Sale
+Cosas-Team 
+Saturnine Rose Cottage
+
+Ergänzungs-Meshs von:
+
+Eshaktaar Broken Triad, Ominöse Erbschaft
+Saturnine Rose Cottage
+Dedx 
+Tdbonko
+SoulTear
+Gaëtane
+
+Ergänzungs-Grafiken von:
+ 
+  Ardiana
+  Daraan        
+  David Gurrea Hernandez (www.davegh.com)
+  Gecko
+  GORT
+  LarryG
+  Nameless Voice 
+  Necrobob
+  Nicked
+  Purgator
+  Renzatic
+  Sensut
+  Soul Tear
+  Vurt
+  Xorak
+
+PhotoRealistic: 
+CGTextures (www.cgtextures.com)
+GenealogyInTime (www.genealogyintime.com)
+PlainTextures (www.plaintextures.com)
+Drk
+Jermi
+Saturnine Rose Cottage
+David Gurrea
+Gaëtane
+Vigil
+Eshaktaar Broken Triad, Ominöse Erbschaft
+Thief Deadly Shadows
+ Pathologic
+
+
+Betatester:
+Cardia
+nightshifter
+Zoro
+LeMalin76
+Atropos
+silent_thief
+
+Übersetzungen FR/EN:
+Zappenduster,LeMalin76, nickie
+
+================================================================================
+
+Scripts by 
+
+Nameless Voice - http://www.geocities.com/nameless_voice/
+Telliamed - http://thiefmissions.com/telliamed/
+            http://whoopdedo.org/projects.php?scripts
+
+Ergänzungs-Musik und -Geräusche von:
+
+Unterwegs in Düsterburg von Grandy
+Vampires Dawn von Alexander "Marlex" Koch
+Eshaktaar 
+Thief2x Team
+
+================================================================================
+
+Urheberrecht:
+
+Diese FM stammt von Terra, Oktober 2016.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt
+und wird auch nicht von diesen unterstützt.
+
+================================================================================
+
+Sollte ich Leute in den Credits nicht aufgeführt haben, bitte lasst es mich wissen, denn nach einem Jahr Bauzeit kann
+man den einen und den anderen vergessen, das ist keine Absicht.

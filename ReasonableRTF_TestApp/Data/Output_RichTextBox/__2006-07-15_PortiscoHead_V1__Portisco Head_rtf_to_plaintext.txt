@@ -1,0 +1,83 @@
+PORTISCO HEAD
+
+A Thief 2 FM By Ravenhook
+Production Assistant: Freddy Fox
+
+
+Story so far
+
+This FM takes place after the end of Coalport, where you were surprised to find your old adversaries The Mechanists in control of that lonely outpost. You have done well to get past those fanatics, but now you are confronted by a steel door and have a moment or two to reflect on your troubles.
+
+As you have been "dumped" here by an outraged landlord you have no idea how far away from home you really are.  You don’t know whether to try to return to your home and exact revenge on your ex landlord or to stay in this area. Obviously if you wish to stay here you are going to have to explore this world in detail and take care of any dangers - what should you do?
+
+You opt to explore and restock your wealth, so your first task is to open the door and see what's on the other side....
+
+
+Objectives
+
+Steal 3000 loot (Normal), 4500 loot (Hard), 6000 loot (Expert).
+Do some research on The Large Ruby.
+Find the exit.
+(2 more objectives are revealed as play progresses.)
+
+
+My Thanks
+
+To anyone whose textures or objects seem familiar: this FM was created with the standard Dromed version and I have not knowingly used any custom items. My apologies if Dromed has thrown up anything "sinister".
+
+Gaetane, for the bucket headed archer idea - outstanding.
+
+Everyone at TTLG without whose help this would not be possible.
+
+
+Testers
+
+Alpha:	Sluggs, The Pixie, Dinksmallwood, Freddy Fox, Nightwalker
+
+Beta:	Freddy Fox, Nightwalker, Lightningline, mrsmr2, Bikerdude, Preno
+
+Final: 	Preno,  mrsmr2,  Hotlyx,  flying_hope
+
+
+Loading Information
+
+Runs from Dark Loader.  Same as always - do not unzip
+
+
+
+Release History
+
+=============================================================
+
+Construction
+
+Base: 		Thief 2 stock resources
+Build Time: 	Forever
+
+=============================================================
+
+Play Information
+
+Game: 			Thief 2: The Metal Age
+Level Names: 		 Portisco Head (V1)
+File names: 		 miss19.mis 15/07/2006
+Difficulty Settings: 	Normal, Hard, Expert  
+Equipment store	: 	No
+Map/Automap: 		Yes (blank to avoid crashing)
+ New graphics: 		 No
+New sounds:		 No
+New conversations: 	No
+New models: 		No
+EAX Support: 		Partial
+Multi language support:	No
+
+=============================================================
+
+Legal Stuff and Copyright info
+
+This level is ©2006 by Duncan Ardley.  No part of it may be used without my permission.
+
+This level was not made by and is not supported by Looking Glass Studios or Eidos Interactive.
+This level is for free distribution only. It may not be sold either singly or as part of a pack.
+
+=============================================================

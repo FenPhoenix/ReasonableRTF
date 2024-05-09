@@ -1,0 +1,24 @@
+
+Cathedral of the Damned 0.60 (Beta 1)
+Documentation
+December 1, 2001
+
+
+D E S C R I P T I O N
+	This version has been released, uncomplete,  for beta testing purposes.  The main things that haven't been implimented as of yet are the scripting, EAX, a few books, modeling, and the briefing videos and cutscenes.  Other than that, its basicly finished (or whatever the testers find wrong with it).
+
+
+B R I E F I N G
+	Since the briefing has yet to be made, here is a description of the situation:
+
+About a month has passed since the Trickster's demise.  The Hammerites, seemingly very pleased with your recent work, decide they have another task for you.
+A Hammerite priest has told you about a holy scepter which has been left in an abandoned cathedral some decades ago.  He wishes for you to retrieve it for him. But finding the scepter is only half the job, once found it must be blessed in a special holy pool, which is said to be located inside somewhere.
+A simple job for a master thief such as yourself, not to meantion a lucrative opertunity. Be warned though, the priest didn't bother to meantion that the place was haunted.
+
+
+I N S T A L LA T I O N
+	To install simpily move the contents of this directory into your Thief II: The Metal Age directory and run Thief  normally.  So, yes currently you will need Thief II: The Metal Age  installed to play this!
+
+
+This is of course, not suported by Looking Glass Stuidos or Eidos Interactive. If you seek help or have questions or comments you may contact me at dieingrose@hotmail.com
+

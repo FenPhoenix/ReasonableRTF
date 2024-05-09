@@ -1,0 +1,68 @@
+
+
+===================================================================
+24-10-2003
+===================================================================
+Title           : Forgotten Forest, part 1
+Filename        : ZL_eng.zip
+Author          : Timon
+Contact info    : Tomeksz@poczta.fm
+Version         : 1.0
+
+Translator          : Jericho Barimen
+Contact info    : jericho_data@o2.pl
+Mission Briefing :
+
+First mission of the campaign.
+
+Bookshop owner Kielnia hired you to learn the source of where the valuable items come from. These items sell on the market and the person who offers them is Marucha. Undoubtfully Kielnia wishes to get ahold of these items. But your task is to make profit on this ordeal, as well as to learn who stands behind Marucha. A simple peasant as himself wouldn't be able to arrange selling of the antiques. Additionally, it's worth knowing who you steal from, it might save your life or be of other use. After all, information is the best deposit you can make, as well as life insurance. Let's move on! You hope to leave this forgotten forest by dawn. Forgotten by humans and gods....
+
+ 
+===================================================================
+Playing the mission: 
+
+Game                : Thief 2: The Metal Age
+Mission File        : miss25.mis
+Gamesys File        : ZLas.gam 
+Difficulty Settings : yes
+Equipment store     : no
+Map                 : no
+Automap             : no
+New graphics        : yes
+New sounds          : yes
+EAX Support         : yes
+Briefing            : no
+Multi language      : no
+Known bugs          : 
+
+
+Playing		: Install using Darkloader, do not unzip, unless you really want to.
+
+====================================================================
+Building Info
+
+Base               : from scratch
+Map Size           : average
+Build Time         : a long time
+
+Special thanks to: 
+
+in alphabetical order 
+Anna
+Brzeszczot
+Bukary
+Jericho
+Nivellen
+Otello
+PiotrS
+Zlack
+
+
+Objects by : Schwaa, vonEins, Targa ,Jonquilis,Christine,Mrys, Nameless Voice,Timon and others
+Textures by : Nivellen, Gob, David Guera, Purah, BerneyBoy and others
+ 
+====================================================================
+Disclaimer:
+
+This level was not made by Looking Glass Studios or Eidos, nor is it supported by them. All of
+their copyrights and responsibilities go with this FM as they decree, which isn't much. I give what permission I can to allow it to be freely distributed intact as long as credit is given to them and me.

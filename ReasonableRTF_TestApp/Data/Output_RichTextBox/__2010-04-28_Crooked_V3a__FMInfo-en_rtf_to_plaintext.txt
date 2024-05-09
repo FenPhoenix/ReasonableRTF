@@ -1,0 +1,246 @@
+Crooked Town (V3)
+A 2-part mission by Ricebug
+
+Scroll alsjeblieft omlaag om de informatie in een andere taal te lezen.
+Пролистайте вниз, чтобы увидеть русский текст.
+Versione italiana in basso
+
+________________________________________________________________________________
+
+Author           	: Terry DeLaney
+Contact info       : ricebug@cableone.net
+Date of release	: April 26, 2010
+________________________________________________________________________________
+
+Lord Chancey, a wealthy aristocrat, believes his wife and daughter have been kidnapped. He’s asking
+that you find them and bring both safely home. Thus begins your destination to a place called Crooked
+Town. 
+________________________________________________________________________________
+
+Playing Information
+
+Game                   	: Thief : The Metal Age
+Mission Title          	: Crooked Town
+File Name            	: Crooked.zip
+Difficulty Settings     	: Yes
+Briefing               	: Yes
+Difficulty Level Info  	: Normal, Hard, Expert
+Languages		: English, German, Russian
+Construction :		: From scratch
+Base                   	: No
+Build Time              	: 8 months
+________________________________________________________________________________
+
+Credits
+
+Textures : Lemog, Hrothgar, CG Textures <http://www.cgtextures.com/>, Genetica <http://www.spiralgraphics.biz/gen2tour/index.htm>
+Beta Testing: bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy
+Custom Stuff:
+
+Greenhorn: plant & tree objects
+Jason Otto: cranes and walkways
+Nameless Voice: flames, lantern
+Vigil: Cobwebs 
+COSAS/Digital Nightfall: furniture, doors, bookends 
+LarryG: arched door on pawnshop
+Rob Hicks: DedX gamesys
+My wife, Sherry: pagan girl’s voice
+
+Special thanks to the foreign language translators:
+
+German: Zappenduster
+Nederlands: Gloria Creep, PotatoGuy
+Russian: Zontik, Winter Cat
+Français: Briareos H
+Italian: Krenim
+
+Bugs/Notes
+
+There’s one area where the water will not make sound. This is due to the odd angles of the brushes.
+
+Technical Info
+
+AVIs made with Adobe Premier
+Audio processing done with Sound Forge 
+ 
+Loading Information 
+
+Place this zip file in the folder where you keep your other Fan Missions. Run from your fav FM loader.
+
+Copyright Information
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive. Bummer.
+________________________________________________________________________________
+
+Кривой город
+Миссия из 2 частей от Ricebug
+________________________________________________________________________________
+
+Автор           	: Terry DeLaney
+Контактная информация       : ricebug@cableone.net
+Дата выпуска	: 26 April 2010
+________________________________________________________________________________
+
+Лорд Ченси, богатый аристократ, считает, что его жену и дочь похитили. Он просит
+вас найти их и привести домой. Пункт назначения - место под названием Кривой Город. 
+________________________________________________________________________________
+
+Игровая Информация
+
+Игра                   	: Thief : The Metal Age
+Название Мисси          	: Кривой город
+Имя файла            	: Crooked.zip
+Брифинг               	: Да
+Уровни сложности  	: Нормально, Тяжело, Эксперт
+Создание :		: С нуля
+Основа                   	: Нет
+Время строительства	: 8 месяцев
+________________________________________________________________________________
+
+Авторы и исполнители
+
+Текстуры : Lemog, Hrothgar, CG Textures <http://www.cgtextures.com/>, Genetica <http://www.spiralgraphics.biz/gen2tour/index.htm>
+Бета-тестирование: bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy
+Сделано пользователями:
+Greenhorn: растения и деревья
+Jason Otto: краны и аллеи
+Nameless Voice: пламя, фонарь
+Vigil: паутина 
+COSAS/Digital Nightfall: мебель, двери, подставки для книг 
+LarryG: арочная дверь в ломбарде
+Rob Hicks: игровая система DedX
+Моя жена, Sherry: голос девочки-язычницы
+
+Ошибки/примечания
+
+В одной области нет звука от воды. Это из-за особенностей архитектуры.
+В первой миссии у вас не будет дубины на уровнях сложностях Тяжело/Эксперт.
+
+Техническая информация
+
+AVI сделаны в Adobe Premier
+Аудио обработано  в Sound Forge 
+ 
+Загрузочная информация 
+
+Скопируйте zip-файл в папку с другими фан-миссиями. Запускайте из под вашего любимого FM-загрузчика.
+
+Авторские права
+
+Этот уровень не был сделан и не поддерживается Looking Glass Studios или Eidos Interactive. Лентяи.
+________________________________________________________________________________
+Crooked Town
+Een 2-delige missie door Rucebug
+
+
+Maker: Terry DeLaney ( HYPERLINK mailto:ricebug@cableone.net ricebug@cableone.net)
+Publicatiedatum	: 26 april 2010
+
+
+Lord Chancey, een rijke aristocraat, denkt dat zijn vrouw en dochter ontvoerd zijn. Hij vraagt of jij hen kunt vinden en ze alletwee veilig  thuisbrengt.
+
+Spelinformatie
+
+Spel:Thief: The Metal Age
+Missietitel:	Crooked Town
+Filenaam:	Crooked.zip
+Moeilijkheidsinstelling: Ja
+Uitleg:	Ja
+Moeilijkheidsinfo level: Normaal, Hard, Expert
+Construction: vanaf het begin 
+Bouwwerk: Nee
+Basis: 8 maanden
+Bouwtijd
+
+
+Verdiensten
+
+Structuur: Lemog, Hrothgar, CG Textures, GeneticaBeta Testing: bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy 
+
+Speciaal gemaakt item
+
+Greenhorn: plant en boom objecten
+Jason Otto: kranen en loopbruggen
+Nameless Voice: vuur, lantaarns
+Vigil: Spinnenwebben
+COSAS/Digital Nightfall: meubels, deuren, boekkaften
+LarryG: gewelfde deur van lommerd
+Rob Hicks: DedX gamesys
+Mijn vrouw, Sherry: stem van het heidens meisje
+
+Fouten/Notities
+
+Er is één plek waar het water geen geluid maakt. Dit is vanwege de rare hoeken van de omgevingslijnen.
+
+Technische info
+
+AVIs gemaakt met Adobe Premier 
+Audio werk gedaan met Sound Forge 
+
+Donload informatie
+
+Plaats dit zip file in de map waar je je andere Fanmissies bewaard, Speel via je favouriete FM loader.
+
+Copyright Informatie
+
+Dit level is niet gemaakt en wordt niet gesteund door.
+
+Crooked Town
+Una missione in 2 parti di Ricebug
+________________________________________________________________________________
+
+Autore           	: Terry DeLaney
+e-mail	            : ricebug@cableone.net
+Data di rilascio	: April 26, 2010
+________________________________________________________________________________
+
+Lord Chancey, un ricco aristocratico, crede che sua moglie e sua figlia siano state rapite e ti ha chiesto 
+di trovarle e di riportarle a casa. Quindi ha inizio il tuo viaggio per il luogo chiamato Crooked
+Town. 
+________________________________________________________________________________
+
+Informazioni di gioco
+
+Gioco                   	: Thief  II: The Metal Age
+Titolo missione          	: Crooked Town
+Nome file           	: Crooked.zip
+Livelli di difficoltà	: Sì
+Briefing               	: Sì
+Info difficoltà	  	: Normale, Difficile, Esperto
+Costruzione		: dal nulla
+Base                   	: No
+Tempo di costruzione    	: 8 mesi
+________________________________________________________________________________
+
+Crediti
+
+Texture : Lemog, Hrothgar, HYPERLINK "http://www.cgtextures.com/" CG Textures, HYPERLINK "http://www.spiralgraphics.biz/gen2tour/index.htm" Genetica
+Beta Testing: bob_doe_nz, cardia1, Dawggon, Gloria Creep, john-the-begger, PotatoGuy, 
+Oggetti:
+
+Greenhorn: piante e alberi
+Jason Otto: camminaoi
+Nameless Voice: fiamme, lanterna
+Vigil: ragnatele 
+COSAS/Digital Nightfall: mobilio, porte, libri 
+LarryG: porta ad arco
+Rob Hicks: DedX gamesys
+Mia moglie, Sherry: voce ragazzina pagana
+
+Bug/Note
+
+C'è un'area dove l'acqua non produce alcun suono. Il problema è dovuto alle angolature dei brush.
+Nella prima missione non avrete un manganello ai livelli di difficoltà Difficile ed Esperto.
+
+Informazioni tecniche
+
+AVI creati con Adobe Premier
+Elaborazioni audio effettuate con Sound Forge 
+ 
+Informazioni di caricamento 
+
+Mettete lo zip nella cartella delle missioni. Usate il vostro Loader preferito.
+
+Copyright
+
+Questo livello non è stato creato e non è supportato dai Looking Glass Studios o dalla Eidos Interactive. Purtroppo.

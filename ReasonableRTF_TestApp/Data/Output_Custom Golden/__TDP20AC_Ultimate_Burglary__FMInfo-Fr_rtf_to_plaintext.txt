@@ -1,0 +1,65 @@
+Le cambriolage ultimatif - Version 1.0 - Novembre 2018
+================================================================================
+
+Auteur : Terra
+Réalisée en : Novembre 2018
+
+================================================================================
+
+Avis important:
+
+NewDark V1.24 ou supérieur est obligatoire, c'est conseillé de désactiver l'Enhancement Pack.
+
+================================================================================
+
+Description :
+
+Cette ville a pris de l'expansion ces dernières années. Les riches sont devenus plus riches et les pauvres plus pauvres. Il
+est temps de faire le cambriolage ultimatif. Il se trouve ici quelques objets de grande valeur, beaucoup de maisons et
+manoirs pleins de trésors et plusieurs braves citoyens qui possèdent trop de fric. Je vais farfouiller dans chaque bâtiment
+afin de remplir ma bourse. Néanmoins, il me faudra être prudent car le nombre des gardes a été augmenté. De plus, on
+parle parfois d' événements mystérieux dans cette ville. D'abord, je ferais mieux de visiter le magasin d'armes pour
+bien m'équiper.
+Alors Garrett, bonne chance pour la nuit qui vient !
+
+================================================================================
+
+Informations sur le jeu :
+
+Jeu: Thief 1 - (Version 1.24 NewDark)
+Titre: Le cambriolage ultimatif
+Fichiers: miss20.mis, ult.gam
+Niveaux des difficultés: non
+Magasin: non
+Carte: oui (Athalle)
+Nouveaux graphismes: non
+Nouveaux sons: non
+EAX: non
+Langues: DE/FR/EN/IT/RU
+Briefing: non
+
+================================================================================
+
+Construction : 12 mois
+
+================================================================================
+
+Beta-testeurs : vfig, Cardia
+
+Traductions (corrigé par) FR/EN :
+Zappenduster (Sacom, OldAndCunning)
+
+Traduction IT:
+Piesel
+
+Traduction RU:
+MoroseTroll
+
+================================================================================
+
+Droit d'auteur :
+
+Cette FM a été construite par Terra, Novembre 2018.
+Cette mission n'a pas été réalisée par les studios Looking Glass Studios ou Eidos Interactive
+
+================================================================================

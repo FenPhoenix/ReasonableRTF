@@ -1,0 +1,143 @@
+
+
+
+Titel	:	Lonmore
+Autor 	:	Beltzer
+Kontakt	:	beltzer2@hotmail.com
+Erstveröffentlichung	:	12. November 2021
+Version	:	1.2
+Einleitung	:	Ich habe die Stadt verlassen, als mir die Wachen immer dichter
+		auf den Pelz rückten. Seit einem Monat bin ich nun in Lon-
+		more.
+	Ich habe eine hübsche, aber etwas teure Wohnung. Langsam
+	geht mir das Geld aus. Aber ich liebe diese Stadt! Viele reiche
+	Bürger mit gut gefüllten Taschen.
+	Doch ich brauche etwas Größeres. Etwas, was mir eine Men-
+	ge Beute einbringt.
+	Ich könnte heute beim Abendspaziergang einige Häuser "be-
+	suchen"...
+
+===================================================================
+Informationen zum Spielen
+
+Spiel	:	Dark Project II: Das metallene Zeitalter, mit NewDark v1.27
+Dateinamen der Missionen	:	miss20.mis, miss21.mis, miss22
+Ausrüstung kaufen	:	Nein
+Versch. Schwierigkeitsgrade	:	Ja
+Karte/Automap	:	Ja/Nein
+Neue Grafiken	:	Ja
+Neue Sounds	:	Ja
+Sprachen	:	Englisch, Deutsch, Spanisch
+"Briefing-Film" vor dem Start	:	Ja
+
+===================================================================
+Bekannte Fehler (Bugs):
+
+- Nichts Wichtiges.
+
+===================================================================
+
+Meine bisherigen Missionen
+Reunification Campaign
+The Abandoned Castle (Die verlassene Burg)
+The Favour (Der Gefallen)
+Mortuos Liber Campaign
+The Sister
+
+FM-Lader:
+Getestet mit AngelLoader und FM-Selektor
+
+Dank an:
+
+Sprecher
+Cardia (Mann hinter einem Fenster)
+McTaffer (Gefängniswache)
+Redleaf (weibliche Mechanistin)
+Samantha1 (Frau hinter einem Fenster)
+SlyFoxx (Garrett)
+
+Betatester
+Dardo
+Draconigen
+Fortuni
+Mat99
+Myles
+Pete
+
+Alle Texte  - Korrekturlesen
+Dardo
+McTaffer
+
+Deutsche Übersetzung:
+Baeuchlein
+
+Spanische Übersetzung:
+Dardo
+
+Neue Objekte
+Blackthief
+Christine
+Dale
+Darkmax
+DarkShadow
+Elvis
+Eshakataar
+Firemage
+Gamophyte
+GORT
+Greenhorn
+LarryG
+Lord Alan
+Nameless Voice
+Nicked
+OttoJ55
+R Soul
+Sensut
+Sliptip
+Sluggs
+Soul Tear
+T2X
+Targa
+TDBonko
+Team Calendra
+Team Cosas
+Team Rose Cottage
+Vladimiroquai
+Von.Eins
+Yametha
+
+Äußeres Erscheinungsbild von Objekten/AIs (Meshes and skins) 
+Corsair
+Darkmax
+Purgator
+TDBonko
+Team Calendra
+Team T2x
+
+Texturen
+Enhancement pack
+NecroAge
+textures.com
+sketchuptextureclub.com
+Esse
+
+Skripte
+KDScript
+Nameless Voice
+TnhScript
+
+Sounds
+Dario D
+Tabias “Spadey” Scot
+
+Und, natürlich, vielen Dank an meine Verlobte Sandra für ihre moralische Unterstützung, während sie es er­trug, dass ich 24 Stunden und 7 Tage die Woche hier dran arbeitete!
+
+===================================================================
+Copyright
+
+Missionen © Beltzer. Die Weiterverbreitung dieser Missionen in jeglicher Art und Weise ist erlaubt, al­ler­dings müssen die Missionen intakt bleiben und ich (Beltzer) als Autor genannt werden. :-)
+
+Diese Missionen wurden weder von Looking Glass Studios noch Eidos Interactive erstellt, und Sup­port leisten sie auch nicht dafür.
+
+===================================================================
+

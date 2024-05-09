@@ -1,0 +1,72 @@
+----------------------
+ MELIAN'S METHOD v1.2
+----------------------
+
+* Text Briefing *
+
+It seems that there is a new thief organization called "The Dragon's Tail" that has been gaining quite a bit of a reputation lately for being ruthless and unrelenting to their competitors.  The Keepers think that the organization is involved with illegal smuggling, gambling and other incidents and are giving The Keepers and myself a bad name.  They want me to break into the one of their lackey's residences and get some information on them and return back.
+
+This place would probably be swamped with Dragon-Tail thieves at night, so after a long fun night, most of them are probably sleeping so ironically, a day time pursuit may be my best option, someone would have to be pretty stupid to break in during the day, right?  Heh heh.  Since I'm dressed just like they are as well, I might be able to walk right by a few of them without causing too much of a stir, they would probably just think I'm one of them, unless they start thinking about it too much... however once I get into the house, my non-Dragon- Tail affiliation would be pretty clear.  The particular owner of this joint goes by the name of "Melian" so it would a good idea to find out the exact method of how he's running his part in this group, perhaps papers or something would be useful to return with, and while I'm in here, I might as well pick up something for myself.
+
+
+* Play Information *
+
+Game:                Thief 2: The Metal Age
+Mission Title:       Melian's Method (v1.2)
+Author:              James "Jimmy" Desiderio
+Contact Info:        jimmy@greatmail.com
+
+File name:           MISS20.MIS
+New graphics:        YES
+EAX support:         YES
+
+If it's not listed, it doesn't have it.
+
+
+* Construction * 
+
+Base:                from scratch
+Build Time:          almost a month
+
+
+* Loading Information *
+
+ThiefLoader and DarkLoader ready.
+
+
+* History / Revision *
+
+December 2001 - v1.0 - Created and submitted to Komag.  This was released without any beta testing whatsoever (ran out of time).
+
+
+January 2002 - v1.1 - Fixed up and given to Komag (Ben Ramsey), however it wasn't updated at Jason's site until June 6th, 2003 (I didn't realize it wouldn't be sent over).  Underlines are added so you may breeze through.
+
+Actual Changes Include:
+
+(1)	Made the downstairs window in Melian's office unfrobbable (can't be removed).
+
+(2)	Added "Game-->Slay Result: Normal" to Melian so he can be killed or knocked out rather than being invulnerable.
+
+(3)	Added terrain to the first level of the mansion with rugs. (purely aesthetic).
+
+
+December 2003 - v1.2 - With a little extra time in real life, I fixed some things that were bothering me personally about the demo.
+
+Actual Changes Include:
+
+(1)	Fixed a great deal of the broken light map (not 100% fixed but much better)
+
+(2)	Shaved off a bit of polygons by rescaling the sky.
+
+(3)	Added EAX support for the entire level.
+
+(4)	Also added a few things I felt the level called for and removed a few very annoying things.
+
+If you need to get in contact with me about something, I highly recommend sending me e-mail as I hardly ever visit the TTLG forums and if you send me a PM there it could be months for me to reply back.  E-mail is much faster.  (jimmy@greatmail.com)
+
+
+* Extra Info *
+
+Distribution of this level is allowed so long as it is free and the package is kept intact.  No one may edit and re-distribute this mission without my permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

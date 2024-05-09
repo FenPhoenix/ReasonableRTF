@@ -1,0 +1,104 @@
+Cryptic Realms
+Thief II: The Metal Age - New Dark
+(Black & White)
+
+Playing Information:
+
+Game: Thief II - The Metal Age v1.19
+Title: Cryptic Realms
+Author: Csaba Szabo @ Sensut.
+Language Support : English.
+Version: 1.19
+
+
+Contact: csabisensut@gmail.com
+Webpage: www.sensut.atw.hu
+Released: 2012.
+
+WARNING!
+ 
+This mission uses custom motions by Shadowspawn. 
+Make sure that all of the mission files are installed properly!
+
+
+Mission features:
+
+New arrow types: Torch Lighter (replaces Fire arrows); and Holy Smoke (replaces Gas arrows).
+5 types of magic scrolls.
+Different amount of enemies per difficulty levels.
+Different goals per difficulty levels.
+
+
+This mission is compatible only with Thief II v1.19 !
+
+
+Custom scripts by:
+
+Telliamed (tnhScript 2.1.0.0);
+VKGaylesaver (script 1.2.0);
+LGS’ T2 Gen (version 27 March, 2000.).
+
+*The renamed modules are included and are installed automatically.
+
+
+Construction:
+
+Base: from scratch.
+
+Editor: Dromed 1.19 updated with DromEdToolkit 1.0 by Nameless Voice.
+
+Programs used:
+Corel PaintShop Pro X2 (graphics);
+Sony SoundForge 7 (sounds);
+
+
+Build Time: 1/2 year or so ...
+
+
+
+English text editing by Nightwalker and Bernie.
+Russian translation by Soldi.
+
+
+
+Objects by
+Shadowspawn, Saturnine, Jason Otto, Nameless Voice,
+Pinkdot, Eshaktaar, Dark Arrow, R Soul, Schwaa, Yandros,
+Rob Hicks, Sluggs, Christine, Elvis, William The Taffer, Nielsen 74,
+Daraan, „Serious Sam” by Ricebug, COSAS, DeDx and me.
+
+Additional textures by iD Software.
+
+Additional ambient musics by
+Lustmord, Nox Arcana,
+Seppuku Paradigm, Inade, Quake II, Delerium.
+Ending movie theme by SSQ.
+
+Zombie sound schemas by Yandros and YcatX.
+__________________________________________
+Special thanks to Tannar at Shalebridge Cradle Testing Forum.
+
+Original version testers:
+
+Nightwalker
+Gloria Creep
+Dbrilliant
+Bikerdude
+Jonescrusher
+Soldi
+Prjames
+Itllrun10s
+
+
+
+
+
+
+This FM is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package
+is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+This level was not made and is not supported by
+Looking Glass Studios or Eidos Interactive.

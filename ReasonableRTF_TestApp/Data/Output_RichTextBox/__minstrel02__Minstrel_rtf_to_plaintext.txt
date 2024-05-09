@@ -1,0 +1,560 @@
+The Minstrel
+
+ HYPERLINK \l "The Minstrel	1
+ HYPERLINK \l "Background	3
+ HYPERLINK \l "The characters	8
+ HYPERLINK \l "Plot	9
+ HYPERLINK \l "Scripts	12
+ HYPERLINK \l "Trap System – The Engine Nacelles	14
+ HYPERLINK \l "Trap System – The Girl	15
+ HYPERLINK \l "Trap System – Docking Clamps	17
+ HYPERLINK \l "Names	18
+ HYPERLINK \l "Ideas	19
+ HYPERLINK \l "Spaceship design	21
+ HYPERLINK \l "Trap System - Nacelles	22
+
+The O/S upgrade is static.
+If you have a weapon drawn when you enter VR, it stays draw (but unusable)
+The flightdeck is one big roombrush. The ramp from the flight deck to E deck room brush overlaps with room below.
+
+Cyberchick: http://www.museion.dk/farver/page_0001.html
+
+
+Script modules loaded: nvscript, script
+SS2 2112, this is 2139
+Body in cold storage
+Ariadne (Artificial Remote Intelligence And Dynamic Neural Extension)
+
+There are six types of security area:
+Public (Pu): Lounge, gardens, toilets, airlock, grav shafts (front of C, D, back of E
+Private (Pi): Passenger quarters (front of C and D). Need keycode to access. Some of these are open, some require a keycode that you can read in a PDA, some must be hacked. All codes are on the passenger manifest, in the Captain’s quarters.
+Low (Lo): Kitchens, sickbay (one section of deck C).
+High (Hi): Engineering, cargo, bridge, stairs. Requires OPERATIONS access key (several doors)
+Hazard1 (H1): Reactor core. Requires REACTOR CORE access key
+Hazard2 (H2): Engines. Requires ENGINE NACELLES access key
+
+
+
+
+Later missions: Have to chase after an AI
+Open a door into space
+
+weapons available:
+Blaster: Start
+Wrench very earlier
+Pistol: Cargo hold, in crate; engineering
+Shotgun: Hybrids (jammed)
+Assault rifle: Armoury
+Light armour: Armoury
+French-Epstain: Engineering
+Maint. tool: Hacked replicators, engineering stores, command deck
+
+Turrets: Forward, deck A; stairs deck B
+Security camera: stairs deck B
+Security station: near stairs deck B, armoury
+
+AIs
+Psi-reaver: Gardens
+Spiders: Upper (or lower) nacelle (spawning)
+Rumbler: Appears in connecting tube at end
+Worms and eggs
+Hybrids (spawning)
+Protocol droids: Alertness capped only
+Droids: Cargo bay, deck B, engineering
+
+Assassins: No
+Monkeys: No
+Midwivies: No
+
+Recharger: Engineering
+
+Deck B, forward
+Crew quarters (bunks for most, perhaps two have own room)
+Mess room (replicator)
+Navigatotion
+Sensors
+
+Something is blocking the way...
+Physical (collapsed ducting, droid
+S/R (fire, acid
+AIs (turrets...)
+
+CMs
+"We are supplying 100 cyber modules in lieu of training. Although your  R-grade cyber enhancements are expensive, it works out rather cheaper than real training, and a heck of a lot faster too. Use the cyber modules to upgrade your rig as you see fit, using the devices to the rear of your ship.
+
+Experiments indicate that the human brain cannot cope with a high augmentation rate. We could give a 1000, and turn you into a superman in minutes, but that would overload your brain. Not pretty.
+
+ARIADNE will activate extra units occasionally - when she is satisfied that you are coping well with your existing augmentation level. Cyber modules are standard TriOptimum chips, and you might find extra ones in the course of an assignment; you will have to use your discretion in deciding if you are ready for them."
+
+
+Get 10 for completing the scan
+Get 20 for rescuing girl
+Get 10 for altering the course of the ship (nearly useless in a one-off)
+
+Plus about 10 lots of 4 scattered about  
+Background
+Clifton Marsh: Cargo master(m) (log 3, in desk in cargo hold, min4)
+Fen Drayton: The TriOptimum psi-op (f) (log 4, in locker in room 13, minf0)
+Annesley Woodhouse: The second on the Minstrel (f) (log 13, in desk in room, minf8)
+Norton Fitzwarren: The captain of the Minstrel (m)  (log 6, in desk in office, min3)
+Barton Seagrave: The tech who does the autopsy (m) (log 5, in desk in sickbay, min8)
+Albury Heath: The chief engineer (f)
+Martin Hussingtree: The guy with the sensor readings (m)
+Abbey Green: The girl (f) (mother Carol)
+
+
+
+TriOptimum have a base, Jupiter Skies, on Calisto, one of the moons of Jupiter, used for certain dubious activities that they prefer to keep secret. It has an overt role as an observatory. One of the activities is using annelid worms to turn people into slaves. This is research that has been going on for some years.
+They have tried to get worms to their people on some space station in Earth orbit, but they do not survive stasis, so they are taking live samples, using a psi-op to suppress them. The Minstrel is ideal because the cabins are directly over the cargobay.
+Unfortunately, the psi-op, Fen Drayton, has an allergy to something in the air, and has an AllerGon patch, which makes her drowsy. The worms get the cargo master, Clifton Marsh, to take one out of the biotube, and he gets infected. Later he goes to kill her, and then release the others. Marsh slowly turns into a female psi-reaver in the garden
+
+The Minstrel arrives at Jupiter Skies 10/Feb/39 1500, departs 12/Feb/39 1330
+14/Feb/39 0934 Drayton visits the doc
+16/Feb/39 Drayton feeling sleep, light dozing
+17/Feb/39 0100-0330 Drayton asleep
+17/Feb/39 0315 Marsh gets infected
+18/Feb/39 0015 Marsh kills Drayton, then releases the other worms.
+	They infect: 
+20/Feb/39 Murder discovered by Captain and Woodhouse, as Drayton not tken meals for 2 days
+21/Feb/39 Shipwide search reveals pods in room 16
+22/Feb/39 Captain sends message that it was not murder
+
+26/Feb/39 The mission to investigate is initiated
+3/Mar/39 The game starts 
+ 
+ 
+ 
+ 
+
+
+Comicon, hydicon, manicon, medicon, opsicon, recison, resicon, rickicon, shodicon
+
+
+
+
+PDA Captain 17/Feb/39: “It is my sad duty to initiate a murder investigation. Fen Drayton has been found dead, in her cabin, with her face caved in. Probably happened yesterday, but we need an autopsy. I will have to conduct a cabin to cabin search for the murder weapon. Hmm, that’s not going to be popular.”
+RRComs: 17/Feb/39: “This is Captain XXX of the TriOptimum Courier Ship the Minstrel. I am reporting a murder; the victim is Person1, probably killed yesterday with a blaster. I am initiating investigations.”
+
+
+
+
+
+
+
+
+
+Another technician 18/Feb/39: “Captain, looking through the sensor logs, there was a strange peak in the sub-ether emmisions at ten forty three, on the sixteenth. Looks to be two wavelengths; two-three-one Angstroms and two-four-nine Angstroms. Last ship I worked on had a UNN black-ops guy on it, and, well, there were certain wavelengths I was told to ignore. Two-four-nine Angstroms was one. I’m pretty sure that must have been some kind of psi-effect. And it is centred on Person1’s room. The two-three-one Angstroms… I don’t know, maybe similar
+ “And there was a third one, at two-zero-one-three Angstroms. Not a spike, but there in the background, low level. So low, you would think nothing of it. But it came from the same place mostly. And it stopped suddenly at ten forty three, on the sixteenth.
+“Anyway, thought you better know.”
+
+
+ During the subsequent investigation, a passenger cabin is found to have a number of eggs in it.
+Captain’s PDA 19/Feb/39 1438: “While searching the passenger cabins, we discovered cabin 17 was full of strange pods. There must have been a good dozen of them, ranged across the floor. Norton Fitzwarren, whose cabin it is, cannot be found, but had given instructions that the cabin was not to be entered - just hours after Fen Drayton died. This cannot be co-incidence. We must find Norton Fitzwarren, and find out what those pods are, and what we should do about them.”
+The captain ponders what to do, then decides to destroy them all. As he tries to, the eggs burst open, and more people are infected. The crew involved, after infection has taken hold, return saying they have done the task.
+Captain’s PDA 21/Feb/39 0412: “Having the reviewed the situation, I think I was overly hasty in pronouncing Person1 was murdered. Upon more sober reflection, I feel sure she died because… er…. because her brain overheated. Yes, that was it, her brain overheated. She was probably one of whose damned psi types, so no real mystery at all.
+“Oh, and we found Person4, and he had a perfectly reasonable explanation for the pods. Anyway, they’ve all hatched… I mean, they’ve all been taken care off.”
+RRComs2: 21/Feb/39: “This is Captain XXX of the TriOptimum Courier Ship the Minstrel. Just ignore my previous message about a murder. The autopsy said she died because her brain over-heated – just natural causes you see. So no need for anyone to investigate anything.”
+
+
+
+
+Over the next few days, more and more of the ship get infected, until people realise what is happening (26/Feb/39). Battle ensues, but the uninfected are hopelessly outnumbered and unprepared.
+
+
+PDA 25/Feb/39 1132: “Captain, we have detected an anomaly in the reactor core. I’m guessing that heavy water from Jupiter Skies 1 had some muck in it, but we’ll never convince the TriOptimum suits that there’s anything wrong with their fuel.
+“I’m just looking in the sumps now. It’s nothing much to worry about, as long as we get it purged next time we’re in dock. But I recommend we keep the engines below 90% until then. And I’m going to have to re-shim the focus every eight hours, or the proton flux’ll start leaking into the nacelles.
+Hmm, that’s odd. Looks like there is some kind of mold growing in there.”
+
+The messages from the captain persuade Earth authorities to get in contact, but cannot raise anyone on the ship. On 1/Mar/39 the UNN RR sets off. At 3/Mar/39 1344, the mission starts.
+
+The characters
+Ariadne (f)
+The ship (m)
+
+Plot
+“Hi, I’m Ariadne – thats your Artificial Remote Intelligence And Dynamic Neural Extension -  version one point zero two… er… beta. I’m your Computer Companion TM, and we will be working together for this assignment. Won’t that be great!
+“We are now coupled to the Minstrel, and I have initiated the door interlock protocol. You should find a mission brief and your equipment in an assignment crate to the rear of the ship.”
+* Determine the status of the Minstrel
+* Help the ship get to safety
+
+
+[When does this trigger? After killing three hybrids, or visiting either the lounge or just before the GravShafts to the garden. At this point you have access to the public areas.]
+ “I don’t know, but I think this is more serious than we first thought. My tactical analysis is that the ship should be abandoned, and any survivors rescued on our craft. If we can scan a part of one of these afflicted humans in the sickbay, we can then run a ship-wide sensor sweep for unaffected humans.
+* Determine the status of the Minstrel 
+* Get a suitable body part, and scan it
+* Recalibrate internal sensors using above data
+* Rescue any survivors
+[Second objective can be completed by researching or using sickbay device]
+
+[The door from Lo to Hi can be hacked, or there is a way to get around it though vent shafts. Somewhere in Hi there are some security passes to Hi].
+“Good. I have patched into the scanner. Hmm, this is a little unexpected. The DNA is very unusual, using [base x] rather than [base y]. I was not aware of any terrestrial organism that did that. But much of the sequence is human, with occasional extraneous sections. Fascinating!”
+“Anyway, this will make recalibrating the internal sensors straightforward. You will need to find an interface board, IOM-4601, to put into the sensors console on the bridge. You should find one in the engineering stores, to the rear of deck E.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it ~
+* Get a IOM-4601 interface board
+* Recalibrate internal sensors using above data
+* Rescue any survivors
+
+[Use this if researched].
+“Good. I am downloading the research data now. Hmm, this is a little unexpected. The DNA is very unusual, using [base x] rather than [base y]. I was not aware of any terrestrial organism that did that. But much of the sequence is human, with occasional extraneous sections. Fascinating!”
+“Anyway, this will make recalibrating the internal sensors straightforward. You will need to find an interface board, IOM-4601, to put into the sensors console on the bridge. You should find one in the engineering stores, to the rear of deck E.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it ~
+* Get a IOM-4601 interface board
+* Recalibrate internal sensors using above data
+* Rescue any survivors
+
+
+
+“Good. Now get to the bridge, and find the sensors console.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it~
+* Get a IOM-4601 interface board~
+* Recalibrate internal sensors using above data
+* Rescue any survivors
+
+“Excellent. Running the sweep now. The results will appear on the screen…
+“There are… is one. Out of a total of 94, that’s so sad… Appears to be a female infant, in one of the passenger rooms. You will need to find the passenger manifest for the keycode; it should be in the captain’s quarters.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it~
+* Get a IOM-4601 interface board~
+* Recalibrate internal sensors using above data ~
+* Get the only survivor to the CryoTube on rescue ship
+
+[Survivor is a child and will be much easier if on the same deck as the air lock. Handing a teddy bear will cause her to go to the Minstrel. You just have to keep her safe. As soon as the player is away, she is teleported into the cryotube.]
+ “She will be safe for now. We must divert the ship; it is currently heading for Earth, and will crash in about 14 hours. The controls are locked down for security, but I think I can see a way around them. I think I can disable the navigational systems from here. Then if you interrupt the plasma flow to one of the engines for a few seconds, the ship will spin. You can do that from inside the nacelle. Do not stop the plasma flow too long – the pipe will burst, and I am afraid you might not survivor that. But hopefully without navigational corrections, the ship will be heading in a new direction that will miss the Earth.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it~
+* Get a IOM-4601 interface board~
+* Recalibrate internal sensors using above data ~
+* Get the only survivor to the CryoTube on rescue ship~
+* Interrupt plasma flow to one of the engines
+
+[Need the H2 key, which can be found on a man in the reactor core. The H1 key is found in engineering somewhere]
+“I am detecting radiation; it must be leaking from the photon flux. Not much we can do about that I’m afraid. You should also know that in these older ships they had to keep the engines out of the ship gravity field as much as possible; it interferes with the quadrapole focusing.
+“Once in the engine nacelle, go a short way towards the rear; you should see a panel on your left with a switch. Press the switch to stop the flux, and the ship will start to spin. Remember to press it again after a couple of seconds.”
+
+“It’s not working; the panel has been damaged by the leaking flux. We will have to hope the 
+
+“Oh, dear, the photon flux must have been leaking for days. Spider DNA has strange susceptibility to the wavelengths from a photon flux leak – are you familiar with the paper by Entwood and Patel? Giant mutant spiders with a taste for human flesh. Fascinating to see evolution in action… Survival of the fittest, and all that stuff. I’m sure they are more scared of you than you are of them… Probably.
+
+“That’s done it. The Minstrel will now spiral steadily in towards the sun, and will impact in 187.45 days. Now I am afraid that I will be unable to release the docking clamps of the Minstrel, so we can get away. You will have to do it manually. There will be an override switch somewhere underneath the docking tube. It will reset after 2 minutes, so do not waste your time getting back.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it~
+* Get a IOM-4601 interface board~
+* Recalibrate internal sensors using above data ~
+* Get the only survivor to the CryoTube on rescue ship~
+* Interrupt plasma flow to upper engine nacelle~
+* Manually release docking clamps
+
+“Great. Now we can break away whenever we want. Sooner the better, I say. Get to the CryoTube, and press the button. Then we can get out of here.”
+* Determine the status of the Minstrel ~
+* Get a suitable body part, and scan it~
+* Get a IOM-4601 interface board~
+* Recalibrate internal sensors using above data ~
+* Get the only survivor to the CryoTube on rescue ship~
+* Interrupt plasma flow to upper engine nacelle~
+* Manually release docking clamps~
+* Get into CryoTube
+
+
+
+Scripts
+
+Ship
+Warning, catastrophic pressure release in upper engine systems imminent
+Flux leak detected. Area being isolated
+Access prohibited due to hazardous conditions
+“We regret to inform you that this evening’s dinner in the Ronald Reagan lounge has been cancelled due to “ .. “ alien infestation” … “TriOptimum apologies for any inconvenience, and we look forward to correcting the problem as soon as possible.”
+
+
+
+
+
+Ariadne
+Hi, I’m Ariadne – thats your Artificial Remote Intelligence And Dynamic Neural Extension -  version one point zero two… er… beta. I’m your Computer Companion TM, and we will be working together for this assignment. Won’t that be great!
+We are now coupled to the Minstrel, and I have initiated the door interlock protocol. You should find a mission brief and your equipment in a crate to the rear of the ship.
+I think this is more serious than we first thought. My tactical analysis is that the ship should be abandoned, and any survivors rescued on our craft. If we can scan a part of one of these afflicted humans in the sickbay, we can then run a ship-wide sensor sweep for unaffected humans.
+“Good. I have patched into the scanner. Hmm, this is a little unexpected. The DNA is very unusual, using [base x] rather than [base y]. I was not aware of any terrestrial organism that did that. But much of the sequence is human, with occasional extraneous sections. Fascinating!
+Anyway, this will make recalibrating the internal sensors straightforward. You will need to find an interface board, IOM-4601, to put into the sensors console on the bridge. You should find one in the engineering stores, to the rear of deck E.
+“Good. I am downloading the research data now. Hmm, this is a little unexpected. The DNA is very unusual, using [base x] rather than [base y]. I was not aware of any terrestrial organism that did that. But much of the sequence is human, with occasional extraneous sections. Fascinating!
+Anyway, this will make recalibrating the internal sensors straightforward. You will need to find an interface board, IOM-4601, to put into the sensors console on the bridge. You should find one in the engineering stores, to the rear of deck E.
+Good. Now get to the bridge, and find the sensors console.
+Excellent. Running the sweep now. The results will appear on the screen…
+There are… is one. Out of a total of 94, that’s so sad… Appears to be a female infant, in one of the passenger rooms. You will need to find the passenger manifest for the keycode; it should be in the captain’s quarters.
+She will be safe for now. We must divert the ship; it is currently heading for Earth, and will crash in about 14 hours. The controls are locked down for security, but I think I can see a way around them. I think I can disable the navigational systems from here. Then if you interrupt the plasma flow to one of the engines for a few seconds, the ship will spin. You can do that from inside the nacelle. Do not stop the plasma flow too long – the pipe will burst, and I am afraid you might not survivor that. But hopefully without navigational corrections, the ship will be heading in a new direction that will miss the Earth.
+I am detecting radiation; it must be leaking from the photon flux. Not much we can do about that I’m afraid. Once in the engine nacelle, go a short way towards the rear; you should see a panel on your left with a switch. Press the switch to stop the flux, and the ship will start to spin. Remember to press it again after a few seconds.
+It’s not working; the panel has been damaged by the leaking flux. We will have to hope the unit in the upper nacelle is operative.
+Oh, dear, the photon flux must have been leaking for days. Spider DNA has a strange susceptibility to the wavelengths from a photon flux leak – are you familiar with the paper by Entwood and Patel? Giant mutant spiders with a taste for human flesh. Fascinating to see evolution in action… Survival of the fittest, and all that stuff.
+Great. Now we can break away whenever we want. Sooner the better, I say. Get to the CryoTube, and press the button. Then we can get out of here.
+Well, at least the ship will not crash on Earth. I will send out a distress signal; the girl should be safe. It was nice working with you… however briefly
+That should be enough
+Er, you might want to turn it back on now
+You really want to get to that valve. Like… now.
+Oh dear, it must have an interlock with the navigational system, which I subverted. You’ll have to use the emergency bypass valve. You should find it at the very rear of the nacelle.
+Good. The ship is now heading out of the elliptical; it is not about to crash into anything. The UNN can decide what they want to do with it.
+That’s done it. The Minstrel will now spiral steadily in towards the sun, and will impact in 187.45 days. Now I am afraid that I will be unable to release the docking clamps of the Minstrel, so we can get away. You will have to do it manually. There will be an override switch somewhere underneath the docking tube.
+Good. I am struggling to precisely match the acceleration of the Minstrel; she is breaking free. I estimate you have about 2.4 minutes to get back over before the decompression event.
+Congratulation. Mission accomplished. I think we both did very well on our first assignment.
+
+
+
+
+Trap System – Organ Research
+Entering a ItsBadTR room (40) sends to a delay (1827), and then, after7 seconds to an "enter once" router (1809). This router appears to trigger twice! Therefore it gets destroyed when the organ is researched.
+
+Trap System – The Engine Nacelles
+The Initialiser starts a FlickerTrigger 1733 (destroyed by 1777 from DisasterRelay 1729). On and Off are filtered (1734 and 1735), On is allowed if FluxState is greater than 1 (1737), Off is allowed through otherwise (1738) AND FluxPressure is over 45. Both connect to QVarTrap 1739, +1:FluxPressure. Thus FluxPressure increases each cycle if FluxState is 1, or decreases if it is 0, down to 45.
+
+When the VR section completes, ReqAll 1938 gets a TurnOn (OnFilter 2069 ensures it gets no TurnOff), which sends email 16, and a TurnOn to NacelleStarter (The right button at the bottom of the ladder also does this for debugging). NacelleStarter sends a TurnOn to ReqAll 1109, for the Upper Nacelle stuff, and sets Note_1_10 to 1.
+
+Pressing PhotonicFluxButton send a TurnOn to ButtonRelay, which is the nexus:
+1. QVar 1741 sets FluxState to +1 (and TurnOff reverts), this is the control for the pressure build up.
+2. The nexus also locks the door (involving inverter 1720)
+3. Gives a message, through SoundTrap 1883, and (via inverter 1731) 1730.
+4. If VR is done, then ReqAll 1759, to:
+	a. DestroyTrap 1765 will destroy the ButtonRelay, stopping the player from turning the flow back on.
+	b. Once the player has tried to turn the flux back on, (via inverter 1766 and ReqAll 1764), email 20 is sent, and the FrobInert property is removed from FluxOverrideValve, 1644.
+
+QVarTrigger notes if FluxPressure goes over ???, if it does, DisasterRelay is trigger, and all sorts of effects ensue
+
+The FluxOverrideValue 1644 is FrobInert until needed. When activated, it goes to ValveOnRelay 1776, which:
+1. Sends On to DockingStarter 1710, to start the next phase
+2. Sends email 25
+3. Destroys itself and DisasterRelay via 1771
+4. Sets Note_1_10 to 2 (1774)
+5. Puts FrobInert back on the valve (via inverter 1770 and the same MetaPropTrap, 1954)
+6. Gives exp (1773) after 7 seconds (1780)
+
+The door locks when the flux is stopped. OnFilter 1723 and QVarTrap 1727 set NacellesUnlocked to 0, OnFilter 1726 and QVarTrap 1728 set NacellesUnlocked to 1
+
+QVarTrigger 1742 sends a TurnOn when the FluxPressure gets to 60 (could be different by difficulty) to DisasterRelay 1729
+1. Starts several ambients
+2. Sets FluxPressure to 3 (1781)
+3. Via Buffy (1762), sets off 4 explosion (1760, 1758, 1761, 1876)
+4. Some scarring becomes rendered (1763)
+5. The Ficker trap 1733 and ValveOnRelay (1776) are destroyed (1777)
+
+
+
+
+Note: Sound trap 1883, 1730 need message (check also any on DisasterRelay)
+
+Trap System – The Girl
+
+
+Sends a Slain message when killed to NVRelayTrap (Slain2TurnOn), which ends the game (straight to cut scene, or player killed by suiciding Ariadne)
+
+Cowers from player initially (use Player Intrusion AIWatchObj maybe)
+[Scared]"No! Please! Keep away from me"
+[Scared]"Don't you touch me! Please don't."
+[Scared]"Get away! Get away!"
+
+[Excited]Ooo, what a cute bear. [Pause, then whining] Can I go home now? I don't like it here anymore."
+
+[whispered]"You have to be v-e-r-y careful out here. Some of the grown-up have gone a bit funny. And there's this really big one stomping around too."
+
+[Indignant]"I'm not using that! They're not safe. My mummy said so!
+
+[Scared]"Hey, where've you gone?"
+[Scared]"Come back... I'm scared."
+[Scared]"Please don't leave me."
+
+[Chirpy]"This way."
+
+[Disappointed]"Oh. What a crappy ship."
+
+Frob GirlFinishedButton
+
+"Hmm, I'm not so sure I like her..."
+
+"I'm uploading some cyber modules. You had better
+
+InsideTriggerRoom just inside Minstrel
+InsideTriggerRoom --> RevertTrap(2.00) --> ReqAllTrap --> Teleport girl away
+GirlFinishedButton -->					--> ConversationTrap (make girl and teddy in cryotube visible)
+	--> Update objectives
+
+CMButton
+
+
+Trap System – Docking Clamps
+Pressing the button increments DockingButtonCount
+"Manual release initiated" "Whoa, we don't want that. Re-establishing ship-to-ship connection." Set UndockFlag=1
+If UndockFlag=1 "Manual release initiated" "Don't do that!" Set UndockFlag=2
+Set UndockFlag=2 "Manual release initiated" "I said, don't do that" Lose 5 hits (how)
+
+The release mechanism...
+"I had to take out a number of sub-systems to disable the NaviCom. One was the docking release mechanism. You will have to do it manually."
+If UndockFlag=0 "There will be a switch somewhere below the airlock - probably accessible from E deck."
+"Manual release initiated" "Good job. I will keep the ships together until you are back aboard." Set UndockFlag=3
+
+If UndockFlag=3 and elevator button / revert
+"I'm struggling to keep alignment. The Minstrel's trajectory is becoming erratic. I guess that was to be expected. I estimate I will be able to maintain the connection for about 30 seconds. Better get back fast.
+Teleport rumbler into connecting corridor
+Timer to 30 seconds
+
+After 30 seconds
+Player on ship; door closed
+
+All Rapid Response must be HomeRoom
+ConnectionRoom AND Timer > 29
+"Oh, no, the Minstrel is pulling away. It was nice working with you, good bye." Teleport to space. Hits to zero
+
+ConnectionRoom --> Invert AND HomeRoom --> Invert AND Timer > 30 
+"Oh, no, The Minstrel's losing pressure. It was nice working with you, good bye." Choking... Falling debris. Hits to zero
+
+HomeRoom AND Timer > 30 
+Door closes, and locked.
+"You made just in time. Get into the right CryoTube, and let's get out of here."
+
+
+Trap System - Nacelles
+EngineState gets incremented every time the button is pressed
+TrigFlicker (in scripts.osm) Flicker triggers send alternating TurnOn and TurnOff messages controlled by a flicker tweq. The tweq is turned on and off when the trap is activated or deactivated. The Tweq\Flicker property should be configured to Continue and have the Scripts flag turned on. (may need Dark Hook 2)
+
+Cointrol flags: filter, then invert
+
+EngineState
+1	Start. On on
+2	Off, TurnOn to EngineOffPreTrap
+3	On, TurnOn to EngineOnPreTrap
+4	-2:EngineState
+11	On, with quest to turn off
+12	Off for diverting
+
+Status
+0	Normal
+1	Quest to do
+2	Button pressed
+3	Button pressed twice
+10	Explode
+20	All done
+
+
+
+
+EngineOnTrigger (NVTrigQVar, %2:EngineState)
+Sends TurnOn if EngineState is even, which is when the engine is going on.
+à EngineRoarAmbientTrap
+Inverter à WarningAmbientTrap (“Warning, catastrophic pressure release in upper engine systems imminent”)
+à PresFlick à NoOff à +1:Pressure
+à NoOff à =0:Pressure
+	à -2: EngineState
+
+
+ExplodeTrap (=100:Pressure) à NoOff à
+à TeleportTrap à Effects (several SFX with S/R)
+à Invert à WarningAmbientTrap
+à EmergencyAmbientTrap (“Flux leak detected. Area being isolated”)
+à Lock door (do button swap for one that triggers (“Access prohibited due to hazardous conditions.”) Door locked for safety reasons”
+à Kill player slowly
+à Filer =1:EngineStatus à EmailTrap (“Well, at least the ship will not crash on Earth. I will send out a distress signal; the girl should be safe. It was nice working with you… however briefly.”
+à =10:EngineStatus
+
+
+DoEnginesTrap (triggered by completing previous task)
+à =1:EngineStatus
+à TrapEmail
+à Objective update
+
+
+=1:Pressure à Filter =1:EngineStatus
+à =2:EngineStatus
+à Teleport à Button (away)
+à Teleport à New button (replace)
+à RemoveFrobInert à Valve
+
+EnoughTrap (=30:Pressure) à Filter =2:EngineStatus à
+à EmailTrap (“That should be enough”)
+
+DangerTrap (=70:Pressure) à Filter =2:EngineStatus à
+à EmailTrap (“Er, you might want to turn it back on now”)
+
+DangerTrap (=80:Pressure) à Filter =3:EngineStatus à
+à EmailTrap (“You really want to get to that valve. Like… now.”)
+
+New Button à Filter =2:EngineStatus à
+à EmailTrap (“Oh dear, it must have an interlock with the navigational system, which I subverted. You’ll have to use the emergency bypass valve. You should find it at the very rear of the nacelle.”)
+à =3:EngineStatus
+
+
+Valve à  Filter <10:EngineStatus
+à EmailTrap (“Good. The ship is now heading out of the elliptical; it is not about to crash into anything. The UNN can decide what they want to do with it.”)
+à =20:EngineStatus
+à Update objectives
+
+Girl (team good)
+
+Sends a Slain message when killed to NVRelayTrap (Slain2TurnOn), which ends
+the game (straight to cut scene, or player killed by suiciding Ariadne)
+
+Cowers from player initially (use Player Intrusion AIWatchObj maybe)
+"No! Please! Keep away from me"
+"Don't you touch me! Please don't."
+"Get away! Get away!"
+
+"Arr, what a cute bear. Can I go home now? I don't like it here anymore."
+
+"The nasty things are out there"
+
+"You have to be VERY careful out here. Some of the grown-up have gone a bit
+funny. And there's this really big thing stomping around too."
+
+"This way."
+
+"What a crappy ship."
+Frob GirlFinishedButton
+
+InsideTriggerRoom just inside Minstrel
+InsideTriggerRoom --> RevertTrap(2.00) --> ReqAllTrap --> Teleport girl away
+GirlFinishedButton -->					--> ConversationTrap
+(make girl and teddy in cryotube visible)
+	--> Update objectives
+
+
+
+
+
+Debris in up GravShaft (bouncing up and down?), stopping access to garden
+that way. Possible to shoot through fan.
+
+weapons available:
+Blaster: Start
+Wrench very earlier
+Pistol: Cargo hold, in crate; engineering
+Shotgun: Hybrids (jammed)
+Assault rifle: Armoury
+Light armour: Armoury
+French-Epstain: Engineering
+Maint. tool: Hacked replicators, engineering stores, command deck
+
+Turrets: Forward, deck A; stairs deck B
+Security camera: stairs deck B
+Security station: near stairs deck B, armoury
+
+AIs
+Psi-reaver: Gardens
+Spiders: Upper (or lower) nacelle (spawning)
+Rumbler: Appears in connecting tube at end
+Worms and eggs
+Hybrids (spawning)
+Protocol droids: Alertness capped only
+Droids: Cargo bay, deck B, engineering
+
+Assassins: No
+Monkeys: No
+Midwivies: No
+
+Recharger: Engineering
+
+Deck B, forward
+Crew quarters (bunks for most, perhaps two have own room)
+Mess room (replicator)
+Navigatotion
+Sensors
+
+Something is blocking the way...
+Physical (collapsed ducting, droid
+S/R (fire, acid
+AIs (turrets...)

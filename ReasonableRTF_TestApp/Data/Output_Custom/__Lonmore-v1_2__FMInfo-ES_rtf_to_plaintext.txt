@@ -1,0 +1,138 @@
+
+
+
+Título	:	Lonmore
+Autor 	:	Beltzer
+Contacto	:	beltzer2@hotmail.com
+Fecha de salida	:	12 de Noviembre de 2021
+Versión	:	1.2
+Descripción	:	Me fui de la ciudad porque la guardia me pisaba los talones.
+		Llevo más o menos en esta nueva ciudad, Lonmore.
+Tengo un buen apartamento, quizás un poco caro, así que mis ahorros se están fundiendo.
+	Me encanta esta ciudad. Montones de gente rica y carteras enormes.
+	Sin embargo; necesito algo más grande, algo con mucho botín.
+	Supongo que podría visitar otras casas mientras doy una vuelta.
+
+==============================================================================
+Información sobre el juego
+
+Juego	:	Thief 2: The Metal Age ND v1.27
+Nombres de archivo	:	miss20.mis, miss21.mis, miss22
+Tienda de equipamiento	:	No
+Opciones de dificultad	:	Si
+Mapa/Automapa	:	Si/No
+Nuevos gráficos	:	Si
+Nuevos sonidos	:	Si
+Idiomas	:	Inglés, Alemán, Español
+Introducción	:	Si
+
+==============================================================================
+Bugs conocidos:
+
+- Nada importante.
+
+==============================================================================
+
+Mis misiones previas
+Reunification Campaign
+The Abandoned Castle
+The Favour
+Mortuos Liber Campaign
+The Sister
+
+Información de cargado
+Probado con AngelLoader y FMSelector
+
+Agradecimientos:
+
+Actores de voz
+Cardia (Male behind window)
+McTaffer (Prison Guard)
+Redleaf (Mech Lady)
+Samantha1 (Woman behind window)
+SlyFoxx (Garrett)
+
+Beta testers
+Dardo
+Draconigen
+Fortuni
+Mat99
+Myles
+Pete
+
+Textos
+McTaffer - proofreading.
+Dardo - proofreading
+
+Traducción al Alemán
+Baeuchlein
+
+Traducción al español:
+Dardo
+
+Objetos personalizados
+Blackthief
+Christine
+Dale
+Darkmax
+DarkShadow
+Elvis
+Eshakataar
+Firemage
+Gamophyte
+GORT
+Greenhorn
+LarryG
+Lord Alan
+Nameless Voice
+Nicked
+OttoJ55
+R Soul
+Sensut
+Sliptip
+Sluggs
+Soul Tear
+T2X
+Targa
+TDBonko
+Team Calendra
+Team Cosas
+Team Rose Cottage
+Vladimiroquai
+Von.Eins
+Yametha
+
+Meshes y skins 
+Corsair
+Darkmax
+Purgator
+TDBonko
+Team Calendra
+Team T2x
+
+Texturas
+Enhancement pack
+NecroAge
+textures.com
+sketchuptextureclub.com
+Esse
+
+Scripts personalizados
+KDScript
+Nameless Voice
+TnhScript
+
+Sonidos
+Dario D
+Tabias “Spadey” Scot
+
+Y, obviamente, gracias a mi prometida Sandra por su apoyo moral mientras me aguantaba haciendo la misión 24/7.
+
+==============================================================================
+Información sobre Copyright
+
+Este nivel es © por Beltzer. Distribución de este nivel está permitida de cualquier manera o forma que desee. Sin embargo; debe dejar la misión intacta y acreditarme por ella :-) 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+==============================================================================

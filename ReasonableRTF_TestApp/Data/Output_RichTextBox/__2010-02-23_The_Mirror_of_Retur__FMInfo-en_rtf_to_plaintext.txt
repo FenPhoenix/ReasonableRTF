@@ -1,0 +1,206 @@
+* The Mirror of Return (Version 1b) *
+
+ 
+
+A Thief 2 fan misison by PsymH (M.H.)
+
+- sequel to "Ultima Ratio" -
+
+
+--- Important Note ---
+
+Darkloader ready. Do not unzip -- Place in fan mission folder and install using
+Darkloader 4.2 or later. This mission package was not tested using GarrettLoader! 
+
+This mission packages contains Telliamed’s custom scripts:
+(PublicScripts V2.1, tnhScript V2.1).
+
+Although this mission is the sequel to Ultima Ratio, it is not necessary to play it in 
+advance, since the Mirror of Return has its own story.
+
+I recommend that you read every text in the mission since they contain hints and 
+tips for many objectives and puzzles.
+
+--- Story ---
+
+"Well, some things do change over the course of time! Just as my pursuers thought 
+they'd caught me, I escaped again. I’m feeling almost bad about poor Orin, 
+but at least that bloody Nestor got what he deserved. And now I own his precious journal! 
+
+Although he didn’t exactly say where the “Element of Three Forces” is located, 
+I know why he was so eager to capture me. He hoped to establish 
+contact with Larius. And who would be better suited to establish contact with 
+a Keeper than a former Keeper? Nestor must have known that Larius is 
+an expert when it comes to ancient relics – especially those that possess great 
+magical powers.
+
+What he didn’t know was that Larius was rarely to be found in the local Keeper 
+compound. Artemus told me that Larius used to travel a lot. 
+His last known destination was the southern regions and it is likely that 
+he wanted to visit an old fortress in this area, built above a source of magical power.
+
+I’m not sure if Larius is still there but he is my best lead. As the Hammerites would 
+say: 'Never doubt the Builder’s word…'
+
+I just hope that Duncan stays out of this as always.”
+
+-- Additional Information --
+
+Game: 	Thief - The Metal Age
+Titel: 	The Mirror of Return
+File name: miss22.mis, miss23.mis, miss24.mis
+Difficulty Settings: number of enemies and difficulties of puzzles
+Equipment Store: no
+Map: yes
+Automap: no
+New textures: yes
+New sounds: yes
+New Objects: yes
+Multi-Language Support: English, German
+Briefing: no
+
+--- Changes in Version 1b ---
+
+The mission fails now, if you hit Beatrix KO or attack her.
+Also the there are no crashes anymore, if you pick up
+Beatrix' body.
+
+The portal key opens no longer the temple, but only
+the tomb. Also the portal keys exists only in higher
+difficulties.
+
+There is also a sword on expert.
+
+The earth talisman is no longer teleported where
+you can find it in the beginning.
+
+Larius gives the Eye of Revelation not directly to the player, but
+he drops it on the ground. The player has to activate the Eye
+on his own way now.
+
+Fixed: A as optional marked goal wasn't really optional.
+
+Fixed: A palm was floating over the ground.
+
+Even with slowfall potion you will die if you fall in the
+blackness from the air dimension.
+
+The number of secrets was corrected - hopefully it is
+right now.
+
+Fixed: You can climb away from the map in some cases.
+
+
+--- Known Bugs ---
+
+Shadows cast by palm-trees do not affect the light gem and will not effect 
+your visibility. There are transparency problems when looking 
+at them from above too.
+
+The fast moving lava platform when it changes direction can cause the player to move
+into the lava.
+
+--- Construction ---
+
+Base: from scratch
+Build Time: 2007 - 2010
+
+
+--- Credits ---
+
+- Alphatesters -
+Blackmen
+Fibanocci
+
+- Betatesters -
+Blackmen
+Dainem
+Davidsung
+Fibanocci
+Suselsahne
+Valen
+Xrayalpha
+
+- Final betatesting -
+bob_doe_nz
+undead gamer
+
+- new objects - 
+Ar-Zimrathon
+Dark Arrow
+GORT
+Greenhorn
+Hrothgar
+Jonquils
+Nameless Voice
+nielsen74
+Ottoj55
+PinkDot
+pdackel
+Schwaa
+Sluggs
+Targa
+Team CoSaS
+UglyEd
+Vigil <www.washboardabs.net/thief/>
+Yandros
+
+I would like to thank Greenhorn, who supplied many custom objects for this mission package and 
+Sterlino, who assisted with creating a new mesh for the „Eye Of Revelation“.
+
+- new textures -
+Balatro
+David Gurrea <http://www.davegh.com/blade/davegh.htm>
+Lemog3D <http://lemog.free.fr/lemog_v5/index.php?cat=4&lang=german>
+Nameless Voice
+Photorealistic-pack
+Thorin Oakenshield
+Vigil <www.washboardabs.net/thief/>
+Ville Paavolainen
+
+Animax <www.animax.it>
+Mayang's Free Textures <www.mayang.com>
+(optimated for Thief 2 by Sliptip)
+
+- new sounds -
+Sephy
+
+- english translation -
+Intruder
+tannar
+
+- german voices -
+Turcaill
+Zappenduster
+Xrayalpha
+
+- english voices -
+Turcaill
+Random_Taffer
+bob_doe_nz
+
+- Special Thanks -
+Fibanocci for the custom menu-screen
+Rob Hicks for DromEd Deluxe
+
+Special thanks goes to Nameless Voice, Vigil, Eshaktaar, R Soul and DarkDragon for
+the Thief 2 Enhancement Package!
+
+And of course Sliptip, who allowed me to use his textures from „Ashen Age“, as
+well as Blackmen, who supplied several texts for the missions.
+
+...and everyone else who helped me with solving technical problems 
+and the ones I forgot to mention.
+
+
+--- Copyright ---
+
+This Fanmission is (c) by PsymH (M.H.) 2010
+
+
+Distribution of this level is allowed as long as it is free and the package is
+kept intact. You may not include this level in any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive,
+or Ion Storm.

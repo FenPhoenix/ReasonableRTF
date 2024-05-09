@@ -1,0 +1,198 @@
+
+
+"Legende der Vier Elemente"
+(Please scroll down for English version)
+
+
+---Wichtige Hinweise!---
+
+Es wird der DarkLoader ab Version 4.2 vorausgesetzt.
+
+Diese FM wurde nicht mit dem GarrettLoader getestet. Daher keine Gewähr!
+
+Manchmal muss man sein Kopf benutzen um weiter zu kommen, am allermeisten bei den Rätseln. ;)
+
+---Story---
+
+Lord Xaldin, der ein sehr merkwürdiges Anwesen besitzt, erbte eine Tafel. Aber der Lord kam nicht an sie ran, sie war versiegelt mit Feuer, Wasser, Luft und Erde. Diese vier Elemente sollen in den Anwesen schlummern. Der Lord heuerte einen Hüter an, um diese 4 Elemente zu finden, als Belohnung darf der Hüter sie studieren um herauszufinden, ob mehr drin steckt als man mit den Auge sieht.
+Garrett wurde vom Orden der Hüter beauftragt diese Tafel zu stehlen und zu den Hütern zu bringen. Garrett war zuerst misstrauisch, aber bevor er wieder von unheilvollen Zeiten hört, verschwand er und machte sich auf den Weg zum Anwesen.
+
+
+-- Informationen --
+
+Spiel: 	Dark Project 2 - The Metal Age
+Titel: 	Legende der Vier Elemente
+Dateiname: miss20.mis
+Schwierigkeitsgrade: Normal, Mittel, Schwer
+Ausrüstungsshop: Nein
+Karte: Nein
+Autokarte: Nein
+Neue Texturen: Ja
+Neue Sounds: Nein
+Neue Objekte/AIs: Ja 
+Mehrsprachig: Ja
+Vorspann: Nein
+
+
+--- Konstruktion ---
+
+Bauzeit: 5 Monate
+
+---Betatester---
+
+fibanocci
+K.I.F.T
+SinisterShadow
+UliB
+
+Vielen Dank fürs Testen! :D
+
+--- Objekte ---
+
+Nielsen 74
+Sluggs
+Eshaktaar
+Targa
+Yandros
+Schwaa
+Greenhorn
+JasonOtto
+Christine
+Greenhorn
+
+
+ (Vigil, Eshaktaar, Digital Nightfall, R Soul, Yandros, Wille, Targa, Schwaa, G'len, AssiDragon, Redface, DarkDragon, TheNightTerror, Nightwalker, Nicked, ZylonBane, Spitter, TF, Kolya, Ajare, Telliamed, Lady Rowena.)
+	Thief Enhancement Pack 
+
+--- Neue Texturen ---
+
+BlackThief, GOB, David Guerra Hernandez, Edward Vaillancourt (optimiert für Thief von Dhin), Yandros,
+Einige Texturen sind aus Undying, Unreal Tournament und DeusEx (optimiert für Thief von Christine)
+
+
+
+thiefgotcha
+Neue Texturen
+
+
+Sliptip
+Texturen von "Ashen Age"
+
+QUAKE 3 Texturen 
+by id Software
+
+
+Großen Dank für die Texturen von Sliptip und Thief Gotcha.
+Und all den großen Objektbastler für die schönen Objekte.
+
+--- Copyright ---
+
+@ 2008 Theker
+Die Weitergabe dieser Mission ist gestattet, solange dies kostenlos geschieht und die Datei 
+intakt bleibt. Die Benutzung erfolgt auf eigene Gefahr. Dieses Level ist nicht von Looking Glass 
+Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 
+
+
+
+
+
+
+"The Legend of the Four Elements"
+
+
+
+---Important!---
+
+You need DarkLoader version 4.2 or higher.
+
+ This FM wasn't tested with GarrettLoader. There's no guarantee that it'll work!
+
+Sometimes you need to think carefully to proceed, most of all with the riddles. ;)
+
+---Story---
+
+Lord Xaldin, the owner of a very strange estate, inherited a plate but the Lord wasn't able to access it. It was sealed with Fire, Water, Air and Earth. These four elements are said to exist on the estate. The lord hired a Keeper to find the four elements, his reward being the opportunity to study them in order to find out if there's more to them than meets the eye.
+Garrett was instructed by the Order of the Keepers to steal the plate and to bring it to them. Garrett was suspicious at first, but before he had to listen to the usual talk of evil times he vanished and made his way to the estate.
+
+
+-- Information --
+
+Game: 	Thief 2 - The Metal Age
+Titel: Legend of the Four Elements
+Mission name: miss20.mis
+Difficulty: Normal, Hard, Difficult
+Equipement Store: No
+Map: No
+Auto Map: No
+New Textures: Yes
+New Sounds: No
+New Objects/AIs: Yes
+multilingual: Yes
+Briefing: No
+
+
+--- Construction ---
+
+building time: 5 months
+
+---Betatesters---
+
+fibanocci
+K.I.F.T
+SinisterShadow
+UliB
+
+Thank you very much for testing! :D
+
+--- Objects ---
+
+Nielsen 74
+Sluggs
+Eshaktaar
+Targa
+Yandros
+Schwaa
+Greenhorn
+JasonOtto
+Christine
+Greenhorn
+
+
+ (Vigil, Eshaktaar, Digital Nightfall, R Soul, Yandros, Wille, Targa, Schwaa, G'len, AssiDragon, Redface, DarkDragon, TheNightTerror, Nightwalker, Nicked, ZylonBane, Spitter, TF, Kolya, Ajare, Telliamed, Lady Rowena.)
+	Thief Enhancement Pack 
+
+--- New Textures ---
+
+BlackThief, GOB, David Guerra Hernandez, Edward Vaillancourt (optimized for  Thief from Dhin), Yandros,
+Some textures are out  Undying, Unreal Tournament und DeusEx (optimized for  Thief from Christine)
+
+thiefgotcha
+New Textures
+
+
+Sliptip
+Textures from "Ashen Age"
+
+QUAKE 3 Textures 
+by id Software
+
+
+A big thankyou to Sliptip and Thief Gotcha for their textures.
+As well a big thank you to the great object makers for their beautiful objects.
+
+
+English translation by snowcap21
+Polished by Nightwalker and pavlovscat
+Dual-language ZIP assembled by Yandros
+
+--- Copyright ---
+
+@ 2008 Theker
+The distribution of this mission is allowed as long as you keep it free of charge and the file stays intact. Use at your own risk. This mission wasn't made by  Looking Glass 
+Studios or Eidos Interactive and isn't supported by them. 
+
+
+
+
+
+

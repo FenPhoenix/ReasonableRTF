@@ -1,0 +1,62 @@
+Unheimliche Nacht / Une nuit sinistre
+===============================================================================
+
+Auteur	: Terra
+Date de lancement	: 31.12.2020
+
+===============================================================================
+Description :
+
+C'est vraiment la dèche en ce moment, il est grand temps de réinvestir le marché noir. D'après la rumeur en ville,
+il y a un manoir, se trouvant dans une forêt profonde, abandonné depuis longtemps, qui abriterait toutes sortes de
+trésors. Qui sait, il y a peut-être aussi un objet rare. Cette quête ne devrait pas être bien longue, je vais laisser tout
+mon équipement ici. Je vais seulement emporter ma lanterne pour les coins très sombres même si la lune est aute,
+on ne sait jamais.
+Vas-y, Garrett, le butin t'attend...
+
+===============================================================================
+Information :
+
+Jeu	:Thief 2 - L'Age de Métal (Version 1.27 NewDark)
+Titre de la Mission	: Une nuit sinistre
+Nom du Fichier	: miss22
+Difficulté	: Facile, Difficile et Expert
+Magasin d'équipment	: Non
+Carte	: Non 
+Nouv. Graphismes	: Oui
+Nouv. Sons	: Oui
+EAX	: Non
+Multi-Language	: DE/FR/EN/RU
+Briefing	: Non
+
+===============================================================================
+Temps de Construction	: 3 mois
+
+===============================================================================
+Remerciements :
+
+Betatest	: Aemanyl, Lord Taffer, Mat99
+Version Française	: Zappenduster/Stefan_Key
+English Version	: Zappenduster/Urgrue
+Amnesia Grunt	: Frictional Games (NewDark convert from FireMage)
+
+Cosas Team- The Nine Year Sleep
+Aus Rose Cottage
+Amnesia The Dark Descent (Frictional Games)
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+Soul Tear
+
+===============================================================================
+Copyright :
+
+Cette FM a été fabriqué par Terra, Decembre 2020.
+Elle n'a pas été réalisé et n'est pas secondée par Looking Glass Studios ou Eidos Interactive.
+
+===============================================================================

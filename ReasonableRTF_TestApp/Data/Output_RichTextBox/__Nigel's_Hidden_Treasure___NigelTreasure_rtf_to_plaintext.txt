@@ -1,0 +1,63 @@
+================================================================================
+
+Title:		Nigel’s Hidden Treasure
+Author:		Bryan Gleason (alias BBB)
+Contact Info:	bgleason1@gmail.com
+Homepage: 		n/a
+Date Finished:	February 10, 2013
+
+Briefing: At the local pub, I overheard one of the local thieves, Nigel, bragging about how he and a few others from the West Side gang had found some hidden treasure in the caves near Nigel’s house and they were going to continue searching for more treasure and a magic scepter. The caves were always rumoured to be haunted and even the Hammers were afraid to enter the caves. There are many stories told late at night, after much ale was consumed, that most of those who ventured into the caves never returned. Lord Reginald supposedly lost 20 men in the caves about 5 years back. The one man who made it out alive has been completely incoherent ever since. Well, I know where Nigel lives, as I introduced him to a fence a few years ago for a hefty fee, which he never paid to me. He has since taken to pushing around the weaker petty thieves who can barely make ends meet. He is one to avoid: he really has no honour and lives by no code. Maybe it is time for me to pay him back. Yes, a little revenge and some gold would make a nice end to this evening.
+
+In any case, I could use some extra funds, and Nigel is not really as tough as he thinks he is. Actually, I don’t have to be tough with him, just smarter than he, which is not very challenging. My plan is to drink ale for a few hours after the pubs close while the city goes to sleep, and then to break into Nigel’s house and steal whatever he has collected. My new fence Vincent says that if I drop goods and trinkets off to him late tonight, he will turn them into gold within 24 hours. While I am in the city in the dark, I may as well take some extra loot for myself. Easy job, fast money and paying back an old enemy. What am I waiting for? Time to go to work. I am low on arrows so maybe I should break into the weapon smith to gather some equipment just in case I run into a little resistance.
+
+================================================================================
+
+* Playing Information *
+
+Game:				Thief: The Dark Project
+Title: 			Nigel’s Treasure
+File Name:			miss20.mis
+Difficulty Settings: 	Normal, Hard, Expert 
+Equipment Store: 		No
+Map: 				Yes
+Auto Map: 			No
+New Graphics: 		No
+New Sounds: 		No
+Multi-Language Support: No
+
+Briefing: 			No
+
+Difficulty Level Info: 	Normal 8000 Loot, Hard 9000 Loot, Expert 10000 Loot 
+
+* Construction *
+
+Base: 			Dromed base
+Build Time:			Forever as real life just kept getting in the way.
+  
+
+================================================================================
+
+* Loading Information *
+
+DarkLoader ready. Runs from Darkloader. Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole thing into whatever folder/directory you want to on your hard drive, then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+
+================================================================================
+
+* Copyright Information *
+
+This mission is (c) 2013 by BBB (Bryan Gleason).
+
+Thanks to KOMAG for getting me started with his famous tutorial.
+Thanks to voice actors – Yandros and Lizanneh.
+Thanks to terrific testers who made this mission much, much better (they always do)- Nightwalker, Freddy Fox and Peter Smith. 
+Thanks to everyone at the TTLG forums for their help! Best community on the planet. It is truly extraordinary.
+Thanks to all the players. Unless we all keep playing fan missions, the community and Thief will die.
+Finally, thanks to Looking Glass Studios who has provided me with years of incredible enjoyment. I have been mesmerized ever since I blacked Benny by the well in Lord Bafford and it has never changed. Absolute genius work!
+
+Distribution of this level is allowed in any way, shape or manner you wish.
+However, you must leave the mission intact and give me credit for it. Have fun! 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+(This text file was copied from another Fan Mission and modified).

@@ -1,0 +1,38 @@
+=============================================================
+TCrap
+	=============================================================
+Title		 : Tcrap 
+Filename                  :Tcrap.zip
+Author		 : unknown
+Contact info	 : 
+Homepage	 : under construction
+Date of release	 :
+Version	                 : v 2340
+
+Description:                “Total Crap contest”
+ 
+Minimum Requirements:
+Pentium IV 3600 MHz or equivalent
+4 GB RAM
+=============================================================
+               * Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : TCrap
+File names		 : miss21.mis
+Difficulty Settings	 : Yes.
+=============================================================
+* Construction *
+=============================================================
+* Loading Information *
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole file into whatever folder/directory you want to on your hard drive, 
+then in Darkloader setup, point to this folder/directory, and the mission should show up in the Darkloader main screen.
+=============================================================
+=============================================================
+* Copyright Information *
+
+This level is © by Unknown
+Distribution of this level is allowed in any way, shape, or manner you wish as long as it free.  However, you must leave the mission intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

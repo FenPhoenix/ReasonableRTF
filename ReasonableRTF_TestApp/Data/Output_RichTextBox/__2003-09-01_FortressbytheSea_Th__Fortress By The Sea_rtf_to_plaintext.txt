@@ -1,0 +1,89 @@
+===============================================================
+Fortress By The Sea Version 3.0 	30 April 2006
+===============================================================
+Author			:  Ottoj55 (Jason Otto)
+Contact Info		:  Ottoj55@hotmail.com
+Homepage		:  www.jasonotto.net
+Date of Release	:  September 01, 2003
+Re-release		:  April 30, 2006
+
+Title			:  Fortress By The Sea
+
+Description		:  Thief 2 Fan Mission
+
+Story			:  Things haven't been going so well for the Baron.  He's losing his war, and unless he can capture a key enemy fortress on the top of a lonely island he'll never get his navy to safety. Normally, I'd stay out of business like this.  A captain in the Baron's army tracked me down, he asked for the best cat burglar in the city, and wound up finding me.  With the fee I'm being offered to help get the Baron's forces into this fortress I'll be able to pay my rent for a long time. I'll have to watch my step on this job.  The Baron's forces aren't going to know the difference between me and the soldiers in the fortress, when the jobs done I should probably make my get away and worry about collecting the second half of my payment somewhere less hostile.
+
+Bugs &
+Tips		: The end contains a large AI battle the may bog down slower PCs.  
+       
+Briefing(s)	: No
+Cutscene	: No
+
+===============================================================
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: The Fortress By The Sea
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Languages		: English, Italian
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Normal - Open gate;1000 loot; Get out alive; No kiltlike limit 4; Hard   - Open gate;1400 loot; Get out alive; No kiltlike limit 2; Expert - Open gate;1800 loot; Get out alive; No kiltlike limit 0
+                                  
+* Construction *
+
+Base			: From Scratch
+Build Time		: The whole summer to build, a month to retexture years later.
+
+===============================================================
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+===============================================================
+
+* Thanks To *
+
+The members of ttlg.com, especially Bumbleson, R Soul, Yandros, Shadowspawn, Spike14, Mortal Monkey, greg9001, Jocke, mopgoblin, Rob Hicks, Gaylesaver, John D, Komag, Thorin Oakenshield, Gingerbread Man, YcatX, Yametha, Salvage, golem8, jbyrd23, Thief13x, sluggs, Lady Rowena, salass00, and EmperorSteele for answering my questions or providing ideas.
+
+* Credits *
+
+New cloud deck, pipe models, barrels, crate, footlockers, spider webs and lights by Vigil.  Pipes retextured by Jason Otto.  The distant art is based on the distant art from Enter the Maelstrom by Morrgan and Vigil, it has been remade, but served as my starting point, and thus it has the same name.  The moon image and flying raven by Nameless Voice.  The new fire bitmaps are originally by Yandros, a second version based on them is also used.  Many objects from the Thief 2 Enhancement package, these include the new switches, buttons, electrical gizmos, furniture, trapdoors, food, loot and many others.  New objects by Jason Otto include new bedding textures, new textures for cabinets and victorian furniture, new doors and door knobs, new visibility gem textures, new drape models, new banners and tapestries, new key textures, new pressure door texture, new lost city bridge texture, and new ivy textures for the vine objects.  The new compass by Sluggs.  The new terrain textures are taken exclusively from Thief: Deadly Shadows.  In the absence of A T3 EULA I assume redistribution in not for profit mods is allowed so long as I recognize that I used these materials, since a T3 editor was released it would make sense.  This mission contains texture from Max Payne by Remedy Inc.  As well this mission uses textures from the photo real texture pack compiled by BernyBoy.  Some textures came from Mayang's free textures, http://www.mayang.com/textures/.  New music is “Tones” by Eric Brosius, originally from Thief: Deadly Shadows.  This mission uses scripts by Gaylesaver (version 1.2.0) and Telliamed (version 1.5.4).
+
+* More Thanks To: Original Version Testers *
+
+My beta testers, EmperorSteele, Slipknot and Griffin
+
+* New Version Testers *
+
+The Phantom, Splashcups, Taffer36, Silent Warrior and Hipbreaker
+
+*  Translations *
+
+Italian translation by Game Italian Translation, http://www.multiplayer.it/git/, additional translation by Lady Rowena.
+
+===============================================================
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+* Legal Disclaimer *
+
+The textures in this file are property of Remedy Entertainment Ltd., and can be used only as long as the work is recognized as original artwork by Remedy, and no financial profit is made in the process. 
+
+(C)1998-2001 Remedy Entertainment Ltd.
+     

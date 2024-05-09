@@ -1,0 +1,112 @@
+   
+Author : Beltzer
+Title: The Sister
+Contact info : beltzer2@hotmail.com
+Date of release : 31 October 2019
+Version : 1.0
+Description
+Garrett received a letter from his old friend Timan.
+Something Timan wrote knocked Garrett a little off balance, and set him thinking.
+He claimed that Garrett has a sister named Ula.
+Can it really be true? This needs to be investigated.
+
+Play Information
+Game : Thief 2: The Metal Age v 1.27
+Difficulty Settings : Yes
+Map/Automap : No/No
+Language: English.
+
+Bugs
+When you frob a certain AI,
+sometimes the game will crash. Save first.
+
+Good to know
+
+My previous missions
+Reunification Campaign
+The Abandoned Castle
+The Favour
+Mortuos Liber Campaign
+
+Loading Information
+Tested with AngelLoader
+
+Thanks To
+Voice Actors
+antimatter_16
+Supremcee
+
+Beta testers
+Gloria Creep
+griswold
+Mat99
+Supremcee
+Unna Oertdottir
+zajazd
+
+All the texts.
+To urgrue who proofread all texts.
+To zappenduster for German translations. 
+To Stefan_Key for French translations. 
+To MoroseTroll for Russian translations. 
+
+Custom objects
+Asgaroth
+Blackthief
+cgtextures.com
+Christine
+Dale
+Daraan
+DarkShadow
+Dhin
+Elvis
+Eshaktaar
+Firemage
+Gamophyte
+Greenhorn
+LarryG
+Nameless Voice
+nicked
+Nielsen74
+pdackel
+PinkDot
+RSoul
+T2X
+TDBonko
+Team Rose Cottage
+Team Calendra
+Team Cosas
+Schwaa
+Sluggs
+Soul Tear
+Vigil
+
+Meshes and skins 
+Meshes
+Eshaktaar
+LarryG
+Ottoj55
+Purgator
+Team T2x
+
+Textures
+Necrobob
+Max
+
+Custom Script
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sounds
+DarioD
+Tabias “Spadey” Scot
+Dromed Deluxe
+
+And, obviously, thanks to my fiancee Sandra for her
+moral support whilst putting up with me working on it 24/7.
+Copyright Information
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit for it.
+This level was not made by, and is not supported by, Looking Glass Studios.

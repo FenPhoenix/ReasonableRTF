@@ -1,0 +1,80 @@
+===============================================================
+The Ashen Age Part 1		November 20, 2006
+===============================================================
+Author	:	Sliptip
+Contact Info	:	mazuppinger@sympatico.ca
+Date of Release	:	November 20, 2006
+
+Title	:	The Ashen Age Part 1
+
+Description	:	Thief 2 Fan Mission
+
+Story	:  A rash of disappearances plague the city.  Rich and poor alike are vanishing without a trace while the City Watch stands idle, powerless to stop the menace.  Garrett is contacted by the Keeper Order who claim that 4 of their own have gone missing.  It is no co-incidence that these 4 have been taken.  Each of these Keepers shared in the burden of protecting the "Book of Ash", a book capable of unleashing hell on earth.  There isn't time to wait till nightfall this time. . .
+
+Known bugs 	:  Some difficulty levels may (or may not!) have a zombie that just won't stay put!
+Briefing(s)	:	No
+Cutscene	:	No
+
+===============================================================
+
+* Playing Information *
+
+Game	:	Thief 2 TMA
+Mission Title	:	The Ashen Age Part 1
+File Name	:	Miss 20
+Difficulty Settings	:	Yes
+Equipment Store	:	No
+Map	:	Yes
+Auto Map	:	No
+New Graphics	:	Yes
+New Sounds	:	Yes
+Languages	:	English
+EAX Support	:	No
+Briefing(s)	:	No
+                                       
+* Construction *
+
+Base	:	From Scratch
+Build Time	:	2 months
+
+===============================================================
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+===============================================================
+
+* Thanks To *
+
+My thorough beta testers who through kind and careful feedback made this a MUCH better mission:
+
+The_Dude
+Freddy Fox
+Griffin
+OttoJ55
+Silent Cat
+Skol
+Yandros
+
+And Sterlino for just being generally encouraging J
+
+Special thanks to Vigil for the use of his lockboxes - available at "The Well Equipped Thief" (www.washboardabs.net/thief)
+
+Everyone at TTLG for their kind support and encouraging feedback, particularly Yandros - I doubt I would ever have finished this without it!
+
+* Credits *
+Many of the new sounds are either modified T2TMA files or simply lifted from T3DS
+
+Textures sources:
+
+Mayang's Free Textures -  HYPERLINK "http://www.mayang.com" www.mayang.com
+Animax - www.animax.it
+The rest were from photos taken by me.
+===============================================================
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.     

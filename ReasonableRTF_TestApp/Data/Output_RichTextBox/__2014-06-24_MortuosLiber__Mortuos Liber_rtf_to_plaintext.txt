@@ -1,0 +1,106 @@
+ 
+Mortuos Liber
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Date of release : June 24, 2014
+Version : 1.0
+Description
+Garrett was on his way to a friend in old Quarter when he passing
+this little town. He heard a couple on the street talking about a
+rare and valuable ring. It belongs to Sheriff Argus.
+He has a mansion in this town. Take some loot too.
+
+Play Information
+Game : Thief 2: The Metal Age v 1.21
+Difficulty Settings : Yes
+Map/Automap : No/No
+Language: English and German
+Bugs (Possible Spoilers):
+When a certain AI patrol to his destination, it could be broblems, try to save often.
+In one place, maybe you need to whait a while until you can frob him.
+
+Construction
+Build from scratch
+Map Size : Hard to say, maybe medium.
+Build Time : 8 month including beta testing,
+many hours a day. A couple of month break
+in between.
+
+My previous missions
+Ransom
+Lord Beltzer’s Mansion
+Mistress Guennean’s Castle
+The Reunification
+The Abandoned Castle
+The Favour
+
+Loading Information
+Runs from Dark Loader.
+
+Thanks To
+Beta testers
+Eiji
+fibanocci
+Gloria Creep
+Sofie
+trix
+zappen
+Zaya_Ayame
+
+Other thanks
+To nickie who checked all the texts in the mission.
+To Dussander for shalebridgecradle.
+To zappen for translations. 
+
+Custom objects
+Ar-Zimrathon
+Daraan
+Dark Arrow
+Eshaktaar
+Gort
+Greenhorn
+JasonOtto
+LarryG
+Nameless Voice
+Nielsen74
+Phantom 
+RSoul
+Schwaa 
+Sluggs
+Targa
+The Watcher
+Vigil
+von.Eins
+www.worldofgothic.de
+Zontik
+
+Meshes and skins 
+Dark Arrow
+Eshaktaar
+JasonOtto
+Necrobob
+Paweuek
+Purgator
+Sensut
+Shadowspawn
+
+Textures
+Zappen
+C-BEAM
+Remedy
+Vigil
+
+Custom Script
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sounds
+Beauty-Man
+DarioD
+
+Copyright Information
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit for it.
+This level was not made and is not supported by Looking Glass Studios

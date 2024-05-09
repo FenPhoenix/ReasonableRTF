@@ -1,0 +1,132 @@
+==================================================================================
+04.03.2011                           
+==================================================================================
+
+Title		 : The Tower of St. Moria
+Filename	 : towerstmoriaT2
+Author		 : DarthsLair
+Contact info	 : darthslair@hotmail.com
+Date of release	 : April 3rd, 2011 
+Version              : Final Version 
+
+==================================================================================
+
+              
+* Play Information *
+
+Game			 : Thief 2 The Metal Age
+Level Names		 : TheTower of St. Moria
+File names		 : miss20.mis
+Difficulty Settings	 : Yes.         Easy, Hard, Expert
+Equipment store	 : No.
+Map/Automap		 : Yes. 
+New graphics		 : No.
+New sounds		 : yes.
+New conversations	 : No.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : No.
+Briefing	       		 : No.
+
+* Construction *
+Base:      From Port from Thief Gold version  :80 hours. Construction started May, 4th 2008 Then ported to T2  not including post beta repairs.
+Build Time: Many bottles of headache medicine!  Many fits thrown, when Dromed turns into Dromzilla the Monster.
+
+
+===================================================================================
+
+* Story *
+It is time for a peaceful and serene holiday, and my place of choice is Saint Moria.  It’s situated among quiet meadows high in the mountains with nothing but the sound of birds singing, fresh air, and peace and quiet away from the city.  No City Watch, but the Hammerites have an interesting community there which is right in my ball game.  According to some old Hammerite documents I picked up from my fence in exchange for a small silver nugget, there’s a compound the Hammerites have built to provide a serene place to bury their own. The map shows a huge underground crypt and, from where the map is torn, it looks like another area having some ancient symbols. I am sure the Hammerites there will have some information on it, but if not, I should be able to dig something up.
+
+My fence also spoke of a Rare Bird Book in St. Moria.  It seems the High priest finds serenity and peace in raising rare and exotic birds; one in particular, a Cuckoo bird.  The fence also asked to be first in appraising the Rare Bird Book.  He guarantees a high price for it.  He mainly spoke of the Cuckoo bird. It may just be that the High Priest is a little cuckoo.  Rumor has it he speaks in riddles and uses birds in his own life philosophy.  This may be interesting!  A bird in the hand is better than two in the bush!
+
+Like I always say, why not relax and enjoy the mountain air and pile up some loot. The rent is always due and times are getting expensive.  Getting away from the noise and confusion of society may just be my ticket to some place better. The compound will no doubt be heavily guarded, as these crypts usually hold some nice gold artifacts. As usual, I will try to make myself invisible. Get in, and get out in one piece. Off to my holiday!  
+
+===================================================================================
+
+ * Loading Information *
+Get the latest version of Darkloader and run it.   DO NOT UNZIP THIS FILE!!  
+May not run with Windows Vista and Garrettloader.
+
+ * Copyright Information *
+   DarthsLair April 3rd,2011
+
+ * Special Thanks *
+Special Thanks to: Yandros, Garrett's Shadow, Tannar, Nickie, Sagittal, Cardia1, and Through The Looking Glass. And to everyone who can tolerate my FMs.
+Special Thanks to model makers: Yandros, Zontik, Raetsel, Hrothgar, Nielsen74, OttoJ55, Schwaa, Eshaktaar, Targa, R Soul, Christine, Nameless Voice, Dark Arrow, Sluggs.
+Special Thanks to Garrett's Shadow for his idea on the Birds and Riddle, also some Hammerite Readables.
+Special Thanks to Tannar, Nickie and Sagittal for their great beta testing skills, and Dussander for his Testing Forum.
+Special Thanks to Shadow Sneaker for his Ambient Music in the Crypts. (made for Dark is the Lair)
+Special Thanks to Sagittal for his Loot List - included in the package.
+Special Thanks to Tannar for editing readables.
+
+==========================================================================================
+ 
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent.  Enjoy!!! This mission
+was intended to be for fun only. The author does not assume any liability
+in misuse. Ha! Ha! Enjoy, Taffer!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================================================================================
+
+
+
+	
+
+
+
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+ 
+
+===================================================================================
+
+
+
+
+
+===================================================================================
+
+
+
+
+
+   

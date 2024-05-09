@@ -1,0 +1,107 @@
+
+===================================================================
+20th August 2017
+===================================================================
+Title		: Vault Chronicles: Scorched Earth
+Filename	: miss20.mis
+Author		: Cavalorn (Csongor Hős)
+Contact info	: cavalorn88@gmail.com
+	Date of release	: 20 August, 2017
+Version		: 1.0
+
+Mission Background: 
+
+Ten years have passed since Garrett activated the Final Glyph and defeated Gamall. The Keeper Glyphs were destroyed and the world would pay a terrible price. Shortly after this tragic event, a second Cataclysm, twice as powerful as the previous, struck the land. No one knows what really happened. Only one thing was certain: there were no Glyphs to protect mankind. The Second Cataclysm shattered the world and destroyed most of what was known as the City. This disaster forced the people to seek shelter and a new home in underground vaults. Hundreds of vaults had been built during the years and each faction had their own. 
+
+The Keeper Order had been dissolved and most of their former members are now overseeing vaults. They do whatever they can to protect the vaults and their dwellers.  
+
+The Mechanists, now known as the Brotherhood of Metal, have re-emerged from the ashes and are as powerful as they once were, if not more. No one really knows what they are up to but certainly nothing good. It is believed they are plotting inside their vaults and an even more sinister plan is in the making. 
+
+The Order of The Hammer, still dedicated to the Master Builder, has a significant and large presence throughout the vaults and the lands. They have sworn to protect peace and are making sure there is law and order everywhere. Fortunately, at least for them, Cragscleft remained pretty much intact after the Cataclysm and the corridors of that prison are still loud with the wailings of inmates. 
+
+Not much is known about the Pagans except that they refused to live in vaults. The forests were always their home and this hasn't changed much. Only the number of forests has seen some change due to the catastrophe. 
+
+Garrett, the master thief, is still living the life of a thief. He still lives by the creed: once a thief, always a thief. His other identity hasn't been forgotten either, so if the world needs him, he might come out of the shadows once again. But until that time comes, he will live a relatively simple and easy life within the protective walls of Vault 10.
+
+=====================================================================================
+* Play Information *
+
+Game			Thief 2:The Metal Age
+Level Name		Vault Chronicles: Scorched Earth
+File name		miss20.mis
+Difficulty Settings	Normal, Hard, Expert 
+Equipment store		No
+Map			No
+Automap		No
+New graphics		Yes
+New sounds		Yes
+EAX Support		No
+Multi language support	Yes (French, German, Russian)
+	Briefing			No
+
+
+
+=====================================================================================
+
+*  Construction  *
+
+Base:			Fallout 3 and New Vegas
+Map Size:		medium
+Build Time:		3 weeks
+
+=======================================================================================
+
+						Beta Testers:
+
+・	Fortuni
+・	Nightwalker
+・	Tannar
+
+							Proofreading
+・	Nightwalker and Bernie
+							
+
+							Translators
+
+・	Azaran
+・	MoroseTroll
+・	zappen
+							Textures Credits:
+
+・	Sliptip
+・	Vigil
+・	Wille
+
+							Music Credits:
+
+						Fallout 3 main theme – composed by Inon Zur
+
+							
+							Many thanks to:
+
+・	My betatesters for their competence, their help and their patience
+・	Members of TTLG The Editors' Guild who helped me with technical issues: Brethren, Daraan, GORT, john9818a, marbleman, nightshifter, LarryG, R Soul, Stringgod2, Unna Oertdottir, Yandros
+・	My translators
+・	Looking Glass Studios for making Thief
+・	TTLG
+・	Shalebridge Cradle
+・	Bethesda Softworks for making Fallout 3
+・	Obsidian Entertainment for making Fallout: New Vegas
+・	Inon Zur for composing the fantastic Fallout 3 main theme
+・	The whole Thief community
+・	You for playing my mission. :)
+
+						
+
+
+						Copyright Information *
+
+
+•	This level was made by Csongor Hős (Cavalorn) in 2017
+
+•	Distribution of this level is allowed as long as the archive and this file are kept intact.
+
+•	This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+

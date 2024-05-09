@@ -1,0 +1,353 @@
+                UNE NUIT A
+   ROCKSBOURG
+=====================================================
+* Episode N°1 *   
+                              Un nouveau départ
+
+ENGLISH : 
+
+Author                            :      DrK (Kubiac)
+Contact info                   :      Eric.bigou@wanadoo.fr
+Release date                 :      November 2005 (English version : December 2005)
+Version                          :      1.2
+
+=====================================================
+
+* Description *     
+
+The first mission of my six-mission campaign, which takes place during one night in the town of Rocksbourg.  
+In this mission, explore Rocksbourg and soak up the atmopshere !
+
+These events take place immediately after Thief II and some time before Thief III.
+
+This is my first fan mission.  It took quite a lot of trouble to create, and there still might be a bug or two, 
+but I hope the mission is playable.
+
+Enjoy!
+
+=====================================================
+
+* Briefing *
+
+You'd better watch the video...  ;)
+
+"Karras is dead. Blinded by fanaticism, he forgot he was human and nothing more. The Builder's chosen one, defeated by a thief. It makes me smile. But Viktoria's plan wasn't perfect. It cost her life, and she wasn't the only one. Some of Karras' servants stayed locked in the manors. Others didn't respond to the beacon's call -- certainly a fault of their maker. But the consequences were tragic.
+
+After the incident at Soulforge, the authorities and citizens discovered Karras' evil plans, and turned against the remaining Mechanists. Without support, the order fell. Yet again, I'm the one who saved the City, but heroism didn't suit me the first time.
+
+With the collapse of the Mechanists, the City became chaotic. Plots, conspiracies, murders. Theft too. The city watch was torn into factions: some followed Lt. Mosley's every word, but many who prospered under Truart joined together and ridiculously praised his memory. The Hammerites returned in strength to reclaim what they perceived as their rightful power. They threatened to fill Cragscleft with prisoners -- criminals or not -- just like in the golden days. Too much action, not enough shadows, and so I took the advice of the Keepers. I decided to leave the City for a time, to let some water flow under the bridge.
+
+For my retreat, I traveled to Rocksbourg, some kind of ancient fortress town that was considered impregnable. Except for a few local tales, Rocksbourg was a discreet place ignored by everyone. For a thief like me, it was the perfect place to vanish. When I arrived two weeks ago, I found refuge with Garibald, a contact of the Keepers. He said there were three such contacts in town, but he didn't know the other two. I expected them to appear on their own schedule, as usual.
+
+With time on my hands, I explored Rocksbourg. I didn't enter the fortress heart of the city, where all the wealth is concentrated. The area is protected by high walls and guards. So I worked the outskirts. A few acquisitions, barely enough to pay for lodging and food, barely enough for my time. But those who keep their ears open on the street can hear curious things...
+
+Indeed, the Mechanists, or what's left of them, haven't vanished completely. There are some in Rocksbourg who call themselves the "Builder's Children". They claim to be more moderate than Karras. Before the fall of Soulforge and Karras' death, one of his colleagues fled the City and came to Rocksbourg. A man named Feguen. The name struck me, and then I remembered when and where I heard it: eavesdropping at the door of the Mechanist church, listening to the conversation between Karras and Truart. "Friend Feguen, could you please sweep these remains..."  Feguen joined with the Mechanists in Rocksbourg, where he met another leader named Dreyfus. Despite my efforts, I couldn't learn anything about Dreyfus, but I know that together the men broke away from Karras' version of the Mechanist path.
+
+As I figured, the Keepers soon contacted me. I received a message: they want to meet me immediately, back in the Old City. But before returning, I have a night in Rocksbourg. A special night. The heart of the fortress town offers a great opportunity, one I've avoided until now. I'll have to enter the area first. But inside is the Builder's Cathedral, some kind of religious complex, a bastion of the Hammerites. They resisted the Mechanists, but now the Hammers are fatigued and short of men. I want to pay them a visit before leaving town. Poor Hammers, they must collapse beneath all the money they've got. But when it comes to their money, I've always been a charitable soul...
+
+A nightmare, all this inactivity. Darkness has fallen over Rocksbourg, and it's time to work. Garrett is back..."
+
+=====================================================
+
+* Game information *
+
+Version 1.2                              :      English version added
+                                                      A few details added
+                                                      Minor bugs fixed
+                                                      Easter Egg added
+
+Game                                        :      Thief II - The metal age 
+Campaign name                       :      Une nuit à Rocksbourg (A Night in Rocksbourg)
+Level name                              :      Un nouveau départ (A New Beginning)
+.zip file name                           :      UNAR1_Depart.zip
+.mis file name                          :      miss20.mis
+Difficulty                                   :      Yes                   - Pickpocket
+                                                                               - Thief
+                                                                               - Shadow
+Equipement store                     :      No
+Map/Automap                          :      No/No
+New objects                             :      Yes                      - Created by a few authors (cf ‘’special thanks’’)
+New textures                            :      Oh yes !               - Created by a few authors and myself (cf ‘’special thanks’’)
+New sounds                              :      Yes                      - Created by myself with sounds from Thief I, Thief II and my voice.
+New musics                              :      Yes                      - Musics from video games = « Silent hill » by Konami, and « Quake » by ID software.
+New conversations                   :      Yes                      - Created by myself and a few people.
+New AI models                         :      Yes                      - New AI mesh and an AI scaled.
+EAX Support                            :      Yes
+Multi language support           :      Yes
+Language                                :      French / English
+Briefing video                          :      Yes !                     - Created with several sounds from Thief.
+                                                                                      - Musics from Thief III.
+                                                                                      - Parts of videos from Thief I and Thief II.
+                                                                                      - Artworks created by myself.
+                                                                                      - My voice.
+
+=====================================================
+
+* Construction *
+
+Base                              :      My inspiration...
+Build time                     :      About eight months
+Additional Info              :      To be continued!
+
+=====================================================
+
+* Loading information *
+
+To place the zip file in your FM folder.
+To run with DarkLoader, do not unzip the zip file.
+
+=====================================================
+
+* Special thanks *
+
+First of all, a huge thanks to Purah, because his campaign « Calendra’s Legacy » inspired me to try DromEd...
+
+If I forgot anybody, well I’m sincerely sorry, and you have to know that I truly thank you for your work, whatever it is. Just contact me, and I’ll fix that mistake ;).
+Great thanks to :
+
+- Liki, Annapherem, Silent_Warrior, Bikerdude and Santiago for Beta-test. Thanks to Kurtgodel for having noticed a few bugs.
+
+- The whole French community for the Thief games, in particular Gaëtane, Lynx, Louve, Lady Jo, TontonFranky and Constance, they helped me to solve some bugs and to finish my fm.
+   Website : http://ariane4ever.free.fr 
+
+- Amelico, Charlybegood, Daniel, Duke, Gaëtane, Leonard, Lionel, Louve, Lynx and Mahoko, for French translations and creations of DromEd tutorials.
+
+And thanks to anyone who wrote tutorials for Thief I and Thief II.
+
+- Vigil -> new objects, textures & maps. And for great help with the textures palettes.
+COSAS Team -> new textures.
+Eshaktaar -> new objects.
+Laurence Whitaker -> new objects.
+Nameless Voice -> new objects.
+R Soul -> new objects.
+Remedy Entertainment -> textures from « Max Payne » ((C) 1998-2001 Remedy Entertainment Ltd.)
+Schwaa -> new objects.
+Scrooge -> technical help with the videos.
+Sluggs -> new objects.
+Targa -> new objects.
+Von Eis -> new objects.
+
+- Several textures come from these websites :
+        http://www.imageafter.com
+        http://lemog.free.fr/lemog_v5/index.php
+        http://www.3dcafe.com
+
+- English version : thanks to Redrider, Scrooge and Sidiherrero for helping me with the translations.  
+                                         RonnieAlme, Tyrilix and Vigil for polishing and correcting translated texts. 
+                                         Bikerdude, Gestalt and Santiago, for giving their voices for the conversations.
+
+- And of course, Looking Glass Studios which created Thief I and Thief II.
+
+Textures were made with Adobe Photoshop CS and Bright 1.83 (by Erik de Neve).
+Briefing videos were made with Ulead VideoStudio 8.0 Trial.
+Sounds, voices and musics were recorded, created and edited with Audacity.
+« Books » texts were written with Str-Converter (by MadBull) and ParchEd (by Telliamed)
+Ai scale was done with Meshscale (by Randy Sybel).
+
+=====================================================
+
+* BUGS BUGS BUGS *
+
+CAUTION ! When you are on the city roof, if you watch with a particular point of view there could be some 
+bugs due to a lot of polygons on screen. Be careful...
+
+A few AI might act strangely, because my mission has more than 28,000 cells.
+
+=====================================================
+
+* Recommendations *
+
+Minimum System Requirements are higher than for T2, you'd better have an updated system if you want to play my fm.
+New codecs are needed for briefing videos. You can find codecs install in the "movies" folder.
+You should play the mission after a fresh boot.
+
+Listen to entire conversations.  Some give you clues, others give new objectives. 
+Read anything you can.
+
+Also, you should play with fog for best atmosphere, but it's not necessary...
+
+=====================================================
+
+* Copyright Information *
+
+This level, some sounds, textures & artworks, are ©2005 by Eric Bigou (aka DrK, aka Kubiac)
+If you wish to use some of my works (textures or sounds), then contact me and I’ll tell you what you could use in your fms.
+
+All original artwork, voices, acting, scripts or other original production included in this FM are the express and sole property of their original creators/contributors and are expressly protected by US and international copyright laws and may NOT be used in any way (except within the confines of and for the original intended purpose(s) of this FM), especially NOT for any illegal or commercial reasons, without the express written permission/approval of the creators/contributors of said original artwork, voices, acting, scripts.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.
+
+                                                             ____________________
+
+
+
+
+
+
+
+
+
+
+FRANCAIS :
+
+Auteur                            :      DrK (Kubiac)
+Contact info                   :      Eric.bigou@wanadoo.fr
+Date de sortie                :      Novembre 2005 (Version anglaise : Décembre 2005)
+Version                          :      1.2
+
+=====================================================
+
+* Description *     
+
+L’introduction de ma campagne de 6 fms, l’histoire se déroulant durant une nuit entière à Rocksbourg.   Cette mission vous permet de découvrir ce à quoi ressemble l’univers de Rocksbourg. 
+
+Ces évènements se déroulent peu après Thief II, et quelques temps avant Thief III.
+
+C’est surtout ma toute première mission, sur laquelle j’ai découvert et expérimenté 
+les possibilités de DromEd. Après moult problèmes, j’ai pu en sortir quelque chose, mais il se peut qu’il reste quelques bugs résiduels.
+
+=====================================================
+
+* Briefing *
+
+Regardez la vidéo pour tout comprendre...  ;)
+
+En résumé, suite à la mort de Karras, Garrett se voit contraint de quitter la Vieille Cité, suivant les 
+conseils des Gardiens. Il part pour Rocksbourg, une ville assez discrète et isolée dans la région 
+malgré sa taille. Idéal pour se faire oublier.
+
+Durant deux semaines, Il roda dans la périphérie de la ville, le coeur de la cité étant cerné par d’immenses chaînes de murailles et remparts divers. Malgré la mort de Karras, il s’aperçut que l’ordre Mécaniste n’a pas disparu à Rocksbourg, mais qu’un ordre similaire s’y est installé, comme si l’histoire du necroso-mutagène n’avait jamais eu lieu... Ils se font appeler les Enfants du Créateur, et aussi étrange que cela puisse paraître, ils cherchent à renouer des liens avec la population et les Marteleurs.
+
+Un soir, un mois après la mort de Karras, notre voleur reçut un message des Gardiens, lui demandant de rentrer précipitamment à la Vieille Cité. Cependant, Garrett a entendu parler de la Cathédrale du Créateur, un complexe religieux Marteleur. L’occasion ne se représentera pas ! Ce soir, avant de quitter la ville, il ira rendre visite aux Marteleurs, et les soulager de quelques reliques...
+
+=====================================================
+
+* Information de jeu *
+
+Version 1.2                               :      Ajout de la version anglaise
+                                                       Ajout de quelques détails
+                                                       Correction de bugs mineurs
+                                                       Ajout d'un Easter Egg
+
+Jeu                                           :      Dark project II – L’âge de metal
+Nom de la campagne               :      Une nuit à Rocksbourg
+Nom du niveau                         :      Un nouveau départ
+Nom du fichier .zip                   :      UNAR1_Depart.zip
+Nom du fichier .mis                  :      miss20.mis
+Niveau de difficultés                :      Oui                   - Pickpocket
+                                                                               - Voleur
+                                                                               - Ombre
+Magasin d’équipement            :      Non
+Map/Automap                          :      Non/Non
+Nouveaux objets                      :      Oui                       - Faits par divers auteurs (cf ‘’special thanks’’)
+Nouvelles textures                   :      Oh ça oui !            - Faites par moi-même et par d’autres auteurs (cf ‘’special thanks’’)
+Nouveaux sons                        :      Oui                       - Faits par moi-même avec des sons venus des jeux Thief I, Thief II et ma voix.
+Nouvelles musiques                 :      Oui                       - Musiques venant des jeux vidéos « Silent hill » par Konami, et « Quake » par ID software.
+Nouvelles conversations          :      Oui                       - Faites par moi-même et diverses personnes (cf ‘’special thanks’’)
+Nouveaux AI models               :      Oui                       - Taille d’un AI modifiée et divers Ai mesh retravaillés.
+EAX Support                            :      Oui
+Multi language support           :      Oui
+Langue                                    :      Française / Anglaise
+Vidéo de briefing                    :      Oui !                     - Faite avec divers sons venus des jeux Thief.
+                                                                                      - Des musiques de Thief III.
+                                                                                       - Des morceaux de vidéos venant de Thief I et Thief II.
+                                                                                       - Des artworks faits par moi-même.
+                                                                                        - Ma voix (d’accord, j’imite trèèèèès mal la voix française de Garrett).
+
+=====================================================
+
+* Construction *
+
+Base                              :      Mon inspiration...
+Temps de travail           :      A peu près 8 mois
+Info supplémentaire      :      A suivre !
+
+=====================================================
+
+*  Chargement de la mission *
+
+Placer le fichier zip dans le répertoire où vous mettez vos fms.
+La mission se lance avec le logiciel DarkLoader.
+Laisser le fichier zippé, NE PAS DEZIPPER LA FM.
+
+=====================================================
+
+* Special thanks*
+
+Avant tout, un très, très grand merci à Purah, car c’est en jouant à sa campagne « Calendra’s Legacy » que j’ai voulu m’essayer à DromEd...
+
+Si jamais j’ai oublié de citer/remercier quelqu’un, alors je vous prie de bien vouloir m’en excuser, et sachez que je vous remercie quand même. Me contacter pour corriger cet oubli ;).
+Grands mercis à :
+
+- Liki, Annapherem, Silent_Warrior, Bikerdude et Santiago pour m’avoir aidé dans le Beta-test de cette fm. Merci aussi à Kurtgodel pour m'avoir indiqué deux ou trois bugs.
+
+- Toute la communauté francophone de Thief, en particulier Gaëtane, Lynx, Louve, Lady Jo, TontonFranky et Constance, qui ont trouvés la patience et le temps de m’aider à résoudre divers problèmes avec DromEd, ou pour la finalisation de cette fm. Merci aussi pour le fait que cette communauté existe à travers les différentes versions du forum Ariane !
+   Website : http://ariane4ever.free.fr 
+
+- Amelico, Charlybegood, Daniel, Duke, Gaëtane, Léonard, Lionel, Louve, Lynx et Mahoko, pour avoir traduits et crées des tutoriels en français pour DromEd. 
+  Merci aussi à tous ceux qui écrivent des tutos pour Thief I et Thief II, quelque soit la langue.
+
+- Vigil -> nouveaux objets, textures & maps. Et pour une grande aide sur les palettes de textures.
+COSAS Team -> nouvelles textures.
+Eshaktaar -> nouveaux objets.
+Laurence Whitaker -> nouveaux objets.
+Nameless Voice -> nouveaux objets.
+R Soul -> nouveaux objets.
+Remedy Entertainment -> textures venant de « Max Payne » ((C) 1998-2001 Remedy Entertainment Ltd.)
+Schwaa -> nouveaux objets.
+Schwaa -> Aide technique sur les videos.
+Sluggs -> nouveaux objets.
+Targa -> nouveaux objets.
+Von Eis -> nouveaux objets.
+
+- Certaines textures viennent de ces sites :
+        http://www.imageafter.com
+        http://lemog.free.fr/lemog_v5/index.php
+        http://www.3dcafe.com
+
+- Version anglaise : merci à Redrider, Scrooge et Sidiherrero pour m'avoir aidé sur les traductions
+                                         RonnieAlme, Tyrilix et Vigil pour avoir corrigé et reécris les textes traduits.
+                                         Bikerdude, Gestalt et Santiago pour avoir généreusement prétés leurs voix.
+
+- Et bien sûr, Looking Glass Studios pour avoir crée Thief I et Thief II.
+
+Des textures furent travaillées avec Adobe Photoshop CS et Bright 1.83 (by Erik de Neve).
+Les vidéos de briefing furent crées avec Ulead VideoStudio 8.0 Trial.
+Des sons, voix et musiques furent enregistrées, crées, éditées avec Audacity.
+Les textes de « books » furent écrits avec Str-Converter (by MadBull) et ParchEd (by Telliamed)
+Le redimensionnement de l’AI a été fait avec Meshscale (by Randy Sybel).
+
+=====================================================
+
+* BUGS BUGS BUGS *
+
+ATTENTION ! Quand vous êtes sur les toits de la ville, si vous regardez suivant un angle particulier vous risquez de voir beaucoup trop de polygones affichés à l’écran, et cela peut faire crasher le jeu. Soyez prudent...
+
+Il se peut que certains AI se comportent bizarrement, car j’ai poussé DromEd dans ses moindres retranchements.  En effet, avec plus de 28000 cells, il y a des moments où les AI peuvent déconner dans leurs déplacements.
+
+=====================================================
+
+* Recommandations *
+
+La configuration minimale requise est supérieure à celle de T2, mieux vaut avoir un système mis à jour pour pouvoir jouer correctement à ma fm.
+De nouveaux codecs sont nécessaires pour lire les vidéos de briefing, vous trouverez les installs de ces codecs dans le répertoire "movies".
+Mieux vaut jouer à cette mission suite à un démarrage de Windows tout frais.
+
+Ecoutez toutes les conversations jusqu’au bout, certaines vous donnent des indices, d’autres vous apportent de nouveaux objectifs. N’hésitez pas à lire tout ce qui vous tombe sous les yeux.
+
+Vous devriez jouer avec les modes brouillard et intempéries activés, mais cela n’est pas obligatoire...
+
+=====================================================
+
+* Copyright Information *
+
+Ce niveau, ainsi que certains sons, textures et artworks, sont ©2005 par Eric Bigou (aka DrK, aka Kubiac)
+Si vous êtes intéressés par mes textures ou mes sons, alors contactez-moi et je vous dirais lesquels vous pourriez utiliser dans vos fms.
+
+Vous êtes autorisé à distribuer cette fm à partir du moment où le fichier zip reste intact et que cela reste gratuit. 
+Vous ne pouvez pas inclure cette fm à une campagne ou un pack de missions. Vous ne pouvez pas modifier et redistribuer cette mission sans ma permission.
+
+Ce niveau n’a pas été crée et n’est pas supporté par Looking Glass Studios, Ion Storm ou Eidos Interactive.

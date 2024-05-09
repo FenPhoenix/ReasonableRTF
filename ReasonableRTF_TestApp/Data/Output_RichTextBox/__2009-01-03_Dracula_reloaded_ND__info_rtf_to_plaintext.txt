@@ -1,0 +1,98 @@
+
+DRACULA
+Reloaded 
+Version 2.0
+
+Created by Csaba Szabo @ SENSUT 
+
+********************************
+
+Date of Release : 03 January, 2009.
+Update: 27 Mar, 2013.		
+
+Playing Information:
+
+Game : Thief II - The Metal Age
+Title: DRACULA Reloaded
+Multi-Language Support  : English, Italian.
+
+Requirements : 
+Thief II - The Metal Age 1.19 New Dark or above!
+
+This campaign uses custom scripts by:
+
+- Telliamed (tnhScript 2.1.0);
+- VKGaylesaver (script 1.2.0) ;
+- T2 Gen (version 27 March, 2000.).
+
+…and custom motions by Shadowspawn.
+
+* For manual installation of modules are details in "Install_scripts” in the mission zip !
+*********************************************************************************************************************
+
+Text editing:
+
+Nightwalker and Bernie;
+Metal Dawn;
+Robert Turi.
+Krenim (Italian translation)
+
+Beta testers:
+
+-  the original version -
+
+Nightwalker;
+Gloria Creep;
+Hotlyx;
+Robert Turi;
+Levente T.Nagy;
+Jiri Misenka;
+Sir Balu;
+Metal Dawn;
+Sneaksie Raven;
+Slipknot.
+
+-  the Reloaded version -
+
+Nightwalker;
+Pavlovscat;
+Gloria Creep;
+Metal Dawn;
+Philflound.
+
+Dromed materials:
+
+-    Greenhorn, Targa, Sluggs, Nameless Voice, R Soul, Metal Dawn, Jason Otto, Gort, TDBonko, Eshaktaar, Digital Nightfall, Redleaf, Yametha, Alun Bestor, Christine, Vigil, Dark Arrow, SYI, Dark Angel, Purah, DRK, PDackel, Yandros, Shadowspawn, Nielsen74, DLW6, Naks, Raetsel, The Watcher, Asgaroth, Purgator, Pinkdot, Elvis and me;
+
+-    Additional textures from Quake 3 Arena by id Software, Doomsday projects by Kman, Necro, Piz and Anthraxscare; and Remedy Entertainment.
+
+Extra thanks to:
+
+- Nameless Voice and the Authors of Thief Enhancemet Pack 1;
+
+- The Authors for Dromed Deluxe.
+
+NOTE: I’ve reskinned some custom objects only for self usage, to reduce the palette counts and the size of the archive !
+
+
+Ambient materials:
+
+-    Wojciech Kilar, Popol Vuh, Anton Garcia Abril, Pawel Blaszczak, Marcin „Cedyn” Czartynski, Shadow Sneaker,
+
+and
+
+-     Bathory, Dimmu Borgir, Burzum, Cradle Of Filth, Graveworm and Delerium bands.
+
+**********************************************************
+
+Copyright Information:
+
+This project is © by  Sensut.
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission. 
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

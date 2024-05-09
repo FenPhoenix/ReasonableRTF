@@ -1,0 +1,107 @@
+DIE JAGD
+-- TEIL 1: SUCHE --
+Eine FM von Grandmauden
+zum Jubi-Wettbewerb "20 Jahre Meisterdieb"
+
+NewDark 1.26 wird vorausgesetzt
+
+TTLG-Profil	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Erschienen	-   30.11.2018
+
+Handlung
+
+"Die Überraschung, wenn Deine Augen die Beute sehen 
+Das Adrenalin, wenn Du ungesehen und ungehört verharrst. 
+Der Schmerz, wenn Du im Kampf den richtigen Moment abwartest.
+Der Höhepunkt, wenn Du zum entscheidenden Streich ausholst.
+Der Stolz, wenn Körper und Geist triumphieren.
+Das sind die Glücksmomente eines Jägers."
+- Lord William Brighting
+
+Gestern sprach Dich Dein neuer Hehler auf einen aktuellen Auftrag an. Offenbar will ein Händler namens Marlon an etwas gelangen, was er einem Stammkunden weiterveräußern würde. Normalerweise nimmst Du derartige Angebote von Leuten, die einfach arbeitend ihr Geld verdienen, nicht an (da ist selten viel zu holen), doch diesmal läßt Dich schon die Tatsache aufhorchen, daß dieser Marlon Deine Dienste namentlich angefordert hatte.
+Daher findest Du Dich am frühen Abend doch in Marlons Waffengeschäft in Hightowne ein. Du hast Dich noch nicht mal richtig vorstellen können, als Marlon plötzlich den Finger auf den Mund legt und darauf besteht, im hinteren Teil des Ladens weiterzureden, obwohl der bereits geschlossen ist und draußen kaum eine Seele herumläuft. Nichtsdestotrotz folgst Du dem Dich zu sich winkenden Händler:
+
+"Verzeiht, doch die Hammeriten sind seit kurzem recht umtriebig und noch verrückter als gewöhnlich. Sie fühlen sich berufen, plötzlich irgendwo einzudringen und nach verbrecherischen Dingen oder sonstwas zu fahnden. Das fehlte mir noch, daß sie mich mit einem stadtbekannten Dieb erwischen."
+"Aber für welchen Dienst wollt Ihr einen Dieb wie mich einspannen?"
+"Nun, dummerweise geht es seit Monaten mit meinen Geschäften abwärts. Schwerter, Pfeile, Totschläger - all das scheint nicht mehr so gefragt zu sein. Ich biete schon Prozente für die Burrickjäger in der Kanalisation, aber ..."
+"Kommt zur Sache, Marlon. Meine Zeit ist kostbar."
+"Also gut, in Ordnung. Kennt Ihr Lord Brighting? Der ein paar Straßen weiter nördlich in einer Burg lebt?"
+"Sein Name sagt mir etwas. Ich hörte, er sei eine Art Großwildjäger."
+"Tja, Gerüchten zufolge hat er soviel Jagdglück, weil er einen speziellen Bogen verwenden soll. Der sei aus erlesenen Materialien gefertigt, aus Walnußbaumholz und Hanf, denke ich. Die Leute meinen, er würde diesen Bogen bereits seit seiner Kindheit benutzen und die von ihm abgeschossenen Pfeile würden nie ihr Ziel verfehlen. Ich kenne etliche Leute, die solch eine Waffe gerne ihr eigen nennen würden. Wetten, der Verkauf dieses Bogens würde meinem Laden den Erhalt sichern?"
+"Also wollt ihr, daß ich für Euch einen Jagdbogen stehle, sonst nichts?"
+"Stellt Euch das nicht allzu leicht vor. Ich würde diesen Auftrag keinesfalls einem gewöhnlichen Einbrecher anvertrauen. Da ist als erstes Hindernis zunächst das große Eingangstor zu nennen. Normalerweise würde ich Euch raten, durch die Kanalisation einzudringen, aber die Kanalarbeiter werden zur Zeit oft von Burricks angegriffen und haben deshalb so ziemlich alle Zugänge verriegelt, so daß ich daran zweifle, daß dies ein gangbarer Weg ist."
+"Dann klettere ich eben einfach darüber. Sollte doch nicht so schwer sein, oder?"
+"Schon. Andererseits weiß ich auch von einem Seiteneingang in die Burg, den das Gesinde benutzt. Ich sehe einen von Lord Brightings Dienern fast jede Nacht auf einen Trunk ins Gasthaus "Gelbe Kerze" gehen. Vielleicht könnt Ihr den Mann dort ausfindig machen und ihm den Schlüssel abnehmen? Was das Innere der Burg angeht, so bin ich sicher, daß Lord Brighting den Bogen irgendwo ausgestellt hat, aber gewiß schwerbewacht."
+"Aber bitte! Wachmänner sind keine Herausforderung für mich. Ihr wollt mir den Auftrag wohl als interessant darstellen."
+"Das wird er sein! Ich zahle Euch 2000 in Gold bei Übergabe des Bogens zuzüglich einem Drittel des Kaufgewinns. Ihr habt mein Wort!"
+"Ich verlasse mich darauf und werde vor Sonnenaufgang mit dem Bogen zurückgekehrt sein!"
+
+Spiel-Information
+
+Spiel					-   Thief Gold
+FM-Name				-   Die Jagd (The Hunt)
+Datei					-   miss22.mis
+Schwierigkeitsgrade		-   Normal / Hart / Experte
+Ausrüstungsladen		-   Nein
+Karte / Automap		-   Nein / Nein
+Neue Grafiken			-   Nein
+Neue Geräusche		-   Ja
+Neue Dialoge			-   Ja
+Neue Modelle			-   Nein
+EAX 				-   Ja
+Mehrsprachig			-   EN/DE/FR/IT/RU
+Vorschau				-   hier im Text
+
+Bau
+
+Grundlage				-   keine
+Bauzeit				-   Fast übers ganze Jahr
+
+Lade-Information
+
+Nicht händisch entzippen, sondern nur per FMSel oder (New)Darkloader installieren.
+
+Anmerkungen des Autors
+
+-   Ein höherer Schwierigkeitsgrad bedeutet weniger Lebenspunkte und Ausrüstung, schwerere Missionsziele, mehr KIs sowie einige schwieriger zu begehende Bereiche.
+-   Wachen und Zivilisten in den Straßen lassen Dich in Frieden, solange sie nicht bedroht werden oder Dich nicht in unerlaubten Bereichen antreffen.
+-   Gelegentlich reagieren einige KIs seltsam, wenn der Alarm ausgelöst wird (bleiben stehen etc.). Vielleicht weil sie denken, die würden mit dem Eindringling nicht fertig. :)
+-   Einige Türen sind nicht zu öffnen. Die werden dann im 2. Teil passierbar sein.
+-   In der ZIP-Datei befindet sich auch eine Beuteauflistung.
+
+Dank an ...
+
+Betatester:
+	Cardia
+	Marbleman
+	Vfig
+
+Sprecher:
+	AndrosTheOxen		- Garrett
+	Phantom			- geiler Diener, Hauptwache, Galeriewache
+	McTaffer			- Koch, schläfrige Wache
+	Shadow Creepr		- Wirt, Serviererin
+
+
+Übersetzer:
+	Zappenduster (DE)
+	Piesel (IT)
+	Azaran (FR)
+
+Mein besonderer Dank gilt:
+	Meiner Familie und meinen Freunden dafür, daß sie mein Projekt unterstützt und mich ermutigt haben.
+Den Looking Glass Studios und Ion Storm für diese unvergleichliche Spieltrilogie.
+TTLG, das unser Spiel für so lange Zeit erhielt.
+Skacky für die Initiative des Wettbewerbs.
+
+Urheberrecht
+
+Diese FM wurde © 2018 von Grandmauden (Kevin Kolpack) erstellt.
+
+Ihr kennt die alte Leier:
+Ihre Weiterverteilung ist nur in unverändertem Zustand gestattet. Alles andere bedarf meiner Erlaubnis.
+
+Diese Mission wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie
+von dort unterstützt.

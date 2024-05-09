@@ -1,0 +1,142 @@
+* Ultima Ratio (Version 1.0)*
+
+ 
+
+A Fanmission by MH (aka Mongoose)
+
+
+--- Important! ---
+
+Please use the newest Darkloader Version 4.2 (and above) Otherwise text and music may not play correctly.
+
+This FM was  not tested with GarrettLoader . So no guarantees can be given.
+This Mission contains and uses the custom-scripts by Telliamed.
+
+This FM is a continuation of "Mysterious Invitiation" .
+I can only advise to play that first. Otherwise it may be difficult to understand the background story and how things tie together.
+
+In case you get stuck remember what you have come across or what you have read. The solutions can be found within the readables.
+
+During cutscenes, you may not be able to utilize Mouse and Keyboard. There is a reason for that so don’t panic! 
+
+
+--- Description---
+
+After I heard that Cripplewood was in need of my help, I soon found out that Lord Duncan’s estate was a trap. I am sure that this Cripplewood and the Lord have planned this long time ago. And of course, they must be very interested in my death after they were able to get the required information.  My body still aches from the interrogations. One of the Hammer highpriests played a part in all of this and demanded loudly that I should be put away for good. 
+Too bad for the three of them, since I was able to escape from the dungeons underneath the estate. 
+During my escape from the dungeons, I gathered information regarding a powerful artifact that is known as the artifact of the three powers. 
+That sounds very interesting and lucrative, especially since my “three friends” also have showed a high interest in this toy.  So, reason enough to go after this artifact. 
+After another trip through some waterfalls, I once again made it to the sewers. Why always the sewers? Nevertheless, here I was safe from those chasing me, and I was able to have a moment to think. It was clear that they would want to find me with whatever means possible. To hide would be the wrong thing to do, especially since Orin knows many of my hideouts. Therefore, I need to be more drastic and turn things around a bit. Orin wants to meet Duncan tonight in the Dancing Burrick. This is a golden opportunity. Once I have found out everything about them I need to see how I can best dispose of them.  I am also sure that the highpriest Nestor will be a target for me tonight. Not just for information…
+
+
+-- Information --
+
+Spiel: 	Dark Project 2 - The Metal Age
+Titel: 	Ultima Ratio
+Dateiname: miss21.mis
+Schwierigkeitsgrade: Goals, Opponents and Difficulty levels 
+vary from level to level
+Supplyshop: no
+Map: yes
+Automap: no
+New Textures: yes
+New Sounds: yes
+New Objects/AIs: yes ( AIs from DromEd Deluxe)
+Languages: English, German
+Briefing: no
+
+
+--- Known Bugs and problems ---
+
+During the testing there were problems with the cook
+in "Luna Azure" . Just leave him alone. If the food is that bad you have to chose something else besides the blackjack to complain. He is harmless.
+
+If you blackjack a guest in Luna Azure, he/she will sink in the table.
+ In general Ai’s have problems sitting on chairs
+please dont be too judgemental
+
+AIs also like to run against lanterns ;)
+
+In the caverns while climbing on a rope,
+you should climb a bit sideways, as Garrett possibly
+could get stuck and possibly could die
+
+Further, it may be possible that Nestor may float above a chair once you took care of him. It may not be possible to pick him up. No idea why, but please also turn your eyes away from this if you could.
+
+
+--- Construction ---
+
+Bases: Shpping and Receiving for the factory
+Time: long enough
+
+
+--- Credits ---
+
+- Betatest -
+blackmen
+Darklady
+Anne
+Theker
+PommesDieFritte
+
+Special Thanks to blackmen, Anne and
+Darklady!
+
+- Translation German to English -
+Spinnenbot
+caopr
+Dkessler
+Prjames (proofreading)
+
+- New Objects - 
+von.Eins
+Vigil <www.washboardabs.net/thief/>
+R. Soul
+Sluggs
+Targa
+Jason Otto
+Schwaa
+Nameless Voice
+The Watcher
+Hrothgar
+Nielsen74
+GORT
+Ar-Zimrathon
+Naks (aus Snobs2)
+
+- New Textures -
+Balatro
+Vigil <www.washboardabs.net/thief/>
+David Gurrea <http://www.davegh.com/blade/davegh.htm>
+Thorin Oakenshield
+R. Soul
+Laurence Whitaker - The one true thief
+Yandros
+Lemog3D <http://lemog.free.fr/lemog_v5/index.php?cat=4&lang=german>
+
+Mayang's Free Textures <www.mayang.com>
+Animax <www.animax.it>
+Sliptip  optimized for Thief 2
+
+- Special Thanks-
+Thomas Sehnert for new music
+Meril for the Startlogo and the Luna-Azure-Banner
+Rob Hicks für DromEd Deluxe
+Anne for menu Luna-Azure
+
+Special thanks also to Dainem, who not only contributed Texts to this FM  
+But also helped to better the mission
+ Videos also done by him. :D
+
+Further, special thanks to Nameless Voice,  Vigil, Eshaktaar, R Soul and DarkDragon   
+For the Thief 2 Enhancement Pack!
+
+Thanks also to Sliptip, who allowed me to use „Ashen Age“ textures
+
+...and everyone else that has helped with suggestions in the forums and of course everyone else whom I have forgotten to list here in the readme .
+
+
+--- Copyright ---
+
+@ 2007 MH
+Distribution is allowed if it occurs without cost and the files stay intact. Use this file on your own risk. This level was not made by Looking Glass Studios or Eidos Interactive and is also not supported by them. 

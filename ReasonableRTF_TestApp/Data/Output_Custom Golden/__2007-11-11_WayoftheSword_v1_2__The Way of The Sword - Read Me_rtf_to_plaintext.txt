@@ -1,0 +1,62 @@
+===============================================================
+The Way of The Sword V1.2
+===============================================================
+Author			: Jason Otto
+Contact Info		: ottoj55@hotmail.com
+Homepage		: www.jasonotto.net
+Date of Release	: 11 November 2007
+
+Title			: The Way of The Sword
+
+Description		: Thief 2 Fan Mission
+
+Story			: A fence came to me with a request.  A collector is looking for an ancient artifact, The Talisman of Death.  Trouble is that its being kept by a local Hammerite monastery.  Seems the Hammerites fear the talisman and keep it under pretty close guard.  The last couple of thieves to go after this one were never heard from again.
+
+It’s a tough job, but nothing is impossible for the greatest thief in the world.  While I’m there I should look for a few other artifacts.  The Sword of the Builder should bring a good price, magical swords always do.  These Hammerites are also known to have a secret fighting technique.  If I could find a copy of their fighting manual it could be valuable.
+
+Bugs & Tips		: A bit choppy in a few places, reduce the number of background operations you are running to avoid any severe frame rate issues.
+
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: The Way of The Sword
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Increased loot on higer levels. Guard difficult increases as well.                           
+
+* Construction *
+
+Base			: HMDK
+Build Time		: Three months
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+*Material Credits*
+
+See included materials credits text file for all material credits.
+
+* Testing Thanks *
+
+Haplo, Gloria Creep and Sluggs
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

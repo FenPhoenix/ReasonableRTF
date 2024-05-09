@@ -1,0 +1,82 @@
+=============================================================
+Januar 2008
+=============================================================
+Titel		 : Doschtles Labyrinth
+Dateiname	 : Doschtles Labyrinth.zip
+Autor		 : Doschtle
+Kontakt	 : doschtle@centralcafe.de
+Releasedatum	 : Januar 2008
+Version	 : 1.0
+
+Beschreibung	 : Dies ist meine zweite Fanmission
+
+Auf einem deiner nächtlichen Streifzüge wurdest du in einem unvorsichtigen 
+Moment heimtückisch niedergeschlagen! Du wachst gerade in dem Moment auf, als du
+von kräftigen Armen in ein Loch geworfen wirst und unsanft in einen Brunnen fällst. Dein
+Kopf dröhnt, als du auftauchst und dich in einem dir völlig unbekannten Raum wiederfindest, 
+der nur von einem Leuchtpilz beleuchtet wird. Unheimliche Geräusche schallen aus den
+Nebenräumen, von denen es mehrere zu geben scheint. Noch etwas benommen kletterst du
+aus dem Brunnen und entdeckst auf einem kleinen Tisch einige brauchbare Gegenstände
+sowie eine Schriftrolle. Ob dort etwas darin steht, das dir weiterhelfen kann?
+
+=============================================================
+* Spielinformation *
+
+Spiel			 : Thief 2: The Metal Age
+Levelname		 : Doschtles Labyrinth
+Dateiname		 : miss22.mis
+Versch. Schwierigkeiten : Ja
+Laden			 : Nein
+Karte/Autokarte	 : Ja/Nein
+Neue Graphiken	 : Nein
+Neue Sounds		 : Nein
+Neue Konversationen	 : Nein
+Neue Models		 : Nein
+EAX Unterstützung 	 : Nein
+Mehrspr. Unterstützung : DE/FR/EN/IT
+Briefing			 : Nein
+
+=============================================================
+* Konstruktion *
+
+Vorlage	: Keine
+Kartengröße	: ca 260x360
+Bauzeit		: ca 4 Monate
+Bauinfo		: Meine zweite Mission, angelehnt an das von.Eins Tutorial
+		
+=============================================================
+* Ladeinformation *
+
+Läuft mit Dark Loader.  Lasse die Datei GEZIPPT – ENTPACKE SIE NICHT, lege aber die komplette
+"doschtles_labyrinth.zip"  – Datei in ein Verzeichnis auf deiner Festplatte, gehe dann ins Dark Loader
+Setup, verweise zu dem Verzeichnis und die Mission sollte im Dark Loader Hauptbildschirm angezeigt
+werden. 
+
+=============================================================
+* Vielen Dank an * 
+
+Jeden, der die guten Tutorials geschrieben hat, von denen ich alles gelernt habe.
+Die vielen hilfsbereiten User aus TTLG.de und aus dem Darktales-Chat.
+Einen ganz herzlichen Dank auch an SinisterShadow, der mir mit Rat und Tat zur Seite stand!
+Meine fleißigen Betatester: Mayan, Suselsahne, Blackmen, Mirko, Valen
+Für die Textkorrektur: Mayan
+
+Übersetzungen FR/EN:
+Zappenduster (Athalle, Fortuni)
+
+Übersetzung IT:
+overmann, Lorenzo
+
+
+=============================================================
+* Urheberrechtlich *
+
+Dieses Level ist © von Doschtle
+
+Die Verbreitung dieser Mission ist erlaubt, solange dies kostenlos geschieht. Du musst die Mission intakt lassen,
+sie darf ohne meine ausdrückliche Genehmigung nicht verändert werden.
+
+Diese Mission wurde nicht von Looking Glass Studios oder Eidos Interactive gebaut und wird auch nicht von ihnen
+unterstützt. 
+ 
+=============================================================

@@ -1,0 +1,77 @@
+Title		Graduation Day
+Author		Jabberwocky
+Contact info	dilligaff@charter.net
+Date of release	22Oct2003
+
+
+=============================================================
+Briefing:
+After 4 years of instruction under the ever watchful
+Keeper training instructors, you are finally ready to 
+graduate from the Field Agent Academy. 
+All that awaits you is the final exams, however the Keepers 
+do not accept failure well.  
+Failure is fatal.
+
+=============================================================
+Thanks!
+Four very dedicated beta testers fell during the making of  this
+Fan Mission.  Please observe a moment of silence for your
+classmates as you come across them.
+Kfort, Moghedian, AlexDaGreat and Sluggs.
+Rest In Peace.
+
+=============================================================
+While small, I think it is fun & fair.  Everything you see inside was placed
+to Help, Hurt or Warn you.  Even the bodies of my poor beta testers.
+
+Speaking of beta testers, THANK YOU!!!  I was making Rube Goldberg
+jealous the way I had some things set up.   Now I have a method to the madness,
+rather than a madness to the method.
+
+Play Information:
+
+Game			 : Thief 2: The Metal Age
+Difficulty Settings	 : Plebe, Grad, Dr.
+Equipment store		 : No
+Map/Automap		 : Yes/No Be sure to read them.
+New graphics		 : DEDx
+New sounds		 : Yes, music
+New models		 : Yes (from DEDx)
+EAX Support		 : Yes
+Multi language support	 : No, English only
+Briefing			 : Blue text above
+
+
+=============================================================
+Construction:
+
+Base		: An Idea
+Build Time	: Do not ask, I will not tell.
+
+=============================================================
+Loading Information:
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this
+file, but put the zip file into whatever folder/directory
+you want to on your hard drive, then in Darkloader setup, point to this
+folder/directory, and the mission should show up in the Darkloader
+main screen.
+
+=============================================================
+
+Known Problems:
+
+A problem with test 1 checking off on one PC only:  If you have advanced to Test 2 
+and beyond, it should have check off.  Consider it “Passed”
+
+=============================================================
+
+Copyright Information
+
+This level is ©2003 by Kris Kleinstick.
+
+This level was not made by and is not supported by Looking Glass
+Studios or Eidos Interactive.
+
+=============================================================

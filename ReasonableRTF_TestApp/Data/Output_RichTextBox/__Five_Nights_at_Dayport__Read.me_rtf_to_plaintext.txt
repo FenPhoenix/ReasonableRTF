@@ -1,0 +1,133 @@
+Fünf Nächte in Dayport / Five Nights at Dayport / Cinq nuits à Dayport - Version 1.0 
+================================================================================
+
+Autor: Terra
+Erscheinungsdatum: 25.11.2017
+
+================================================================================
+Handlung (DE):
+
+All diese Schicksale sind verbunden ...
+all die Lichter und all die Schatten ...
+all die Lügen und Wahrheiten ...
+Aus der Bücherei des Schwarzen Flügels
+
+Das Leben eines Wachmanns ist nicht so leicht wie viele denken mögen.
+Aber meine Tätigkeit als normale Stadtwache hing mir zum Halse heraus.
+Ich hatte durch Zufall erfahren, dass das Barington-Museum eine Nachtwache sucht, fünf Tage die Woche, sechs Stunden Nachtschicht bei guter Bezahlung.
+Als ich mich dort vorstellte, sagte man mir, dass dieser Job sicher sei und es keinen Grund zur Sorge gäbe.
+Man fragte mich, ob ich auch kleinere Wartungsarbeiten sowie einige Putzarbeiten übernehmen könne.
+Das kam mir etwas schräg vor, aber man versicherte mir eine Zusatzzahlung für diese Leistungen, also stimmte ich zu.
+Schließlich händigte man mir eine Taschenlampe und eine Dienstmarke aus.
+Auf die Frage, ob es keine Waffen bekäme, sagte man mir nur, dass es im Museum welche gäbe, deren Einsatz aber verboten sei, da es zu riskant für die Ausstellungsstücke sei.
+Jedwede Benutzung von Waffen würde eine sofortige Kündigung bedeuten.
+Man erklärte mir, dass die Mechanisten ein Kamerasystem eingebaut hätten, womit ich die Räume überwachen könne, außerdem tendiere in dieser Gegend die Einbruchsrate gegen Null.
+Ich hatte ein ungutes Gefühl bei der Sache aber ich wollte keinen schlechten Eindruck hinterlassen, deshalb trete ich heute Abend die erste Schicht an.
+
+Plot (EN):
+
+All these fates are connected ...
+all those lights and shadows ...
+all those lies and truth ...
+From the library of the Black Wing
+
+The life of a watchman is not that easy as some people might think. I'm sick and tired of the city watch service.
+I heard by hazard that the Barington museum was about to hire a night watch, five days per week, six hours of night shift, all in all under an attractive salary.
+When I introduced myself they told me that this would be a safe job and there would be no reason to worry about it.
+They asked me if I would be able to do some minor maintenance works and some cleaning work, too. That sounded a little bit strange to me but they offered an additional payment so I agreed to it.
+Finally they handed a torch and a badge of office over to me. The question arised whether there were any weapons but they told me that the museum has an armory but weapons must not be used inside because of the danger of damaging exibits. Any use of weapons would mean an immediate dismissal.
+They explained that the Mechanists had installed a camera system which would allow me to observe the rooms, besides there had been nearly no burglaries in this part of town during the last time.
+I had a bad feeling about it but didn't want to make a bad impression - thats why I'll  report for duty tonight.
+
+Histoire (FR):
+
+Tous les destins sont liés...
+toutes les lumières et toutes les ombres...
+tous les mensonges et toutes les vérités...
+
+La vie d'un garde n'est pas aussi facile qu'on pouvait le supposer.
+Mais j'en avais marre d'être un garde de ville.
+Par hasard j'avais appris que le musée Barington avait besoin d'un garde de nuit, cinq jours par semaine, six heures en poste de nuit, bon salaire.
+Quand je me présenta on me dit que ce job était sûr et qu'il ne fallait pas me faire de soucis.
+On m'a demandé si je pourrais aussi effectuer des petites tâches, plus précisément des travaux de maintenance et de nettoyage.
+Ça me semblait être un peu bizarre mais on m'avait promis un paiement supplémentaire, donc j'étais d'accord.
+Enfin on me remettait une torche et un badge.
+À la question de savoir comment se défendre, on me dit qu'il y avait des armes dans le musée mais qu'il était strictement interdit de les utiliser car on craignait que les oeuvres d'exposition puissent être endommagées.
+L'utilisation d'armes est une cause de licenciement.
+On m'expliquait que les Mécanistes avaient installé un système de caméras et que je pourrais surveiller toutes les pièces, en plus le nombre de cambriolages avoisinait le zéro.
+
+J'avais un mauvais pressentiment mais je ne voulais pas quitter une mauvaise impression à eux, voilà pourquoi je suis entré en service ce soir.================================================================================
+
+Spielinformationen:
+
+Spiel: Thief 2 - Das Metallzeitalter (Version 1.25 NewDark)
+Missionstitel: Fünf Nächte in Dayport 
+Dateien: miss20, miss21, miss22, miss23, miss24, gam20, gam21, gam22, gam23, gam24
+Schwierigkeitsgrade: Normal, Hart, Experte
+Ausrüstungsladen: Keine
+Karte: Ja (Credits: Athalle)
+Ergänzungs-Grafiken: Ja
+Neue Geräusche: Ja
+EAX: Keine
+Mehrsprachig: DE/FR/EN
+Briefing: Ja
+
+================================================================================
+
+Bauzeit: 5 Monate
+
+================================================================================
+
+Credits:
+
+Athalle: Karte/Korrekturlesen FR
+Purgator: Artwork/Video
+Random_Taffer: Voice Talent/ Briefing Video/ Design
+McTaffer: Voice Talent
+GORT: Freddy Model and Cam Idea/ Noise Bitmap
+Objekte/Texturen von Broken Triad/Eshaktaar
+NamelessVoice: Demo/Taschenlampe Idee
+Sluggs: Taschenlampe
+Statuen Grafik von Seventh Crystals/ Horns of Canzio
+Banner/Statuen aus Thief2x
+Neue Kamera Grafik von Schattengilde
+Shift Complete Video from Five Nights at Freddys
+Panzer von greenhorn
+Augen aus Right up there in the Mountain 
+Voice Sounds from Ottoj55
+sterlino
+Zappenduster: Übersetzung FR+EN
+Zappenduster: DE-Stimme
+Frère Staven: FR-Stimme
+Fortuni: Korrekturlesen EN
+Old_and_Cunning: Korrekturlesen EN
+Betatest: Ionisator, Atropos, Zoro, Cardia
+
+
+
+Allgemeine Credits:
+
+Vigil
+Soul Tear
+Yandros
+Elvis
+Sliptip
+NamelessVoice
+Eshaktaar
+RSoul
+
+Musik von Five Nights at Freddy 1+2+3+4+5
+
+Sollte ich jemanden vergessen haben, bitte ich um Entschuldigung, kontaktiere mich bitte in ttlg.de oder ttlg.com damit ich das sofort korrigieren kann.
+
+Betatest: Atropos, Ionisator, Cardia, Zoro
+
+================================================================================
+
+Urheberrecht:
+
+Diese FM stammt von Terra, Dezember 2017.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt und wird auch nicht von diesen unterstützt.
+
+============================================================================

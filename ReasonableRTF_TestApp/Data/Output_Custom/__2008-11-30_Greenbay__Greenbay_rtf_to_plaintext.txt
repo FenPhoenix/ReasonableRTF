@@ -1,0 +1,159 @@
+
+GREENBAY
+
+The third part of the "15 days" campaign
+		   
+
+The story ...
+Garrett continues to search for testmonies and evidences against him.
+He got a message from a friend, who found another witness hiding in Greenbay quarter. 
+Garrett has to make sure this witness doesn't speak to anyone...
+
+
+This mission was about to never see the day of light. At first it was a common project I had with TheHardyBoyz, a french fm author. Its creation have been bloked for around 2 years, due to many problems
+Personnally, I concentrated my time on my Rocksbourg series, waiting for problems to be solved.
+Once my last FM got finished, with the THBz' approval I decided to finish this mission, so we didn't work for nothing.
+Overall, I think it took me a little less than 2 months to finish it. Therefore, it's a quickie, a nice little mission folowing the "15 days" campaign.
+
+But mostly, for me this is an opportunity to celebrate the 10 years anniversary of the original Thief game. Consider it like a birthday gift...
+
+Have fun.
+
+
+--------------------------------------------
+Title				: Greenbay
+Zip name			: Greenbay.zip
+Release date			: November 30th of 2008
+Author				: DrK (Kubiac)
+Original concept		: TheHardyBoyz
+Contact (info)			: Riku_479@hotmail.com
+Version			: 1.0
+--------------------------------------------
+* Game informations * 
+
+Game				: Thief 2
+Filename			: miss22.mis
+Difficulty			: Yes
+Shop				: No
+Map				: No
+Automap 			: No
+New graphics			: No
+New sounds			: No
+EAX support			: No
+Briefing			: No
+Multi-language		: Yes (french, english)
+
+* Install *			: Use Darkloader or Garrettloader. Do not unzip it manually.
+--------------------------------------------
+
+* Construction *
+
+Base			: A common project I had with THBz, which got blocked for 2 years...
+Map size		: Not very big. 
+Build time		: Less than 2 months.
+
+* Credits *  
+
+NamelessVoice (3 objects)
+Syi (1 object)
+Greenhorn (2 objects)
+Thief-the-circle (1 texture)
+
+TheHardyBoyz ;)
+
+BrokenArts , Bikerdude and Leatherman (Betatest and english correction)
+
+
+===================================================================
+* Copyright * 
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.
+
+
+© Eric " Kubiac " Bigou - Thomas " TheHardyBoyz " Badiou
+
+
+
+
+
+
+======================================================================================================================================
+
+
+
+
+GREENBAY
+
+La troisième partie de la série " Les 15 Jours "
+		   
+
+L'histoire ...
+Garrett cherche toujours à se débarrasser des preuves et témoins le concernant.
+Par le biais de ses relations, il a retrouvé un autre témoin gênant. 
+Il se cacherait dans le quartier de Greenbay. Il doit donc faire en sorte que celui-ci ne puisse pas témoigner...
+
+
+Cette mission a failli rester inachevée. Il s'agissait d'un projet commun avec TheHardyBoyz. Sa conception a traîné en longueur sur près de 2 ans, suite à divers problèmes.
+Personnellement, je me suis consacré à ma campagne "Une nuit à Rocksbourg" en attendant une quelconque évolution du projet.
+Une fois ma dernière mission achevée, et avec l'accord de THBz, j'ai décidé de m'occuper entièrement de cette fm, histoire que notre travail puisse sortir de nos disques durs.
+Au total, j'ai dû mettre un peu moins de 2 mois pour l'achever. Il s'agit donc d'une petite mission sans prétention, dans la continuité de la campagne des "15 jours". 
+
+Mais c'est surtout pour moi une manière de marquer l'anniversaire des 10 ans du jeu Thief, en essayant de rendre hommage au jeu d'origine.
+
+Have fun.
+
+
+--------------------------------------------
+Titre				: Greenbay
+Nom du fichier		: Greenbay.zip
+Date de sortie			: 30 Novembre 2008
+Auteur				: DrK (Kubiac)
+Idée originale			: TheHardyBoyz
+Contact (info)			: Riku_479@hotmail.com
+Version			: 1.0
+--------------------------------------------
+* Informations de jeu * 
+
+Jeu				: Dark Project 2 : L'Âge de Métal
+Nom du fichier		: miss22.mis
+Niveaux de difficulté		: Oui
+Magasin			: Non
+Carte				: Non
+Autocarte			: Non
+Nouveaux graphismes	: Non
+Nouveaux sons		: Non
+Support EAX			: Non
+Briefing			: Non
+Multi-language		: Oui (français, anglais)
+
+* Chargement * 		: Utilisez Darkloader. Ne pas dézipper manuellement.
+--------------------------------------------
+
+* Construction *
+
+Base				: Un projet commun avec THBz, projet qui a été bloqué pendant 2 ans...
+Taille de la carte		: Moyenne. 
+Temps de construction	: Moins de deux mois.
+
+* Remerciements *  
+
+NamelessVoice (3 objets)
+Syi (1 objet)
+Greenhorn (2 objets)
+Thief-the-circle (1 texture)
+
+TheHardyBoyz ;)
+
+BrokenArts, Bikerdude and Leatherman (Betatest et aide à la traduction)
+
+
+===================================================================
+* Copyright * 
+
+Ce niveau n'a pas été réalisé et n'est pas garanti par Looking Glass Studios & Eidos Interactive.
+Vous avez le droit de distribuer cette FM gratuitement, de la laisser intacte et de nous mentionner dans les crédits.
+
+© Eric " Kubiac " Bigou - Thomas " TheHardyBoyz " Badiou

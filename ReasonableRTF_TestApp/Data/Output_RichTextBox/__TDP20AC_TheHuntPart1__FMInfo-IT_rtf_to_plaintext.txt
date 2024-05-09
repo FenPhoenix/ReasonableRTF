@@ -1,0 +1,98 @@
+LA CACCIA
+--PARTE 1: RICERCA--
+Una FM di Grandmauden
+per il concorso del 20° Anniversario di TDP
+
+E' richiesto NewDark 1.26 
+
+Nome del File	-   miss22.zip
+Pagina TTLG 	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Versione		-   1.0
+Pubblicazione	-   Nov. 30, 2018
+
+Briefing
+"La scossa quando, infine, i tuoi occhi trovano la preda. 
+L'adrenalina mentre attendi, inosservato ed inascoltato. 
+Il dolore mentre combatti per raggiungere l'attimo perfetto.
+Il brivido quando finalmente sferri il colpo fatale.
+L'orgoglio nel corpo e nella mente mentre ti ergi trionfante.
+Queste sono le gioie dell'essere un cacciatore."
+- Lord William Brighting
+
+Ieri, il tuo nuovo ricettatore ti ha parlato di un'offerta di lavoro appena arrivata. Apparentemente, un mercante chiamato Marlon sta cercando di acquisire qualcosa da vendere ad un illustre cliente. Generalmente preferisci non accettare incarichi dalla classe operaia (dopotutto, non hanno esattamente le tasche piene), ma sei rimasto intrigato dopo aver saputo che Marlon ha richiesto i tuoi servigi per nome.
+Ecco perchè, poco fa, ti sei introdotto nel negozio d'armi di Marlon ad Hightowne. Ancor prima che avessi finito di presentarti, Marlon ti ha improvvisamente zittito insistendo di andare a parlare nel retro, sebbene il negozio di notte sia chiuso e nemmeno un'anima pattugli le strade di fuori. Ciò nonostante, hai seguito il mercante nei suoi alloggi.
+
+"...Mi dispiace. Ultimamente gli Hammeriti si stanno comportando in modo folle – beh, più folle del solito. Pensano di essere autorizzati ad entrare a piacimento nelle case per cercare prove di comportamenti criminali od altro. L'ultima cosa di cui ho bisogno è che entrino qui mentre sto discutendo di un colpo con un famigerato ladro."
+"Con quale tipo di rapina uno come te avrebbe bisogno del mio aiuto?"
+"Vedi, sfortunatamente, negli ultimi mesi i miei affari stanno andando a picco. Tutte queste spade, frecce, mazze...sembra che non ci sia più richiesta. Sto anche offrendo sconti a chiunque volesse usare le mie armi per far fuori i burrick nelle fogne, ma..."
+"Vieni al punto, Marlon. Stai iniziando ad annoiarmi."
+"Okay, okay. D'accordo. Conosci Lord Brighting? Vive nel grande castello, alcune strade a Nord."
+"Il nome è familiare. Da quanto ho sentito è un cacciatore d'alto profilo."
+"Bene, voci dicono che la ragione dei suoi successi risieda nello speciale arco che utilizza. Realizzato con alcuni dei migliori materiali disponibili...legno di noce e canapa, penso. La gente dice che stia utilizzando quello stesso arco sin dalla giovinezza, e che le sue frecce non manchino mai il bersaglio. Conosco certe persone che bramano possedere un arco come quello. Scommetto che potrei facilmente venderlo pre una cifra sufficiente a tenere a galla il mio negozio!"
+"Così vuoi che rubi un arco da caccia? Tutto qui?"
+"Ti dirò, non mi aspetto sia semplice. Certamente non è un qualcosa che affiderei ad un normale ladruncolo. Il primo ostacolo, naturalmente, è il grande portone frontale. Normalmente, suggerirei di passarci sotto attraverso le fogne, ma gli operai sono rimasti terrorizzati dai burrick fuori controllo ed hanno sigillato praticamente tutti gli ingressi, quindi dubito sia possibile."
+"Allora troverò un modo per scavalcarlo. Non dovrebbe essere troppo difficile"
+"Vero. D'altra parte, so che c'è un'entrata laterale nel castello, usata dal personale per entrare ed uscire. Molte notti ho visto uno dei servi di Lord Brighting andare a bere nella Locanda della Candela Gialla. Forse se ci andassi, potresti trovarlo e recuperare la chiave della porta. Per quanto riguarda l'interno, son quasi certo che Lord Brighting tenga il suo arco in esposizione da qualche parte, ma immagino sia sotto stretta sorveglianza."
+"Per favore. Le guardie non mi impensieriscono. Spero proprio che tu voglia farmi spendere bene il mio tempo."
+"Oh, certamente! Ti pagherò 2000 ori alla consegna dell'arco, più un terzo dei profitti della vendita. Hai la mia parola."
+"Lo terrò presente. Tornerò con il tuo arco prima del sorgere del sole."
+
+Informazioni di gioco
+Gioco				-   Thief: Gold
+Nome del Livello		-   La Caccia
+Nome del File			-   miss22.mis
+Livelli di Difficoltà		-   Normale / Difficile/ Esperto
+Negozio Attrezzi		-   No
+Mappa / Automappa		-   No / No
+Grafiche Nuove			-   No
+Suoni Nuovi			-   Si
+Conversazioni Nuove		-   Si
+Modelli Nuovi			-   No
+Supporto EAX			-   Si
+Supporto Multi Lingua	-  Inglese/Tedesco/Italiano/Francese
+Briefing				-   Questo file di testo
+
+Costruzione
+Base				-   Nessuna
+Build Time			-   Gran parte dell'anno
+
+Informazioni di Caricamento
+Non scompattare il file ed inseriscilo nella tua cartella FM, quindi caricalo con FMSel o NewDarkLoader.
+
+Note dell'Autore
+-   I livelli di difficoltà maggiore implicano minore salute, minor equipaggiamento, obiettivi più difficili, più AI, ed alcune aree alle quali sia più difficile accedere.
+-   Le guardie ed i civili in strada ti ignoreranno fin quando li lascerai in pace o non ti farai trovare dove non dovresti essere.
+-   A volte la AI reagirà stranamente al suono degli allarmi (bloccati sul posto, etc.). Forse il pensiero di un intruso è troppo terrificante da sopportare! :)
+-   Alcune porte non possono essere aperte. Potrai entrare in alcune di queste porte nella Parte 2.
+-   Nel file .zip è inclusa una lista del bottino.
+
+Ringraziamenti
+Beta-tester:
+	Cardia
+	marbleman
+	vfig
+
+Doppiatori:
+	AndrosTheOxen		- Garrett
+	Phantom			- servo vizioso, guardia severa, guardia della galleria
+	McTaffer			- cuoco, guardia addormentata
+	Shadow Creepr		- barista, domestica
+
+Traduttori:
+	Zappenduster (Deutsch)
+	piesel (Italiano)
+	Azaran (Français)
+
+Ringraziamenti Speciali:
+La mia famiglia e gli amici per avermi supportato ed incoraggiato durante questo progetto.
+Looking Glass Studios e Ion Storm per aver creato una così fantastica serie di giochi.
+TTLG per aver tenuto così a lungo questi giochi in vita ed in salute.
+skacky per aver istituito il concorso per il 20° Anniversario di TDP.
+
+Copyright
+Questa missione © 2018 di Grandmauden (Kevin Kolpack)
+
+Tutti voi conoscete la prassi. Potete distribuire questa missione liberamente fin quando sia gratuita e tutto l'archivio rimanga inalterato. Se voleste cambiare qualcosa, prima contattatemi.
+
+Questa missione non è stata realizzata e non è supportata da Looking Glass Studios, Ion Storm, o Eidos Interactive.

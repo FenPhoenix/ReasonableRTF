@@ -1,0 +1,122 @@
+Strife – The Campaign
+“Trust No One”
+
+By Ricebug
+Release Date: 18 June 2012
+
+
+Improvements
+
+•	Ddfix skies, by jermi, replaced most of the old skyboxes. As such, you’ll experience a richer visual experience if you have ddfix installed.
+•	All lighting was re-calculated, using Nameless Voice’s Sunlight Calculator.
+•	Directional arrows were put in the sewer maze to help lost explorers.
+•	All readables were checked and fixed where needed.
+•	Minor bug swats throughout.
+
+Background
+
+Strife was a DOS-based game released in May 1996, by Velocity Development and Rogue Entertainment. It was built on a heavily modified DooM® engine. One of the unusual features of the game was that the player could travel between levels (there were 34 total).
+
+This is the Thief 2 conversion of Strife. The first mission was actually my first attempt at DromEd. However, due to the complexity of the level and my total ignorance of DromEd, it was scrapped—several times. The storyline has been revamped to accommodate the thief world, but the maps are true to scale and 90% accurate.
+
+Difficulty Settings
+
+On Normal (Mission 1 only), you have notes strung throughout the mission to help you find your way. Some AI are missing, there is less loot to hunt down, and extra powerups are available. 
+
+Bugs
+
+During the compilation process, many many textures disappeared from the missions. These had to be painstakingly re-applied to all brushes. Although every care was taken to be thorough, I probably missed one or two along the way. Contact me if you find any.
+
+If you’re using ddfix (hi-res) water, there’s a tendency for the water to “flash.” This is an engine problem. Do a quick-save, quit Thief, and then re-load the game. The flashing should stop. In one instance, I also noticed that the hi-res sky looked strange. A quick re-load fixed the problem.
+
+Some of the levels make use of Rob Hicks’ DedX gamesys. During the campaign re-work, these gamesys files were (mostly) purged of unused textures, objects and meshes.
+
+Playing Information
+
+Game :  Thief 2
+Mission Title :  Strife Campaign
+Version :  1
+File Name :  miss17.mis – miss30.mis
+Difficulty Settings :  Yes (AI, loot, powerups)
+Equipment Store :  No
+Map :  Yes
+Auto Map :  No
+New Graphics :  Yes
+New Sounds :  Yes
+Multi-Language Support : No
+Briefing : Yes
+Size :
+
+Translators
+
+Polish: Melissa Macunado (Keeper M)
+German: Zappen
+
+Beta Testers
+
+Acolyte6
+Albert
+Bikerdude
+bob_doe_nz
+Camille
+Cogline
+Dussander
+flying_hope
+Gloria Creep
+gunsmoke
+Hotlyx
+Lightningline
+nickie
+pavlovscat
+phil237
+Ravenhook
+Silent_Warrior
+SirFreddieM
+SneakyJack
+thief0
+Undead Gamer
+yondanbrad
+
+Custom Objects
+
+Digital Nightfall / Circle of Stone and Shadow: Furniture
+Greenhorn: Crossbow and custom trees
+LarryG: Improved rat model
+Jason Otto: Chains/Improved AI
+Nameless Voice: Custom flames
+Rob Hicks: Female earth mage, Ratman
+Vigil (Alun Bestor): Cobwebs & Lightshafts
+William the Taffer: Droids
+
+Custom Textures
+
+Eshaktaar
+Lemog
+ Majic
+ Nameless Voice
+
+Additional Textures
+
+iD Software’s Medal of Honor & Castle Wolfenstein
+Strife textures: Rogue Entertainment
+
+Miscellaneous Credits
+
+3Delyvisions (http://www.3delyvisions.com): Custom Skybox:
+Jermi: Hi-Resolution skies
+Jason Otto: Waterfall settings
+Sterlino: Piston machine in the Sewers mission
+
+Strife Editor
+Deep97, by Jack Vermeulen and Sensor Based Systems
+
+To see a YouTube video of the original Strife, go to
+http://www.youtube.com/watch?v=5bGfU57F06Q
+
+To read GameSpot’s original review of Strife, go to
+http://www.gamespot.com/pc/action/strife/review.html?om_act=convert&om_clk=gssummary&tag=summary;review
+Copyright © June 2012 by Terry DeLaney
+
+Permission is granted to freely play and distribute this level. Emails were sent to the original makers of Strife, asking for use of their textures and maps. Neither Velocity Development nor Rogue Entertainment responded after several attempts.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

@@ -1,0 +1,137 @@
+Für Deutsch bitte runterscrollen
+
+English
+The Radiant Garden
+
+Author: Theker
+
+Story
+
+A forest of great beauty has been fallen to the curse of an unholy magic. The pagans fear the forest because of it's magical appearance - but that a crystal could impose such great amount of destruction, nobody would have believed. And of all people a necromancer had been close by trying to stop this from happening, nobody knew. The necromancer stabbed the pagan, but from his body a black blood started spilling all over the place, turning the trees black and killed any plant it touched. The trees became cursed and exterminated any soul comming to close.
+
+Mission goals
+1. Find out, what happened to Radiant Garden.
+2. Find the perpetrator of the disaster.
+3. Steal 4000/6000/8000 in loot.
+4. Steal Lord Merils air talisman.
+5. Don't kill any civillians (hard)
+6. Don't kill anybody (expert)
+7. Find a place to sleep.
+
+
+Informations
+
+Game: Thief 2
+Mission title: The Radiant Garden
+Version: 1.1
+File name: miss20.mis
+Difficulty levels: Normal/Hard/Expert
+Books: Yes
+New graphics: Yes
+New sounds: Yes (one)
+New objects: Yes
+New AIs: Yes
+
+Credits
+
+SinisterShadow: Betatest, proofreading of the german texts, helping hand in debugging, English translation (not completed yet)
+Targa: New objects and new AIs.
+Vigil:  New textures and objects as well as new skybox
+Schwaa: New objects 
+Sluggs: New objects 
+Nameless Voice: New objects
+new sound, taken from the movie "The Haunted Mansion" (currently available in German only) 
+Rob Hicks: DromeEd Deluxe
+blackmen: Betatest
+Anne: Betatest
+von.Eins: Dromed Tutorial
+
+
+
+Contact information:
+
+Should I forgot anyone to be mentioned in this readme, please send in your complains to my email address: 2000gdi@gmx.de I'm going to correct this as fast as possible.
+
+
+Copyright Information 
+Copyright (c) 2007
+by Theker
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+------------------------------------------------------------------------------------------------------------
+Deutsch:
+The Radiant Garden
+
+Autor: Theker
+
+Story
+
+Ein Wald voller Schönheit wurde Opfer eines unheiligen Zaubers. Die Heiden fürchten den Wald wegen seiner magischen Erscheinung - aber dass ein Krisstall so eine Verwüstung anrichten kann, hätte keiner gedacht. Das aussgerechnet ein Necromant in der Nähe war und versucht hat dies zu verhindern, wusste niemand. Der Necromant erstach den Heiden und aus dessen Körper strömte schwarzes Blut, das alle Bäume ebenfalls schwarz färbte und alle Pflanzen vernichtete. Die Bäume wurden verflucht und vertilgten jede Seele die ihnen zu nahe kam.
+
+Missionsziele
+1. Finde heraus, was mit Radiant Garden passiert ist.
+2. Finde den Verursacher der Katastrophe.
+3. Stehle 4000/6000/8000 Goldstücke.
+4. Stehle Lord Merils Lufttalismann.
+5. Töte keine Zivilisten (Hart)
+6. Töte Niemanden (Experte)
+7. Such Dir einen sicheren Platz zum schlafen.
+
+
+Informationen
+
+Spiel: Thief 2
+Missions-Titel: The Radiant Garden
+Version: 1.1
+File Name: miss20
+Schwierigkeitsstufen: Normal/Hart/Experte
+Notizen: Ja
+Neue Grafik: Ja
+Neue Sounds: Nein
+Neue Objekte: Ja
+Neue AIs: Ja
+
+Quellen
+
+SinisterShadow: Betatest, Überarbeitung der Texte und Hilfe beim Debugging,
+Targa: Neue Objekte und Neue AIs.
+Vigil:  Neue Texturen und Objekte sowie neue Himmels- und Papiervorlagen.
+Schwaa: Neue Objekte 
+Sluggs: Neue Objekte 
+Nameless Voice: Neue Objekte
+Disneys "Das Geisterhaus": Neuer Sound
+Rob Hicks: DromeEd Deluxe
+blackmen: Betatest
+Anne: Betatest
+von.Eins: Tutorial für Dromed
+
+
+
+Kontakt
+
+Falls ich jemanden vergessen haben sollte in meiner Readme zu erwähnen, so schicke er/sie eine E-mail an meine Adresse: 2000gdi@gmx.de ich werde diesen Fehler schnellstens korrigieren.
+
+
+Copyright Information 
+Copyright (c) 2007
+by Theker
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+

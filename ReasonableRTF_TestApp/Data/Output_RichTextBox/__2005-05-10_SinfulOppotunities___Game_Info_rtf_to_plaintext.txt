@@ -1,0 +1,75 @@
+  Sinful opportunities 
+  Part II Small thief series
+
+  By: M. "Polygon" Schotte
+  Contact Info:  HYPERLINK "mailto:poly@megorga.com" poly@megorga.com
+  Homepage: www.megorga.com
+  
+  Release date: May 10th, 2005
+  Version date: May 10th, 2005
+  Version: V 1.0
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  V 1.0
+  This is a semi sequel to ‘Ack, There is a zombie in the basement’. The mission is part of my ongoing 
+  ‘Small thief series’. Please let me know if you encounter any problems when playing.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Game info * 
+
+  Game: 			Thief 2: The Metal Age
+  Mission Title: 			Sinful opportunities
+  File name: 			miss17.mis
+  Difficulty Settings: 		Yes (Normal, Hard, Expert)
+  Equipment store: 		No
+  Map / Automap: 		Yes / No
+  New graphics: 			Yes
+  New sounds: 			Yes
+  Multi language support:	No
+  Briefing: 			No
+  Debriefing:  			No
+
+  * Construction * 
+
+  Base: 				From scratch
+  Build Time:			Not sure
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Loading information *
+  
+  Play with Darkloader.  Do not unzip unless you really want to.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Mission Credits
+  - Architectural Design: Polygon
+  - Story & Concepts: Polygon
+  - Skins & Textures skin: Polygon, Yandros, Dave Gurrea, Purah (just the one from CL)
+  - Custom Sounds: T2 original sound, one sound from unidentified FM, let me know.
+  - 3D Objects: Targa, Nameless Voice, Schwaa, Polygon
+  - Testers: Yandros, Moghedian
+
+  Interface credits
+  - Startup screen: Polygon
+  - Menu screen: Polygon
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Known Issues (contains spoilers) *
+
+The shop area is heavy on the system because of the transparent windows.
+One of the doors has wacky sound.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Copyright * 
+
+  Copyright (c) October 2004, Polygon
+  Permission is granted to freely play and distribute this level providing it remains whole and 
+  intact.  This level may not be used as a parachute replacement. This level was not made and is
+  not supported by Looking Glass Studios or Eidos Interactive.
+
+  No media or data contained within this archive may be used in your own mission or project 
+  without the permission of the project director.

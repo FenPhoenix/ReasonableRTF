@@ -9,6 +9,9 @@ Notes and miscellaneous:
 -RichTextBox and LibreOffice both remove nulls.
 
 TODO: Try to make API good like with granularity levels and whatever
+TODO: RTF files to look at:
+__JackInTheBox-OfftoMilhornMa(2)__Dokument_rtf_to_plaintext.txt
+Don't put cell spacing char at end of row, only between cells
 */
 
 using System.Globalization;
@@ -66,6 +69,11 @@ public sealed class RtfToTextConverter
         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 #pragma warning restore IDE0002
 #endif
+
+        _windows1250Encoding = Encoding.GetEncoding(1250);
+        _windows1251Encoding = Encoding.GetEncoding(1251);
+        _shiftJisWinEncoding = Encoding.GetEncoding(_shiftJisWin);
+        _windows1252Encoding = Encoding.GetEncoding(_windows1252);
 
         InitSymbolFontData();
 
@@ -1093,17 +1101,24 @@ public sealed class RtfToTextConverter
     private readonly Dictionary<int, Encoding> _encodings = new(31);
 
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
-    private readonly Encoding _windows1252Encoding = Encoding.GetEncoding(_windows1252);
+    private readonly Encoding _windows1252Encoding;
 
-    private readonly Encoding _windows1250Encoding = Encoding.GetEncoding(1250);
+    private readonly Encoding _windows1250Encoding;
 
-    private readonly Encoding _windows1251Encoding = Encoding.GetEncoding(1251);
+    private readonly Encoding _windows1251Encoding;
 
-    private readonly Encoding _shiftJisWinEncoding = Encoding.GetEncoding(_shiftJisWin);
+    private readonly Encoding _shiftJisWinEncoding;
 
     #endregion
 
     #region Public API
+
+    [PublicAPI]
+    public (RtfError Result, string Text)
+    Convert(byte[] source)
+    {
+        return Convert(source, source.Length);
+    }
 
     [PublicAPI]
     public (RtfError Result, string Text)
@@ -1750,7 +1765,8 @@ public sealed class RtfToTextConverter
         byte hexNibble1 = _charToHex[b];
         b = _rtfBytes[CurrentPos++];
         byte hexNibble2 = _charToHex[b];
-        if ((hexNibble1 | hexNibble2) > 0xF)
+        // TODO: Fixed the check because the old one broke on some valid hex, but test if this new one still catches invalid hex
+        if ((hexNibble1 | hexNibble2) < 0xFF)
         {
             byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
             _hexBuffer.Add(finalHexByte);
@@ -1768,7 +1784,7 @@ public sealed class RtfToTextConverter
                     hexNibble1 = _charToHex[b];
                     b = _rtfBytes[CurrentPos++];
                     hexNibble2 = _charToHex[b];
-                    if ((hexNibble1 | hexNibble2) > 0xF)
+                    if ((hexNibble1 | hexNibble2) < 0xFF)
                     {
                         byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
                         _hexBuffer.Add(finalHexByte);

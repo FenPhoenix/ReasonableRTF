@@ -1,0 +1,158 @@
+
+Deutsch bitte runterscrollen
+Italiano al di sotto
+Title: Lord Beilman's Estate
+Author: Vlad Midnight
+Game: Thief Gold
+Version: 1.0
+Release Date: April 27th, 2009
+Difficulty Settings: Yes/Loot 
+Equipment store: no
+Map                : by nicked
+New graphics: yes
+Multi language support: English/German/Italian
+Briefing : no
+
+For best results install ddfix, otherwise the game may look too dark.
+
+
+* Construction * 
+
+
+Base: Built from scratch
+Build Time: 2 1/2 months
+Built with a calculator
+
+Custom Textures: Yandros/DrK/Vlad Midnight/Thief 2
+
+New Objects: AsyluM, CoSaS, Thief 2   (Converted to work under Thief Gold)
+
+Voice Acting: Slyfoxx
+
+Map: nicked
+
+Beta Testers: nicked, Peter Smith, Queue
+
+New sounds:
+Music - Omen 3,  Lord of the Rings 1+2,  Batman Begins,  Alien 3,  House of the Spirits,  Road to Perdition,  World Of Warcraft,  Resident Evil 1+2, Mortal Kombat 2, Thief 2 
+Also - Chariots of Fire,  Obituary,  Godsmack,  Hatebreed,  Black Label Society.... dont ask :)
+
+Check text document in SND folder
+
+Special Thanks to 
+Mrs. Beilman for wrecking into my car on the day I was thinking of a name for my FM.
+
+* Loading information * 
+
+
+This level is Darkloader/ Garretloader ready.
+
+
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+
+********************************************************* 
+******************** Deutsche Fassung ******************* 
+********************************************************* 
+Titel: Lord Beilmans Anwesen
+Autor: Vlad Midnight
+Spiel: Thief Gold
+Version: 1.0
+Erscheinungsdatum: April 27, 2009
+Schwierigkeitsgrade: ja
+Ausrüstungskauf: keiner
+Karte: von nicked
+Neue Grafiken: ja
+Mehrsprachig:  Deutsche,Englisch,Italienisch 
+
+Briefing : keines
+
+Beste Ergebnisse mit ddfix, Spiel könnte sonst zu dunkel erscheinen.
+
+* Aufbau * 
+
+Basis: Von scratch
+Bauzeit: 2½ Monate
+Bau mit Hilfe eines Taschenrechners
+
+Texturen von: Yandros/DrK/Vlad Midnight/Thief 2
+
+Neue Objekte: AsyluM, CoSaS, Thief 2 (Konvertiert für Thief Gold)
+
+Stimme: Slyfoxx
+
+Karte: nicked
+
+Betatester: nicked, Peter Smith, Queue
+
+Ton:
+Music - Omen 3, Lord of the Rings 1+2, Batman Begins, Alien 3, House of the Spirits, Road to Perdition, World Of Warcraft, Resident Evil 1+2, Mortal Kombat 2, Thief 2 
+Also - Chariots of Fire, Obituary, Godsmack, Hatebreed, Black Label Society ... dont ask :)
+
+Man beachte das Doku im SND-Verzeichnis
+
+Mein Dank an Frau Beilman, die an jenem Tag, als ich über einen Namen für meine FM sinnierte, mein Auto versaut hat.
+* Ladeanweisung * 
+
+
+Installation per Darkloader oder Garretloader.
+
+
+Urheberrechtliche Anmerkung:
+
+Diese FM wurde weder durch Looking Glass Studios oder Eidos Interactive erstellt noch wird sie von dort unterstützt.
+
+
+********************************************************* 
+******************** Italiano ******************* 
+********************************************************* 
+Titolo: Lord Beilman's Estate
+Autore: Vlad Midnight
+Gioco: Thief Gold
+Versione: 1.0
+Data di rilascio: Aprile 27, 2009
+Livelli di difficoltà: Si 
+Acquisto attrezzatura: no
+Mappa                : di nicked
+Nuova grafica: Sì
+Supporto multi lingua: Sì, inglese, tedesco ed italiano, germano
+Briefing : no
+
+Per i migliori risultati installate ddfix o il gioco potrebbe sembrare troppo scuro.
+* Costruzione * 
+
+Base: dal nulla
+Tempo di costruzione: 2 mesi e mezzo
+Costruito con un vecchio computer
+
+Texture: Yandros/DrK/Vlad Midnight/Thief 2
+
+Nuovi oggetti: AsyluM, CoSaS, Thief 2   (convertiti per funzionare con Thief Gold)
+
+Voci: Slyfoxx
+
+Mappa: nicked
+
+Beta Tester: nicked, Peter Smith, Queue
+
+Nuovo sonoro:
+Music - Omen 3,  Lord of the Rings 1+2,  Batman Begins,  Alien 3,  House of the Spirits,  Road to Perdition,  World Of Warcraft,  Resident Evil 1+2, Mortal Kombat 2, Thief 2 
+Inoltre - Chariots of Fire,  Obituary,  Godsmack,  Hatebreed,  Black Label Society.... 
+
+Controllate il documento nella cartella SND
+
+Ringraziamenti speciali a 
+Mrs. Beilman per essere finita contro la mia auto il giorno in cui stavo pensando al nome per questa FM.
+* Informazioni di caricamento * 
+
+
+Questo livello funziona con il Darkloader/Garrettloader.
+
+
+
+Questo livello non è stato creato e non è supportato dai Looking Glass
+Studios o dalla Eidos Interactive.
+
+

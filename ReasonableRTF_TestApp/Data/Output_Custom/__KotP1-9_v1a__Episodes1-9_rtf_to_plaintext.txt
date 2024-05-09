@@ -1,0 +1,632 @@
+
+A Keeper of the Prophecies
+      a Thief 2 campaign by frobber
+
+Episode 1: The Enterprise (2 Parts)
+Episode 2: Hallucinations (2 Parts)
+Episode 3: The Insurrection
+Episode 4: Oracle of the Prophets
+Episode 5: The Other Side of Time
+Episode 6: Reversing the Order
+Episode 7: Moving Day
+Episode 8: The Inheritance
+Episode 9: Under the Raven Moon
+
+
+KotP1-9_v1a.zip – July 20, 2005
+==========================================================================
+RECOMMENDED: CLOSE ALL OTHER PROGRAMS AND PLAY ONLY ON A FRESH RE-BOOT
+==========================================================================
+
+===========================================
+        W   A   R   N   I   N   G   (Episode 3, only.)
+===========================================
+
+  VISUALLY-INDUCED SEIZURES ARE POSSIBLE!
+
+  DO NOT PLAY THIS FAN MISSION IF FLASHING
+
+  LIGHTS CAN TRIGGER YOU.
+
+  This  is   NOT  a  joke!
+
+===========================================
+
+Supported Features:
+
+Weather and fog
+EAX (environmental sound)
+
+Absolute Bare Minimum System Requirements:
+
+600 Mhz CPU
+TNT2 graphics card (or equivalent)
+128 MB RAM
+Thief 2 Patched to Version 1.18
+
+(The original version 1.07 may prevent some missions from winning)
+
+Minimum Recommended System:
+
+1.2 GHz CPU or faster
+GeForce 4+ graphics card (equivalent or faster)
+256 MB RAM or more
+
+
+CREDITS 
+
+Voice Acting
+
+SlyFoxx – Garrett, Franticius, Harroleous, Listus, Kevel, Arcelious, The Oracle, Karras
+Lizanneh – Alisha, Little Girl
+Saturnine – Vicar Feluxis, High Priest Encellon, The Evil Mechanist, Cavador
+frobber – Keeper Orlet, Crastus, Nobleman 2, Solustice, Pontis, Cog, Karras
+Msledd – Kevel’s wife
+Komag – Keeper Calif
+Broken Arts – Aida, Medifney
+The Thief – Timitus
+Goober – Vocal Effects
+
+Story Consultants
+
+Lizanneh
+Freddy Fox 
+Gloria Creep
+rastas (aka Anthony Walker)
+theBlackman
+Gumdrop
+Moghedian
+Brad Pfouts
+
+See ScreenPlay.zip inside the release file for a working copy of the story.
+
+Design Elements
+
+Shadowspawn – extensive custom objects (including animated AI)
+Lazarus – AVI briefings and cutscenes
+Thorin Oakenshield – AVI 'movie' animations
+David Gurrea Hernandez – custom textures
+Purah – custom textures from the Calendra's series
+Thumper – custom script (cl.osm as used in Calendra's Legacy)
+Cyberblutch – custom AI models
+MsLedd – custom AI (Alisha)
+von.Eins – custom objects (from his release-pack into the public domain)
+Saturnine – "CamVator" invention (as first seen in the "7th Crystal")
+Telliamed – custom scripts (see copyright.txt)
+SilentSleep – fade-up from black technology
+Schwaa – custom AI, objects, and textures
+Ymochel – hats and AI models from The Ancient Crown
+Daemonite – enhanced Thief 1 AI skins (from his public release-pack)
+GOB and MOG – wood texture borrowed and altered, from their Contest 4 mission The Bar
+R Soul – comments on how to name campaigns for Darkloader 
+Tomi – custom map base texture (from his public release-pack)
+Goober – comments and suggestions
+
+Play Testers
+
+Albert R. Conklin 
+azrarhn
+Daedalus 
+Dafydd ab Hugh
+Dennis Nixon
+diana50322
+elkston
+Freddy Fox
+Gloria Creep
+Goober
+Griffin
+Hawklette
+Jericho
+jimm1
+Lizanneh
+Madwolf
+maloo
+Marycwmbach
+MsLedd
+Musopticon?
+Nightwalker
+Peter Smith
+Ponterbee
+Renanse
+Shadowspawn
+Silent Warrior
+SilentSleep
+SlyFoxx
+Spitter  
+Suttytx
+TheNightTerror
+Vanguard
+
+
+Story Disclaimer
+
+As a responsible adult, I must say how you should not take any of this story literally or personally. I am no 
+fan of brutality, and it can keep me awake at night to think about the details of such things. If you are less
+than 12 years old you probably shouldn’t be playing this mission.
+
+
+Thief 2 Patch
+
+To check for this…
+
+Right-click on thief2.exe
+Click 'properties'
+Select the version tab
+Click on Product Version
+
+This should display a value of 1.18.
+
+If not, then goto http://www.thief-thecircle.com/media/patches/
+
+
+Windows Media Player
+
+Using Windows Media Player often prevents Thief movies from playing. If you have been running 
+Windows Media Player prior to playing Thief, you may need to re-boot your computer to fix this.
+
+
+Playing Notes…
+
+Episode 1: The Enterprise
+
+Overview
+
+The Trickster is dead. The world has been saved from his evil. And yet strangely I have grown darker these 
+past weeks. But Why? Comfort from old wine cellars has been easy enough to find, and loot at the expense 
+of my rich neighbors still pays the bills. It is the simple life I had always wanted for myself.
+
+No surprises – and no world in need of rescue!
+
+The Hammerites have promised a new mechanical eye. But what good is having their machine vision? 
+Even when I had two perfectly normal human eyes I wasn't any richer than I am tonight!
+
+Yet, as I write this, I am beginning to feel a shift in the air ...and not simply the rumbling of distant thunder. 
+Perhaps it is just another crazy dream, but I can feel an inner gnawing saying that my fortunes are about to 
+change ...that the BIG one is just around the corner where I'll finally know the true comfort and peace of 
+mind that comes with becoming a genuinely wealthy man!
+
+Playing Information for The Enterprise
+
+The Enterprise is a two-part mission. The first part is small, and the second part very large. 
+
+The Thief 2 fog setting is entirely optional – it looks cool either way. But setting for rain fall is a good 
+idea since the sound of rain will be there whether or not you have Thief 2 set for rain.
+
+The lighting may seem a tad bright. This done because not all machines display the game brightly enough. 
+Use the - minus and + plus keys to adjust your screen for the right on-screen feeling.
+
+EAX ambient sound is recommended. Adjusting Audio in the Thief 2 configuration screen may help 
+headphone and other 2-speaker systems sound better.
+
+Except for growing annoyances, there is no real differences between Normal, Hard, and Expert. So it’s 
+really a matter of how long you want to play, and how annoyed you are willing to become.
+
+Oddities and minor bugs that won’t be fixed
+
+Sometimes Garrett will sink through a large descending freight lift platform while walking around if the 
+platform is still moving. This doesn’t seem to happen if you stay put and just enjoy the ride. It also does 
+not seem to happen when ascending.
+
+Sometimes on some computers there is no bashing sound when black-jacking an AI. In one case there was 
+also a report about a loot item which made no sound when grabbed, and other rare instances of sound 
+drop-outs. This only happens on some machines, and only rarely (I hope). Try setting audio channels in the 
+Thief configuration to 16 instead of 24 if this is happening on your machine – it might help.
+
+Some of the workers may run off yet never find their way home – mainly because “home” is atop some
+workbench, and AI don’t seem to mark that as a place to call home. If you’re ghosting or otherwise 
+bashing your way through, then you’ll rarely see this.
+
+Frame rate on Expert may be a bit choppy – this is mainly due to AI programming. Bashing AI will help 
+a lot. A fairly ordinary rig should have no problems, but if you do have screen chop, then only play on a 
+fresh re-boot and don’t run any other programs – and play on Hard if you’re machine is still sucking wind.
+You won’t be missing anything other than a few bored guards.
+
+
+Episode 2: Hallucinations
+
+=====================================
+He was corrupted without his knowing
+for he failed to perceive his danger.
+But his folly was meant to be
+and his journey would be no accident.
+From the Last Book of Amahus
+=====================================
+
+Playing Information for Hallucinations
+
+"To-Be-Continued"
+
+Hallucinations is a "to-be-continued" mission. The next mission is called The Insurrection.
+
+Clocks
+
+This is a timed mission. The clocks really do keep time. And if you run out of time, the mission will 'fail.' 
+On Normal you will have just over two hours (which should be plenty of time). On Hard, you'll have 
+95 minutes, and on Expert, just 65 minutes. The clock, however, stops running when you review the map 
+or open a scroll to read (in scroll-mode) -- so there is no time penalty when examining books and scrolls.
+
+Reloading during conversations
+
+Some AI are a bit long-winded, and if you happen to save during their speeches, things may not seem quite 
+right when you reload the mission. You may see gestures which do not match the speech – but nothing 
+more harmful than that.
+
+"Rushing" the mission
+
+After having played once, there is a good chance that you may not want to hear all the conversations again. 
+I understand this, and if you do run away before the AI finish talking, nothing terrible will happen.
+
+However, some objectives may get skipped, and at least one "New Objective" may trigger long after you 
+have left the area. Also, there are a few cases where Garrett may not say things or listen to things at the 
+most sensible times.
+
+Ways to Crash the Mission (as in crashing the game or your computer)
+
+Hallucinations includes a very complicated set of terrain and I have spent months trying to simplify the 
+structure to prevent overloading disasters. I understand, however, that some people are quite imaginative 
+when it comes to breaking through barriers or climbing higher than I can support. So if you plan to struggle 
+your way to someplace which is obviously off-limits, I'd advise that you first save your mission. 
+
+Here are places that I have blocked (so that you are properly forewarned)...
+
+•	Access to the roof of the big brick warehouse.
+•	Behind the Greek-Style structure above Westgate.
+•	Around the outside of the town clock tower.
+•	Beyond any ledge where you see a staple-shaped pipe
+•	Along the top edges of North Bridge.
+•	The town area behind the Megatfree's Mortuary (some players get back there anyhow!).
+•	The ability to climb over the railing portion of Megatfree's balcony.
+
+An Easter Egg or two still in this new re-release of Hallucinations?
+
+Yes, that is true – THERE ARE TWO EASTER EGGS (things that are cool, but not a sensible part of 
+the mission). 
+
+One egg has a slightly more sensible result than before. Originally, I managed to create a –boatload– of 
+confusion by returning the player to a spot which allowed exploration of the unfinished cathedral. More 
+than one player felt that accessing the cathedral was part of this mission and that somehow this extremely 
+odd method for reaching the cathedral area was just a pleasant shortcut – rather than what it was: a back-
+stage look at things to come.
+
+Except by unplanned and extreme methods, the cathedral area in Hallucinations can no longer be reached. 
+The next mission has now been released – The Insurrection. And this one has the whole cathedral built out 
+in final detail. So please no complaints that you can't get in there anymore in Hallucinations. You get there 
+in the next mission.
+
+As to my clues now, they are only here inside this very text file – both to keep this from confusing people 
+when in-game, and also as a way to reward those willing to slog through all of this drivel.
+
+Keep in mind that I am lousy at riddles – both writing them and solving them ...
+
+•	WE ARE ALL ABOUT PROGRESS, BUT YOU WILL NEVER SEE US MOVE.
+•	WE MAY SEE THE MOON'S RISING, BUT NEVER SEE THE SUN'S SETTING.
+•	A GHOST COMPLAINS ABOUT ITS FATE FROM A PLACE EQUAL TO ONE OF US
+•	THE OTHER OF US COULD BE CALLED A ‘DOZEN’ IN ANY OTHER PLACE
+•	YOU MUST FIRST -PULL- FOR YOURSELF BEFORE YOU CAN EVER -PUSH- ON US.
+
+Somebody will, no doubt, breeze through this like butter – so I expect spoilers to become available on the 
+various Thief forums. I will not give any more clues myself unless I have somehow managed to confuse 
+everyone!
+
+Please do not complain about how these eggs are "Soooooo inconsistent" with the rest of the story, because 
+they are –not intended– to be consistent. They are there as an extra bit of fun for those who might like to 
+attempt a wider range of playing styles than I had planned for this story.
+
+
+Episode 3: The Insurrection
+
+===========================================
+        W   A   R   N   I   N   G
+===========================================
+
+  VISUALLY-INDUCED SEIZURES ARE POSSIBLE!
+
+  DO NOT PLAY THIS FAN MISSION IF FLASHING
+
+  LIGHTS CAN TRIGGER YOU.
+
+  This  is   NOT  a  joke!
+
+===========================================
+
+SCREEN FRAMERATE -- IMPORTANT NOTE:
+
+During the first few minutes the screen frame rate may be lousy. 
+This should improve fairly quickly, and by the time you really 
+need better frame rate, it should be a lot smoother.
+
+It is recommended that you play this mission on a recent re-boot. 
+But only bother to do this if you are having excessive screen 
+chop or outright lagging. 
+
+Playing Information for The Insurrection
+
+"To-Be-Continued…"
+
+… Book 1 is only Book 1 – there is more to come… If you win Episode 3, there will be a "to be continued" 
+screen at the end. You have been warned!
+
+Background story
+
+The Insurrection is a continuation from Hallucination (Episode 2) where Garrett is trying to gain access to 
+the cathedral because he is poisoned and dying. He has been told by some Keepers that the solution to his 
+problem lies in accessing a certain Precursor Portal located somewhere inside the Hammerite area which 
+will lead him to a place where he can get some help.
+
+This goal is not intended to be the end of the campaign, since accessing the portal is only a gateway to the 
+next mission – Oracle of the Prophets.
+
+First few minutes
+
+During the first minute of a bit longer, just about any machine might run a little choppy. This is because 
+A real battle is taking place and the engine needs to devote resources to these fights between AI. Once 
+the dust settles a bit, the game should much better after this.
+ 
+Reloading during conversations
+
+Some AI are a bit long-winded, and if you happen to save during their speeches, things may not seem quite 
+right when you reload the mission. You may see gestures which do not match the speech – but nothing 
+more harmful than that.
+
+Lock picks and land mines
+
+It would be handy to learn (or remember) that lock picks can be used to disarm proximity mines (not true in 
+all missions, though).
+
+Audio notes
+
+An EAX environmental sound card is not required, but it is highly recommended due to cool effects inside 
+the cathedral. It is perhaps the only place I have ever heard where the longest echo setting possible actually 
+sounds exactly right. If you have ever been to a real cathedral or stone building of this size, you will 
+understand what I mean.
+
+About the cathedral
+
+The terrain is loosely based on a detailed study of Cathedral de Chartres in France including interior and 
+exterior dimensions that are within a few percent of the real cathedral. Stain glass windows and exterior 
+"roses" are also from Chartres. Much of the exterior doors, windows, and stone texture is from a humble 
+Catholic church located in Hopkinton, Massachusetts.
+
+Clocks and Megatfree's Watch
+
+This is a timed mission. The clocks really keep time. And if you run out of time, the mission will 'fail.' On 
+NORMAL you will have almost two hours (which should be plenty of time). On HARD, you'll have 80 
+minutes, and on EXPERT, just 65 minutes. The clock, however, stops running when you review the map or 
+open a scroll to read (in scroll-mode).
+
+Ways to Crash the Mission (as in crashing the game or your computer)
+
+So far, I know of only a few areas that might cause a game crash:
+
+1. The upper (green portion) roof of the cathedral near the gable ends. 
+Without a speed potion (or some fancy trick) you can't get up there anyhow, 
+but somebody is bound to try.
+
+2. Jumping through the ice and looking back up at the cathedral. This is probably 
+okay -- but in theory it might be a problem. At any rate, if you jump through 
+the ice, Garrett will die anyway due to the current which sweeps him away and the 
+freezing water.
+
+3. Scouting orbs have a wider field of view than the normal screen, and in some
+places this was causing screen complexity crashes -- so they have been removed.
+Speed potions were removed because this would allow access to all sorts of
+evil locations (with respect to screen complexity).
+
+A way for Garrett to die (unplanned or expected)
+
+Seems Mr. SlyFoxx (and I) have gotten into the habit of dumping knocked-out Mechanists through the 
+balcony openings onto the main floor below. But wouldn't you know that leaning out through such a 
+narrow space while holding a body will confuse the dickens out the Dark Engine. Most likely (if anything 
+happens), Garrett will get launched out into the space above the main sanctuary, which is not healthy at all!
+
+No way to fix this other than putting a warning here.
+
+
+Episode 4: Oracle of the Prophets
+
+Overview
+
+The Keepers have sent you to the “other side of time” – wherever that may be! Since time in the normal 
+sense does not seem to exist in this place, your pocket watch is frozen and you are no longer getting sicker. 
+
+But all is not well.
+
+A permanent antidote can be found here somewhere. That is what the Keepers had hoped. So you must 
+now explore this strange world to find what the answer may be – and a way home.
+
+Sometimes the cure is worse than the disease.
+
+Playing Information for Oracle of the Prophets
+
+Do not save and reload when Garrett is attached to a CamVator. There are two CamVators in this mission 
+and in both cases he will stop at the end and stay attached for a while. If you save and reload, at best, things 
+may seem screwy; and at worst, you may break the mission so it can not be won. (For those not sure 
+of what I mean – “CamVator” is short for camera elevator, where Garrett is attached to an invisible moving 
+platform so the player’s viewpoint can be transported as though watching a movie).
+
+Gravity is that of another world – about the same as Mars. It is part of the design to assume that Garrett can 
+therefore climb on very steep angles and jump down from very high places which normally would be out of 
+the question. Just because something looks nearly impossible, it may not be – and may, in fact, be required.
+
+Some odd fogging effects are implemented using a custom technique, so it does not matter if you have
+these settings on or off in the Thief 2 configuration screen. It will work either way.
+
+The lighting may seem a tad bright. This is done for those machines which display the game too darkly. 
+If you usually run at maximum brightness, your game may not appear as realistic as I have planned. Use the 
+minus (-) and plus (+) keys to adjust your screen for a proper on-screen feeling.
+
+Because of the complexity of the terrain, EAX ambient sound is highly recommended. Typical 2-speaker 
+or headphone use simply may not tell you enough about your threat situation, and you will be at a decided 
+disadvantage. Having said this, I have most definitely tweaked audio for 2-speaker and headphone use – it 
+just isn’t as useful as EAX 4-speaker sound.
+
+In four cases, the player must touch (frob) an object from the inside. This may be mentioned in a mission
+journal, but not always – so I also mention it here to limit confusion.
+
+As with all of my missions, except for the level of annoyance, there is no real difference between Normal, 
+Hard, and Expert. So it’s really a matter of how long you want to play, and how annoyed you are willing 
+to become.
+
+There is still more to come… If you win this mission, there will be a "to be continued" screen at the end. 
+You have been warned!
+
+Oddities and minor bugs that won’t be fixed
+
+GeForce 2 graphics cards may cause the sky effect to flash with an occasional dark triangle. This is a
+graphics  board issue, and I have not seen it on other machines. It only happens rarely, and since I have 
+limited the CPU needed to run the sky effect as much as I can bare, this will remain as it is.
+
+The sky sometimes changes brightness abruptly. At first I tried to fix this, but have decided that it merely 
+adds to the odd feeling of the place – and since I can’t fix this, I declare it a “feature” rather than a bug.
+
+
+Episodes 5-9: ‘The Finale’…
+
+It will be no secret that Garrett has returned to the great Hammerite cathedral, just as it is already no secret 
+that the Oracle has sent him here. And it may not remain a secret much longer how Garrett must act to save 
+himself – now that he has returned with the mysterious words of that Guardian still ringing in his ears.
+
+The antidote lies in reversing the
+order. And when you are successful,
+then all will be as it should have been.
+
+Once the destroyer has been destroyed
+...the one who poisons you... and once
+you have acted in accordance with your
+own knowledge of the future,
+then all will be restored.
+
+Yet the truest meaning of these words may remain shrouded in darkness for a time – how Garrett has been 
+given a power greater than anything ever given before – a power to alter what should have been, and by his 
+own thoughts and actions, a power to challenge the very nature of destiny itself.
+
+Finale Playing Information
+
+Episodes 5 through 9 are the last parts of the series.  This is really one long mission, and so I present them 
+here together. There will be no separate installments for these five missions.
+
+Items can be carried over from Episode 5 to 6 and from Episode 7 to 8. Hoarding items found in Episodes 5 
+and 7 is not required – but it certainly won’t hurt your chances!
+
+There is one scroll in The Other Side of Time (Episode 5) that implies how you should come back later – so 
+I suggest finishing all other explorations before entering this room. Once you enter this room you will have 
+about five minutes before the mission ends.
+
+Some non-English versions of Thief 2 have been known to lose the master clock timer in Reversing the 
+order (Episode 6)  – so I added backup triggers to make ‘timed’ events happen in other ways. If you do not 
+hear the town clock chimes then you should wander around and read scrolls and books. That will trigger 
+events needed to win this mission.
+
+The lighting may seem a tad bright. This is done for those machines that display the game too darkly. 
+If you usually run at maximum brightness, your game may not appear as realistic as I had planned. Use the 
+minus (-) and plus (+) keys to adjust your screen for a proper on-screen feeling.
+
+Rain sounds may seem overwhelming depending on your sound card and whether or not you are using 
+EAX audio – don’t forget how Thief 2 has an audio adjustment for ambient sound volume.
+
+Oddities and minor bugs that won’t be fixed
+
+Do not save and reload when Garrett is attached to a CamVator. There are several CamVators in this 
+mission and in some cases he may stop at the end and stay attached for a while. If you save and reload, at 
+best, things may seem screwy; and at worst, you may break the mission so it can not be won. (For those not 
+sure of what I mean – “CamVator” is short for camera elevator, where your view is attached to an invisible 
+moving platform so the player’s viewpoint can be transported as though watching a movie).
+
+Garrett also may be overhearing conversations. If you save and reload during these they may not restart and 
+play properly. The game will continue, but you may not hear useful clues if you don’t listen through the 
+first time.
+
+In some missions all water may vanish due to overloading the game engine. The water is still there for 
+swimming and will show up again the next time the game is restarted from Windows.
+
+In one case some AI may wake up from being knocked out and wander around harmlessly like ghosts. 
+This is either a bug or a feature – depending on how you want to see it!
+
+It is also possible that the audio might crash in one of these missions. Only one computer has done this 
+for me – an old laptop. But if sound does crash, then save the game, exit and restart the game.
+
+After two and a half hours the town clock will no long play chimes. After that point, the master event clock 
+runs out of time, although the clock hands will keep moving. In theory, the town timekeeper has been 
+bribed so people can sleep. In practice the game’s own internal master clock stops running.
+
+
+General Information
+
+Game: Thief 2: The Metal Age 
+Mission Title: KotP Campaign
+Filename: KotP1-9_v1a.zip / miss17.mis – miss27.mis
+Difficulty Settings: Yes
+Equipment store: Nothing for sale
+Map / automap: Simple Maps
+Fog: Yes/No
+Weather: Yes/No
+New graphics: Yes
+New sounds: Yes
+New objects: Yes
+New AI: Yes
+New motions: Yes
+Terrain: Mostly built from scratch. Some stolen from Thief 1 and Thief 2
+Build time: 5000 hours
+Multi language support: English
+CamVators: Yes, in several places
+Movie AVIs: Yes
+
+
+Revision History for KotP Campaign
+
+KotP1-9_v1a.zip – July 17, 2005
+
+Copyright
+
+Subject to the copyright limitations specified on the Thief 2 game CD...
+
+All original content of this fan mission is copyright (c) 2000-2005 by frobber, a.k.a., Ken Ramsley.
+
+Hosting of this fan mission is allowed on any public or private network so long as distribution is at no extra 
+charge (beyond normal access to the network) and the zip file is kept intact and unmodified. Re-distribution 
+of an altered version of this mission including changes to any supporting files is not permitted.
+
+Without my permission, an unaltered version of this fan mission may be included on a CD/DVD-release 
+mission pack, provided that this CD is sold for the cost of production and shipping only, or is a freebie 
+given away in some other form such as a magazine-published mission pack promo.
+
+See copyright.txt for Telliamed’s usage statement.
+
+
+Disclaimers
+
+Any resemblance in the real world to events or people found in this fan mission are entirely unintended, 
+purely coincidental, and a complete figment of your imagination.
+
+This fan mission is not made by nor supported by Looking Glass Studios (RIP), Eidos Interactive, or Ion 
+Storm of Austin, TX (RIP).
+
+
+Support
+
+Post a message in one the following locations. Someone there will have an answer to most questions:
+
+Fan Mission section of the TTLG forums
+http://www.ttlg.com/forums  (post to the forums or send a private message)
+
+If are really stuck, you can write to me… frobber@edanet.com … and I’ll see if I can help. 
+(I also enjoy feedback, criticism, and any other sort of player mail.)
+
+
+BTW
+
+Here are some of the places where this mission was built and tested…
+
+Commuter train, Ashland to Boston, MA
+South Station in Boston.
+Flying to and from Washington.
+Various airline terminals.
+Accela train Boston to Washington DC
+Union Station Washington DC.
+Various restaurants while waiting for food.
+Various hotel rooms instead of sleeping.
+Back seat of various limousines.
+(Occasionally) at home in my office or living room.
+
+
+Enjoy!

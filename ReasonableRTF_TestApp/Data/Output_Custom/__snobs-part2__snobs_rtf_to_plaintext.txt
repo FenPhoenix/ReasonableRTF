@@ -1,0 +1,77 @@
+
+===================================================================================
+Snobs-part2
+===================================================================================
+Title		 : Snobs 
+Filename                  : Snobs-par2.zip
+Author		 : Naks (with friends)
+Contact info	 : naksoje@yahoo.com 
+Homepage	 : Not yet
+Date of release	 : 28.01.2006.
+Version	                 : part 2
+                
+
+Description: We all know what happened in Snobs – part1. ☺ Now, Garrett is on his way to free his fiancée Lora from evil Lord G. Our hero can expect many surprises (not necessarily bad) , this summer evening, on Richpoor’s streets. Let’s see, …
+NOTE: Please, don’t interrupt conversations. Miss 22 is a camvator sequence ( listen to what Garrett says  while he is “walking” through Richpoor some of it might be very helpful  later ).
+============================================================
+System Requirements:
+Minimum Requirements:
+Pentium IV 1500 MHz or higher
+256 MB RAM
+GeForce 4  64 MB or higher
+Recommended Requirements:
+Pentium IV 2.4 GHz or higher
+512 MB RAM
+ATI Radeon 9200 128 MB or higher
+=============================================================
+
+* Play Information *
+
+Game			 : Thief 2: The Metal Age
+Level Names		 : Snobs-part 2
+File names		 : miss22.mis, miss23.mis
+Difficulty Settings	 : Yes.
+Equipment store		 : No. 
+Map/Automap		 : Yes, No 
+New graphics		 : Yes.
+New sounds	 : Yes. Music themes: Macarena, Djordje Balasevic Portret moga zivota, Magdalena O. Dragojevic, “Povratak otpisanih” movie, Pozurite konji moji /Sta bi dao da si na mom   mjestu, from Bjelo Dugme, movie “Batman & Robin”
+New conversations	 : Yes (a sort of).
+New models		 : Yes
+EAX Support		 : Yes
+Multi language support	 : No.
+Briefing			 : No.
+
+=============================================================
+* Construction *
+
+Base		: Dedx.
+Map Size	: Small.
+Build Time	: ?????
+Build Info	: This is Snobs-part 2.		
+=============================================================
+* Loading Information *
+
+Run from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "Snobs part 2.zip" file into whatever folder/directory you want to on your hard drive, 
+than in Dark Loader setup, point to this folder/directory, and the mission should show up in the Dark Loader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote very good tutorials I learned from and everyone who make fan missions.
+=============================================================
+Thanks to: (Please, let me know if I forgot someone for credits)
+Jason L Tibbitts III for hosting
+
+Rob Hicks for DromED deluxe, Nameless_Voice, Shadowspawn, Schwaa, Yandros, Sly Foxx, Targa, Alun Bestor, Telliamed,  Sluggs
+	=================================================================================================
+	Special thanks to:
+Freddy Fox, Nightwalker
+ and  Marycwmbach for beta testing.
+====================================================================
+
+* Copyright Information *
+
+This level is © by Naks (with friends)
+
+Distribution of this level is allowed in any way, shape, or manner you wish as long as it free.  However, you must leave the mission intact and you are free to use any object you like.
+ (custom made object)
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

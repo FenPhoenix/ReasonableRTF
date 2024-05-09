@@ -1,0 +1,342 @@
+ 
+
+
+10/22/2017
+
+ 
+
+********** W A R N I N G **********
+
+THIS FM CAMPAIGN REQUIRES THIEF 2 TO BE PATCHED TO AT LEAST V.1.24
+
+PLEASE DO NOT USE ANY ENHANCEMENT PACKS:
+Most of the textures in this FM campaign use custom material files (.mtl) for their own effects.  Having enhancement packs could present undesired results.
+(ex: texture scaling and lack of certain visual effects.)
+
+
+
+Author:   GORT (Shaun M.D. Morin)
+
+Title:   The Rebellion of the Builder 2
+
+Filename:   TROTB2_v1.22.zip
+
+Game:   "Thief 2 The Metal Age"
+
+Contact info:   HYPERLINK "../../Users/Shaun M. D. Morin/AppData/Local/Temp/Rar$DRa0.426/www.oonaglah@gmail.com"www.oonaglah@gmail.com
+
+Current File Size:  ~1.4 GB | Unpacked: ~2.3 GB
+
+ 
+
+Normal Mission Versions:
+	Miss21, Miss22, Miss23, Miss24, Miss25, Miss26, Miss27, Miss28, Miss29, Miss30, Miss31, Miss32
+
+Hidden Mission Versions:
+	Miss33 Miss34 Miss35
+
+Mission Select Version:
+	Miss20
+
+ 
+
+Mission Pack Version:
+	FINAL v1.22.  If you are seeing this, that means that I’ve finally released this HUGE FM campaign.  It took quite some time to make this, but here it is.
+
+ 
+
+NOTICE:  This FM campaign was constructed and tested on a PC with these specs:
+
+		Windows 10 64-bit
+		1 Sapphire Dual-X R9 270X 2GB Radeon Graphic (PCIe)
+		AMD FX 8350 8-core Unlocked (Black Edition) 4.00Ghz
+		8GB of RAM
+		Sound Blaster X-Fi Extreme Music Sound Card (PCI)
+		ASUS M5A99FX Pro R2.0 Motherboard
+
+	Have at least above a 2.00 Ghz 2-core Processor in your PC.  There are some chunky music/sound files.  Have at least 4GB of DDR RAM.  Ideal for 8GB or higher in DDR RAM.  Also, a good PCIe video card (at least 1GB or more) with blooming enabled is recommended.
+
+	The old versions of Darkloader and Garrettloader are NOT supported by this FM campaign.  Use FM Selector or NewDarkloader instead.
+
+
+Commentary Note:
+	This is the final version of the FM campaign.  All missions can be completed. The cut-scenes are done being worked on.
+
+WARNING: These missions were made for hard core players that know Thief 2 quite well.	They may not be easy to play, but they are not impossible to play and complete each mission.  The hidden missions are not that important to the storyline.  They’re just add-ons for fun.
+
+As some of you may know, Thief 2 does have the rope bug in it.  This bug will make the player bounce off the ropes at a great speed and may kill the player by hitting the wall.  This FM campaign does have vital placed ropes in it.  I’ve found that it might have some to do with how the player is on the terrain.  So, to avoid this bug, you may want to jump in place before going for the rope.
+
+*Notice*
+	This version of TROTB 2 is a public release.  This is the final version.  All should be polished up!
+
+	This FM campaign uses custom scripts for various events to function. It is also important NOT to have any custom enhancements enabled while playing this FM campaign (HD Texture replacement packs and what not).  Doing so may have some undesirable effects (texture scaling and lack of certain visual effects).
+
+*Mission 11 Flight Controls*
+	In this mission, the player’s flight controls are similar as of their normal controls (depending on the player’s view).  However, the flying machine won’t go backwards.  Jump will make the player ascend, and there’s a lever icon where the player’s weapon would be will have the player descend.  Also, there’s a bird’s eye view icon where the items would be.  When using this, however, it will cause the lever icon to disappear.  To bring it back, use one of the weapon cycle keys.
+
+
+ 
+
+* Normal Mission Descriptions *
+
+Mission 1: "The Sands of Fire and Ice"
+	Garrett finds himself in a desert with no sense of time or place.
+He sees a camp off in the distance.  Maybe someone there could help him back to where he needs to be.
+
+Mission 2: "A Travel Through Smelter Volcano"
+	Well, at least Garrett's at his current timeline.  But who would've thought he would end up at Smelter Volcano?  This place is very hot!  He needs to get out of this volcano.
+
+Mission 3: "An Unexpected Confrontation"
+	Garrett is leaving the volcano, but he now finds himself in a thick forest where he could get easily lost.  However, he notices that the ground is weak in some spots.  Perhaps going underground might be the best route.  But who or what made these tunnels?
+
+Mission 4: "A City with problems"
+	After an unexpected confrontation, Garrett and Saria decide to team up to dig up some dirt on what the Hammers are up to.  To get the facts, however, Saria needs to interact with the people in the city.  But the city has its own problems to deal with.
+
+Mission 5: "The Secret of the Occult Woods"
+	Saria now goes into the Occult Woods to search the area where Garrett was.  But things may not be the same for her when she gets there.  The Hammerite High Priest told her about a rare scripture that speaks of a strange gem stone located in these very woods.
+
+Mission 6: "The King's Request"
+	Garrett is on the move because someone told the city watch in Smelter City that they spotted him on the city's north side.  While he is trying to get away, Richter tells him how to infiltrate Castle Magnus to collect info on Sir Edward.
+
+Mission 7: "An Unwilling Secret Travel"
+	While avoiding the city watch, he enters the Smelter Tomb's main gate.  But the gates shut him inside (or it seems that way).  So now Garrett is stuck there.
+
+Mission 8: "The Imposter"
+	As Saria returns from the Occult Woods, she finds out Garrett is missing.  She heads for the Smelter Tomb, only to find out that the gates refuse to open.  She heads to Plutonic City to see if anyone has seen Garrett. While there, she finds something else of importance.
+
+Mission 9: "The Forgotten Kingdom"
+	Although unable to find Garrett, Saria did get vital intel on where Garrett might be, thanks to King David.  She now heads for a long-forgotten kingdom in the northern mountain range, hoping to find answers.
+
+Mission 10: "Sir Edward's Plan of Invention"
+	Saria finds herself in the high peaks of the northern mountain range.  Per King Brian, Garrett should be nearby.  But what lies ahead does not exactly match her initial impressions of her new surroundings.
+
+Mission 11: "Destination Zeppelin"
+	Garrett and Saria meet with Richter to construct a plan to go after Sir Edward before he makes an invention that will most likely destroy life as they know it.  Garrett is to board a flying machine and try to get inside the zeppelin with the explosives that Richter gave him. Seems an easy enough task.
+
+Mission 12: "The Falling Albatross"
+	Garrett finds himself in a great airship (a Hover Craft Carrier).  It seems that Richter was right about there being another air ship.  So now, Garrett needs to find a way to take down this great airship using the explosives given him by Richter and then escape.		
+
+
+* Hidden Mission Descriptions *
+	(Hidden missions will be maps listed from Miss33 and on.  They may be buggy, but the player can complete them.)
+
+Hidden Mission 1: "???" (NES/Famicom Solstice map)
+	O)_(O  What are you looking at?
+
+Hidden Mission 2: "Urban Conflicts"
+	Somehow, Saria could meet up with...... Well, Me and want to go for my challenge.  So, she could be put in this hidden mission. :-)
+
+Hidden Mission 3: "Garrett's Nightmare" 
+	Garrett just had to mess with an old flute near a Cthulhu statue and wind up in a vortex while then heading back out of the area.  The area looks familiar, but not quite right...
+
+ 
+
+* Play Information *
+
+Game:
+	Thief 2: The Metal Age with at least the V.1.24 Patch (required)
+
+Number of Missions:
+	12 Normal Missions, 3 Hidden Missions
+
+Normal Mission Names:
+	The Sands of Fire and Ice
+	A Travel Through Smelter Volcano
+	An Unexpected Confrontation
+	A City with Problems
+	The Secret of the Occult Woods
+The King's Request
+	An Unwilling Secret Travel
+	The Imposter
+	The Forgotten Kingdom
+	Sir Edward's Plan of Invention
+	Destination Zeppelin
+	The Falling Albatross
+
+Hidden Mission Names:
+	O)_(O 
+	Urban Conflicts
+	Garrett's Nightmare
+
+File names:
+	MISSIONS: miss21.mis, miss22.mis, miss23.mis, miss24.mis, miss25.mis, miss26.mis, miss27.mis, miss28.mis, miss29.mis, miss30.mis, miss31.mis, miss32.mis, miss33.mis, miss34.mis, miss35.mis
+
+	GAMESYS: ROTB2A.gam (for Garrett), ROTB2B.gam (for Saria)
+
+Subtitles:
+	Yes.
+
+Difficulty Settings:
+	Yes. (Average, Daring, and Deathwish)
+
+Equipment store:
+	Nope.
+
+Map/Automap:
+	There isn't any.  Sorry.
+
+New Movies (Briefings and Cut-scenes): *All Use the X-Vid MPEG-4 codec*
+
+New graphics:
+	A lot.
+
+New sounds:
+	A lot.  (most audio is in .ogg format.)
+
+New BGMs:
+	Yes.
+
+New conversations:
+	Yes.
+
+ New models:
+	Yes.
+
+New AI motions:
+	Yes.
+
+EAX Support:
+	Yes.
+
+Multi language support:
+	Audio is English only.  Sorry... :-(
+However, French text and subtitles are available.
+
+Fog Effects:
+	Yes.  Must be on or a few missions may not look right.
+
+Custom Music and Ambient BGMs:
+	Custom cut-scene Music: All Custom Themes by Shaun M. D. Morin
+
+	"The Sands of Fire and Ice": "Trespasser (For Lost Colony)" by Jun Senoue for SEGA (Dreamcast - Sonic Adventure 2 Battle)
+
+	"The Secret of the Occult Woods": "Tomb of Ou (King's Tomb)" by Chamy (Dreamcast - Climax Landers / Time Stalkers)
+
+	"An Unwilling Secret Travel": All themes by Shaun M. D. Morin
+
+	"The Forgotten Kingdom”: City theme, Brian's Castle, and Underground Theme by Shaun M. D. Morin "Knightman Stage Theme" by the Capcom Sound Team (NES - Rockman 6 / Megaman 6)
+
+	"Sir Edward's Plan of Invention": All themes by Shaun M. D. Morin
+
+	"Destination Zeppelin": "Higher The Air (Air Force Stage)" by the Capcom Sound Team (PS2 - Rockman X7 / Megaman X7) "Mission 2" by Suguru Ishida (N64 - Chopper Attack)
+
+	"The Falling Albatross": A few custom ones by Shaun M. D. Morin
+
+	"???" O)_(O :  All of the music is by Tim Follin (NES - Solstice)
+
+	"Urban Conflict": "Elevator music 1" by Jonathan Dunn (SNES/Super Famicom - Jurassic Park) "Get Them Before They Get You!" by Robert Prince (PC - Wolfenstien 3D with SXG-50 Synth) "E1M1" by Kevin Schilder (PC - Heretic: Shadow of the Serpent Riders with SXG-50 Synth) "Cold Reality (Short Version)" Composed by Larry Peacock & Brad Cross & Leslie Spitzer Mixed by Bob Brown (PC - Descent 2)
+
+	"Garrett's Nightmare": "Giygas' Themes" by Keiichi Suzuki & Hirokazu Tanaka (SNES/Super Famicom - Earthbound / Mother 2) These themes were meshed together and back-masked by Shaun M. D. Morin
+
+ 
+
+* Loading Information *
+	Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole "TROTB2_v1.22.zip" file into whatever you are using for your Thief 2 Fan Missions folder.
+
+ 
+
+* Special Thanks to *
+
+	Alpha Testers:
+		Cardia
+
+	Beta Testers:
+		Massimiliano Goi
+		Cardia
+		Athalle (Lili)
+		Apiai
+		undead gamer
+		Kirgo
+		Dahenjo
+		Squadarofl (Squadafroin)
+		Zoro
+		Gloria Creep
+		Jax64
+		Dan Kimerly
+		Fibanocci
+		Ricebug
+
+	French Translations:
+		Apiai 
+
+	Russian Translations:
+		Dront
+		MoroseTroll
+		Soldi
+
+	English Text Editors:
+		Ricebug
+		Dahenjo
+
+	Scripts:
+		GayleSaver "Miss3.osm and darkhooks.dlx"
+		Nameless Voice "NVScript.osm"
+		Telliamed "tnhScript.osm"
+		Kevin Daughtridge (kdau) "KDScript.osm and ThiefLib.osl"
+
+	Vurt for his nice Lava and Water textures
+
+	Voice Actors:
+
+		Andrew Bartmess:
+			Garrett
+
+		Amelia Fenoglio (Caradavin):
+			Saria
+
+		Frere Staven:
+			Collector
+			Trevor
+
+		Random_Taffer:
+			Greg
+
+		Ceamonks890:
+			King Brian
+			Mage Apparition
+
+		ticky:
+			Frank
+			Tim
+			Fredrick
+			Richter Kensington
+			Mission 4 Guard
+				(left side of Main Entrance of Castle Magnus)
+
+		bikerdude:
+			Hammerite
+
+		goldwell:
+			Ammon
+			Egyptian Guards (All)
+		
+		Saxmeister:
+			Sir Edward (Karras' Bastard Son)
+
+		dlw6:
+			Bill
+			Keeper Apparition
+
+		Jeanne French (redleaf):
+			King Magnus
+			Dorah
+			Female Mechanist (m12)
+
+		Shaun M. D. Morin (GORT):
+			Himself
+Mission 4 Guard
+				(right side of Main Entrance of Castle Magnus)
+			Willow
+			Thistle
+			Kurshoks
+			Brandon (cut-scene)
+
+	And Let's not forget everybody at ttlg.com:  If it wasn't for all of you guys, all my FMs would not be possible.
+
+ 
+
+* Copyright Information *
+
+The missions in this zip file are © by Shaun M.D. Morin
+
+	These levels were not made and are not supported by Looking Glass Studios or Eidos Interactive.  Although they work fine for me, they may not be completely compatible for other PCs.  Make sure that your "X-vid MPEG-4" video codec is up-to-date.

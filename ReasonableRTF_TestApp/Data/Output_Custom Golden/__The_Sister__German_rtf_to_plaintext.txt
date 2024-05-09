@@ -1,0 +1,111 @@
+  
+Autor : Beltzer
+Titel: Die Schwester
+Kontakt: beltzer2@hotmail.com
+Erschienen: 31. Oktober 2019
+Version : 1.0
+Beschreibung:
+Garrett bekam einen Brief von seinem alten Freund Timan.
+Darin erfährt Garrett etwas spektakuläres, das ihn nachdenklich macht.
+Ihm zufolge hat Garrett eine Schwester namens Ulla.
+Stimmt das wirklich? Das sollte überprüft werden.
+
+Spiel-Information
+Spiel : Thief 2 - Das Metallzeitalter V 1.27
+Schwierigkeitsgrade: Normal/Hart/Experte
+Map/Automap : Nein/Nein
+Sprachen: EN/DE/FR/RU
+
+Macken
+Beim Frobben eines bestimmten AI kann das Spiel unter Umständen abstürzen, daher vorher sichern.
+
+Gut zu wissen
+
+Bisherige FMs:
+Reunification-Kampagne
+Die verlassene Burg
+Der Gefallen
+Mortuos Liber-Kampagne
+
+Lade-Information
+Getested mit AngelLoader
+
+Dank an ...
+Stimmrollen
+antimatter_16
+Supremcee
+
+Betatester
+Gloria Creep
+griswold
+Mat99
+Supremcee
+Unna Oertdottir
+zajazd
+
+... Urgue für das Gegenlesen meiner Texte
+... Zappenduster für die DE-Übersetzung. 
+... Stefan_Key für die FR-Übersetzung. 
+... MoroseTroll  für die RU-Übersetzung. 
+...  Dussander für Shalebridgecradle.
+
+Zusatzobjekte von ...
+Asgaroth
+Blackthief
+cgtextures.com
+Christine
+Dale
+Daraan
+DarkShadow
+Dhin
+Elvis
+Eshaktaar
+Firemage
+Gamophyte
+Greenhorn
+LarryG
+Nameless Voice
+nicked
+Nielsen74
+pdackel
+PinkDot
+RSoul
+T2X
+TDBonko
+Team Rose Cottage
+Team Calendra
+Team Cosas
+Schwaa
+Sluggs
+Soul Tear
+Vigil
+
+Meshes und Skins von ...
+Meshes
+Eshaktaar
+LarryG
+Ottoj55
+Purgator
+Team T2x
+
+Texturen von ...
+Necrobob
+Max
+
+Custom-Scripte von ...
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Geräusche von ...
+DarioD
+Tabias “Spadey” Scot
+DEDX
+
+Besten Dank an meine Verlobte Sandra für ihre
+moralische Unterstützung, um 24/7 daran zu werkeln.
+
+Urheberrecht
+Diese FM stammt von © Beltzer
+Die Verteilung der FM ist auf jede Weise erlaubt, aber sie muß intakt bleiben und mich als Autor erwähnen.
+Dieses Mission wurde weder gemacht noch wird sie unterstützt von Looking Glass Studios oder Eidos Interactive.

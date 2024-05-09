@@ -1,0 +1,36 @@
+Author			:	Shadowhide
+E-Mail			:	ozzy1911@rambler.ru
+Version			:	v1.0
+
+You are just a pilferer living in a small old town. This town is very poor, and many its citizens are even poorer.
+Once upon a time, your old friend,has contacted with you. He knew what it is to live in your town. He also knew about your “profession”, so he offered you a little job: to find him an antique scroll. Your friend gave you 10 000, so you just cannot say him ‘no’… 
+
+Special  Thanks to:
+Nuw Xp
+Zontik
+Dront
+clearing
+MoroseTroll
+
+Textures pack by Sensut
+Objects by:OttoJ55,Sensut,Nielsen74,R Soul and many more 
+Sounds from Dracula,7 Crystal
+Script's by Nameless Voice,Telliamed
+Playing Information *
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			After Dark
+File name: 			miss20.mis
+Difficulty Settings: 		Yes 
+New graphics: 			Yes
+New sounds: 				no
+Multi language support:		No
+Briefing: 				no
+
+* Construction *
+
+ Build Time:			4.5 month 
+
+
+This level was not made and is not supported by 
+Looking Glass Studios or Eidos Interactive.

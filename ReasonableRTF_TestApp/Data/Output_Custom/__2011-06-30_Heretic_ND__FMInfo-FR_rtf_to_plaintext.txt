@@ -1,0 +1,76 @@
+
+Version New Dark 
+Une campagne pour Thief 2 
+par Ricebug
+Date de sortie: 30/10/2013
+
+NOTE
+
+Vous devez jouer cette mission sous New Dark 1.21, sinon certaines fonctions pourraient devenir instables
+
+Bref Scénario
+
+Certains intérêts ont découvert une île, il y a longtemps abandonnée par un groupe mystérieux dénommé les Sidhe. Dans la destruction qui suivit, les Mécanistes, Marteleurs, et une foule d’autres gens avides exploitent la découverte archéologique. Ayant entendu parler du potentiel de richesses, tu montes à bord du Rose Cottage pour tirer avantage de la situation.
+
+Bienvenu à Heretic, un mod pour Thief 2 basé sur le jeu originel
+Welcome to Heretic, a Thief 2 mod based on the original game.
+
+Heretic (Hérétique) est un jeu de tir à la première personne développé par Raven Software, publié par id Software, distribué par GT Interactive et sorti en 1994. Il devint disponible sur Steam le 3 Août 2007. (Wikipédia) 
+
+Parmi les 45 niveaux, j’ai choisi 3. La plupart des niveaux (les 45, je les ai parcouru deux fois) sont des grands espaces ouverts comportant des longues distances. Ils ont été évidemment conçus pour le jeu Match à Mort et équipe, et donc ne conviennent pas à l’univers de Thief 2.
+
+Remerciements
+
+Nameless Voice, R Soul, Haplo, Sensut, John9818a, ffox, darthslair, Independent Thief, Yandros, et quelques autres chez TTLG que j’ai oublié.
+
+Traductions
+
+Allemand: Zappen
+Français: Azaran
+
+Notes & Problèmes
+
+Utilisez les touches de parcours des armes (crochet gauche et droit, [ & ]) pour accéder au sceptre Elven Wand.
+
+L’eau dans la mission 3 clignote parfois. Faire une sauvegarde rapide du jeu et le recharger résout habituellement ce problème. On a essayé plusieurs choses, mais je crois que c’est dû au hardware. 
+
+Contrôle de la qualité (Équipe Beta)
+
+bob_doe_nz, ffox, Gloria Creep, MrMunkeePants, 
+Nickie, prjames, ravenhook, Sensut, tafferjim
+
+Générique
+
+Textures Heretic à haute résolution obtenues de Steam. Projet de retexture jHeretic 2003.
+Optimisées et recompilées par Cain
+
+Musique d’intro Heretic par Kevin Schilder de Raven Software
+
+Vidéos d’intro filmés à Murkbell.
+Calendra’s Legacy par Purah & Saturnine
+Briefing movies filmed on location in Murkbell.
+Calendra’s Legacy courtesy Purah & Saturnine
+
+SlyFoxx (Scott Murchison): Voix (Intro)
+GORT (Shaun Morin): Mécanique de l’Elvenwand
+Sensut: Scripts, retouche des modèles
+Saturnine: Navires (de Rose Cottage)
+Jermi: Cieux à haute résolution
+Eshaktaar: Lampes sur mesure, meubles, coffres, gros bonhomme (Foster), Zombies de Cendre, et d’autres choses intéressantes.
+Jason Otto: Modèles animés améliorés, effets de flammes, portes, & clôtures.
+Nameless Voice: Plusieurs modèles, calculatrice solaire.
+Vigil, Pinkdot: Toiles d’araignées, textures
+Sluggs: Modèle de clôture (mission 3)
+
+Modèle Sidhe (mission 1) pris de Serious Sam, The Second Encounter
+Gamesys: DedX, Broken Triad d’ Eshaktaar
+Robots Marteleurs: DedX
+
+Notes
+
+Les niveaux de difficulté affectent le nombre de modèles animés. Aucun autre objectif ou niveaux de butin ne sont affectés.
+
+Avis
+
+Ce niveau ne fut pas créé par, et n’est pas lié à Looking Glass Studios ou Eidos Interactive.
+

@@ -1,0 +1,111 @@
+Redemption
+
+A Thief  2 fan mission by Brynolf
+                                               
+Contact info		sgb67@hotmail.se
+Date of release	Oktober 2008
+Version		1.0
+
+	
+INFO & HINTS
+Doors that you can't frob and don’t make any sound when hit are not of interest to Garret. Just ignore them. 
+
+There may be some gates that will be opened by other people in the mission when you are not around, so check back later and you may find they have opened 
+
+There are several secrets to be found that aren’t officially listed in the objectives, so don't run too fast! 
+
+For those having a hard time completing the loot objective, there is a loot list included in the zip file. You'll find in extracted directly into your Thief directory as "Loot list".
+
+
+BRIEFING
+You were approached by one the oldest Keepers, informing you of a city called Tellus. The City of Tellus is under a curse. People are dying at a young age. No one is able to grow old and it has been like this as long as anyone can remember. None of the people born in the city are even able to leave the city without dying almost instantly.  The Keeper told you that some old recordings of the Keepers seem to give information of two lost Keeper scrolls. The Scroll of Death and the Scroll of Life. That when put together will give explanation of the cause of the curse and what could break the curse. The Scroll of Death is believed to be in the possession of a former Keeper that rebelled a long time ago and was cast out. The Scroll of  Life is believed to also be hidden somewhere in the city. You need to find these scrolls. Firstly, though, visit the offices of the mayor to find out more concerning the situation of the city and to see if there is anything you could to do help. You will enter the central district from the eastern city quarters and get a room at the hotel La Vida. You will not bring a lot of weapons in order to not draw a lot of attention. However a good sword might be of use. Your reward will be any loot laying around. The city inhabitants will be very grateful....should you succeed. 
+
+
+
+PLAYING INFORMATION 
+This is my first mission. However, it feels like I've built it many times. So I believe you will have a couple of hours of great fun trying to complete this mission. Have fun!
+
+Game:		Thief 2: The Metal Age
+File names:		miss20.mis, redemption.gam
+Difficulty Settings::	Yes (Only increased loot on higher levels.)
+Equipment store:	No
+Map/Automap:	No
+New graphics:	Yes
+New sounds:		Yes
+New models:		Yes
+EAX Support:		Yes
+Language:		English
+Briefing:		No
+
+	
+Construction Base:	From scratch
+Map Size:	                     	Large
+Build Time:		10 months
+	
+Dromed was pushed to the limit, so play on a fresh boot. Reduce the number of background operations if you encounter severe frame rate issues.
+	
+Loading information - DarkLoader Ready
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+
+Credits & many thanks to:
+
+Komag - For writing his tutorial which got me started and going in the right direction.
+
+Betatesters - Nightshifter, Pavlovscat, Bikerdude. Thank you for all the effort you put into lifting this mission up to a totally different level. Without you this mission would have been so mediocre. I don't know how to thank you in a satisfying way. No words are enough to express my gratitude.
+
+Proofreading - Procession and jtr7. Thank you so much for the very important work you did. You made all the texts and documents look excellent. 
+
+Dussander - Thank you for setting up and managing the beta testing forum. over at http://shalebridgecradle.co.uk/testing/
+            
+Enormous amount of thanks to all the guys over at the Editor's Guild at www.ttlg.com. I am forever grateful to all your support and help. That is one of the kindest bunch of people on the earth. I would like to mention some names but I avoid that since I may forget somebody. But most of  you are mentioned below in the list of credits. I would not have been able to solve some of the difficult problems on my own and this mission would never have been made without you. 
+
+My wonderful wife, Vicky, who has graciously supported me in making this mission.
+
+OBJECTS AND TEXTURES:
+R Soul
+Yandros
+Wille
+Schwaa
+Gort
+Ugly Ed
+Nameless Voice
+Targa
+Jeff Knez
+Nielsen 74
+Jason Otto
+Sluggs
+Christine
+Ar-Zimrathon
+Syi
+Jari Mäkinen
+Randy Tyler
+pdackel
+Chris
+von Eins
+Greenhorn
+Randal Taylor
+Papa John
+Eshaktaar
+Sensut
+Asgaroth
+Targa
+Alun Bestor
+Dhin
+Vigil
+
+MESHES ANS SKINS:
+Meshes and skins:
+Shadowspawn
+DemonReaver
+Rob Hicks
+Schwaa
+YcatX
+Nameless Voice
+Daemonite
+Sensut
+Metal Dawn
+Targa
+
+A thousand thanks to all of you guys for letting me use your great works. I am also afraid to have missed somebody. Please, contact me if I have forgotten somebody and I'll try to make up for it.
+

@@ -1,0 +1,471 @@
+                     < English Version >
+
+Prologue
+
+Welcome to the north of Faerûn, adventurer!
+After weeks of marching through the icy north you’ve finally reached your destination –
+the Ten Towns. Your journey led you from Easthaven past Bryn Shander to
+Caer-Dineval. When you reached the small town, news of strange events in this area
+awaited you. People spoke of vanished caravans and ambushes on the Icewind Pass, hordes
+of Goblins and marauding Frost Giants. Contact to the Glitterstone Mine has been lost 
+several weeks ago and there is no trace of all the mineworkers. Hrothgar, the protector
+of Easthaven, sent out a small expedition to the mine, but they never returned either.
+As you listen to these stories inside the warm tavern, told by warriors and merchants, 
+you decide to investigate the matter on your own. On the next morning, you stow your 
+belongings and head towards the Glitterstone Mine. After 2 days of walking you finally 
+reach the abandoned camp of the mineworkers and you approach carefully, not knowing 
+what will await you….
+
+The Character classes
+
+You must choose one of the following classes:
+
+Warrior – With his sword or mace ready, he will face evil in melee combat. No one can 
+               match his agility and speed in a fight, man against monster. In addition to his 
+               physical abilities, he is also an experienced trapper and he knows how to set up
+               ambushes. Due to his nature, he has a very robust condition.
+
+
+
+Archer – Armed with a longbow and a multitude of different arrows, he is a dangerous 
+             opponent in battles. Most of his arrows are enhanced with magic spells and 
+             therefore even more effective against evil creatures. He possesses an average 
+             condition.
+
+
+
+Mage – He doesn’t smirch his hands in combat. He lets others fight for him; surrounded by 
+           summoned creatures he has little to fear from enemies. But his strength doesn’t  
+           depend on his summoned creatures alone. If necessary he knows how to defend 
+           himself with powerful spells that can wipe out entire hordes of Goblins with a 
+           single shot.
+
+
+
+Bestiary of the North
+
+People that decide to travel through the North should be careful not to fall prey to one
+of the many monsters inhabiting the northern regions. If you should encounter any 
+threat, then it is best to know what you are up against.
+
+Ogres - Stand between 9- and 10-feet tall and can weigh up to 650 lbs. They tend to 
+          be lazy and brutish, preferring to rely on ambush and overwhelming numbers in 
+          battle. Ogres often work as mercenaries, hoping for easy plunder.
+
+
+
+
+Giants – Mostly Frost Giants in the North, they wander across the Spine Of The World in 
+             small groups. They are often involved in ambushes on caravan routes or 
+             sequestered farms. You should not make them aware of your presence because 
+             they are very tough enemies and hard to fight.
+
+
+
+Goblins – Their society is tribal by nature. Goblins survive by raiding and stealing, 
+             sneaking into lairs, villages, and even towns by night to take what they can. 
+             They are not above waylaying travelers on the road or in forests and stripping 
+             them of all possessions, including the clothes on their backs. They prefer to 
+             attack with simple swords, clubs, axes and short bows.
+
+
+
+Goblin Raiders – or Goblin leaders, are generally the strongest and sometimes the 
+                       smartest around. You can distinguish them from ordinary Goblins by the 
+                       fact that they prefer to ride on the back of a Sword Spider. This makes 
+                       them a dangerous opponent in battle…
+
+
+
+Trolls – prefer dark caves and like to hunt down Orcs, humans, Goblins and almost all 
+            other kinds of living beings. Their hunger for meat is only surpassed by their 
+            regenerative powers. Do not underestimate them, they are fast and can see well 
+            in the dark. Fire or acid are your weapons of choice if you should ever encounter 
+            a troll…and the only weapons, trolls are afraid of.
+
+
+
+Cave Spiders – are one of the bigger representatives of spiders here in the North. 
+                    Similar to their relatives, they attack everything that enters their 
+                    territories. It is best to avoid caves, rifts and abandoned mines – their              
+                    favourite types of lair – at all.
+
+
+
+
+Sword Spiders – or giant spiders, are as big as a dog, sometimes even bigger. They are 
+                      armed with huge jaws that are able to cut an adult man into pieces. In 
+                      contrast to their smaller brothers, the Cave Spiders, you can find Sword 
+                      Spiders on the surface as well. Remember this, if you try to escape from 
+                       one of their breeding holes to the outside…
+
+
+
+Fire Beetles – are one of the few beetles that inhabit the North. They prefer volcanic 
+                     caves or warm cellars. Their resistant exoskeleton makes them tough 
+                     enemies and immune against fire and magic. Poisoned gas and even fire are 
+                     their natural way to defend themselves, rumors speak of beetles that use 
+                     lightning shocks to hunt their prey.
+
+
+
+Skeletons – The most wide-spread form of undead next to zombies and ghouls. They can 
+                attack with any kind of weapon, some have been seen wearing armour.
+                There are also skeletons that are able to control the powers of magics, 
+                 preferably deceased mages.
+
+
+
+Duergar – The Duergar, or dwarves, lived in certain strongholds that fell under attack of mind flayers,   
+               or Illithids, and were captured. During their captivity, which lasted for 
+               generations, the Illithids performed many cruel and unusual experiments on 
+               the dwarves. Eventually, the dwarves rose up against their captors and gained 
+               their freedom from the mind flayers. Now the Duergar inhabit the 
+               Underdark and have been left as cruel and evil as their captors and quite 
+               withdrawn from their experiences.
+
+
+
+< Deutsche Version >
+
+Prolog
+
+Willkommen im Norden Faerûns, Reisender!
+Nach Wochen voller Strapazen habt ihr endlich euer Ziel erreicht – die Zehnstädte.
+Eure Reise hat euch von Osthafen nach Bryn Shander, über Caer-Dineval geführt.
+Als ihr endlich die kleine Siedlung hoch oben im Norden erreicht, dringt die Kunde 
+vom merkwürdigen Verschwinden mehrerer Karawanen schnell zu euch. Man berichtet 
+euch von seltsamen Zwischenfällen auf dem Pass, von Goblinhorden bis hin zu 
+Überfallen durch Frostriesen. Der Kontakt zur Funkelsteinmine entlang des Passes
+ist seit Wochen unterbrochen und von den Bergleuten fehlt jede Spur. Hrothgar, der
+Stadtvorsteher von Osthafen, hat bereits eine kleine Expedition in die Minen entsandt,
+aber auch von ihr fehlt jegliche Kunde.
+
+Als ihr den Geschichten am knisternden Feuer der Taverne lauscht und jedes Wort der
+erfahrenen Nordmänner und Kaufleute genau abwägt, reift in euch der Entschluss, sich
+der Sache anzunehmen. Noch am nächsten Morgen packt ihr euer bescheidenes Habe und
+macht euch auf den Weg, den Pass entlang zur Funkelsteinmine. Nach 2 Tagen 
+Fußmarsch erreicht ihr das bescheidene Lager der Bergleute und nähert euch vorsichtig, 
+nicht wissend, was euch erwarten wird…
+
+Die Charakterklassen
+
+Im Spiel müsst ihr euch für eine der 3 Charakterklassen entscheiden:
+
+Krieger – mit gezogenem Schwert voran, ist der Krieger immer an vorderster Front im 
+              Kampf anzutreffen. Im Nahkampf kann ihn niemand das Wasser reichen und  
+              mit großem Geschick weiß er Schwert und Streitkolben einzusetzen. Auch 
+              versteht er sich auf das Legen von Fallen  und Hinterhalten. Aufgrund seiner 
+              Natur verfügt er über eine äußerst robuste Konstitution.
+
+
+
+Schütze – mit Langbogen bewaffnet und treffsicherem Schuss, ist er ein gefährlicher 
+              Gegner im Kampf. Er verfügt über eine Vielzahl, von zum Teil auch 
+              magischen Pfeilen die er speziell anfertigen ließ. Er verfügt über eine 
+              mittelmäßige Konstitution.
+
+
+
+Magier – er macht sich in der Regel nicht die Finger schmutzig, er lässt für sich 
+              kämpfen. Herbeigerufene Kreaturen wie Spinnen oder Skelette erledigen die 
+              Arbeit und schützen ihn wenn es darauf ankommt. Trotz seiner nur geringen 
+              Konstitution ist er ein gefährlicher Gegner, da er sich hervorragend auf dem 
+              Gebiet der Kampfzauber auskennt und ganze Goblinhorden mit einem Feuerball 
+              auslöschen kann.
+
+
+
+Bestiarium des Nordens
+
+Ein Reisender im hohen Norden sollte Acht geben, dass er nicht einer der zahlreichen 
+Bestien anheimfällt. Wenn ihr dennoch eines der Monster antreffen solltet, dann ist es
+besser zu wissen, mit was genau ihr es zu tun habt.
+
+
+Oger – die großen, hässlichen Humanoide sind eine der Plagen der Nordländer. Zum 
+          Glück sind sie jedoch außerordentlich dumm und meist auch zu faul, eine 
+          flüchtende Person zu verfolgen. Seid jedoch gewarnt: sie besitzen die Stärke 
+          mehrerer Männer und sollten im Kampf nicht unterschätzt werden.
+
+
+
+Riesen – langsam und unaufhaltsam bahnen sich die Riesen ihre Wege durch den Grat der 
+            Welt. Nicht selten auch lauern sie Reisenden in engen Bergpässen auf oder 
+            terrorisieren abgelegene Gehöfte. Auf einen Kampf mit ihnen sollten sich nur 
+            erfahrene Abenteurer einlassen, besser jedoch ist es, sie ganz zu vermeiden.
+
+
+
+Goblins – suchen den Grat der Welt seit jeher in unsäglichen Massen heim. Sie hausen 
+             zu tausenden in Höhlen und Schluchten in den windgepeitschten Bergen. 
+             Organisiert sind sie in kleinen Clans, die sich in einem ständigen Kreislauf oft 
+             gegenseitig auslöschen. Sie verwenden primitive Bögen, Äxte und Schwerter 
+              und sie nie allein anzutreffen. 
+
+
+
+Goblin Marschälle – bilden die Spitzen der Clans. Meist sind es stärkere Goblins, die den 
+                             anderen ihre Herrschaft aufzwingen konnten. Erkennen kann man 
+                             sie daran, dass sie auf dem Rücken von Schwertspinnen reiten. Vor 
+                             ihnen sollte man sich in Acht nehmen, dass sie die zähesten 
+                             Vertreter aller goblinoiden Rassen sind.
+
+
+
+Trolle – schätzt euch glückliche, wenn ihr nie einem über den Weg lauft. Sie sind genauso 
+            gierig nach Fleisch, wie sie stark und schnell sind. Trolle bevorzugen tiefe, weit 
+            ausgedehnte Höhlensysteme als Behausung und gehen nicht selten auf „Jagd“ 
+            nach Menschen, Goblins und sogar Orks, wenn Fleisch Mangelware ist. 
+            Sie sind Meister im Graben von Tunneln und bringen selbst stärksten Fels zum 
+            Bersten mit ihren mächtigen Spitzhacken und ihrer rohen Kraft.
+
+
+
+Tiefenspinnen – sind die kleinsten Vertreter der Gattung der Riesenspinnen im hohen 
+                     Norden. Ähnlich wie ihre größeren Verwandten, greifen sie alles und 
+                      jeden an, der ihnen zu nahe kommt. Am besten verirrt man sich gar nicht 
+                      erst in tiefe Höhlensysteme und Tunnel die ihr bevorzugtes Zuhause 
+                      darstellen.
+
+
+
+Schwertspinnen – sind die Soldaten des Spinnenreichs. Ihre namensgebenden 
+                        schwertähnlichen Kiefer können einen Menschen beinahe in Stücke 
+                        reißen. Im Gegensatz zu ihren kleinen Verwandten, den Tiefenspinnen, 
+                        trifft man sie auch auf der Oberfläche an. Ihr solltet dies bedenken, 
+                        wenn ihr aus einer ihrer Bruthöhlen an die Oberfläche zurück flüchtet.
+
+
+
+Feuerkäfer – sind eine der wenigen Käferarten, die auch im hohen Norden überleben 
+                  können, vorzugsweise in vulkanischen Höhlen oder auch in Kellern. Ihre 
+                  harte Schale macht sie recht widerstandsfähig gegen zahlreiche Angriffe, 
+                  Feuer und Magie scheinen ihnen generell überhaupt nichts auszumachen.
+
+
+
+Skelette – die am stärksten verbreiteten Untoten neben Ghulen und Zombies. Sie greifen 
+              zu den unterschiedlichsten Waffen und Rüstungen und selbst in der Magie 
+               sind einige bewandert. Nehmt euch also in Acht, wenn ihr auf einen dieser 
+               zurückgekehrten Toten trefft.
+
+
+
+Duergar – manchmal auch Grauzwerge genannt, lebten lange Zeit als Sklaven der 
+               Illithiden. Nachdem sie sich gegen ihre Herren erhoben, gründeten sie eigene 
+               Städte im Unterreich. Sie leben vom Bergbau, Handel und der Jagd auf  
+               Sklaven. Wie alle Zwerge schätzen sie harte Arbeit, sie sind wenig redselig  
+               und vor allem gierig.
+
+
+
+< Versione italiana >
+
+Prologo
+
+Benvenuto nel Faerûn settentrionale, avventuriero!
+Dopo settimane di marcia attraverso il freddo nord, finalmente sei giunto alla tua destinazione - 
+le Dieci Città. Il tuo viaggio ti ha condotto da Easthaven, passando per Bryn Shander, fino a 
+Caer-Dineval. Quando hai raggiunto questo piccolo villaggio, ti sono giunte voci di strani 
+accadimenti in quest'area. Le persone parlavano di carovane svanite e imboscate a passo Icewind, 
+di orde di goblin e di giganti dei ghiacci ostili. I contatti con la miniera di Glitterstone sono 
+andati perduti diverse settimane fa e non c'è traccia di nessuno dei minatori. Hrothgar, il protettore 
+di Easthaven, ha inviato una piccola spedizione alla miniera, ma nessuno di loro è più tornato.
+Man mano che ascolti questi racconti all'interno della taverna, raccontate continuamente da 
+guerrieri e mercanti, decidi di indagare per conto tuo sulla cosa. Il mattino successivo prepari 
+le tue cose e ti dirigi verso le miniere di Glitterstone. Dopo due giorni di camminata infine raggiungi 
+l'accampamento abbandonato dei minatori e ti avvicini guardingo, non sapendo quello che ti 
+potrebbe accogliere...
+
+Le classi
+
+Devi scegliere una delle seguenti classi:
+
+Guerriero – Con spada e mazza fra le sue mani, è pronto ad affrontare il male in combattimento.
+	         Nessuno può eguagliare la sua agilità e la sua velocità in battaglia, né uomo né mostro.
+		Oltre alle sue capacità fisiche, è anche un esploratore di notevole esperienza e sa 
+		come preparare imboscate. Per sua natura è dotato di una robusta costituzione.
+
+
+
+Arciere – Armato di un arco lungo e di una moltitudine di diverse frecce, è un avversario 
+	     molto pericoloso in combattimento. La maggior pare dei suoi dardi è dotata di 
+	     incantamenti, che li rendono molto più efficaci contro le creature malvage. Possiede 
+ 	     una costituzione media.
+
+
+
+Mago – Non usa le mani in battaglia e lascia che siano gli altri a combattere per lui. Circondato
+	  dalle creature che evoca, ha poca paura degli avversari. La sua potenza però non dipende 
+	  solamente dalle evocazioni. Se necessario sa come difendersi con potenti incantesimi che 
+	  possono spazzare via intere orde di goblin con un singolo colpo.
+
+
+
+Bestiario del nord
+
+Le persone che decidono di attraversare il nord dovrebbero prestare particolare 
+attenzione al non cader preda dei molti mostri che abitano le regioni settentrioanli. Se 
+mai si dovesse incontrare una di queste bestie, allora sarebbe meglio sapere chi si ha di 
+fronte.
+
+Orchi - Alti fra i tre e i quattro metri, possono arrivare a pesare fino a 300 Kg. Tendono ad 
+	  essere pigri e brutali, preferendo affidarsi ad imboscate e ad un numero preponderante in
+	  battaglia. Gli orchi spesso lavorano come mercenari, sperando in un facile bottino.
+
+
+
+Giganti – Principalmente giganti dei ghiacci nel nord. Vagano lungo tutta la catena montuosa 
+	      in piccoli gruppi. Spesso tendono imboscate alle carovane di passaggio e sequestrano
+	      intere fattorie. Dovreste fare particolare attenzione alla loro presenza, perché sono 
+	      nemici molto difficili da battere.
+
+
+
+Goblin – La loro società è di natura tribale. I goblin sopravvivono rubando e saccheggiando,
+	     entrando nelle città, nei villaggi e nei rifugi nel corso della notte per prendere quello che 
+	     possono. Possono anche arrivare ad aggredire isolati viaggiatori per sottrarre loro tutto 
+	     quello che possiedono, persino i vestiti. Preferiscono attaccare con armi semplici: spade,
+	     mazze, asce e archi corti.
+
+
+
+Saccheggiatori goblin – o goblin leader, sono generalmente più forti ed intelligenti dei normali goblin.
+				Si possono distinguere dai loro sottoposti dal fatto che preferiscono cavalcare ragni.
+				Questo li rende un avversario particolarmente pericoloso in battaglia...
+
+
+
+Troll – Preferiscono le buie caverne e amano dar la caccia agli orchi, agli umani, ai goblin e a quasi
+	ogni specie vivente. Il loro amore per la carne è superato solamente dai loro poteri rigenerativi.
+	Non sottovalutateli, perché sono veloci e possono vedere bene anche al buio. Il fuoco o l'acido
+	sono le armi da preferire se ne doveste incontrare uno... e sono anche la sola arma di cui i troll
+	possano aver paura.
+
+
+
+Ragni delle caverne – sono una delle specie di ragni più grandi qui al nord. Simili ai loro parenti,
+			      attaccano qualsiasi cosa entri nei loro territori. Meglio evitare caverne, burroni e 
+			      miniere abbandonate - le loro tane preferite.
+
+
+
+
+Ragni giganti – hanno le dimensioni di un cane e a volte sono persino più grandi. Sono dotati 
+		      di robuste mandibole in grado di ridurre a pezzi un uomo adulto. Si possono trovare 
+		      anche in superficie. Ricordatelo se vi troverete a fuggire da uno dei loro nidi dirigendovi 
+		      verso l'esterno.
+
+
+
+Insetti di fuoco – sono una delle due bestie che abitano il nord. Preferiscono le caverne di natura vulcanica 
+			o le cantine umide. Il loro esoscheletro particolarmente resistente li rende immuni al fuoco 
+			e alla magia. Il gas velenoso e persino il fuoco sono il loro sistema naturale di difesa e gira 
+			voce di insetti che usino persino l'elettricità per cacciare la loro preda.
+
+
+
+Scheletri – La più diffusa forma di essere non morto oltre agli zombie e ai ghoul. Possono
+	        attaccare con qualunque arma e alcuni indossano persino l'armatura. Ci sono 
+	        scheletri in grado persino di controllare il potere della magia, solitamente maghi defunti.
+
+
+
+Duergar – I Duergar, o nani, sono vissuti in certe roccaforti cadute sotto attacco dai 
+                mind flayer, o Illithid, da cui furono catturati. Durante la loro prigionia, che 
+                durò molte generazioni, gli Illithid eseguirono su di loro molti crudeli ed 
+                insoliti esperimenti. Infine i nani si sollevarono contro i loro aguzzini e 
+               riacquistarono la loro libertà. Ora i Duergar abitano l'Underdark e 
+	       sono rimasti crudeli e malvagi come i loro passati padroni, oltre ad essere 
+                particolarmente isolazionisti a causa delle loro passate esperienze.
+
+
+
+
+
+                            < Additional Information >
+
+=================================================================================
+
+Title: 
+A Journey Into The Underdark (“Eine Reise Ins Unterreich”)
+
+Author :
+intruder
+
+Date of Release : 
+09.03.2010 
+
+Lootlist:
+A complete list is included in this archive!
+
+A  Tip:
+Although the Twinklestone might seem a bit useless at first, it can be a powerful tool. 
+It provides an infinite amount of light sources that one can place everywhere in the mission.
+Use it to make your foes better visible for your own creatures, or to lure them into your traps…
+
+Some oddities:
+If you aim on one of the giants in this mission, it is best to aim at their center since
+ projectiles pass through their arms and legs from time to time.
+
+
+==================================================================================
+
+* Loading Information *
+
+Darkloader ready. Do not unzip -- Place in fan mission folder and install using Darkloader 4.2 or later.
+
+==================================================================================
+
+* Special Thanks *
+
+Objects 
+
+* Dark Arrow: DAOgres
+* Jason Otto: log, log2, Glyph Ring, Spawn Symbol, Pentagram
+* Nameless Voice: NVSkeletonSW, NVSkeleton
+* Schwaa: Beetles, Mushrooms, 8x8 Doorway, Gems
+* Targa: cage, mace, sword 
+* TDBonko: Dwarf
+* Thief Object Enhancement Package: nvrope
+* DEDX: Goblin
+* T2X-team: harlot1, harlot2, harlot3
+
+Textures
+
+* thief_gotcha: core_1, core_2, city
+* Vigil: adb_terrain_2
+* DEDX: Drow_1, Drow_2, BrownStoneX
+
+Sounds 
+
+* gregswinford: EerieForest.wav | taken from freesounds.org
+* Icewind Dale (Jeremy Soule):  Lower Dorn’s Deep, Upper Dorn’s Keep Entrance & Interior
+* Baldur’s Gate 2: Underdark
+* Baldur’s Gate 2 - Throne Of Bhaal: Marching Mountains
+
+Testers
+
+* bob_doe_nz
+* Dawggon
+* Namdrol
+* PotatoGuy
+* Tannar
+
+Italian Translation
+
+* Krenim
+
+==================================================================================
+
+* Copyright Information *
+
+This Fanmission is (c) by intruder (Steffen Lehnert) 2010
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not 
+include this level in any map pack without my permission. No one may edit and re-distribute this 
+mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Eidos Interactive,
+or Ion Storm.

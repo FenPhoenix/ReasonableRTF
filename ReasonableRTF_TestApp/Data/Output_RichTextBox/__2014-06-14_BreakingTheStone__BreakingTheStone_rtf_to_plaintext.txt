@@ -1,0 +1,159 @@
+ Breaking
+the
+Stone
+
+v1.0
+
+v.1.21  New Dark
+
+Playing Information:
+
+Game: Thief II - The Metal Age v1.21
+Title: Breaking the Stone
+Author: Jeremy Catlin (HipBreaker)
+Released: June 14th, 2014
+Language Support : English.
+
+
+Build time:
+
+From scratch
+
+One year, eight months
+
+*Author's Note:
+
+While my name is attached to this mission, and I put in the majority of the work, I want to give credit where credit is due. I have been privileged to work with a superb group of beta testers, to the point where we became more of a team. Each and every one of them has gone above and beyond testing this mission. All have contributed content, bug fixes, edits, ideas, narrative assistance, and unending support. Without this amazing group of individuals, you would not be playing the mission you are today. This mission is a result of the dedication and hard work of many individuals who continued to amaze and assist until the very end. So, from the bottom of my heart:
+Thank you!
+- Jeremy
+
+
+Introduction
+
+A satchel found its way into my residence recently, and that leaves me uneasy. The contents included a map to a town called Meliae, a sealed letter, a second letter addressed to myself, and 3,000 in gold. After my initial apprehension, I opened the letter addressed to me. It read: 
+
+“Mr. Garrett, it is good to finally track you down in request for assistance. As you may or may not know, change is rapidly occurring across this region as Archmage Victus forces his tyranny and beliefs on more and more innocent towns. After uncovering the secrets of the Dryads (those with whom we once shared our lives), he has extended his stay in our town of Meliae, torturing and killing anyone who disobeys him. We, who choose to remain anonymous, wish to employ you to remove Victus from our town. We don’t care how, but we need him gone. In addition to this, we have produced a sealed letter from Victus’ second in command, Valeria, in which she describes her plans to destroy Victus and assume his position as Archmage. You must plant this false evidence to cover all traces of our interference, thereby removing two problems at once. If you do this, we will be forever in your debt. Take the 3,000 as good faith, for triple awaits you if you succeed. Sincerely, the Meliai. ”
+
+This doesn’t sound easy, but I can’t pass up the opportunity. I will begin on the cliff face, making my way in unnoticed. Once I find a way to rid the town of Victus (and pick up a few extra coins), I will meet with Basso outside the main gate where he is posing as a beggar with a carriage waiting for my departure. Hey, it never hurts to have a quick escape plan.
+
+
+
+
+* Loading Information *
+  
+The files in the zip folder are set up to be able to run the mission from the Thief 2 new game option.
+ 
+ DarkLoader ready
+
+* Known Issues *
+
+*This mission may run poorly on older systems during long distance visual scenarios. In some cases, even new systems may experience slow-down.
+
+*Some textures may look out of place with the NewDark EP installed, and in some cases, water may flicker when Tafferpatcher is used.
+
+*Water flickering:
+nickie: “Tafferpatcher itself doesn't cause the flickering textures but if you ticked the t2water box when installing using Tafferpatcher, then you may get the flicker when playing through Darkloader”.
+
+*Saving during a scripted event may cause the event to not work properly if the save is then loaded.
+
+
+
+
+*BETA Testers:
+
+ffox
+nickie
+Nightwalker
+Peter Smith
+Tannar
+Yandros
+
+*Credits:
+
+Objects, meshes and textures:
+
+Ottoj55, Team CoSaS, Sensut, Lady Rowena, Saturnine, Daraan, Pinkdot, Schwaa, R Soul, Yandros, Eshaktaar, Purgator, C-Beam, NecroBob, DrK, TDBonko, The Watcher, Nameless Voice, Vigil, Vurt
+
+Purgator – Custom mesh for BtS.
+
+
+*Loot List:
+
+Peter Smith
+
+
+*Audio:
+
+A. Tolonen
+Atrium Carceri (thefew_lp) – Knowledge of the Few
+drewb50 – Deviginti (Darkmod).
+Drew Bricker
+DrK
+Jeremy Catlin
+Various artists from Freesound.org
+
+
+*Text Edits:
+
+Tannar
+
+
+*Sound Editing:
+
+ffox
+Jeremy Catlin
+Peter Smith
+
+
+*Map:
+
+Tannar
+
+
+*Menu Art:
+
+Jeremy Catlin
+
+
+*Narrative:
+
+Leigh Catlin
+
+
+*Quest ideas & creation
+
+Jeremy Catlin (Missions 1, 2 and 3)
+Tannar (Mission 3)
+
+
+*Scripts:
+
+Nameless Voice
+GayleSaver
+Telliamed
+
+
+*Voice Acting:
+
+Jeremy Catlin – Victus, Keeper.
+Leigh Catlin – Valeria, Nytherea, Dryads.
+Random_Taffer – Algernon.
+Slyfoxx – Garrett, Intro Narrator.
+
+
+Very special thanks to:
+
+Tannar, nickie, Yandros and to Dussander for the Shalebridge Testing Forum.
+
+
+
+Copyright information:
+
+This level is (c) by :  Jeremy Catlin
+
+Distribution of this level is allowed as long as it is free and the package is kept 
+intact.  Feel free to include this mission in FM collection disks as long as they 
+are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.

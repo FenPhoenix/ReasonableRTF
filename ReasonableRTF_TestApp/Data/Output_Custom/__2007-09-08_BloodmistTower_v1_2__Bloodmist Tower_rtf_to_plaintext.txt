@@ -1,0 +1,87 @@
+===================================================================================
+Bloodmist Tower
+===================================================================================
+
+Author                  : Kfort
+Date of Release         : Sept 2007
+
+Description             : Young Lord Milano has allowed his security to grow lax as of late.  Long nights spent drinking and carousing have left the good lord with little time for his more practical duties.  Why not teach him the error of his ways?  With a mansion so full of expensive items, the trip will certainly be worth your time.  The mansion will be easy to enter - simply drop into the enclosed garden adjacent to the servants' quarters.  Lord Milano will be out of town until Tuesday, so except for a few servants and a handful of guards, you will have the place all to yourself.  Should be as easy as stealing candy from a baby . . . 
+               
+
+Special thanks to       :
+My Family . . . For being my first, last, and best critics and fans
+Sarah . . . For motivating me to get back into DromEd and finally finish this mission!
+Jabberwocky . . . For pre-beta testing and inspiration
+Komag . . . For his wonderful beginner's tutorial and his contests . . . THANKS!
+William the Taffer . . . Custom objects and AI skins
+Schwaa . . . Custom lightmushrooms
+Rob Hicks . . . Various custom stuff . . . I love DromEd Deluxe!
+Daemonite . . . Fire mage skin
+Shadowspawn . . . Adorable bunnies!  Now appropriately colored grey and white ☺
+Nameless Voice . . . Several nifty custom objects, including a cool coffin, and great tutorials
+My Beta Testers . . . Bless their hearts :)
+The Forum . . . For being there and answering my queries 
+Everyone I forgot to mention . . . For all the help I needed along the way
+
+You..........For playing it!
+
+Version History – 
+V1.2 Updated Sept 8, 2007
+       Fixed misplaced bunny textures
+       Moved missing loot out of the ground (100g crystals)
+       Gave credit where credit was due for lovable bunnies – Thanks Shadowspawn!
+
+
+
+===================================================================================
+
+* Playing Information *
+
+Game                    : Thief: The Metal Age
+Mission Title           : Bloodmist Tower
+File Name               : miss20.mis
+Difficulty Settings     : Yes
+Equipment Store         : Yes
+Map                     : No
+Auto Map                : No
+New Graphics            : Yes
+New Sounds              : Yes
+Multi-Language Support  : No
+
+Briefing                : No
+    
+Difficulty Level Info   : Normal (Type A), Hard (Type B), Expert (Type O)
+Expect more AI and less equipment on higher difficulty levels.  Some doors may require keys and some traps may be more deadly. No additional areas, new objectives or alternative playing styles on different settings.  
+
+===================================================================================
+
+* Construction *
+
+Base                    : From scratch
+Build Time              : Many years :P  2002-2007
+(Mostly due to lots and LOTS of procrastination)
+
+===================================================================================
+
+******KNOWN BUGS*******
+We shall have to wait and see what pops up!
+
+===================================================================================
+
+* Loading Information *
+     DarkLoader!  ;-)
+
+===================================================================================
+
+* Copyright Information *
+
+This level is © by Katy Fortner
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission. Just ask, I'll probably give it to ya! ;-)
+
+This level was not made and is not supported by Looking Glass Studios, Eidos 
+Interactive, or Ion Storm.
+ 

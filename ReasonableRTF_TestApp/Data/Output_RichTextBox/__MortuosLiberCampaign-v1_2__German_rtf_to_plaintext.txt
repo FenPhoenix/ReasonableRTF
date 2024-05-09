@@ -1,0 +1,103 @@
+ 
+Autor : Beltzer
+Titel: "Mortuos Liber"-Kampagne
+Kontakt : beltzer2@hotmail.com
+Veröffentlichung : 26. Oktober 2018
+Version : 1.2
+Einleitung
+Garrett war unterwegs zu einem Freund im Alten Viertel, als er diese kleine Stadt passierte. Er hörte, wie ein Paar auf der Straße über einen seltenen und wertvollen Ring sprach. Er gehört Sheriff Argus, der ein Anwesen in der Stadt bewohnt. Außer dem Ring sollte noch weitere Beute zu finden sein.
+Informationen zum Spiel
+Spiel : Dark Project 2: Das metallene Zeitalter v1.25
+Verschiedene Schwierigkeitsstufen
+Karte : Ja
+Automap : Ja (Mission 3 und 4).
+Sprachen: Englisch, Deutsch, Französisch, Italienisch und Russisch.
+Bugs:
+Wenn man sich in Mission 2 verkleidet hat und Gegner angreift oder alarmiert, kann das gesamte Inventar unbrauchbar werden bis zum Ende der Mission. Ruinieren Sie also nicht Ihre Tarnung!
+Gut zu wissen: Falls du nicht weiterkommst, geh' zurück und schau dich nochmal gut um. Etwas könnte sich seit deinem letzten Vorbeischauen geändert haben.
+Vorherige Missionen des Autors
+Reunification Campaign
+Die verlassene Burg (The Abandoned Castle)
+Der Gefallen (The Favour)
+
+Information zum FM-Lader
+Getestet mit NewDarkLoader und FM-Selektor.
+
+Dank an
+Betatester
+Aemanyl
+cardia1
+Gloria Creep
+nightshifter
+
+Weiterer Dank an
+Urgrue (Korrekturlesen aller Texte)
+zappen und baeuchlein (deutsche Übersetzung) 
+piesel (italienische Übersetzung) 
+Athalle (französische Übersetzung) 
+MoroseTroll (russische Übersetzung)
+Dussander (für das Testforum shalebridgecradle)
+
+Objekte
+Ar-Zimrathon
+Blackthief
+Daraan
+DC Project
+Dark Arrow
+Eshaktaar
+Gort
+Greenhorn
+JasonOtto
+jeffy
+LarryG
+Lord Alan
+Nameless Voice
+nicked
+Nielsen74
+Phantom 
+RSoul
+Schwaa 
+Sensut
+Sluggs
+Soul Tear
+Targa
+Team CoSaS
+Team Rose Cottage
+The Watcher
+Vigil
+von.Eins
+www.worldofgothic.de
+Zontik
+
+"Meshes" und "Skins" 
+Dark Arrow
+Eshaktaar
+JasonOtto
+Necrobob
+Paweuek
+Purgator
+Sensut
+Shadowspawn
+
+Texturen
+Zappen
+C-BEAM
+Remedy
+Vigil
+cgtextures.com
+
+Skripte
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sounds
+Beauty-Man
+DarioD
+
+Und natürlich einen Dank an meine Verlobte Sandra für die moralische Unterstützung und Verständnis dafür, dass ich 24 Stunden am Tag und sieben Tage die Woche daran gearbeitet habe.
+
+Copyright
+Diese Kampagne ist © Beltzer.
+Die Weiterverbreitung dieser Kampagne ist in jeder Art und Weise erlaubt, die der Verbreitende wünscht. Die Missionen müssen aber intakt bleiben und der Name des Autors (Beltzer) genannt werden.
+Diese Missionen wurden nicht von Looking Glass Studios erstellt, und Letztere stellen auch keine Unterstützung dafür bereit.

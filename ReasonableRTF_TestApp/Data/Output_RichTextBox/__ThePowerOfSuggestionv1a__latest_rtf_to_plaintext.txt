@@ -1,0 +1,59 @@
+                                      The Power of Suggestion- A Thief 2 Fan Mission by Uncadonego
+                                                                    contact me at uncadonego@hotmail.com
+
+Release Date:    June 1, 2006
+
+The last thing you remember, you were on your way home from the Crippled Burrick after enjoying a bowl of stew. Two men approached you, one from the left, one directly in front of you. They thought you wouldn't notice the third man in the shadows to the right, but they were wrong. Or were they? These men were prepared for your level of skill, and just slightly too late, you heard the fourth man approach from behind. Now you've awoken in cramped quarters without your blackjack or any other equipment. It's time to get out of here and find out what's going on.....
+
+
+==================================================
+
+Playing Information
+
+Game                   :Thief 2 The Metal Age
+Author                   :uncadonego
+Mission Title           :THE POWER OF SUGGESTION
+File Name              :miss20
+Difficulty Settings    :Yes, with variations in health, number of AI, and amounts of equipment.
+Equipment Store      :No.
+Map                      :No, you weren't planning on this...
+
+Make sure you are running the patched version of Thief 2 so that a certain objective works.
+
+
+Note Well
+
+-Listen to conversations carefully for instructions on story and how to proceed. Some will be helpful. This mission is less than linear, so don't expect all clues to be timed just when you need them, etc.     
+-A word on the trees: They are climbable to help you get into a couple of places, but are just as pesky as timing a jump forward from a ladder. They are not like rope arrows. They will take a little practice. When you get to your first tree, do a save just before then, and start practicing. You'll get the hang of it.
+-If you are having difficulties mantling onto an object or ledge, remember to walk up to it until touching it, then back up one half step before jumping. That often helps.
+
+
+Construction
+
+Base                    :Second or Third Base.
+Build Time:            :Longer than I ever want to spend, as usual.
+
+Acknowledgements
+Special thanks to Nightwalker for playing through many incremental changes to the level. 
+Thanks to betatesters sluggs, laco, The Phantom, Dafydd, Dussander, and Nightwalker.
+Thanks to all the helpful folks at the Editor's Guild.
+
+==================================================
+
+Loading Information
+
+Runs from Darkloader. Just leave the zipped file unzipped and put it in the folder/directory where you store your FM's.
+
+Copyright Information
+
+This level is © by Uncadonego 
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+
+Have fun!
+Uncadonego

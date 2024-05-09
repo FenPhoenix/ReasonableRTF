@@ -1,0 +1,96 @@
+  Ack! There‘s a zombie in the basement 
+  Part I Small thief series
+
+  By: M. "Polygon" Schotte
+  Contact Info: poly@megorga.com
+  Homepage: www.megorga.com
+  
+  Release date: October 17th, 2004
+  Version date: May 10th, 2005
+  Version: V 1.1
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  V 1.0
+  I hope you will enjoy playing this mission. I had fun building it and I couldn’t have done it without the help
+  of the thief community. Special thanks to Yandros and Moghedian for there support. I’m not all that
+  certain about the custom object credits. If you see an object not from the people I mentioned, let me 
+  know.
+
+  V 1.1 (contains spoilers)
+  I made this the first part in the ‘small thief’ series I started. The ‘small thief series’ are a series of small   
+  thief maps I created for fun. There small enough to play if you want just a couple of minutes of thief 
+  experience. They allow me to experiment with different map ideas as well.  Below is a list of things 
+  changed from the version 1.0 release. Most are minor glitches and small cosmetic changes.
+
+-	Changed the startup and main menu picture.
+-	The game info file is new and displays the correct information.
+-	Added object names.
+-	Changed some of the objects and object textures. Footlocker, coins, vase, bunkbed.
+-	Added rooms to the game sys to allow EAX support.
+-	You have to actually destroy the zombie to complete the objective.
+-	The sleeping AI is a little harder to sneak by.
+-	Some sound tweaks, the generator for example.
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Game info * 
+
+  Game: 			Thief 2: The Metal Age
+  Mission Title: 			Ack! There’s a zombie in the basement
+  File name: 			miss17.mis
+  Difficulty Settings: 		Yes (Normal, Hard, Expert)
+  Equipment store: 		No
+  Map / Automap: 		Yes / No
+  New graphics: 			Yes
+  New sounds: 			Yes
+  Multi language support:	No
+  Briefing: 			Yes
+  Debriefing:  			No
+
+  * Construction * 
+
+  Base: 				From scratch
+  Build Time:			Not sure
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Loading information *
+  
+  Play with Darkloader.  Do not unzip unless you really want to.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  Mission Credits
+  - Architectural Design: Polygon
+  - Story & Concepts: Polygon
+  - Skins & Textures skin: Polygon, Yandros, Dave Gurrea
+  - Custom Sounds: Polygon, T2 original sound
+  - 3D Objects: Targa, Nameless Voice, Schwaa, Polygon
+  - Testers: Yandros, Moghedian
+
+  Briefing Credits
+  - Animation: Polygon
+  - Sound: Polygon, T2 original sound
+
+  Interface credits
+  - Startup screen: Polygon
+  - Menu screen: Polygon
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Known Issues (contains spoilers) *
+
+•	The loot in the save can be stolen even if the save is closed after you have picked it.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+  * Copyright * 
+
+  Copyright (c) October 2004, Polygon
+  Permission is granted to freely play and distribute this level providing it remains whole and 
+  intact.  This level may not be used as a parachute replacement. This level was not made and is
+  not supported by Looking Glass Studios or Eidos Interactive.
+
+  No media or data contained within this archive may be used in your own mission or project 
+  without the permission of the project director.

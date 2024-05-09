@@ -1,0 +1,110 @@
+ 
+Auteur : Beltzer
+Titre: Mortuos Liber Campaign
+Contact info : beltzer2@hotmail.com
+Date de sortie : 26 Octobre 2018
+Version : 1.2
+Description
+Garrett traversa cette petite ville alors qu'il se rendait chez un ami au Vieux Quartier.  
+Il entendit un couple dans la rue parler au sujet d'une bague rare et précieuse. Elle appartient au shérif Argus.
+Il a un manoir dans cette ville. Prendre également un butin.
+
+Informations  de Jeu
+Jeu : Thief 2: The Metal Age v 1.25
+Niveaux de Difficultés : Oui
+Carte/Automap : Oui/Oui (mission 3 et 4).
+Langages: Anglais, Allemand, Français, Italien et Russe.
+Bugs
+Si le joueur est déguisé dans la mission 2 et qu'il attaque ou se fait repérer, l'inventaire peut devenir inutilisable pour le reste de la mission. Ne surtout pas faire tomber sa couverture.
+Bon à savoir
+Si vous êtes coincé, revenez en arrière et regardez autour de vous.
+Certaines choses pourraient avoir changé.
+
+Mes missions précédentes
+Reunification Campaign
+The Abandoned Castle
+The Favour
+
+Informations de Chargement
+Testé avec NewDarkLoader
+et FM-Selector
+
+Merci à
+Beta testers
+Aemanyl
+cardia1
+Gloria Creep
+nightshifter
+
+Autres Mercis
+A Urgrue pour la relecture de tous les textes anglais.
+A zappen et baeuchlein pour la traduction allemande. 
+A piesel pour la traduction italienne. 
+A Athalle pour la traduction française. 
+A MoroseTroll pour la traduction russe. 
+A Dussander pour shalebridgecradle.
+
+Objets personnalisés
+Ar-Zimrathon
+Blackthief
+Daraan
+DC Project
+Dark Arrow
+Eshaktaar
+Gort
+Greenhorn
+JasonOtto
+jeffy
+LarryG
+Lord Alan
+Nameless Voice
+nicked
+Nielsen74
+Phantom 
+RSoul
+Schwaa 
+Sensut
+Sluggs
+Soul Tear
+Targa
+Team CoSaS
+Team Rose Cottage
+The Watcher
+Vigil
+von.Eins
+www.worldofgothic.de
+Zontik
+
+Meshes et skins 
+Dark Arrow
+Eshaktaar
+JasonOtto
+Necrobob
+Paweuek
+Purgator
+Sensut
+Shadowspawn
+
+Textures
+Zappen
+C-BEAM
+Remedy
+Vigil
+cgtextures.com
+
+Script personnalisé
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sons
+Beauty-Man
+DarioD
+
+Et merci évidemment à ma fiancée Sandra pour son soutien moral et pour supporter que j'y travaille  24h/24.
+
+Information de Copyright
+Ce niveau est  à Beltzer
+La distribution de ce niveau est autorisé de quelque manière que ce soit. Cependant, vous devez laisser la mission intacte et m'en créditer.
+
+Ce niveau n'a pas été créé et n'est pas supporté par Looking Glass Studios.

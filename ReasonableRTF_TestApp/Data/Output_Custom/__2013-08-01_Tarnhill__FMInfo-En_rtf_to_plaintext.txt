@@ -1,0 +1,44 @@
+Return to Tarnhill
+A lost Strife mission
+By Ricebug & Xorak
+Release Date: 1 Aug 2013
+
+Garrett thought that his time in Tarnhill was put behind him. He had sent the time travelers back to the future. Governor Meech had been terminated. The homes and property Meech had stolen from the people were returned to the rightfull owners. Unfortunately, word has it that certain monks--hanger-on-ers to the bogus religious cult Meech had created--were secretly experimenting with time travel, using technology left behind by the People of the Future. Not wanting the future to repeat itself, Garrett decides to return to Tarnhill, against the wishes of his sweetheart, Maggie.
+
+
+Credits
+
+Mission gamesys:	Pinkdot, Haplo
+
+Custom Objects:	Daraan (trees, bushes)
+			Digital Nightfall (COSAS collections)
+Greenhorn (bushes, plants, grass)
+LarryG (windows, rat model)
+Nameless Voice (gates, locket)
+Jason Otto (enhanced AI models, toilet, sink, wires)
+Pinkdot (doors, columns, wall lantern, benches, tables, monk AI)
+Ricebug (3D grass effect)
+R Soul (brazier, jug, vase)
+Sliptip (flame & water FX)
+
+Textures:		Serious Sam, The Second Encounter (Croteam)
+			Castle Wolfestein (iD Software)
+Rogue Entertainment/Velocity, Inc (Strife)
+
+Custom Scripts:	Nameless Voice
+
+Quality Control:	dBrilliant
+			Guff
+itllrun10s
+Ravenhook
+			Soldi
+Stefan_Key
+			Undead Gamer
+Zappenduster
+
+Translators:		Stefan_Key (French)
+			Zappenduster (German)
+			Soldi (Russian)
+
+
+This level was neither made nor supported by Looking Glass Studios or Eidos Interactive.

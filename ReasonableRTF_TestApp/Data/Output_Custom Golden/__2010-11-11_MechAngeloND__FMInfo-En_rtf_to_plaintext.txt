@@ -1,0 +1,60 @@
+Mech Angelo
+
+A Thief 2 Fan Mission
+By Ricebug
+Original release date: November 11, 2010
+Re-release date: 5 November 2012
+
+
+This version of Mech Angelo was re-worked for the New Dark engine, released in September 2012. It takes advantage of high-resolution textures, 32-bit lighting, EAX, and other upgrades.
+
+Known Problems
+
+You can actually enter the town (your final objective) if you don’t finish your objectives. However, the mission won’t end and you’ll get a nasty surprise.
+
+When you walk across the reflective floor in the cathedral, you’ll hear Garrett make a jumping noise. This is a game engine bug. The model’s archetype is the catwalk, which does the same thing.
+
+Quality Control
+
+bob_doe_nz, Freddy Fox, Gloria Creep, Haplo, mabsy
+nickie, Ravenhook, SirFreddieM, Undead Gamer
+
+New Dark Compatibility
+
+Nightwalker, Soldi, Voodoo47
+
+German Translation
+
+Zappenduster
+
+Credits
+
+Daraan: High-resolution trees
+jermi: Clouds, sky & moon
+Jason Otto: Improved AI models, twisted torch model, cart texture, TDS buildings, rusted portcullis (used to make the cage walls).
+LarryG: Window models
+Sluggs: Trees & fences
+Renzo “Eshaktaar” Thönen: Water textures; red armoire & dresser
+Redleaf, Yametha, & Digital Nightfall: COSAS plaid bed, dining room chairs, ladders, & flare kit.
+Wille: Distant art (Alps)
+Nameless Voice: Sunlight Calculator
+Rob Hicks: Shaman woman, sprites, tree man
+Vigil: Cobwebs
+Textures and various models: Serious Sam: The Second Encounter (SSSE)
+Crypt textures: DedX, Castle Wolfenstein
+Sistine Chapel ceiling artwork taken from the Wikipedia web site.
+
+Talisman Locking System
+&
+Technical Support
+
+Freddy Fox, Haplo
+
+AVIs made with Lightwave 3D, Adobe Premier, Paint Shop Pro, Acid Pro Audio.
+Snidley Whiplash rights owned by Bullwinkle Studios
+Garrett portrait courtesy Through the Looking Glass
+
+
+Disclaimer
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

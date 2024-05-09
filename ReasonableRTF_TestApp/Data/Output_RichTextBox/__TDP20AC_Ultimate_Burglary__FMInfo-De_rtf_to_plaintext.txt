@@ -1,0 +1,68 @@
+
+Der ultimative Einbruch - Version 1.0 - November 2018
+================================================================================
+
+Autor: Terra
+Erscheinungsdatum: November 2018
+
+================================================================================
+
+Hinweis
+
+Diese FM setzt NewDark 1.24 oder höher voraus, die Textur-Erweiterung (Enhancement Pack) sollte vor den Spielen
+deaktiviert werden..
+
+================================================================================
+
+Handlung:
+
+Die Stadt ist mit den Jahren an Größe gewachsen, die Reichen wurden noch reicher und die Armen noch ärmer. Es ist an
+der Zeit, den ultimativen Einbruch zu begehen. Es gibt einige besondere Objekte mit hohen Wert, etliche Anwesen voller
+Reichtümer und viele brave Bürger mit etwas zuviel Geld. Ich werde jedes Haus und jedes Anwesen durchstreifen und
+meinen Geldbeutel gut füllen. Ich sollte aber dennoch aufpassen, die Anzahl der Wachen ist stark gestiegen und hin und
+wieder ist von rätselhaften Ereignissen die Rede. Ich werde am besten zuerst den Waffenladen der Stadt aufsuchen und
+mich gut ausrüsten.
+Also dann Garrett, auf eine erfolgreiche Nacht ...
+
+================================================================================
+
+Spielinformationen:
+
+Spiel: Thief 1 - (Version 1.24 NewDark)
+Missionstitel: Der ultimative Einbruch 
+Dateien: miss20.mis, ult.gam
+Schwierigkeitsgrade: Keine
+Ausrüstungsladen: Keine
+Karte: Ja (Athalle)
+Ergänzungs-Grafiken: Keine
+Neue Geräusche: Keine
+EAX: Keine
+Mehrsprachig: DE/FR/EN/IT/RU
+Briefing: Keine
+
+================================================================================
+
+Bauzeit: 12 Monate
+
+================================================================================
+
+Betatest: vfig, Cardia
+
+Übersetzung (Korrekturen) FR/EN :
+Zappenduster (Sacom, OldAndCunning)
+
+Übersetzung IT:
+Piesel
+
+Übersetzung RU:
+MoroseTroll
+
+================================================================================
+
+Urheberrecht:
+
+Diese FM stammt von Terra, November 2018.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt und wird auch nicht von dort unterstützt.
+
+================================================================================

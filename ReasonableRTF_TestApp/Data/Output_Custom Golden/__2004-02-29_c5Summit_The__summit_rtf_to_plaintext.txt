@@ -1,0 +1,109 @@
+  ▲ The Summit ▲
+  _____________________________________
+  Inspired by and featuring the music of Patrick O'Hearn
+
+
+A Thief 2 Fan Mission created for Komag's 5th Small FM Contest
+
+Author: Yandros (Russ) (robbinsr@lexmark.com)
+Release Date:  Feburary 29th, 2004
+Version: 1.0
+
+
+So tall, silent against the sky
+Up through the clouds, where eagles fly
+Wind and rain beat down on one so strong
+They cut but never change what stood so long
+
+I am in the ground, I am in the air
+I am all, I live in the hearts of men
+I am the call to greatness not all can hear
+I awaken the creator in those who dare
+And the day will come when we all must die
+And enter the mountainside
+
+Tall as a mountain
+I’m gonna tear through the sky
+Life’s for the taking
+Like a man is a mountainside
+Greatness waits for those who try
+What they teach you is all inside
+
+     “Mountains” ~ Manowar
+
+
+Hints and Tips:
+
+Master the use of your grappling hook.
+Access it via arrow slot #8 (normally rope arrow).  It can be retrieved
+and reused, just like a rope arrow.
+Important:  It will stick to any stone surface, but NOT to snow or ice
+(which are too soft and too brittle, respectively).
+
+Don't start at Everest (Expert) difficulty.
+Although many FM players are in the habit of starting at Expert and
+not replaying, the Iron Man objective at this difficulty level will prove
+frustrating to most players until they are at least somewhat familiar
+with the terrain.  I suggest even seasoned Thief players begin at
+Mountain (medium) difficulty, and replay at Everest if they wish to
+tackle it with the Iron Man objective.
+
+Enable fog and weather.
+The fog and snow add tremendously to the immersion in this mission.
+I urge everyone with hardware which supports these features to enable
+them before starting.
+
+
+Objectives and Difficulties:
+
+Molehill
+1. Make it to the summit.
+Molehill has a shorter route to the summit - some areas are inaccessible.
+Grappling Hooks: 4	Healing potions: 2
+
+Mountain
+1. Make it to the summit.
+In Mountain, all areas are accessible.
+Grappling Hooks: 3	Healing potions: 1
+
+Everest
+1. Make it to the summit.
+2. Iron Man: Don't load a saved game.
+In Everest, all areas are accessible, and you cannot load a saved game.
+Grappling Hooks: 2	Healing potions: 1
+
+
+Thanks & Credits:
+
+Objects...
+   Grappling Hook - Schwaa (J. Knez)
+   Dwarf – Rob Hicks, skin altered by the author
+
+Textures...
+   LostCityX - ported from T1G by Rob Hicks
+
+Music...
+   Main Menu - Altered States by Sepultura
+   Objectives and Loading - Panning The Sands by Patrick O'Hearn
+   Lower Mountain ambient - Northwest Passage by Patrick O'Hearn
+   Upper Mountain ambient - Approaching Summit by Patrick O'Hearn
+
+Betatesting…
+   Nightwalker, Dark Arrow, Peter Smith
+
+Contest hosting…
+   Komag!
+
+Help…
+   Everyone at The Editor’s Guild… but especially Nameless Voice for
+   the triggers on load tutorial, and Polygon for showing me how to
+   make the replacement full-screen menu so easily.
+
+
+Copyright Information
+
+This mission is ©2004 by Yandros (Russ)
+
+This level was not made by and is not supported by Looking Glass Studios
+or Eidos Interactive.
+

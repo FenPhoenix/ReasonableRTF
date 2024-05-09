@@ -1,0 +1,64 @@
+The Curse of the Skull Goblet
+By MossEater for the Word Challenge Contest
+Briefing:
+“Some days, things are not like we planned… Poor Webster… His son has been back from an expedition with a rare object. Alas, I need to pay my rent and it sounds that an such object is adequate for it… If only he could stay in his father’s mansion with it… 
+This object is named the Skull Goblet, a creepy name for a goblet and according to the rumors and how they rushed to leave the place, some other guys are researching it like me. I don’t know many things about the seamen, but they seem to be merciless… Some crazy tales talk about the fact that they need to bring the Skull Goblet to the head of their dead captain to resurrect him… Too bad for them, I need better excuses to give up.
+Webster Jr. is now fleeing to Cyric with a crew aboard the ship named ‘The Iron Bottle’. A famous giant boat made with metal whose the captain used to deal in stolen objects from different towns. A perfect job to fill my purse.
+I have however to be cautious… If in a mansion I could in the worst case run away to the next street to escape; in a ship, only a life boat, some luck and speed can save me. If the ‘Iron Bottle’ is chasing me, I will have no success in my return to the land. I must be cautious...
+
+I have done the necessary to get in to steal the Goblet, and my contacts have provided me a map of the ship. The author hasn’t mentioned the name of the rooms but I suppose that Webster is somewhere in the rear, near the cabins of his guards. The engine room may be the shortest way to go there but its metal floor and crew members working here will maybe not let me pass but another way may exist. Now let’s hope that I will be out… And back to home…”
+Information:
+Game: Thief 2 : Metal Age
+Version: Newdark 1.22
+
+Global difficulty: This mission is hard, play Normal first at least to scout the area! If you didn’t, you would have been warned!
+Difficulty setting: Yes (Some items will disappear and more enemies)
+Map and auto map: In the Ship only
+New graphics: Yes
+New sounds: Yes
+New motions: Yes
+New textures: Yes
+New conversation: Nope
+EAX support: No
+Language: English only (French someday?)
+Briefing: No
+Equipment Store: Yes
+
+Base: From scratch
+Time of building: About two month
+
+Mission Categories:
+-Ship/Harbour/Docks/Port
+-Pirate
+-Forced Ghosting (first part only)
+-Caves
+
+VISUAL NOTE: 
+
+-You can have two different ambient to see on the ship. If you want to play in a dark and creaky ship, enable the fog. If you want something more colorful and see better water, you may disable it.
+-A vanilla game is recommended. NecroAge and several mods will not make the mission crash, but the visual may suffer a lot… To install at your own risks. 
+
+TECHNICAL NOTE: 
+
+-Blind or stuck? Normal! You are in front of a scene! Just look at/listen to it and you may be able to move and see after!
+-New mantling may be activated for a game more comfortable.
+
+CREDITS: 
+
+-Betatesters: Fortuni, Le Malin 76, Cardia1, Gat, Medd
+-Textures: Heroes of might and magic V, Return to the Castle Wolfentstein, Necrobob, C-Beam, Gecko, Vurt, Nameless Voice, MaxED, Thorin, MossEater and LGS
+-Models & Skins: MossEater, R Soul and LGS
+-Bitmap: Heroes of might and magic V and LGS
+-Motions: Firemage
+-Envmap: MossEater
+-Sounds: The Dubliners ‘Whiskey in the jar’, Zilli, Firemage, Banksounds contributors and LGS
+
+(Note: I just can’t remember who did the music ‘Tension’, if someone or the author himself recognizes it, then inform me immediately)
+
+Special thanks to: 
+
+-Tanner and Fortuni for their help with my betatest and correcting my text to make them… ‘Readable’!  x)
+-TTLG Staff for helping me with the organization of the contest
+-All my betatesters
+-You for playing my mission
+-And LGS for Thief 2

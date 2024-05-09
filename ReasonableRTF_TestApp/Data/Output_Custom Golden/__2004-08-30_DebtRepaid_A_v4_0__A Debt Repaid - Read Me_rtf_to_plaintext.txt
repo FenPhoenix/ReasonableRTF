@@ -1,0 +1,464 @@
+===============================================================
+A Debt Repaid 4.0 By Jason Otto
+===============================================================
+Author			: Ottoj55 (Jason Otto)
+Contact Info		: Ottoj55@hotmail.com
+Homepage		: www.jasonotto.net
+Date of Release	: 10 January 2007
+
+Title			: A Debt Repaid
+
+Description		: Thief 2 Fan Mission
+
+Story			: A few years ago Garrett broke me out of Cragscleft Prison, A couple years after that he helped me break Jenivere out of a rich noble's manor.  Tonight Garrett is the one in need of a rescue.  A job he was on didn't go to well and now the City Watch has him locked up.  An average housebreaker would get a long stay in their dungeons for this, if they figure out that this is Garrett they'll execute him for sure.  I've been here once before, but only saw the Holding Cells, so I'm not sure where the dungeon entrance in located.  I got a map of the City Watch Station from a contact of mine who works in the City planning office, but the dungeon isn't shown on it either.  I hope  Jenivere will understand if I don't make it out, but Garrett needs my help.  Breaking into a City Watch station is not my idea of a good time, but I owe Garrett big time.
+
+This mission is set sometime between the events of Thief 2: The Metal Age and Thief: Deadly Shadows.  The Mechanist order is gone, many of the Mechanist's have returned to the Hammerite Order or fled.  The Mechanist technology is in disrepair without the aid of the brothers.  Spare parts for Mechanist machines are bringing a nice price in Black Alley.
+
+Bugs & Tips		: No known bugs, the light gem works correctly, you are Basso and don't have stealth skills like Garrett, this is not a bug.  On the streets you might not score a perfect pick pocket if you are seen.  Obviously if you are seen the individual is aware of you.  Despite this it is	possible to score all the pick pockets on the street with careful planning.
+
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: A Debt Repaid
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Multi-Language 	: English, Italian, French, German
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Normal Hard and Expert levels, each has an increasing loot requirement, no killing of innocents on Hard, no killing anyone on Expert.                           
+
+* Construction *
+
+Base			: From Scratch
+Build Time		: One Year
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+* Custom Gamesys *
+
+This mission uses a custom gamesys.  The gamesys includes a few fixes for things that bothered me.  Water arrows and earth arrows now do damage, you are after all being hit with an arrow, dull or not.  You can now do damage by throwing crates, I've killed guards with crates.
+
+* Custom Objects *
+
+This mission contains many new objects, posters and paintings created by Jason Otto. These files may be freely used in fan mission projects for Thief: The Dark Project, Thief: Gold, and Thief: The Metal Age.  Other objects,posters and paintings are the property of their respective owners.  Includes objects by by Jonquilis, Targa, Eshaktaar, Daemonite, Sluggs, Vigil, Nameless Voice and Pinkdot.  Object from the enhancement pack were used frequently to upgrade this mission.
+
+* New Music *
+
+This mission contains new music files are by Jason Otto.  These files may be used in fan missions for Thief: The Dark Project,Thief: Gold and Thief: The Metal Age, for all other uses contact me at Ottoj55@hotmail.com
+
+* New Sounds *
+
+This mission contains new sounds for the Basso total conversion.  These sounds are property of Jason Otto. These files may be freely used in fan mission projects for Thief The Dark Project, Thief: Gold and Thief: The Metal Age, for all other uses contact me at Ottoj55@hotmail.com
+
+The horse hooves sound effects are from http://www.junglewalk.com/
+
+* Special Thanks *
+
+Thank you Shadowspawn for getting the yellow alarm light made.
+
+* Testing Thanks *
+
+*Alpha Test One*
+Thanks to the alpha one testers, Ataricom, Slipknot, Jabberwocky, Sluggs
+
+*Alpha Test two*
+The top secret second test, thanks Sluggs, you helped shake a lot of bugs out.
+
+*3.X Beta Test*
+Big thanks to Sluggs for finding so many errors, thanks to Slipknot and Jabberwocky for helping me find the weaknesses in my clues.
+
+Thanks to Lady Rowena for beta testing the Italian version of this mission.
+Thanks to UliB for beta testing the German version of this mission.
+Thanks to Gaetane for beta testing the French version of this mission.
+
+*3.X Gold Version Test*
+I played this mission about six or seven times myself on each difficulty setting as I worked out the bugs.
+
+*4.X Beta Test*
+
+Thanks to Skol, Bikerdude, Weasel and Sluggs for the testing.  Weasel, Bikerdude and Sluggs really put some time in to find all the problems, and hopefully it shows, extra eyes always help eliminate problems.
+
+* Translations *
+
+Thanks to GIT (www.multiplayer.it/git) for the Italian translaton
+Dinksmallwood for the German translation.
+Amelico and Gaetane for the French translation, Ramirez’s Old Fat Burrick provided some minor corrections to the French Translation.
+
+The English version of the file is the “official” version (4.X) of the readme.  The foreign language versions are not up to date and reflect the 3.X versions of this mission.
+
+* Acknowledgments *
+
+This mission contains textures by Remedy Entertainment Ltd., as such the following statement must be included in the mission release:  The textures in this file are property of Remedy Entertainment Ltd., and can be used only as long as the work is recognized as original artwork by Remedy, and no financial profit is made in the process. (C)1998-2001 Remedy Entertainment Ltd.
+
+Some textures from Thief: The Dark Project.  With the release of an editor and a lack of an EULA I can only assume that use of the resources in non-profit projects is permissible so long as I recognize that I’ve used them.  Textures from the Half-Life 2 texture pack available at INSERT URL HERE were used in this mission as well.  Without these textures my particular style would not have been possible.  They are the best textures available by far.  This mission contains textures from the Photo Real texture pack compiled by BernyBoy.
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+===============================================================
+Une dette a payer Jason Otto 8/23/03
+===============================================================
+Auteur			: Ottoj55 (Jason Otto)
+Contact		: Ottoj55@hotmail.com
+Homepage		: www.jasonotto.net
+Date de cr‚ation  	: August 30, 2004
+
+Titre			: Une dette à payer.
+
+Description 		: Une fan mission Thief 2
+
+Histoire			: Il y a de nombreuses années, Garrett m'a aidé à sortir de la prison de Cragscleft. Quelques années plus tard, il m'a de nouveau aidé à libérer Guenièvre, retenue prisonnière chez un richissime Lord de la ville.  Ce soir Garrett est en pleine détresse et je dois l'aider.  Le travail qu'il devait faire a mal tourné et la Garde lui est tombée dessus. Maintenant, le voilà enfermé au poste de police. Même le meilleur des cambrioleurs ne pourrait s'échapper de ces cachots à la sécurité particulièrement renforçée. De plus, si la Garde découvre que celui qu'elle détient est Garrett, elle l'exécutera sur le champs!        J'ai déjà été enfermé ici moi aussi, une fois, mais seulement en cellule de détention provisoire. Aussi je ne sais pas où l'entrée des cachots se trouve.  Un de mes amis m'a remis une carte du poste de police, cela peut m'aider mais les cachots où Garrett est détenu n'y sont pas représentés.  Pénétrer par effraction dans le poste de police n'est pas la meilleure idée qui soit, mais je dois tant à mon ami Garrett.  Et j'espère que Guenièvre comprendra mon geste, car Garrett a besoin de moi ce soir.                        
+
+
+Bugs			: Pas de bugs connus. Le gemme de visibilité fonctionne correctement mais vous êtes Basso et vous n'avez pas les mêmes points de vie que Garrett. Cela est volontaire.
+
+
+Briefing(s)		: Non
+
+* Construction *
+
+Base			: Non.
+Build Time		: Un an
+
+* Information de chargement *
+
+Cette mission fonctionne parfaitement avec le Darkloader. Placez juste le fichier zip dans votre fichier de fan-missions.
+
+* Gamesys personnalisé*
+
+Cette mission utilise un gamesys personnalisé. Le gamesys solutionne maintenant certains détails qui m'ont dérangé :
+- Les flèches à eau et à mousse sont capables de causer des dommages.
+- Vous pouvez aussi faire des dégâts en projetant des caisses. J'ai pu tuer des gardes en leur lançant des caisses.
+
+* Objets personnalisés *
+
+Cette mission contient plusieurs objets, affiches et peintures crées par Jason Otto. Ces éléments peuvent être librement utilisés dans les fan-missions de Thief : The Dark project, Thief Gold et Thief : The Metal Age.  Les autres objets, affiches et peintures restent la propriété de leur créateur respectif.
+
+
+*Jonquilis*
+Les bouteilles bleues et vertes, ainsi que le matériel de laboratoire en verre. J'ai changé la couleur des bouteilles, mais le modèle reste le même.
+
+*Targa*
+Flasques de potion de différentes couleurs.
+
+*Paweuek*
+Toiles d'araignées.
+
+*Eshaktaar*
+Beignets
+
+*Daemonite*
+Le modèle de l'Hermite provient de Thief Gold. J'ai apporté quelques retouches à son aspect et à sa voix.
+
+*Sluggs*
+Boussole et lune.
+
+*Jason Otto*
+Portrait du Sheriff Truart.
+Badge de police.
+Château d'eau.
+Rapport des pièces à conviction.
+Bombe asphyxiante.
+
+* Musique *
+
+Cette mission contient de nouveaux fichiers musicaux crées par Jason Otto. Ces fichier sont libres d'utilisation pour les fan-mission Thief : The Dark Project, Thief Gold et Thief : The Metal Age.  Pour tout autre utilisation, me contacter : Ottoj55@hotmail.com
+
+* Sons *
+
+Cette mission contient des nouveaux sons associés au personnage de Basso. Ces sons sont la propriété de Jason Otto. Ces fichier sont libres d'utilisation pour les fan-mission Thief : The Dark Project,  Thief Gold et Thief : The Metal Age.  Pour tout autre utilisation, me contacter :Ottoj55@hotmail.com
+
+Le bruitage des sabots de chevaux sont issus de : http://www.junglewalk.com/
+
+* Remerciements spéciaux *
+
+A Shadowspawn pour avoir conçu la lanterne jaune de l'alarme.
+
+* Remerciements aux testeurs *
+
+Test alpha 1 : Ataricom, Slipknot, Jabberwocky, Sluggs
+Test alpha 2 : Sluggs, qui m'a aidé à résoudre pas mal de bugs.
+Beta Test : Gros merci à Sluggs pour avoir résolu certaines erreurs, merci aussi à Slipknot et Jabberwocky pour m'avoir aidé à mieux concevoir mes énigmes.
+
+*Gold Version Test*
+
+* Autres remerciements *
+
+Cette mission contient des textures de Remedy Entertainment Ltd. Ces textures sont la propriété de Remedy Entertainment Ltd. et peuvent être utilisées à la condition qu'elles soient reconnues comme création de Remedy, et non utilisées pour un profit commercial.
+
+(C)1998-2001 Remedy Entertainment Ltd.
+
+Les fichiers de textures de Remedy Entertainment Ltd. contiennent aussi un fichier texte répertoriant la liste des textures crées par Remedy Entertainment Ltd. ainsi que leur droit d'auteur. Je suppose que ces textures peuvent être utilisées dans toutes fan-missions aussi longtemps que cette documentation se trouve dans le fichier des textures utilisées.
+
+*Information de Copyright*
+
+La distribution de cette mission est permise aussi longtemps qu'elle reste libre et que son contenu est gardé intacte.Cette mission peut être enregistrée sur disque tant qu'elle n'est pas destinée à des bénéfices commerciaux. Cette fm est conçue et non supportée par Looking Glass Studio ou Eidos Interactive.
+
+===============================================================
+Die beglichene Schuld 3.0 von Jason Otto
+===============================================================
+Autor			: Ottoj55 (Jason Otto)
+Email			: Ottoj55@hotmail.com
+Homepage		: www.jasonotto.net
+Ausgabedatum	: 	: 30. August 2004
+
+Titel			: Die beglichene Schuld
+
+Story			: Vor ein paar Jahren hat mich Garrett aus dem Cragscleft- Gefängnis herausgeholt, ein paar Jahre später hat er mir geholfen, Jenivere aus dem Anwesen eines reichen	 Adeligen zu befreien. Heute Nacht ist es Garrett, der Hilfe braucht. Er hatte ziemliches Pech bei einem Auftrag, und nun hat ihn die Stadtwache eingebuchtet. Schon ein durchschnittlicher Einbrecher verbringt viele, viele Jahre dort in den Kerkern für eine solche Straftat. Wenn sie herausfinden, daß es sich um Garrett handelt, warden sie ihn sicherlich sofort hinrichten. Ich war schon mal in der Stadtwache, habe aber nur den Zellentrakt im Erdgeschoß von innen gesehen, daher weiß ich nicht genau, wo sich der Eingang zum Kerker befindet. Ich habe eine Karte der Stadtwache von meinem Kontaktmann erhalten, der im Bauplanungsamt der Stadt arbeitet, aber leider ist auch hier der Kerker nicht verzeichnet. Ich hoffe, Jenivere wird verstehen, daß ich ihr nichts davon erzähle, aber Garrett braucht einfach meine Hilfe. Es gibt weit schönere Freizeitbeschäftigungen, als in die Stadtwache einzubrechen, aber ich schulde Garrett ziemlich viel.
+
+Diese Mission spielt irgendwann zwischen den Ereignissen	von Thief 2 und Thief 1. Der Orden der Mechanisten existiert nicht mehr, viele Mechanisten sind zurückgekehrt zum Hammeriten-Orden oder geflohen. Die Technologie	der Mechanisten ist in schlechtem Zustand, da keine Mechanisten mehr da sind, die diese warten können. Auf dem Schwarzmarkt bringen Mechanisten-Maschinen-Ersatzteile ein hübsches Sümmchen.
+
+
+Bugs & Tips		: Keine bekannten Bugs, der Sichtbarkeitsstein arbeitet korrekt. Du bist Basso und hast nicht die Fähigkeit, Dich so gut zu tarnen wie Garrett - das ist kein Bug. Auf den Straßen kommst Du nur an alle Geldbeutel heran, wenn Du nicht gesehen wirst. Ansonsten wird es ziemlich schwierig, da Leute, die Dich vorher gesehen haben, sich ungern von Dir beklauen lassen. Mit guter Planung ist es aber möglich, alle Taschendiebstähle auf der Straße zu schaffen.
+
+Vorspann			: Nein
+Zwischenszenen		: Nein
+
+* Informationen zum Spiel *
+
+Spiel				: Thief 2 TMA
+Missionstitel			: Die beglichene Schuld
+Dateiname			: Miss 20
+Schwierigkeitsgrade		: Ja
+Ausrüstungsladen		: Nein
+Karte				: Ja
+Auto Karte			: Nein
+Neue Grafiken			: Ja
+Neue Sounds			: Ja
+Multi-Language Support	: englisch, deutsch, französisch
+EAX Unterstützung		: Ja
+
+Schwierigkeitsgrade Info	: Normal, Hart und Experte Die Höhe der zu sammelnden Beute steigt mit jedem Grad. Kein Töten von Wehrlosen auf Hart, niemanden töten auf Experte.                
+
+* Konstruktion *
+
+Basis				: keine
+Bauzeit  			: Ein Jahr
+
+* Installationshinweise *
+
+Die Mission ist darkloaderkompatibel. Einfach zip-file in den Missions-Ordner packen.
+
+* Custom Gamesys *
+
+Diese Mission benutzt eine custom ('maßgeschneiderte') gamesys. Diese gamesys beinhaltet ein paar Änderungen von Dingen, die mich gestört haben. Wasserpfeile und Moospfeile können nun auch verletzen - es sind immerhin auch Pfeile, mögen sie auch etwas stumpf sein. Außerdem kannst Du auch durch das Werfen von Kisten jemanden verletzen.
+
+* Custom Objects *
+
+Diese Mission beinhaltet viele neue Objekte, Poster und Bilder entworfen von Jason Otto. Diese Dateien können gerne für andere Fanmissionen für Thief 1, Thief Gold und Thief 2 benutzt werden. Andere Objekte, Poster und Bilder gehören den jeweiligen Besitzern:
+
+*Jonquilis*
+Die blauen und grünen Flaschen und Laborgläser. Ich habe die Farben geändert, aber die Modelle sind die gleichen.
+
+*Targa*
+Neue blaue und gelbe Trankflaschen, rote, bernsteinfarbene und lila Flaschen - auch hier habe ich ein paar Farben geändert.
+
+*Paweuek*
+Die Spinnweben.
+
+*Eshaktaar*
+Donuts 
+
+*Daemonite*
+Einsiedler-Modell von Thief Gold. Die Skin und Schema-Datei für den Einsiedler habe ich gemacht.
+
+*Sluggs*
+Neuer Kompaß und Mond.
+
+*Jason Otto*
+Neues Sheriff Truart Gemälde mit Hintergrund, Dienstmarke, Wasserturm, Beweismittel-Bücher, Gas-Bombe
+
+* Neue Musik *
+
+Diese Mission beinhaltet neue Musikdateien von Jason Otto. Diese Dateien können gerne für andere Fanmissionen für Thief 1, Thief Gold und Thief 2 benutzt werden. Für twaigen anderen Gebrauch bitte mich kontaktieren:Ottoj55@hotmail.com
+
+* Neue Sounds *
+
+Diese Mission enthält neue Sounds (in englisch) - das Basso Stimmen-Set. Diese Sounds sind Eigentum von Jason Otto. Diese Dateien können aber gerne für andere Fanmissionen für Thief 1, Thief Gold und Thief 2 benutzt werden. Für etwaigen anderen Gebrauch bitte mich kontaktieren: Ottoj55@hotmail.com
+
+Das Gersäuch der Pferdehufe ist von http://www.junglewalk.com
+
+* Extra Dank*
+Danke Shadowspawn für das gelbe Alarmlicht
+
+* Dank an meine Tester *
+
+*Alpha Test 1*
+Ataricom, Slipknot, Jabberwocky, Sluggs
+
+*Alpha Test 1 (der top secret war)*
+Danke Sluggs - Du hast mir sehr dabei geholfen, viele Bugs auszumerzen.
+
+*Beta Test*
+Großer Dank an Sluggs, der so viele Fehler gefunden hat, vielen Dank an Slipknot und Jabberwocky, die mir geholfen haben, alle Schwächen in den Hinweisen aufzuspüren.
+
+*Gold Version Test*
+Ich habe beim eliminieren der Bugs diese Mission ca. 6 - 7 Mal selbst auf jeder Schwierigkeitsstufe gespielt.
+
+* Übersetzungen *
+
+Großen Dank an Amelico für die französische Übersetzung und an Gaetane
+für das Korrekturlesen der französischen Übersetzung.
+Danke an Dinksmallwood für die deutsche Übersetzung.
+
+* Danksagungen *
+
+Diese Mission enthält auch Texturen von Remedy Entertainment Ltd., daher hierzu der 'offizielle' Text:
+
+Die Texturen in dieser Datei sind Eigentum von Remedy Entertainment Ltd. und dürfen genutzt werden, solange die Dateien als Originale von Remedy gekennzeichnet bleiben und sie in Projekten ohne finanziellen Gewinn genutzt werden.
+
+(C)1998-2001 Remedy Entertainment Ltd.
+
+Ordner mit Texturen von Remedy Entertainment Ltd. enthalten auch diesen Text und eine Liste der Texturen von Remedy. Ich nehme an, diese Texturen können in jedem FM-Projekt benutzt werden, solange dieser Zusatztext in dem Ordner mit den Texturen verbleibt. 
+
+* Copyright Informationen *
+
+Die Weitergabe dieser Mission ist erlaubt, solange dies kostenlos und komplett geschieht. Gerne kann diese Mission auch für eine FM-CD benutzt werden, sofern diese ohne finanziellen Gewinn produziert werden. Dieses Level ist nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 
+
+===============================================================
+A Debt Repaid 3.0 di Jason Otto
+===============================================================
+Autore				: Ottoj55 (Jason Otto)
+Contatto			: Ottoj55@hotmail.com
+Homepage			: www.jasonotto.net
+Data di Rilascio			: 30 Agosto, 2004
+
+Titolo				: A Debt Repaid
+
+Descrizione			: Thief 2 Fan Mission
+
+Storia				: Pochi anni fa Garrett mi ha tirato fuori da Cragscleft ed un paio d'anni dopo mi ha aiutato a liberare Jenivere dalla villa di un ricco nobile. Stanotte è lui quello che ha bisogno d'aiuto. Un suo lavoro non è andato troppo bene ed ora la Guardia Cittadina lo ha catturato. Un normale ladro dovrebbe rassegnarsi ad una lunga ermanenza nelle loro celle, ma se scoprono che quello che hanno catturato è Garrett, lo giustizieranno immediatamente. Sono già stato lì in precedenza, ma ho visto solo le celle di detenzione e non sono sicuro dove si trovi l'entrata al sotterraneo. Ho ottenuto una mappa della Stazione della Guardia Cittadina da un mio contatto che lavora al catasto, ma il sotterraneo non vi è mostrato. Spero che Jenivere capisca se non riuscirò a farcela, ma Garrett ha bisogno del mio aiuto. Penetrare in una stazione della Guardia Cittadina non è la mia idea di passare il tempo, ma devo molto a quel ladro.
+
+Questa missione è situata fra gli eventi di Thief II: The Metal Age e Thief: Deadly Shadows. L'Ordine Meccanicista è sparito e molti dei suoi accoliti sono tornati all'Ordine del Martello o sono fuggiti. La tecnologia Meccanicista è in stato di trascuratezza senza l'aiuto dei fratelli ed i meccanismi di scorta delle loro machine stanno salendo di prezzo al mercato nero.
+
+
+Bugs & Tips			: Nessun bug conosciuto. La gemma funziona correttamente, tu sarai Basso e non avrai le capacità di furtività di Garrett, questo non è un bug. Sulle strade potresti non riuscire a borseggiare tutti se individuato. Ovviamente se sarai visto l'individuò saprà della tua presenza. Nonostante questo è possibile borseggiare tutti con una attenta pianificazione.
+
+
+Briefing 			: No
+Filmati		       		: No
+
+* Informazioni di Gioco *
+
+Gioco				: Thief II:  The Metal Age
+Titolo Missione			: A Debt Repaid
+Nome del File			: Miss 20
+Livelli di Difficoltà		: Si
+Acquisto Equipaggiamento	: No
+Mappa  			: Si
+Auto Mappa			: No
+Nuova Grafica			: Si
+Nuovi Suoni			: Si
+Supporto Multi-Lingua		: Inglese, Tedesco, Francese, Italiano
+Supproto EAX			: Si
+Briefing				: No
+     Durata			: 
+     Dimensione 		: 
+
+Livelli di Difficoltà		: Normale, Difficile ed Esperto, ognuno con un livello di bottino crescente, nessuna uccisione di innocenti a Difficile e nessuna uccisione ad Esperto.                            
+
+* Costruzione *
+	
+Base				: Dal niente
+Tempo di Costruzione		: Un anno
+
+* Informazioni di Caricamento *
+
+Questa missione è avviabile con il DarkLoader. Metti semplicemente il file zip nella
+tua cartella delle missioni.
+
+* Gamesys Personalizzato *
+
+Questa missione usa un gamesys personalizzato. Questo include alcuni aggiustamenti\ per cose che mi infastidivano. Le frecce d'acqua e di terra ora fanno danno, in fondo sono sempre frecce. Ora potrai causare danno lanciando le casse, ho ucciso una guardia in questo modo.
+
+* Oggetti Personalizzati *
+
+Questa missione contiene molti nuovi oggetti, poster e dipinti creati da Jason Otto.  Questi file possono essere usati liberamente in progetti di FM per Thief: The Dark Project, Thief: Gold e Thief II: The Metal Age. Altri oggetti, poster e dipinti sono proprietà dei rispettivi proprietari.
+
+*Jonquilis*
+Le Bottiglie Blu e Verdi e le Bottiglie del Laboratorio, ho cambiato il colore delle bottiglie, ma il modello è lo stesso.
+
+*Targa*
+Nuove boccette di pozioni blu e gialle, bottiglie rosse, ambra e porpora, sempre con alcuni colori modificati.
+
+*Paweuek*
+Le ragnatele.
+
+*Eshaktaar*
+Ciambelle. 
+
+*Daemonite*
+Il port del modello dell'Eremita da Thief: Gold, io ho fatto la skin ed il file di schema.
+
+*Sluggs*
+Il nuovo compasso e la luna.
+
+*Jason Otto*
+Il nuovo ritratto dello Sceriffo Truart con lo sfondo, il Distintivo da Guardia, il Distributore d'Acqua, i Libri di Prove, le Bombe Soporifere
+
+* Nuove Musiche *
+
+Questa missione contiene nuovi file musicale di Jason Otto. Questi file possono essere usati in FM per Thief: The Dark Project, Thief: Gold e Thief II: The Metal Age, per ogni altro uso contattatemi presso: Ottoj55@hotmail.com
+
+* Nuovi Suoni *
+
+Questa missione contiene nuovi suoni per la conversione totale per Basso. Questi  suoni sono proprietà di Jason Otto. Questi file possono essere usati liberamente in progetti di FM per Thief: The Dark Project, Thief: Gold e Thief II: The Metal Age, per ogni altro uso contattatemi presso: Ottoj55@hotmail.com
+
+L'effetto zoccoli di cavallo proviene da: http://www.junglewalk.com/
+
+* Ringraziamenti Speciali *
+
+Grazie a Shadowspawn per la creazione della luce d'allarme gialla.
+
+* Ringraziamenti per il Testing *
+
+*Alpha Test Uno*
+Grazie ai primi Alpha Tester: Ataricom, Slipknot, Jabberwocky, Sluggs
+
+*Alpha Test Due*
+Il secondo test top secret, grazie Sluggs, mi hai aiutato a liberarmi di un sacco di bug.
+
+*Beta Test*
+Un grosso ringraziamento a Sluggs per aver trovato così tanti errori, grazie a Slipknot e Jabberwocky per avermi aiutato a trovare i punti deboli dei miei indizi.
+
+*Test della Versione Gold*
+Ho giocato questa missione sei o sette volte ad ogni livello di difficoltà mentre risolvevo i bug.
+
+* Traduzioni *
+
+Grazie al GIT (www.multiplayer.it/git) per la traduzione italiana.
+
+* Riconoscimenti *
+
+Questa missione contiene texture della Remedy Entertainment Ltd., quindi la 
+seguente frase deve essere inserita nella rilascio di questa missione:
+
+Le texture in questo file sono proprietà della Remedy Entertainment Ltd., e possono
+essere usate solamente se il lavoro è riconosciuto come originale della Remedy e 
+non ne viene tratto nessuno profitto nel processo.
+
+(C)1998-2001 Remedy Entertainment Ltd.
+
+Le cartelle contenenti le texture della Remedy Entertainment Ltd. contengono anche questa frase assieme ad una lista delle texture possedute dalla Remedy Entertainment Ltd. Suppongo che queste texture possano essere usate in altri progetti finché questa documentazione rimane nella cartella con le texture utilizzate.
+
+* Informazioni di Copyright *
+
+La distribuzione di questo livello è permessa fino a quando rimane gratuita ed il pacchetto rimane intatto. Sentitevi liberi di includere questa missione in qualsiasi collezione di FM se non è mirata all'ottenimento di profitto.
+
+Questo livello non è stato fatto e non è supportato dai Looking Glass Studios o dalla Eidos Interactive.  

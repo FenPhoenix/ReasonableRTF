@@ -1,0 +1,75 @@
+
+Versione New Dark
+Una campagna per Thief 2
+realizzata da Ricebug
+Data di rilascio: 19 Agosto 2013
+
+NOTE
+
+Devi giocare questa missione con la versione 1.21 del New Dark. Non farlo potrebbe portare il gioco ad essere instabile.
+
+Breve Intro
+
+Alcuni avventurieri hanno scoperto un'isola, a lungo abbandonata da un gruppo misterioso chiamato il Popolo Elfico. Dopo la successiva devastazione dell’isola, i Meccanicisti, gli Hammeriti e una miriade di altri avidi stanno cercando di arricchirsi dai reperti archeologici. Dopo aver sentito della potenziale ricchezza, sei salito a bordo della Rose Cottage ed hai deciso di entrare in azione.
+
+
+Benvenuto a Heretic, una missione per Thief 2 basata sul gioco originale omonimo.
+
+Heretic è uno sparatutto fantasy creato dalla Raven Software, pubblicato da id Software, e distribuito da GT Interactive nel 1994. E’ stato reso disponibile su steam il 3 agosto del 2007. (Wikipedia)
+
+Dei 45 livelli, ne ho scelti 3. La maggior parte dei livelli (e li ho girati tutti e 45 due volte) sono ampi spazi aperti con luoghi molto distanziati tra di loro. Erano ovviamente progettati per il death match e modalità di gioco di squadra, e quindi non adatti per la conversione nell’universo di Thief.
+
+
+Spit & Polish
+
+Nameless Voice, R Soul, Haplo, Sensut, John9818a, ffox, darthslair, Independent Thief, Yandros, e alcuni altri utenti di TTLG che potrei aver dimenticato.
+
+Traduzione Tedesca
+Zappen
+
+Traduzione Italiana
+Smallman_647
+
+
+Note & Problemi
+
+Usa i tasti per cambiare oggetti (parentesi quadra destra e sinistra) per accedere al Bastone Elfico.
+L’acqua nella missione 3 a volte abbaglia. Fare un salvataggio rapido e dopo ricaricare a volte risolve il problema. Sono stati fatti diversi tentativi ma credo sia un problema legato all’hardware.
+
+
+Controllo Qualità (Team della versione Beta)
+
+bob_doe_nz, ffox, Gloria Creep, MrMunkeePants, 
+Nickie, prjames, ravenhook, Sensut, tafferjim
+
+Riconoscimenti
+
+Le texture ad alta risoluzione di Heretic sono state scaricate da Steam. jHeretic progetto di retexturizzazione 2003.
+Ottimizzata e ricondizionata da Cain.
+
+Musica iniziale di Heretic realizzata da Kevin Schilder, della Raven Software.
+
+Filmati introduttivi registrati nella città Murkbell.
+Calendra’s Legacy è proprietà di Purah & Saturnine
+
+SlyFoxx (Scott Murchison): doppiaggio (Intro)
+GORT (Shaun Morin): animazioni Bastone Elfico
+Sensut: script, settaggi IA
+Saturnine: navi che salpano (dalla missione Rose Cottage)
+Jermi: cieli ad alta risoluzione
+Eshaktaar: lampade personalizzate, mobili, scrigni, uomo grasso (Foster), zombie di cenere, ed altra roba figa.
+Jason Otto: modelli IA migliorati, effetto delle fiamme, cancelli e ricettatori.
+Nameless Voice: diversi modelli, calcolatore del sole.
+Vigil, Pinkdot: ragnatele, texture
+Sluggs: modello del ricettatore (missione 3)
+
+modello dei rappresentati del Popolo Elfico (missione 1) presi da Serious Sam, The Second Encounter
+Gamesys: DedX, Eshaktaar’s Broken Triad
+Robot da combattimento Hammeriti: DedX
+
+Note
+
+I livelli di difficoltà cambiano il numero dei nemici. Gli obiettivi, il bottino e altre cose non sono influenzate.
+
+Esonero di responsabilità
+Questo livello non è stato realizzato e non è supportato da Looking Glass Studios o Eidos Interactive.

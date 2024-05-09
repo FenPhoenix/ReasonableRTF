@@ -1,0 +1,536 @@
+=======================================================================
+Title: Cracks in the Glass
+File name: miss17.mis; delirium.gam 
+Author: marbleman
+Contact: http://www.ttlg.com/forums/member.php?u=76324
+Date of release: 16/06/2018
+Version: 1.0
+=======================================================================
+IMPORTANT
+- The mission uses about 80% stock textures and 20% custom ones. The latter include low-res Thief 1 textures and some reimported Thief 2 ones. Thus, using any kind of texture pack will likely lead to strange results. Please, play the mission with vanilla looks. 
+- NewDark 1.24 or higher is required to run the mission.
+- Make sure that new mantle is enabled. There are no rope arrows, but there is still plenty of climbing in the mission. Remember that you can climb objects and ledges that are pretty high. Without new mantle, the mission is probably unwinnable. 
+- The mission uses new footstep sounds for metal pipes to make landing and walking along them unlikely to alert AIs. 
+=======================================================================
+STORY (this mission is part 1 of what will later become a campaign)
+Seems like the business has hit a low point again. I haven’t had many jobs lately, and only a few of them ended up being lucrative. Naturally, I’d take any chance to earn some quick cash these days.
+An old contact of mine, Paolo, has offered me a job. Paolo owns an inn in Wayside, which he uses as a front for some shady business. He didn’t give me any details, just told me to meet him at the usual place: the inn’s cellar. 
+I arrived during normal hours, but none of the visitors seemed to mind me. The first thing that was different from all my previous meetings with Paolo was that the cellar door was locked, with a note hanging nearby, “No entry. Not even for the bar staff.” It seemed like he really didn’t want any disturbance. Picking the lock was easy enough, but after I went down the stairs, Paolo wasn’t there. Moreover, there was something strange about the cellar. Through the thick darkness, it seemed that the walls were almost moving. A note was lying in a spotlight, “Meeting is off.” 
+An uneasy feeling came over me. I felt as if I was being set up. With my sword ready, I slowly went back up the staircase, which also seemed to have transformed somehow. However, the bar looked unchanged. 
+Might be just my mind playing tricks on me, but I don’t like this situation one bit. I better get back to my hideout as soon as possible.
+=======================================================================
+PLAY INFORMATION
+Game: Thief 2: The Metal Age
+Mission title: Cracks in the Glass
+File name: miss17.mis; delirium.gam
+Difficulty settings: Yes
+Difficulty level info: Higher difficulty levels mean less starting gear and a higher loot goal. You are also not allowed to kill unarmed people on Hard and anybody at all on Expert.
+Equipment store: No
+Map: Only for the starting area
+New graphics: Yes
+New models: Yes
+New sounds: Yes
+EAX: No
+Multi-language support: English/German/French/Italian/Russian
+Briefing: No
+=======================================================================
+CONSTRUCTION
+Base: From scratch
+Build time: One year working on and off
+=======================================================================
+CREDITS
+Custom textures (by family):
+BLKSton: one texture by Undule. Taken from Disorientation.
+CL: five more textures by Undule. Taken from Calendra’s Legacy.
+RS: one texture by R Soul. Taken from All Torc.
+BaffordX, BasementX, ChurchX, ConstantineX, DungeonX, RamirezX, TempleX: various textures from Thief 1. Taken from DEDX.
+T1: two more Thief 1 textures not included into DEDX.
+Signs: two textures by Yandros.
+FakeDoors: ten textures based on original assets. Taken from Disorientation.
+-------------------------------------------------------------------------------------------------------------------------
+Custom objects (by author / many of these are taken from DEDX):
+Team CoSaS: jtg-bedsit01.bin, HARP1.bin.
+Team T2X: crane.bin.
+Christine: csschr9.bin, csbb2.bin, cs-rose1.bin
+DarkShadow: zigbox.bin.
+Eshaktaar: victrol2.bin.
+Gamophyte: oabacus.bin.
+GORT: WdCrane1.bin.
+Lamoot: Dcrossbow.bin.
+Nameless Voice: rope3.bin, NVMagnify.bin, NVSausages.bin, NVCheese.bin.
+Purgator: board1.bin, board2.bin.
+Schwaa: dartbord.bin, shieldrw.bin, crowbar.bin, lute.bin.
+Targa: fireseed.bin.
+Totality: wagon.bin.
+Von.Eins: uhr2.bin.
+-------------------------------------------------------------------------------------------------------------------------
+Custom sounds (by folder): 
+AMB_HW: sounds by Gigagooga, mainly taken from “88 New Ambients” pack.
+AMB_T1G: sounds from Thief 1, taken from DEDX.
+AMB_MISC: “GranTick” taken from A Keeper of the Prophecies; “oddtrip” taken from Calendra’s Legacy.
+FEET: new footstep sounds by Team T2X.
+-------------------------------------------------------------------------------------------------------------------------
+Alpha tester: 
+- FrenchDecay
+Beta testers:
+- ffox
+- FrenchDecay
+- itllrun10s
+- Nightwalker
+- Tannar
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Translators:
+- Azaran, Athalle: French translation.
+- MoroseTroll: Russian translation.
+- Piesel: Italian translation.
+- Zappenduster: German translation.
+-------------------------------------------------------------------------------------------------------------------------
+Acknowledgements:
+- Many thanks to Nicked for creating his absolute beginner tutorial that got me started with DromEd.
+- A very special thanks to FrenchDecay and Yandros who helped me a lot with DromEd’s technical aspects.
+- Architectural inspiration from Thief Gold missions The Sword and Into the Maw of Chaos, as well as from fan missions by Purah, Melan, and Skacky.
+- Map drafted by FrenchDecay.
+=======================================================================
+COPYRIGHT INFORMATION
+This level is © 2018 by marbleman.
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+=======================================================================
+
+
+
+
+
+
+
+
+
+
+=======================================================================
+Titel: Sprünge im Glas
+Dateien: miss17.mis; delirium.gam 
+Autor: Marbleman
+Kontakt über http://www.ttlg.com/forums/member.php?u=76324
+Erschienen: 16/06/2018
+Version: 1.0
+=======================================================================
+WICHTIG
+- Diese FM nutzt zu 80% allgemeine und zu 20% eigene Texturen. Diese umfassen sowohl niedrig aufgelöste Thief1- als auch überarbeitete Thief2-Texturen. Daher dürfte die Nutzung von neueren Texturerweiterungen seltsam wirken, spielt die FM also bitte nur mit den Originaltexturen. 
+- Es wird NewDark 1.24 oder höher vorausgesetzt.
+- NewMantle muß aktiviert sein. Zwar gibt es keine Seilpfeile, aber reichlich Gelegenheiten zum Klettern. Dazu gehören auch etliche Objekte und hochliegende Vorsprünge. Ohne NewMantle ist die FM schwerlich lösbar. 
+- In der FM sind neue Schrittgeräusche auf Metallrohren zu hören, die KIs eher nicht alarmieren.
+=======================================================================
+HANDLUNG (diese Mission ist Teil 1 einer späteren FM-Kampagne)
+Meine Geschäfte haben einen Tiefpunkt erreicht. Es gibt kaum etwas zu tun und selbst das ist wenig lukrativ. Klar, daß ich jede noch so vage Möglichkeit für schnelles Geld wahrnehme.
+Mein alter Mittelsmann Paolo bot mir einen Job an. Ihm gehört ein Gasthaus in Wayside, welches ihm als Fassade für dunkle Geschäfte dient. Noch hat er keine Einzelheiten verlauten lassen, ich soll ihn nur am gewohnten Ort treffen, und das ist stets der Keller seines Gasthauses. 
+Ich kam zu normaler Zeit an, aber niemand der Gäste schien mich bemerkt zu haben. Zunächst war ungewöhnlich, daß die Kellertür verschlossen und ein Zettel mit der Aufschrift "Kein Zugang, auch nicht für Beschäftigte" neben ihr angebracht war. Offenbar wollte Paolo jede Störung ausschließen. Es war keine große Sache, das Schloß zu öffnen, doch als ich die Treppen hinunterstieg, war von ihm keine Spur zu sehen. Überhaupt mutete alles eigenartig an, in der Düsternis schienen sich die Wände zu bewegen. In einem Lichtkegel lag die Mitteilung "Das Treffen ist abgesagt".
+Mich beschlich ein unangenehmes Gefühl, als hätte man mich reingelegt. Das Schwert fest im Griff, bewegte ich mich langsam zurück in Richtung Treppe, die ebenfalls irgendwie verändert wirkte. Immerhin, die Tresen sahen noch gleich aus. Vielleicht spielte mir meine Einbildung einen Streich, doch darauf kann ich gerne verzichten. Am besten verschwinde ich wieder in Richtung meines Verstecks.
+=======================================================================
+SPIELINFORMATION
+Spiel: Thief 2 - Das Metallzeitalter
+Titel: Sprünge im Glas
+Dateien: miss17.mis; delirium.gam
+Schwierigkeitsgrade: Ja
+	(Höhere Schwierigkeitsgrade bedeuten weniger Ausrüstung und mehr Beuteanforderungen.
+	Unter "Hart" dürfen keine Unbewaffneten und unter "Experte" darf niemand getötet werden)
+Ausrüstungsladen: Nein
+Karte: Nur der Startbereich
+Neue Grafiken: Ja
+Neue Objekte: Ja
+Neue Geräusche: Ja
+EAX: Nein
+Mehrsprachig: EN/DE/FR/IT/RU
+Vorspann: Nein
+=======================================================================
+BAU
+Grundlage: Neubau
+Bauzeit: Ein Jahr
+=======================================================================
+DANK AN
+Erweiterungstexturen (nach Gruppen):
+BLKSton: Eine Textur von Undule aus "Disorientation".
+CL: Fünf weitere Texturen von Undule aus "Calendra’s Legacy".
+RS: Eine Textur von R Soul aus "All Torc".
+BaffordX, BasementX, ChurchX, ConstantineX, DungeonX, RamirezX, TempleX: Diverse Texturen aus Thief1 aus dem DEDX-Paket.
+T1: Zwei weitere Thief1-Texturen, die nicht in DEDX sind.
+Schilder: Zwei Texturen von Yandros.
+Scheintüren: 10 Texturen auf Basis von Originalmustern aus "Disorientation".
+-------------------------------------------------------------------------------------------------------------------------
+Erweiterungsobjekte (Nach Autor / einiges aus DEDX):
+Team CoSaS: jtg-bedsit01.bin, HARP1.bin.
+Team T2X: crane.bin.
+Christine: csschr9.bin, csbb2.bin, cs-rose1.bin
+DarkShadow: zigbox.bin.
+Eshaktaar: victrol2.bin.
+Gamophyte: oabacus.bin.
+GORT: WdCrane1.bin.
+Lamoot: Dcrossbow.bin.
+Nameless Voice: rope3.bin, NVMagnify.bin, NVSausages.bin, NVCheese.bin.
+Purgator: board1.bin, board2.bin.
+Schwaa: dartbord.bin, shieldrw.bin, crowbar.bin, lute.bin.
+Targa: fireseed.bin.
+Totality: wagon.bin.
+Von.Eins: uhr2.bin.
+-------------------------------------------------------------------------------------------------------------------------
+Erweiterungsgeräusche (ordnerweise): 
+AMB_HW: Geräusche von Gigagooga, hauptsächlich aus dem Paket "88 New Ambients".
+AMB_T1G: Geräusche aus Thief1 aus dem DEDX-Paket.
+AMB_MISC: "GranTick" aus "A Keeper of the Prophecies"; "oddtrip" aus "Calendra’s Legacy".
+FEET: Neue Schrittgeräusche vom Team T2X.
+-------------------------------------------------------------------------------------------------------------------------
+Alphatester: 
+- FrenchDecay
+Betatester:
+- ffox
+- FrenchDecay
+- itllrun10s
+- Nightwalker
+- Tannar
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Übersetzer:
+- Zappenduster: DE.
+- Azaran, Athalle: FR.
+- MoroseTroll: RU.
+- Piesel: IT.
+-------------------------------------------------------------------------------------------------------------------------
+Anmerkungen:
+- Vielen Dank an Nicked für sein Anfängertutorial, das mich in die DromEd-Welt einsteigen ließ.
+- Mein besonderer Dank gilt FrenchDecay und Yandros, die mir mit DromEd entscheidend weiterhalfen.
+- Architektonische Inspirationen kamen von den Thief1-OMen "Das Schwert" und "In den Schlund des Chaos", als auch von den FMen Purahs, Melans, und Skackys.
+- Die Karte wurde von FrenchDecay erstellt.
+=======================================================================
+URHEBERRECHT
+Diese FM wurde © 2018 von Marbleman erstellt.
+Ihre Weiterverteilung ist nur in unverändertem Zustand gestattet.
+Sie wurde weder von den Looking Glass Studios oder von Eidos Interactive entwickelt noch wird sie von dort unterstützt.
+=======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================
+Titre: Fissures dans la Vitre
+Nom de fichier: miss17.mis; delirium.gam 
+Auteur: marbleman
+Contact: http://www.ttlg.com/forums/member.php?u=76324
+Date de sortie: 16/06/2018
+Version: 1.0
+=======================================================================
+IMPORTANT
+- La mission utilise à peu près 80% de textures originelles, et 20% personnalisées. Ces dernières incluent des textures de Thief 1 à basse résolution et quelques unes réimportées de Thief 2. Donc, si vous utilisez un paquet de textures cela ménera à des résultats étranges. S’il vous plaît, jouez la mission avec les textures de base. 
+- NewDark 1.24 ou supérieur est requis pour cette mission.
+- Assurez-vous que ‘new mantle’ est activé. Il n’y a pas de flèches à corde, mais vous devrez quand-même grimper beaucoup dans cette mission. Sachez que vous pouvez grimper des surfaces et objets très hauts. Sans ‘new mantle’, la mission ne pourra probablement pas être achevée. 
+- La mission utilise de nouveaux sons de pas sur les tuyaux de métal de manière à moindrement alerter les personnages non joueurs. 
+=======================================================================
+HISTOIRE (cette mission est la première de ce que sera une campagne)
+Il semble que les affaires soient revenues à un point bas. Je n’ai pas beaucoup de boulots dernièrement, et seulement quelques uns furent lucratifs. Évidemment, je saisirai toute chance de gagner un peu de fric.
+Un ancien contact, Paolo, m’a proposé un travail. Paolo est propriétaire d’une auberge à Wayside, qu’il utilise comme couverture pour des affaires douteuses. Il ne m’a pas donné de détails, mais m’a demandé de le rencontrer à l’endroit habituel: la cave de l’auberge. 
+Je suis arrivé à des heures normales, mais aucun des visiteurs ne semblaient dérangés de ma présence. La première chose différente de mes autres rencontres avec Paolo c’était que la porte de la cave était barrée, avec une note disant, “Défendu d’entrer. Incluant pour le personnel du bar.” Il semblait qu’il ne voulait vraiment pas qu’on nous dérange. Crocheter la serrure fut facile, mais après que j’aie descendu, Paolo n’y était pas. En outre, la cave avait quelque chose d’étrange. À travers les ténèbres, il semblait que les murs bougeaient. Une note gisait dans la pénombre, “Le rendez-vous est annulé.” 
+Une inquiétude me saisit. Je me sentait piégé. Mon épée sortie, je remontai lentement l’escalier, qui semblait aussi été transformé. Cependant, le bar sembla inchangé. 
+Cela ne pourrait qu’être mon imagination, mais je n’aime pas cette situation du tout. Je ferai bien de retourner à mon refuge le plus tôt possible.
+=======================================================================
+INFORMATION DE JEU
+Jeu: Thief 2: The Metal Age
+Titre de Mission: Fissures dans la Vitre 
+Nom de fichier: miss17.mis; delirium.gam
+Paramètres de difficulté: Oui
+Niveaux de difficulté: Les niveaux plus hauts offrent moins d’équipement de départ et un objectif de butin plus élevé. Vous ne pouvez pas tuer des personnes au niveau Difficile et personne sur Expert.
+Magasin d’équipement: Nom
+Carte: Seulement pour la zone de départ
+Nouveaux graphiques: Oui
+Nouveaux modèles: Oui
+Nouveaux sons: Oui 
+EAX: No
+Support multilangue: Anglais/Allemand/Français/Italien/Russe
+Vidéo d’introduction: Non
+=======================================================================
+CONSTRUCTION
+Base: De zéro
+Temps de construction: 1 an travaillant de façon intermittentes
+=======================================================================
+CREDITS
+Textures personnalisées (par famille):
+BLKSton: une texture par Undule. Provenant Disorientation.
+CL: 5 autres textures par Undule. Provenant de Calendra’s Legacy.
+RS: texture par R Soul. Provenant de All Torc.
+BaffordX, BasementX, ChurchX, ConstantineX, DungeonX, RamirezX, TempleX: plusieurs textures de Thief 1. Provenant de DEDX.
+T1: 2 autres textures de Thief 1 textures pas inclues dans DEDX.
+Signs: 2 textures par Yandros.
+FakeDoors: 10 textures basées sur des ressources originelles. Provenant de Disorientation.
+-------------------------------------------------------------------------------------------------------------------------
+Objets personnalisés (par auteur / beaucoup provenant de DEDX):
+Team CoSaS: jtg-bedsit01.bin, HARP1.bin.
+Team T2X: crane.bin.
+Christine: csschr9.bin, csbb2.bin, cs-rose1.bin
+DarkShadow: zigbox.bin.
+Eshaktaar: victrol2.bin.
+Gamophyte: oabacus.bin.
+GORT: WdCrane1.bin.
+Lamoot: Dcrossbow.bin.
+Nameless Voice: rope3.bin, NVMagnify.bin, NVSausages.bin, NVCheese.bin.
+Purgator: board1.bin, board2.bin.
+Schwaa: dartbord.bin, shieldrw.bin, crowbar.bin, lute.bin.
+Targa: fireseed.bin.
+Totality: wagon.bin.
+Von.Eins: uhr2.bin.
+-------------------------------------------------------------------------------------------------------------------------
+Sons personnalisés (par dossier): 
+AMB_HW: sons par Gigagooga, provenant principalement du paquet “88 New Ambients”.
+AMB_T1G: sons de Thief 1, provenant de DEDX.
+AMB_MISC: “GranTick” provenant de A Keeper of the Prophecies; “oddtrip” provenant de Calendra’s Legacy.
+FEET: nouveaux sons de pas par Team T2X.
+-------------------------------------------------------------------------------------------------------------------------
+Testeur Alpha: 
+- FrenchDecay
+Testeurs Beta:
+- ffox
+- FrenchDecay
+- itllrun10s
+- Nightwalker
+- Tannar
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Traducteurs:
+- Azaran, Athalle: Traduction française.
+- MoroseTroll: Traduction russe.
+- Piesel: Traduction italienne.
+- Zappenduster: Traduction allemande.
+-------------------------------------------------------------------------------------------------------------------------
+Remerciements:
+- Gros merci à Nicked pour avoir créé son tutoriel pour débutants qui m’initia à Dromed.
+- Un merci spécial à FrenchDecay et Yandros qui m’on aidé avec les aspects techniques de Dromed.
+- Inspiration architecturelle des missions Thief Gold ‘The Sword’ et ‘Into the Maw of Chaos’, bien que de fan missions par Purah, Melan, et Skacky.
+- Carte créée par FrenchDecay.
+=======================================================================
+DROITS D’AUTEUR
+Cette mission est © 2018 by marbleman. 
+Distribution de cette mission est permise pourvu que l’archive et le fichier restent intacts.
+Cette mission ne fut pas créée par, et n’est pas supportée par Looking Glass Studios ou Eidos Interactive.
+=======================================================================
+
+
+
+
+
+
+
+
+=======================================================================
+Title: Crepe nel Vetro
+File name: miss17.mis; delirium.gam 
+Author: marbleman
+Contact: http://www.ttlg.com/forums/member.php?u=76324
+Date of release: 16/06/2018
+Version: 1.0
+=======================================================================
+IMPORTANTE
+- La missione utilizza circa un 80% di textures stock ed un 20% di customizzate. Le ultime includono textures a bassa risoluzione di Thief 1 ed alcune importate da Thief 2. Quindi, и probabile che utilizzare i texture pack possa dare strani risultati. Per favore, giocate la missione per come и stata pensata. 
+- NewDark 1.24 o successivi и richiesto per giocare questa missione.
+- Assicuratevi che new mantle sia attivato. Non ci sono frecce di corda, ma nella missione c'и molto arrampicamento. Ricordatevi che potete salire oggetti e davanzali piuttosto alti. Senza new mantle, la missione probabilmente non si puт terminare. 
+- La missione utilizza nuovi suoni per i tubi in metallo in modo che atterrare o camminarci sopra non allerti le AI.
+=======================================================================
+STORIA (questa missione и la prima parte di una futura campagna)
+Sembra che gli affari siano ancora in ribasso. Ultimamente non ho avuto molti incarichi, e solo pochi di questi si son rivelati fruttuosi. Naturalmente, ora come ora prenderei qualsiasi lavoro pur di fare qualche soldo.
+Un mio vecchio contatto, Paolo, mi ha offerto un incarico. Paolo possiede una taverna a Wayside, la utilizza come copertura per affari loschi. Non mi ha dato alcun dettaglio, mi ha solo detto di incontrarlo nel solito posto: la cantina della taverna. 
+Una volta arrivato nessuno dei clienti и parso accorgersi di me. A differenza dei miei precedenti incontri con Paolo ho notato come la porta della cantina fosse chiusa a chiave, con una nota appesa, “Nessuno entri. Nemmeno il personale del bar.” Sembra non volesse alcun disturbo. Forzare la serratura и stato semplice, ma dopo aver sceso le scale, Paolo non si trovava lм. Inoltre, c'era qualcosa di strano in cantina. Attraverso la profonda oscuritа, sembrava quasi che i muri si stessero muovendo. Una nota era leggermente visibile, “L'incontro и annullato.” 
+Avvertii una strana sensazione. Mi son sentito come incastrato. Con la spada pronta, ho lentamente risalito le scale, che in qualche modo eran sembrate trasformate. Comunque, il bar pareva normale. 
+Forse и stata solo immaginazione, ma la situazione non mi piace per niente. Meglio tornare al piщ presto al mio nascondiglio.
+=======================================================================
+PLAY INFORMATION
+Game: Thief 2: The Metal Age
+Mission title: Crepe nel Vetro
+File name: miss17.mis; delirium.gam
+Difficulty settings: Si
+Difficulty level info: Ai livelli di difficoltа piщ alti ci sarа meno equipaggiamento e la quota bottino sarа maggiore. A livello DIFFICILE non potrai uccidere persone disarmate mentre a livello ESPERTO non potrai uccidere nessuno.
+Equipment store: No
+Map: Solo per l'area iniziale.
+New graphics: Si
+New models: Si
+New sounds: Si
+EAX: No
+Multi-language support: Inglese/Tedesco/Francese/Italiano/Russo
+Briefing: No
+=======================================================================
+CONSTRUCTION
+Base: Da zero
+Build time: Un anno
+=======================================================================
+CREDITS
+Custom textures (by family):
+BLKSton: one texture by Undule. Taken from Disorientation.
+CL: five more textures by Undule. Taken from Calendra’s Legacy.
+RS: one texture by R Soul. Taken from All Torc.
+BaffordX, BasementX, ChurchX, ConstantineX, DungeonX, RamirezX, TempleX: various textures from Thief 1. Taken from DEDX.
+T1: two more Thief 1 textures not included into DEDX.
+Signs: two textures by Yandros.
+FakeDoors: ten textures based on original assets. Taken from Disorientation.
+-------------------------------------------------------------------------------------------------------------------------
+Custom objects (by author / many of these are taken from DEDX):
+Team CoSaS: jtg-bedsit01.bin, HARP1.bin.
+Team T2X: crane.bin.
+Christine: csschr9.bin, csbb2.bin, cs-rose1.bin
+DarkShadow: zigbox.bin.
+Eshaktaar: victrol2.bin.
+Gamophyte: oabacus.bin.
+GORT: WdCrane1.bin.
+Lamoot: Dcrossbow.bin.
+Nameless Voice: rope3.bin, NVMagnify.bin, NVSausages.bin, NVCheese.bin.
+Purgator: board1.bin, board2.bin.
+Schwaa: dartbord.bin, shieldrw.bin, crowbar.bin, lute.bin.
+Targa: fireseed.bin.
+Totality: wagon.bin.
+Von.Eins: uhr2.bin.
+-------------------------------------------------------------------------------------------------------------------------
+Custom sounds (by folder): 
+AMB_HW: sounds by Gigagooga, mainly taken from “88 New Ambients” pack.
+AMB_T1G: sounds from Thief 1, taken from DEDX.
+AMB_MISC: “GranTick” taken from A Keeper of the Prophecies; “oddtrip” taken from Calendra’s Legacy.
+FEET: new footstep sounds by Team T2X.
+-------------------------------------------------------------------------------------------------------------------------
+Alpha tester: 
+- FrenchDecay
+Beta testers:
+- ffox
+- FrenchDecay
+- itllrun10s
+- Nightwalker
+- Tannar
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Translators:
+- Piesel: Italian translation.
+- Azaran, Athalle: French translation.
+- MoroseTroll: Russian translation.
+- Zappenduster: German translation.
+-------------------------------------------------------------------------------------------------------------------------
+Acknowledgements:
+- Many thanks to Nicked for creating his absolute beginner tutorial that got me started with DromEd.
+- A very special thanks to FrenchDecay and Yandros who helped me a lot with DromEd’s technical aspects.
+- Architectural inspiration from Thief Gold missions The Sword and Into the Maw of Chaos, as well as from fan missions by Purah, Melan, and Skacky.
+- Map drafted by FrenchDecay.
+=======================================================================
+COPYRIGHT INFORMATION
+This level is © 2018 by marbleman.
+Distribution of this level is allowed as long as the archive and this file are kept intact.
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+=======================================================================
+
+
+
+
+
+
+
+
+
+
+=======================================================================
+Название: Cracks in the Glass / Трещины в стекле
+Имена файлов: miss17.mis; delirium.gam 
+Автор: marbleman
+Контакт: http://www.ttlg.com/forums/member.php?u=76324
+Дата выхода: 16/06/2018
+Версия: 1.0
+=======================================================================
+ВАЖНО:
+- Эта миссия использует примерно 80% стандартных текстур и 20% новых. Последние включают в себя текстуры низкого качества из Thief 1 и, частично, из Thief 2. Посему, использование комплектов сторонних текстур приведёт, скорее всего, к непредсказуемому результату. Пожалуйста, играйте в эту миссию без подобных "улучшителей".
+- Для этой миссии требуется NewDark 1.24 или выше.
+- Убедитесь, что параметр "new_mantle" включён. Верёвочных стрел здесь нет, зато полно мест для подтягиваний. Помните, что вы можете подтягиваться даже на довольно высокие объекты. Без включённого параметра "new_mantle" эта миссия будет, скорее всего, непроходима.
+- Данная миссия использует новую озвучку шагов по металлическим трубам, дабы сделать приземление на них и хождение по ним менее заметным для ИИ.
+=======================================================================
+ИСТОРИЯ (эта миссия - 1-я часть того, что позже станет кампанией)
+Похоже, дела мои стали ещё хуже, чем прежде. Работы у меня в последнее время практически не было, а та, что была, особой прибыли не принесла. Естественно, я бы воспользовался любым шансом поправить своё финансовое состояние.
+Мой старый знакомый, Паоло, предложил мне работёнку. У него есть трактир в Уэйсайде, который он использует для прикрытия своих тёмных делишек. Подробностей о деле он мне не дал, просто сказав, чтоб я встретился с ним в нашем условленном месте: в подвале трактира.
+Я пришёл, как мы с ним и договорились, но не нашёл ни одного посетителя внутри. Первым отличием от всех наших предыдущих с Паоло встреч, что мне бросилось в глаза, было то, что подвал был заперт, а рядом висела записка: "Вход воспрещён! Даже сотрудникам". Похоже, он и в самом деле не хотел, чтоб его хоть кто-то беспокоил. Вскрыть замок мне не составило особого труда, но, когда я спустился вниз, Паоло там не было. Более того, было что-то странное в этом подвале. Сквозь непроглядную тьму мне показалось, что стены как бы двигаются. А записка, лежавшая на свету, гласила: "Встреча отменяется".
+Мне стало не по себе. Я почувствовал, что на меня устроили западню. Я вынул свой меч и медленно стал отступать к лестнице, которая каким-то образом изменилась. Трактир, однако, выглядел прежним.
+Быть может, это всё - лишь игра моего воображения, но я не очень-то люблю, когда со мною происходит подобное. Пойду-ка я отсюда подобру-поздорову да вернусь в своё укрытие немедля.
+=======================================================================
+ИГРОВАЯ ИНФОРМАЦИЯ
+Игра: Thief 2: The Metal Age
+Название миссии: Cracks in the Glass / Трещины в стекле
+Имена файлов: miss17.mis; delirium.gam
+Настройки сложности: Да
+Особенности: более высокая сложность означает меньший по количеству стартовый инвентарь и большее количество драгоценностей для поиска. Вам также будет запрещено убивать безоружных людей на сложности "Тяжело" и вообще кого-либо - на "Эксперте".
+Магазин: Нет
+Карта: Только для самого начала миссии
+Новая графика: Да
+Новые модели: Да
+Новые звуки: Да
+EAX: Нет
+Многоязычность: Английский/Немецкий/Французский/Итальянский/Русский
+Брифинг: Нет
+=======================================================================
+СОЗДАНИЕ
+Основа: С чистого листа
+Потрачено времени: Около года, с перерывами
+=======================================================================
+УЧАСТНИКИ
+Новые текстуры (по семействам):
+BLKSton: одна текстура от Undule. Взята из Disorientation.
+CL: ещё пять текстур от Undule. Взяты из Calendra’s Legacy.
+RS: одна текстура от R Soul. Взята из All Torc.
+BaffordX, BasementX, ChurchX, ConstantineX, DungeonX, RamirezX, TempleX: разнообразные текстуры из Thief 1. Взяты из DEDX.
+T1: ещё две текстуры из Thief 1, не включённые в DEDX.
+Signs: две текстуры от Yandros.
+FakeDoors: десять текстур, основанных на оригинальных ресурсах. Взяты из Disorientation.
+-------------------------------------------------------------------------------------------------------------------------
+Новые объекты (по авторам / большинство взято из DEDX):
+Team CoSaS: jtg-bedsit01.bin, HARP1.bin.
+Team T2X: crane.bin.
+Christine: csschr9.bin, csbb2.bin, cs-rose1.bin
+DarkShadow: zigbox.bin.
+Eshaktaar: victrol2.bin.
+Gamophyte: oabacus.bin.
+GORT: WdCrane1.bin.
+Lamoot: Dcrossbow.bin.
+Nameless Voice: rope3.bin, NVMagnify.bin, NVSausages.bin, NVCheese.bin.
+Purgator: board1.bin, board2.bin.
+Schwaa: dartbord.bin, shieldrw.bin, crowbar.bin, lute.bin.
+Targa: fireseed.bin.
+Totality: wagon.bin.
+Von.Eins: uhr2.bin.
+-------------------------------------------------------------------------------------------------------------------------
+Новые звуки (по папкам): 
+AMB_HW: звуки от Gigagooga, в основном из "88 New Ambients".
+AMB_T1G: звуки из Thief 1, взяты из DEDX.
+AMB_MISC: "GranTick" взят из A Keeper of the Prophecies; "oddtrip" взят из Calendra’s Legacy.
+FEET: новый звук шагов от Team T2X.
+-------------------------------------------------------------------------------------------------------------------------
+Альфа-тестер: 
+- FrenchDecay
+Бета-тестеры:
+- ffox
+- FrenchDecay
+- itllrun10s
+- Nightwalker
+- Tannar
+- Yandros
+-------------------------------------------------------------------------------------------------------------------------
+Переводчики:
+- MoroseTroll: на русский.
+- Azaran, Athalle: на французский.
+- Piesel: на итальянский.
+- Zappenduster: на немецкий.
+-------------------------------------------------------------------------------------------------------------------------
+Признательность:
+- Большое спасибо Nicked за создание его идеального руководства, что помогло мне начать работать в DromEd.
+- Особенное спасибо FrenchDecay и Yandros за то, что очень помогли разобраться с техническими особенностями DromEd.
+- Вдохновение черпалось в миссиях из Thief Gold, под названиями The Sword и Into the Maw of Chaos, а также в фан-миссиях от Purah, Melan и Skacky.
+- Карта подготовлена FrenchDecay.
+=======================================================================
+АВТОРСКОЕ ПРАВО
+Эта миссия © 2018 by marbleman.
+Распространение данной миссии разрешено до тех пор, пока её архив и этот файл остаются нетронутыми.
+Данная миссия сделана ни Looking Glass Studios, ни Eidos Interactive, и не поддерживается ими.
+=======================================================================

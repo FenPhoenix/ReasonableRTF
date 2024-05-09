@@ -1,0 +1,108 @@
+File name: Kingsbridge
+Author: Eternauta (E.R.)
+Contact info: er.eternauta@gmail.com
+Date of release: 12/23/2014 
+Version: 1.0
+
+
+Kingsbridge
+
+
+Story:
+
+My informant had assured me I could find the paintings, three to be exact, here in the town of Kingsbridge. I stopped for the night at a seedy tavern named "Mystical Lights." Upon awakening, I found myself locked in the city dungeon. Apparently, the plague had arrived in Kingsbridge, and, as a stranger and new arrival, I was thought to be the culprit. Without having stolen even a single gold coin I was wanted all over the city by the local militia. Someone had served me up on a silver platter. 
+Kingsbridge is known as the best refuge from the plague. They've adopted a unique system: at the first sign of the disease all entrances to the city are closed. No one can come in and no one can get out. This is a fine strategy if the fever is beyond the walls, but in this case the plague was already here. I couldn't escape, and they were convinced that I was the one that had brought the disease here. But the true culprit was still out there somewhere, and I had to find him if I was going to prove that I wasn't the one responsible, that by the time I arrived the dance of death had already begun.
+
+******************************
+
+* Play Information *
+                                                                                   
+Game:	Thief 2: The Metal Age
+Level Names:	Kingsbridge
+File names:	miss20.mis
+Difficulty Settings:	Yes
+	(Prisoner	“Normal”)
+	(Plague	“Hard”)
+	(Freedom	“Expert”)
+Equipment store:	No
+Map/Automap:	Yes/No
+New graphics:	Yes
+New sounds:	Yes
+New models:	Yes
+EAX Support:	Yes
+Multi language support:	English
+Briefing:	No
+
+***********************
+
+* Construction *
+
+Base:	From scratch
+Map Size:	Medium/Large
+Build Time:	10 Month. Approx
+
+****************************
+
+* Textures Credits *
+
+CgTextures – Plaintextures – GoodTextures – LugherTexture – TexturQualityPro - Artistock.deviantart - Olgas' Gallery - Texturelib
+
+
+Additional Textures Credits *
+Undying
+
+
+* Creators of Objects *
+
+PinkDot – Yandros – Watcher – Von Eins – R Soul – Christine - Nielsen74 – Greenhorn - Dark Arrow – Paweuek – Team Cosas – Td Bonko – Syi – Zontik – Elvis – Shadowspawn – JasonOtto – Schwaa  - Thief Enhancement Pack – LarryG – Targas - Sluggs
+
+* Music *
+
+Dario (Where are you?)
+Sephy
+Assassin’s Creed III
+
+* Sound Effects *
+
+Assassin’s Creed III
+Rune
+
+* Thanks to *
+
+Yandros, for coming to the rescue and fixing some total loot bugs.
+Nameless Voice, for the Scripts, NVShop and Ingame Shop Demo.
+Telliamed, for the Scripts.
+
+
+Beta Testers
+
+Nickie
+Nightwalker
+Peter Smith
+Tannar
+
+
+Thanks to all the wonderful people at the TTLG Forums.  
+
+
+* Special Thanks to *
+
+Tannar for creating texts, for having corrected the texts and the invaluable advice!
+Nickie for the invaluable advice!
+Peter Smith for help organizing the objectives and the invaluable advice!
+Dussander for having me at his testing site (shalebridgecradle.co.uk), a beautiful place to beta test missions.
+Thanks to Looking Glass for the creation of such a magic world as Thief.
+Finally, Ken Follet for the Book “The Pillars Of The Earth”.
+
+
+* Copyright Information *
+
+This level was made by Eternauta (E. R.)
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level to any map pack without my permission. No one may edit this mission or modify it in any way.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+* For My Grandmother Elda - Goodbye *
+
+******************************************************************************************

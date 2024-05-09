@@ -1,0 +1,114 @@
+  
+Auteur : Beltzer
+Titre: La Soeur 
+Contact info : beltzer2@hotmail.com
+Date de sortie : 31 octobre 2019
+Version : 1.1
+Description
+Garrett a reçu une lettre de son vieil ami Timan.
+Une chose qu’a écrit Timan fit perdre un peu l’équilibre de Garrett et le laissa songeur.
+Il affirme que Garrett a une sœur qui s’appelle Ula.
+Est-ce bien vrai ? Cela demande une enquête.
+
+Information de jeu
+Jeu : Dark Project 2 : L’Âge de Métal v 1.27
+Difficulté : Oui
+Carte / Carte Auto : Non / Non
+Langue : Français.
+
+Bugs
+Lorsque vous interagissez avec un IA particulier,
+le jeu peut parfois se bloquer. Sauvegardez avant tout.
+
+Bon à savoir
+
+Mes missions précédentes
+Reunification Campaign
+The Abandoned Castle
+The Favour
+Mortuos Liber Campaign
+
+Information de chargement
+Testé avec AngelLoader
+
+Merci à
+Pour les voix
+antimatter_16
+Supremcee
+
+Beta testeurs
+Cardia
+Gloria Creep
+griswold
+john9818a
+Mat99
+Supremcee
+Unna Oertdottir
+zajazd
+
+Merci aussi à
+À urgrue pour la vérification des textes.
+ À zappenduster pour la traduction en allemand. 
+À Stefan Key pour la traduction en français. 
+À MoroseTroll pour la traduction en russe. 
+
+Objets personnalisés
+Asgaroth
+Blackthief
+cgtextures.com
+Christine
+Dale
+Daraan
+DarkShadow
+Dhin
+Elvis
+Eshaktaar
+Firemage
+Gamophyte
+Greenhorn
+John Denison
+LarryG
+Nameless Voice
+nicked
+Nielsen74
+pdackel
+PinkDot
+RSoul
+T2X
+TDBonko
+Team Rose Cottage
+Team Calendra
+Team Cosas
+Schwaa
+Sluggs
+Soul Tear
+Vigil
+
+Meshes et skins 
+Meshes
+Eshaktaar
+LarryG
+Ottoj55
+Purgator
+Team T2x
+
+Textures
+Necrobob
+Max
+
+Scripts personnalisés 
+Gaylesaver
+Nameless Voice
+Telliamed
+
+Sons
+DarioD
+Tabias “Spadey” Scot
+Dromed Deluxe
+
+Et, sans oublier, merci à ma fiancée Sandra pour son
+soutien moral alors que je travaillais sur ma FM 24 h/24.
+Information de Copyright
+Cette mission est © par Beltzer
+La distribution de cette mission est autorisée de toutes manières qui existent et à votre choix. Cependant, la mission doit être telle quelle et mon nom doit être mentionné.
+Cette mission n’a pas été réalisée et n’est pas garantie par Looking Glass Studios.

@@ -1,0 +1,71 @@
+ 
+The Five Tigers: HBS Iron Butterfly (Release 1.0)
+
+Author: W. Scott Thune (Catman)
+Contact info: catman@catmanofiowa.com
+Website: http://catmanofiowa.com/ThiefII/FiveTigers/
+
+Date of release: April 2, 2007
+
+Gameplay Notes:
+
+The maps and journal provided by your employer contain helpful information for planning your night's work.
+
+The ship is made of iron, so any loud sound will alert everyone on board.
+
+By design, you cannot pick up any  keys you find. You need to make a wax impression of each.
+
+A loot list has been included in the Books folder.
+
+Known Bugs:
+
+Betatesters reported that some guards could not be picked up after being knocked out. I was unable to reproduce this error.
+
+The long views on the dock and ship may cause visual anomalies such as doors and other objects disappearing, especially if you look up. This in turn may cause the water textures to disappear. If this happens, do this to restore the water: save, quit the game, and then reload your saved game.
+
+Backstory:
+
+After the fall of the Mechanists, not all of their technologies were destroyed. Some nobles gathered and protected Mechanist scientists, including those connected with the Cetus Amicus project. Using those technologies, they have built the world's first steam ship, the Iron Butterfly. This ship provides the setting for the beginning of this story.
+
+You are a master thief known as Nekosan. Like most professionals, you use whatever Mechanist technologies you can get your hands on. For example, you have had a set of special glasses fashioned which allow you to use scouting orbs as well as zoom in to observe your surroundings.
+
+Story for HBS Iron Butterfly:
+
+You have been hired to steal the set of gem stones known as the Five Tigers. Each stone is held by a different noble family: Eye of the Tiger by the Walkers, Claw of the Tiger by the Evans, Heart of the Tiger by the James, Shadow of the Tiger by the Agees, and Soul of the Tiger by the Boles. Each family has the gem locked in a vault which cannot be picked, and the lords keep the only key with them at all times.
+
+According to your employer, four of the families have booked passage on the maiden voyage of the Iron Butterfly. They will board the ship on June 22 and spend the night on board. The ship will leave port for a two week cruise at noon the next day. You need to break into the shipyard, find information about the stateroom assignments, find the four lords on the ship, and make wax impressions of their keys.
+
+Your employer has provided you with a rather detailed set of maps plus a set of notes to help you complete your tasks. You should study them carefully before you begin.
+
+Of course, with all the wealth lying about, you'll want to help yourself to whatever else you can find.
+
+This is the first of a six-mission pack.
+
+Special thanks to:
+
+Bikerdude, Gloria Creep, Gripper, Hotlyx, Silent Warrior, and Undead Gamer for their help betatesting the mission.
+
+All the helpful folks at the TTLG forums.
+
+Play Information:
+
+Game:			Thief2
+Mission Title:		Five Tigers: HSB Iron Butterfly
+File name:		miss20.mis
+Difficulty Settings:	Yes (normal, hard, expert -- loot requirements only)
+Equipment store: 	No
+Map / automap:	Yes / No
+New graphics:		Yes (3 minor additions)
+New sounds:		No
+Briefing:		No
+
+Construction:
+
+Original Design by Catman
+Build Time: Five Months
+
+Copyright (C) 2007 - W. Scott Thune
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. You may not include this level in any map pack without my permission. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

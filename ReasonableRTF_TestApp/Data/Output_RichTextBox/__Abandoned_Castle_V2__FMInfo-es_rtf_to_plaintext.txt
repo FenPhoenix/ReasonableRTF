@@ -1,0 +1,129 @@
+ 
+
+Título	:	The Abandoned Castle
+Nombre del archivo	:	The Abandoned Castle - NewDark.zip
+Autor	:	Beltzer
+Información de contacto	:	beltzer2@hotmail.com
+Página web	:	www.beltzer.nu
+Fecha de salida	:	Enero 19, 2013
+Versión	:	2.0 (06 de Mayo de 2021)
+Descripción	:	Ayer escuché en un bar un rumor sobre un castillo en las montañas. Los ladrones
+		a los que escuché dijeron que lleva abandonado unos cuantos años. Tengo que
+		echarle un vistazo. Está desvalijado, pero aparentemente tiene botín. Es un día
+		soleado así que, ¿por qué no darse un paseo hasta el castillo y hacer un poco de
+		limpieza?
+
+==============================================================================
+Información sobre el nivel
+
+Juego	:	Thief 2: The Metal Age
+Nombre del juego	:	The Abandoned Castle
+Nombre del archivo	:	miss20.mis
+Opciones de dificultad	:	Sí. Hay diferentes botines y herramientas. Hay algunos cálculos matemáticos. En
+		dificultad normal hay una pista sobre cómo resolver el código.
+Tienda de equipamiento	:	No
+Mapa/Automapa	:	Si (en blanco)
+Nuevos gráficos	:	Si
+Nuevos sonidos	:	Si
+Nuevas conversaciones	:	No
+Nuevos modelos	:	Si
+EAX Soporte	:	No
+Soporte multilenguaje	:	Inglés, Alemán y Español (España) (solo textos)
+Introducción	:	No
+
+==============================================================================
+Bugs conocidos
+
+- Nada crucial.
+==============================================================================
+Construcción
+
+Base	:	Ninguna.
+Tamaño del mapa	:	Medio.
+Tiempo de construcción	:	Casi nueve semanas incluyendo beta testing varias horas al día.
+Información de la versión	:	Esta es mi quinta misión. Las anteriores fueron: Ransom, Lord Beltzer’s Mansion, 
+		Mistress Guennean’s Castle y The Reunification.
+
+==============================================================================
+Información de cargado
+
+Probado con: AngelLoader y FMSelector
+
+==============================================================================
+Gracias a
+
+La gente en TTLG y Shalebridgecradle.
+Los beta testers en Shalebridgecradle:
+itllrun10s
+jonescrusher
+Nickie
+Notesthes (También hizo la traducción al Alemán)
+Ravenhook
+A Nickie, que comprobó todos los textos en esta misión.
+A Tannar, el moderador que organizó el foro para la beta en shalebridgecradle.
+
+A los beta testers de la versión 2.0 en Discord:
+Akai™
+Bikerdude
+Dardo (También hizo la traducción al Español)
+FlixXxer
+Mat99
+Zappenduster (Traducción al Alemán)
+Zoro
+
+Actor de voz:
+RedLeaf (como la niña malvada)
+
+Objetos especiales:
+(Espero haberme acordado de todo el mundo, si no decidme de quién me he olvidado)
+
+Alun Bestor www.washboardabs.net/thief/
+Ar-Zimrathon
+Bronze Griffin
+Christine
+DarkShadow
+Elvis
+Eshaktaar
+G'len
+Greenhorn
+Jason Otto
+Master_edd
+Nameless Voice
+Nielsen74
+Paweuek
+pdackel
+R Soul
+Schwaa
+Sluggs
+Soul Tear
+T2X
+Targa
+Team CoSaS and Digital Nightfall.
+von.Eins
+Yandros
+
+Meshes:
+Bronze Griffin
+DedX
+FireMage
+metal dawn
+Paweuek
+Purgator
+Sensut
+Team CoSaS
+
+Scripts especiales:
+Telliamed’s PublicScript
+NV Script
+
+Y evidentemente gracias a mi prometida Sandra por el apoyo moral y aguantarme mientras trabajaba en esto 24/7.
+
+==============================================================================
+Información sobre Copyright
+
+Este nivel es © por Beltzer. La distribución de este nivel está permitida de cualquier manera, forma o vía que
+desee. Sin embargo; debe dejar la misión intacta y acreditarme como su autor :-)
+
+Este nivel no ha sido creado o apoyado por Looking Glass Studios o Eidos Interactive.
+
+==============================================================================

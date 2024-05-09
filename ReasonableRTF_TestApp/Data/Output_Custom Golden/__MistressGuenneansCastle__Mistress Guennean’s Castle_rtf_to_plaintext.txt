@@ -1,0 +1,122 @@
+=============================================================
+11/30/2011
+=============================================================
+Title : Mistress Guennean’s Castle
+Filename : Mistress Guennean’s Castle.zip
+Author : Beltzer
+Contact info : beltzer2@hotmail.com
+Homepage : No, but soon i hope.
+Date of release : November 30, 2011
+Version : 1.0
+Description : After the incidents in our town, the kidnapping and
+murders, my wife and I left home. But we had not gone very far
+when I fell down a hole in the ground.
+I had some fun in Lord Beltzer’s Mansion and ended up in some
+catacombs. Time to find out where I am and how to get out of here.
+This is a sequel to my missions "Ransom" and "Lord Beltzer’s Mansion.
+It is recommended that you play them first if you have not already
+done so.
+=============================================================
+* Play Information *
+Game : Thief 2: The Metal Age
+Level Names : Mistress Guennean’s Castle
+File names : miss20.mis
+Difficulty Settings : Yes.
+Equipment store : No.
+Map/Automap : Yes (blank)
+New graphics : Yes.
+New sounds : Yes.
+New conversations : No.
+New models : Yes.
+EAX Support : No
+Multi language support : No.
+Briefing : No.
+=============================================================
+* Bugs* 
+1. One of the beta testers got wrong secret found stat. It should be three.
+2. Another beta tester said that a secret door not working with the
+Thief 2 retail version.
+=============================================================
+* Construction *
+Base : None.
+Map Size : Medium.
+Build Time : A month, many hours a day.
+Build Info : This is my third mission, a sequel to Ransom and
+Lord Beltzer’s Mansion.
+=============================================================
+* Loading Information *
+Runs from Dark Loader. Leave the file ZIPPED - DO NOT UNZIP this file,
+but put the whole "Mistress Guennean’s Castle.zip" file into whatever
+folder/directory you want to on your hard drive, then in Darkloader
+setup, point to this folder/directory, and the mission should show up
+in the Darkloader main screen.
+=============================================================
+* Thanks To *
+Everyone who wrote the good tutorials that I learned from.
+Also, the people at the TTLG Forums who asked the right questions,
+and of course those who answered those questions so I could easily
+search for the answers to the problems I had.
+To the Beta testers on shalebridgecradle:
+bob_doe_nz
+Gloria Creep
+kittykat
+Ravenhook
+To Nickie who checked all the texts in the mission.
+And to Tannar, the moderator who set up the beta forum on
+shalebridgecradle.
+---------------------------------------------------------------------------------------
+Custom objects:
+(I really hope I’ve remembered everyone, please tell me if I’ve missed
+crediting someone)
+Ottoj55: Twisted Torch,  Argon Lamp.
+Asgaroth: Red Skull.
+Targa: Arrows, Undead with a Human Femur, Crate with Rope Spools,
+Floor Lever, Vicswitch Replacement, Radiator, Plates, HeartBox.
+Yandros (Russ Robbins): For the Hammerite Mission Development Kit.
+Renzo "Eshaktaar" Thönen: Lockbox and Key, Pyramid Lamp, Chest,
+New water, Art Deco Lamp, Button, Museum Pedestal.
+LarryG: Bones.
+R Soul: Reskinnable Sarcophagus, Wheelbarrow, Body on Table,
+Strong Table, Rake, Watering Can, Coffins, Sewer Grate, Enormous
+Hanging Light, Basic Wooden Fences, Glass Chandelier, Improved
+Paintings, Simple Chair.
+Nameless Voice: Claw Table, Candelabrum II, Leafplant, Light Orb,
+Poker Bin, Chair 01, Round Table 01, Piano and Stool, Corner Cabinet,
+Plate & Bowl Set, Gold Goblet, Desk Lamp, Gold Pocket Watch,
+Chess Table, Gold Spheres, Ink Well, Mantelpiece Clock, Gold Ankh,
+Wicker Basket 2, Toy Pack, Balloons.
+CoSaS Team: Lamps, Doors, Keys, Drapes, Towel Rail, Beds.
+Nielsen74:  Chisels-Screwdrivers Set, DrillSet, Black Candle, Crank,
+Shields, A Scale, Books, Book Case, Clay Pot, Tobacco, Fire Wood,
+Victorian Cabinets, Keg,  Dish, Knife Block, Soap, Mirror, Desk,
+Toilet Paper, Victorian Hutch.
+Sluggs: Skull, Desk, Matchbox, Wall Light, Window Frame, Empty
+Trough, Flower, Ball Lamp, Water Bucket, Trash Can.
+JasonOtto: Leather Sofa, Portcullis, Glyph Decal, Plant, Chain Link
+Fence Gate, Chain, Fancy Dining Room Table, Red Drape, Fancy
+Chairs, Animal Trophy, Giant Chess Pieces, Wood Cabinets,
+Tea Kettle, Tapestry.
+Elvis: Lion Statue, Dog statue.
+Ar-Zimrathon: Full Pot.
+Schwaa: Stove, Toilet Set.
+
+Meshes:
+Yandros (Russ Robbins): For the Hammerite Mission Development Kit.
+Metal Dawn: For the devil.
+
+Textures:
+DarkMax
+AntiMatter_16
+Melan
+-------------------------------------------------------------------------------------
+And obviously thanks to my girlfriend Sofie for testing and moral
+support and putting up with me working on it 24/7.
+=============================================================
+* Copyright Information *
+This level is © by Beltzer
+Distribution of this level is allowed in any way, shape, or manner you
+wish. However, you must leave the mission intact and give me credit
+for it :-)
+This level was not made and is not supported by Looking Glass Studios
+or Eidos Interactive.
+=============================================================

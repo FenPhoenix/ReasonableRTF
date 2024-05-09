@@ -1,0 +1,95 @@
+Rivalité II (Bad Blood II)
+Ricebug (Terry DeLaney)
+New Dark 1.21
+20 Mai 2014
+Version 2.5
+
+Garrett vient d’arriver à la petite ville d’Ottoville pour rencontrer un vieil associé. Comme Ottoville est reconnue pour sa brasserie, il veut aussi goûter à la bière d’ici. Cependant, à l’insu de l’infâme voleur, on lui prépare un coup monté pour quelque chose qui est arrivé il y a plus d’une décennie.
+
+Problèmes Connus
+
+1. La locomotive dans la mission 3 pourrait présenter des bogues étranges si vous jetez des cadavres sur les rails.
+2. Parfois les rails ne joueront pas la meta-propriété sonore correcte. Ceci peut être corrigé en sautant. C'est un compromis permettant aux gardes de marcher dessus normalement sans rester pris.
+
+
+Remerciements
+
+Voix dans les vidéos: SlyFoxx
+
+Testeurs: Azaran, Gloria Creep, itllrun10s, prjames, Silent Warrior, Undead Gamer, Yandros, Zappen, Zaya_Ayame
+
+Traducteurs: 
+
+Français: Azaran, Apiai
+Allemand: Zappen
+Russe: Soldi
+
+Scripts:
+
+	GayleSaver, Nameless Voice, Telliamed, Twisty
+
+Objets spéciaux:
+
+Christine: horloges, cartes, rideaux, baggage, fleurs, furniture, coffre à argent, globe à bureau, miroir, accessoires de bureau (timbre, bloc notes, etc), nappe de table, boule de cristal, serre-livres
+
+Digital Nightfall (COSAS): Objets du bar, accessoires de salle de bain, lumières, meubles, livre
+
+Greenhorn: Montagnes proches (textures remplacées), trains miniatures, arbres morts, outils de creusage
+
+Jason Otto: Grilles et barres rouillées, fenetres sales, clôtures, poutres, maisons, cabanes, tours d’eau, tours d’horloge, cordes & chaines, échelles, affiches, meubles, toiles d’araignée, accessoires de la taverne, bois de chauffage, wagon de Gitans, conduits de ventilation, lumières, engins électriques, plaques à outils, accessoires de salle de bain
+
+LarryG: Locomotive, wagons, voies ferrées & interrupteurs, corps des wagons, roues des trains, sémaphore, rat, bûches
+
+Nameless Voice: Flammes
+
+Nielson74: Baril en feu, four à bois, bâtiments de la fabrique, bois de chauffage
+
+Pinkdot: Bibliothèque
+
+R Soul: Brouette, lumières, échelle accrochée, engins électriques, meubles, foyer, taches de fumée
+
+Ricebug: Clôtures tressées, arbres 2D, clôtures en grillage, affiches, poteaux de téléphone, peintures dans les trains (prises sur Internet), baril rouillé, taches, balustrades & toupies des escaliers, uniforme de voleur
+
+Sluggs: Caises, rayone de lumière, tour de garde, bâtiments
+
+Schwaa: Accessoires de salle de bain, brasero, poubelle avec couvercle
+
+Textures spéciales:
+	C-BEAM: Tapis et glissières
+Serious Sam, the Second Encounter de Croteam
+CG Textures: Taches
+Necrobob: Briques
+Ciel: Emil Persson, aka Humus. (HYPERLINK "http://www.humus.name/" http://www.humus.name); la version de nuit est la même mais avec les étoiles de Turbo Squid.
+Zappen: Texture des fenêtres
+
+Personnages spéciaux:
+
+Greenhorn: Femme matelot
+Jason Otto: Textures de remplacement
+LarryG: Jardinier
+Schwaa: Voleur archer
+
+Sons:
+
+Voix prises de Thief Gold, Thief 2, et Thief 3
+LarryG: Sons des trains
+Musique ‘Lazy Day’ (qu’on entend au bar dans la première mission) par Ricebug
+
+Divers:
+
+Yandros: Motions du barman, scène d’arrestation dans la première mission, améliorations générales
+Xorak: Dépannage et réparation
+R Soul: Convertisseur des objets du Dark Engine 
+Nameless Voice: Calculatrice solaire
+Tous les gens au forum des éditeurs de TTLG pour m’avoir enduré
+
+
+Je remercie particulièrement Tannar et Dussander pour le forum de test Shalebridge.
+
+Information sur le droit d’auteur
+
+Cette mission est (c) par:  Terry DeLaney. Le partage de cette mission est permis pourvu que cela soit gratuit et que les fichiers restent intacts. Vous pouvez inclure cette mission dans des disques de collection des Fan Missions en autant qu’ils ne soient pas utilisés à des fins monétaires.  
+
+Ce niveau ne fut pas créé par, et n’est pas lié à Looking Glass Studios ou Eidos Interactive.
+
+

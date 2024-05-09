@@ -1,0 +1,82 @@
+
+Goldene Dächer - Version 1.0 - September 2015
+================================================================================
+
+Autor: Terra
+Erscheinungsdatum: September 2015
+
+================================================================================
+
+Handlung:
+
+Eine erfolgreiche Nacht geht langsam zu Ende, wieder hat Garrett einen reichen
+Händler um seine Beute erleichtert. Darauf muss man erst mal einen heben, nicht wahr?
+Es sieht so aus, als war das Bier etwas zu stark, denn als Garrett wieder aufwacht, fehlt
+von seiner Beute und Ausrüstung jedwede Spur.
+Bestohlen? Der Meisterdieb wurde beklaut? Als er sich umschaut, sieht er nur
+dieselben Gesichter derer, die schon die ganze Zeit an der Bar waren - aber was sind
+das für Stimmen? Als Garrett die Kneipe verlässt, treibt es ihn Richtung
+Hammeritenkirche, doch was liegt da? Eine Schriftrolle ...
+
+Ich weiß nicht, was hier vorgeht, aber ich habe ein ungutes Gefühl bei dieser
+Sache ...
+
+================================================================================
+
+Spielinformationen:
+
+Spiel: Thief 2 - Das Metallzeitalter (Version 1.22 NewDark)
+Missionstitel: Goldene Dächer
+Dateien: miss20.mis, gold.gam
+Schwierigkeitsgrade: Keine
+Ausrüstungsladen: Keine
+Karte: Keine
+Ergänzungs-Grafiken: Ja
+Neue Geräusche: Ja
+EAX: Keine
+Mehrsprachig: DE/FR/EN
+Briefing: Keines
+
+================================================================================
+
+Bauzeit: 1 Monat
+
+================================================================================
+
+Ergänzungs-Objekte von:
+
+Cosas-Team (comment)
+
+Ergänzungs-Meshs von:
+
+Dedx (lich, Keeper sword)
+
+Ergänzungs-Grafiken von:
+
+Thief 2x Shadows of the Metal Age (sunnysnow1, sunnysnow2)
+
+Betatest:
+fibanocci, silent_thief, radogoal
+
+================================================================================
+
+Ergänzungs-Musik und -Geräusche von:
+
+NVScripts by NamelessVoice
+
+Unterwegs in Düsterburg von Grandy
+Vampires Dawn von Alexander "Marlex" Koch
+Eshaktaar (Help Me,Remember, tension2, garm1408, bookend. Sound File aus OminousBequest Gold)
+Thief2x Team
+Ambloopm1 (m01sounds)
+
+================================================================================
+
+Urheberrecht:
+
+Diese FM stammt von Terra, September 2015.
+
+Diese FM wurde nicht von Looking Glass Studios oder Eidos Interactive erstellt
+und wird auch nicht von diesen unterstützt.
+
+============================================================================

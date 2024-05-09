@@ -1,0 +1,159 @@
+English:
+
+Author: Theker
+
+Story
+
+It happened after the death of Father Karras, when Garrett had retired. There was no more business for him and he was slowly running low on money - until that day.
+
+There was a knock at the door. An old man was standing in front of it and he asked for help. He had a long grey beard and wore only a cloak. Garrett was surprised. An old man? What does he want?
+
+The man made Garrett an offer. It is rumored that in the town of Traverse, in a Hammerite church, the "Old Trinity" is kept. It is a foil to The Eye, although this one is rumored to be much more powerful than The Eye itself.  Abruptly, Garrett had to think about the episode, where he stole The Eye - voices and ignorance everywhere. To avoid the pain of the Old Trinity, Garret  twill need the "Plate of Power". Both these items have to be acquired. The old man dropped a gold purse and disappeared into a dark alley with no explanation as to why he needed them. Garrett had a bad feeling about this, but he knew the Mechanists were thought to have a laboratory in this area. It might be worth while to find out what they’ve been up to.
+
+ Garrett took his sword and his blackjack and bought some flash bombs and potions with the money. But what really awaits our master thief? You'll have to find out by playing the mission.
+
+Objectives
+1. Steal the Plate of the Force.
+2. Steal the Old Trinity.
+3. Steal 2000, 3000, 4500. (Normal/Hard/Expert)
+4. Find out, what the Mechanists are up to.
+
+Information
+
+Game: Thief 2 The Metal Age
+Mission-Titel: Thief Trinity
+Version: 3.0
+File Name: miss20
+Difficulty levels: Normal/Hard/Expert
+New Texts: Yes
+New Graphics: Yes
+New Sounds: Yes (Thief 1)
+New Objects: Yes
+New AIs: Yes
+
+Credits
+
+BrendaEM           /        New Object
+Eshaktaar        /      New Objects
+Namless Voice / Enhancement Pack/New Objects/New Textures/Bitmap
+R Soul             /      New Objects
+watcher           /      New Objects
+theonetruethief        /Beta Pack 1
+Jason Otto            /New Objects
+tdbonko              /New Objects
+Gregorius	    /New Objects
+dark arrow         /New Objects
+redface           /Book Pack
+Mrys                /New Objects        
+schwaa            /New Objects
+Vigil            /New Object,Textures
+Thorin Oakenshield  /New Textures
+wille         /New Textures
+Drk          /A Night in Rocksbourg Textures
+Remedy Entertainement /New Textures
+sluggs         /New Objects
+Nielsen74     /New Objects
+Rob Hikcks   /Dedx
+raetsel    /New Objects
+PinkDot   /klastor.zip
+pdackel and hrotgahr/New Objects
+Christine and Greenhorn/Dromed Tank
+Nightwalker     /Proofreading
+
+Betatest: Anne, blackmen, SinisterShadow, Neferure
+
+Thanks to all object builders!!!
+
+Contact
+
+Should I have forgotten to mention someone in this readme, please send me an email to my address: 2000gdi@gmx.de and I will correct this mistake as fast as possible.
+
+---------------------------------------------------------------------------------------------------
+
+Deutsch:
+
+Autor: Theker
+
+Story
+
+Es geschah nach dem Tod von Vater Karras.
+Garrett war zu jener Zeit bereits im Ruhestand. Es kamen keine Aufträge mehr und das Geld wurde allmälich immer knapper - bis zu jenem Tage.
+
+Es klopfte an der Tür. Ein alter Mann stand vor der Tür und bat um Hilfe. Er trug nur einen Umhang und hatte einen langen grauen Bart. Garrett war erst etwas schockiert. Ein alter Mann? Was will er?
+
+Der Mann machte Garrett ein Angebot. In der Stadt "Traverse" soll in einer Hammeriten-Kirche der "Old Trinity" gelagert sein, ein Gegenpart des Auges, wobei dieser jedoch noch viel mächtiger sein soll als Das Auge selbst. Garrett musste unvermittelt an den Vorfall denken, als er das Auge stahl - überall Stimmen und Unwissenheit. Doch um dem Schmerz des Old Trinity zu entgehen braucht Garrett den "Teller der Kraft". Diese zwei Gegenstände müssen beschafft werden. Doch was will ein alter Mann damit? Der alte Mann warf noch einen Goldbeutel hin und verschwand in einer dunklen Gasse. Garrett hatte ein ungutes Gefühl, doch er dachte auch an die Mechanisten, die dort ein Labor haben sollen. Es könnte sich lohnen herauszufinden, was sie vorhaben.
+
+Garrett nahm sein Schwert und seinen Prügel und besorgte sich von dem Geld noch Blitzbomben und Tränke. Doch was unseren Meisterdieb wirklich dort erwartet erfährst du erst, wenn du die FM spielst...
+
+Missionsziele
+1. Stehle den Teller der Kraft.
+2. Stehle den Old Trinity.
+3. Stehle 3000, 3500, 4000. (Normal/Hart/Experte)
+4. Finde heraus, was die Mechanisten vorhaben.
+
+Informationen
+
+Spiel: Thief 2
+Missions-Titel: Thief Trinity
+Version: 3.0
+File Name: miss20
+Schwierigkeitsstufen: Normal/Hart/Experte
+Notizen: Ja
+Neue Grafik: Ja
+Neue Sounds: Ja (Thief 1)
+Neue Objekte: Ja
+Neue AIs: Ja
+
+Quellen
+
+BrendaEM           /        Neue Objekt
+Eshaktaar        /      Neue Objekte
+Namless Voice / Enhancement Pack/Neue Objekte/Neue Texturen/Bitmap
+R Soul             /      Neue Objekte
+watcher           /      Neue Objekte
+theonetruethief        /Beta Pack 1
+Jason Otto            /Neue Objekte
+tdbonko              /Neue Objekte
+Gregorius	    /Neue Objekte
+dark arrow         /Neue Objekte
+redface           /Bookpack
+Mrys                /Neue Objekte        
+schwaa            /Neue Objekte
+Vigil            /Neue Objekte,Texturen
+Thorin Oakenshield  /Neue Texturen
+wille         /Neue Texturen
+Drk          /A Night in Rocksbourg Texturen
+Remedy Entertainement /Neue Texturen
+sluggs         /Neue Objekte
+Nielsen74     /Neue Objekte
+Rob Hikcks   /Dedx
+raetsel    /Neue Objekte
+PinkDot   /klastor.zip
+pdackel und hrotgahr/Neue Objekte
+Christine und Greenhorn/Dromed Panzer
+
+Betatest: Anne,blackmen,SinisterShadow,Neferure
+
+Danke an alle Objektbastler!!!
+
+Kontakt
+
+Falls ich jemanden vergessen haben sollte in meiner Readme zu erwähnen, so schicke er/sie eine E-mail an meine Adresse: 2000gdi@gmx.de ich werde diesen Fehler schnellstens korrigieren.
+
+
+Copyright Information 
+Copyright (c) 2007
+by Theker
+
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.
+You may not include this level to any map pack without my permission.
+No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by
+Looking Glass Studios (RIP) or
+Eidos Interactive.
+
+
+
+

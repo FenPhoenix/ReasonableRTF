@@ -1,0 +1,47 @@
+Retour à Tarnhill
+Une mission de la campagne Lost Strife
+Par Ricebug & Xorak
+Date de sortie: 1 Août 2013
+
+Garrett pensait que son temps à Tarnhill était derrière lui. Il avait renvoyé les voyageurs du temps vers le futur. Le Gouverneur Meech était mort. Les maisons et les propriétés que Meech avait volés ont été rendus à leurs propriétaires légitimes. 
+
+Malheureusement, la rumeur court que certains moines, des irréductibles du faux culte religieux que Meech avait créé, étaient en train d’expérimenter  en secret le voyage dans le temps avec une technologie laissée par le Peuple du Futur. 
+
+Garret décide de revenir à Tarnhill pour ne pas que le futur se répète, contre la volonté de sa chère et tendre, Maggie.
+
+
+Crédits
+
+Gamesys de la mission :	Pinkdot, Haplo
+
+Objets personnalisés : 	Daraan (arbres, buissons)
+				Digital Nightfall (Collections  COSAS)
+	Greenhorn (buissons, plantes, herbes)
+	LarryG (fenêtres)
+	Nameless Voice (portails, pendentifs)
+	Jason Otto (modèles IA améliorés, toilettes, lavabos)
+	Pinkdot (portes, lanternes murales, bancs, tables, IA moines)
+	R Soul (poêle, cruche, vase)
+	Sliptip (effets spéciaux flammes & eau)
+
+Textures :			Serious Sam, The Second Encounter (Croteam)
+				Castle Wolfestein (iD Software)
+	Rogue Entertainment/Velocity, Inc (Strife)
+
+Scripts personnalisés :	Nameless Voice
+
+Contrôle qualité :		dBrilliant
+				Guff
+	itllrun10s
+	Ravenhook
+				Soldi
+				Stefan_Key
+				Undead Gamer
+				Zappenduster
+
+Traducteurs :			Stefan_Key (Français)
+				Zappenduster (Allemand)
+				Soldi (Russe) 
+			
+
+Ce niveau n’a pas été fait et n’est pas garanti par Looking Glass Studios ou Eidos Interactive.

@@ -1,0 +1,70 @@
+THE FOUR EMPERORS
+
+An FM by Grandmauden
+for the Summer Speedbuild Competition
+
+NewDark 1.27 is required
+
+Filename		-   miss20.zip
+TTLG Page	-   http://www.ttlg.com/forums/member.php?u=75648
+Email		-   kk.mudkip@gmail.com
+Version		-   1.0
+Release Date	-   Aug. 19, 2021
+
+Briefing
+"To rule over the people is to guide them,
+To be a source of wonder and inspiration.
+For an emperor is the pinnacle of mankind,
+And all should seek to match him in greatness.
+But no matter how brave, strong, smart, or fast,
+Even an emperor can take only so many breaths.
+And yet, if we use our lives to better theirs,
+Our legacy will live on for all generations."
+- Final speech of Wan-Kuor, Emperor of Karath-Din
+
+The other night, you met up with an associate at the Loon Lagoon for some drinks and a good time. As the hours ticked by and the mugs were emptied repeatedly, the topic of conversation eventually changed to be about a cave located on the outskirts of The City that stretched deep underground. Your friend mentioned that an expedition into the cave a few months back discovered a new passage, likely opened up by the big earthquake last year. Venturing into parts unknown, the expedition returned with news that they had found the entrance of an ancient tomb...easily older than the entire City. He went on to say that since the discovery, everybody who descended into the cave with the intent of exploring the crypt was never seen again, except for one archaeologist who claimed that he was attacked by "living flame" and barely escaped with his life.
+Naturally, the idea of almost certain doom wasn't enough to dissuade your desire to delve into what sounded like a Precursor tomb. Therefore, after making contact with the archaeologist and obtaining his notes, you made your way into the cave. After about an hour of tight passages and winding tunnels, you found a rope dangling over a narrow pit. Based on what the archaeologist told you, the entrance to the tomb should be just ahead...
+
+Play Information
+Game				-   Thief: Gold
+Level Name			-   The Four Emperors
+File Name				-   miss20.mis
+Difficulty Settings		-   Normal / Hard / Expert
+Equipment Store		-   No
+Map / Automap		-   No / No
+New Graphics			-   No
+New Sounds			-   Yes
+New Conversations		-   Yes
+New Models			-   No
+EAX Support			-   Yes
+Multi-Language Support	-   English
+Briefing				-   This text file 
+
+Construction
+Base					-   None
+Build Time			-   A little over two weeks
+
+Loading Information
+Leave the file zipped and place it into your FM folder, then load it up in FMSel, NewDarkLoader, or AngelLoader.
+
+Author's Notes
+~ This mission contains a few puzzles that may require some unconventional tactics. Scrolls are provided to offer hints, and don't be afraid to experiment.
+
+Credits
+Beta-testers:
+	DirkBogan
+	skacky
+
+Special Thanks:
+My family and friends for supporting and encouraging me throughout this project.
+Everyone on the DromEd Discord who provided solutions to problems that came up.
+Looking Glass Studios and Ion Storm for creating such a fantastic trilogy of games.
+TTLG for keeping these games alive and well for so long.
+Brethren for running the Summer Speedbuild competition.
+
+Copyright
+This mission is © 2021 by Grandmauden (Kevin Kolpack)
+
+You all know the drill. You can freely distribute this mission as long as it's free and everything in the archive is left intact. If you want to change something, just ask me first.
+
+This mission was not made and is not supported by Looking Glass Studios, Ion Storm, or Eidos Interactive.

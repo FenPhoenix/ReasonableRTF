@@ -1,0 +1,34 @@
+Author			:	Shadowhide (OzZzy)
+E-Mail			:	ozzy1911@rambler.ru
+Version			:	v1.0
+
+After I get this mask I dont't remember anything 
+when I get up I find myself in this trap.....
+
+Bugs:No sound in one game area (I dont know why ?)
+
+Special  Thanks to:
+Nuw Xp 
+Zontik
+Dront
+clearing
+Unemployed 
+
+Playing Information *
+
+Game: 				Thief 2: The Metal Age
+Mission Title: 			DarkWood2
+File name: 			miss20.mis
+Difficulty Settings: 		Yes 
+New graphics: 			Yes
+New sounds: 				no
+Multi language support:		No
+Briefing: 				no
+
+* Construction *
+
+ Build Time:			8 days
+
+
+This level was not made and is not supported by 
+Looking Glass Studios or Eidos Interactive.

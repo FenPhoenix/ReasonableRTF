@@ -1,0 +1,103 @@
+HALLOWEEN CONTEST 2012
+
+A BETTER TOMORROW
+
+=========================================================
+
+Author			:	DrK (Kubiac)
+Contact info		:	TTLG forums
+Release date		:	November 2012
+Version		:	1.1
+
+
+
+=========================================================
+
+* Description *      
+
+ATTENTION : you must have an original and clean installation of the game. Uninstall graphic packs before playing this mission. The mission was designed to be played in black and white, any graphical pack would ruin the experience…
+
+This mission is my entry to the Halloween contest 2012 held on TTLG forums. I tried to propose something a bit different from the usual thief gameplay. The main objective is to survive, nothing else.
+
+As soon as you enter the game, the very first thing to do is to listen to the victrola in front of you for a quick briefing about the situation. Then, it’s up to you…
+
+Known bugs :
+-	With Thief 2 V1.19, you may have a few textures left with their original colors. 
+-	AIs may randomly end up stuck in places.
+-	If you have Thief2.exe V1.19 installed, climbing upon the rooftops is okay. If you are still playing with thief2.exe V1.18, once on the rooftops the game will almost certainly crash due to screen complexity errors.
+
+
+
+=========================================================
+
+* Game information *
+
+Game				:	Thief II - The metal age (Version 1.18)
+Event				:	Halloween Contest 2012
+Level name			:	A Better Tomorrow
+.zip file name			:	BetterTomorrow.zip
+.mis file name			:	miss22.mis
+Difficulty			:	Yes	
+Equipement store		:	No
+Map/Automap			:	Yes
+New objects			:	Yes                   
+New textures			:	Yes
+New sounds			:	Yes
+New musics			:	Yes
+New conversations		:	Yes
+New AI models			:	Yes
+EAX Support			:	No
+Multi language support	:	No
+Language			:	English
+Briefing video			:	No             
+
+
+
+=========================================================
+
+* Construction *
+
+Base				:	Using Greenbay as a base.
+Build time			:	A little less than 4 months.
+
+
+
+=========================================================
+
+* Loading information *
+
+To place the zip file in your FM folder.
+To run with DarkLoader, do not unzip the zip file.
+
+
+
+=========================================================
+
+* Credits*
+
+If I forgot anybody, well I’m sincerely sorry, and you have to know that I truly thank you for your work, whatever it is. Just contact me, and I’ll fix that mistake ;).
+Great thanks to :
+
+-	Christine, CoSaS team, Eshaktaar, FireMage, Lady Rowena, Nameless Voice, Nielsen74, Ottoj55, Schwaa, Sliptip, Targa, Tdbonko, Vigil, and Yandros for custom objects and textures. A couple of objects from Thief3.
+
+-	Shadowspawn, for custom motions.
+
+-	SlyFoxx for his voicework. Sounds and music from Silent Hill, Exmortis and Left 4 Dead games.
+
+-	bikerdude, BrokenArts, Gloria Creep, Firemage, nickie, SlyFoxx and smithpd for betatesting and English corrections. Thanks a lot for your help and your ideas!
+
+-	Looking Glass Studios for Thief I and Thief II.
+
+
+
+=========================================================
+
+* Copyright Information *
+
+This level, some sounds, textures & artworks, are ©2012 by Eric Bigou (aka DrK, aka Kubiac)
+If you wish to use some of my works (textures, sounds …), then contact me and I’ll tell you what you may use in your fms.
+
+Distribution of this level is allowed as long as it is free and the package is kept intact. 
+You may not include this level to any map pack or campaign. No one may edit and re-distribute this mission without my express permission.
+
+This level was not made and is not supported by Looking Glass Studios, Ion Storm or Eidos Interactive.

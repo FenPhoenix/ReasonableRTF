@@ -1,0 +1,80 @@
+===================================================================================
+The Adventures of Burrick Boy
+===================================================================================
+
+Author			: Kfort (Katy Fortner) (kfortner@willamette.edu)
+Date of Release	: February 29, 2004
+==================================================================================
+
+*Description*      
+
+You are a stable boy at Big Bob's Burrick Ranch.  Tonight you have been given the important task of watching over Bob's prized elemental burricks.  
+
+Over the past few weeks, a number of rare burricks have mysteriously vanished from neighboring farms.  Bob is concerned his ranch might be next, so he has taken some precautions.  The barn is barred from the inside and guards are patrolling outside. All you have to do is sit back and count the cracks in the walls . .  . Oh, and make sure nothing bad happens to the burricks, of course.  
+
+Don't mess this up!  If you do a good job tonight, you might be promoted to HEAD burrick boy. 
+
+===================================================================================
+
+* Playing Information *
+
+Game			: Thief: The Metal Age
+Mission Title   	: The Adventures of BURRICK BOY!!!   (I had to call it something J)
+File Name               	: miss20.mis
+Difficulty Settings     	: Yeah sort of
+Equipment Store        	: No
+Map                     	: No
+Auto Map                	: No
+New Graphics            	: Yes
+New Sounds              	: No
+Multi-Language  	: No
+
+Briefing                	: No
+    
+Difficulty Level Info   : Not much difference, save for a few equipment tweaks and one additional AI.  Normal is marginally easier, but all the goals and such are the same.
+
+===================================================================================
+
+* Construction *
+
+Base		: Scratch
+Build Time	: Most of it was completed in two days.  The rest took about two weeks.  Go figure.
+
+Special Thanks to:  
+
+All my loyal brain cells - those few that have stuck with me for the long haul.  What troopers!
+Jabberwocky for the custom health shields and inspiring me at the last minute to make a contest entry after all (I can’t believe I finished it in time!)
+Rob Hicks for all his work on DEDx – Go Rob!
+YcatX for his wonderful and much loved elemental burricks
+Schwaa for his nifty, fun little mushrooms
+Anyone who helped me on the boards
+Everyone and anything I forgot
+
+Oh yes!  And also my dog - for having short legs and looking really cute J Go corgis!
+
+===================================================================================
+
+******KNOWN BUGS*******
+
+Bugs?  We don't need no stinking bugs! Err...I mean I don't think there are any bugs. Nope, none. *crosses fingers*
+
+Just don’t kill the burricks.  OR ELSE!!! I will be very sad
+
+===================================================================================
+
+* Loading Information *
+
+Use Darkloader.  Don't unzip it!  Well, I guess you can if you want.  No one will stop you . . .
+===================================================================================
+
+* Copyright Information *
+
+This level is © by Kfort (Katy Fortner)
+
+Distribution of this level is allowed as long as it is free and the package 
+is kept intact. You may not include this level to any map pack without my 
+permission. No one may edit and re-distribute this mission without my express 
+permission. Just ask, I'll probably give it to ya! ;-)
+
+This level was not made and is not supported by Looking Glass Studios, Eidos 
+Interactive, or Ion Storm.

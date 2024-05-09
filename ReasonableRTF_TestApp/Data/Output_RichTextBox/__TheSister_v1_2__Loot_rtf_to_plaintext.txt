@@ -1,0 +1,48 @@
+Outside
+Maze			Statue			150
+Cemetery		Chalice			100
+windowsill		Coinstack		25
+
+1st Floor
+SW window table	2 Candle		100
+Pool room		Ring			100
+Kitchen			2 Spice			80
+Kitchen			2 Candle		100
+Bathroom		Ring			100
+Office			Coins			150
+
+2nd Floor
+Dining			20 Gold Goblet		500
+Dining			20 Purple Goblet	300
+Dining			8 Candle		400
+Bathroom		Painting		300
+Bedroom		Purse			150
+Bedroom		Brooch			200
+Bedroom		Purse			200
+Balcony			2 Fine wine		100
+Balcony	 SE		Gold Goblet		25
+Attic			4 coin stack		87
+Servant room		Necklace		200
+Servant room		Tiara			125
+Servant room		Purse			200
+West balcony		2 goblets		30
+
+3rd Floor
+Guard room		Purse			75
+Mini library, sitting	3 Fine Wine		150
+Mini library, sitting	Exp Wine		200
+Dining			6 Candle		300
+Dining			Plates			40
+Office Safe		Gems			750
+SW Room		Urn			50
+Owner Bath		Ring			100
+Childrens room		Coins			150
+Balcony			Wine			50
+NE balcony		Wine			50
+
+Roof/Top of tower
+On Bowman		Purse			100
+On Bowman		Purse			100
+Bird nest		Ear Ring		100
+
+5937	(6037)

@@ -1,0 +1,139 @@
+
+The Heart Of Gems: Night Of The Red Moon - Version 1.0 - October 2016
+================================================================================
+
+Author: Terra
+Release date: October 2016
+
+================================================================================
+
+Advice:
+Please play this FM only after having installed the newest version of TafferPatcher, otherwise graphical errors could appear!
+
+This FM has only been tested with FMsel and NewDarkloader, there's no guarantee if you should use other installing programs. 
+
+================================================================================
+
+Plot:
+
+The following events take place 8 weeks after Roofs Of Gold ...
+
+My money is getting tight and the house in the deep forest is not the best accommodation. But an old friend of mine gave me some information about a precious gem, the so-called Heart of Gems. They say it is invaluable and there is a secret hidden within. Seems time for a new adventure has come but I'm not the only one interested in that treasure. A mysterious Order seems to have the same intention.
+I’d better get some information about those guys and then pay a visit to them as they own a kind of ritual candle which is necessary to recover that Gem.
+Once in that town I should keep a lookout for the sword of Arkford. According to an old legend it only becomes visible when the moon turns to red. Tonight seems to be my lucky day, the moon turns red! Alas I don't have much equipment, only my hatchet which is supposed to be somewhere in the forest. I should find and take it first.
+
+================================================================================
+
+Game information:
+
+Game: Thief 2 - The Metal Age (Version 1.22 NewDark)
+Mission title: The Heart Of Gems: Night Of The Red Moon
+Files: miss21.mis, gem.gam
+Levels: Normal, Hard, Expert
+Shop: No
+Map: Only note sheet
+New graphics: Yes
+New sounds: Yes
+EAX: No
+Multi language: DE/FR/EN
+Briefing: No
+
+================================================================================
+
+Construction time: 1 year 4 months
+
+================================================================================
+
+Additional Objects from:
+
+Eshaktaar: Broken Triad
+Dedx
+Jason Otto
+Schwaa
+Christine
+Greenhorn
+Zontik: King’s Story
+Cosas-Team 
+Saturnine: Rose Cottage
+
+Additional Meshes from:
+
+Eshaktaar: Broken Triad, Ominous Bequest
+Saturnine: Rose Cottage
+Dedx 
+Tdbonko
+SoulTear
+Gaëtane
+
+Additional graphics from:
+ 
+  Ardiana
+  Daraan        
+  David Gurrea Hernandez (HYPERLINK "http://www.davegh.com" www.davegh.com)
+  Gecko
+  GORT
+  LarryG
+  Nameless Voice 
+  Necrobob
+  Nicked
+  Purgator
+  Renzatic
+  Sensut
+  Soul Tear
+  Vurt
+  Xorak
+
+PhotoRealistic: 
+CGTextures (HYPERLINK "http://www.cgtextures.com" www.cgtextures.com)
+GenealogyInTime (HYPERLINK "http://www.genealogyintime.com" www.genealogyintime.com)
+PlainTextures (HYPERLINK "http://www.Plaintextures.com" www.plaintextures.com)
+DrK
+Jermi
+Saturnine: Rose Cottage
+David Gurrea
+Gaëtane
+Vigil
+Eshaktaar: Broken Triad, Ominous Bequest
+Thief Deadly Shadows
+Pathologic
+
+Beta testers:
+
+Cardia
+nightshifter
+Zoro
+LeMalin76
+Atropos
+silent_thief
+
+
+
+Translations FR/EN:
+Zappenduster, LeMalin76, nickie
+
+================================================================================
+
+Scripts by 
+
+Nameless Voice - http://www.geocities.com/nameless_voice/
+Telliamed - http://thiefmissions.com/telliamed/
+            http://whoopdedo.org/projects.php?scripts
+
+Additional music and sounds from:
+
+Unterwegs in Düsterburg von Grandy
+Vampires Dawn from Alexander "Marlex" Koch
+Eshaktaar 
+Thief2x Team
+
+================================================================================
+
+Copyright:
+
+This FM was made by Terra, October 2016.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.
+
+================================================================================
+
+Please let me know if I’ve forgotten to credit anyone. After about 1 year of construction I might have forgotten someone but it would not be intentionally.

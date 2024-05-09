@@ -1,0 +1,74 @@
+================================================================================
+
+Title:		The Hammer Skull
+Author:		Bryan Gleason (alias BBB)
+Contact Info:	bgleason1@gmail.com
+Homepage: 		n/a
+Date Finished:	May 16, 2020
+
+Briefing:  After the Rosetti Museum job, I was fat dumb and happy. Unfortunately, my high lifestyle burned through all the gold. After almost a year off, I am required to go back to work. During my nightly visits to local pubs and other watering holes, I put the word out that I am available for hire for the right price.
+
+Paul the Purse is a local fence that is well known in important circles. He offered to buy me a drink 2 nights ago and far be it from me to refuse a social libation, especially for free. He explained a lucrative opportunity is available right in our back yard. He went on to say he knows about my reputation for successful ventures and is interested in working with me. Evidently, there is a Gold Skull that the Hammerites are storing at their temple. The Gold Skull has a long history that supposedly dates back to the year of the Builder. The Skull was forged by a sorcerer using the purest gold of all time. He gave the Skull a curse that allows the holder to ward off all evil spirits. Supposedly, the Builder himself held it in his hand during the middle age wars and it was the reason for complete victory. The Skull was lost for hundreds of years but a recent Hammer expedition recovered it 4,000 feet underground on an island in the West Sea. It took nearly 2 years (and hundreds of lives) to return it to the Hammerites and the High Priest has ordered it be kept under lock and key and no one outside of the Order has been allowed to see it or even mention it in conversations. Its existence has been kept very, very secret.
+
+Paul explained the Gold Skull is being kept at the Hammer rectory beside the Hammer Temple. The word amongst the Hammers is they intend to move the Skull to the Town Bank and once they do, it will be much more difficult to get to it. Time is of the essence. Paul will provide funding and weapons for the robbery and any other support I need. I told him I like to work alone and when he offered 50 gold on the spot as a good faith deposit, I took the gold and shook his hand.
+
+Time to go to work.
+
+
+
+================================================================================
+
+* Playing Information *
+
+Game:				Thief Gold (you need at least TFIX 1.27)
+Title: 			The Hammer Skull
+File Name:			miss20.mis
+Difficulty Settings: 	Normal, Hard, Expert
+Equipment Store: 		No
+Map: 				Yes
+Auto Map: 			No
+New Graphics: 		No
+New Sounds: 		No
+Multi-Language Support: No
+
+Briefing: 			No
+
+Difficulty Level Info: 	Normal 6000 Loot, Hard 8000 Loot, Expert 14000 Loot 
+
+* Construction *
+
+Base: 			Dromed base
+Build Time:			Much longer than it should have. About two and a half years part time.
+
+  
+
+================================================================================
+
+* Loading Information *
+
+Installs and runs through FMSel and AngelLoader. Other loaders have not been 
+tested and are used at your own risk. Do not use Old Darkloader, it is 
+outdated and unsupported. It may run in New Darkloader.
+
+Leave the file ZIPPED - DO NOT UNZIP this file, but put the whole thing into whatever folder/directory you want to on your hard drive, then in your loader  setup, point to this folder/directory, and the mission should show up in the loader main screen.
+
+================================================================================
+
+* Copyright Information *
+
+This mission is (c) 2020 by Bryan Gleason.
+
+Thanks to KOMAG for getting me started with his famous tutorial.
+Thanks to voice actors – Yandros, Random Taffer, Pukey Brunster, Prince Mikus
+Thanks to terrific testers who made this mission much, much better - Nightwalker, Freddy Fox, Peter Smith.
+Thanks to everyone at the TTLG forums for their help! Best community on the planet. It is truly extraordinary.
+Finally, thanks to Looking Glass Studios who have provided me with years of enjoyment. I have been mesmerized ever since I played Lord Bafford and it has never changed. Absolute genius work!
+
+Distribution of this level is allowed in any way, shape or manner you wish.
+However, you must leave the mission intact and give me credit for it. Have fun! 
+
+
+This level was not made and is not supported by Looking Glass Studios or Eidos 
+Interactive.
+
+(This text file was copied from another Fan Mission and modified).

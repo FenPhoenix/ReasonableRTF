@@ -1,0 +1,103 @@
+===============================================================
+The Kill Factory II		June 27, 2007
+===============================================================
+
+****** BACK UP YOUR COPY OF DARK.CFG ******
+
+This mission uses Telliamed's scripts (script_t2.osm) which is included with the zip.
+
+Author			:  Sliptip
+Contact Info		:  PM 
+Date of Release	:  June 27, 2007
+
+Title			:  Kill Factory II "Escape from the Planet of the Robots"
+
+Description		:  Thief 2 Fan Mission
+
+Story	:  Garrett travels in time to the future to steal the enormous wealth it's people are rumored to have.  But now he's trapped with no way back.  Can you find a way or will Garrett meet his end and be blasted to space bits?!?
+
+Known bugs 		: 
+ 
+Briefing(s)	: No
+
+Cutscene	: No
+
+===============================================================
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: Kill Factory II "Escape from the Planet of the Robots"
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: No, well sort of. . . no
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Languages		: English
+EAX Support		: No
+Briefing(s)		: No
+                                       
+* Construction *
+
+Base			: From Scratch
+Build Time		: 2 months
+
+===============================================================
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+===============================================================
+A big round of applause for all my dedicated testers:
+
+Cavalorn
+Digital Nightfall
+Hotlyx
+Malau
+Nightwalker
+Yandros
+
+A special thanks to Malau for his encouragement, allowing me to bounce ideas off of him and just for being generally interested!
+
+A big thanks to Yandros and Sluggs for helping me with various large problems, without which this would've never seen the light of day.  So blame them if you hate it! J
+
+Special thanks to EVERYONE!  Thanks for playing!!!!
+
+Music
+
+All music was written on a Commodore 64 SID chip emulator
+By various artists:
+
+Toni Hilpenen:
+"Meanwhile the Planet"
+"Orivesi"
+"Sounds of Nature"
+
+Thomas Mogensen:
+"Technica"
+
+Hein Holt:
+"Lick My Guitar"
+"Squirting Squid"
+
+
+
+If you hate the music be patient as there is an off switch located near the start of the mission.  If you cannot wait that long just delete the music files:
+
+Metalp1.wav
+Metalp2.wav
+MtP.wav
+Ori.wav
+Son.wav
+Technica.wav
+
+===============================================================
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.     

@@ -1,0 +1,97 @@
+
+
+
+
+
+                                                                                 I S L A N D  of  S O R R O W
+
+                                                                            
+
+
+
+
+=================================================
+10.31.2013                        
+=================================================
+
+Title		 : Island of Sorrow
+Filename	 : IslandOfSorrow_Ver1.4
+Author		 : Anonymous
+Contact info	 : Private Message or email after Contest is over.
+Date of release	 : October 31st, 2013  Update Nov.10th, 2013
+
+
+
+==================================================
+* Play Information *
+==================================================
+Game			 : Thief 2 The Metal Age
+Level Names		 : Island of Sorrow
+File names		 : miss20.mis, Dedx01.gam,Island.osm,NvScript.osm,TnhScript.osm
+Difficulty Settings	 : Yes.         Easy Hard Expert
+Equipment store	             : No.
+Map/Automap		 : No. 
+New graphics		 : Yes.
+New sounds		 : Yes.
+New conversations	 : Yes.
+New models		 : Yes.
+EAX Support		 : No.
+Multi language support	 : No.          English
+Briefing	       		 : Yes. Intro.avi,Cutscene.avi,and Success avi
+
+
+====================================================
+* Construction * 80 days -Updated Version 1.4  Nov.10th,2013
+====================================================
+
+Made for the Halloween Contest of 2013
+
+====================================================
+
+Story:   Jargus, a friend in town just recently returned from a trip abroad and told me a story of a family, the Thatchers, whom had lived on a remote island named: "The Island of Sorrow"  
+The island has had a mysterious and dark history dating back several hundred years.  Stories of Pirates, Monsters, and lots of gold,diamonds, and gems.  Where there is treasure, there is always evil and corruption following it.
+
+I was able to track down this Mr.Thatcher to further my knowledge of this island, and he offered a lifes worth of loot, as he put it, to find the body, or his living son, who was abducted at age 1 year old, from his family estate on the island many years ago.  It seems as though his wife was murdered that twilight evening, and no trace of his baby son could be found.  Mr.Thatcher and his two remaining daughters left the island shortly there after.  There description of the island to others after returning to the main land, which was simply put:"An Evil Island".
+
+Tonight, I will slip aboard a schooner, and tomorrow before dark, I should arrive at the Island of Sorrow.  A lifes worth of loot sounds good to me, but being a thief over being a detective my prove difficult, but I will see.
+
+At Game Start: There is a 4 minute  Intro/Briefing/Many Years ago .avi video showing the past.  This is important 
+for continuing the story.
+
+Play Information:  You will need to use your next weapon key to use an important tool in the game.  From your no.1 weapons slot (Sword) you can use your mouse wheel, or just hit your next weapon button.
+
+Custom Sripts needed:NVScript  V1.2.4, and TnhScript  V2.1.0
+
+Credits: 
+Voice Actors: Garras (Gary Wright) ,MasterThief 3,MsLedd,Caradavin,Bikerdude, Phantasmagore
+Music: Holy Chorus.wav by NewEonOrchestra,made in FL Studio. FreeSound.org (Metalp1), Klankbeeld, Knarmahfox,Intimidated, Sheettin
+ ghostly,Timbre,Shadow Sneaker,Keyla the Otter.
+Ghost Ship.wav by 55132__noisecollector__ghostshipplus3  Other music by:Thief Deadly Shadows.
+
+Model Makers:
+Yandros, Zontik, Raetsel, Hrothgar, Nielsen74, OttoJ55,  Eshaktaar, Targa, R Soul, Christine, Nameless Voice, Dark Arrow, Sluggs.
+Christine, Redface,LarryG,Cosas,and the team. Von Eins,Althalus,Omer "G'len" Golan,Rob Hicks and J.Knez(Schwaa),Alun Bestor,Purgator,Gort.Ar-Zimrathon,Greenhorn,DarkMax, 
+Pdackel, Syi,Eshaktaar, Master_edd,Phantom,ShadowSpawn,The Watcher,The house of Dhin,Sensut,Vigil,Paweuek,And,mkadlec,epithumia,Timon,caffeinatedzombeh,Willie,Winter Cat,
+Bronze Griffin, Digital Nightfall, Metal Dawn,taffer9,AntiMatter_16,redface,threeviltritone,Willie,Gregorious,Purgator
+
+
+Technical Info: Built from scratch for the Contest. 3 custom videos-Intro Briefing,Cutscene,and Success. Avi:Indeo 5.10 codec.
+The mission uses NVScript, TnhScript.  Tested with Darkloader v4.1, and FmSelector.  Not tested with GarrettLoader.  The original Dedx Mesh,Obj folders have been left intact for future modifications. The sounds have been compressed as much as necessary. The zipped size is still considerable, but with custom content including 3 avi videos can be expected.
+Updated to version 1.2-Reason unstable objective trigger. Used Concrete Roombrush control to replace defective trigger.
+Updated to version 1.2-Reason changed exit area,and made an area safe for the player.  Added an objective to keep Baby 
+Timmy safe. Added ending Ambient.  For pathfinding issues found in the later beta testing, the ingame camvator scene had 
+to be eliminated. It has been replaced with a 4 minute Briefing/Story.avi
+
+Special Thanks to Thiefmissions.com and SouthQuarter.com for hosting files for download.
+Special Thanks to the Anonymous Beta Testers for the Halloween Contest 2013.
+
+Copyright@Anonymous October 31st 2013
+
+This level was not made and is not supported by Looking Glass Studios or
+Eidos Interactive. You are free to distribute, but do not change any mission
+data for redistribution without my written consent.  
+
+
+
+
+

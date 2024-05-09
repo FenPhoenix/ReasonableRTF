@@ -1,0 +1,147 @@
+Mysterious Invitation (MH's 2007 Rework)                      
+Author:	MH.TheFreak
+Contact:	Call me via PM or boardmailer in ttlg.de.
+Version:	2.0 Final
+Release 1.0:	27th November 2005
+Release 1.1:	17th January 2006
+Release 2.0:	17th March 2007
+
+Valuable Hints!                                                                        
+-	DarkLoader 4.2 (or higher) is required. Otherwise this text will not be 
+	displayed correctly.
+-	This FM has not been tested with GarrettLoader! So no guarentee it will 
+	work.
+-	This mission contains and uses the Custom Scripts by Telliamed.
+-	This is my first mission for Thief II, and the first part of a potential series.
+-	Watch out in rooms with windows! A guard might spy you from the outside.
+-	Not all rooms are accessible from the beginning, and some cannot be entered 
+	at all.
+-	Only look for the way back after finishing all other objectives. There is 
+	no other way back...(...well there might be… ;) )
+
+Version history:                                                                                                    
+Changes in version 1.1
+-	There is a way back now in case you find it too early.
+-	English language support added (again thanks to 
+  	Vogelfrei, nil8hate, Bikerdude, marycwmbach and Griffin).
+-	Small bugs resolved.
+
+Changes in version 2.0
+-	The annoying bug with the southern dining room doors was eliminated.
+-	No crashes inside the labyrinth anymore. (Thanks to SinisterShadow, 
+	who helped my with this problem.)
+-	Sky and ambient lightning modified.
+-	Story modified.
+-	New area added.
+-	Graphical improvements (some textures replaced, 
+	Thief 2 Enhancement Pack added).
+-	One optional task added.
+-	Small bugs resolved.
+
+Description:                                                                                                             
+Luckily everything has settled down now. I am glad that I did not get killed in the 
+process. Just when I think it’s time to settle down as a rich man with a new name... 
+I never did get a penny of Constantine’s one million gold pieces that he had boastfully 
+promised, nor the incredible treasures found by the Mechanists. I’ve already 
+re-accepted my life of sneaking through town again to earn my living. 
+But one morning, fate knocked on my door – in the shape of a unexpected visitor. 
+My dagger was ready, but when I opened the door a little, no one was there. I was 
+about to return when I noticed a sealed letter on the floor. I looked around for 
+someone, again, nobody was there. 
+
+I opened the letter. 
+
+Hm, it seems I have a pen pal now. Not only that, it’s the keeper who put me up when 
+I was a child. He is asking for help since he is trapped in some mansion. Well, I should 
+be thankful, yet, his sudden request is strange. Absorbed in thoughts, I rumpled the 
+paper, collected my tools and went out into town. The market was a good shortcut. 
+Big crowds, easy for one to get lost in a sea of people. Too many for the Watch 
+to keep an eye on. And then it happened. “Freeze Taffer!” “Don’t move!” 
+An ambush. I decided from then on to stay away from ‘merchants’ with knives.
+
+Well, well, well, if it isn’t my old friend Reuben. Apparently, he was fed up with my 
+impertinent behaviour and not only made his guys hound me, but also the City Watch 
+and the Hammerites. With a little help of my tools I was able to escape. 
+A flash bomb and a speed potion were all I needed to get the hell away from there. 
+But I knew they would be looking for me, and the streets would be swarming with 
+cops. Hiding in some dark corner I was able to rethink Orins letter. I had to 
+agree, Lord Duncan’s mansion could not be worse than the streets. Furthermore, 
+visiting an estate at daylight is some difference to my habitual night tours.
+
+FM Information:                                                                                                         
+Game:				Thief 2 – The Metal Age
+Title:				Mysterious Invitation
+Miss file name:		miss20.mis
+Difficulty:			Normal, Hard: blackjacking and alarming of the guards 
+				allowed
+				Expert: neither blackjacking nor alarming of the guards 
+				allowed
+Shop:				No
+Map:				Yes
+Auto map:			Yes
+New textures:		Yes
+New sounds:			Yes (from Thief1G)
+New objects/AI:		Yes (AI from Thief1G/DromEd Deluxe)
+Multi-language support:	Yes (German/English)
+Movies:			No
+
+Known bugs and problems:                                                                                          
+-	The number of pickpocketings is not correct. In fact there are nine possible 
+	pickpocketings.
+-	Sometime AI step onto tables and won’t come down again. This is a 
+	Dark Engine bug.
+-	When standing next to some of the platforms, the AI won’t track you anymore.
+-	During beta test it was reported that some AI would get lost in certain areas 
+	of the level. I can’t confirm that.
+-	Sometimes alerted AI will attack the player only after standing still for some moments.
+-	A SHAS may occur if you jump onto the swimming pool’s edge.
+
+Construktion:                                                                                                                      
+Base:		Sky settings from frobber’s KoP 9 - "Under the Raven Moon"
+Building time: 	a lot, long breaks in between
+
+Credits:                                                                                                                                 
+-	MadBull#34 - Str-Converter and Tutorials (may TTLG.DE never die!)
+-	von.Eins - new objects and tutorials (a really good DromEd teacher)
+-	Rob Hicks - DromEd Deluxe
+-	Targa - new objects
+-	Hrothgar - new objects
+-	Nameless Voice - new objects
+-	Dark Arrow - new objects
+-	Sluggs - new objects
+-	Yandros - new objects and textures
+-	Schwaa - new objects
+-	Ville Paavolainen - new textures
+-	Silentsigh – Creation of the Duncan banner
+-	Vogelfrei – Creation of the starting logo and translation into English (version 1.1)
+-	Tom N Harris - Custom Script (and of course DarkLoader!)
+-	Vigil - map templates, textures (homepage: HYPERLINK "http://www.washboardabs.net/thief/" www.washboardabs.net/thief/)
+-	Dainem - beta testing (version 1.0) and correction of the texts
+-	Valen - beta testing (version 1.0) and story improvements
+-	fibanocci - beta testing (version 1.0)
+-	Xrayalpha - beta testing (version 1.0)
+-	nil8hate - translations (version 1.1)
+-	Bikerdude - translations (version 1.1)
+-	marycwmbach - translations (version 1.1)
+-	Griffin - translations (version 1.1)
+-	Raven - beta testing (version 2.0), 
+-	SinisterShadow - beta testing (version 2.0), text correction and bug fixing
+-	Cúthalion - translations (version 2.0)
+-	ganac - translations correction (version 2.0)
+
+Great thanks to Nameless Voice and Vigil, Eshaktaar, R Soul, Targa, G'len and
+DarkDragon for the Thief 2 Enhancement Pack!
+
+...and to all those who helped me in the forum and last but not least all of those I have forgotten.
+
+This FM uses pictures by www.vispix.com painted by the following artists: 
+  - Sisley 1839-1899, Alfred, Paris, France (pai01.gif)
+  - Solimena 1657-1747, Francesco, Canale di Serino, Italy (pai02.gif)
+  - Vermeer 1632-1675, Johannes, Netherlands (painting02.gif, painting03.gif, painting04.gif, pai03.gif)
+  - Hokusai 1760-1849, Katsushika, Japan (painting01.gif)
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

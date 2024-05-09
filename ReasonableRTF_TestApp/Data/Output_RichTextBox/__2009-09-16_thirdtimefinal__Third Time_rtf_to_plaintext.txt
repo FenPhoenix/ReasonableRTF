@@ -1,0 +1,64 @@
+===============================================================
+Third Time’s the Charm Version 1.0
+===============================================================
+Author			: Anonymous
+Contact Info		: 
+Homepage		: 
+Date of Release	: 14 September 2009
+
+Title			: Third Time’s the Charm
+
+Description		: Thief 2 Fan Mission
+
+Story			: Two months ago a fellow thief, and friend, Gaston the Red took a job from a collector, he never came back.  Recently another thief took this same job and never returned.  Now the collector has come to me to finish the job.  He’s looking for some rare Hammerite artifacts.  Outside the City is a Hammerite monastery high on a cliff, the only way in is a single elevator controlled from the top.  With the Hammerites on high alert infiltrating the monastery may turn out to be the easy part.  
+
+While I’m there I have to locate the High Abbot’s wand for the collector.  While I’m there I also can pick up a few artifacts for myself.  These Hammerite monks have a rare copy of The Scriptures of the Master Builder that any book collector would pay for.  They are also protecting The Hammer of St. Marcarius, a founder of the monastery.  It’s a highly valuable relic and worth the risk to steal.  Another valuable artifact at the monastery is the violin of St. Humphrey.  Its sound is unmatched, and any music collector would pay handsomely for this instrument.  While I’m there I need to find out what happened to Gaston the Red, another thief I liked dying on a job doesn’t sit well.  Of course I should redistribute any valuable I find around the place to myself.  
+
+When I’m done I’ll make my way back to the cave I started out in.  These Hammerites have been robbed unsuccessfully twice, they’ll be on high alert.  Hopefully for a highly skilled thief the third time’s the charm.
+
+Bugs & Tips		:None I know of.
+
+Briefing(s)		: No
+Cutscene		: No
+
+* Playing Information *
+
+Game			: Thief 2 TMA
+Mission Title		: Third Time’s the Charm
+File Name		: Miss 20
+Difficulty Settings	: Yes
+Equipment Store	: No
+Map			: Yes
+Auto Map		: No
+New Graphics		: Yes
+New Sounds		: Yes
+Multi-Language 	: No
+EAX Support		: Yes
+Briefing(s)		: No
+     Length		: 
+     Size			: 
+
+Difficulty Level Info	: Standard difficulties, less gear and more loot required on higher levels..                           
+
+* Construction *
+
+Base			: None
+Build Time		: Three months
+
+* Loading Information *
+
+This mission will work fine with DarkLoader. Just place the zip file in your missions folder.
+
+*Material Credits*
+
+Custom textures from CGTextures.com.  Custom music from Thief: Deadly Shadows.  Custom objects by Ottoj55,  Eshaktaar, Nameless Voice, Nielsen74, Vigil, Targa, Schwaa, Pinkdot, and the Thief Enhancement Pack.  Custom Hammerite materials including voices, and novice mesh from the Hammerite Mission Development Kit (HMDK) by Yandros.
+
+* Testing Thanks *
+
+Tannar, MrMunkeePants, Hotlyx, Bikerdude
+
+* Copyright Information *
+
+Distribution of this level is allowed as long as it is free and the package is kept intact.  Feel free to include this mission in FM collection disks as long as they are not intended to generate profit.
+
+This level was not made and is not supported by Looking Glass Studios or Eidos Interactive.

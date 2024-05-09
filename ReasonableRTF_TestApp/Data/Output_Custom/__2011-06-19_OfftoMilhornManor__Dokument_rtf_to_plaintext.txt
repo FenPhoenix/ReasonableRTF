@@ -1,0 +1,75 @@
+FM-Information_________________________________
+
+
+Kampagne:			Die Rückkehr der Großen Alten
+Campaign:				The Rise of the Elder Ones
+
+Kampagnen-Mission:			Kapitel 1
+Campaign Mission:				Chapter 1
+
+Titel: 			Im Anwesen der Lady Milhorn
+Title:			Off to Milhorn Manor
+
+
+Missionslänge:			Sehr lang
+Mission-Lenght:				Very long
+
+Schwierigkeitsgrade:			Alle
+Difficulties:				All
+
+Neue Texturen:			Ja
+New Textures:				Yes	
+	
+Neue Sounds:			Ja
+New Sounds:				Yes
+
+Neue Objekte/AIs:			Ja
+New Objects/ Ais:				Yes
+
+Sprachen:			Englisch, Deutsch
+Languages:				English, German
+
+Intro-Video:			Ja
+Video-Briefing:			Yes 
+
+Getestet für Garretloader: 		Nein
+Tested on Garretloader:			No
+Loot:					2816+ 800+1785 = 5401 Total
+
+Author:			JackInTheBox 
+
+Thief-Version:			Dark Project 2 – The Metal Age 
+
+Mission Nr.:			miss50.mis
+
+Version:				2.10 (Release Version, Fixed version 1)
+
+Note! If using latest Tafferpatch, disable LimbZBufferFix Option if u see the Stars and Sky through all Walls...
+
+
+
+
+Credits
+
+Translation Help: 			SinisterShadow, Chiron, fibanocci
+Beta-Testing: 				fibanocci, DarkThief, blackmen, CMD, gnartsch
+Technical Support: 			Intruder, fibanocci, DarkThief, Zappenduster, and the whole TTLG.de Community	
+					
+
+Also thanks to all people that ever helped me with Dromed and this Mission, i'm sorry if I might have forgotten you!
+Thanks to Looking Glass and Eidos for creating that great games! ☺
+
+
+Copyright
+
+Deutsch:
+Mission erstellt 2010/2011 von JackInTheBox
+Die Weitergabe dieser Mission ist gestattet, solange dies kostenlos geschieht und die Datei intakt bleibt. Die Benutzung erfolgt auf eigene Gefahr. Dieses Level ist nicht von Looking Glass Studios oder Eidos Interactive hergestellt und wird auch nicht von diesen unterstützt. 
+
+Die Dateien draussen.wav, hausinne.wav, grusharf.wav, ownwind1.wav, ownwind2.wav, ownwind3.wav, ownwind4.wav unterliegen Copyright (2010, F. Browa) und dürfen nur zum Spielen der Mission verwendet werden, jegliche Verbreitung und Weiterverwendung ist strengstens untersagt.
+
+English:
+Mission created 2010/2011 by JackInTheBox
+Distribution of this Mission is allowed if it occurs without cost and the files stay intact. Use this file on your own risk. This level was not made by Looking Glass Studios or Eidos Interactive and is also not supported by them. 
+The files draussen.wav, hausinne.wav, grusharf.wav, ownwind1.wav, ownwind2.wav, ownwind3.wav, ownwind4.wav are under Copyright (2010, F. Browa) and they are only allowed to use for playing the Mission, any kind of Distribution and Re-Use is prohibited.
+
