@@ -64,6 +64,13 @@ public enum SymbolFontA0Char
     Unassigned,
 }
 
+[PublicAPI]
+public enum LineBreakStyle
+{
+    CRLF,
+    LF,
+}
+
 // TODO: This is janky, maybe just let people use a custom symbol list? On the other hand this is way more convenient...
 [PublicAPI]
 public sealed class RtfToTextConverterOptions
@@ -82,16 +89,26 @@ public sealed class RtfToTextConverterOptions
     /// </summary>
     public SymbolFontA0Char SymbolFontA0Char { get; private set; }
 
+    /// <summary>
+    /// Sets the linebreak style (CRLF or LF) for the converted plain text.
+    /// </summary>
+    public LineBreakStyle LineBreakStyle { get; private set; }
+
     public RtfToTextConverterOptions()
     {
         SwapUppercaseAndLowercasePhiSymbols = true;
         SymbolFontA0Char = SymbolFontA0Char.EuroSign;
+        LineBreakStyle = LineBreakStyle.CRLF;
     }
 
-    public RtfToTextConverterOptions(bool swapUppercaseAndLowercasePhiSymbols, SymbolFontA0Char symbolFontA0Char)
+    public RtfToTextConverterOptions(
+        bool swapUppercaseAndLowercasePhiSymbols,
+        SymbolFontA0Char symbolFontA0Char,
+        LineBreakStyle lineBreakStyle)
     {
         SwapUppercaseAndLowercasePhiSymbols = swapUppercaseAndLowercasePhiSymbols;
         SymbolFontA0Char = symbolFontA0Char;
+        LineBreakStyle = lineBreakStyle;
     }
 
     public static readonly RtfToTextConverterOptions Default = new();
@@ -117,6 +134,8 @@ public sealed class RtfToTextConverter
 
         ResetHeader();
     }
+
+    private RtfToTextConverterOptions _options = null!;
 
     private readonly char[] Keyword = new char[KeywordMaxLen];
     private readonly GroupStack GroupStack = new();
@@ -1871,6 +1890,8 @@ public sealed class RtfToTextConverter
     public (RtfError Result, string Text)
     Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
+        _options = options;
+
         if (options.SwapUppercaseAndLowercasePhiSymbols)
         {
             _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03D5;
@@ -2184,7 +2205,8 @@ public sealed class RtfToTextConverter
                 {
                     if (_plainText.Count > 0 && _plainText[_plainText.Count - 1] == '\t')
                     {
-                        _plainText[_plainText.Count - 1] = '\n';
+                        _plainText.Count--;
+                        AddLineBreak();
                     }
                 }
                 break;
@@ -2354,6 +2376,16 @@ public sealed class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddLineBreak()
+    {
+        if (_options.LineBreakStyle == LineBreakStyle.CRLF)
+        {
+            _plainText.Add('\r');
+        }
+        _plainText.Add('\n');
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void ParseChar_Explicit(char ch)
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
@@ -2364,6 +2396,12 @@ public sealed class RtfToTextConverter
             // the start should we actually write it.
             if (ch == '\xFEFF' && _plainText.Count == 0)
             {
+                return;
+            }
+
+            if (ch == '\n')
+            {
+                AddLineBreak();
                 return;
             }
 
