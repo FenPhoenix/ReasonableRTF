@@ -103,7 +103,7 @@ public sealed class RtfToTextConverterOptions
     public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
     /// <summary>
-    /// Gets or sets the initial capacity of the plain text buffer, which the final output text is created from.
+    /// Gets or sets the initial capacity of the plain text buffer, from which the final output text is created.
     /// <para/>
     /// The default value is 65,536 characters.
     /// </summary>
