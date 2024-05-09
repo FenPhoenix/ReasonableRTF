@@ -69,6 +69,7 @@ internal static class Enums
         Lang,
     }
 
+    // TODO: Un-hardcode the symbol fonts here and make them all into arbitrary-style ones, just with a few of them built-in already
     internal enum SymbolFont : byte
     {
         // Non-font values at the start, to avoid having to check the top bounds

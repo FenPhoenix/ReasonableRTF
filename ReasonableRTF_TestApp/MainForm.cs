@@ -233,7 +233,10 @@ public sealed partial class MainForm : Form
     {
         RtfToTextConverter rtfConverter = new();
 
-        const string file = "1mil_CinderNotes__CinderNotes.rtf";
+        const string file =
+                //"1mil_CinderNotes__CinderNotes.rtf";
+                "2000-12-30_Uneaffaireenor__Readme.rtf"
+            ;
 
         string finalFile = Path.Combine(GetRtfSetDir(small: false), file);
 

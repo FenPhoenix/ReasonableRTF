@@ -100,6 +100,9 @@ public sealed class RtfToTextConverter
     private const int _shiftJisWin = 932;
     private const char _unicodeUnknown_Char = '\u25A1';
 
+    // Just for robustness, set it to something stupidly high but still small in terms of memory
+    private const int _maxSymbolFontNameLength = 32768;
+
     // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
     // over-provision.
     private readonly ListFast<char> _charGeneralBuffer = new(20 * 4);
@@ -1066,6 +1069,7 @@ public sealed class RtfToTextConverter
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
     // Highest measured was 56192
+    // TODO: Consider removing all hardcoded capacities etc.
     private readonly ListFast<char> _plainText = new(ByteSize.KB * 60);
 
     private const int _fldinstSymbolNumberMaxLen = 10;
@@ -1079,6 +1083,8 @@ public sealed class RtfToTextConverter
 
     // Highest measured was 13
     private readonly ListFast<char> _unicodeBuffer = new(20);
+
+    private readonly ListFast<char> _symbolFontNameBuffer = new(20);
 
     private bool _inHandleFontTable;
 
@@ -1181,11 +1187,13 @@ public sealed class RtfToTextConverter
 
         _hexBuffer.ClearFast();
         _unicodeBuffer.ClearFast();
+        _symbolFontNameBuffer.ClearFast();
         _plainText.ClearFast();
 
         // Extremely unlikely we'll hit any of these, but just for safety
         if (_hexBuffer.Capacity > ByteSize.MB) _hexBuffer.Capacity = 0;
         if (_unicodeBuffer.Capacity > ByteSize.MB) _unicodeBuffer.Capacity = 0;
+        if (_symbolFontNameBuffer.Capacity > ByteSize.MB) _symbolFontNameBuffer.Capacity = 0;
         if (_encodings.Count > ByteSize.KB) _encodings.Reset();
         if (_plainText.Capacity > ByteSize.MB) _plainText.Capacity = 0;
 
@@ -1489,11 +1497,6 @@ public sealed class RtfToTextConverter
                     break;
                 default:
                 {
-                    const ulong WingdingBytes = 0x676E6964676E6957;
-                    const ushort sAndSemicolonBytes = 0x3B73;
-                    const ulong WebdingsBytes = 0x73676E6964626557;
-                    const ulong symbolAndSemicolonBytes = 0x003B6C6F626D7953;
-
                     FontEntry? fontEntry = FontEntries.Top;
                     if (CurrentPos >= _rtfBytes.Length - 16)
                     {
@@ -1504,59 +1507,23 @@ public sealed class RtfToTextConverter
                         break;
                     }
                     if (!GroupStack.CurrentSkipDest &&
-                        fontEntry is { SymbolFont: SymbolFont.Unset })
+                        fontEntry is { SymbolFont: SymbolFont.Unset, CodePage: 42 })
                     {
-                        CurrentPos--;
+                        _symbolFontNameBuffer.ClearFast();
 
-                        // TODO: Read fonts char-wise so we can support arbitrary ones
-                        ulong fontName1 = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[CurrentPos]);
-                        switch (fontName1)
+                        for (int i = 0;
+                             i < _maxSymbolFontNameLength && ch != ';';
+                             i++, ch = (char)_rtfBytes[CurrentPos++])
                         {
-                            case WingdingBytes:
+                            _symbolFontNameBuffer.Add(ch);
+                        }
+
+                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
+                        {
+                            char[] nameBytes = _symbolFontCharsArrays[i];
+                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
                             {
-                                ushort WingdingsEnd = Unsafe.ReadUnaligned<ushort>(ref _rtfBytes.Array[CurrentPos + 8]);
-                                if (WingdingsEnd == sAndSemicolonBytes)
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.Wingdings;
-                                    CurrentPos += 10;
-                                }
-                                else
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.None;
-                                    int index = Array.IndexOf(_rtfBytes.Array, (byte)';', CurrentPos, _rtfBytes.Length - CurrentPos);
-                                    if (index > -1) CurrentPos = index;
-                                }
-                                break;
-                            }
-                            case WebdingsBytes:
-                            {
-                                byte semicolon = Unsafe.ReadUnaligned<byte>(ref _rtfBytes.Array[CurrentPos + 8]);
-                                if (semicolon == ';')
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.Webdings;
-                                    CurrentPos += 9;
-                                }
-                                else
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.None;
-                                    int index = Array.IndexOf(_rtfBytes.Array, (byte)';', CurrentPos, _rtfBytes.Length - CurrentPos);
-                                    if (index > -1) CurrentPos = index;
-                                }
-                                break;
-                            }
-                            default:
-                            {
-                                if ((fontName1 & 0x00FFFFFFFFFFFFFF) == symbolAndSemicolonBytes)
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.Symbol;
-                                    CurrentPos += 7;
-                                }
-                                else
-                                {
-                                    fontEntry.SymbolFont = SymbolFont.None;
-                                    int index = Array.IndexOf(_rtfBytes.Array, (byte)';', CurrentPos, _rtfBytes.Length - CurrentPos);
-                                    if (index > -1) CurrentPos = index;
-                                }
+                                fontEntry.SymbolFont = (SymbolFont)i;
                                 break;
                             }
                         }
