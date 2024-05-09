@@ -1886,16 +1886,16 @@ public sealed class RtfToTextConverter
 
         if (options.SwapUppercaseAndLowercasePhiSymbols)
         {
-            _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03D5;
-            _symbolFontTables[(int)SymbolFont.Symbol][70] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
         }
         else
         {
-            _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03C6;
-            _symbolFontTables[(int)SymbolFont.Symbol][70] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
         }
 
-        _symbolFontTables[(int)SymbolFont.Symbol][128] = options.SymbolFontA0Char switch
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = options.SymbolFontA0Char switch
         {
             SymbolFontA0Char.EuroSign => '\x20AC',
             SymbolFontA0Char.NumericSpace => '\x2007',

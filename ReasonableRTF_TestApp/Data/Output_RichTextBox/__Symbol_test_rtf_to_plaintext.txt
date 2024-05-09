@@ -1,0 +1,4 @@
+Symbol font tests:
+A0 character:  
+First phi: f
+Second phi: j
