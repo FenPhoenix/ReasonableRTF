@@ -320,7 +320,6 @@ internal sealed class SymbolDict
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
 
-        TODO: Option to output \n or \r\n for linebreaks?
         TODO: Handle cs\ds\ts properly (detect if we're at the start of a group to determine which version it is)
         TODO: Handle bulleted/numbered lists properly
         TODO: Should we support the math stuff...?

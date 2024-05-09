@@ -8,8 +8,7 @@ internal sealed class FontEntry
 {
     internal int CodePage = -1;
 
-    // We need to store names in case we get codepage 42 nonsense, we need to know which font to translate
-    // to Unicode (Wingdings, Webdings, or Symbol)
+    // We need to store names in case we get codepage 42 nonsense, we need to know which font to translate to
     internal SymbolFont SymbolFont = SymbolFont.Unset;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

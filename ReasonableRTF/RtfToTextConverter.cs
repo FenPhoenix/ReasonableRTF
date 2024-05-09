@@ -436,8 +436,6 @@ public sealed class RtfToTextConverter
             0x007C,
             0x007D,
             0x223C,
-
-            // 7F - 9F are undefined
             _unicodeUnknown_Char,
             _unicodeUnknown_Char,
             _unicodeUnknown_Char,
@@ -578,8 +576,6 @@ public sealed class RtfToTextConverter
             0x23AB,
             0x23AC,
             0x23AD,
-
-            // Undefined
             _unicodeUnknown_Char,
         };
 
@@ -680,10 +676,7 @@ public sealed class RtfToTextConverter
             0x1F3F6,
             0x1F676,
             0x1F677,
-
-            // 7F is undefined
             _unicodeUnknown_Char,
-
             0x1F10B,
             0x2780,
             0x2781,
@@ -1370,7 +1363,6 @@ public sealed class RtfToTextConverter
             0x1F5EF,
             0x1F5F2,
 
-            // 7F is undefined
             _unicodeUnknown_Char,
 
             0x1F6B9,
@@ -2028,7 +2020,6 @@ public sealed class RtfToTextConverter
                     {
                         if (IsNonPlainText[_rtfBytes.Array[CurrentPos]])
                         {
-                            // Support bare characters that are supposed to be displayed in a symbol font.
                             SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
                             if (symbolFont > SymbolFont.Unset)
                             {
@@ -2066,7 +2057,6 @@ public sealed class RtfToTextConverter
                 char ch = (char)_rtfBytes.Array[CurrentPos++];
                 if (!IsNonPlainText[ch])
                 {
-                    // Support bare characters that are supposed to be displayed in a symbol font.
                     GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
                     _plainText.AddRange(result, result.Count);
                 }
@@ -2250,8 +2240,8 @@ public sealed class RtfToTextConverter
                         if (FontEntries.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
                         {
                             SymbolFont symbolFont = fontEntry.SymbolFont;
-                            // Start at 1 because the "base" group is still inside an opening { so it's
-                            // really group 1.
+                            // Start at 1 because the "base" group is still inside an opening { so it's really
+                            // group 1.
                             for (int i = 1; i < _groupCount + 1; i++)
                             {
                                 int[] properties = GroupStack.Properties[i];
@@ -2342,9 +2332,6 @@ public sealed class RtfToTextConverter
                     _lastUsedFontWithCodePage42 = val;
                 }
 
-                // Support bare characters that are supposed to be displayed in a symbol font. We use a simple
-                // enum so that we don't have to do a dictionary lookup on every single character, but only
-                // once per font change.
                 GroupStack.CurrentSymbolFont = fontEntry.SymbolFont;
             }
             // \fN supersedes \langN
@@ -2405,7 +2392,6 @@ public sealed class RtfToTextConverter
                 return;
             }
 
-            // Support bare characters that are supposed to be displayed in a symbol font.
             SymbolFont symbolFont = GroupStack.CurrentSymbolFont;
             if (symbolFont > SymbolFont.Unset)
             {
@@ -2612,7 +2598,6 @@ public sealed class RtfToTextConverter
                     {
                         int param = 0;
 
-                        // Parse param in real-time to avoid doing a second loop over
                         for (int i = 0;
                              i < ParamMaxLen && char.IsAsciiDigit(ch);
                              i++, ch = (char)_rtfBytes[CurrentPos++])
@@ -2954,9 +2939,7 @@ public sealed class RtfToTextConverter
 
             In other words:
             If it's \\f, we use the current group's font's codepage, and if it's \\f "FontName" then we use
-            code page 1252 and convert from FontName to Unicode using manual conversion tables, that is
-            assuming FontName is "Symbol", "Wingdings" or "Webdings". We don't really want to go down the
-            rabbit hole of Wingdings 2, Wingdings 3, or whatever else have you...
+            code page 1252 and convert from FontName to Unicode using manual conversion tables.
 
             Note that RichEdit doesn't go this far. It reads the fldinst parts and all, and displays the
             characters in rich text if you have the appropriate fonts, but it doesn't convert from the fonts
@@ -3279,8 +3262,8 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void NormalizeUnicodePoint_HandleSymbolCharRange(int codePoint, out uint returnCodePoint)
     {
-        // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the
-        // correct value.
+        // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
+        // value.
         if (codePoint < 0)
         {
             codePoint += 65536;
@@ -3337,8 +3320,8 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static void NormalizeUnicodePoint(int codePoint, out uint returnCodePoint)
     {
-        // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the
-        // correct value.
+        // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
+        // value.
         if (codePoint < 0)
         {
             codePoint += 65536;
@@ -3425,12 +3408,13 @@ public sealed class RtfToTextConverter
 
         if (!char.IsAsciiLetter(ch))
         {
-            /* From the spec:
-             "A control symbol consists of a backslash followed by a single, non-alphabetical character.
-             For example, \~ (backslash tilde) represents a non-breaking space. Control symbols do not have
-             delimiters, i.e., a space following a control symbol is treated as text, not a delimiter."
+            /*
+            From the spec:
+            "A control symbol consists of a backslash followed by a single, non-alphabetical character.
+            For example, \~ (backslash tilde) represents a non-breaking space. Control symbols do not have
+            delimiters, i.e., a space following a control symbol is treated as text, not a delimiter."
 
-             So just go straight to dispatching without looking for a param and without eating the space.
+            So just go straight to dispatching without looking for a param and without eating the space.
             */
 
             // Fast path for destination marker - claws us back a small amount of perf
@@ -3462,7 +3446,6 @@ public sealed class RtfToTextConverter
             {
                 hasParam = true;
 
-                // Parse param in real-time to avoid doing a second loop over
                 for (int i = 0;
                      i < ParamMaxLen && char.IsAsciiDigit(ch);
                      i++, ch = (char)_rtfBytes[CurrentPos++])
@@ -3472,11 +3455,12 @@ public sealed class RtfToTextConverter
                 param = BranchlessConditionalNegate(param, negateParam);
             }
 
-            /* From the spec:
-             "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI characters)
-             that is not counted in the characters to skip."
-             This implements the spec for regular control words and \uN alike. Nothing extra needed for removing
-             the space from the skip-chars to count.
+            /*
+            From the spec:
+            "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI characters)
+            that is not counted in the characters to skip."
+            This implements the spec for regular control words and \uN alike. Nothing extra needed for removing
+            the space from the skip-chars to count.
             */
             // Current position will be > 0 at this point, so a decrement is always safe
             CurrentPos += MinusOneIfNotSpace_8Bits(ch);
@@ -3551,8 +3535,6 @@ public sealed class RtfToTextConverter
                 default:
                     if (_groupCount == startGroupLevel)
                     {
-                        // We were doing a clever skip-two-char-at-a-time for the hex data, but turns out that
-                        // Array.IndexOf() is the fastest thing by light-years once again. Hey, no complaints here.
                         int closingBraceIndex = Array.IndexOf(_rtfBytes.Array, (byte)'}', CurrentPos, _rtfBytes.Length - CurrentPos);
                         CurrentPos = closingBraceIndex == -1 ? _rtfBytes.Length : closingBraceIndex;
                     }
