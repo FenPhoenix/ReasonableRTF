@@ -77,7 +77,10 @@ internal static class Enums
         Unset,
         Symbol,
         Wingdings,
+        Wingdings2,
+        Wingdings3,
         Webdings,
+        ZapfDingbats,
     }
 
     #endregion
