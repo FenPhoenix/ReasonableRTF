@@ -17,31 +17,31 @@ Major Fixes
 
 • The player will no longer begin in the black box under any conditions, even if they are missing script files.
 
-The black box was put in place to make sure that players who have a faulty T2 install will not be able to play until they’ve corrected the problem.  However with widespread use, it was shown that it was far more likely for the scripts involved to malfunction than it was for the installation to actually be bad.  Thus this safeguard was removed.	
+The black box was put in place to make sure that players who have a faulty T2 install will not be able to play until they’ve corrected the problem.  However with widespread use, it was shown that it was far more likely for the scripts involved to malfunction than it was for the installation to actually be bad.  Thus this safeguard was removed.
 
 • Added a renamed gen.osm (i.e. MXgen.osm) to solve the problem of the bad gen.osm file out there.
 
-Some versions of Thief 2 were shipped with a bad gen.osm file, and this bad file would render MX unplayable (but would, ironically, not be caught by the black box safeguard.)	
+Some versions of Thief 2 were shipped with a bad gen.osm file, and this bad file would render MX unplayable (but would, ironically, not be caught by the black box safeguard.)
 
 • Redunancies have been put in place to ensure that if any of the main-plot related timing scripts fail, a backup will be brought into play in order to allow the mission to move forward.
 
-It is believed that saving and loading the game at the precise right time in relation to the function of timed relay scripts would cause the relay to break and disallow the plot to continue.  Extensive and thorough safeguards and redundancies have been put in place to ensure that should this happen, and there’s no way we can make it never happen, other scripting objects would be triggered to take over, allowing the mission to continue with only a minor – and maybe unnoticeable – break.  The lion’s share of the work done on the patch involved creating these backup systems.	
+It is believed that saving and loading the game at the precise right time in relation to the function of timed relay scripts would cause the relay to break and disallow the plot to continue.  Extensive and thorough safeguards and redundancies have been put in place to ensure that should this happen, and there’s no way we can make it never happen, other scripting objects would be triggered to take over, allowing the mission to continue with only a minor – and maybe unnoticeable – break.  The lion’s share of the work done on the patch involved creating these backup systems.
 
 • AI issues with broken patrols and the inability to move or flee where they should which were caused by the keychain have been resolved. This includes 1 AI on the top floor (executive), 2 on the 3rd (guards), 3 on the 2nd (2 guards, one executive), and 4 on the 1st (3 servants and 1 executive).*
 
-This was caused by a problem with the keychain – Once the player has a key, all the AIs who also have that key (and AIs need keys to open locked doors just like the player does) would find their patrol paths impossible to complete, because the keys would become no longer useable.  This is why many guards could be seen standing in place, eternally.  Multiple solutions were employed to solve these broken patrols on a case by case basis.  Many doors previously unlockable by the hotel service key are now only pickable.	
+This was caused by a problem with the keychain – Once the player has a key, all the AIs who also have that key (and AIs need keys to open locked doors just like the player does) would find their patrol paths impossible to complete, because the keys would become no longer useable.  This is why many guards could be seen standing in place, eternally.  Multiple solutions were employed to solve these broken patrols on a case by case basis.  Many doors previously unlockable by the hotel service key are now only pickable.
 
 • The Messenger will no longer drop the scroll case until after he is on the ground.
 
-This note is a spoiler.  Attacking Raputo’s messenger would cause him to drop his scroll case.  If the player then escaped without killing or knocking out the messenger, he would continue on his path until he eventually generated a new scroll case, and potentially a scroll inside, causing a duplicate.  Now the messenger will only drop the scroll case if he is killed or knocked out.	
+This note is a spoiler.  Attacking Raputo’s messenger would cause him to drop his scroll case.  If the player then escaped without killing or knocking out the messenger, he would continue on his path until he eventually generated a new scroll case, and potentially a scroll inside, causing a duplicate.  Now the messenger will only drop the scroll case if he is killed or knocked out.
 
 • Put M-NeverEfficient on execs before they go alert.  This will keep the alarm-ringers from ringing the alarm automatically every time you enter a certain area.
 
-Some players reported the alarm being sounded in distant parts of the casino when they simply crossed over a certain point, even if no AIs were present.  This is caused by the way AIs in the dark engine deactivate once they are outside of a certain range from the player.  It is possible for one of the alarm-ringing executives to go alert when the player is not nearby – by seeing a body for instance – but the player can then go out of range before the alarm ringer completes their action.  Then when the player returns to within range, they resume, ring the alarm, and the mission fails.  Distant AIs ringing the alarm because of discovered bodies can still happen, but it will never be delayed and then triggered in this way.	
+Some players reported the alarm being sounded in distant parts of the casino when they simply crossed over a certain point, even if no AIs were present.  This is caused by the way AIs in the dark engine deactivate once they are outside of a certain range from the player.  It is possible for one of the alarm-ringing executives to go alert when the player is not nearby – by seeing a body for instance – but the player can then go out of range before the alarm ringer completes their action.  Then when the player returns to within range, they resume, ring the alarm, and the mission fails.  Distant AIs ringing the alarm because of discovered bodies can still happen, but it will never be delayed and then triggered in this way.
 
 • The player's loot will no longer spontaniously vanish.  
 
-This bug was not present in the 1.0 release, but rather in one of the early patch builds.  I include it here because it is amusing.  It was caused by a “fix” to another bug – the loot purse of one of Raputo’s guards would sometimes linger out in the courtyard after that guard has left the premises.  The fix involved deleting the purse when the guard was deleted.  However, if the player had already taken the purse, it deleted their entire loot cache along with it.  Isn’t the dark engine fun?	
+This bug was not present in the 1.0 release, but rather in one of the early patch builds.  I include it here because it is amusing.  It was caused by a “fix” to another bug – the loot purse of one of Raputo’s guards would sometimes linger out in the courtyard after that guard has left the premises.  The fix involved deleting the purse when the guard was deleted.  However, if the player had already taken the purse, it deleted their entire loot cache along with it.  Isn’t the dark engine fun?
 
 
 Minor Fixes

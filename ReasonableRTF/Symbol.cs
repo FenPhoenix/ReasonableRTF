@@ -163,7 +163,7 @@ internal sealed class SymbolDict
 // Entry 42
         new Symbol("comment", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 79
-        new Symbol("row", 0, false, KeywordType.Character, '\n'),
+        new Symbol("row", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
 // Entry 28
         new Symbol("zwbo", 0, false, KeywordType.Character, '\x200B'),
         null, null,

@@ -1,25 +1,25 @@
 FM Information                                                                  
 Mission:	Off to Milhorn Manor (en)
-Im Anwesen der Lady Milhorn (de)	
-Author :	By JackIntheBox	
-Version:	Version 3.2 (2021 Newdark Remaster)	
+Im Anwesen der Lady Milhorn (de)
+Author :	By JackIntheBox
+Version:	Version 3.2 (2021 Newdark Remaster)
 Campaign :	The Elder Ones (en)
-Die Großen Alten (de)	
-Languages:	English, German	
+Die Großen Alten (de)
+Languages:	English, German
 Difficulties:	All
 General tips: 
  •	Choose lower difficulty for less puzzles and less backtracking. 
  •	Dont waste your rope arrows.
- •	Explore everything that can be explored, check every inch of the map, read all books for hints.	
-Length:	Long	
+ •	Explore everything that can be explored, check every inch of the map, read all books for hints.
+Length:	Long
 Loot:	3878 Gold + 850 Gems +1990 Goods = 6694 Total
 Loot Objects: 146
 Special Loot: 3
 Pickpocketing Opportunities: 6
-Secrets: 1	
-Ghosting:	Possible	
+Secrets: 1
+Ghosting:	Possible
 Ressources:	New objects, new textures, video briefing, new guards
-Please play with original ressources or only with Enhancement Pack, rather than HD mod, it was a lot of work to texturize the level and it is sad if  the style gets lost!	
+Please play with original ressources or only with Enhancement Pack, rather than HD mod, it was a lot of work to texturize the level and it is sad if  the style gets lost!
 Changes in the Remaster:	Features:
 ・	Automap
 ・	Newdark support + mission should work with the Enhancement Pack
@@ -36,7 +36,7 @@ Visual + Other:
 ・	Added some variance in the basement textures to aid orientation
 ・	Big improvement of the city and outside area
 ・	Many other minor fixes, improvements, and beautifications
-・	Retextured some areas to give it more a T1-feel	
+・	Retextured some areas to give it more a T1-feel
 Credits:	2010/11 Version
 Translation Help: 	
 SinisterShadow, Chiron, fibanocci
@@ -55,10 +55,10 @@ Also thanks to all people that ever helped me with Dromed and this Mission, i'm 
 
 
 
-	
+
 Disclaimer	Mission created 2010/2011 by JackInTheBox, 
 Newdark version in 2021
 
 
-Distribution of this Mission is allowed if it occurs without cost and the files stay intact. Use this file on your own risk. This level was not made by Looking Glass Studios or Eidos Interactive and is also not supported by them. 	
+Distribution of this Mission is allowed if it occurs without cost and the files stay intact. Use this file on your own risk. This level was not made by Looking Glass Studios or Eidos Interactive and is also not supported by them. 
 

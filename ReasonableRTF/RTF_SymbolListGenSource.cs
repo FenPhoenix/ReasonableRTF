@@ -156,7 +156,7 @@ public static class RTF_SymbolListGenSource
 
         #region Quick table hacks
 
-        new Symbol("row", 0, false, KeywordType.Character, '\n'),
+        new Symbol("row", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
         new Symbol("cell", 0, false, KeywordType.Character, '\t'),
 
         #endregion

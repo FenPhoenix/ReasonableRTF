@@ -15,6 +15,7 @@ internal static class Enums
         HexEncodedChar,
         SkipNumberOfBytes,
         ColorTable,
+        CellRowEnd,
     }
 
     internal enum KeywordType : byte

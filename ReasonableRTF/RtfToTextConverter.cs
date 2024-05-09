@@ -9,9 +9,6 @@ Notes and miscellaneous:
 -RichTextBox and LibreOffice both remove nulls.
 
 TODO: Try to make API good like with granularity levels and whatever
-TODO: RTF files to look at:
-__JackInTheBox-OfftoMilhornMa(2)__Dokument_rtf_to_plaintext.txt
-Don't put cell spacing char at end of row, only between cells
 */
 
 using System.Globalization;
@@ -1409,6 +1406,16 @@ public sealed class RtfToTextConverter
                 if (FontEntries.Top != null && GroupStack.CurrentInFontTable)
                 {
                     FontEntries.Top.CodePage = param >= 0 ? param : HeaderCodePage;
+                }
+                break;
+            case SpecialType.CellRowEnd:
+                // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
+                if (GroupStack.CurrentProperties[(int)Property.Hidden] == 0)
+                {
+                    if (_plainText.Count > 0 && _plainText[_plainText.Count - 1] == '\t')
+                    {
+                        _plainText[_plainText.Count - 1] = '\n';
+                    }
                 }
                 break;
         }
