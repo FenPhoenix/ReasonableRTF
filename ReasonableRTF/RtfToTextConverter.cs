@@ -76,30 +76,115 @@ public enum LineBreakStyle
 public sealed class RtfToTextConverterOptions
 {
     /// <summary>
+    /// Gets or sets whether to swap the uppercase and lowercase Greek phi characters in the Symbol font to Unicode
+    /// translation table.
+    /// <para/>
     /// The Windows Symbol font has these two characters swapped from their nominal positions.
-    /// You can disable this by setting this property to <see langword="false"/>.<br/><br/>
+    /// You can disable this by setting this property to <see langword="false"/>.
+    /// <para/>
     /// The default value is <see langword="true"/>.
     /// </summary>
     public bool SwapUppercaseAndLowercasePhiSymbols { get; set; } = true;
 
     /// <summary>
-    /// The character at 0xA0 in the Symbol font is nominally the Euro sign, but in older versions it may have
-    /// been a numeric space or undefined.<br/><br/>
+    /// Gets or sets the character at index 0xA0 (160) in the Symbol font to Unicode translation table.
+    /// This character is nominally the Euro sign, but in older versions of the Symbol font it may have been a
+    /// numeric space or undefined.
+    /// <para/>
     /// The default value is <see cref="SymbolFontA0Char.EuroSign"/>.
     /// </summary>
     public SymbolFontA0Char SymbolFontA0Char { get; set; } = SymbolFontA0Char.EuroSign;
 
     /// <summary>
-    /// Sets the linebreak style (CRLF or LF) for the converted plain text.<br/><br/>
+    /// Gets or sets the linebreak style (CRLF or LF) for the converted plain text.
+    /// <para/>
     /// The default value is <see cref="LineBreakStyle.CRLF"/>.
     /// </summary>
     public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
+    /// <summary>
+    /// Gets or sets the initial capacity of the plain text buffer, which the final output text is created from.
+    /// <para/>
+    /// The default value is 65,536 characters.
+    /// </summary>
+    public int PlainTextBufferInitialCapacity { get; set; } = ByteSize.KB * 64;
+
+    /// <summary>
+    /// Gets or sets the initial capacity of the internal font entry list.
+    /// <para/>
+    /// The default value is 150.
+    /// </summary>
+    public int FontEntryListInitialCapacity { get; set; } = 150;
+
+    /// <summary>
+    /// Gets or sets the initial capacity of the internal hex-encoded character buffer.
+    /// <para/>
+    /// The default value is 32.
+    /// </summary>
+    public int HexCharacterBufferInitialCapacity { get; set; } = 32;
+
+    /// <summary>
+    /// Gets or sets the initial capacity of the internal Unicode character buffer.
+    /// <para/>
+    /// The default value is 32.
+    /// </summary>
+    public int UnicodeCharacterBufferInitialCapacity { get; set; } = 32;
+
+    /// <summary>
+    /// Gets or sets the initial capacity of the internal symbol font name character buffer.
+    /// <para/>
+    /// The default value is 32.
+    /// </summary>
+    public int SymbolFontNameBufferInitialCapacity { get; set; } = 32;
+
+    /// <summary>
+    /// Gets or sets the initial capacity of the internal encoding cache.
+    /// <para/>
+    /// The default value is 32.
+    /// </summary>
+    public int EncodingCacheInitialCapacity { get; set; } = 32;
+
     internal static RtfToTextConverterOptions Default => new();
+
+    internal void CopyTo(RtfToTextConverterOptions dest)
+    {
+        dest.SwapUppercaseAndLowercasePhiSymbols = SwapUppercaseAndLowercasePhiSymbols;
+        dest.SymbolFontA0Char = SymbolFontA0Char;
+        dest.LineBreakStyle = LineBreakStyle;
+        dest.PlainTextBufferInitialCapacity = PlainTextBufferInitialCapacity;
+        dest.FontEntryListInitialCapacity = FontEntryListInitialCapacity;
+        dest.HexCharacterBufferInitialCapacity = HexCharacterBufferInitialCapacity;
+        dest.UnicodeCharacterBufferInitialCapacity = UnicodeCharacterBufferInitialCapacity;
+        dest.SymbolFontNameBufferInitialCapacity = SymbolFontNameBufferInitialCapacity;
+        dest.EncodingCacheInitialCapacity = EncodingCacheInitialCapacity;
+    }
 }
 
 public sealed class RtfToTextConverter
 {
+    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    {
+        src.CopyTo(dest);
+
+        if (dest.SwapUppercaseAndLowercasePhiSymbols)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
+        }
+        else
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
+        }
+
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
+        {
+            SymbolFontA0Char.EuroSign => '\x20AC',
+            SymbolFontA0Char.NumericSpace => '\x2007',
+            _ => _unicodeUnknown_Char,
+        };
+    }
+
     public RtfToTextConverter() : this(RtfToTextConverterOptions.Default)
     {
     }
@@ -125,12 +210,18 @@ public sealed class RtfToTextConverter
         ResetHeader();
 
         SetOptions(options, Options);
+
+        _plainText = new ListFast<char>(options.PlainTextBufferInitialCapacity);
+        FontEntries = new FontDictionary(options.FontEntryListInitialCapacity);
+        _hexBuffer = new ListFast<byte>(options.HexCharacterBufferInitialCapacity);
+        _unicodeBuffer = new ListFast<char>(options.UnicodeCharacterBufferInitialCapacity);
+        _symbolFontNameBuffer = new ListFast<char>(options.SymbolFontNameBufferInitialCapacity);
+        _encodings = new Dictionary<int, Encoding>(options.EncodingCacheInitialCapacity);
     }
 
     private readonly char[] Keyword = new char[KeywordMaxLen];
     private readonly GroupStack GroupStack = new();
-    // TODO: Un-hardcode this 150
-    private readonly FontDictionary FontEntries = new(150);
+    private readonly FontDictionary FontEntries;
 
     #region Constants
 
@@ -1799,9 +1890,7 @@ public sealed class RtfToTextConverter
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
-    // Highest measured was 56192
-    // TODO: Consider removing all hardcoded capacities etc.
-    private readonly ListFast<char> _plainText = new(ByteSize.KB * 60);
+    private readonly ListFast<char> _plainText;
 
     private const int _fldinstSymbolNumberMaxLen = 10;
     private readonly ListFast<char> _fldinstSymbolNumber = new(_fldinstSymbolNumberMaxLen);
@@ -1809,13 +1898,11 @@ public sealed class RtfToTextConverter
     private const int _fldinstSymbolFontNameMaxLen = 9;
     private readonly ListFast<char> _fldinstSymbolFontName = new(_fldinstSymbolFontNameMaxLen);
 
-    // Highest measured was 17
-    private readonly ListFast<byte> _hexBuffer = new(20);
+    private readonly ListFast<byte> _hexBuffer;
 
-    // Highest measured was 13
-    private readonly ListFast<char> _unicodeBuffer = new(20);
+    private readonly ListFast<char> _unicodeBuffer;
 
-    private readonly ListFast<char> _symbolFontNameBuffer = new(20);
+    private readonly ListFast<char> _symbolFontNameBuffer;
 
     private bool _inHandleFontTable;
 
@@ -1832,7 +1919,7 @@ public sealed class RtfToTextConverter
 
     // DON'T reset this. We want to build up a dictionary of encodings and amortize it over the entire list
     // of RTF files.
-    private readonly Dictionary<int, Encoding> _encodings = new(31);
+    private readonly Dictionary<int, Encoding> _encodings;
 
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
     private readonly Encoding _windows1252Encoding;
@@ -1914,31 +2001,6 @@ public sealed class RtfToTextConverter
     }
 
     #endregion
-
-    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
-    {
-        dest.SwapUppercaseAndLowercasePhiSymbols = src.SwapUppercaseAndLowercasePhiSymbols;
-        dest.SymbolFontA0Char = src.SymbolFontA0Char;
-        dest.LineBreakStyle = src.LineBreakStyle;
-
-        if (dest.SwapUppercaseAndLowercasePhiSymbols)
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
-        }
-        else
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
-        }
-
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
-        {
-            SymbolFontA0Char.EuroSign => '\x20AC',
-            SymbolFontA0Char.NumericSpace => '\x2007',
-            _ => _unicodeUnknown_Char,
-        };
-    }
 
     private void Reset(in ByteArrayWithLength rtfBytes)
     {
