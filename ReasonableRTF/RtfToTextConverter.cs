@@ -56,6 +56,46 @@ public enum RtfError : byte
     AbortedForSafety,
 }
 
+[PublicAPI]
+public enum SymbolFontA0Char
+{
+    EuroSign,
+    NumericSpace,
+    Unassigned,
+}
+
+[PublicAPI]
+public sealed class RtfToTextConverterOptions
+{
+    /// <summary>
+    /// The Windows Symbol font has these two characters swapped from their nominal positions.
+    /// You can disable this by setting this property to <see langword="false"/>.<br/><br/>
+    /// The default value is <see langword="true"/>.
+    /// </summary>
+    public bool SwapUppercaseAndLowercasePhiSymbols { get; private set; }
+
+    /// <summary>
+    /// The character at 0xA0 in the Symbol font is nominally the Euro sign, but in older versions it may have
+    /// been a numeric space or undefined.<br/><br/>
+    /// The default value is <see cref="SymbolFontA0Char.EuroSign"/>.
+    /// </summary>
+    public SymbolFontA0Char SymbolFontA0Char { get; private set; }
+
+    public RtfToTextConverterOptions()
+    {
+        SwapUppercaseAndLowercasePhiSymbols = true;
+        SymbolFontA0Char = SymbolFontA0Char.EuroSign;
+    }
+
+    public RtfToTextConverterOptions(bool swapUppercaseAndLowercasePhiSymbols, SymbolFontA0Char symbolFontA0Char)
+    {
+        SwapUppercaseAndLowercasePhiSymbols = swapUppercaseAndLowercasePhiSymbols;
+        SymbolFontA0Char = symbolFontA0Char;
+    }
+
+    public static readonly RtfToTextConverterOptions Default = new();
+}
+
 public sealed class RtfToTextConverter
 {
     public RtfToTextConverter()
@@ -346,14 +386,14 @@ public sealed class RtfToTextConverter
             0x03B4,
             0x03B5,
 
-            // Lowercase phi, but capital phi in Windows Symbol
+            // Nominally lowercase phi (0x3C6), but is uppercase phi in Windows Symbol
             0x03C6,
 
             0x03B3,
             0x03B7,
             0x03B9,
 
-            // Capital phi, but lowercase phi in Windows Symbol
+            // Nominally uppercase phi (0x3D5), but is lowercase phi in Windows Symbol
             0x03D5,
 
             0x03BA,
@@ -1809,13 +1849,42 @@ public sealed class RtfToTextConverter
     public (RtfError Result, string Text)
     Convert(byte[] source)
     {
-        return Convert(source, source.Length);
+        return Convert(source, source.Length, RtfToTextConverterOptions.Default);
+    }
+
+    [PublicAPI]
+    public (RtfError Result, string Text)
+        Convert(byte[] source, RtfToTextConverterOptions options)
+    {
+        return Convert(source, source.Length, options);
     }
 
     [PublicAPI]
     public (RtfError Result, string Text)
     Convert(byte[] source, int length)
     {
+        return Convert(source, length, RtfToTextConverterOptions.Default);
+    }
+
+    [PublicAPI]
+    public (RtfError Result, string Text)
+    Convert(byte[] source, int length, RtfToTextConverterOptions options)
+    {
+        if (options.SwapUppercaseAndLowercasePhiSymbols)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][70] = 0x03D5;
+        }
+
+        if (options.SymbolFontA0Char != SymbolFontA0Char.EuroSign)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][128] = options.SymbolFontA0Char switch
+            {
+                SymbolFontA0Char.NumericSpace => '\x2007',
+                _ => _unicodeUnknown_Char,
+            };
+        }
+
         ByteArrayWithLength rtfBytes = new(source, length);
 
         Reset(rtfBytes);
