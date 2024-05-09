@@ -64,6 +64,7 @@ public enum SymbolFontA0Char
     Unassigned,
 }
 
+// TODO: This is janky, maybe just let people use a custom symbol list? On the other hand this is way more convenient...
 [PublicAPI]
 public sealed class RtfToTextConverterOptions
 {
@@ -1872,18 +1873,21 @@ public sealed class RtfToTextConverter
     {
         if (options.SwapUppercaseAndLowercasePhiSymbols)
         {
+            _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][70] = 0x03C6;
+        }
+        else
+        {
             _symbolFontTables[(int)SymbolFont.Symbol][64] = 0x03C6;
             _symbolFontTables[(int)SymbolFont.Symbol][70] = 0x03D5;
         }
 
-        if (options.SymbolFontA0Char != SymbolFontA0Char.EuroSign)
+        _symbolFontTables[(int)SymbolFont.Symbol][128] = options.SymbolFontA0Char switch
         {
-            _symbolFontTables[(int)SymbolFont.Symbol][128] = options.SymbolFontA0Char switch
-            {
-                SymbolFontA0Char.NumericSpace => '\x2007',
-                _ => _unicodeUnknown_Char,
-            };
-        }
+            SymbolFontA0Char.EuroSign => '\x20AC',
+            SymbolFontA0Char.NumericSpace => '\x2007',
+            _ => _unicodeUnknown_Char,
+        };
 
         ByteArrayWithLength rtfBytes = new(source, length);
 
