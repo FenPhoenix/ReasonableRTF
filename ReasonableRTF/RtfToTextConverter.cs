@@ -244,7 +244,9 @@ public sealed class RtfToTextConverter
 #pragma warning restore IDE0002
 #endif
 
-        Options = options;
+        // Don't assign the passed-in options object directly! The user could have a reference to it and depend
+        // on it not changing. Deep copy it only!
+        _options = RtfToTextConverterOptions.Default;
 
         _windows1250Encoding = Encoding.GetEncoding(1250);
         _windows1251Encoding = Encoding.GetEncoding(1251);
@@ -255,7 +257,7 @@ public sealed class RtfToTextConverter
 
         ResetHeader();
 
-        SetOptions(options, Options);
+        SetOptions(options, _options);
 
         _plainText = new ListFast<char>(options.PlainTextBufferInitialCapacity);
         FontEntries = new FontDictionary(options.FontEntryListInitialCapacity);
@@ -1993,37 +1995,63 @@ public sealed class RtfToTextConverter
 
     // TODO: Add xml docs to all public APIs
 
-    [PublicAPI]
-    public RtfToTextConverterOptions Options { get; }
+    private readonly RtfToTextConverterOptions _options;
 
+    /// <summary>
+    /// Converts a byte array of RTF data into plain text.
+    /// </summary>
+    /// <param name="source">The byte array containing the RTF to convert.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
-    public RtfResult
-    Convert(byte[] source)
+    public RtfResult Convert(byte[] source)
     {
         return Convert(source, source.Length, null);
     }
 
+    /// <summary>
+    /// Converts a byte array of RTF data into plain text.
+    /// </summary>
+    /// <param name="source">The byte array containing the RTF to convert.</param>
+    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
-    public RtfResult
-    Convert(byte[] source, RtfToTextConverterOptions options)
+    public RtfResult Convert(byte[] source, RtfToTextConverterOptions options)
     {
         return Convert(source, source.Length, options);
     }
 
+    /// <summary>
+    /// Converts a byte array of RTF data into plain text.
+    /// </summary>
+    /// <param name="source">The byte array containing the RTF to convert.</param>
+    /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
-    public RtfResult
-    Convert(byte[] source, int length)
+    public RtfResult Convert(byte[] source, int length)
     {
         return Convert(source, length, null);
     }
 
+    /// <summary>
+    /// Converts a byte array of RTF data into plain text.
+    /// </summary>
+    /// <param name="source">The byte array containing the RTF to convert.</param>
+    /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
+    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"/>
     [PublicAPI]
-    public RtfResult
-    Convert(byte[] source, int length, RtfToTextConverterOptions? options)
+    public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions? options)
     {
+        if (length > source.Length)
+        {
+            ThrowHelper.ArgumentException(
+                nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
+        }
+
         if (options != null)
         {
-            SetOptions(options, Options);
+            SetOptions(options, _options);
         }
 
         ByteArrayWithLength rtfBytes = new(source, length);
@@ -2528,7 +2556,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void AddLineBreak()
     {
-        if (Options.LineBreakStyle == LineBreakStyle.CRLF)
+        if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
             _plainText.Add('\r');
         }

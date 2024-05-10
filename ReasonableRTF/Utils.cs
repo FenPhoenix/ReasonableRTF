@@ -2,8 +2,6 @@
 
 namespace ReasonableRTF;
 
-// TODO(Utils): Maybe move all this stuff into the main parser file?
-
 internal static class Utils
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

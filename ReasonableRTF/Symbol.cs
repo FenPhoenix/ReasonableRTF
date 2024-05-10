@@ -321,7 +321,6 @@ internal sealed class SymbolDict
         where we don't need to, is the point of this whole soliloquy.
 
         TODO: Handle bulleted/numbered lists properly
-        TODO: Should we support the math stuff...?
         TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
         TODO: Remove all assumptions about Windows-1252
         TODO: We could support footnotes:
