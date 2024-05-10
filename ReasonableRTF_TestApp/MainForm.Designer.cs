@@ -303,6 +303,7 @@ sealed partial class MainForm
         Name = "MainForm";
         Text = "ReasonableRTF Test App";
         FormClosing += MainForm_FormClosing;
+        Shown += MainForm_Shown;
         ConvertAndWriteToDiskGroupBox.ResumeLayout(false);
         ConvertOnly_Full_GroupBox.ResumeLayout(false);
         ConverOnly_Small_GroupBox.ResumeLayout(false);

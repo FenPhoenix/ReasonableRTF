@@ -46,6 +46,11 @@ public sealed partial class MainForm : Form
         LoadConfig();
     }
 
+    private void MainForm_Shown(object sender, EventArgs e)
+    {
+        ConvertOnlyWithCustomButton.Focus();
+    }
+
     private void LoadConfig()
     {
         try
@@ -57,7 +62,7 @@ public sealed partial class MainForm : Form
                 string lineT = lines[i].Trim();
                 if (lineT.StartsWith("DataDir=", StringComparison.Ordinal))
                 {
-                    DataDirTextBox.Text = lineT[("DataDir=".Length)..];
+                    DataDirTextBox.Text = lineT["DataDir=".Length..];
                 }
             }
             return;
