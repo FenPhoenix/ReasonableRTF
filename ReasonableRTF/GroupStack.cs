@@ -3,7 +3,6 @@ using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
-// TODO: Inline all this into the main class?
 internal sealed class GroupStack
 {
     // SOA and removal of bounds checking through fixed-sized buffers improves perf

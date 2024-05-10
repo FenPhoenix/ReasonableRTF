@@ -323,7 +323,7 @@ internal sealed class SymbolDict
         TODO: Handle bulleted/numbered lists properly
         TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
         TODO: Remove all assumptions about Windows-1252
-        TODO: We could support footnotes:
+        NOTE(Footnotes):
         RichTextBox doesn't convert them at all.
         LibreOffice adds citation numbers but doesn't add the footnotes themselves.
         */
