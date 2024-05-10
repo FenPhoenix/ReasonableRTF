@@ -110,61 +110,11 @@ public sealed class RtfToTextConverterOptions
     /// </summary>
     public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
-    // TODO: Do we want to set these initial capacities in SetOptions() every time? (we're not currently)
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the plain text buffer, from which the final output text is created.
-    /// <para/>
-    /// The default value is 65,536 characters.
-    /// </summary>
-    public int PlainTextBufferInitialCapacity { get; set; } = ByteSize.KB * 64;
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the internal font entry list.
-    /// <para/>
-    /// The default value is 150.
-    /// </summary>
-    public int FontEntryListInitialCapacity { get; set; } = 150;
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the internal hex-encoded character buffer.
-    /// <para/>
-    /// The default value is 32.
-    /// </summary>
-    public int HexCharacterBufferInitialCapacity { get; set; } = 32;
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the internal Unicode character buffer.
-    /// <para/>
-    /// The default value is 32.
-    /// </summary>
-    public int UnicodeCharacterBufferInitialCapacity { get; set; } = 32;
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the internal symbol font name character buffer.
-    /// <para/>
-    /// The default value is 32.
-    /// </summary>
-    public int SymbolFontNameBufferInitialCapacity { get; set; } = 32;
-
-    /// <summary>
-    /// Gets or sets the initial capacity of the internal encoding cache.
-    /// <para/>
-    /// The default value is 32.
-    /// </summary>
-    public int EncodingCacheInitialCapacity { get; set; } = 32;
-
     internal void CopyTo(RtfToTextConverterOptions dest)
     {
         dest.SwapUppercaseAndLowercasePhiSymbols = SwapUppercaseAndLowercasePhiSymbols;
         dest.SymbolFontA0Char = SymbolFontA0Char;
         dest.LineBreakStyle = LineBreakStyle;
-        dest.PlainTextBufferInitialCapacity = PlainTextBufferInitialCapacity;
-        dest.FontEntryListInitialCapacity = FontEntryListInitialCapacity;
-        dest.HexCharacterBufferInitialCapacity = HexCharacterBufferInitialCapacity;
-        dest.UnicodeCharacterBufferInitialCapacity = UnicodeCharacterBufferInitialCapacity;
-        dest.SymbolFontNameBufferInitialCapacity = SymbolFontNameBufferInitialCapacity;
-        dest.EncodingCacheInitialCapacity = EncodingCacheInitialCapacity;
     }
 }
 
@@ -268,12 +218,12 @@ public sealed class RtfToTextConverter
 
         SetOptions(options, _options);
 
-        _plainText = new ListFast<char>(options.PlainTextBufferInitialCapacity);
-        _fontEntries = new FontDictionary(options.FontEntryListInitialCapacity);
-        _hexBuffer = new ListFast<byte>(options.HexCharacterBufferInitialCapacity);
-        _unicodeBuffer = new ListFast<char>(options.UnicodeCharacterBufferInitialCapacity);
-        _symbolFontNameBuffer = new ListFast<char>(options.SymbolFontNameBufferInitialCapacity);
-        _encodings = new Dictionary<int, Encoding>(options.EncodingCacheInitialCapacity);
+        _plainText = new ListFast<char>(4096);
+        _fontEntries = new FontDictionary(32);
+        _hexBuffer = new ListFast<byte>(32);
+        _unicodeBuffer = new ListFast<char>(32);
+        _symbolFontNameBuffer = new ListFast<char>(32);
+        _encodings = new Dictionary<int, Encoding>(32);
     }
 
     private readonly byte[] _rtfHeaderBytes =
