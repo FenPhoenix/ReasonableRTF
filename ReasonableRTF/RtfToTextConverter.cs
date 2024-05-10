@@ -2918,6 +2918,14 @@ public sealed class RtfToTextConverter
     and skip the rest of the group.
 
     TODO: Test fldinst SYMBOL possibilities with a fine-tooth comb and make sure we're correct for all!
+
+    TODO: Field instruction research:
+    "SYMBOL (num) \\a":
+    -Doesn't support 0xF000-0xF0FF stuff
+    -Supports dec or hex (single-byte)
+    -Doesn't support negative-and-add-65536
+    -If the current font is a symbol font, it displays in a symbol font and so still needs converting
+    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     */
     private RtfError HandleFieldInstruction()
     {
