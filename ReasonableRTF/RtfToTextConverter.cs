@@ -27,6 +27,10 @@ public enum RtfError : byte
     /// </summary>
     OK,
     /// <summary>
+    /// The file did not have a valid rtf header.
+    /// </summary>
+    NotAnRtfFile,
+    /// <summary>
     /// Unmatched '}'.
     /// </summary>
     StackUnderflow,
@@ -54,6 +58,10 @@ public enum RtfError : byte
     /// The rtf is malformed in such a way that it might be unsafe to continue parsing it (infinite loops, stack overflows, etc.)
     /// </summary>
     AbortedForSafety,
+    /// <summary>
+    /// An unexpected error occurred.
+    /// </summary>
+    UnexpectedError,
 }
 
 [PublicAPI]
@@ -160,6 +168,44 @@ public sealed class RtfToTextConverterOptions
     }
 }
 
+[PublicAPI]
+public readonly struct RtfResult(string text, RtfError error, int bytePositionOfError, Exception? exception)
+{
+    /// <summary>
+    /// The converted plain text.
+    /// </summary>
+    public string Text { get; } = text;
+
+    /// <summary>
+    /// The error code.
+    /// </summary>
+    public RtfError Error { get; } = error;
+
+    /// <summary>
+    /// The approximate position in the data stream where the error occurred, or -1 if no error.
+    /// </summary>
+    public int BytePositionOfError { get; } = bytePositionOfError;
+
+    /// <summary>
+    /// The caught exception, or <see langword="null"/> if no exception occurred.
+    /// </summary>
+    public Exception? Exception { get; } = exception;
+
+    public override string ToString()
+    {
+        string error = Error == RtfError.OK ? "Success" : "Error: " + Error;
+        string lastPosition =
+            Error == RtfError.OK
+                ? ""
+                : "Byte position of error (approximate): " + BytePositionOfError.ToString(CultureInfo.InvariantCulture) + Environment.NewLine;
+        return "RTF to plaintext conversion result:" + Environment.NewLine +
+               "-----------------------------------" + Environment.NewLine +
+               error + Environment.NewLine +
+               lastPosition +
+               "Exception: " + (Exception != null ? Environment.NewLine + Exception : "none");
+    }
+}
+
 public sealed class RtfToTextConverter
 {
     private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
@@ -218,6 +264,16 @@ public sealed class RtfToTextConverter
         _symbolFontNameBuffer = new ListFast<char>(options.SymbolFontNameBufferInitialCapacity);
         _encodings = new Dictionary<int, Encoding>(options.EncodingCacheInitialCapacity);
     }
+
+    private readonly byte[] _rtfHeaderBytes =
+    {
+        (byte)'{',
+        (byte)'\\',
+        (byte)'r',
+        (byte)'t',
+        (byte)'f',
+        (byte)'1',
+    };
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly char[] Keyword = new char[KeywordMaxLen + 1];
@@ -1941,28 +1997,28 @@ public sealed class RtfToTextConverter
     public RtfToTextConverterOptions Options { get; }
 
     [PublicAPI]
-    public (RtfError Result, string Text)
+    public RtfResult
     Convert(byte[] source)
     {
         return Convert(source, source.Length, null);
     }
 
     [PublicAPI]
-    public (RtfError Result, string Text)
+    public RtfResult
     Convert(byte[] source, RtfToTextConverterOptions options)
     {
         return Convert(source, source.Length, options);
     }
 
     [PublicAPI]
-    public (RtfError Result, string Text)
+    public RtfResult
     Convert(byte[] source, int length)
     {
         return Convert(source, length, null);
     }
 
     [PublicAPI]
-    public (RtfError Result, string Text)
+    public RtfResult
     Convert(byte[] source, int length, RtfToTextConverterOptions? options)
     {
         if (options != null)
@@ -1974,34 +2030,74 @@ public sealed class RtfToTextConverter
 
         Reset(rtfBytes);
 
-        // TODO: Address all ifdefs and see if we want to add the symbols and whatnot
-#if ReleaseRTFTest || DebugRTFTest
-        RtfError error = ParseRtf();
-        return error == RtfError.OK ? (true, CreateStringFromChars(_plainText)) : throw new System.Exception("RTF converter error: " + error);
-        //return error == Error.OK ? (true, "") : throw new Exception("RTF converter error: " + error);
-#else
         try
         {
+            // The user may already have validated, but this check is ultra-fast so we can afford to do it
+            // without complicating the logic with a user option and all.
+            if (!IsValidRtfFile())
+            {
+                return new RtfResult("", RtfError.NotAnRtfFile, 0, null);
+            }
+
+            // We've validated the rtf header, so let's skip past it
+            CurrentPos = 6;
+            GroupStack.DeepCopyToNext();
+            _groupCount++;
+
             RtfError error = ParseRtf();
-            return error == RtfError.OK ? (RtfError.OK, CreateReturnStringFromChars(_plainText)) : (error, "");
+            return error == RtfError.OK
+                ? new RtfResult(CreateReturnStringFromChars(_plainText), RtfError.OK, -1, null)
+                : new RtfResult("", error, CurrentPos, null);
         }
-        catch (IndexOutOfRangeException)
+        catch (IndexOutOfRangeException ex)
         {
-            return (RtfError.UnexpectedEndOfFile, "");
+            return new RtfResult("", RtfError.UnexpectedEndOfFile, CurrentPos, ex);
         }
-        // TODO: I guess we actually want to throw instead of have error enums to be idiomatic and to provide more info on unexpected errors
-        catch
+        catch (Exception ex)
         {
-            return (RtfError.UnexpectedEndOfFile, "");
+            return new RtfResult("", RtfError.UnexpectedError, CurrentPos, ex);
         }
         finally
         {
             _rtfBytes = ByteArrayWithLength.Empty();
         }
-#endif
     }
 
     #endregion
+
+    private bool IsValidRtfFile()
+    {
+        switch (_rtfBytes.Length)
+        {
+            case >= 8:
+            {
+                const ulong rtfHeaderMask = 0x00_00_FF_FF_FF_FF_FF_FF;
+                const ulong rtfHeaderAsULong = 0x00_00_31_66_74_72_5C_7B;
+
+                ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[0]);
+                if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
+                {
+                    return false;
+                }
+                break;
+            }
+            case >= 6:
+            {
+                for (int i = 0; i < _rtfHeaderBytes.Length; i++)
+                {
+                    if (_rtfBytes.Array[i] != _rtfHeaderBytes[i])
+                    {
+                        return false;
+                    }
+                }
+                break;
+            }
+            default:
+                return false;
+        }
+
+        return true;
+    }
 
     private void Reset(in ByteArrayWithLength rtfBytes)
     {

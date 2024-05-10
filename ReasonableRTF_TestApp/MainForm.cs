@@ -250,6 +250,7 @@ public sealed partial class MainForm : Form
 
         const string file =
                 //"1mil_CinderNotes__CinderNotes.rtf";
+                //"param_too_long.rtf"
                 "2000-12-30_Uneaffaireenor__Readme.rtf"
             ;
         SourceSet sourceSet = SourceSet.Full;
@@ -259,14 +260,15 @@ public sealed partial class MainForm : Form
         using var fs = File.OpenRead(finalFile);
         byte[] array = new byte[fs.Length];
         fs.ReadExactly(array, 0, (int)fs.Length);
-        (_, string text) = rtfConverter.Convert(array);
+        RtfResult result = rtfConverter.Convert(array);
+        Trace.WriteLine(result.ToString());
         if (write)
         {
             string outputDir = sourceSet == SourceSet.ValidityTest
                 ? _rtfValidityTestOutputCustomDir
                 : _outputCustomDir;
 
-            WritePlaintextFile(finalFile, text, outputDir, sourceSet);
+            WritePlaintextFile(finalFile, result.Text, outputDir, sourceSet);
         }
     }
 
@@ -320,8 +322,8 @@ public sealed partial class MainForm : Form
                 string f = rtfFiles[i];
                 Trace.WriteLine(f);
                 byte[] array = byteArrays[i];
-                (_, string text) = rtfConverter.Convert(array);
-                WritePlaintextFile(f, text, _outputCustomDir, SourceSet.Full);
+                RtfResult result = rtfConverter.Convert(array);
+                WritePlaintextFile(f, result.Text, _outputCustomDir, SourceSet.Full);
             }
         }
     }
@@ -377,8 +379,8 @@ public sealed partial class MainForm : Form
                 string f = rtfFiles[i];
                 Trace.WriteLine(f);
                 byte[] array = byteArrays[i];
-                (_, string text) = rtfConverter.Convert(array);
-                WritePlaintextFile(f, text, _rtfValidityTestOutputCustomDir, SourceSet.ValidityTest);
+                RtfResult result = rtfConverter.Convert(array);
+                WritePlaintextFile(f, result.Text, _rtfValidityTestOutputCustomDir, SourceSet.ValidityTest);
             }
         }
     }
