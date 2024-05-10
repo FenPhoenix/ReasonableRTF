@@ -2916,6 +2916,8 @@ public sealed class RtfToTextConverter
     unexpected. Otherwise, we only want either \\f, \\a, \\j, or \\u. The others we ignore. Once we've found
     what we need, looped through six params and not found what we need, or reached a separator char, we quit
     and skip the rest of the group.
+
+    TODO: Test fldinst SYMBOL possibilities with a fine-tooth comb and make sure we're correct for all!
     */
     private RtfError HandleFieldInstruction()
     {
@@ -3027,9 +3029,6 @@ public sealed class RtfToTextConverter
 
         param = BranchlessConditionalNegate(param, negateNum);
 
-        // TODO: Do we need to handle 0xF020-0xF0FF type stuff and negative values for field instructions?
-        NormalizeUnicodePoint(param, out uint codePoint);
-
         if (ch != ' ') return RewindAndSkipGroup();
 
         const int maxParams = 6;
@@ -3053,6 +3052,7 @@ public sealed class RtfToTextConverter
             // "Interprets text in field-argument as the value of an ANSI character."
             if (ch == 'a')
             {
+                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
                 finalChars = GetCharFromCodePage(_windows1252, codePoint);
                 break;
             }
@@ -3064,11 +3064,13 @@ public sealed class RtfToTextConverter
             */
             else if (ch == 'j')
             {
+                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
                 finalChars = GetCharFromCodePage(_shiftJisWin, codePoint);
                 break;
             }
             else if (ch == 'u')
             {
+                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
                 ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
                 if (chars != null)
                 {
@@ -3101,6 +3103,7 @@ public sealed class RtfToTextConverter
                 ch = (char)_rtfBytes[_currentPos++];
                 if (IsSeparatorChar(ch))
                 {
+                    NormalizeUnicodePoint_HandleSymbolCharRange(param, out uint codePoint);
                     finalChars = GetCharFromCodePage(useCurrentGroupCodePage, codePoint);
                     break;
                 }
@@ -3109,6 +3112,7 @@ public sealed class RtfToTextConverter
                     ch = (char)_rtfBytes[_currentPos++];
                     if (ch != '\"')
                     {
+                        NormalizeUnicodePoint_HandleSymbolCharRange(param, out uint codePoint);
                         finalChars = GetCharFromCodePage(useCurrentGroupCodePage, codePoint);
                         break;
                     }
@@ -3130,10 +3134,13 @@ public sealed class RtfToTextConverter
                         char[] symbolChars = _symbolFontCharsArrays[symbolFontI];
                         uint[] symbolFontTable = _symbolFontTables[symbolFontI];
 
-                        if (SeqEqual(_fldinstSymbolFontName, symbolChars) &&
-                            !GetCharFromConversionList_UInt(codePoint, symbolFontTable, out finalChars))
+                        if (SeqEqual(_fldinstSymbolFontName, symbolChars))
                         {
-                            return RewindAndSkipGroup();
+                            NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
+                            if (!GetCharFromConversionList_UInt(codePoint, symbolFontTable, out finalChars))
+                            {
+                                return RewindAndSkipGroup();
+                            }
                         }
                     }
                 }
@@ -3467,7 +3474,7 @@ public sealed class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static void NormalizeUnicodePoint(int codePoint, out uint returnCodePoint)
+    private static void NormalizeUnicodePoint_FieldInstruction(int codePoint, out uint returnCodePoint)
     {
         // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
         // value.
@@ -3482,6 +3489,11 @@ public sealed class RtfToTextConverter
         }
 
         returnCodePoint = (uint)codePoint;
+
+        if (returnCodePoint - 0xF020 <= 0xF0FF - 0xF020)
+        {
+            returnCodePoint -= 0xF000;
+        }
     }
 
     /// <summary>

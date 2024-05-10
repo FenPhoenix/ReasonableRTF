@@ -1,0 +1,220 @@
+=============================================================
+Title		The Burrick's Head Inn v2.0
+Author		Yandros (Russ Robbins)
+Contact info	robbinsr@lexmark.com
+Date of release	Original Release – 01/25/03 (Contest 4 submission)
+		 Version 2.0 Release – 05/17/03
+
+
+=============================================================
+Version 2.0 Changes
+Expanded several areas, including the lobby, basement and penthouse.
+Various bug fixes and tweaks (see below in spoilers section if you want
+details).  Lobby music can now be switched off for those who find it
+annoying, and some music has been changed.  Also made the level more
+easily translatable by moving all object names to the objnames.str file.
+Added a large (relatively speaking) easter egg and a few new AI.
+
+
+=============================================================
+Description
+
+As usual, the rent is due... but this time I also owe a few
+shopkeepers for some equipment I had to buy on credit, so I'd
+better go for a bigger haul than usual.  There's a rustic little inn
+I've hit a couple of times before called The Burrick's Head.
+The decor is upscale, so there should be plenty of trinkets and
+valuables lying about... not to mention what the guests bring
+with them, which should be significant since the inn caters to
+the nobility.
+
+As an added bonus, the papers the other day mentioned a noble
+lady staying there who had just inherited a fortune.  Seems the
+estate includes a gigantic sapphire called The Angel's Tear.  I'm
+sure it's safely tucked away somewhere, but if the opportunity
+presents itself, I'll have to go for it.  According to the news story
+it's insured for 50,000 crowns, so it would mean I could take a
+few years off thieving and actually enjoy life for a while.  That
+is, if Cutty can find a buyer for such a well-known valuable.
+But then, that's never been much of a problem for him before...
+
+
+=============================================================
+Play Information:
+
+Game			 : Thief 2: The Metal Age
+Level Name 		 : The Burrick's Head Inn
+File name 		 : miss26.mis, bhi.gam
+Difficulty Settings	 : Easy, Normal, Hard
+Equipment store		 : No
+Map/Automap		 : No/No (just a blank to prevent crashes)
+New graphics		 : Yes (some from DEDx + 1 custom skin)
+New sounds		 : Yes, alot of custom ambients and music
+New conversations	 : No
+New models		 : Yes (from DEDx)
+EAX Support		 : Yes
+Multi language support	 : No, English only
+Briefing			 : You're reading it!
+
+
+=============================================================
+Objectives:
+
+1. Find at least 3000/3500/4000 loot.
+2. Find and steal The Angel's Tear. (Normal/Hard only)
+3. Don't kill anyone. (Hard only)
+4. Get out via the sewers.
+
+
+=============================================================
+Construction:
+
+Base		: Scratch
+Build Time	: Many long hours
+Map Size	: 25 x 50 x 100
+
+
+=============================================================
+Loading Information:
+
+Runs from Dark Loader.  Leave the file ZIPPED - DO NOT UNZIP this
+file, but put the whole "BHInn.zip" file into whatever folder/directory
+you want to on your hard drive, then in Darkloader setup, point to this
+folder/directory, and the mission should show up in the Darkloader
+main screen.
+
+
+=============================================================
+Known Problems:
+
+For some reason, attaching to the rope can be tricky.  I have had the
+best success by looking up and holding the up button (to start climbing)
+while jumping onto it.  I guess if you have your setting to attach
+by walking instead of jumping you might not have this problem.
+v2.0:  This has been improved significantly by making the balconies
+wider and moving the rope further out from the wall.
+
+I highly recommend NOT jumping off the rope onto the lower penthouse
+balcony.  I've taken measures to try to prevent it from being possible,
+but if you manage to make it there you'll probably be stuck since the
+door doesn't open and you can't jump over the railing once you're on
+the balcony.
+v2.0:  Feel free to do this if you want; the door is still locked, but the
+balconies are all climbable if you want to run the risk of falling.
+
+
+=============================================================
+Music Credits:
+
+Environmental ambients:
+	Giles Reaves – Sowelu (Wholeness) [most of the mission]
+	Steve Roach – Deadwood [Basement]
+	Brian Eno – The Lost Day [Easter Egg]
+
+Incidental music:
+	Mussorgsky (trans. Ravel) – Pictures At An Exhibition, IV: The Old Castle
+	Patrick O’Hearn – Farewell
+
+Victrola music:
+	The Pogues – Sit Down By The Fire [Basement Quarters]
+	Corelli – Christmas Concerto I [Lobby]
+	Beethoven (trans. Stokowski) – Moonlight Sonata I [Room 2]
+	Dvorak – Dumka (Slavonic Dance Op.72 No.2) [Room 3]
+	Mozart – Requiem: Lacrymosa [Room 4]
+	Wagner – Siegfried’s Funeral March, from Götterdammerung [Room 5]
+	Grieg – Peer Gynt Suite, II: The Death Of Ase [Penthouse]
+
+
+
+=============================================================
+Hearty thanks go to:
+Testers for v2.0:  Nightwalker, GlennItaliano
+
+The many helpful folks who found bugs or gave advice on how to fix them:
+Hit Deity, Bumbleson, jono456, ZylonBane, sap’em, Caradavin, plenty of others.
+
+
+=============================================================
+DEDx Credits:
+
+Thank you Rob Hicks for collecting and releasing it!
+
+Textures:
+Dhin - BricksX, BrownBricksX, ChapelX, FloorDesignsX, GreyBricksX,
+   GreyStoneX, HallsX, CrackedConcreteX
+Rob Hicks - MasonryX, WoodX
+SS2 - HiTechX
+T1G - NewMageX
+
+Objects/Skins:
+Daemonite - FemServ5X, FemServ6X, ThiefUnarmed2X
+Ernie - WallLamp2X
+Nameless Voice - SausagesX, CabbageX, ClawTableX, LightOrbX,
+   WallLamp3X, ScissorsX, HanoiTowersX, LocketX, RoundCheeseX
+Rob Hicks - BarkeepX, ShieldBaffordX, BeerMugX
+Schwaa - TrashCanOpenX, SinkX, ShieldBaffordX, BlueGemX, ToiletX
+T1G - SecretDoor3.5x7X, SunButtonX, MageDoorX
+T2 - MoselyX, CashBoxX, BramGuard3X
+Von Eins - Globe1X, Railing6X, RailPostX, CorkedFlaskX
+
+
+
+*** MINOR SPOILERS BELOW ***
+
+
+
+
+
+
+
+=============================================================
+Fixes & Changes for v2.0
+
+Many areas have been expanded now that the contest and its space
+restrictions are over – notably, the basement, lobby, courtyard and
+penthouse.  Basement expansion includes preventing the player from
+either knocking out Ravik or following him into the sewer area
+prematurely.
+
+Made the music purely classical (well, technically most of it is from
+the Romantic period), with the exception of the two ambient loops and
+Geoff’s ethnic record.  Added incidental music while reading, a BIG
+thanks to Gumdrop for showing me how (in Thief Noir)!
+
+The music in the lobby now comes from a speaker on the wall which can
+be turned off with a wall switch by the bar.
+
+Fixed penthouse balcony door problem.  Thanks Hit Deity!
+
+Hopefully made the rope appear more reliably.  By expanding all the
+balconies, the rope is now much easier to attach to.  Thanks to
+Bumbleson for suggesting this.
+
+
+
+=============================================================
+Designer's Note
+
+The final battle's (you'll know it when you get there) combatants
+have been tweaked so that they each have as close to a 50/50 chance
+of winning the fight as possible.  This is my attempt at adding a
+small degree of randomness to the mission as well as enhance the
+replayability a little bit.  I don't know if the battle's outcome
+will really affect how you finish playing out the mission, but at
+least maybe it makes it a little more interesting.
+
+Adjustment for v2.0:
+The balance has been shifted so that one of the parties wins most of the
+time.  I need her alive and well so she can appear in future FM’s.  
+
+
+=============================================================
+Copyright Information
+
+This level is ©2003 by Russ Robbins.
+
+This level was not made by and is not supported by Looking Glass
+Studios or Eidos Interactive.
+
+
+=============================================================
