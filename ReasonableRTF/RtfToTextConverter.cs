@@ -47,7 +47,7 @@ public enum RtfError : byte
     /// </summary>
     KeywordTooLong,
     /// <summary>
-    /// A keyword parameter was outside the range of -2147483648 to 2147483647.
+    /// A keyword parameter was outside the range of -2147483648 to 2147483647, or was longer than 10 characters.
     /// </summary>
     ParameterOutOfRange,
     /// <summary>
