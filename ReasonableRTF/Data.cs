@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace ReasonableRTF;
 
-// Class instead of enum so we don't have to keep casting its fields
 internal static class ByteSize
 {
     internal const int KB = 1024;

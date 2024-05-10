@@ -354,10 +354,10 @@ internal sealed class SymbolDict
         return ret;
     }
 
-    private readonly Symbol?[] ControlSymbols = InitControlSymbolArray();
+    private readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal Symbol? LookUpControlSymbol(char ch) => ControlSymbols[ch];
+    internal Symbol? LookUpControlSymbol(char ch) => _controlSymbols[ch];
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal Symbol? LookUpControlWord(char[] keyword, int len)

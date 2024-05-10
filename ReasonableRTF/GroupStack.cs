@@ -22,9 +22,9 @@ internal sealed class GroupStack
     /// <summary>100</summary>
     internal const int MaxGroups = 100;
 
-    private BoolArrayWrapper SkipDestinations;
-    private BoolArrayWrapper InFontTables;
-    internal ByteArrayWrapper SymbolFonts;
+    private BoolArrayWrapper _skipDestinations;
+    private BoolArrayWrapper _inFontTables;
+    internal ByteArrayWrapper _symbolFonts;
     internal readonly int[][] Properties = new int[MaxGroups][];
 
     /// <summary>Do not modify!</summary>
@@ -41,9 +41,9 @@ internal sealed class GroupStack
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal unsafe void DeepCopyToNext()
     {
-        SkipDestinations.Array[Count + 1] = SkipDestinations.Array[Count];
-        InFontTables.Array[Count + 1] = InFontTables.Array[Count];
-        SymbolFonts.Array[Count + 1] = SymbolFonts.Array[Count];
+        _skipDestinations.Array[Count + 1] = _skipDestinations.Array[Count];
+        _inFontTables.Array[Count + 1] = _inFontTables.Array[Count];
+        _symbolFonts.Array[Count + 1] = _symbolFonts.Array[Count];
         for (int i = 0; i < PropertiesLen; i++)
         {
             Properties[Count + 1][i] = Properties[Count][i];
@@ -56,25 +56,25 @@ internal sealed class GroupStack
     internal unsafe bool CurrentSkipDest
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => SkipDestinations.Array[Count];
+        get => _skipDestinations.Array[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => SkipDestinations.Array[Count] = value;
+        set => _skipDestinations.Array[Count] = value;
     }
 
     internal unsafe bool CurrentInFontTable
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => InFontTables.Array[Count];
+        get => _inFontTables.Array[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => InFontTables.Array[Count] = value;
+        set => _inFontTables.Array[Count] = value;
     }
 
     internal unsafe SymbolFont CurrentSymbolFont
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (SymbolFont)SymbolFonts.Array[Count];
+        get => (SymbolFont)_symbolFonts.Array[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => SymbolFonts.Array[Count] = (byte)value;
+        set => _symbolFonts.Array[Count] = (byte)value;
     }
 
     internal int[] CurrentProperties
@@ -87,9 +87,9 @@ internal sealed class GroupStack
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal unsafe void ResetFirst()
     {
-        SkipDestinations.Array[0] = false;
-        InFontTables.Array[0] = false;
-        SymbolFonts.Array[0] = (int)SymbolFont.None;
+        _skipDestinations.Array[0] = false;
+        _inFontTables.Array[0] = false;
+        _symbolFonts.Array[0] = (int)SymbolFont.None;
 
         Properties[0][(int)Property.Hidden] = 0;
         Properties[0][(int)Property.UnicodeCharSkipCount] = 1;
