@@ -3632,6 +3632,7 @@ public sealed class RtfToTextConverter
                         return RtfError.ParameterOutOfRange;
                     }
                 }
+                // This negate is safe, because int max negated is -2147483647, and int min is -2147483648
                 param = BranchlessConditionalNegate(param, negateParam);
             }
 
