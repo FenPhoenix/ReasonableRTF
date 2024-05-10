@@ -2931,6 +2931,7 @@ public sealed class RtfToTextConverter
     -This is a character in Windows-31J (932), but it's specified with a Unicode codepoint, in either dec or hex.
     -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
     -DOES support 0xF000-0xF0FF stuff
+    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     -Supports symbol fonts, even though it's a multibyte encoding...
     
     -These symbol-font-supporting things do a weird thing where if there's two bytes they ignore the second byte
