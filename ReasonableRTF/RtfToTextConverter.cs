@@ -2926,6 +2926,15 @@ public sealed class RtfToTextConverter
     -Doesn't support negative-and-add-65536
     -If the current font is a symbol font, it displays in a symbol font and so still needs converting
     -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
+
+    "SYMBOL (num) \\j":
+    -This is a character in Windows-31J (932), but it's specified with a Unicode codepoint, in either dec or hex.
+    -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
+    -DOES support 0xF000-0xF0FF stuff
+    -Supports symbol fonts, even though it's a multibyte encoding...
+    
+    -These symbol-font-supporting things do a weird thing where if there's two bytes they ignore the second byte
+     when they're in a symbol font, as far as I can tell? Like 0xF929 == 0x0929 == 0x0029.
     */
     private RtfError HandleFieldInstruction()
     {
