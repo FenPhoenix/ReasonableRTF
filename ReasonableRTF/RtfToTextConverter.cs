@@ -231,10 +231,19 @@ public sealed class RtfToTextConverter
         };
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class with the default options.
+    /// </summary>
+    [PublicAPI]
     public RtfToTextConverter() : this(RtfToTextConverterOptions.Default)
     {
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class with the specified options.
+    /// </summary>
+    /// <param name="options">A set of options that control behavior.</param>
+    [PublicAPI]
     public RtfToTextConverter(RtfToTextConverterOptions options)
     {
 #if !NETFRAMEWORK
