@@ -11,6 +11,16 @@ public sealed partial class MainForm : Form
     private const string _rtfSmallSetDir = "RTF_Test_Set_Small";
     private const string _outputCustomDir = "Output_Custom";
     private const string _outputRichTextBoxDir = "Output_RichTextBox";
+    private const string _rftValidityTestDir = "Validity_Test_Files";
+    private const string _rtfValidityTestOutputCustomDir = "Output_Validity_Test_Custom";
+    private const string _rtfValidityTestOutputRichTextBoxDir = "Output_Validity_Test_RichTextBox";
+
+    private enum SourceSet
+    {
+        Full,
+        Small,
+        ValidityTest,
+    }
 
     private sealed class TimingScope : IDisposable
     {
@@ -117,16 +127,21 @@ public sealed partial class MainForm : Form
             GetMBsString(totalSize, sw.ElapsedMilliseconds));
     }
 
-    private string GetRtfSetDir(bool small)
+    private string GetRtfSetDir(SourceSet sourceSet)
     {
-        string dir = small ? _rtfSmallSetDir : _rtfFullSetDir;
+        string dir = sourceSet switch
+        {
+            SourceSet.Full => _rtfFullSetDir,
+            SourceSet.Small => _rtfSmallSetDir,
+            _ => _rftValidityTestDir,
+        };
         return Path.Combine(DataDirTextBox.Text, dir);
     }
 
     private (string[] RtfFiles, MemoryStream[] MemStreams, long TotalSize)
-    GetStuff_RichTextBox(bool small)
+    GetStuff_RichTextBox(SourceSet sourceSet)
     {
-        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(sourceSet));
         MemoryStream[] memStreams = new MemoryStream[rtfFiles.Length];
 
         long totalSize = 0;
@@ -145,9 +160,9 @@ public sealed partial class MainForm : Form
     }
 
     private (string[] RtfFiles, byte[][] ByteArrays, long TotalSize)
-    GetStuff_Custom(bool small)
+    GetStuff_Custom(SourceSet sourceSet)
     {
-        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(sourceSet));
 
         byte[][] byteArrays = new byte[rtfFiles.Length][];
 
@@ -166,9 +181,9 @@ public sealed partial class MainForm : Form
         return (rtfFiles, byteArrays, totalSize);
     }
 
-    private void ConvertWithCustom(bool small)
+    private void ConvertWithCustom(SourceSet sourceSet)
     {
-        (_, byte[][] byteArrays, long totalSize) = GetStuff_Custom(small);
+        (_, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
         RtfToTextConverter rtfConverter = new();
 
         using (new TimingScope(totalSize))
@@ -180,9 +195,9 @@ public sealed partial class MainForm : Form
         }
     }
 
-    private void ConvertWithCustom20x(bool small)
+    private void ConvertWithCustom20x(SourceSet sourceSet)
     {
-        (_, byte[][] byteArrays, long totalSize) = GetStuff_Custom(small);
+        (_, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
         RtfToTextConverter rtfConverter = new();
 
         using (new TimingScope(totalSize * 20))
@@ -197,9 +212,9 @@ public sealed partial class MainForm : Form
         }
     }
 
-    private void ConvertWithRichTextBox(bool small)
+    private void ConvertWithRichTextBox(SourceSet sourceSet)
     {
-        (_, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(small);
+        (_, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(sourceSet);
         using var rtfBox = new RichTextBox();
 
         try
@@ -222,9 +237,9 @@ public sealed partial class MainForm : Form
         }
     }
 
-    private void WritePlaintextFile(string f, string text, string destDir, bool small)
+    private void WritePlaintextFile(string f, string text, string destDir, SourceSet sourceSet)
     {
-        string ff = f.Substring(GetRtfSetDir(small).Length).Replace("\\", "__").Replace("/", "__");
+        string ff = f.Substring(GetRtfSetDir(sourceSet).Length).Replace("\\", "__").Replace("/", "__");
         ff = Path.GetFileNameWithoutExtension(ff) + "_rtf_to_plaintext.txt";
         File.WriteAllText(Path.Combine(DataDirTextBox.Text, destDir, ff), text);
     }
@@ -237,8 +252,9 @@ public sealed partial class MainForm : Form
                 //"1mil_CinderNotes__CinderNotes.rtf";
                 "2000-12-30_Uneaffaireenor__Readme.rtf"
             ;
+        SourceSet sourceSet = SourceSet.Full;
 
-        string finalFile = Path.Combine(GetRtfSetDir(small: false), file);
+        string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
         using var fs = File.OpenRead(finalFile);
         byte[] array = new byte[fs.Length];
@@ -246,7 +262,11 @@ public sealed partial class MainForm : Form
         (_, string text) = rtfConverter.Convert(array);
         if (write)
         {
-            WritePlaintextFile(finalFile, text, _outputCustomDir, small: false);
+            string outputDir = sourceSet == SourceSet.ValidityTest
+                ? _rtfValidityTestOutputCustomDir
+                : _outputCustomDir;
+
+            WritePlaintextFile(finalFile, text, outputDir, sourceSet);
         }
     }
 
@@ -254,7 +274,7 @@ public sealed partial class MainForm : Form
 
     private void ConvertAndWriteWithRichTextBoxButton_Click(object sender, EventArgs e)
     {
-        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(small: false);
+        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(SourceSet.Full);
         using var rtfBox = new RichTextBox();
 
         try
@@ -263,11 +283,19 @@ public sealed partial class MainForm : Form
             {
                 for (int i = 0; i < memStreams.Length; i++)
                 {
-                    rtfBox.LoadFile(memStreams[i], RichTextBoxStreamType.RichText);
                     string f = rtfFiles[i];
-                    // On .NET 8, RichTextBox plaintext has vertical tabs (0x0B) in place of \line keywords(?!?!)
-                    string text = rtfBox.Text.Replace('\x0B', '\n');
-                    WritePlaintextFile(f, text, _outputRichTextBoxDir, small: false);
+                    string text;
+                    try
+                    {
+                        rtfBox.LoadFile(memStreams[i], RichTextBoxStreamType.RichText);
+                        // On .NET 8, RichTextBox plaintext has vertical tabs (0x0B) in place of \line keywords(?!?!)
+                        text = rtfBox.Text.Replace('\x0B', '\n');
+                    }
+                    catch
+                    {
+                        text = "<RichTextBox could not convert this file>";
+                    }
+                    WritePlaintextFile(f, text, _outputRichTextBoxDir, SourceSet.Full);
                 }
             }
         }
@@ -282,7 +310,7 @@ public sealed partial class MainForm : Form
 
     private void ConvertAndWriteWithCustomButton_Click(object sender, EventArgs e)
     {
-        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(small: false);
+        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(SourceSet.Full);
         RtfToTextConverter rtfConverter = new();
 
         using (new TimingScope(totalSize))
@@ -293,10 +321,69 @@ public sealed partial class MainForm : Form
                 Trace.WriteLine(f);
                 byte[] array = byteArrays[i];
                 (_, string text) = rtfConverter.Convert(array);
-                WritePlaintextFile(f, text, _outputCustomDir, small: false);
+                WritePlaintextFile(f, text, _outputCustomDir, SourceSet.Full);
             }
         }
     }
+
+    #region Write validity test
+
+    private void ConvertAndWriteValidityTestFiles_RTB_Button_Click(object sender, EventArgs e)
+    {
+        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(SourceSet.ValidityTest);
+        using var rtfBox = new RichTextBox();
+
+        try
+        {
+            using (new TimingScope(totalSize))
+            {
+                for (int i = 0; i < memStreams.Length; i++)
+                {
+                    string f = rtfFiles[i];
+                    string text;
+                    try
+                    {
+
+                        rtfBox.LoadFile(memStreams[i], RichTextBoxStreamType.RichText);
+                        // On .NET 8, RichTextBox plaintext has vertical tabs (0x0B) in place of \line keywords(?!?!)
+                        text = rtfBox.Text.Replace('\x0B', '\n');
+                    }
+                    catch
+                    {
+                        text = "<RichTextBox could not convert this file>";
+                    }
+                    WritePlaintextFile(f, text, _rtfValidityTestOutputRichTextBoxDir, SourceSet.ValidityTest);
+                }
+            }
+        }
+        finally
+        {
+            foreach (MemoryStream ms in memStreams)
+            {
+                ms.Dispose();
+            }
+        }
+    }
+
+    private void ConvertAndWriteValidityTestFiles_Custom_Button_Click(object sender, EventArgs e)
+    {
+        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(SourceSet.ValidityTest);
+        RtfToTextConverter rtfConverter = new();
+
+        using (new TimingScope(totalSize))
+        {
+            for (int i = 0; i < byteArrays.Length; i++)
+            {
+                string f = rtfFiles[i];
+                Trace.WriteLine(f);
+                byte[] array = byteArrays[i];
+                (_, string text) = rtfConverter.Convert(array);
+                WritePlaintextFile(f, text, _rtfValidityTestOutputCustomDir, SourceSet.ValidityTest);
+            }
+        }
+    }
+
+    #endregion
 
     #endregion
 
@@ -304,17 +391,17 @@ public sealed partial class MainForm : Form
 
     private void ConvertOnlyWithRichTextBoxButton_Click(object sender, EventArgs e)
     {
-        ConvertWithRichTextBox(small: false);
+        ConvertWithRichTextBox(SourceSet.Full);
     }
 
     private void ConvertOnlyWithCustomButton_Click(object sender, EventArgs e)
     {
-        ConvertWithCustom(small: false);
+        ConvertWithCustom(SourceSet.Full);
     }
 
     private void ConvertOnlyWithCustom20XButton_Click(object sender, EventArgs e)
     {
-        ConvertWithCustom20x(small: false);
+        ConvertWithCustom20x(SourceSet.Full);
     }
 
     #endregion
@@ -323,17 +410,17 @@ public sealed partial class MainForm : Form
 
     private void ConvertOnlyWithRichTextBox_Small_Button_Click(object sender, EventArgs e)
     {
-        ConvertWithRichTextBox(small: true);
+        ConvertWithRichTextBox(SourceSet.Small);
     }
 
     private void ConvertOnlyWithCustom_Small_Button_Click(object sender, EventArgs e)
     {
-        ConvertWithCustom(small: true);
+        ConvertWithCustom(SourceSet.Small);
     }
 
     private void ConvertOnlyWithCustom20X_Small_Button_Click(object sender, EventArgs e)
     {
-        ConvertWithCustom20x(small: true);
+        ConvertWithCustom20x(SourceSet.Small);
     }
 
     #endregion
@@ -352,10 +439,6 @@ public sealed partial class MainForm : Form
 
     #endregion
 
-    private void Test1Button_Click(object sender, EventArgs e)
-    {
-    }
-
     private void DataDirBrowseButton_Click(object sender, EventArgs e)
     {
         using var d = new FolderBrowserDialog();
@@ -367,5 +450,9 @@ public sealed partial class MainForm : Form
     private void DataDirResetButton_Click(object sender, EventArgs e)
     {
         ResetDataDir();
+    }
+
+    private void Test1Button_Click(object sender, EventArgs e)
+    {
     }
 }

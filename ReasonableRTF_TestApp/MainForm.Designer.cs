@@ -45,19 +45,23 @@ sealed partial class MainForm
         ConvertOneButton = new Button();
         WriteOneButton = new Button();
         DataDirResetButton = new Button();
-        groupBox1 = new GroupBox();
+        DataDirGroupBox = new GroupBox();
+        ValidityTestGroupBox = new GroupBox();
+        ConvertAndWriteValidityTestFiles_Custom_Button = new Button();
+        ConvertAndWriteValidityTestFiles_RTB_Button = new Button();
         ConvertAndWriteToDiskGroupBox.SuspendLayout();
         ConvertOnly_Full_GroupBox.SuspendLayout();
         ConverOnly_Small_GroupBox.SuspendLayout();
-        groupBox1.SuspendLayout();
+        DataDirGroupBox.SuspendLayout();
+        ValidityTestGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // Test1Button
         // 
-        Test1Button.Location = new Point(392, 232);
+        Test1Button.Location = new Point(392, 216);
         Test1Button.Name = "Test1Button";
         Test1Button.Size = new Size(91, 27);
-        Test1Button.TabIndex = 0;
+        Test1Button.TabIndex = 7;
         Test1Button.Text = "Test";
         Test1Button.UseVisualStyleBackColor = true;
         Test1Button.Click += Test1Button_Click;
@@ -67,14 +71,14 @@ sealed partial class MainForm
         DataDirTextBox.Location = new Point(14, 25);
         DataDirTextBox.Name = "DataDirTextBox";
         DataDirTextBox.Size = new Size(392, 23);
-        DataDirTextBox.TabIndex = 1;
+        DataDirTextBox.TabIndex = 0;
         // 
         // DataDirBrowseButton
         // 
         DataDirBrowseButton.Location = new Point(406, 24);
         DataDirBrowseButton.Name = "DataDirBrowseButton";
         DataDirBrowseButton.Size = new Size(75, 25);
-        DataDirBrowseButton.TabIndex = 2;
+        DataDirBrowseButton.TabIndex = 1;
         DataDirBrowseButton.Text = "Browse...";
         DataDirBrowseButton.UseVisualStyleBackColor = true;
         DataDirBrowseButton.Click += DataDirBrowseButton_Click;
@@ -88,7 +92,7 @@ sealed partial class MainForm
         ConvertAndWriteToDiskGroupBox.Name = "ConvertAndWriteToDiskGroupBox";
         ConvertAndWriteToDiskGroupBox.Padding = new Padding(4, 3, 4, 3);
         ConvertAndWriteToDiskGroupBox.Size = new Size(233, 64);
-        ConvertAndWriteToDiskGroupBox.TabIndex = 3;
+        ConvertAndWriteToDiskGroupBox.TabIndex = 1;
         ConvertAndWriteToDiskGroupBox.TabStop = false;
         ConvertAndWriteToDiskGroupBox.Text = "Write converted files to disk";
         // 
@@ -124,7 +128,7 @@ sealed partial class MainForm
         ConvertOnly_Full_GroupBox.Name = "ConvertOnly_Full_GroupBox";
         ConvertOnly_Full_GroupBox.Padding = new Padding(4, 3, 4, 3);
         ConvertOnly_Full_GroupBox.Size = new Size(336, 72);
-        ConvertOnly_Full_GroupBox.TabIndex = 4;
+        ConvertOnly_Full_GroupBox.TabIndex = 2;
         ConvertOnly_Full_GroupBox.TabStop = false;
         ConvertOnly_Full_GroupBox.Text = "Convert only (full set):";
         // 
@@ -145,7 +149,7 @@ sealed partial class MainForm
         ConvertOnlyWithCustom20XButton.Margin = new Padding(4, 3, 4, 3);
         ConvertOnlyWithCustom20XButton.Name = "ConvertOnlyWithCustom20XButton";
         ConvertOnlyWithCustom20XButton.Size = new Size(93, 27);
-        ConvertOnlyWithCustom20XButton.TabIndex = 1;
+        ConvertOnlyWithCustom20XButton.TabIndex = 2;
         ConvertOnlyWithCustom20XButton.Text = "Custom 20x";
         ConvertOnlyWithCustom20XButton.UseVisualStyleBackColor = true;
         ConvertOnlyWithCustom20XButton.Click += ConvertOnlyWithCustom20XButton_Click;
@@ -171,7 +175,7 @@ sealed partial class MainForm
         ConverOnly_Small_GroupBox.Name = "ConverOnly_Small_GroupBox";
         ConverOnly_Small_GroupBox.Padding = new Padding(4, 3, 4, 3);
         ConverOnly_Small_GroupBox.Size = new Size(336, 72);
-        ConverOnly_Small_GroupBox.TabIndex = 5;
+        ConverOnly_Small_GroupBox.TabIndex = 3;
         ConverOnly_Small_GroupBox.TabStop = false;
         ConverOnly_Small_GroupBox.Text = "Convert only (small-file set):";
         // 
@@ -192,7 +196,7 @@ sealed partial class MainForm
         ConvertOnlyWithCustom20X_Small_Button.Margin = new Padding(4, 3, 4, 3);
         ConvertOnlyWithCustom20X_Small_Button.Name = "ConvertOnlyWithCustom20X_Small_Button";
         ConvertOnlyWithCustom20X_Small_Button.Size = new Size(93, 27);
-        ConvertOnlyWithCustom20X_Small_Button.TabIndex = 1;
+        ConvertOnlyWithCustom20X_Small_Button.TabIndex = 2;
         ConvertOnlyWithCustom20X_Small_Button.Text = "Custom 20x";
         ConvertOnlyWithCustom20X_Small_Button.UseVisualStyleBackColor = true;
         ConvertOnlyWithCustom20X_Small_Button.Click += ConvertOnlyWithCustom20X_Small_Button_Click;
@@ -213,7 +217,7 @@ sealed partial class MainForm
         ConvertOneButton.Location = new Point(392, 104);
         ConvertOneButton.Name = "ConvertOneButton";
         ConvertOneButton.Size = new Size(91, 27);
-        ConvertOneButton.TabIndex = 6;
+        ConvertOneButton.TabIndex = 5;
         ConvertOneButton.Text = "Convert one";
         ConvertOneButton.UseVisualStyleBackColor = true;
         ConvertOneButton.Click += ConvertOneButton_Click;
@@ -233,29 +237,61 @@ sealed partial class MainForm
         DataDirResetButton.Location = new Point(480, 24);
         DataDirResetButton.Name = "DataDirResetButton";
         DataDirResetButton.Size = new Size(99, 25);
-        DataDirResetButton.TabIndex = 8;
+        DataDirResetButton.TabIndex = 2;
         DataDirResetButton.Text = "Reset to default";
         DataDirResetButton.UseVisualStyleBackColor = true;
         DataDirResetButton.Click += DataDirResetButton_Click;
         // 
-        // groupBox1
+        // DataDirGroupBox
         // 
-        groupBox1.Controls.Add(DataDirResetButton);
-        groupBox1.Controls.Add(DataDirTextBox);
-        groupBox1.Controls.Add(DataDirBrowseButton);
-        groupBox1.Location = new Point(16, 16);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(592, 64);
-        groupBox1.TabIndex = 9;
-        groupBox1.TabStop = false;
-        groupBox1.Text = "Test data base directory";
+        DataDirGroupBox.Controls.Add(DataDirResetButton);
+        DataDirGroupBox.Controls.Add(DataDirTextBox);
+        DataDirGroupBox.Controls.Add(DataDirBrowseButton);
+        DataDirGroupBox.Location = new Point(16, 16);
+        DataDirGroupBox.Name = "DataDirGroupBox";
+        DataDirGroupBox.Size = new Size(592, 64);
+        DataDirGroupBox.TabIndex = 0;
+        DataDirGroupBox.TabStop = false;
+        DataDirGroupBox.Text = "Test data base directory";
+        // 
+        // ValidityTestGroupBox
+        // 
+        ValidityTestGroupBox.Controls.Add(ConvertAndWriteValidityTestFiles_Custom_Button);
+        ValidityTestGroupBox.Controls.Add(ConvertAndWriteValidityTestFiles_RTB_Button);
+        ValidityTestGroupBox.Location = new Point(376, 264);
+        ValidityTestGroupBox.Name = "ValidityTestGroupBox";
+        ValidityTestGroupBox.Size = new Size(232, 72);
+        ValidityTestGroupBox.TabIndex = 4;
+        ValidityTestGroupBox.TabStop = false;
+        ValidityTestGroupBox.Text = "Write converted validity test files";
+        // 
+        // ConvertAndWriteValidityTestFiles_Custom_Button
+        // 
+        ConvertAndWriteValidityTestFiles_Custom_Button.Location = new Point(120, 32);
+        ConvertAndWriteValidityTestFiles_Custom_Button.Name = "ConvertAndWriteValidityTestFiles_Custom_Button";
+        ConvertAndWriteValidityTestFiles_Custom_Button.Size = new Size(93, 27);
+        ConvertAndWriteValidityTestFiles_Custom_Button.TabIndex = 1;
+        ConvertAndWriteValidityTestFiles_Custom_Button.Text = "Custom";
+        ConvertAndWriteValidityTestFiles_Custom_Button.UseVisualStyleBackColor = true;
+        ConvertAndWriteValidityTestFiles_Custom_Button.Click += ConvertAndWriteValidityTestFiles_Custom_Button_Click;
+        // 
+        // ConvertAndWriteValidityTestFiles_RTB_Button
+        // 
+        ConvertAndWriteValidityTestFiles_RTB_Button.Location = new Point(16, 32);
+        ConvertAndWriteValidityTestFiles_RTB_Button.Name = "ConvertAndWriteValidityTestFiles_RTB_Button";
+        ConvertAndWriteValidityTestFiles_RTB_Button.Size = new Size(93, 27);
+        ConvertAndWriteValidityTestFiles_RTB_Button.TabIndex = 0;
+        ConvertAndWriteValidityTestFiles_RTB_Button.Text = "RichTextBox";
+        ConvertAndWriteValidityTestFiles_RTB_Button.UseVisualStyleBackColor = true;
+        ConvertAndWriteValidityTestFiles_RTB_Button.Click += ConvertAndWriteValidityTestFiles_RTB_Button_Click;
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 403);
-        Controls.Add(groupBox1);
+        ClientSize = new Size(625, 352);
+        Controls.Add(ValidityTestGroupBox);
+        Controls.Add(DataDirGroupBox);
         Controls.Add(WriteOneButton);
         Controls.Add(ConvertOneButton);
         Controls.Add(ConverOnly_Small_GroupBox);
@@ -270,8 +306,9 @@ sealed partial class MainForm
         ConvertAndWriteToDiskGroupBox.ResumeLayout(false);
         ConvertOnly_Full_GroupBox.ResumeLayout(false);
         ConverOnly_Small_GroupBox.ResumeLayout(false);
-        groupBox1.ResumeLayout(false);
-        groupBox1.PerformLayout();
+        DataDirGroupBox.ResumeLayout(false);
+        DataDirGroupBox.PerformLayout();
+        ValidityTestGroupBox.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -294,5 +331,8 @@ sealed partial class MainForm
     private Button ConvertOneButton;
     private Button WriteOneButton;
     private Button DataDirResetButton;
-    private GroupBox groupBox1;
+    private GroupBox DataDirGroupBox;
+    private GroupBox ValidityTestGroupBox;
+    private Button ConvertAndWriteValidityTestFiles_Custom_Button;
+    private Button ConvertAndWriteValidityTestFiles_RTB_Button;
 }

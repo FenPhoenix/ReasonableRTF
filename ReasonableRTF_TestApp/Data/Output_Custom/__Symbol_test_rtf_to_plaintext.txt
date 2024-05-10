@@ -1,4 +1,0 @@
-Symbol font tests:
-A0 character: €
-First phi: ϕ
-Second phi: φ
