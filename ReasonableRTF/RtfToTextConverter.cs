@@ -154,8 +154,6 @@ public sealed class RtfToTextConverterOptions
     /// </summary>
     public int EncodingCacheInitialCapacity { get; set; } = 32;
 
-    internal static RtfToTextConverterOptions Default => new();
-
     internal void CopyTo(RtfToTextConverterOptions dest)
     {
         dest.SwapUppercaseAndLowercasePhiSymbols = SwapUppercaseAndLowercasePhiSymbols;
@@ -237,7 +235,7 @@ public sealed class RtfToTextConverter
     /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class with the default options.
     /// </summary>
     [PublicAPI]
-    public RtfToTextConverter() : this(RtfToTextConverterOptions.Default)
+    public RtfToTextConverter() : this(new RtfToTextConverterOptions())
     {
     }
 
@@ -257,7 +255,7 @@ public sealed class RtfToTextConverter
 
         // Don't assign the passed-in options object directly! The user could have a reference to it and depend
         // on it not changing. Deep copy it only!
-        _options = RtfToTextConverterOptions.Default;
+        _options = new RtfToTextConverterOptions();
 
         _windows1250Encoding = Encoding.GetEncoding(1250);
         _windows1251Encoding = Encoding.GetEncoding(1251);
