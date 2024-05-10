@@ -2595,7 +2595,6 @@ public sealed class RtfToTextConverter
         byte hexNibble1 = _charToHex[b];
         b = _rtfBytes[CurrentPos++];
         byte hexNibble2 = _charToHex[b];
-        // TODO: Fixed the check because the old one broke on some valid hex, but test if this new one still catches invalid hex
         if ((hexNibble1 | hexNibble2) < 0xFF)
         {
             byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
