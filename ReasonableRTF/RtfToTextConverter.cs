@@ -110,6 +110,8 @@ public sealed class RtfToTextConverterOptions
     /// </summary>
     public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
+    // TODO: Do we want to set these initial capacities in SetOptions() every time? (we're not currently)
+
     /// <summary>
     /// Gets or sets the initial capacity of the plain text buffer, from which the final output text is created.
     /// <para/>
