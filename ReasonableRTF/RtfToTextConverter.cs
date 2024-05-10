@@ -219,7 +219,8 @@ public sealed class RtfToTextConverter
         _encodings = new Dictionary<int, Encoding>(options.EncodingCacheInitialCapacity);
     }
 
-    private readonly char[] Keyword = new char[KeywordMaxLen];
+    // +1 to allow reading one beyond the max and then checking for it to return an error
+    private readonly char[] Keyword = new char[KeywordMaxLen + 1];
     private readonly GroupStack GroupStack = new();
     private readonly FontDictionary FontEntries;
 
@@ -2050,7 +2051,6 @@ public sealed class RtfToTextConverter
         HeaderDefaultFontNum = 0;
     }
 
-    // TODO: Handle keyword or param too long
     private RtfError ParseRtf()
     {
         while (CurrentPos < _rtfBytes.Length)
@@ -3496,10 +3496,14 @@ public sealed class RtfToTextConverter
         {
             int keywordCount;
             for (keywordCount = 0;
-                 keywordCount < KeywordMaxLen && char.IsAsciiLetter(ch);
+                 keywordCount < KeywordMaxLen + 1 && char.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)_rtfBytes[CurrentPos++])
             {
                 keyword[keywordCount] = ch;
+            }
+            if (keywordCount > KeywordMaxLen)
+            {
+                return RtfError.KeywordTooLong;
             }
 
             int negateParam = 0;
@@ -3511,12 +3515,26 @@ public sealed class RtfToTextConverter
             if (char.IsAsciiDigit(ch))
             {
                 hasParam = true;
-
-                for (int i = 0;
-                     i < ParamMaxLen && char.IsAsciiDigit(ch);
-                     i++, ch = (char)_rtfBytes[CurrentPos++])
+                checked
                 {
-                    param = (param * 10) + (ch - '0');
+                    try
+                    {
+                        int i;
+                        for (i = 0;
+                             i < ParamMaxLen + 1 && char.IsAsciiDigit(ch);
+                             i++, ch = (char)_rtfBytes[CurrentPos++])
+                        {
+                            param = (param * 10) + (ch - '0');
+                        }
+                        if (i > ParamMaxLen)
+                        {
+                            return RtfError.ParameterOutOfRange;
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        return RtfError.ParameterOutOfRange;
+                    }
                 }
                 param = BranchlessConditionalNegate(param, negateParam);
             }
