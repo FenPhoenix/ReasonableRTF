@@ -75,7 +75,7 @@ public class Test
     }
 
     [Benchmark]
-    public void FullSet_RichTextBox()
+    public void RichTextBox_FullSet()
     {
         for (int i = 0; i < _fullSetMemStreams.Length; i++)
         {
@@ -86,7 +86,7 @@ public class Test
     }
 
     [Benchmark]
-    public void NoImageSet_RichTextBox()
+    public void RichTextBox_NoImageSet()
     {
         for (int i = 0; i < _smallSetMemStreams.Length; i++)
         {
@@ -97,7 +97,7 @@ public class Test
     }
 
     [Benchmark]
-    public void FullSet_ReasonableRTF()
+    public void ReasonableRTF_FullSet()
     {
         for (int i = 0; i < _fullSetByteArrays.Length; i++)
         {
@@ -106,7 +106,7 @@ public class Test
     }
 
     [Benchmark]
-    public void NoImageSet_ReasonableRTF()
+    public void ReasonableRTF_NoImageSet()
     {
         for (int i = 0; i < _smallSetByteArrays.Length; i++)
         {
