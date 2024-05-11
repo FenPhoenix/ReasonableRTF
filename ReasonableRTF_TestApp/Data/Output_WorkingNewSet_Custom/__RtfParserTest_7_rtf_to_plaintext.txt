@@ -1,0 +1,4 @@
+これはテストです。
+
+The sentence above says that “This is just a test” in Japanese.
+

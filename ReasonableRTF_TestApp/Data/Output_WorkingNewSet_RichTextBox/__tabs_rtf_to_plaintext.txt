@@ -1,0 +1,4 @@
+Tabs
+Normal	tabbed
+	In center
+

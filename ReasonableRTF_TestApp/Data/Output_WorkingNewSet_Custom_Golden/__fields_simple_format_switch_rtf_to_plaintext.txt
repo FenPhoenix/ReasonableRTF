@@ -1,0 +1,106 @@
+Text:Cynthia Johnson(author, no  switch):text
+
+Text:CYNTHIA JOHNSON (author, upper case switch):text
+
+Text:cynthia johnson (author, lower case switch):text
+
+Text:Cynthia Johnson (author, first cap switch):text
+
+Text:Cynthia Johnson  (author, title case switch):text
+
+Text:COMMENTS TEXT (comments, upper case switch):text
+
+Text:comments text (comments, lower case switch):text
+
+Text:Comments text (comments, first cap switch):text
+
+Text:Comments Text  (comments, title case switch):text
+
+Text:FIELDS_SIMPLE_FORMAT_SWITCH.RTF (filename, upper case switch):text
+
+Text:fields_simple_format_switch.rtf (filename, lower case switch):text
+
+Text:Fields_simple_format_switch.rtf (filename, first cap switch):text
+
+Text:Fields_Simple_Format_Switch.Rtf  (filename, title case switch):text
+
+Text:Error! Filename not specified. (includetext, upper case switch):text
+
+Text:Error! Filename not specified. (includetext, lower case switch):text
+
+Text:Error! Filename not specified. (includetext, first cap switch):text
+
+Text:Error! Filename not specified.  (includetext, title case switch):text
+
+Text:Error! Unknown info keyword. (info, upper case switch):text
+
+Text:Error! Unknown info keyword. (info, lower case switch):text
+
+Text:Error! Unknown info keyword. (info, first cap switch):text
+
+Text:Error! Unknown info keyword.  (info, title case switch):text
+
+Text:KEYWORDS TEXT (keywords, upper case switch):text
+
+Text:keywords text (keywords, lower case switch):text
+
+Text:Keywords text (keywords, first cap switch):text
+
+Text:Keywords Text  (keywords, title case switch):text
+Text:CYNTHIA JOHNSON (lastsavedby, upper case switch):text
+
+Text:cynthia johnson (lastsavedby, lower case switch):text
+
+Text:Cynthia Johnson (lastsavedby, first cap switch):text
+
+Text:Cynthia Johnson  (lastsavedby, title case switch):text
+Text:Error! No bookmark name given. (ref, upper case switch):text
+
+Text:Error! No bookmark name given. (ref, lower case switch):text
+
+Text:Cynthia Johnson (ref, first cap switch):text
+
+Text:Error! No bookmark name given.  (ref, title case switch):text
+
+Text:SUBJECT TEXT (subject, upper case switch):text
+
+Text:subject text (subject, lower case switch):text
+
+Text:Subject text (subject, first cap switch):text
+
+Text:Subject Text  (subject, title case switch):text
+Text:NORMAL (template, upper case switch):text
+
+Text:normal (template, lower case switch):text
+
+Text:Normal (template, first cap switch):text
+
+Text:Normal  (template, title case switch):text
+Text:SIMPLE FORMAT SWITCH (title, upper case switch):text
+
+Text:simple format switch (title, lower case switch):text
+
+Text:Simple format switch (title, first cap switch):text
+
+Text:Simple Format Switch  (title, title case switch):text
+Text: (author, upper case switch):text
+
+Text: (useraddress, lower case switch):text
+
+Text: (useraddress, first cap switch):text
+
+Text:  (useraddress, title case switch):text
+Text:CJ (userinitials, upper case switch):text
+
+Text:cj (userinitials, lower case switch):text
+
+Text:CJ (userinitials, first cap switch):text
+
+Text:Cj  (userinitials, title case switch):text
+Text:CYNTHIA JOHNSON (username, upper case switch):text
+
+Text:cynthia johnson (username, lower case switch):text
+
+Text:Cynthia Johnson (username, first cap switch):text
+
+

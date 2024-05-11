@@ -1,0 +1,391 @@
+
+McAfee(R) VirusScan(R) for Mac 
+バージョン 8.5
+リリース ノート
+Copyright (C) 2006 McAfee, Inc.
+All Rights Reserved.
+
+
+=============================================
+- DAT バージョン:         4880
+- エンジン バージョン:     5.1.00
+
+=============================================
+
+VirusScan for Mac v8.5 をご利用いただき、ありがとうございます。この資料には、このバージョンに関する重要な情報が含まれていますので、ぜひご一読いただくようお願いいたします。
+
+_____________________________________________
+このファイルの内容
+
+- このリリースについて
+  - 新機能
+  - 変更点
+- インストール方法とシステム要件
+  - VirusScan for Mac
+  - システム要件
+  - Non-Windows Agent for Macintosh
+  - VirusScan for Mac のインストール
+  - アップグレード インストール
+  - インストールのテスト
+  - VirusScan for Mac のアンインストール
+- 既知の問題
+  - VirusScan for Mac に関する既知の問題
+  - Non-Windows Agent for Macintosh に関する既知の問題
+  - ePolicy Orchestrator に関する既知の問題
+- VirusScan for Mac でサポートされていない ePolicy Orchestrator サーバ機能
+- ドキュメント
+- McAfee ベータ版への参加
+- 連絡先
+- 著作権と商標
+- ライセンス情報と特許情報
+
+
+
+
+_____________________________________________ 
+このリリースについて
+
+VirusScan for Mac は、ウイルスやトロイの木馬などの悪質なコードから Apple コンピュータを保護するウイルス対策アプリケーションです。VirusScan for Mac には、オンデマンド スキャン、オンアクセス スキャン、スキャンとアップデートのスケジュール設定、自動 eUpdate、ドラッグ アンド ドロップ スキャンなどの機能が備わっています。
+
+また、VirusScan for Mac と McAfee ePolicy Orchestrator(R) 3.5 および 3.6 (パッチ 2 以降) が統合され、VirusScan for Mac ソフトウェアを実行しているコンピュータの一元管理が可能になりました。VirusScan for Mac の設計は Mac OS X アプリケーション環境である Cocoa をベースにしています。
+
+
+新機能
+
+- ユニバーサル バイナリ サポート
+
+- オンアクセス スキャン
+
+- Apple Mail のスキャン
+
+- 5.1.00 エンジンのサポート
+
+
+変更点
+
+1.	以前のバージョンの Virex で使用されていたアクティブ スキャナ、バックグラウンド スキャナ、マウント ボリューム スキャナの機能がオンアクセス スキャナに統合されました。 
+
+2.	グラフィカル ユーザ インターフェース (GUI) を介して除外項目を設定できるようになりました。
+
+3.	オンアクセス スキャナは、Stuffit アーカイブ内をスキャンしません。
+
+4.	HTTP による eUpdate はサポートされていません。
+
+
+
+
+
+_____________________________________________
+インストール方法とシステム要件
+
+VirusScan for Mac
+
+VirusScan for Mac をインストールする前に、ご使用のオペレーティング システムが最新であることを確認してください。また、以前のバージョンの VirusScan (または Virex) がアンインストールされていることも確認してください。Virex または VirusScan がインストールされていると、VirusScan for Mac のインストーラによりメッセージが表示され、インストールが中断されます。
+
+VirusScan をアンインストールする場合は、アンインストールするバージョンの VirusScan または Virex のアンインストーラを使用してください。異なるバージョンの VirusScan (または Virex) のアンインストーラは使用しないでください。 
+
+Mac OS X コンピュータに Norton VirusBarrier または Sophos Anti-Virus がインストールされていると、VirusScan for Mac のインストールが停止する場合があります。これらの製品がすでにアンインストールされている場合でも、システムに一部のファイルが残っていると、VirusScan for Mac のインストールに問題が生じる可能性があります。このような問題が生じた場合は、製品のインストールを続ける前に、次のファイル (存在する場合) を削除してください。
+
+- Sophos (SAVI.framework)
+
+パス: 
+/Library/Frameworks/SAVI.framework
+
+- Norton (NAVLibX)
+
+パス: 
+/Library/Application Support/Norton Solutions Support/Norton Antivirus/Engine/NAVLibX
+
+- Norton (NAVLibX.bundle)
+
+パス:
+/Library/Application Support/Norton Solutions Support/Norton AntiVirus/Engine/
+NAVLibX.bundle
+
+- VirusBarrier (VirusBarrier.kext)
+
+パス:
+/Library/StartupItems/VirusBarrier/
+VirusBarrier.kext
+
+
+システム要件
+
+- VirusScan for Mac は、Apple Macintosh OS X (10.4.0 以降) で使用できます。256 MB 以上の RAM と 70 MB 以上の空きディスク容量が必要です。 
+
+注意:
+この製品では、Mac Classic 環境は使用されません。 
+
+- VirusScan for Mac は ePolicy Orchestrator 3.5 および 3.6 (パッチ 2 以降) と統合されます。
+
+注意:
+ePolicy Orchestrator に関連する機能は、ePolicy Orchestrator と Non-Windows Agent をインストールし、企業規模で VirusScan for Mac の管理を行うように設定してある場合にのみ使用できます。ePolicy Orchestrator を使用しない場合でも、スタンドアロン製品として VirusScan for Mac のすべての機能を使用することができます。
+
+
+Non-Windows Agent for Macintosh
+
+Non-Windows Agent は、Mac OS X にインストールできます。
+
+注意:
+エージェントのインストールの詳細については、『Non Windows Agent ReadMe』および『VirusScan for Mac コンフィグレーション ガイド』を参照してください。
+
+VirusScan for Mac のインストール
+
+VirusScan for Mac は、標準インストール (グラフィカル インターフェース) またはコマンドラインからのインストール (サイレント インストール) のいずれかの方法でインストールできます。
+
+この製品をインストールするには管理者権限が必要です。
+
+標準インストール
+
+
+1.	VirusScan.pkg をダブルクリックして、インストーラを起動します。
+
+2.	画面に表示された手順に従ってソフトウェアをインストールします。
+
+3.	使用許諾契約を読み、同意します。使用許諾契約に同意しないと、インストールを続行できません。
+
+4.	[インストール] をクリックしてインストールを実行します。
+
+5.	[認証] ダイアログ ボックスが表示されます。
+
+6.	管理者の認証情報を入力し、[OK] をクリックします。 
+
+7.	インストールが完了すると、メッセージが表示されます。[OK] をクリックします。
+
+8.	インストールが完了したら、コンピュータを再起動してください。これによって、すべての VirusScan コンポーネントを適切に起動できるようになります。
+
+VirusScan for Mac インストーラにより、コンピュータの [アプリケーション] フォルダにアプリケーションがインストールされます。
+
+
+サイレント インストール
+
+1.	製品 CD または弊社 Web サイトからダウンロードしたインストール ZIP ファイルで VirusScan.pkg ファイルを検索し、一時フォルダに保存します。
+
+2.	[Terminal] ウィンドウを開き、作業フォルダを VirusScan.pkg ファイルが配置されているフォルダに変更します。
+
+3.	[Terminal] ウィンドウで次のコマンドを実行します。
+sudo installer -pkg VirusScan.pkg –target /
+
+4.	管理者用パスワードの入力を求めるメッセージが表示された場合は、管理者用パスワードを入力します。入力したパスワードは画面には表示されません。 
+
+5.	インストールが完了すると、メッセージが表示されます。このメッセージが表示されたら、コンピュータを再起動してください。これによって、すべての VirusScan コンポーネントを適切に起動できるようになります。
+
+
+アップグレード インストール
+
+VirusScan for Mac v8.5 は、VirusScan for Mactel v8.0 からアップグレードすることができますが、以前のバージョンの Virex ソフトウェアからアップグレードすることはできません。
+
+VirusScan for Mac v8.5 をインストールする前に、現在使用しているバージョンの Virex または VirusScan のアンインストーラを実行することをお勧めします。
+
+インストールのテスト
+
+EICAR (European Institute of Computer Anti-Virus Research) 標準ウイルス対策テスト ファイルを使用すると、VirusScan のテストを実行できます。このファイルは、世界のウイルス対策ソフトウェア メーカーが共同で開発した標準規格です。ユーザはこれを使用してウイルス対策ソフトウェアを検証することができます。
+
+インストールをテストするには 
+
+1.	EICAR.ORG の Web サイト (http://www.eicar.org) を表示し、ウイルス対策テストファイル (Eicar.zip) をダウンロードします。
+
+2.	ダウンロードした ZIP ファイルに対してオンデマンド スキャンを実行します。EICAR テスト ファイルが検出されたことを示すメッセージが表示されます。
+
+テストが正常に終了したら、VirusScan ソフトウェアを起動する準備は完了です。 
+
+VirusScan for Mac のアンインストール
+
+VirusScan は、製品 CD、もしくは弊社 Web サイトからダウンロードしたインストール ZIP ファイルに含まれるアンインストール ファイル (VirusScan Uninstall.command) を使用してアンインストールします。
+
+VirusScan をアンインストールするには
+
+1.	次のいずれかを実行します。
+
+-	VirusScan Uninstall.command アイコンをダブルクリックします。
+
+-	VirusScan Uninstall.command アイコンをドラッグして [Terminal] ウィンドウにドロップし、Enter キーを押します。
+
+注意:
+[Terminal] アプリケーションを開くには、/Application/Utilities に配置されているアプリケーションをダブルクリックします。
+
+2.	管理者用パスワードの入力を求めるメッセージが表示された場合は、管理者用パスワードを入力し、Enter キーを押します (入力したパスワードは画面には表示されません)。
+
+アンインストール プロセスが正常に完了すると、コンピュータから VirusScan ソフトウェアが削除されたことを通知するメッセージが [Terminal] ウィンドウに表示されます。
+
+
+
+
+_____________________________________________
+既知の問題
+
+
+VirusScan for Mac に関する既知の問題
+
+
+1.	オンアクセス スキャナによるファイルのスキャンは、デフォルトでは [常時] に設定されています。オンアクセス スキャンが有効な状態でパフォーマンスが低下した場合、オンアクセス スキャナのファイルのスキャン設定を [書き込み時] に変更することも可能です。ただし、この設定では [常時] の設定より安全性が低くなるため、感染ファイルが検出されない可能性があります。
+
+2.	Apple Mail のスキャンで電子メールを適切にスキャンするには、オンアクセス スキャナとオンデマンド スキャナの両方で、アーカイブのスキャンが有効になっている必要があります。
+
+3.	日付は、手動による eUpdate が正常に行われた場合にのみ、eUpdate ペインに表示されます。eUpdate がその他の方法 (ePolicy Orchestrator や VirusScan Schedule Editor のスケジュール設定など) で実行された場合、この値は [なし] と表示されます。
+
+4.	VirusScan コンソールで、[スキャンして駆除] 表示から [eUpdate] 表示に切り替えるときに、表示に時間がかかる場合があります。
+
+5.	オンアクセス スキャナにより、1 つの感染ファイルに対して、感染ファイル検出メッセージが VirusScan.log と VirusScan Reporter に複数記録される場合があります。これは、感染ファイルに複数のプロセスがアクセスしていることが原因です。また、一時フォルダ内の感染ファイルに対する感染メッセージが表示される場合もあります。
+
+6.	VirusScan Scheduler は、該当するユーザがフォアグラウンドで作業している場合にのみオンデマンド スキャン タスクを開始します。バックグラウンドで作業中またはログアウトしている場合は、このタスクは実行されません。
+
+7.	除外リストに起動ディスクを追加すると、すべてのハード ディスク ドライブが除外されます。
+
+8.	ePO からポリシーのアップデートがプッシュされた場合、VirusScan アプリケーションを再起動しない限り、VirusScan の GUI にはそのポリシーは表示されません。
+
+9.	オンアクセス スキャナが有効で [クリーンできない場合に削除] または [削除] に設定されている場合、感染した添付ファイルを開くと、QuickMail Client がクラッシュする場合があります。 
+
+
+Non-Windows Agent for Macintosh に関する既知の問題
+
+1.	コマンドラインを使用して Non-Windows Agent をインストール (サイレント インストール) した場合は、Non-Windows Agent が正常に動作するように、システムを再起動してください。
+
+2.	ePolicy Orchestrator の [プロパティ] に表示されるコンピュータ情報が正しくない場合があります。
+
+3.	NWA Agent は Rosetta モードで動作します。
+
+
+ePolicy Orchestrator に関する既知の問題
+
+
+1.	ePolicy Orchestrator のコンソール ツリーから VirusScan for Mac ノードを削除する場合、削除の確認メッセージ ボックスで [接続しているすべてのコンピュータからエージェントをアンインストールする] は選択しないでください。選択した状態で削除すると、ePolicy Orchestrator のコンソール ツリーに VirusScan for Mac ノードが表示されなくなります。
+
+2.	除外対象を削除しても、VirusScan for Mac の [プロパティ] タブから削除されない場合があります。新しい除外対象を作成すると、正しい情報が表示されます。
+
+3.	VirusScan for Mac により、感染している電子メールに対して、正しくない ePolicy Orchestrator イベントが生成される場合があります。
+
+4.	ePolicy Orchestrator v3.5 で VirusScan for Mac の .NAP ファイルをチェックインしたあとに ePolicy Orchestrator を v3.6 にアップグレードした場合、ePolicy Orchestrator v3.6 で VirusScan for Mac の .NAP ファイルが表示されない場合があります。
+
+このような問題が生じた場合は、ePolicy Orchestrator v3.6 のパッチ 2 を適用してから、Virex.NAP ファイルを再度チェックインしてください。
+
+
+
+________________________________________________________________
+VirusScan for Mac でサポートされていない ePolicy Orchestrator サーバ機能
+
+1.	タスク スケジューラでスケジュール タスクの種類を選択するオプションの [ログオン時]、[アイドル時]、[ダイヤルアップ接続時に実行] は、VirusScan for Mac ではサポートされていません。
+
+2.	ePolicy Orchestrator サーバを使用して、VirusScan for Mac の ePolicy Orchestrator エージェントを配備することはできません。同様に、ePolicy Orchestrator サーバを使用して、VirusScan for Mac の ePolicy Orchestrator エージェントをアンインストールすることはできません。
+
+3.	System Compliance Profiler レポートはサポートされていません。
+
+4.	クライアント コンピュータをアップデートする場合に、ePolicy Orchestrator の [ソース リポジトリ] を使用して、VirusScan for Mac の eUpdate Web サイトから DAT ファイルをダウンロードすることはできません。
+
+
+
+_____________________________________________
+ドキュメント
+
+この製品の RC リリースには、次のドキュメント セットが付属しています。
+
+−	製品ガイド － 製品の紹介と機能の説明、ソフトウェアのインストールと設定方法、操作やメンテナンスについての詳しい手順が記載されています。このマニュアルは、製品パッケージの [マニュアル] フォルダから .PDF 形式で入手できます。
+
+−	コンフィグレーション ガイド － ePolicy Orchestrator用。このマニュアルには、ePolicy Orchestrator による VirusScan の管理機能の紹介や、企業ネットワークでのソフトウェアのインストール、設定および管理方法が記載されています。このマニュアルは、ePolicy Orchestrator サーバ パッケージに .PDF 形式で同梱されています。
+
+−	ヘルプ － ソフトウェア アプリケーションからアクセスするヘルプ。高度で詳細な情報が記載されています。
+
+−	Non Windows Agent リリース ノート － このファイルには、エージェントの機能、製品リリースに関する既知の動作や問題、ePolicy Orchestrator エージェントのインストール方法についての説明が記載されています。
+
+−	VirusScan for Mac リリース ノート － このファイルには、製品の機能、マニュアルに記載されていない最新の変更点、製品リリースに関する既知の動作や問題、インストール プロセスについての説明が記載されています。この ReadMe は、製品パッケージの [マニュアル] フォルダから入手できます。 
+
+−	License － ライセンス約款 (.RTF 形式)。製品に対して購入することのできるライセンスのすべての種類が記載されています。ライセンス約款では、ライセンス製品の使用に関する一般的な条件が定義されています。よくお読みください。製品をインストールする前に、この内容に同意していただく必要があります。ライセンス約款は、製品パッケージの [マニュアル] フォルダから入手できます。
+
+
+
+________________________________________________
+McAfee ベータ版への参加
+
+新しいベータ版をダウンロードする場合や最新のベータ版の情報を調べる場合には、弊社のベータ Web サイトを参照してください。
+http://www.mcafeesecurity.com/us/downloads/beta/mcafeebetahome.htm
+
+McAfee 製品に関するご意見は、下記アドレスまで電子メールでお送りください。
+mcafee_beta@mcafee.com
+
+弊社では、お客様からのご意見に基づき、問題の解決に取り組んでいます。
+
+
+_________________________________________
+連絡先
+
+スレット センター:McAfee Avert Labs 
+ホームページ
+http://www.mcafee.com/us/threat_center/default.asp
+
+Avert Labs スレット ライブラリ
+http://vil.nai.com/
+
+Avert Labs WebImmune およびサンプルの提出先 (ログオンするには有効な認証情報が必要です)
+https://www.webimmune.net/default.asp
+
+Avert Labs DAT 通知サービス
+http://vil.nai.com/vil/signup_DAT_notification.aspx
+
+ダウンロード サイト
+ホームページ
+http://www.mcafee.com/us/downloads/
+
+- 製品のアップグレード (有効な承認番号が必要です)
+- セキュリティ アップデート (DAT、エンジン)
+- HotFix およびパッチ リリース
+- セキュリティの脆弱点用 (公開版)
+- 製品用 (ServicePortal アカウントおよび有効な承認番号が必要です)
+- 製品の評価
+- McAfee ベータ プログラム
+
+McAfee ベータ プログラム
+ダウンロード サイト:
+http://www.mcafeesecurity.com/us/downloads/beta/mcafeebetahome.htm
+
+フィードバックの送付先:
+mcafee_beta@mcafee.com
+
+テクニカル サポート
+ホームページ
+http://www.mcafee.com/us/support
+
+ナレッジベース検索
+http://knowledge.mcafee.com/
+
+McAfee テクニカル サポート ServicePortal (ログオンするには有効な認証情報が必要です)
+https://mysupport.mcafee.com/eservice_enu/start.swe
+
+カスタマ サービス
+ホームページ:
+http://www.mcafee.com/us/support/index.html
+http://www.mcafee.com/us/about/contact/index.html
+
+電話: +1-888-VIRUS NO または +1-888-847-8766
+月曜日～金曜日、午前 8 時～午後 8 時 (中部標準時) 米国、カナダ、ラテン・アメリカ (無料ダイアル)
+
+プロフェッショナル サービス
+大企業のお客様:
+http://www.mcafee.com/us/enterprise/services/index.html
+
+中堅・中小企業のお客様:
+http://www.mcafee.com/us/smb/services/index.html
+
+
+____________________________________________
+著作権と商標
+
+Copyright (C) 2006 McAfee, Inc. All Rights Reserved.このマニュアルのいかなる部分も、McAfee, Inc. またはその代理店または関連会社の書面による許可なしに、形態、方法を問わず、複写、送信、転載、検索システムへの保存、および他言語に翻訳することを禁じます。 
+
+商標
+
+ActiveSecurity、アクティブセキュリティ、Entercept、Enterprise Secure Cast、エンタープライズセキュアキャスト、E-Policy Orchestrator、イーポリシー・オーケストレイター、GroupShield、グループシールド、IntruShield、McAfee、マカフィー、NetShield、ネットシールド、SpamKiller、VirusScan、WebShield、ウェブシールドは米国法人 McAfee, Inc. またはその関係会社の登録商標です。McAfee ブランドの製品は赤を基調としています。本書中のその他の登録商標及び商標はそれぞれその所有者に帰属します。
+
+
+_____________________________________________________
+ライセンス情報と特許情報
+ライセンス条項
+
+お客様へ: お客様がお買い求めになられたライセンスに従い、該当する契約書 (許諾されたソフトウェアの使用につき一般条項を定めるものです、以下「本契約」といいます) をよくお読みください。お買い求めになられたライセンスタイプがご不明の場合には、担当営業またはライセンス付与管理部門にご相談になるか、製品に付随する購入関係書類若しくは購入手続きにおいて別途受領された書類をご参照ください。本契約の規定に同意されない場合は、製品をインストールしないでください。この場合、弊社またはご購入元に速やかにご返品いただければ、所定の条件を満たすことによりご購入額全額をお返しいたします。
+
+帰属
+
+本製品には下記のソフトウェアおよびテクノロジーが含まれている場合があります。
+* OpenSSL Toolkit で使用するために OpenSSL Project によって開発されたソフトウェア (http://www.openssl.org/)。* Eric A. Young によって作成された暗号化ソフトウェア、および Tim J. Hudson によって作成されたソフトウェア。* GNU General Public License (GPL) あるいは、プログラムもしくはその一部の複製、変更、再頒布およびソースコードへのアクセスを許諾するフリーソフトウェア ライセンスで使用 (または再ライセンス) が許可されるソフトウェア プログラム。GPL では、ソフトウェアを実行可能なバイナリ形式で配布する場合に、そのソースコードも一緒に提供することが定められています。本製品に GPL で配布されているソフトウェアが含まれている場合、そのソースコードが製品 CD に収録されています。フリー ソフトウェア ライセンスにより、弊社が製品のライセンス契約で規定している範囲を超えてソフトウェア プログラムの使用、複製、または変更を許諾しなければならない場合、これらの権利が本資料に記載されている権限または制約より優先されるものとします。* Henry Spencer によって作成されたソフトウェア。Copyright 1992, 1993, 1994, 1997 Henry Spencer. * Robert Nordier によって作成されたソフトウェア。Copyright (C) 1996-7 Robert Nordier. * Douglas W. Sauder によって作成されたソフトウェア。* Apache Software Foundation (http://www.apache.org/) によって開発されたソフトウェア。本ソフトウェアの使用許諾条件については、www.apache.org/licenses/LICENSE-2.0.txt を参照。* International Components for Unicode ("ICU") Copyright (C) 1995-2002 International Business Machines Corporation and others. * CrystalClear Software によって開発されたソフトウェア。Copyright (C) 2000 CrystalClear Software, Inc. * FEAD(R) Optimizer(R) technology, Copyright Netopsystems AG, Berlin, Germany. * Outside In(R) Viewer Technology (C) 1992-2001 Stellent Chicago, Inc. and/or Outside In(R) HTML Export, (C) 2001 Stellent Chicago, Inc. * Software copyrighted by Thai Open Source Software Center Ltd. and Clark Cooper, (C) 1998, 1999, 2000. * Software copyrighted by Expat maintainers. * Software copyrighted by The Regents of the University of California, (C) 1996, 1989, 1998-2000. * Software copyrighted by Gunnar Ritter. * Software copyrighted by Sun Microsystems, Inc., 4150 Network Circle, Santa Clara, California 95054, U.S.A., (C) 2003. * Software copyrighted by Gisle Aas.(C) 1995-2003. * Software copyrighted by Michael A. Chase, (C) 1999-2000. * Software copyrighted by Neil Winton, (C) 1995-1996. * Software copyrighted by RSA Data  Security, Inc., (C) 1990-1992. * Software copyrighted by Sean M. Burke, (C) 1999, 2000. * Software copyrighted by Martijn Koster, (C) 1995. * Software copyrighted by Brad Appleton, (C) 1996-1999. * Software copyrighted by Michael G. Schwern, (C) 2001. * Software copyrighted by Graham Barr, (C) 1998. * Software copyrighted by Larry Wall and Clark Cooper, (C) 1998-2000. * Software copyrighted by Frodo Looijaard, (C) 1997. * Software copyrighted by the Python Software Foundation, Copyright (C) 2001, 2002, 2003. 本ソフトウェアの使用許諾条件については、www.python.org を参照。* Software copyrighted by Beman Dawes, (C) 1994-1999, 2002. * Andrew Lumsdaine、Lie-Quan Lee、Jeremy G. Siek によって作成されたソフトウェア。(C) 1997-2000 University of Notre Dame. * Software copyrighted by Simone Bordet & Marco Cravero, (C) 2002. * Software copyrighted by Stephen Purcell, (C) 2001. * インディアナ大学 Extreme! 研究室 (http://www.extreme.indiana.edu/) によって開発されたソフトウェア。 * Software copyrighted by International Business Machines Corporation and others, (C) 1995-2003. * カリフォルニア大学バークレー校によって開発されたソフトウェア。* mod_ssl プロジェクト (http:// www.modssl.org/) で使用するために Ralf S. Engelschall <rse@engelschall.com> によって開発されたソフトウェア。 * Software copyrighted by Kevlin Henney, (C) 2000-2002. * Software copyrighted by Peter Dimov and Multi Media Ltd. (C) 2001, 2002. * Software copyrighted by David Abrahams, (C) 2001, 2002. 詳細については、http://www.boost.org/libs/bind/bind.html を参照。 * Software copyrighted by Steve Cleary, Beman Dawes, Howard Hinnant & John Maddock, (C) 2000. * Software copyrighted by Boost.org, (C) 1999-2002. * Software copyrighted by Nicolai M. Josuttis, (C) 1999. * Software copyrighted by Jeremy Siek, (C) 1999-2001. * Software copyrighted by Daryle Walker, (C) 2001. * Software copyrighted by Chuck Allison and Jeremy Siek, (C) 2001, 2002. * Software copyrighted by Samuel Krempp, (C) 2001. アップデート、ドキュメント、改訂履歴については http://www.boost.org を参照。 * Software copyrighted by Doug Gregor (gregod@cs.rpi.edu), (C) 2001, 2002. * Software copyrighted by Cadenza New Zealand Ltd., (C) 2000. * Software copyrighted by Jens Maurer, (C) 2000, 2001. * Software copyrighted by Jaakko Järvi (jaakko.jarvi@cs.utu.fi), (C) 1999, 2000. * Software copyrighted by Ronald Garcia, (C) 2002. * Software copyrighted by David Abrahams, Jeremy Siek, and Daryle Walker, (C) 1999-2001. * Software copyrighted by Stephen Cleary (shammah@voyager.net),(C) 2000. * Software copyrighted by Housemarque Oy <http://www.housemarque.com>, (C) 2001. * Software copyrighted by Paul Moore, (C) 1999. * Software copyrighted by Dr. John Maddock, (C) 1998-2002. * Software copyrighted by Greg Colvin and Beman Dawes, (C) 1998, 1999. * Software copyrighted by Peter Dimov, (C) 2001, 2002. * Software copyrighted by Jeremy Siek and John R. Bandela, (C) 2001. * Software copyrighted by Joerg Walter and Mathias Koch, (C) 2000-2002. * Software copyrighted by Carnegie Mellon University (C) 1989, 1991, 1992. * Software copyrighted by Cambridge Broadband Ltd., (C) 2001-2003. * Software copyrighted by Sparta, Inc., (C) 2003-2004. * Software copyrighted by Cisco, Inc and Information Network Center of Beijing University of Posts and Telecommunications, (C) 2004. * Software copyrighted by Simon Josefsson, (C) 2003. * Software copyrighted by Thomas Jacob, (C) 2003-2004. * Software copyrighted by Advanced Software Engineering Limited, (C) 2004. * Software copyrighted by Todd C. Miller, (C) 1998. * Software copyrighted by The Regents of the University of California, (C) 1990, 1993. Chris Torek によってバークレー校に寄与されたソフトウェアに由来するコード。 
+
+
+V3.1.4

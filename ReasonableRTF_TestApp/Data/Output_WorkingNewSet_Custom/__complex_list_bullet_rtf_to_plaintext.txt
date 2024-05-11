@@ -1,0 +1,12 @@
+Text before list
+1.	item one level one
+2.	item two level one
+•	item one bullet
+•	item two bullet
+2.1.	item one level two
+2.2.	item two level two
+2.2.1.	item one level three
+2.2.2.	item two level three
+2.2.2.1.	item one level four
+2.3.	item three level two
+

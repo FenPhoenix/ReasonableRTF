@@ -1,0 +1,8 @@
+Text before list
+start list
+item 2item 3
+item 4
+item 5
+6.	cell one	7.	cell two
+8.	cell 3	9.	cell 4
+10.	after table. Should be its own list

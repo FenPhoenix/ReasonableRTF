@@ -1,0 +1,43 @@
+Heading one	1
+Heading one	1
+Heading two	1
+Heading three	1
+
+Heading one	1
+Heading one	1
+Heading two	1
+Heading three	1
+entry	1
+entry 2	1
+entry 4
+entry 5	1
+entry 6	1
+entry 7	2
+entry 3	2
+
+(First TOC table uses just headers; second uses headers and entries)
+Heading one
+Body text
+
+Heading one
+Body text
+
+Heading two
+Body text
+
+Heading three
+Body text
+
+Body text toc alpha
+
+Body text toc entry2 
+
+Body text toc entry3 
+
+Body text toc suppress number
+
+Body text toc level 1
+
+Body text toc level 2
+
+Body text toc level 3

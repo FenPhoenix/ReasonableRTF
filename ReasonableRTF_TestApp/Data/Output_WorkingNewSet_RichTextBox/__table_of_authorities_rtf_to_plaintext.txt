@@ -1,0 +1,18 @@
+Body text
+First table of authorities
+Second table of authorities
+Third table of authorities bold, short field = short field, long field = long field 
+
+Cases
+authorities	1
+long field	1
+
+Cases
+authorities	1
+long field	1
+Error! No table of authorities entries found.
+
+xxx
+Cases
+authorities	1
+long field	1

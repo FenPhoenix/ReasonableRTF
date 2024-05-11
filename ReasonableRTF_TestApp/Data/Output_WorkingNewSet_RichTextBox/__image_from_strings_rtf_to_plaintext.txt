@@ -1,0 +1,10 @@
+Images (as files) with PHPRtfLite.
+JPEG	 
+PNG	 
+WMF	 
+Missing image or not readable	 
+
+Images (as strings) with PHPRtfLite.
+JPEG	 
+PNG	 
+WMF	 

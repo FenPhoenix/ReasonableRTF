@@ -1,0 +1,7 @@
+Normal text
+
+bold normal
+
+bold bold&italics bold normal
+
+bold&underlined&italics bold-off underlined-off bold&underlined&italics

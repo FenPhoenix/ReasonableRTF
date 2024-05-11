@@ -1,0 +1,6 @@
+Text without character style. Character style. Normal.
+Text
+Text
+
+Text
+ 

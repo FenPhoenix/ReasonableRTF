@@ -1,0 +1,11 @@
+2 X 6 table
+
+Middle row’s cells are merged.
+
+Middle row is empty
+
+
+
+Cell one	Cel two
+
+Cell five	Cell three

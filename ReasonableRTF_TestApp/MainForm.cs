@@ -7,19 +7,27 @@ namespace ReasonableRTF_TestApp;
 public sealed partial class MainForm : Form
 {
     private const string _configFile = "Config.ini";
+
     private const string _rtfFullSetDir = "RTF_Test_Set_Full";
     private const string _rtfSmallSetDir = "RTF_Test_Set_Small";
+    private const string _rftValidityTestDir = "Validity_Test_Files";
+    private const string _workingNewSetDir = "WorkingNewSet";
+
     private const string _outputCustomDir = "Output_Custom";
     private const string _outputRichTextBoxDir = "Output_RichTextBox";
-    private const string _rftValidityTestDir = "Validity_Test_Files";
+
     private const string _rtfValidityTestOutputCustomDir = "Output_Validity_Test_Custom";
     private const string _rtfValidityTestOutputRichTextBoxDir = "Output_Validity_Test_RichTextBox";
+
+    private const string _outputWorkingNewSetCustomDir = "Output_WorkingNewSet_Custom";
+    private const string _outputWorkingNewSetRichTextBoxDir = "Output_WorkingNewSet_RichTextBox";
 
     private enum SourceSet
     {
         Full,
         Small,
         ValidityTest,
+        WorkingNewSet
     }
 
     private sealed class TimingScope : IDisposable
@@ -138,6 +146,7 @@ public sealed partial class MainForm : Form
         {
             SourceSet.Full => _rtfFullSetDir,
             SourceSet.Small => _rtfSmallSetDir,
+            SourceSet.WorkingNewSet => _workingNewSetDir,
             _ => _rftValidityTestDir,
         };
         return Path.Combine(DataDirTextBox.Text, dir);
@@ -270,9 +279,13 @@ public sealed partial class MainForm : Form
         Trace.WriteLine(result.ToString());
         if (write)
         {
-            string outputDir = sourceSet == SourceSet.ValidityTest
-                ? _rtfValidityTestOutputCustomDir
-                : _outputCustomDir;
+            string outputDir =
+                sourceSet switch
+                {
+                    SourceSet.ValidityTest => _rtfValidityTestOutputCustomDir,
+                    SourceSet.WorkingNewSet => _outputWorkingNewSetCustomDir,
+                    _ => _outputCustomDir,
+                };
 
             WritePlaintextFile(finalFile, result.Text, outputDir, sourceSet);
         }
@@ -280,9 +293,9 @@ public sealed partial class MainForm : Form
 
     #region Convert and write
 
-    private void ConvertAndWriteWithRichTextBoxButton_Click(object sender, EventArgs e)
+    private void ConvertAndWrite_RichTextBox(SourceSet sourceSet, string outputDir)
     {
-        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(SourceSet.Full);
+        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(sourceSet);
         using var rtfBox = new RichTextBox();
 
         try
@@ -303,7 +316,7 @@ public sealed partial class MainForm : Form
                     {
                         text = "<RichTextBox could not convert this file>";
                     }
-                    WritePlaintextFile(f, text, _outputRichTextBoxDir, SourceSet.Full);
+                    WritePlaintextFile(f, text, outputDir, sourceSet);
                 }
             }
         }
@@ -316,9 +329,9 @@ public sealed partial class MainForm : Form
         }
     }
 
-    private void ConvertAndWriteWithCustomButton_Click(object sender, EventArgs e)
+    private void ConvertAndWrite_Custom(SourceSet sourceSet, string outputDir)
     {
-        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(SourceSet.Full);
+        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
         RtfToTextConverter rtfConverter = new();
 
         using (new TimingScope(totalSize))
@@ -329,69 +342,44 @@ public sealed partial class MainForm : Form
                 Trace.WriteLine(f);
                 byte[] array = byteArrays[i];
                 RtfResult result = rtfConverter.Convert(array);
-                WritePlaintextFile(f, result.Text, _outputCustomDir, SourceSet.Full);
+                WritePlaintextFile(f, result.Text, outputDir, sourceSet);
             }
         }
+    }
+
+    private void ConvertAndWriteWithRichTextBoxButton_Click(object sender, EventArgs e)
+    {
+        ConvertAndWrite_RichTextBox(SourceSet.Full, _outputRichTextBoxDir);
+    }
+
+    private void ConvertAndWriteWithCustomButton_Click(object sender, EventArgs e)
+    {
+        ConvertAndWrite_Custom(SourceSet.Full, _outputCustomDir);
     }
 
     #region Write validity test
 
     private void ConvertAndWriteValidityTestFiles_RTB_Button_Click(object sender, EventArgs e)
     {
-        (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(SourceSet.ValidityTest);
-        using var rtfBox = new RichTextBox();
-
-        try
-        {
-            using (new TimingScope(totalSize))
-            {
-                for (int i = 0; i < memStreams.Length; i++)
-                {
-                    string f = rtfFiles[i];
-                    string text;
-                    try
-                    {
-
-                        rtfBox.LoadFile(memStreams[i], RichTextBoxStreamType.RichText);
-                        // On .NET 8, RichTextBox plaintext has vertical tabs (0x0B) in place of \line keywords(?!?!)
-                        text = rtfBox.Text.Replace('\x0B', '\n');
-                    }
-                    catch
-                    {
-                        text = "<RichTextBox could not convert this file>";
-                    }
-                    WritePlaintextFile(f, text, _rtfValidityTestOutputRichTextBoxDir, SourceSet.ValidityTest);
-                }
-            }
-        }
-        finally
-        {
-            foreach (MemoryStream ms in memStreams)
-            {
-                ms.Dispose();
-            }
-        }
+        ConvertAndWrite_RichTextBox(SourceSet.ValidityTest, _rtfValidityTestOutputRichTextBoxDir);
     }
 
     private void ConvertAndWriteValidityTestFiles_Custom_Button_Click(object sender, EventArgs e)
     {
-        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(SourceSet.ValidityTest);
-        RtfToTextConverter rtfConverter = new();
-
-        using (new TimingScope(totalSize))
-        {
-            for (int i = 0; i < byteArrays.Length; i++)
-            {
-                string f = rtfFiles[i];
-                Trace.WriteLine(f);
-                byte[] array = byteArrays[i];
-                RtfResult result = rtfConverter.Convert(array);
-                WritePlaintextFile(f, result.Text, _rtfValidityTestOutputCustomDir, SourceSet.ValidityTest);
-            }
-        }
+        ConvertAndWrite_Custom(SourceSet.ValidityTest, _outputWorkingNewSetCustomDir);
     }
 
     #endregion
+
+    private void WriteWorkingNewSetRTBButton_Click(object sender, EventArgs e)
+    {
+        ConvertAndWrite_RichTextBox(SourceSet.WorkingNewSet, _outputWorkingNewSetRichTextBoxDir);
+    }
+
+    private void WriteWorkingNewSetCustomButton_Click(object sender, EventArgs e)
+    {
+        ConvertAndWrite_Custom(SourceSet.WorkingNewSet, _outputWorkingNewSetCustomDir);
+    }
 
     #endregion
 

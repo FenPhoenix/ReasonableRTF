@@ -1,0 +1,37 @@
+Chess tournamet information (write your data)
+
+ 
+	Mike Smith	Jim Morgan	Jochgan Berg	Bill Scott	Bill Martines	John Po	Aleck Harrison	Ann Scott	Johnatan Fredericson	Eva Carter	TOTAL
+Mike Smith	 	 	 	 	 	 	 	 	 	 	 
+Jim Morgan	 	 	 	 	 	 	 	 	 	 	 
+Jochgan Berg	 	 	 	 	 	 	 	 	 	 	 
+Bill Scott	 	 	 	 	 	 	 	 	 	 	 
+Bill Martines	 	 	 	 	 	 	 	 	 	 	 
+John Po	 	 	 	 	 	 	 	 	 	 	 
+Aleck Harrison	 	 	 	 	 	 	 	 	 	 	 
+Ann Scott	 	 	 	 	 	 	 	 	 	 	 
+Johnatan Fredericson	 	 	 	 	 	 	 	 	 	 	 
+Eva Carter	 	 	 	 	 	 	 	 	 	 	 
+
+Chess tournamet play-offs (write your data)
+
+A1	 	 	 	 	 	 	 	 	1-st place	 
+P1	 	 	 	 	 	 	 	 	2-st place	 
+P8	 	 	 	B1	 	 	 	 	3-d place	 
+ 
+	 	 	 	A1	 	 	 	 	 	 
+A2	 	 	 	A2	 	 	 	 	 	 
+P2	 	 	 	 	 	 	 	 	 	 
+P7	 	 	 	 	 	 	 	 	1-st place	 
+ 
+	 	 	 	 	 	 	 	B1	 	 
+A3	 	 	 	 	 	 	 	B2	 	 
+P3	 	 	 	 	 	 	 	 	 	 
+P6	 	 	 	B2	 	 	 	 	 	 
+ 
+	 	 	 	A3	 	 	 	 	 	 
+A4	 	 	 	A4	 	 	 	 	3-d place	 
+P4	 	 	 	 	 	 	 	B1	 	 
+P5	 	 	 	 	 	 	 	B2	 	 
+ 
+	 	 	 	 	 	 	 	 	 	 

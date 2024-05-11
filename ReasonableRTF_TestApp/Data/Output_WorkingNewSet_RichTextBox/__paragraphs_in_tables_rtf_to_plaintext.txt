@@ -1,0 +1,14 @@
+ 
+	Testing paragraphs in table cells.
+ 
+	
+Various paragraphs
+Alignment: center
+Indent Left: 10
+BackColor: #99ccff
+
+Alignment: right
+Indent Left: 5
+Indent Right: 10
+BackColor: #ffcc99
+Border: red

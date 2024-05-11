@@ -1,0 +1,8 @@
+Text before list
+1.	item one
+2.	item two
+	3.	Should start new list
+4.	likewise
+1.	item 1
+2.	item 2	
+

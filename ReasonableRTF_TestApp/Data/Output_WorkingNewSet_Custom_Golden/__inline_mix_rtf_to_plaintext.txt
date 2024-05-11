@@ -1,0 +1,38 @@
+MIX UP BOLD, ITALICS AND OTHER CHARACTHER FORMATS
+
+Start with normal text. :italics: normal :italics: :bold :: italics: normal :underlined all of this text: :bold: :italics: : temporarily turn off underline but keep italics:  : underline on. End.
+
+This paragraph is an italics paragraph. :italics off: :bold on: End paragraph.
+This paragraph has bold, italics, and underline as its defined style.
+
+This paragraph also has bold, italics and underline. Italics off. Default. Bold and italics off. Default. Bold, italics, and underlined off. Default. Add strikethrough. Keep strikethrough but turn bold off. Turn bold back on. (Default except for strikethrough.) Now turn bold and underlined off. Now default.
+
+This paragraph has bold and italics as its defined style.
+Default. Turn bold off. Default. Now turn italics off. Default. Now turn bold off. Default. Turn bold and italics off. Default. Now turn italics off, but add underlined. Default. 
+
+This paragraph has wavy underlined defined as its style. Now off. On. Add bold. Add italics. Turn wavy off, but keep bold and italics. Turn bold off. Turn wavy off. Default. 
+Normal paragraph again. :shadow: :outline: :font size=10: :font size=24:
+:strikethrough: :double strikethrough: :emboss: :engrave: :::all caps: :small caps: :superscript by 2 points: :subscript by 2 points: :
+
+DIFFERENT UNDERLINED STYLES:
+Text that is underlined. Words only.
+Text that is underlined. Single line.
+Text that is underlined. Double line.
+Text that is underlined. Thick line.
+Text that is underlined. Dotted.
+Text that is underlined. Heavy dotted.
+Text that is underlined. Dashed.
+Text that is underlined. Heavy dashed.
+Text that is underlined. Long dashed.
+Text that is underlined. Long dashed bold.
+Text that is underlined. Morse code.
+Text that is underlined. Morse code bold.
+Text that is underlined. Morse code two.
+Text that is underlined. Morse code two bold.
+Text that is underlined. Wavy.
+Text that is underlined. Wavy bold.
+Text that is underlined. Wavy double.
+
+
+
+

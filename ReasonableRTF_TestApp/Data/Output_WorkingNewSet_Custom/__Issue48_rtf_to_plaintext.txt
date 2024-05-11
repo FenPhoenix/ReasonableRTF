@@ -1,0 +1,16 @@
+Include file ../../Desktop/any_document.rtf
+
+Include www link http://www.cnn.com/
+
+Hyperlink with email mailto:phthenry@earthlink.net?subject=subject line
+
+Include www link \h history http://www.cnn.com/
+
+
+Include file \n switch ../../Desktop/any_document.rtf
+
+Bookmark_1
+
+Hyperlink within doc bookmark_1
+
+Google

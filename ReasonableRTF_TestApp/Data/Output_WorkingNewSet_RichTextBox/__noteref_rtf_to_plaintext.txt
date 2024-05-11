@@ -1,0 +1,4 @@
+Bookmark_1 
+Insert Noteref 1
+Insert Noteref with \p \h \f switch 1 above
+Insert Noteref with \h switch 1

@@ -1,0 +1,37 @@
+Text before borders
+
+Box followed by shadow bordering
+Shadowed border
+No border
+
+Left border
+
+
+
+Right border
+
+
+
+Top border
+
+Bottom border
+
+
+Box some type of dotted line
+
+
+
+
+
+Blue border
+
+
+
+
+Box with wavy
+
+
+
+7 points from top
+
+Box some type of dotted line again

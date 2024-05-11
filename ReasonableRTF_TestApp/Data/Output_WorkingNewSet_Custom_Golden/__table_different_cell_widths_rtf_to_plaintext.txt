@@ -1,0 +1,6 @@
+3 X 3 table, different cell widths
+
+Cell one	Cell two	Cell three
+Cell four	Cell five	Cell six
+Cell seven	Cell eight	Cell nine
+

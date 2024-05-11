@@ -49,16 +49,20 @@ sealed partial class MainForm
         ValidityTestGroupBox = new GroupBox();
         ConvertAndWriteValidityTestFiles_Custom_Button = new Button();
         ConvertAndWriteValidityTestFiles_RTB_Button = new Button();
+        WriteWorkingNewSetGroupBox = new GroupBox();
+        WriteWorkingNewSetRTBButton = new Button();
+        WriteWorkingNewSetCustomButton = new Button();
         ConvertAndWriteToDiskGroupBox.SuspendLayout();
         ConvertOnly_Full_GroupBox.SuspendLayout();
         ConverOnly_Small_GroupBox.SuspendLayout();
         DataDirGroupBox.SuspendLayout();
         ValidityTestGroupBox.SuspendLayout();
+        WriteWorkingNewSetGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // Test1Button
         // 
-        Test1Button.Location = new Point(392, 216);
+        Test1Button.Location = new Point(504, 96);
         Test1Button.Name = "Test1Button";
         Test1Button.Size = new Size(91, 27);
         Test1Button.TabIndex = 7;
@@ -123,11 +127,11 @@ sealed partial class MainForm
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithRichTextBoxButton);
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithCustom20XButton);
         ConvertOnly_Full_GroupBox.Controls.Add(ConvertOnlyWithCustomButton);
-        ConvertOnly_Full_GroupBox.Location = new Point(16, 176);
+        ConvertOnly_Full_GroupBox.Location = new Point(16, 168);
         ConvertOnly_Full_GroupBox.Margin = new Padding(4, 3, 4, 3);
         ConvertOnly_Full_GroupBox.Name = "ConvertOnly_Full_GroupBox";
         ConvertOnly_Full_GroupBox.Padding = new Padding(4, 3, 4, 3);
-        ConvertOnly_Full_GroupBox.Size = new Size(336, 72);
+        ConvertOnly_Full_GroupBox.Size = new Size(336, 64);
         ConvertOnly_Full_GroupBox.TabIndex = 2;
         ConvertOnly_Full_GroupBox.TabStop = false;
         ConvertOnly_Full_GroupBox.Text = "Convert only (full set):";
@@ -170,11 +174,11 @@ sealed partial class MainForm
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithRichTextBox_Small_Button);
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithCustom20X_Small_Button);
         ConverOnly_Small_GroupBox.Controls.Add(ConvertOnlyWithCustom_Small_Button);
-        ConverOnly_Small_GroupBox.Location = new Point(16, 264);
+        ConverOnly_Small_GroupBox.Location = new Point(16, 240);
         ConverOnly_Small_GroupBox.Margin = new Padding(4, 3, 4, 3);
         ConverOnly_Small_GroupBox.Name = "ConverOnly_Small_GroupBox";
         ConverOnly_Small_GroupBox.Padding = new Padding(4, 3, 4, 3);
-        ConverOnly_Small_GroupBox.Size = new Size(336, 72);
+        ConverOnly_Small_GroupBox.Size = new Size(336, 64);
         ConverOnly_Small_GroupBox.TabIndex = 3;
         ConverOnly_Small_GroupBox.TabStop = false;
         ConverOnly_Small_GroupBox.Text = "Convert only (small-file set):";
@@ -214,7 +218,7 @@ sealed partial class MainForm
         // 
         // ConvertOneButton
         // 
-        ConvertOneButton.Location = new Point(392, 104);
+        ConvertOneButton.Location = new Point(392, 96);
         ConvertOneButton.Name = "ConvertOneButton";
         ConvertOneButton.Size = new Size(91, 27);
         ConvertOneButton.TabIndex = 5;
@@ -224,7 +228,7 @@ sealed partial class MainForm
         // 
         // WriteOneButton
         // 
-        WriteOneButton.Location = new Point(392, 136);
+        WriteOneButton.Location = new Point(392, 128);
         WriteOneButton.Name = "WriteOneButton";
         WriteOneButton.Size = new Size(91, 27);
         WriteOneButton.TabIndex = 6;
@@ -258,16 +262,16 @@ sealed partial class MainForm
         // 
         ValidityTestGroupBox.Controls.Add(ConvertAndWriteValidityTestFiles_Custom_Button);
         ValidityTestGroupBox.Controls.Add(ConvertAndWriteValidityTestFiles_RTB_Button);
-        ValidityTestGroupBox.Location = new Point(376, 264);
+        ValidityTestGroupBox.Location = new Point(376, 168);
         ValidityTestGroupBox.Name = "ValidityTestGroupBox";
-        ValidityTestGroupBox.Size = new Size(232, 72);
+        ValidityTestGroupBox.Size = new Size(232, 64);
         ValidityTestGroupBox.TabIndex = 4;
         ValidityTestGroupBox.TabStop = false;
         ValidityTestGroupBox.Text = "Write converted validity test files";
         // 
         // ConvertAndWriteValidityTestFiles_Custom_Button
         // 
-        ConvertAndWriteValidityTestFiles_Custom_Button.Location = new Point(120, 32);
+        ConvertAndWriteValidityTestFiles_Custom_Button.Location = new Point(120, 24);
         ConvertAndWriteValidityTestFiles_Custom_Button.Name = "ConvertAndWriteValidityTestFiles_Custom_Button";
         ConvertAndWriteValidityTestFiles_Custom_Button.Size = new Size(93, 27);
         ConvertAndWriteValidityTestFiles_Custom_Button.TabIndex = 1;
@@ -277,7 +281,7 @@ sealed partial class MainForm
         // 
         // ConvertAndWriteValidityTestFiles_RTB_Button
         // 
-        ConvertAndWriteValidityTestFiles_RTB_Button.Location = new Point(16, 32);
+        ConvertAndWriteValidityTestFiles_RTB_Button.Location = new Point(16, 24);
         ConvertAndWriteValidityTestFiles_RTB_Button.Name = "ConvertAndWriteValidityTestFiles_RTB_Button";
         ConvertAndWriteValidityTestFiles_RTB_Button.Size = new Size(93, 27);
         ConvertAndWriteValidityTestFiles_RTB_Button.TabIndex = 0;
@@ -285,17 +289,53 @@ sealed partial class MainForm
         ConvertAndWriteValidityTestFiles_RTB_Button.UseVisualStyleBackColor = true;
         ConvertAndWriteValidityTestFiles_RTB_Button.Click += ConvertAndWriteValidityTestFiles_RTB_Button_Click;
         // 
+        // WriteWorkingNewSetGroupBox
+        // 
+        WriteWorkingNewSetGroupBox.Controls.Add(WriteWorkingNewSetRTBButton);
+        WriteWorkingNewSetGroupBox.Controls.Add(WriteWorkingNewSetCustomButton);
+        WriteWorkingNewSetGroupBox.Location = new Point(376, 240);
+        WriteWorkingNewSetGroupBox.Margin = new Padding(4, 3, 4, 3);
+        WriteWorkingNewSetGroupBox.Name = "WriteWorkingNewSetGroupBox";
+        WriteWorkingNewSetGroupBox.Padding = new Padding(4, 3, 4, 3);
+        WriteWorkingNewSetGroupBox.Size = new Size(233, 64);
+        WriteWorkingNewSetGroupBox.TabIndex = 1;
+        WriteWorkingNewSetGroupBox.TabStop = false;
+        WriteWorkingNewSetGroupBox.Text = "Write (working new set)";
+        // 
+        // WriteWorkingNewSetRTBButton
+        // 
+        WriteWorkingNewSetRTBButton.Location = new Point(16, 24);
+        WriteWorkingNewSetRTBButton.Margin = new Padding(4, 3, 4, 3);
+        WriteWorkingNewSetRTBButton.Name = "WriteWorkingNewSetRTBButton";
+        WriteWorkingNewSetRTBButton.Size = new Size(93, 27);
+        WriteWorkingNewSetRTBButton.TabIndex = 0;
+        WriteWorkingNewSetRTBButton.Text = "RichTextBox";
+        WriteWorkingNewSetRTBButton.UseVisualStyleBackColor = true;
+        WriteWorkingNewSetRTBButton.Click += WriteWorkingNewSetRTBButton_Click;
+        // 
+        // WriteWorkingNewSetCustomButton
+        // 
+        WriteWorkingNewSetCustomButton.Location = new Point(120, 24);
+        WriteWorkingNewSetCustomButton.Margin = new Padding(4, 3, 4, 3);
+        WriteWorkingNewSetCustomButton.Name = "WriteWorkingNewSetCustomButton";
+        WriteWorkingNewSetCustomButton.Size = new Size(93, 27);
+        WriteWorkingNewSetCustomButton.TabIndex = 1;
+        WriteWorkingNewSetCustomButton.Text = "Custom";
+        WriteWorkingNewSetCustomButton.UseVisualStyleBackColor = true;
+        WriteWorkingNewSetCustomButton.Click += WriteWorkingNewSetCustomButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 352);
+        ClientSize = new Size(625, 398);
         Controls.Add(ValidityTestGroupBox);
         Controls.Add(DataDirGroupBox);
         Controls.Add(WriteOneButton);
         Controls.Add(ConvertOneButton);
         Controls.Add(ConverOnly_Small_GroupBox);
         Controls.Add(ConvertOnly_Full_GroupBox);
+        Controls.Add(WriteWorkingNewSetGroupBox);
         Controls.Add(ConvertAndWriteToDiskGroupBox);
         Controls.Add(Test1Button);
         FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -310,6 +350,7 @@ sealed partial class MainForm
         DataDirGroupBox.ResumeLayout(false);
         DataDirGroupBox.PerformLayout();
         ValidityTestGroupBox.ResumeLayout(false);
+        WriteWorkingNewSetGroupBox.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -336,4 +377,7 @@ sealed partial class MainForm
     private GroupBox ValidityTestGroupBox;
     private Button ConvertAndWriteValidityTestFiles_Custom_Button;
     private Button ConvertAndWriteValidityTestFiles_RTB_Button;
+    private GroupBox WriteWorkingNewSetGroupBox;
+    private Button WriteWorkingNewSetRTBButton;
+    private Button WriteWorkingNewSetCustomButton;
 }

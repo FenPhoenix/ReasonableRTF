@@ -1,0 +1,11 @@
+***BRACES AND BACKSLASHES***
+:{this text is between brackets}:
+:{\this text emulates a rtf grouping. It starts with a open bracket, then a back slash, and ends with a closed bracket.}:
+:\text has a backslash before it:
+:\\text has two backslashes before it:
+:\tab text has a bogus tab character—a backslash followed by the word tab: This text should be represented literally, instead of being converted to Unicode.
+:\rquote text has a bogus rquote character—a backslash followed by the word rquote. This text should be represented literally, instead of being translated to Unicode.
+:\lquote text has a bogus lquote character—a backslash followed by the word lquote. This text should be represented literally instead of being converted to Unicode.:
+:\ldblquote text has a bogus ldblquote sequence. This text should be represented literally instead of being converted to Unicode.
+:\rdblquote text has a bogus rdblquote sequence. This text should be represented literally instead of being converted to Unicode.
+

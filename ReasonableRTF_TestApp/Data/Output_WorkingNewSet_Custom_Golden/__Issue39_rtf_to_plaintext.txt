@@ -1,0 +1,360 @@
+	Your ref.
+UAB
+M. Mažvydo g. 49A‑12
+72295 Tauragė
+
+Technical Specification
+
+Gerb. p.
+
+
+FH 460 HP 4*2 Tractor Medium chassis height with rear air suspension
+
+Sunkvežimio paskirtis
+	Eksploatacijos sąlygos ‑ geri keliai
+	Sunkvežimio paskirtis ‑ tolimieji pervežimai
+	Topografija ‑ dominuoja lygumos
+	Aplinkos temperatūra ‑ ne aukštesnė, kaip +40C
+	Aplinkos temperatūra ‑ ne žemesnė, kaip ‑25C
+	Antstato su kroviniu svorio centro aukštis ‑ nuo 0.5 m iki 1.0 m virš rėmo
+	Vidutiniškai purvini keliai. Nuo 10% iki 40% važiavimo atstumo purvinais keliais.
+	Bendra junginio masė 44 tonos (gali būti sumažinta, priklausomai nuo atskirų komponentų 
+	parametrų)
+	Maksimalus sunkvežimio plotis su antstatu ‑ 2600 mm
+
+Pagrindiniai komponentai
+	Važiuoklės aukštis apie 900 mm
+	Galinė pneumatinė pakaba, 1 varančioji ašis
+	FH Globetrotter kabina
+	Ratų bazė ‑ 3800 mm
+	Euro 6 variklio emisija su turbojunginiu
+	Variklis D13K460 Euro 6 SCR + EGR, 460 AG
+	Dyzelinis 12.8 l "Turbo Compound" variklis, Euro 6 SCR + EGR, 460 AG / 2630 Nm
+	Volvo variklio stabdys VEB+
+	I‑shift automatizuota 12 pavarų dėžė, 2600 Nm, maksimali junginio masė 100 t
+	Galinė ašis RSS1344E, vienguba redukcija, 13 t, maksimali junginio masė ‑ 44 t
+	Galinės ašies reduktoriaus perdavimo skaičius 2.31
+
+
+
+Paketai
+	Tolimųjų pervežimų degalų taupymo sunkvežimio įrangos paketas
+	I‑see sistema (žemėlapio topografijos duomenys), 5 metų išankstinis apmokėjimas
+	Automatinis variklio išjungimas dirbant laisvąja eiga po 2.5 min.
+	Transmisijos programinė įranga, skirta tolimiesiems pervežimams
+	Kintamo našumo vairo stiprintuvo siurblys
+	Spoilerių paketas (kabinos ir važiuoklės)
+	Papildomi važiuoklės spoilerių aerodinaminiai antdėklai
+	Stogo spoileris. Galimi skirtingi variantai, priklausomai nuo bendro sunkvežimio aukščio.
+	Ilgi šoniniai kabinos spoileriai
+	Važiuoklės spoileriai
+	Šoninės apsaugos nuo palindimo
+	Vairuotojo komforto įrangos paketas "Driving"
+	Tonuoto stiklo stoglangis/avarinis išėjimas, rankinis valdymas
+	Elektroninė klimato kontrolės sistema su saulės jutikliu
+	Pilkas išorinis saulės skydelis
+	Vairuotojo sėdynė su dviem porankiais
+	Stalčius prietaisų skydo centre, apačioje
+	Porankių apmušalai ‑ vinilas
+	Elektra šildomi bei valdomi galinio vaizdo ir plataus kampo veidrodžiai kairėje ir dešinėje bei 
+	priartinantis veidrodis keleivio pusėje
+	Poilsio paketas "2 Bed", 2 gultai
+	Butelių laikikliai po prietaisų skydu ir prie gulto
+	Galinis viršutinis skyrius daiktams, 154 l talpos, 300 mm aukščio
+	Reguliuojamo aukščio 700x1900 mm viršutinis gultas, atlenkiamas
+	Miegamosios zonos valdymo pultas "Luxury"
+	Papildomos lentynėlės viršutinėje priekinėje daiktadėžėje
+	Autonominis kabinos šildytuvas, 2 kW
+	Baltos ir raudonos šviesos interjero apšvietimas su ryškumo reguliatoriumi
+	Audio įrangos paketas "High power": RDS radijas su CD grotuvu (MP3/WMA failų atkūrimas), 
+	FM/AM antena, garsiakalbiai prietaisų skyde, duryse ir prie gulto, integruota bluetooth telefono 
+	sąsaja bei USB ir "line" įvesties jungtys. Paruošimas Dynafleet interneto portalui.
+	Audio signalas AM/FM
+	Prietaisų skyde sumontuotas 7 colių spalvotas informacinis displėjus, 800x480 piks. / 
+	153(W)x92(H)mm
+	Be papildomo garso stiprintuvo
+
+
+
+Važiuoklė
+	2 akumuliatorių el. energijos kaupimo sistema
+	Priekinė pakaba ‑ parabolinės lingės, 2 lakštai
+	Be priekinės pneumatinės pakabos eigos pasirinkimo
+	Priekinės ašies apkrova 7.5 t
+	Vidutinio standumo priekinis stabilizatorius
+	Galinės ašies apkrova 13 t
+	Standartinio standumo galinis stabilizatorius
+	Pneumatinė galinė pakaba su 3 važiavimo lygio padėtimis
+	Be dinaminio vairavimo sistemos (VDS)
+	Be Volvo dinaminio vairavimo sistemos funkcijų
+	Diskiniai stabdžiai su vientisais diskais
+	Varančiosios ašies stabdžių diskų diametras ‑ 410 mm
+	EBS stabdžių sistema
+	Papildomas stovėjimo stabdys (2 kameros)
+	Rėmo profilio aukštis ‑ 266 mm
+	Rėmo profilio storis ‑ 6.5 mm
+	Be įdėklo rėmo sustiprinimui
+	Be pneumatinės įrangos apsaugos
+	Akumuliatorių dėžė kairėje pusėje
+	Akumuliatoriai 2x210 Ah (GEL)
+	Akumuliatorių įkrovos ir būsenos indikatorius su vizualine įspėjimų indikacija
+	Akumuliatorių regeneratorius
+	Be ADR paruošimo
+	Be ADR klasifikavimo
+	Masės išjungėjas akumuliatorių dėžėje
+	610 l aliuminio D‑formos degalų bakas dešinėje, D=710 mm (užpildomas tūris ‑ 97%)
+	650 l aliuminio D‑formos degalų bakas kairėje, D=710 mm (užpildomas tūris ‑ 97%)
+	Standartinė degalų bako prošvaisa
+	AdBlue bako tūris ‑ 65 l
+	AdBlue bako padėtis ‑ dešinėje pusėje, už kabinos
+	Užrakinami degalų ir AdBlue bako dangteliai
+	Apsauga nuo degalų išsiliejimo per degalų bako užpylimo angą
+	Duslintuvas horizontalus, išmetimas į galą
+	Viena atrama ratams, sulankstoma
+	Atramos ratams sunkvežimio priekyje
+	Be įrankių dėžės kairėje pusėje
+	Be įrankių dėžės dešinėje pusėje
+	Šoniniai ir galiniai gabaritiniai žibintai
+	Be sniego grandinių
+
+
+	Be kablių sniego grandinėms
+	Galinė rėmo iškyša ‑ 825 mm
+	Vienas vilkimo įtaisas priekyje
+	Be įtaiso vilkimui gale
+	Dvi priekabos elektros jungtys (2x7 pol.), be ADR
+	Priekabos stabdžių jungtys, EB
+	Plieninis priekabos jungčių kronšteinas už kabinos
+	Stovinčios priekabos stabdžių valdymas
+	Be automatinio priekabos ištiesinimo stabdžio
+	Priekinės ašies purvasaugiai su apsauga nuo aptaškymo
+	Purvasaugiai ir priekinė apsauga nuo palindimo atitinkantys ES reikalavimus
+	Trijų dalių galiniai sparnai su purvasaugiais
+	Galinių sparnų padėtis ‑ standartinė
+	Galinės ašies purvasaugiai su apsauga nuo aptaškymo
+	Plieniniai oro resiveriai
+	LED galiniai žibintai
+	Stabdžių žibintai su avarinio stabdymo indikacija
+	Be skersinio rėmo gale
+
+Ratlankiai ir padangos
+	Padangos skirtos Europai
+	Plieniniai ratlankiai
+	Be ratų gaubtų
+	Priekinės ašies padangos 315/70R22.5
+	Pasipriešinimo riedėjimui klasė ‑ B, priekinės ašies padangos
+	Goodyear, fuelmax s gen‑2
+	Varančiosios ašies padangos 315/70R22.5
+	Pasipriešinimo riedėjimui klasė ‑ B, varančiosios ašies padangos
+	Goodyear, fuelmax d gen‑2
+	Be atsarginio rato
+	Be atsarginio rato laikiklio
+	Domkratas ‑ 15 t
+	Pilnas įrankių rinkinys
+	Be padangų slėgio kontrolės sistemos
+	Žarna padangų pripūtimui, 18 m
+	Be padangų slėgio manometro
+
+
+
+Galios agregatų įranga
+	Rankinis degalų nuorinimas
+	Euro 6 išmetamųjų dujų kontrolės sistema, D pakopos reikalavimai
+	I‑shift pavarų perjungimas mygtukais
+	Standartinis pavarų perjungimas, be "kickdown" funkcijos
+	Transmisijos programinė įranga, pritaikyta geriems keliams
+	Bazinės I‑shift jėgos nuėmimo funkcijos
+	Be retarderio
+	Pavarų dėžės alyvos aušintuvas
+	Dviejų cilindrų oro kompresorius, 1100 l/min
+	Be automatiškai išsijungiančio oro kompresoriaus
+	Aukštas oro paėmimas
+	Variklio oro filtras
+	Generatorius 120 A
+	Triukšmo lygis 80 dB(A), atitinkantis EEK R51.03 reikalavimus
+	Pavarų dėžės paskirtis ‑ standartinės ekploatavimo sąlygos
+	Degalų filtro pašildymas karštų degalų recirkuliacija
+	Pašildymo elementas variklio užvedimui palengvinti
+	Be elektrinio variklio bloko šildytuvo (220V, 1.5kW)
+	Be galios nuėmimo nuo variklio
+	Be hidrosiurblio ant variklio
+	Be galios nuėmimo nuo pavarų dėžės
+	Be hidrosiurblio ant pavarų dėžės
+	Plastikinis variklio karterio dangtis
+
+
+
+Kabinos interjeras, "driving"
+	Be ESP (stabilumo kontrolės) programos funkcionalumo valdymo
+	Automatinis kietųjų dalelių filtro regeneracijos valdymas (sunkvežimiui judant)
+	Vairas kairėje pusėje
+	Oda aptrauktas vairaratis
+	Reguliuojamos padėties vairaratis su "Neck Tilt" reguliavimo funkcija
+	Be saugos oro pagalvės
+	Antros kartos 24h skaitmeninis tachografas, ES patvirtintas
+	Greičio ribotuvo nustatymai 90 km/h
+	Be papildomo greičio ribotuvo
+	Prietaisų skydo spalva ‑ pilkai ruda. Vairaračio ir durų apdailos spalva ‑ pilkai ruda (FH) arba juo
+	Pastovaus greičio palaikymo sistema, pritaikyta papildomam degalų taupymui
+	Važiavimo greičio apribojimas ‑ 85 km/h
+	ESP (stabilumo kontrolės) programa, standartinis krovinio svorio centro aukštis
+	Įspėjimo apie susidūrimą ir avarinio stabdymo sistema su pastovaus greičio palaikymo sistema
+	Nukrypimo nuo eismo juostos įspėjimo sistema
+	Be pagalbinės važiuojamosios kelio juostos keitimo sistemos
+	Be pagalbinės vairuotojo budrumo stebėjimo sistemos
+	Be valytuvų lietaus jutiklio
+	Be teleskopinio langų valymo įrankio
+	Imobilizatorius
+	Be signalizacijos
+	Be elektroninio alkoholio detektoriaus ‑ užrakto (Alcolock)
+	Be paruošimo telefonui
+	Elektrinė langų stiklo pakelėjo pavara, automatinis vairuotojo pusės lango atidarymas/uždarymas
+	Vidinis saulės skydelis vairuotojo pusėje
+	Rankiniu būdu nuleidžiama saulės užuolaida, integruota į priekinę daiktinę
+	Dvi daiktinės prietaisų skydo centre, viršuje
+	Dvi papildomos DIN formato vietos radijui priekinėje lentynoje
+	Be atbulinės eigos signalizacijos
+	Be atgalinio vaizdo monitoriaus
+	Paruošimas kelių mokesčių sistemai (Toll Collect)
+	Be apkrovos indikatoriaus
+	Be nuotolinio valdymo pulto sunkvežimio ir antstato funkcijoms
+	Gesintuvas 3 kg
+	Signalinė liemenė
+	Du avarinio sustojimo ženklai
+	Vaistinėlė
+	Be nešiojamo signalinio žibinto
+	Be apžiūros žibinto
+
+
+	Lempučių ir saugiklių komplektas
+	Vairuotojo instrukcija lietuvių kalba
+	Lentelės ir užrašai anglų/vokiečių kalbomis
+	Pirmoji informacinio displėjaus pasirenkama kalba ‑ lietuvių
+	Antroji informacinio displėjaus pasirenkama kalba ‑ rusų
+	Antra vairuotojo instrukcija rusų kalba
+	Padėklas rašymui
+	Techninės pagalbos paslauga aktyvuota, su balso ryšio funkcija
+
+Kabinos interjeras, "living"
+	Tamsios tekstilės sėdynės ir tekstilės interjero apdaila
+	Komfortinė vairuotojo sėdynė su orine pakaba, integruotas saugos diržas
+	Juodos spalvos saugos diržai
+	Standartinė keleivio sėdynė su orine pakaba
+	Plieninė rankena įlipimui palengvinti
+	Guminiai grindų kilimėliai
+	Fiksuoto aukščio apatinis gultas, atlenkiamas, 2000x815/740/660 mm
+	Standus spyruoklinis apatinio gulto čiužinys, vairuotojo svoris virš 100 kg
+	Juodos tekstilės apsauginis antčiužinis, 20 mm storio
+	Gulto apsauginis tinklelis
+	Be autonominio kabinos aušintuvo "I‑Park Cool"
+	Be seifo
+	Du stalčiai daiktinėje po gultu, 130 litrų
+	Be sudedamo staliuko
+	Šaldytuvas po gultu su šaldymo kamera ir skyriais, talpa 33 litrai
+	Be paruošimo mikrobangų krosnelei
+	Be paruošimo kavos aparatui
+	2 lanksčios lempos skaitymui
+	Veidrodėlis viršutinėje daiktadėžėje
+	Be paruošimo televizoriui
+	Vienas papildomas (pastorintas) kabinos šilumos ir triukšmo izoliacijos sluoksnis
+	Be papildomų šoninių langų
+
+
+
+Kabinos eksterjeras
+	Maksimalus sunkvežimio aukštis ‑ 4.0 m
+	Kabinos išorės dažymo lygis "Enhanced"
+	Kabinos spalva Signal White (1110WHIT)
+	Tonuoti langų stiklai
+	Grūdinti durų stiklai
+	Centrinis durų užraktas su distanciniu valdymu
+	Plastikinis priekinis bamperis
+	Priekinio bamperio spoileris
+	Be variklio karterio apsaugos
+	Priekinė apsauga nuo palindimo
+	Be atlenkiamo laiptelio kabinos priekyje
+	Radiatoriaus tinklelis
+	Mechaninė kabinos pakelėjo pavara
+	Mechaninė priekinė kabinos pakaba
+	Mechaninė galinė kabinos pakaba
+	Radiatoriaus grotelių užrakto nuotolinis valdymas
+	Papildomas veidrodis priekyje, priartinantis, d=200 mm
+	Bi‑ksenoniniai priekiniai žibintai
+	Priekinių žibintų apiplovimas
+	Be priekinių žibintų apsaugų
+	Be automatinio priekinių artimųjų šviesų įjungimo
+	Nereguliuojami priekiniai žibintai
+	V formos LED dienos žibintai
+	Be papildomų priekinių žibintų
+	Balti priekiniai rūko žibintai
+	Be statinių posūkio žibintų
+	Be halogeninių žibintų kabinos viršuje, "Globetrotter" lange
+	Be signalinių švyturėlių ant kabinos stogo
+	Vienas išvadas laidams stoge
+	Be paruošimo tolimos šviesos žibintams
+	Be stogo ženklo apšvietimo
+	Be "Globetrotter" ženklo kabinos viršuje
+	Papildomas orinis garso signalas ‑ JERICHO
+	Antena ir el. paruošimas CB radijo stotelei
+	Be laikiklio aksesuarams ant kabinos stogo
+	Be papildomų išorinių kabinos daiktadėžių
+	Be galinių purvasaugių laikiklio už kabinos
+	Be kopėtėlių už kabinos
+	Pritvirtintos emblemos
+
+
+	Be emisijos emblemų
+	Ženklas ‑ L (triukšmo lygis 80dB)
+	Be emisijos ženklo kabinos priekyje
+	Kabinos stogo spoileris transportinėje padėtyje
+
+Paruošimas antstatui
+	Be paruošimo nuotoliniam valdymui
+	Be priekabos prikabinimo indikacijos
+	Žemo profilio pobalnis "LPRO", h=0 mm
+	Balno aukštis 160 mm
+	Balnas ‑ JOST JSK 42
+	Be centrinio balno tepimo sistemos
+	Sukabinimo piršto skersmuo 50 mm
+	Balno padėtis ‑ 625 mm prieš pirmos galinės varančiosios ašies centrą
+	Be apsauginių kreipiančiųjų puspriekabei
+	Standartinis tiltelis už kabinos
+	Be važiuoklės darbo žibintų
+	Baltos spalvos žibintas balno apšvietimui
+	Be kabinos darbinių žibintų
+	Elektrinis blokas antstatui be papildomos įrangos modulio kabinoje
+	Be elektros jungčių antstato įrangai
+	Jutiklis priekabai su šviesos diodais
+	Be el. paruošimo sniego verstuvo apšvietimui
+	Be paruošimo keltuvui rėmo gale
+	Be perkeliamų elektros jungiklių antstato įrangai
+	Be paruošimo papildomiems elektros jungikliams antstato įrangai
+	Papildomos rėmo kiaurymės žemo profilio pobalniui "LPRO"
+
+Techninė priežiūra
+	Volvo Action Service pagalbos mygtukas ir mikrofonas
+	3G ir WLAN telematinė ryšio sąsaja
+	Be "Fuel Advice" paslaugos
+	Dynafleet "Fuel & Environment" paslauga, 6 mėn. abonementas
+	Be Dynafleet "Driver Times" paslaugos
+	Dynafleet "Positioning" paslauga, 6 mėn. abonementas
+	Be Dynafleet "Positioning+" paslaugos
+	Be Dynafleet "Messaging" paslaugos
+	FMS jungtis
+	Topografijos duomenų paslauga, 5 metų išankstinis apmokėjimas
+	Be "My truck" išmaniosios aplikacijos
+
+
+
+Papildoma
+	Bevielio ryšio parametrai ‑ Lietuva
+	EB tipo patvirtinimas
+	Be papildomo degalų kiekio
+
+Sertifikavimas
+	Sertifikavimo lentelės, EB
+
+
+Apsilankykite mūsų svetainėje internete www.volvotrucks.lt jei norite sužinoti daugiau apie sunkvežimius 
+ir servisą. 
+Tikimės, kad šis pasiūlymas Jus sudomino. Mielai atsakysiu į visus Jūsų klausimus.

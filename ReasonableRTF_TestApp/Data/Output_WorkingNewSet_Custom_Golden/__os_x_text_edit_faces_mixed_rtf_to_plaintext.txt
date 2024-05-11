@@ -1,0 +1,10 @@
+Normal text
+
+added color no color
+bold normal
+
+bold bold&italics bold normal
+
+bold&underlined&italics bold-off   underlined-off bold&underlined&italics font-geneva
+
+font-geneva

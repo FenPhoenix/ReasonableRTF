@@ -1,0 +1,33 @@
+Below are the border types
+
+Single border
+
+Dotted border
+
+Double thickness border
+
+Dashed border
+
+Small dashed border
+
+Dot dash border
+
+Dot dot dash border
+
+Triple border
+
+Thick thin border (large)
+
+Thin thick border (large)
+
+Thin thick thin border (large)
+
+Wavy border
+
+Striped border
+
+Emboss border
+
+Engrave border
+
+End of border types.

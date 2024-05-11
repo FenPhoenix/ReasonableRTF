@@ -1,0 +1,7 @@
+Text before list
+this is a list
+this should belong to the list above
+This should also belong to the list above
+
+2.	This is a continuation (so should still be in same list).
+3.	Third point

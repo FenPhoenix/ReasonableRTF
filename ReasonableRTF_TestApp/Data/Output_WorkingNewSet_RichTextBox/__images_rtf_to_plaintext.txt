@@ -1,0 +1,36 @@
+Images with PHPRtfLite.
+
+Here is .jpg image. 	 
+
+Here is .png image. 	 
+
+
+Formating sizes of images:
+
+ Original size.	
+    
+
+ Width is set.	
+    
+
+ Height is set.	
+    
+
+ Both: width and height are set.	
+    
+
+<page/>Borders of images
+
+ Sample borders	
+    
+
+ Borders with space	 
+
+ Image centered by ParFormat	 
+
+ Image centered horizontal and vertically by cell	 
+
+Images in paragraph
+
+
+ 

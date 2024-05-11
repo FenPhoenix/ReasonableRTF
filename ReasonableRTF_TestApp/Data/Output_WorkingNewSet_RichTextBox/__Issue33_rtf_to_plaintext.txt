@@ -1,0 +1,54 @@
+Flydende/pastøse produkter med kodenummer: 0-3 eller 00-3 (1993).
+
+BEMÆRK	Læs denne brugsanvisning, før arbejdet påbegyndes. Brugsanvisningen er et tillæg til leverandørens sikkerhedsdatablad.
+SUNDHEDSFARLIGE EGNESKABER	Produktet kan indeholde en lille mængde opløsningsmiddel, der ved omfattende arbejde i små eller dårligt ventilerede rum kan medføre ubehag i form af hovedpine og kvalme. Produktet indeholder stoffer, der virker irriterende på hud og øjne. Kan give overfølsomhed ved kontakt med huden.
+SÆRLIGE FORHOLDSREGLER	Følg god kemikaliehygiejne. Undgå kontakt med hud og øjne.
+SIKKERHEDSUDVALGETS BEMÆRKNINGER	[[[WiPlaceHolderLabelId1]]]
+
+FØRSTEHJÆLPSFORANSTALTNINGER
+
+Indånding	Personen bringes i frisk luft og holdes i ro under opsyn. Ved ubehag: Søg lægeråd, eventuelt Radio Medical og medbring leverandørens sikkerhedsdatablad.
+Hudkontakt	Fjern straks forurenet tøj og skyl huden grundigt med vand. Ved irritation eller andre hudgener: Søg lægeråd, eventuelt Radio Medical.
+Øjenkontakt	Skyl straks med rigeligt vand i op til 15 minutter. Fjern evt. kontaktlinser og spil øjet godt op. Ved fortsat irritation: Søg lægeråd, eventuelt Radio Medical.
+Placering af øjenskylleflaske	[[[WiPlaceHolderLabelId2]]]
+Indtagelse	Skyl straks munden og drik rigelige mængder mælk eller vand. Ved ubehag: Søg lægeråd, eventuelt Radio Medical og medbring leverandørens sikkerhedsdatablad.
+
+BRANDBEKÆMPELSE
+
+Brandslukningsmiddel vælges under hensyntagen til andre kemikalier.
+
+Placering af slukningsudstyr	[[[WiPlaceHolderLabelId3]]]
+Særlige farer	Produktet er ikke brandfarligt. Ved ophedning kan der dannes sundhedsfarlige dampe/gasser.
+Beskyttelsesudstyr til slukningspersonel	Ved brandslukning skal luftforsynet åndedrætsværn anvendes.
+
+FORHOLDSREGLER OVER FOR UDSLIP VED UHELD
+
+Personlige sikkerheds- foranstaltninger	For personlige værnemidler se punktet Eksponeringskontrol/Personlige værnemidler.
+Miljøbeskyttelses- foranstaltninger	Undgå udledning i havet.
+Metoder til oprydning	Inddæm og opsug spild med ikke brandbart sugende materiale.
+Placering af materiale til opsamling	[[[WiPlaceHolderLabelId4]]]
+
+HÅNDTERING OG OPBEVARING
+
+Håndtering	Skift straks gennemvædet tøj.
+Opbevaringsbetingelser	Opbevares i lukket originalemballage.
+Opbevaringssted	[[[StorageLocationPlaceholder]]]
+
+EKSPONERINGSKONTROL/PERSONLIGE VÆRNEMIDLER
+
+ 	Tekniske foranstaltninger	Ved indendørs sprøjtning samt ved arbejde med pensel eller rulle indvendigt i tanke, cofferdamme og lignende skal der etableres mekanisk ventilation. Der skal være let adgang til rigeligt vand eller nødbruser.	[[[WiPlaceHolderLabelId10]]]
+ 	Åndedrætsværn	Pensel eller rulle: Udendørs: Ingen særlige forholdsregler. Indendørs: Ved arbejde på store flader (større end 4 m²) skal der anvendes gasfiltermaske (klasse A2) eller etableres hensigtsmæssig ventilation. Sprøjtning: Udendørs: Helmaske med kombifilter skal anvendes. Indendørs: Helmaske med kombifilter skal anvendes.	[[[EquipmentGroupId1]]]  [[[WiPlaceHolderLabelId5]]]
+ 	Håndbeskyttelse	Pensel eller rulle: Brug beskyttelseshandsker. Sprøjtning: Brug beskyttelseshandsker.	[[[EquipmentGroupId2]]]  [[[WiPlaceHolderLabelId6]]]
+ 	Øjenbeskyttelse	Pensel eller rulle: Ved stænkende arbejde skal der anvendes ansigtsskærm samt enten hætte, hjelm eller kasket med stor skygge. Sprøjtning: Ikke relevant, da der skal anvendes helmaske.	[[[EquipmentGroupId3]]]  [[[WiPlaceHolderLabelId7]]]
+ 	Hudbeskyttelse	Pensel eller rulle: Hvis der sker tilsmudsning i en sådan grad, at almindeligt arbejdstøj ikke beskytter mod hudkontakt, skal der anvendes overtræksdragt. Sprøjtning: Brug overtræksdragt og hætte. Ved arbejde på store flader (mere end 4 m²) skal der anvendes beskyttelsesdragt i stedet for overtræksdragt.	[[[EquipmentGroupId4]]]  [[[WiPlaceHolderLabelId8]]]
+
+BORTSKAFFELSE
+
+[[[WiPlaceHolderLabelId9]]]
+
+Affaldshåndtering	Affald skal opbevares i tætlukket emballage.
+
+ANDRE OPLYSNINGER
+
+Anvendelses- begrænsninger	Unge under 18 år må ikke arbejde med dette produkt.
+Relevante tekniske forskrifter	Gældende forskrifter i Meddelelser fra Søfartsstyrelsen A kapitel II om kemiske arbejdsmiljøpåvirkninger om bord i skibe.

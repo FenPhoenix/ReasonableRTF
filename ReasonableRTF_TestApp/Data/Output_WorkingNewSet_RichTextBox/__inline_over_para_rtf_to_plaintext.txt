@@ -1,0 +1,19 @@
+Normal
+
+Normal italics italics
+
+Italics italics normal
+
+Normal italics  italics
+
+Italics italics  bold-italics bold-italics
+
+Bold bold normal
+
+All italics
+
+All italics
+
+All italics-bold
+
+All italics-bold

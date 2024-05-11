@@ -1,0 +1,78 @@
+Normal:maroon:normal
+
+Normal:olive green:normal
+
+Normal:dark green:normal
+
+Normal:dark teal:normal
+
+Normal:dark blue:normal
+
+Normal:gray 80 %:normal
+
+Normal:dark red:normal
+
+Normal:orange:normal
+
+Normal:dark yellow:normal
+
+ Normal:green:normal
+
+Normal:teal:normal
+
+Normal:blue:normal
+
+Normal:blue gray:normal
+
+Normal:gray 50 %:normal
+
+Normal:red:normal
+
+Normal:light  orange:normal
+
+Normal:lime:normal
+
+Normal:sea green:normal
+
+Normal:aqua:normal
+
+Normal:light  blue:normal
+
+Normal:violte:normal
+
+Normal:gray 40 %:normal
+
+Normal:pink:normal
+
+Normal:gold:normal
+
+Normal:yellow:normal
+
+Normal:bright green:normal
+
+Normal:turquoise:normal
+
+Normal:sky blue:normal
+
+Normal:plum:normal
+
+Normal:gray 25 %:normal
+
+Normal:rose:normal
+
+Normal:tan:normal
+
+Normal:tight yell ow:normal
+
+Normal:light green:normal
+
+Normal:light turquoise:normal
+
+Normal:pale blue:normal
+
+Normal:lavender:normal
+
+Normal:white:normal
+
+
+

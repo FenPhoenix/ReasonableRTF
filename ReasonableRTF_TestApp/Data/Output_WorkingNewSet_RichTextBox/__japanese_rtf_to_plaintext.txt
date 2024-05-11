@@ -1,0 +1,36 @@
+header.jpg ¨NeoOffice/JはPatrick LubyとEdward Peterlinによるオープンソース・ソフトウエアのプロジェクトです。
+HYPERLINK "http://www.planamesa.com/neojava/ja/index.php"ホーム
+HYPERLINK "http://www.planamesa.com/neojava/ja/faq.php"よくある質問 (FAQ)
+HYPERLINK "http://www.planamesa.com/neojava/ja/features.php"機能とバグ
+HYPERLINK "http://www.planamesa.com/neojava/ja/download.php"ダウンロード
+HYPERLINK "http://www.planamesa.com/neojava/ja/cd.php"CD 配布
+HYPERLINK "http://www.planamesa.com/neojava/ja/build.php"構築方法の解説
+HYPERLINK "http://www.planamesa.com/neojava/ja/contact.php"連絡先
+HYPERLINK "http://neowiki.sixthcrusade.com/"NeoWiki
+HYPERLINK "http://bugzilla.neooffice.org/"Bugzilla
+HYPERLINK "http://trinity.neooffice.org/"Trinity BBS
+HYPERLINK "http://www.openoffice.org/"OpenOffice.org
+HYPERLINK "http://www.planamesa.com/neojava/ja/donate.php"寄付
+ 利用可能な言語:  HYPERLINK "http://www.planamesa.com/neojava/cs/"チェコ語  HYPERLINK "http://www.planamesa.com/neojava/nl/"オランダ語  HYPERLINK "http://www.planamesa.com/neojava/en/"英語  HYPERLINK "http://www.planamesa.com/neojava/fr/"フランス語  HYPERLINK "http://www.planamesa.com/neojava/de/"ドイツ語  HYPERLINK "http://www.planamesa.com/neojava/it/"イタリア語  日本語  HYPERLINK "http://www.planamesa.com/neojava/no/"ノルウェー語  HYPERLINK "http://www.planamesa.com/neojava/es/"スペイン語  HYPERLINK "http://www.planamesa.com/neojava/vi/"ベトナム語 
+
+ようこそ!
+
+NeoOffice/J は Mac OS X 用の機能豊富なオフィス・ソフト（ワープロ、表計算、プレゼンテーション、作図）です。 OpenOffice.org というオフィス・スイートに基づいたもので、数多くの Mac OS X ネイティブの機能を提供し、 MicrosoftTM Office など他の人気のオフィス・ソフトの書類の読み込み、編集、交換ができます。
+
+GNU 一般公衆利用許諾契約書（GPL）の下で無料のオープンソース・ソフトとして公開しています。NeoOffice/Jは充実した機能と日常的な用途に充分の安定性を備えています。このソフトは開発中なので、改良やアップデートをしばしば公開しています。
+
+HYPERLINK "http://www.planamesa.com/neojava/ja/download.php"NeoOffice/J ダウンロード・ページにて無料でダウンロードできます。
+
+HYPERLINK "http://www.planamesa.com/neojava/images/sample.jpg"sample.jpg ｬ
+ニュース
+
+2005 年 6 月 22 日: NeoOffice/J 1.1 がリリースされました。これは NeoOffice/J の初めての正式なリリースであって、 Release Candidate の全機能と多数の修正を提供しています。 NeoOffice/J 1.1 はHYPERLINK "http://www.planamesa.com/neojava/ja/download.php"ここでダウンロードできます。
+
+2005 年 3 月 30 日: NeoOffice/J 1.1 Release Candidate がリリースされました。このリリースでは、 OpenOffice.org 1.1.4 の全機能、そして NeoOffice/J とほかのアプリケーションとの間でのドラッグ＆ドロップをサポートしています。
+
+2004 年 12 月 21 日: NeoOffice/J 1.1 Beta がリリースされました。このリリースは OpenOffice.org 1.1.3 の全機能（ホイールマウスによるスクロール、ドラッグ＆ドロップなど）をサポートしいます。
+ © 2003-2005 Patrick Luby (patrick dot luby at planamesa dot com), Sunnyvale, California, USA 
+ NeoOfficeはEdward H. Peterlinの登録商標です。 
+ JavaはSun Microsystems, Inc.の登録商標です。 
+ MicrosoftはMicrosoft Corporationの登録商標です。 
+ この通知を残すことを条件に、全体の文章をどのようなメディアを使っても、コピーとして保存・配付してもかまいません。
