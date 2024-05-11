@@ -1,2 +1,0 @@
-This should be a hex char letter A, followed by an invalid hex char, followed by a hex char letter C: AC 
-The invalid hex char should be ignored and the text should appear as "AC".

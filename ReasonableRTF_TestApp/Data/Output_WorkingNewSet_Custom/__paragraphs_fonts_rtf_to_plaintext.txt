@@ -1,0 +1,31 @@
+Paragraphs, fonts and other
+
+Various fonts
+Times New Roman, 9pt, Red
+Times New Roman, 10pt, Red, Pattern Yellow
+Tahoma, 10pt, Blue
+Verdana, 8pt, Green
+
+Various paragraphs
+Alignment: center
+Indent Left: 10
+BackColor: #99ccff
+
+Alignment: right
+Indent Left: 5
+Indent Right: 10
+BackColor: #ffcc99
+Border: red
+
+Using hyperlinks
+Official phpRtf site.
+
+Using tags
+Bold text.ItalicUnderline text.	.Current date- . Bullet •
+
+<b>Bold text.</b><i>Italic<u>Underline text.</u></i><tab>.Current date- <chdate>. Bullet <bullet>.<br>
+
+PHP highlighting sample
+//sample php code
+$sum = $a + $b;
+echo "The sum is - ".$sum." .";

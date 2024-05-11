@@ -231,16 +231,6 @@ public sealed class RtfToTextConverter
         _fldinstSymbolFontName = new ListFast<char>(32);
     }
 
-    private readonly byte[] _rtfHeaderBytes =
-    {
-        (byte)'{',
-        (byte)'\\',
-        (byte)'r',
-        (byte)'t',
-        (byte)'f',
-        (byte)'1',
-    };
-
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly char[] _keyword = new char[_keywordMaxLen + 1];
     private readonly GroupStack _groupStack = new();
@@ -2030,11 +2020,6 @@ public sealed class RtfToTextConverter
                 return new RtfResult("", RtfError.NotAnRtfFile, 0, null);
             }
 
-            // We've validated the rtf header, so let's skip past it
-            _currentPos = 6;
-            _groupStack.DeepCopyToNext();
-            _groupCount++;
-
             RtfError error = ParseRtf();
             return error == RtfError.OK
                 ? new RtfResult(CreateReturnStringFromChars(_plainText), RtfError.OK, -1, null)
@@ -2056,14 +2041,26 @@ public sealed class RtfToTextConverter
 
     #endregion
 
+    // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
+    // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
+
+    private static readonly byte[] _rtfHeaderBytes =
+    {
+        (byte)'{',
+        (byte)'\\',
+        (byte)'r',
+        (byte)'t',
+        (byte)'f',
+    };
+
     private bool IsValidRtfFile()
     {
         switch (_rtfBytes.Length)
         {
             case >= 8:
             {
-                const ulong rtfHeaderMask = 0x00_00_FF_FF_FF_FF_FF_FF;
-                const ulong rtfHeaderAsULong = 0x00_00_31_66_74_72_5C_7B;
+                const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
+                const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
 
                 ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[0]);
                 if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
