@@ -4,9 +4,13 @@
 {\f1\fnil\fcharset2 Wingdings;}
 {\f999\fnil\fcharset2 Webdings;}}
 \viewkind4\uc1 
-\pard\sa200\sl276\slmult1\f0\fs22 This is a comprehensive test of SYMBOL field instructions.\par
-\par
+\pard\sa200\sl276\slmult1\f0\fs22 This is a comprehensive test of SYMBOL field instructions.
 
+\par
+----
+
+\par
+\f0
 This is f(Webdings) fldinst SYMBOL 0xF04A f "Wingdings": 
 \f999
 {
@@ -14,6 +18,80 @@ This is f(Webdings) fldinst SYMBOL 0xF04A f "Wingdings":
 {\*\fldinst SYMBOL 0xF04A \\f "Wingdings"}
 {\fldrslt }
 }
+
+\par
+\f0
+This is \{f(Webdings)\} fldinst SYMBOL 0xF04A f "Wingdings": 
+{\f999}
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\f "Wingdings"}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Webdings) fldinst SYMBOL 0xF04A f: 
+\f999
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is \{f(Webdings)\} fldinst SYMBOL 0xF04A f: 
+{\f999}
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is \{f(Webdings)\} fldinst SYMBOL 0x4A f: 
+{\f999}
+{
+\field
+{\*\fldinst SYMBOL 0x4A \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Webdings) fldinst SYMBOL 0xF04A f: 
+\f999
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Webdings) fldinst SYMBOL -1751 (63785-65536 in dec) f: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL -1751 \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Webdings) fldinst SYMBOL 74 f: 
+\f999
+{
+\field
+{\*\fldinst SYMBOL 74 \\f}
+{\fldrslt }
+}
+
+\f0
+\par
+----
 
 \par
 \f0
@@ -85,6 +163,7 @@ This is \{f(Webdings)\} fldinst SYMBOL 74 a:
 {\fldrslt }
 }
 
+\f0
 \par
 ----
 
@@ -256,5 +335,167 @@ This is \{f(Wingdings)\} fldinst SYMBOL 0xF929 j:
 {\*\fldinst SYMBOL 0xF929 \\j}
 {\fldrslt }
 }
+
+\f0
+\par
+----
+
+\par
+\f0
+This is f(Wingdings) fldinst SYMBOL 0x4A u: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL 0x4A \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Wingdings) fldinst SYMBOL 0xFF4A u: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL 0xFF4A \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 0x2022 u: 
+{
+\field
+{\*\fldinst SYMBOL 0x2022 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Wingdings) fldinst SYMBOL 0x2022 u: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL 0x2022 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Wingdings) fldinst SYMBOL 0x95 u: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL 0x95 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is f(Wingdings) fldinst SYMBOL 0xF04A u: 
+\f1
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is \{f(Wingdings)\} fldinst SYMBOL 0x4A u: 
+{\f1}
+{
+\field
+{\*\fldinst SYMBOL 0x4A \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is \{f(Wingdings)\} fldinst SYMBOL 0xF04A u: 
+{\f1}
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 63785 u: 
+
+{
+\field
+{\*\fldinst SYMBOL 63785 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL -1751 (63785-65536 in dec) u: 
+
+{
+\field
+{\*\fldinst SYMBOL -1751 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 0xD83DDC2F u: 
+
+{
+\field
+{\*\fldinst SYMBOL 0xD83DDC2F \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 0xDC2FD83D u: 
+
+{
+\field
+{\*\fldinst SYMBOL 0xDC2FD83D \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 0xD83D u then a second with 0xDC2F: 
+
+{
+\field
+{\*\fldinst SYMBOL 0xD83D \\u}
+{\fldrslt }
+}
+{
+\field
+{\*\fldinst SYMBOL 0xDC2F \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 128047 u: 
+
+{
+\field
+{\*\fldinst SYMBOL 128047 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 3627932719 u: 
+
+{
+\field
+{\*\fldinst SYMBOL 3627932719 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is the unicode code point 63785 written as -1751 raw with a \\u keyword: \u-1751?
 
 }

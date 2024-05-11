@@ -2920,22 +2920,52 @@ public sealed class RtfToTextConverter
     TODO: Test fldinst SYMBOL possibilities with a fine-tooth comb and make sure we're correct for all!
 
     TODO: Field instruction research:
-    "SYMBOL (num) \\a":
+
+    -Unicode character numbers can only be up to 2 bytes (0-65535), in other words "Unicode" here means "UTF-16".
+     Field instructions can't be combined to produce 4 bytes the way \uN keywords can.
+    -None support negative-and-add-65536.
+    -None use "last used font even in a scope above"
+
+    SYMBOL (num) \\f
+    -------------------
+    -Supports 0xF000-0xF0FF stuff
+    -Doesn't support negative-and-add-65536.
+    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
+
+    SYMBOL (num) \\f "Symbol font name"
+    -------------------
+    -Ignores current font and "last used" font - it uses only the one specified in quotes
+    -Supports 0xF000-0xF0FF stuff
+    -Doesn't support negative-and-add-65536.
+    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
+
+    SYMBOL (num) \\a:
+    -------------------
     -Doesn't support 0xF000-0xF0FF stuff
     -Supports dec or hex (single-byte)
     -Doesn't support negative-and-add-65536
     -If the current font is a symbol font, it displays in a symbol font and so still needs converting
     -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
 
-    "SYMBOL (num) \\j":
+    SYMBOL (num) \\j:
+    -------------------
     -This is a character in Windows-31J (932), but it's specified with a Unicode codepoint, in either dec or hex.
     -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
-    -DOES support 0xF000-0xF0FF stuff
+    -Supports 0xF000-0xF0FF stuff (but maybe by accident of weird multi-byte behavior?)
     -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     -Supports symbol fonts, even though it's a multibyte encoding...
     
     -These symbol-font-supporting things do a weird thing where if there's two bytes they ignore the second byte
      when they're in a symbol font, as far as I can tell? Like 0xF929 == 0x0929 == 0x0029.
+     Except sometimes it isn't just the second byte, sometimes it's random and I don't know how it's arriving at
+     the character. We should probably just say this is undefined behavior and not try to support it.
+
+    SYMBOL (num) \\u:
+    -------------------
+    -Supports 0xF000-0xF0FF stuff (but maybe by accident of weird multi-byte behavior?)
+     We should probably just say it doesn't support it because it doesn't make sense for Unicode.
+    -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
+    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     */
     private RtfError HandleFieldInstruction()
     {
