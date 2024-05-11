@@ -1,50 +1,72 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
 internal sealed class GroupStack
 {
-    // SOA and removal of bounds checking through fixed-sized buffers improves perf
+    private const int DefaultCapacity = 100;
+    private int Capacity;
 
-    internal unsafe struct ByteArrayWrapper
-    {
-        internal fixed byte Array[MaxGroups];
-    }
-
-    private unsafe struct BoolArrayWrapper
-    {
-        internal fixed bool Array[MaxGroups];
-    }
-
-    // Highest measured was 10
-    /// <summary>100</summary>
-    private const int MaxGroups = 100;
-    // External code needs to check index, not count, so give them one less to prevent index out-of-range.
-    internal const int MaxGroupIndex = MaxGroups - 1;
-
-    private BoolArrayWrapper _skipDestinations;
-    private BoolArrayWrapper _inFontTables;
-    internal ByteArrayWrapper _symbolFonts;
-    internal readonly int[][] Properties = new int[MaxGroups][];
+    private bool[] _skipDestinations;
+    private bool[] _inFontTables;
+    internal byte[] _symbolFonts;
+    internal int[][] Properties;
 
     /// <summary>Do not modify!</summary>
     internal int Count;
 
-    internal GroupStack()
+    internal GroupStack() => Init();
+
+    [MemberNotNull(
+        nameof(_skipDestinations),
+        nameof(_inFontTables),
+        nameof(_symbolFonts),
+        nameof(Properties))]
+    private void Init()
     {
-        for (int i = 0; i < MaxGroups; i++)
+        Count = 0;
+        Capacity = DefaultCapacity;
+
+        _skipDestinations = new bool[Capacity];
+        _inFontTables = new bool[Capacity];
+        _symbolFonts = new byte[Capacity];
+        Properties = new int[Capacity][];
+
+        for (int i = 0; i < Capacity; i++)
         {
             Properties[i] = new int[PropertiesLen];
         }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal unsafe void DeepCopyToNext()
+    internal void DeepCopyToNext()
     {
-        _skipDestinations.Array[Count + 1] = _skipDestinations.Array[Count];
-        _inFontTables.Array[Count + 1] = _inFontTables.Array[Count];
-        _symbolFonts.Array[Count + 1] = _symbolFonts.Array[Count];
+        // We don't really take a speed hit from this at all, but we support files with a stupid amount of
+        // nested groups now.
+        if (Count >= Capacity - 1)
+        {
+            int oldMaxGroups = Capacity;
+
+            int newCapacity = Capacity * 2;
+            if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
+
+            Capacity = newCapacity;
+            Array.Resize(ref _skipDestinations, Capacity);
+            Array.Resize(ref _inFontTables, Capacity);
+            Array.Resize(ref _symbolFonts, Capacity);
+            Array.Resize(ref Properties, Capacity);
+
+            for (int i = oldMaxGroups; i < Capacity; i++)
+            {
+                Properties[i] = new int[PropertiesLen];
+            }
+        }
+
+        _skipDestinations[Count + 1] = _skipDestinations[Count];
+        _inFontTables[Count + 1] = _inFontTables[Count];
+        _symbolFonts[Count + 1] = _symbolFonts[Count];
         for (int i = 0; i < PropertiesLen; i++)
         {
             Properties[Count + 1][i] = Properties[Count][i];
@@ -54,28 +76,28 @@ internal sealed class GroupStack
 
     #region Current group
 
-    internal unsafe bool CurrentSkipDest
+    internal bool CurrentSkipDest
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _skipDestinations.Array[Count];
+        get => _skipDestinations[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _skipDestinations.Array[Count] = value;
+        set => _skipDestinations[Count] = value;
     }
 
-    internal unsafe bool CurrentInFontTable
+    internal bool CurrentInFontTable
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _inFontTables.Array[Count];
+        get => _inFontTables[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _inFontTables.Array[Count] = value;
+        set => _inFontTables[Count] = value;
     }
 
-    internal unsafe SymbolFont CurrentSymbolFont
+    internal SymbolFont CurrentSymbolFont
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (SymbolFont)_symbolFonts.Array[Count];
+        get => (SymbolFont)_symbolFonts[Count];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _symbolFonts.Array[Count] = (byte)value;
+        set => _symbolFonts[Count] = (byte)value;
     }
 
     internal int[] CurrentProperties
@@ -86,11 +108,11 @@ internal sealed class GroupStack
 
     // Current group always begins at group 0, so reset just that one
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal unsafe void ResetFirst()
+    internal void ResetFirst()
     {
-        _skipDestinations.Array[0] = false;
-        _inFontTables.Array[0] = false;
-        _symbolFonts.Array[0] = (int)SymbolFont.None;
+        _skipDestinations[0] = false;
+        _inFontTables[0] = false;
+        _symbolFonts[0] = (int)SymbolFont.None;
 
         Properties[0][(int)Property.Hidden] = 0;
         Properties[0][(int)Property.UnicodeCharSkipCount] = 1;
@@ -102,4 +124,13 @@ internal sealed class GroupStack
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal void ClearFast() => Count = 0;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal void ResetCapacityIfTooHigh()
+    {
+        if (Capacity > DefaultCapacity)
+        {
+            Init();
+        }
+    }
 }

@@ -21,7 +21,7 @@ internal sealed class FontEntry
 
 internal sealed class FontDictionary
 {
-    private readonly int _capacity;
+    private int _capacity;
     private Dictionary<int, FontEntry>? _dict;
 
     private readonly ListFast<FontEntry> _fontEntryPool;
@@ -74,6 +74,16 @@ internal sealed class FontDictionary
             _array[key] = fontEntry;
         }
         if (key > _highestKey) _highestKey = key;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal void ClearFull(int capacity)
+    {
+        _capacity = capacity;
+        _highestKey = 0;
+        _fontEntryPool.Capacity = capacity;
+        _dict = null;
+        Clear();
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

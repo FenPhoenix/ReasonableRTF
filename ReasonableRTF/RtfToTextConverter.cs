@@ -39,10 +39,6 @@ public enum RtfError : byte
     /// </summary>
     StackUnderflow,
     /// <summary>
-    /// There were over <inheritdoc cref="GroupStack.MaxGroups" path="//summary"/> nested groups.
-    /// </summary>
-    StackOverflow,
-    /// <summary>
     /// Unmatched '{'.
     /// </summary>
     UnmatchedBrace,
@@ -240,6 +236,23 @@ public sealed class RtfToTextConverter
         _symbolFontNameBuffer = new ListFast<char>(32);
         _encodings = new Dictionary<int, Encoding>(32);
         _fldinstSymbolFontName = new ListFast<char>(32);
+    }
+
+    /// <summary>
+    /// Resets all buffers back to default capacity, releasing excess memory.
+    /// </summary>
+    [PublicAPI]
+    public void ResetMemory()
+    {
+        _groupStack.ResetCapacityIfTooHigh();
+        _plainText.Capacity = 4096;
+        _fontEntries.ClearFull(32);
+        _hexBuffer.Capacity = 32;
+        _unicodeBuffer.Capacity = 32;
+        _symbolFontNameBuffer.Capacity = 32;
+        _encodings.Reset();
+        _encodings.EnsureCapacity(32);
+        _fldinstSymbolFontName.Capacity = 32;
     }
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
@@ -2130,14 +2143,6 @@ public sealed class RtfToTextConverter
         _plainText.ClearFast();
         _fldinstSymbolFontName.ClearFast();
 
-        // Extremely unlikely we'll hit any of these, but just for safety
-        if (_hexBuffer.Capacity > ByteSize.MB) _hexBuffer.Capacity = 0;
-        if (_unicodeBuffer.Capacity > ByteSize.MB) _unicodeBuffer.Capacity = 0;
-        if (_symbolFontNameBuffer.Capacity > ByteSize.MB) _symbolFontNameBuffer.Capacity = 0;
-        if (_encodings.Count > ByteSize.KB) _encodings.Reset();
-        if (_plainText.Capacity > ByteSize.MB) _plainText.Capacity = 0;
-        if (_fldinstSymbolFontName.Capacity > ByteSize.MB) _fldinstSymbolFontName.Capacity = 0;
-
         _inHandleFontTable = false;
     }
 
@@ -2162,10 +2167,7 @@ public sealed class RtfToTextConverter
                     RtfError ec = ParseKeyword();
                     if (ec != RtfError.OK) return ec;
                     break;
-                // Push/pop groups inline to avoid having one branch to check the actual error condition and then
-                // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
@@ -2385,10 +2387,7 @@ public sealed class RtfToTextConverter
 
             switch (ch)
             {
-                // Push/pop groups inline to avoid having one branch to check the actual error condition and then
-                // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
@@ -2414,7 +2413,7 @@ public sealed class RtfToTextConverter
                                 if (fontNum == NoFontNumber)
                                 {
                                     properties[(int)Property.FontNum] = defaultFontNum;
-                                    _groupStack._symbolFonts.Array[i] = (byte)symbolFont;
+                                    _groupStack._symbolFonts[i] = (byte)symbolFont;
                                 }
                                 else
                                 {
@@ -3873,10 +3872,7 @@ public sealed class RtfToTextConverter
 
             switch (ch)
             {
-                // Push/pop groups inline to avoid having one branch to check the actual error condition and then
-                // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
