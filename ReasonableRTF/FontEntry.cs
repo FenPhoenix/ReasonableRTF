@@ -81,7 +81,7 @@ internal sealed class FontDictionary
     {
         _capacity = capacity;
         _highestKey = 0;
-        _fontEntryPool.Capacity = capacity;
+        _fontEntryPool.HardReset(capacity);
         _dict = null;
         Clear();
     }

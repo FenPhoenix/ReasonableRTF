@@ -343,6 +343,7 @@ public sealed partial class MainForm : Form
                 Trace.WriteLine(f);
                 byte[] array = byteArrays[i];
                 RtfResult result = rtfConverter.Convert(array);
+                rtfConverter.ResetMemory();
                 WritePlaintextFile(f, result.Text, outputDir, sourceSet);
             }
         }

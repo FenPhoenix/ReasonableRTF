@@ -245,14 +245,14 @@ public sealed class RtfToTextConverter
     public void ResetMemory()
     {
         _groupStack.ResetCapacityIfTooHigh();
-        _plainText.Capacity = 4096;
+        _plainText.HardReset(4096);
         _fontEntries.ClearFull(32);
-        _hexBuffer.Capacity = 32;
-        _unicodeBuffer.Capacity = 32;
-        _symbolFontNameBuffer.Capacity = 32;
+        _hexBuffer.HardReset(32);
+        _unicodeBuffer.HardReset(32);
+        _symbolFontNameBuffer.HardReset(32);
         _encodings.Reset();
         _encodings.EnsureCapacity(32);
-        _fldinstSymbolFontName.Capacity = 32;
+        _fldinstSymbolFontName.HardReset(32);
     }
 
     // +1 to allow reading one beyond the max and then checking for it to return an error

@@ -161,6 +161,12 @@ internal sealed class ListFast<T>
         }
     }
 
+    internal void HardReset(int capacity)
+    {
+        ClearFast();
+        Capacity = capacity;
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal void EnsureCapacity(int min)
     {
