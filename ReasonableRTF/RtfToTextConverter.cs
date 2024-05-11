@@ -2109,7 +2109,6 @@ public sealed class RtfToTextConverter
 
         // Specific capacity and won't grow; no need to deallocate
         _fldinstSymbolNumber.ClearFast();
-        _fldinstSymbolFontName.ClearFast();
 
         _lastUsedFontWithCodePage42 = NoFontNumber;
 
@@ -2119,6 +2118,7 @@ public sealed class RtfToTextConverter
         _unicodeBuffer.ClearFast();
         _symbolFontNameBuffer.ClearFast();
         _plainText.ClearFast();
+        _fldinstSymbolFontName.ClearFast();
 
         // Extremely unlikely we'll hit any of these, but just for safety
         if (_hexBuffer.Capacity > ByteSize.MB) _hexBuffer.Capacity = 0;
@@ -2126,6 +2126,7 @@ public sealed class RtfToTextConverter
         if (_symbolFontNameBuffer.Capacity > ByteSize.MB) _symbolFontNameBuffer.Capacity = 0;
         if (_encodings.Count > ByteSize.KB) _encodings.Reset();
         if (_plainText.Capacity > ByteSize.MB) _plainText.Capacity = 0;
+        if (_fldinstSymbolFontName.Capacity > ByteSize.MB) _fldinstSymbolFontName.Capacity = 0;
 
         _inHandleFontTable = false;
     }
@@ -3048,7 +3049,12 @@ public sealed class RtfToTextConverter
 
     private void HandleFieldInst_F_WithSymbolFontName(ushort param, uint[] symbolFontTable)
     {
-        NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
+        uint codePoint = param;
+
+        if (codePoint - 0xF020 <= 0xF0FF - 0xF020)
+        {
+            codePoint -= 0xF000;
+        }
         if (GetCharFromConversionList_UInt(codePoint, symbolFontTable, out ListFast<char> finalChars) &&
             finalChars.Count > 0)
         {
@@ -3074,7 +3080,7 @@ public sealed class RtfToTextConverter
     what we need, looped through six params and not found what we need, or reached a separator char, we quit
     and skip the rest of the group.
 
-    TODO: Field instruction research:
+    Field instruction research:
 
     -Unicode character numbers can only be up to 2 bytes (0-65535), in other words "Unicode" here means "UTF-16".
      Field instructions can't be combined to produce 4 bytes the way \uN keywords can.
@@ -3426,8 +3432,8 @@ public sealed class RtfToTextConverter
 
     private void PutChars(ListFast<char> ch, int count)
     {
-        // This is only ever called from encoded-char handlers (hex, Unicode, field instructions), so we don't
-        // need to duplicate any of the bare-char symbol font stuff here.
+        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
+        // of the bare-char symbol font stuff here.
 
         if (!(count == 1 && ch[0] == '\0') &&
             _groupStack.CurrentProperties[(int)Property.Hidden] == 0 &&
@@ -3663,29 +3669,6 @@ public sealed class RtfToTextConverter
             {
                 returnCodePoint = _symbolFontTables[(int)symbolFont][returnCodePoint - 0x20];
             }
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static void NormalizeUnicodePoint_FieldInstruction(int codePoint, out uint returnCodePoint)
-    {
-        // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
-        // value.
-        if (codePoint < 0)
-        {
-            codePoint += 65536;
-            if (codePoint < 0)
-            {
-                returnCodePoint = _unicodeUnknown_Char;
-                return;
-            }
-        }
-
-        returnCodePoint = (uint)codePoint;
-
-        if (returnCodePoint - 0xF020 <= 0xF0FF - 0xF020)
-        {
-            returnCodePoint -= 0xF000;
         }
     }
 
