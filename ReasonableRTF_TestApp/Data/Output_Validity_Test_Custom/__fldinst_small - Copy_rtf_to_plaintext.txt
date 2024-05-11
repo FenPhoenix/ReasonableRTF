@@ -1,4 +1,0 @@
-This is a comprehensive test of SYMBOL field instructions.
-----
-This is {f(Webdings)} fldinst SYMBOL 0xF04A f: J
-This is {f(Webdings)} fldinst SYMBOL 0x4A f: J

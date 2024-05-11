@@ -2899,13 +2899,79 @@ public sealed class RtfToTextConverter
 
     #region Field instructions
 
-    // TODO: Clean up/dedupe these functions after they're all added and working correctly
     // TODO: Add unknown char when appropriate, instead of nothing
 
     private void HandleFieldInst_A(ushort param)
     {
         if (param is < 0x20 or > byte.MaxValue) return;
+        HandleFieldInst_PutCharWithEncoding(param);
+    }
 
+    private void HandleFieldInst_Unicode(ushort param)
+    {
+        if (param is >= 0xF020 and <= 0xF0FF)
+        {
+            param -= 0xF000;
+        }
+
+        if (param <= byte.MaxValue)
+        {
+            if (param >= 0x20)
+            {
+                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+                int fontNum = currentFontNumber > NoFontNumber
+                    ? currentFontNumber
+                    : _headerDefaultFontNum;
+
+                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+                {
+                    _plainText.Add((char)param);
+                    return;
+                }
+
+                // We already know our code point is within bounds of the array, because the arrays also go from
+                // 0x20 - 0xFF, so no need to check.
+                SymbolFont symbolFont = fontEntry.SymbolFont;
+                if (symbolFont > SymbolFont.Unset)
+                {
+                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
+                    if (codePoint > char.MaxValue)
+                    {
+                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+                        if (chars == null)
+                        {
+                            _unicodeBuffer.Add(_unicodeUnknown_Char);
+                        }
+                        else
+                        {
+                            _unicodeBuffer.AddRange(chars, 2);
+                        }
+                    }
+                    else
+                    {
+                        _unicodeBuffer.Add((char)codePoint);
+                    }
+                    ParseUnicode();
+                }
+                else
+                {
+                    _plainText.Add((char)param);
+                }
+            }
+        }
+        else
+        {
+            _unicodeBuffer.Add((char)param);
+            ParseUnicode();
+        }
+    }
+
+    private void HandleFieldInst_J(ushort param) => HandleFieldInst_Unicode(param);
+
+    private void HandleFieldInst_U(ushort param) => HandleFieldInst_Unicode(param);
+
+    private void HandleFieldInst_PutCharWithEncoding(ushort param)
+    {
         int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
         int fontNum = currentFontNumber > NoFontNumber
             ? currentFontNumber
@@ -2950,125 +3016,8 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            _plainText.Add((char)param);
-        }
-    }
-
-    private void HandleFieldInst_J(ushort param)
-    {
-        if (param is >= 0xF020 and <= 0xF0FF)
-        {
-            param -= 0xF000;
-        }
-
-        if (param <= byte.MaxValue)
-        {
-            if (param >= 0x20)
-            {
-                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
-                int fontNum = currentFontNumber > NoFontNumber
-                    ? currentFontNumber
-                    : _headerDefaultFontNum;
-
-                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
-                {
-                    _plainText.Add((char)param);
-                    return;
-                }
-
-                // We already know our code point is within bounds of the array, because the arrays also go from
-                // 0x20 - 0xFF, so no need to check.
-                SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.Unset)
-                {
-                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
-                    if (codePoint > char.MaxValue)
-                    {
-                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
-                        if (chars == null)
-                        {
-                            _unicodeBuffer.Add(_unicodeUnknown_Char);
-                        }
-                        else
-                        {
-                            _unicodeBuffer.AddRange(chars, 2);
-                        }
-                    }
-                    else
-                    {
-                        _unicodeBuffer.Add((char)codePoint);
-                    }
-                    ParseUnicode();
-                }
-                else
-                {
-                    _plainText.Add((char)param);
-                }
-            }
-        }
-        else
-        {
-            _unicodeBuffer.Add((char)param);
-            ParseUnicode();
-        }
-    }
-
-    private void HandleFieldInst_U(ushort param)
-    {
-        if (param is >= 0xF020 and <= 0xF0FF)
-        {
-            param -= 0xF000;
-        }
-
-        if (param <= byte.MaxValue)
-        {
-            if (param >= 0x20)
-            {
-                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
-                int fontNum = currentFontNumber > NoFontNumber
-                    ? currentFontNumber
-                    : _headerDefaultFontNum;
-
-                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
-                {
-                    _plainText.Add((char)param);
-                    return;
-                }
-
-                // We already know our code point is within bounds of the array, because the arrays also go from
-                // 0x20 - 0xFF, so no need to check.
-                SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.Unset)
-                {
-                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
-                    if (codePoint > char.MaxValue)
-                    {
-                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
-                        if (chars == null)
-                        {
-                            _unicodeBuffer.Add(_unicodeUnknown_Char);
-                        }
-                        else
-                        {
-                            _unicodeBuffer.AddRange(chars, 2);
-                        }
-                    }
-                    else
-                    {
-                        _unicodeBuffer.Add((char)codePoint);
-                    }
-                    ParseUnicode();
-                }
-                else
-                {
-                    _plainText.Add((char)param);
-                }
-            }
-        }
-        else
-        {
-            _unicodeBuffer.Add((char)param);
-            ParseUnicode();
+            ListFast<char> finalChars = GetCharFromCodePage(-1, param);
+            PutChars_FieldInst(finalChars, finalChars.Count);
         }
     }
 
@@ -3083,53 +3032,7 @@ public sealed class RtfToTextConverter
         {
             if (param >= 0x20)
             {
-                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
-                int fontNum = currentFontNumber > NoFontNumber
-                    ? currentFontNumber
-                    : _headerDefaultFontNum;
-
-                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry))
-                {
-                    ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
-                    PutChars_FieldInst(finalChars, finalChars.Count);
-                    return;
-                }
-                if (fontEntry.CodePage != 42)
-                {
-                    ListFast<char> finalChars = GetCharFromCodePage(fontEntry.CodePage, param);
-                    PutChars_FieldInst(finalChars, finalChars.Count);
-                    return;
-                }
-
-                // We already know our code point is within bounds of the array, because the arrays also go from
-                // 0x20 - 0xFF, so no need to check.
-                SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.Unset)
-                {
-                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
-                    if (codePoint > char.MaxValue)
-                    {
-                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
-                        if (chars == null)
-                        {
-                            _unicodeBuffer.Add(_unicodeUnknown_Char);
-                        }
-                        else
-                        {
-                            _unicodeBuffer.AddRange(chars, 2);
-                        }
-                    }
-                    else
-                    {
-                        _unicodeBuffer.Add((char)codePoint);
-                    }
-                    ParseUnicode();
-                }
-                else
-                {
-                    ListFast<char> finalChars = GetCharFromCodePage(-1, param);
-                    PutChars_FieldInst(finalChars, finalChars.Count);
-                }
+                HandleFieldInst_PutCharWithEncoding(param);
             }
         }
         else
