@@ -224,6 +224,7 @@ public sealed class RtfToTextConverter
         _unicodeBuffer = new ListFast<char>(32);
         _symbolFontNameBuffer = new ListFast<char>(32);
         _encodings = new Dictionary<int, Encoding>(32);
+        _fldinstSymbolFontName = new ListFast<char>(32);
     }
 
     private readonly byte[] _rtfHeaderBytes =
@@ -1913,8 +1914,7 @@ public sealed class RtfToTextConverter
     private const int _fldinstSymbolNumberMaxLen = 10;
     private readonly ListFast<char> _fldinstSymbolNumber = new(_fldinstSymbolNumberMaxLen);
 
-    private const int _fldinstSymbolFontNameMaxLen = 9;
-    private readonly ListFast<char> _fldinstSymbolFontName = new(_fldinstSymbolFontNameMaxLen);
+    private readonly ListFast<char> _fldinstSymbolFontName;
 
     private readonly ListFast<byte> _hexBuffer;
 
@@ -2899,6 +2899,256 @@ public sealed class RtfToTextConverter
 
     #region Field instructions
 
+    // TODO: Clean up/dedupe these functions after they're all added and working correctly
+    // TODO: Add unknown char when appropriate, instead of nothing
+
+    private void HandleFieldInst_A(ushort param)
+    {
+        if (param is < 0x20 or > byte.MaxValue) return;
+
+        int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+        int fontNum = currentFontNumber > NoFontNumber
+            ? currentFontNumber
+            : _headerDefaultFontNum;
+
+        if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry))
+        {
+            ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
+            PutChars_FieldInst(finalChars, finalChars.Count);
+            return;
+        }
+        if (fontEntry.CodePage != 42)
+        {
+            ListFast<char> finalChars = GetCharFromCodePage(fontEntry.CodePage, param);
+            PutChars_FieldInst(finalChars, finalChars.Count);
+            return;
+        }
+
+        // We already know our code point is within bounds of the array, because the arrays also go from
+        // 0x20 - 0xFF, so no need to check.
+        SymbolFont symbolFont = fontEntry.SymbolFont;
+        if (symbolFont > SymbolFont.Unset)
+        {
+            uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
+            if (codePoint > char.MaxValue)
+            {
+                ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+                if (chars == null)
+                {
+                    _unicodeBuffer.Add(_unicodeUnknown_Char);
+                }
+                else
+                {
+                    _unicodeBuffer.AddRange(chars, 2);
+                }
+            }
+            else
+            {
+                _unicodeBuffer.Add((char)codePoint);
+            }
+            ParseUnicode();
+        }
+        else
+        {
+            _plainText.Add((char)param);
+        }
+    }
+
+    private void HandleFieldInst_J(ushort param)
+    {
+        if (param is >= 0xF020 and <= 0xF0FF)
+        {
+            param -= 0xF000;
+        }
+
+        if (param <= byte.MaxValue)
+        {
+            if (param >= 0x20)
+            {
+                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+                int fontNum = currentFontNumber > NoFontNumber
+                    ? currentFontNumber
+                    : _headerDefaultFontNum;
+
+                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+                {
+                    _plainText.Add((char)param);
+                    return;
+                }
+
+                // We already know our code point is within bounds of the array, because the arrays also go from
+                // 0x20 - 0xFF, so no need to check.
+                SymbolFont symbolFont = fontEntry.SymbolFont;
+                if (symbolFont > SymbolFont.Unset)
+                {
+                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
+                    if (codePoint > char.MaxValue)
+                    {
+                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+                        if (chars == null)
+                        {
+                            _unicodeBuffer.Add(_unicodeUnknown_Char);
+                        }
+                        else
+                        {
+                            _unicodeBuffer.AddRange(chars, 2);
+                        }
+                    }
+                    else
+                    {
+                        _unicodeBuffer.Add((char)codePoint);
+                    }
+                    ParseUnicode();
+                }
+                else
+                {
+                    _plainText.Add((char)param);
+                }
+            }
+        }
+        else
+        {
+            _unicodeBuffer.Add((char)param);
+            ParseUnicode();
+        }
+    }
+
+    private void HandleFieldInst_U(ushort param)
+    {
+        if (param is >= 0xF020 and <= 0xF0FF)
+        {
+            param -= 0xF000;
+        }
+
+        if (param <= byte.MaxValue)
+        {
+            if (param >= 0x20)
+            {
+                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+                int fontNum = currentFontNumber > NoFontNumber
+                    ? currentFontNumber
+                    : _headerDefaultFontNum;
+
+                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+                {
+                    _plainText.Add((char)param);
+                    return;
+                }
+
+                // We already know our code point is within bounds of the array, because the arrays also go from
+                // 0x20 - 0xFF, so no need to check.
+                SymbolFont symbolFont = fontEntry.SymbolFont;
+                if (symbolFont > SymbolFont.Unset)
+                {
+                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
+                    if (codePoint > char.MaxValue)
+                    {
+                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+                        if (chars == null)
+                        {
+                            _unicodeBuffer.Add(_unicodeUnknown_Char);
+                        }
+                        else
+                        {
+                            _unicodeBuffer.AddRange(chars, 2);
+                        }
+                    }
+                    else
+                    {
+                        _unicodeBuffer.Add((char)codePoint);
+                    }
+                    ParseUnicode();
+                }
+                else
+                {
+                    _plainText.Add((char)param);
+                }
+            }
+        }
+        else
+        {
+            _unicodeBuffer.Add((char)param);
+            ParseUnicode();
+        }
+    }
+
+    private void HandleFieldInst_F_Bare(ushort param)
+    {
+        if (param is >= 0xF020 and <= 0xF0FF)
+        {
+            param -= 0xF000;
+        }
+
+        if (param <= byte.MaxValue)
+        {
+            if (param >= 0x20)
+            {
+                int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+                int fontNum = currentFontNumber > NoFontNumber
+                    ? currentFontNumber
+                    : _headerDefaultFontNum;
+
+                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry))
+                {
+                    ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
+                    PutChars_FieldInst(finalChars, finalChars.Count);
+                    return;
+                }
+                if (fontEntry.CodePage != 42)
+                {
+                    ListFast<char> finalChars = GetCharFromCodePage(fontEntry.CodePage, param);
+                    PutChars_FieldInst(finalChars, finalChars.Count);
+                    return;
+                }
+
+                // We already know our code point is within bounds of the array, because the arrays also go from
+                // 0x20 - 0xFF, so no need to check.
+                SymbolFont symbolFont = fontEntry.SymbolFont;
+                if (symbolFont > SymbolFont.Unset)
+                {
+                    uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
+                    if (codePoint > char.MaxValue)
+                    {
+                        ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+                        if (chars == null)
+                        {
+                            _unicodeBuffer.Add(_unicodeUnknown_Char);
+                        }
+                        else
+                        {
+                            _unicodeBuffer.AddRange(chars, 2);
+                        }
+                    }
+                    else
+                    {
+                        _unicodeBuffer.Add((char)codePoint);
+                    }
+                    ParseUnicode();
+                }
+                else
+                {
+                    ListFast<char> finalChars = GetCharFromCodePage(-1, param);
+                    PutChars_FieldInst(finalChars, finalChars.Count);
+                }
+            }
+        }
+        else
+        {
+            _unicodeBuffer.Add((char)param);
+            ParseUnicode();
+        }
+    }
+
+    private void HandleFieldInst_F_WithSymbolFontName(ushort param, uint[] symbolFontTable)
+    {
+        NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
+        if (GetCharFromConversionList_UInt(codePoint, symbolFontTable, out ListFast<char> finalChars) &&
+            finalChars.Count > 0)
+        {
+            PutChars_FieldInst(finalChars, finalChars.Count);
+        }
+    }
+
     /*
     Field instructions are completely out to lunch with a totally unique syntax and even escaped control
     words (\\f etc.), so rather than try to shoehorn that into the regular parser and pollute it all up
@@ -2917,8 +3167,6 @@ public sealed class RtfToTextConverter
     what we need, looped through six params and not found what we need, or reached a separator char, we quit
     and skip the rest of the group.
 
-    TODO: Test fldinst SYMBOL possibilities with a fine-tooth comb and make sure we're correct for all!
-
     TODO: Field instruction research:
 
     -Unicode character numbers can only be up to 2 bytes (0-65535), in other words "Unicode" here means "UTF-16".
@@ -2929,30 +3177,22 @@ public sealed class RtfToTextConverter
     SYMBOL (num) \\f
     -------------------
     -Supports 0xF000-0xF0FF stuff
-    -Doesn't support negative-and-add-65536.
-    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
 
     SYMBOL (num) \\f "Symbol font name"
     -------------------
     -Ignores current font and "last used" font - it uses only the one specified in quotes
     -Supports 0xF000-0xF0FF stuff
-    -Doesn't support negative-and-add-65536.
-    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
 
     SYMBOL (num) \\a:
     -------------------
     -Doesn't support 0xF000-0xF0FF stuff
     -Supports dec or hex (single-byte)
-    -Doesn't support negative-and-add-65536
     -If the current font is a symbol font, it displays in a symbol font and so still needs converting
-    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
 
     SYMBOL (num) \\j:
     -------------------
     -This is a character in Windows-31J (932), but it's specified with a Unicode codepoint, in either dec or hex.
-    -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
     -Supports 0xF000-0xF0FF stuff (but maybe by accident of weird multi-byte behavior?)
-    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     -Supports symbol fonts, even though it's a multibyte encoding...
     
     -These symbol-font-supporting things do a weird thing where if there's two bytes they ignore the second byte
@@ -2964,15 +3204,15 @@ public sealed class RtfToTextConverter
     -------------------
     -Supports 0xF000-0xF0FF stuff (but maybe by accident of weird multi-byte behavior?)
      We should probably just say it doesn't support it because it doesn't make sense for Unicode.
-    -Doesn't support negative-and-add-65536. Code points can be above 32767 and this is supported.
-    -Doesn't use "last used font even in a scope above" - "{\fN}" has no effect
     */
     private RtfError HandleFieldInstruction()
     {
+        if (_groupStack.CurrentProperties[(int)Property.Hidden] != 0) return RewindAndSkipGroup();
+
         _fldinstSymbolNumber.ClearFast();
         _fldinstSymbolFontName.ClearFast();
 
-        int param;
+        ushort param;
         int i;
 
         #region Check for SYMBOL instruction
@@ -3001,14 +3241,12 @@ public sealed class RtfToTextConverter
         char ch = (char)_rtfBytes[_currentPos++];
 
         bool numIsHex = false;
-        int negateNum = 0;
 
         #region Parse numeric field parameter
 
         if (ch == '-')
         {
-            ch = (char)_rtfBytes[_currentPos++];
-            negateNum = 1;
+            return RewindAndSkipGroup();
         }
 
         #region Handle if the param is hex
@@ -3021,9 +3259,7 @@ public sealed class RtfToTextConverter
                 ch = (char)_rtfBytes[_currentPos++];
                 if (ch == '-')
                 {
-                    ch = (char)_rtfBytes[_currentPos++];
-                    if (ch != ' ') return RewindAndSkipGroup();
-                    negateNum = 1;
+                    return RewindAndSkipGroup();
                 }
                 numIsHex = true;
             }
@@ -3058,7 +3294,7 @@ public sealed class RtfToTextConverter
         if (numIsHex)
         {
             ReadOnlySpan<char> span = new(_fldinstSymbolNumber.ItemsArray, 0, _fldinstSymbolNumber.Count);
-            if (!int.TryParse(span,
+            if (!ushort.TryParse(span,
                     NumberStyles.HexNumber,
                     NumberFormatInfo.InvariantInfo,
                     out param))
@@ -3068,19 +3304,24 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            param = ParseIntFast(_fldinstSymbolNumber);
+            int parsed = ParseIntFast(_fldinstSymbolNumber);
+            if (parsed <= ushort.MaxValue)
+            {
+                param = (ushort)parsed;
+            }
+            else
+            {
+                return RewindAndSkipGroup();
+            }
         }
 
         #endregion
 
         #endregion
 
-        param = BranchlessConditionalNegate(param, negateNum);
-
         if (ch != ' ') return RewindAndSkipGroup();
 
         const int maxParams = 6;
-        const int useCurrentGroupCodePage = -1;
 
         ListFast<char> finalChars = _charGeneralBuffer;
         finalChars.Count = 0;
@@ -3100,35 +3341,26 @@ public sealed class RtfToTextConverter
             // "Interprets text in field-argument as the value of an ANSI character."
             if (ch == 'a')
             {
-                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
-                finalChars = GetCharFromCodePage(_windows1252, codePoint);
-                break;
+                HandleFieldInst_A(param);
+                return RewindAndSkipGroup();
             }
             /*
             From the spec:
             "Interprets text in field-argument as the value of a SHIFT-JIS character."
 
             Note that "SHIFT-JIS" in RTF land means specifically Windows-31J or whatever you want to call it.
+            Also, the params here are just UTF-16 code points, the SHIFT-JIS encoding isn't really anything to
+            do with it...
             */
             else if (ch == 'j')
             {
-                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
-                finalChars = GetCharFromCodePage(_shiftJisWin, codePoint);
-                break;
+                HandleFieldInst_J(param);
+                return RewindAndSkipGroup();
             }
             else if (ch == 'u')
             {
-                NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
-                ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
-                if (chars != null)
-                {
-                    finalChars = chars;
-                }
-                else
-                {
-                    SetListFastToUnknownChar(finalChars);
-                }
-                break;
+                HandleFieldInst_U(param);
+                return RewindAndSkipGroup();
             }
             /*
             From the spec:
@@ -3151,25 +3383,23 @@ public sealed class RtfToTextConverter
                 ch = (char)_rtfBytes[_currentPos++];
                 if (IsSeparatorChar(ch))
                 {
-                    NormalizeUnicodePoint_HandleSymbolCharRange(param, out uint codePoint);
-                    finalChars = GetCharFromCodePage(useCurrentGroupCodePage, codePoint);
-                    break;
+                    HandleFieldInst_F_Bare(param);
+                    return RewindAndSkipGroup();
                 }
                 else if (ch == ' ')
                 {
                     ch = (char)_rtfBytes[_currentPos++];
                     if (ch != '\"')
                     {
-                        NormalizeUnicodePoint_HandleSymbolCharRange(param, out uint codePoint);
-                        finalChars = GetCharFromCodePage(useCurrentGroupCodePage, codePoint);
-                        break;
+                        HandleFieldInst_F_Bare(param);
+                        return RewindAndSkipGroup();
                     }
 
                     int fontNameCharCount = 0;
 
                     while ((ch = (char)_rtfBytes[_currentPos++]) != '\"')
                     {
-                        if (fontNameCharCount >= _fldinstSymbolFontNameMaxLen || IsSeparatorChar(ch))
+                        if (fontNameCharCount >= _maxSymbolFontNameLength || IsSeparatorChar(ch))
                         {
                             return RewindAndSkipGroup();
                         }
@@ -3184,11 +3414,8 @@ public sealed class RtfToTextConverter
 
                         if (SeqEqual(_fldinstSymbolFontName, symbolChars))
                         {
-                            NormalizeUnicodePoint_FieldInstruction(param, out uint codePoint);
-                            if (!GetCharFromConversionList_UInt(codePoint, symbolFontTable, out finalChars))
-                            {
-                                return RewindAndSkipGroup();
-                            }
+                            HandleFieldInst_F_WithSymbolFontName(param, symbolFontTable);
+                            return RewindAndSkipGroup();
                         }
                     }
                 }
@@ -3219,7 +3446,10 @@ public sealed class RtfToTextConverter
                 int numDigitCount = 0;
                 while (char.IsAsciiDigit(ch = (char)_rtfBytes[_currentPos++]))
                 {
-                    if (numDigitCount > _fldinstSymbolNumberMaxLen) goto breakout;
+                    if (numDigitCount > _fldinstSymbolNumberMaxLen)
+                    {
+                        return RewindAndSkipGroup();
+                    }
                     numDigitCount++;
                 }
 
@@ -3227,11 +3457,7 @@ public sealed class RtfToTextConverter
             }
         }
 
-        breakout:
-
         #endregion
-
-        if (finalChars.Count > 0) PutChars(finalChars, finalChars.Count);
 
         return RewindAndSkipGroup();
     }
@@ -3301,6 +3527,18 @@ public sealed class RtfToTextConverter
             !_groupStack.CurrentInFontTable)
         {
             _plainText.AddRange(ch, count);
+        }
+    }
+
+    private void PutChars_FieldInst(ListFast<char> ch, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            char c = ch[i];
+            if (c != '\0')
+            {
+                _plainText.Add(c);
+            }
         }
     }
 

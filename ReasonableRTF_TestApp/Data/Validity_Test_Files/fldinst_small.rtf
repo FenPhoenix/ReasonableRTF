@@ -1,13 +1,28 @@
 {\rtf1\ansi\deff0\nouicompat
-{\fonttbl
+
+{
+\fonttbl
 {\f0\fnil\fcharset0 Calibri;}
 {\f1\fnil\fcharset2 Wingdings;}
-{\f999\fnil\fcharset2 Webdings;}}
+{\f999\fnil\fcharset2 Webdings;}
+{\f333\fnil\fcharset204 Calibri;}
+}
+
 \viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22 This is a comprehensive test of SYMBOL field instructions.
 
 \par
 ----
+
+\par
+\f0
+This is f(1251) fldinst SYMBOL 0xC6 f: 
+\f333
+{
+\field
+{\*\fldinst SYMBOL 0xC6 \\f}
+{\fldrslt }
+}
 
 \par
 \f0
@@ -89,9 +104,39 @@ This is f(Webdings) fldinst SYMBOL 74 f:
 {\fldrslt }
 }
 
+\par
+\f0
+This is fldinst SYMBOL 0x4A f: 
+
+{
+\field
+{\*\fldinst SYMBOL 0x4A \\f}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 0xF04A f: 
+
+{
+\field
+{\*\fldinst SYMBOL 0xF04A \\f}
+{\fldrslt }
+}
+
 \f0
 \par
 ----
+
+\par
+\f0
+This is f(1251) fldinst SYMBOL 0xC6 a: 
+\f333
+{
+\field
+{\*\fldinst SYMBOL 0xC6 \\a}
+{\fldrslt }
+}
 
 \par
 \f0
@@ -491,6 +536,16 @@ This is fldinst SYMBOL 3627932719 u:
 {
 \field
 {\*\fldinst SYMBOL 3627932719 \\u}
+{\fldrslt }
+}
+
+\par
+\f0
+This is fldinst SYMBOL 65 u: 
+
+{
+\field
+{\*\fldinst SYMBOL 65 \\u}
 {\fldrslt }
 }
 
