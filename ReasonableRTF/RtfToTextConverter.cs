@@ -9,6 +9,8 @@ Notes and miscellaneous:
 -RichTextBox and LibreOffice both remove nulls.
 
 TODO: Try to make API good like with granularity levels and whatever
+TODO: Test the RtfPipe test file set
+TODO: Add a test file with \binN in it - we know it works from prior testing but we should keep a file around
 */
 
 using System.Globalization;
