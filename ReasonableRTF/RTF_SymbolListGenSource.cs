@@ -160,6 +160,8 @@ public static class RTF_SymbolListGenSource
 
         new Symbol("row", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
         new Symbol("cell", 0, false, KeywordType.Character, '\t'),
+        new Symbol("nestrow", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
+        new Symbol("nestcell", 0, false, KeywordType.Character, '\t'),
 
         #endregion
 
