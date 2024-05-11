@@ -366,7 +366,7 @@ public sealed partial class MainForm : Form
 
     private void ConvertAndWriteValidityTestFiles_Custom_Button_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_Custom(SourceSet.ValidityTest, _outputWorkingNewSetCustomDir);
+        ConvertAndWrite_Custom(SourceSet.ValidityTest, _rtfValidityTestOutputCustomDir);
     }
 
     #endregion
