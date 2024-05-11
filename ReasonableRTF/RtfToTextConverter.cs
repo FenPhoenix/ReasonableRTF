@@ -143,6 +143,7 @@ public readonly struct RtfResult(string text, RtfError error, int bytePositionOf
     /// <summary>
     /// The error code.
     /// </summary>
+    // TODO: Print a friendly error explanation in the ToString() output.
     public RtfError Error { get; } = error;
 
     /// <summary>
@@ -2164,7 +2165,7 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
@@ -2387,7 +2388,7 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;
@@ -3875,7 +3876,7 @@ public sealed class RtfToTextConverter
                 // Push/pop groups inline to avoid having one branch to check the actual error condition and then
                 // a second branch to check the return error code from the push/pop method.
                 case '{':
-                    if (_groupStack.Count >= GroupStack.MaxGroups) return RtfError.StackOverflow;
+                    if (_groupStack.Count >= GroupStack.MaxGroupIndex) return RtfError.StackOverflow;
                     _groupStack.DeepCopyToNext();
                     _groupCount++;
                     break;

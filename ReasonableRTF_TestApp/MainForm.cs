@@ -266,9 +266,10 @@ public sealed partial class MainForm : Form
                 //"1mil_CinderNotes__CinderNotes.rtf";
                 //"param_too_long.rtf"
                 //"2000-12-30_Uneaffaireenor__Readme.rtf"
-                "fldinst.rtf"
+                //"fldinst.rtf"
+                "Issue52.rtf"
             ;
-        SourceSet sourceSet = SourceSet.ValidityTest;
+        SourceSet sourceSet = SourceSet.WorkingNewSet;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 

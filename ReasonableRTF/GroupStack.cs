@@ -19,7 +19,9 @@ internal sealed class GroupStack
 
     // Highest measured was 10
     /// <summary>100</summary>
-    internal const int MaxGroups = 100;
+    private const int MaxGroups = 100;
+    // External code needs to check index, not count, so give them one less to prevent index out-of-range.
+    internal const int MaxGroupIndex = MaxGroups - 1;
 
     private BoolArrayWrapper _skipDestinations;
     private BoolArrayWrapper _inFontTables;
