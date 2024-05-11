@@ -425,7 +425,7 @@ public sealed class RtfToTextConverter
     */
 
     private const int _symbolArraysStartingIndex = 2;
-    private const int _symbolArraysLength = 8;
+    private const int _symbolArraysLength = 9;
 
     private readonly uint[][] _symbolFontTables = new uint[_symbolArraysLength][];
     private readonly char[][] _symbolFontCharsArrays = new char[_symbolArraysLength][];
@@ -1599,7 +1599,7 @@ public sealed class RtfToTextConverter
             0x1F54A,
         };
 
-        _symbolFontTables[(int)SymbolFont.ZapfDingbats] = new uint[224]
+        _symbolFontTables[(int)SymbolFont.ITCZapfDingbats] = new uint[224]
         {
             ' ',
             0x2701,
@@ -1827,6 +1827,7 @@ public sealed class RtfToTextConverter
             _unicodeUnknown_Char,
         };
 
+        _symbolFontTables[(int)SymbolFont.ZapfDingbats] = _symbolFontTables[(int)SymbolFont.ITCZapfDingbats];
 
 #pragma warning restore IDE0300
         // ReSharper restore RedundantExplicitArraySize
@@ -1836,7 +1837,8 @@ public sealed class RtfToTextConverter
         _symbolFontCharsArrays[(int)SymbolFont.Wingdings2] = ['W', 'i', 'n', 'g', 'd', 'i', 'n', 'g', 's', ' ', '2'];
         _symbolFontCharsArrays[(int)SymbolFont.Wingdings3] = ['W', 'i', 'n', 'g', 'd', 'i', 'n', 'g', 's', ' ', '3'];
         _symbolFontCharsArrays[(int)SymbolFont.Webdings] = ['W', 'e', 'b', 'd', 'i', 'n', 'g', 's'];
-        _symbolFontCharsArrays[(int)SymbolFont.ZapfDingbats] = ['I', 'T', 'C', ' ', 'Z', 'a', 'p', 'f', ' ', 'D', 'i', 'n', 'g', 'b', 'a', 't', 's'];
+        _symbolFontCharsArrays[(int)SymbolFont.ITCZapfDingbats] = ['I', 'T', 'C', ' ', 'Z', 'a', 'p', 'f', ' ', 'D', 'i', 'n', 'g', 'b', 'a', 't', 's'];
+        _symbolFontCharsArrays[(int)SymbolFont.ZapfDingbats] = ['Z', 'a', 'p', 'f', ' ', 'D', 'i', 'n', 'g', 'b', 'a', 't', 's'];
     }
 
     #endregion

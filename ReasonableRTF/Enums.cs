@@ -77,6 +77,7 @@ internal static class Enums
         Wingdings2,
         Wingdings3,
         Webdings,
+        ITCZapfDingbats,
         ZapfDingbats,
     }
 
