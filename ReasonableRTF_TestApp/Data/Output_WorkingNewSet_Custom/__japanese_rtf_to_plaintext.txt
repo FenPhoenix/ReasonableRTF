@@ -1,4 +1,4 @@
-header.jpg ¨NeoOffice/JはPatrick LubyとEdward PeterlinによるオIープンソース・ソフトウエアのプロジWェクトです。
+header.jpg ¨NeoOffice/JはPatrick LubyとEdward Peterlinによるオープンソース・ソフトウエアのプロジェクトです。
 ホーム
 よくある質問 (FAQ)
 機能とバグ
@@ -15,22 +15,22 @@ OpenOffice.org
 
 ようこそ!
 
-NeoOffice/J は Mac OS X 用の機能豊富なオフィス・ソフト（ワープロ、表計算、プレゼン・テーション、作図）です。 OpenOffice.org というオフィス・スイートに基づいたもので、数多くの Mac OS X ネイティブの機能を提・供し、 MicrosoftTM Office など他の人気のオフィBス・ソフトの書類の読み込み、編集、交換ができます。
+NeoOffice/J は Mac OS X 用の機能豊富なオフィス・ソフト（ワープロ、表計算、プレゼンテーション、作図）です。 OpenOffice.org というオフィス・スイートに基づいたもので、数多くの Mac OS X ネイティブの機能を提供し、 MicrosoftTM Office など他の人気のオフィス・ソフトの書類の読み込み、編集、交換ができます。
 
-GNU 一般公衆利用許諾契約書（GPL）jの下で無料のオープンソース・ソフトgとして公開しています。NeoOffice/Jは充実した機能と日常的な用途に充分の安定性を備えています。Bこのソフトは開発中なので、改良やアップデートをしばしば公開していまﾜす。
+GNU 一般公衆利用許諾契約書（GPL）の下で無料のオープンソース・ソフトとして公開しています。NeoOffice/Jは充実した機能と日常的な用途に充分の安定性を備えています。このソフトは開発中なので、改良やアップデートをしばしば公開しています。
 
 NeoOffice/J ダウンロード・ページにて無料でダウンロードできます。
 
 sample.jpg ｬ
 ニュース
 
-2005 年 6 月 22 日: NeoOffice/J 1.1 がリリースされ・ました。これは NeoOffice/J の初めての正式なリリースであっﾁて、 Release Candidate の全機能\と多数の修正を提供しています。 NeoOffice/J 1.1 はここでダウンロードできます。
+2005 年 6 月 22 日: NeoOffice/J 1.1 がリリースされました。これは NeoOffice/J の初めての正式なリリースであって、 Release Candidate の全機能と多数の修正を提供しています。 NeoOffice/J 1.1 はここでダウンロードできます。
 
-2005 年 3 月 30 日: NeoOffice/J 1.1 Release Candidate がリリースさｳれました。このリリースでは、 OpenOffice.org 1.1.4 の全機能、そして NeoOffice/J とほかのアプリケーションとの間でのドラッグ＆ドロップをサポートしています。
+2005 年 3 月 30 日: NeoOffice/J 1.1 Release Candidate がリリースされました。このリリースでは、 OpenOffice.org 1.1.4 の全機能、そして NeoOffice/J とほかのアプリケーションとの間でのドラッグ＆ドロップをサポートしています。
 
-2004 年 12 月 21 日: NeoOffice/J 1.1 Beta がリリースされました。このリリースは OpenOffice.org 1.1.3 の全機能（ホイール・マウスによるスクロール、ドラッグ＆・ドロップなど）をサポートしいます。B
+2004 年 12 月 21 日: NeoOffice/J 1.1 Beta がリリースされました。このリリースは OpenOffice.org 1.1.3 の全機能（ホイールマウスによるスクロール、ドラッグ＆ドロップなど）をサポートしいます。
  © 2003-2005 Patrick Luby (patrick dot luby at planamesa dot com), Sunnyvale, California, USA 
  NeoOfficeはEdward H. Peterlinの登録商標です。 
  JavaはSun Microsystems, Inc.の登録商標です。 
  MicrosoftはMicrosoft Corporationの登録商標です。 
- この通知を残すこｱとを条件に、全体の文章をどのようなﾈメディアを使っても、コピーとして保ﾛ存・配付してもかまいません。
+ この通知を残すことを条件に、全体の文章をどのようなメディアを使っても、コピーとして保存・配付してもかまいません。

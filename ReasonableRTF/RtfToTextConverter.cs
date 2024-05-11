@@ -2851,8 +2851,7 @@ public sealed class RtfToTextConverter
                         numToSkip--;
                     }
                     break;
-                case '?':
-                    numToSkip--;
+                case '\r' or '\n':
                     break;
                 // Per spec, if we encounter a group delimiter during Unicode skipping, we end skipping early
                 case '{' or '}':
