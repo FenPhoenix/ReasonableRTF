@@ -11,6 +11,8 @@ Notes and miscellaneous:
 TODO: Try to make API good like with granularity levels and whatever
 TODO: Test the RtfPipe test file set
 TODO: Add a test file with \binN in it - we know it works from prior testing but we should keep a file around
+TODO: Make Framework/.NET Standard 2.0 version
+And keep them separate because I can't figure out how to get them to play nicely together...
 */
 
 using System.Globalization;
