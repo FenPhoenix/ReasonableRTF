@@ -267,7 +267,7 @@ public sealed partial class MainForm : Form
                 //"param_too_long.rtf"
                 //"2000-12-30_Uneaffaireenor__Readme.rtf"
                 //"fldinst.rtf"
-                "Issue52.rtf"
+                "Issue50-2.rtf"
             ;
         SourceSet sourceSet = SourceSet.WorkingNewSet;
 

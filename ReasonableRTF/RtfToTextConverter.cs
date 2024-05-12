@@ -2442,14 +2442,6 @@ public sealed class RtfToTextConverter
                 default:
                 {
                     FontEntry? fontEntry = _fontEntries.Top;
-                    if (_currentPos >= _rtfBytes.Length - 16)
-                    {
-                        if (fontEntry != null)
-                        {
-                            fontEntry.SymbolFont = SymbolFont.None;
-                        }
-                        break;
-                    }
                     if (!_groupStack.CurrentSkipDest &&
                         // We can't check for codepage 42, because symbol fonts can have other codepages (although
                         // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
@@ -2458,12 +2450,18 @@ public sealed class RtfToTextConverter
                     {
                         _symbolFontNameBuffer.ClearFast();
 
+                        int originalPos = _currentPos;
+
+                        // Increment the real position instead of a temp one, so that if we get an exception
+                        // the error report will contain the real position.
                         for (int i = 0;
                              i < _maxSymbolFontNameLength && ch != ';';
                              i++, ch = (char)_rtfBytes[_currentPos++])
                         {
                             _symbolFontNameBuffer.Add(ch);
                         }
+
+                        _currentPos = originalPos;
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
