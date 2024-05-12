@@ -482,7 +482,7 @@ public sealed class RtfToTextConverter
     private const int _symbolArraysLength = 9;
 
     private readonly uint[][] _symbolFontTables = new uint[_symbolArraysLength][];
-    private readonly char[][] _symbolFontCharsArrays = new char[_symbolArraysLength][];
+    private readonly byte[][] _symbolFontCharsArrays = new byte[_symbolArraysLength][];
 
     private void InitSymbolFontData()
     {
@@ -1886,13 +1886,13 @@ public sealed class RtfToTextConverter
 #pragma warning restore IDE0300
         // ReSharper restore RedundantExplicitArraySize
 
-        _symbolFontCharsArrays[(int)SymbolFont.Symbol] = ['S', 'y', 'm', 'b', 'o', 'l'];
-        _symbolFontCharsArrays[(int)SymbolFont.Wingdings] = ['W', 'i', 'n', 'g', 'd', 'i', 'n', 'g', 's'];
-        _symbolFontCharsArrays[(int)SymbolFont.Wingdings2] = ['W', 'i', 'n', 'g', 'd', 'i', 'n', 'g', 's', ' ', '2'];
-        _symbolFontCharsArrays[(int)SymbolFont.Wingdings3] = ['W', 'i', 'n', 'g', 'd', 'i', 'n', 'g', 's', ' ', '3'];
-        _symbolFontCharsArrays[(int)SymbolFont.Webdings] = ['W', 'e', 'b', 'd', 'i', 'n', 'g', 's'];
-        _symbolFontCharsArrays[(int)SymbolFont.ITCZapfDingbats] = ['I', 'T', 'C', ' ', 'Z', 'a', 'p', 'f', ' ', 'D', 'i', 'n', 'g', 'b', 'a', 't', 's'];
-        _symbolFontCharsArrays[(int)SymbolFont.ZapfDingbats] = ['Z', 'a', 'p', 'f', ' ', 'D', 'i', 'n', 'g', 'b', 'a', 't', 's'];
+        _symbolFontCharsArrays[(int)SymbolFont.Symbol] = "Symbol"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.Wingdings] = "Wingdings"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.Wingdings2] = "Wingdings 2"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.Wingdings3] = "Wingdings 3"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.Webdings] = "Webdings"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.ITCZapfDingbats] = "ITC Zapf Dingbats"u8.ToArray();
+        _symbolFontCharsArrays[(int)SymbolFont.ZapfDingbats] = "Zapf Dingbats"u8.ToArray();
     }
 
     #endregion
@@ -2499,7 +2499,7 @@ public sealed class RtfToTextConverter
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
-                            char[] nameBytes = _symbolFontCharsArrays[i];
+                            byte[] nameBytes = _symbolFontCharsArrays[i];
                             if (SeqEqual(_symbolFontNameBuffer, nameBytes))
                             {
                                 fontEntry.SymbolFont = (SymbolFont)i;
@@ -3379,7 +3379,7 @@ public sealed class RtfToTextConverter
 
                     for (int symbolFontI = _symbolArraysStartingIndex; symbolFontI < _symbolArraysLength; symbolFontI++)
                     {
-                        char[] symbolChars = _symbolFontCharsArrays[symbolFontI];
+                        byte[] symbolChars = _symbolFontCharsArrays[symbolFontI];
                         uint[] symbolFontTable = _symbolFontTables[symbolFontI];
 
                         if (SeqEqual(_fldinstSymbolFontName, symbolChars))
@@ -3749,7 +3749,7 @@ public sealed class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool SeqEqual(ListFast<char> seq1, char[] seq2)
+    private static bool SeqEqual(ListFast<char> seq1, byte[] seq2)
     {
         int seq1Count = seq1.Count;
         if (seq1Count != seq2.Length) return false;
