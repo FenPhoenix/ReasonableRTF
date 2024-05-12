@@ -12,13 +12,15 @@ TODO: Try to make API good like with granularity levels and whatever
 TODO: API: "Write the usage code first" - we haven't done that...
 We can figure out what's a good options-setting API then.
 TODO: API: Should we just always throw? Right now we throw in param out of range but return error result for everything else.
-TODO: Test the RtfPipe test file set
 TODO: Make Framework/.NET Standard 2.0 version
 And keep them separate because I can't figure out how to get them to play nicely together...
 TODO: Add an option to copy HYPERLINK field instructions to output like RichTextBox does?
 HYPERLINK in a fldinst can - and usually does - occur after a bunch of random cruft, unlike SYMBOL.
 So we'd have to make another special parse method that when it gets to plain text it checks for HYPERLINK and
 parses from there. Not a big deal but yeah. In fact we could also handle SYMBOL that way just in case.
+
+The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext output. Just the .NET 8 one does
+I guess. So we could just leave this out...
 */
 
 using System.Globalization;
@@ -61,7 +63,7 @@ public enum RtfError : byte
     /// </summary>
     ParameterOutOfRange,
     /// <summary>
-    /// The rtf is malformed in such a way that it might be unsafe to continue parsing it (infinite loops, stack overflows, etc.)
+    /// The rtf was malformed in such a way that it might have been unsafe to continue parsing it (infinite loops, stack overflows, etc.)
     /// </summary>
     AbortedForSafety,
     /// <summary>
@@ -161,13 +163,30 @@ public readonly struct RtfResult(string text, RtfError error, int bytePositionOf
     public override string ToString()
     {
         string error = Error == RtfError.OK ? "Success" : "Error: " + Error;
+
+        string errorDescription = Error == RtfError.OK
+            ? ""
+            : "Error description: " + (Error switch
+            {
+                RtfError.NotAnRtfFile => "The file did not have a valid rtf header.",
+                RtfError.StackUnderflow => "Unmatched '}'.",
+                RtfError.UnmatchedBrace => "Unmatched '{'.",
+                RtfError.UnexpectedEndOfFile => "End of file was unexpectedly encountered while parsing.",
+                RtfError.KeywordTooLong => "A keyword longer than 32 characters was encountered.",
+                RtfError.ParameterOutOfRange => "A keyword parameter was outside the range of -2147483648 to 2147483647, or was longer than 10 characters.",
+                RtfError.AbortedForSafety => "The rtf was malformed in such a way that it might have been unsafe to continue parsing it (infinite loops, stack overflows, etc.)",
+                _ => "An unexpected error occurred.",
+            }) + Environment.NewLine;
+
         string lastPosition =
             Error == RtfError.OK
                 ? ""
                 : "Byte position of error (approximate): " + BytePositionOfError.ToString(CultureInfo.InvariantCulture) + Environment.NewLine;
+
         return "RTF to plaintext conversion result:" + Environment.NewLine +
                "-----------------------------------" + Environment.NewLine +
                error + Environment.NewLine +
+               errorDescription +
                lastPosition +
                "Exception: " + (Exception != null ? Environment.NewLine + Exception : "none");
     }
