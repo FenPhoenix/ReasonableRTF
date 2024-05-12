@@ -119,20 +119,19 @@ public sealed class RtfToTextConverterOptions
     public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
 
     /// <summary>
-    /// Gets or sets whether to copy text that is marked as hidden. If <see langword="true"/>, this text will
+    /// Gets or sets whether to convert text that is marked as hidden. If <see langword="true"/>, this text will
     /// appear in the plain text output; otherwise it will not.
     /// <para/>
     /// The default value is <see langword="false"/>.
     /// </summary>
-    // TODO: Name this better
-    public bool CopyHiddenText { get; set; }
+    public bool ConvertHiddenText { get; set; }
 
     internal void CopyTo(RtfToTextConverterOptions dest)
     {
         dest.SwapUppercaseAndLowercasePhiSymbols = SwapUppercaseAndLowercasePhiSymbols;
         dest.SymbolFontA0Char = SymbolFontA0Char;
         dest.LineBreakStyle = LineBreakStyle;
-        dest.CopyHiddenText = CopyHiddenText;
+        dest.ConvertHiddenText = ConvertHiddenText;
     }
 }
 
@@ -2549,7 +2548,7 @@ public sealed class RtfToTextConverter
         }
         else if (propertyTableIndex == Property.Hidden)
         {
-            if (_options.CopyHiddenText)
+            if (_options.ConvertHiddenText)
             {
                 return;
             }
