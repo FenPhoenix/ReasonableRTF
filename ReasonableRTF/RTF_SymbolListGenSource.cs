@@ -1,7 +1,5 @@
 ﻿/*
 TODO(gperf stuff): Tidy this up and get rid of hardcoded directories and whatnot
-TODO: We need to support "nestcell" and "nestrow" that do the same thing as "cell" and "row"
-This should fix the words without spaces between in certain files
 */
 
 //#define SYMBOL_PERFECT_HASH_GEN
