@@ -27,7 +27,7 @@ public sealed partial class MainForm : Form
         Full,
         Small,
         ValidityTest,
-        WorkingNewSet
+        WorkingNewSet,
     }
 
     private sealed class TimingScope : IDisposable

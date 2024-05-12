@@ -180,7 +180,7 @@ public readonly struct RtfResult
 
         string errorDescription = Error == RtfError.OK
             ? ""
-            : "Error description: " + (Error switch
+            : "Error description: " + Error switch
             {
                 RtfError.NotAnRtfFile => "The file did not have a valid rtf header.",
                 RtfError.StackUnderflow => "Unmatched '}'.",
@@ -190,7 +190,7 @@ public readonly struct RtfResult
                 RtfError.ParameterOutOfRange => "A keyword parameter was outside the range of -2147483648 to 2147483647, or was longer than 10 characters.",
                 RtfError.AbortedForSafety => "The rtf was malformed in such a way that it might have been unsafe to continue parsing it (infinite loops, stack overflows, etc.)",
                 _ => "An unexpected error occurred.",
-            }) + Environment.NewLine;
+            } + Environment.NewLine;
 
         string lastPosition =
             Error == RtfError.OK
@@ -2109,14 +2109,7 @@ public sealed class RtfToTextConverter
     // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
     // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
 
-    private static readonly byte[] _rtfHeaderBytes =
-    {
-        (byte)'{',
-        (byte)'\\',
-        (byte)'r',
-        (byte)'t',
-        (byte)'f',
-    };
+    private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
 
     private bool IsValidRtfFile()
     {
@@ -2411,7 +2404,7 @@ public sealed class RtfToTextConverter
         return RtfError.OK;
     }
 
-    private unsafe RtfError HandleFontTable()
+    private RtfError HandleFontTable()
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.

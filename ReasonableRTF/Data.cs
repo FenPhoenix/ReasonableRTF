@@ -3,13 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace ReasonableRTF;
 
-internal static class ByteSize
-{
-    internal const int KB = 1024;
-    internal const int MB = KB * 1024;
-    internal const int GB = MB * 1024;
-}
-
 [StructLayout(LayoutKind.Auto)]
 internal readonly struct ByteArrayWithLength
 {
