@@ -137,28 +137,43 @@ public sealed class RtfToTextConverterOptions
 }
 
 [PublicAPI]
-public readonly struct RtfResult(string text, RtfError error, int bytePositionOfError, Exception? exception)
+public readonly struct RtfResult
 {
+    internal RtfResult(RtfError error, int bytePositionOfError, Exception? exception)
+    {
+        Text = "";
+        Error = error;
+        BytePositionOfError = bytePositionOfError;
+        Exception = exception;
+    }
+
+    internal RtfResult(string text)
+    {
+        Text = text;
+        Error = RtfError.OK;
+        BytePositionOfError = -1;
+        Exception = null;
+    }
+
     /// <summary>
     /// The converted plain text.
     /// </summary>
-    public string Text { get; } = text;
+    public string Text { get; }
 
     /// <summary>
     /// The error code.
     /// </summary>
-    // TODO: Print a friendly error explanation in the ToString() output.
-    public RtfError Error { get; } = error;
+    public RtfError Error { get; }
 
     /// <summary>
     /// The approximate position in the data stream where the error occurred, or -1 if no error.
     /// </summary>
-    public int BytePositionOfError { get; } = bytePositionOfError;
+    public int BytePositionOfError { get; }
 
     /// <summary>
     /// The caught exception, or <see langword="null"/> if no exception occurred.
     /// </summary>
-    public Exception? Exception { get; } = exception;
+    public Exception? Exception { get; }
 
     public override string ToString()
     {
@@ -2068,21 +2083,21 @@ public sealed class RtfToTextConverter
             // without complicating the logic with a user option and all.
             if (!IsValidRtfFile())
             {
-                return new RtfResult("", RtfError.NotAnRtfFile, 0, null);
+                return new RtfResult(RtfError.NotAnRtfFile, 0, null);
             }
 
             RtfError error = ParseRtf();
             return error == RtfError.OK
-                ? new RtfResult(CreateReturnStringFromChars(_plainText), RtfError.OK, -1, null)
-                : new RtfResult("", error, _currentPos, null);
+                ? new RtfResult(CreateReturnStringFromChars(_plainText))
+                : new RtfResult(error, _currentPos, null);
         }
         catch (IndexOutOfRangeException ex)
         {
-            return new RtfResult("", RtfError.UnexpectedEndOfFile, _currentPos, ex);
+            return new RtfResult(RtfError.UnexpectedEndOfFile, _currentPos, ex);
         }
         catch (Exception ex)
         {
-            return new RtfResult("", RtfError.UnexpectedError, _currentPos, ex);
+            return new RtfResult(RtfError.UnexpectedError, _currentPos, ex);
         }
         finally
         {
