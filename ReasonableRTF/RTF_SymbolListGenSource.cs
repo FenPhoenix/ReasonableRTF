@@ -190,6 +190,7 @@ public static class RTF_SymbolListGenSource
     */
 
     private const string genDir = @"C:\_al_rtf_table_gen";
+    private const string gperfExePath = @"C:\gperf\tools\gperf.exe";
 
     public static void ConvertSymbolListToGPerfFormat()
     {
@@ -212,7 +213,7 @@ public static class RTF_SymbolListGenSource
 
         // gperf --output-file=[gperf output file] -t [gperfFormatFile]
         using (Process.Start(
-                   @"C:\gperf\tools\gperf.exe",
+                   gperfExePath,
                    "--output-file=" + Path.Combine(genDir, "gperfOutputFile.txt") + " " +
                    "-t " +
                    gperfFormatFile))
