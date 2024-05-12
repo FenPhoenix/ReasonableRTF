@@ -2472,6 +2472,10 @@ public sealed class RtfToTextConverter
                                 break;
                             }
                         }
+                        if (fontEntry.SymbolFont == SymbolFont.Unset)
+                        {
+                            fontEntry.SymbolFont = SymbolFont.None;
+                        }
                     }
                     break;
                 }
