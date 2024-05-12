@@ -9,6 +9,9 @@ Notes and miscellaneous:
 -RichTextBox and LibreOffice both remove nulls.
 
 TODO: Try to make API good like with granularity levels and whatever
+TODO: API: "Write the usage code first" - we haven't done that...
+We can figure out what's a good options-setting API then.
+TODO: API: Should we just always throw? Right now we throw in param out of range but return error result for everything else.
 TODO: Test the RtfPipe test file set
 TODO: Add a test file with \binN in it - we know it works from prior testing but we should keep a file around
 TODO: Make Framework/.NET Standard 2.0 version
