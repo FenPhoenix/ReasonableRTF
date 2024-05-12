@@ -1,0 +1,1 @@
+This is the first text. What follows is binary data: This text comes after the binary data. There should be nothing displayed in between the texts in the plaintext output.
