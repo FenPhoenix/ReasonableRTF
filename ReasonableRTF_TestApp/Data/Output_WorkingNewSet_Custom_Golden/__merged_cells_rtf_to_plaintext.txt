@@ -1,0 +1,5 @@
+Vertical merged cells.	 	Horizontal merged cells
+	 	 	 	 
+	 	Horizontal and vertical merged cells
+ 	 	
+ 	 	

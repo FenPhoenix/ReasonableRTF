@@ -2127,7 +2127,7 @@ public sealed class RtfToTextConverter
                 }
                 break;
             }
-            case >= 6:
+            case >= 5:
             {
                 for (int i = 0; i < _rtfHeaderBytes.Length; i++)
                 {

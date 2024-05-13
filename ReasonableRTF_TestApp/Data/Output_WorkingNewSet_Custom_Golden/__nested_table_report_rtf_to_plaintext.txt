@@ -5,6 +5,6 @@ Some text here.
  · List item two.
  · List item three.
 Notes:  
-Comment DateComment ByApproval Workflow Comments
-07/13/2018John Doe
+Comment Date	Comment By	Approval Workflow Comments	
+07/13/2018	John Doe		
 
