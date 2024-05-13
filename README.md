@@ -30,7 +30,7 @@ AMD Ryzen 9 3950X, 1 CPU, 32 logical and 16 physical cores
 - All basic plain text, hex-encoded chars, Unicode-encoded chars
 - Symbol fonts (the abovementioned ones) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
-- Undocumented use of the \langN keyword to specify character encoding - old versions of RichTextBox used to support this
+- Undocumented use of the \langN keyword to [specify character encoding](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/) - old versions of RichTextBox used to support this
 
 ## Partially supported
 
