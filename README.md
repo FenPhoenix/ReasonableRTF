@@ -1,5 +1,7 @@
 # ReasonableRTF
 
+<p align="center"><img src="https://github.com/FenPhoenix/AngelLoader/blob/master/docs/images/reasonable_rtf/perf_bar_chart.png" /></p>
+
 I'm gonna lay it right out on the table. This ain't the simdjson of RTF to plaintext converters. But it is over a hundred times faster than a RichTextBox, and that's got to count for something.
 
 - Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats all converted to equivalent Unicode characters.  
