@@ -290,7 +290,6 @@ public sealed class RtfToTextConverter
         _unicodeBuffer.HardReset(32);
         _symbolFontNameBuffer.HardReset(32);
         _encodings.Reset(32);
-        _encodings.EnsureCapacity(32);
         _fldinstSymbolFontName.HardReset(32);
     }
 
