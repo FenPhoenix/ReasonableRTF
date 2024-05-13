@@ -27,7 +27,7 @@ AMD Ryzen 9 3950X, 1 CPU, 32 logical and 16 physical cores
 
 ## Supported
 
-- All basic plain text, hex-encoded chars, Unicode-encoded chars, including multibyte ones
+- All basic plain text, hex-encoded chars, Unicode-encoded chars
 - Symbol fonts (the abovementioned ones) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
 - Undocumented use of the \langN keyword to specify character encoding - old versions of RichTextBox used to support this
