@@ -33,7 +33,7 @@ AMD Ryzen 9 3950X, 1 CPU, 32 logical and 16 physical cores
 
 ## Partially supported
 
-- Tables Cells and rows have spaces between them, but not much functionality beyond that.
+- Tables: Cells and rows have spaces between them, but not much functionality beyond that.
 - Lists: Numbers and bullets show up (that's better than RichTextBox most of the time), but indentation usually doesn't.
 
 ## Not currently supported
