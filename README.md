@@ -1,8 +1,16 @@
-# ReasonableRTF
+# ReasonableRTF: Parsing gigabytes (sometimes) of RTF per second
+
+So you're using C# and you want to convert some RTF to text. The solution is easy: You reach for the WinForms RichTextBox. Load your RTF in, access the Text property, and presto, it's all there. Mostly. Except smiley faces become the letter J. And sometimes non-ASCII text becomes gibberish even though old versions used to display it fine. And it's really, really slow. Also it [leaks native memory](https://github.com/FenPhoenix/ReasonableRTF/blob/a8077dc484e8568a4aec5115320dc7c0babeae4f/ReasonableRTF_TestApp/Data/RTF_Test_Set_Full/TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf).
+
+You try the WPF version. Wait, did that one file take _twenty-five seconds_ to load just because it had a 240x180 image in it?!
+
+Forget it! You need something better. You need...
 
 <p align="center"><img src="https://github.com/FenPhoenix/AngelLoader/blob/master/docs/images/reasonable_rtf/perf_bar_charts3.png" /></p>
 
-I'm gonna lay it right out on the table. This ain't the simdjson of RTF to plaintext converters. But it is over a hundred times faster than a RichTextBox, and that's got to count for something.
+... the converter that's consistently over a hundred times faster than RichTextBox. 1.48 megs a second? That's unreasonable. 214 megs a second is slightly less unreasonable! That's like step 2½ out of 8 in *[Context is Everything](https://vimeo.com/644068002)*!
+
+## Features
 
 - Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats all converted to equivalent Unicode characters.  
 - Non-ASCII text correctly converted where RichTextBox can't.  
