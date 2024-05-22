@@ -2342,18 +2342,23 @@ public sealed class RtfToTextConverter
                 HandleHexRun();
                 break;
             case SpecialType.UnicodeChar:
+            {
                 HandleUnicodeParamAndSkipFallbackChars(param);
-                HandleUnicodeRun();
+                RtfError error = HandleUnicodeRun();
+                if (error != RtfError.OK) return error;
                 break;
+            }
             case SpecialType.ColorTable:
                 int closingBraceIndex = Array.IndexOf(_rtfBytes.Array, (byte)'}', _currentPos, _rtfBytes.Length - _currentPos);
                 _currentPos = closingBraceIndex == -1 ? _rtfBytes.Length : closingBraceIndex;
                 break;
             case SpecialType.FontTable:
+            {
                 _groupStack.CurrentInFontTable = true;
                 RtfError error = HandleFontTable();
                 if (error != RtfError.OK) return error;
                 break;
+            }
             case SpecialType.HeaderCodePage:
                 _headerCodePage = param >= 0 ? param : 1252;
                 break;
@@ -2776,7 +2781,7 @@ public sealed class RtfToTextConverter
 
     #region Unicode
 
-    private void HandleUnicodeRun()
+    private RtfError HandleUnicodeRun()
     {
         while (_currentPos < _rtfBytes.Length)
         {
@@ -2799,11 +2804,26 @@ public sealed class RtfToTextConverter
                     {
                         int param = 0;
 
-                        for (int i = 0;
-                             i < _paramMaxLen && char.IsAsciiDigit(ch);
-                             i++, ch = (char)_rtfBytes[_currentPos++])
+                        checked
                         {
-                            param = (param * 10) + (ch - '0');
+                            try
+                            {
+                                int i;
+                                for (i = 0;
+                                     i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                                     i++, ch = (char)_rtfBytes[_currentPos++])
+                                {
+                                    param = (param * 10) + (ch - '0');
+                                }
+                                if (i > _paramMaxLen)
+                                {
+                                    return RtfError.ParameterOutOfRange;
+                                }
+                            }
+                            catch (OverflowException)
+                            {
+                                return RtfError.ParameterOutOfRange;
+                            }
                         }
                         param = BranchlessConditionalNegate(param, negateParam);
 
@@ -2815,23 +2835,25 @@ public sealed class RtfToTextConverter
                         _currentPos -= (3 + negateParam);
                         _currentPos += MinusOneIfNotSpace_8Bits(ch);
                         ParseUnicode();
-                        return;
+                        return RtfError.OK;
                     }
                 }
                 else
                 {
                     _currentPos -= 2;
                     ParseUnicode();
-                    return;
+                    return RtfError.OK;
                 }
             }
             else
             {
                 _currentPos--;
                 ParseUnicode();
-                return;
+                return RtfError.OK;
             }
         }
+
+        return RtfError.OK;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
