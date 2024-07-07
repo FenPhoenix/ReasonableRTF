@@ -14,7 +14,6 @@ internal sealed class GroupStack
     internal byte[] _symbolFonts;
     internal int[][] Properties;
 
-    /// <summary>Do not modify!</summary>
     internal int Count;
 
     internal GroupStack() => Init();
@@ -40,6 +39,25 @@ internal sealed class GroupStack
         }
     }
 
+    private void Grow()
+    {
+        int oldMaxGroups = Capacity;
+
+        int newCapacity = Capacity * 2;
+        if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
+
+        Capacity = newCapacity;
+        Array.Resize(ref _skipDestinations, Capacity);
+        Array.Resize(ref _inFontTables, Capacity);
+        Array.Resize(ref _symbolFonts, Capacity);
+        Array.Resize(ref Properties, Capacity);
+
+        for (int i = oldMaxGroups; i < Capacity; i++)
+        {
+            Properties[i] = new int[PropertiesLen];
+        }
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal void DeepCopyToNext()
     {
@@ -47,21 +65,7 @@ internal sealed class GroupStack
         // nested groups now.
         if (Count >= Capacity - 1)
         {
-            int oldMaxGroups = Capacity;
-
-            int newCapacity = Capacity * 2;
-            if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
-
-            Capacity = newCapacity;
-            Array.Resize(ref _skipDestinations, Capacity);
-            Array.Resize(ref _inFontTables, Capacity);
-            Array.Resize(ref _symbolFonts, Capacity);
-            Array.Resize(ref Properties, Capacity);
-
-            for (int i = oldMaxGroups; i < Capacity; i++)
-            {
-                Properties[i] = new int[PropertiesLen];
-            }
+            Grow();
         }
 
         _skipDestinations[Count + 1] = _skipDestinations[Count];
