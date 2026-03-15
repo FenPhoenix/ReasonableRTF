@@ -83,7 +83,17 @@ public enum SymbolFontA0Char
 [PublicAPI]
 public enum LineBreakStyle
 {
+    /// <summary>
+    /// Uses the line break style of the platform you're running on.
+    /// </summary>
+    EnvironmentDefault,
+    /// <summary>
+    /// Uses Windows-style line breaks.
+    /// </summary>
     CRLF,
+    /// <summary>
+    /// Uses Unix-style line breaks.
+    /// </summary>
     LF,
 }
 
@@ -112,11 +122,11 @@ public sealed class RtfToTextConverterOptions
     public SymbolFontA0Char SymbolFontA0Char { get; set; } = SymbolFontA0Char.EuroSign;
 
     /// <summary>
-    /// Gets or sets the linebreak style (CRLF or LF) for the converted plain text.
+    /// Gets or sets the line break style for the converted plain text.
     /// <para/>
-    /// The default value is <see cref="LineBreakStyle.CRLF"/>.
+    /// The default value is <see cref="LineBreakStyle.EnvironmentDefault"/>.
     /// </summary>
-    public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.CRLF;
+    public LineBreakStyle LineBreakStyle { get; set; } = LineBreakStyle.EnvironmentDefault;
 
     /// <summary>
     /// Gets or sets whether to convert text that is marked as hidden. If <see langword="true"/>, this text will
@@ -208,6 +218,9 @@ public readonly struct RtfResult
 
 public sealed class RtfToTextConverter
 {
+    // Cache it for perf
+    private readonly string LineBreakString = Environment.NewLine;
+
     private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
     {
         src.CopyTo(dest);
@@ -2570,14 +2583,43 @@ public sealed class RtfToTextConverter
         }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void AddLineBreak()
     {
-        if (_options.LineBreakStyle == LineBreakStyle.CRLF)
+        if (_options.LineBreakStyle == LineBreakStyle.EnvironmentDefault)
+        {
+            int lineBreakLength = LineBreakString.Length;
+            // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
+            // cases.
+            switch (lineBreakLength)
+            {
+                case 2:
+                    _plainText.Add(LineBreakString[0]);
+                    _plainText.Add(LineBreakString[1]);
+                    break;
+                case 1:
+                    _plainText.Add(LineBreakString[0]);
+                    break;
+                default:
+                {
+                    // Shouldn't ever hit this, but maybe Microsoft vibe-codes a patch into Windows that makes
+                    // the line break be three characters. Just kidding. Probably.
+                    for (int i = 0; i < LineBreakString.Length; i++)
+                    {
+                        _plainText.Add(LineBreakString[i]);
+                    }
+                    break;
+                }
+            }
+        }
+        else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
             _plainText.Add('\r');
+            _plainText.Add('\n');
         }
-        _plainText.Add('\n');
+        else
+        {
+            _plainText.Add('\n');
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
