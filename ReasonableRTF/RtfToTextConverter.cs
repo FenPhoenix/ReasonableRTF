@@ -2027,12 +2027,51 @@ public sealed class RtfToTextConverter
 
     private readonly RtfToTextConverterOptions _options;
 
-    /// <summary>
-    /// Converts a byte array of RTF data into plain text.
-    /// </summary>
-    /// <param name="source">The byte array containing the RTF to convert.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    [PublicAPI]
+
+	/// <summary>
+	/// Converts a the RTF File in <paramref name="file"/> into plain text.
+	/// </summary>
+	/// <param name="file">The Path to the RTF File to convert.</param>
+	/// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+	/// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+	[PublicAPI]
+	public RtfResult Convert(string file, RtfToTextConverterOptions? options = null)
+	{
+        byte[] bytes = File.ReadAllBytes(file);
+		return Convert(bytes, bytes.Length, options);
+	}
+
+	/// <summary>
+	/// Converts a <see cref="Stream"/> of RTF data into plain text.
+	/// </summary>
+	/// <param name="source">The <see cref="Stream"/> containing the RTF to convert.</param>
+	/// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+	/// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+	[PublicAPI]
+	public RtfResult Convert(Stream source, RtfToTextConverterOptions? options = null)
+	{
+        byte[] bytes;
+        if (source is MemoryStream ms)
+        {
+            bytes = ms.ToArray();
+        }
+        else
+        {
+            using (ms = new MemoryStream())
+            {
+                source.CopyTo(ms);
+                bytes = ms.ToArray();
+            }
+        }
+		return Convert(bytes, bytes.Length, options);
+	}
+
+	/// <summary>
+	/// Converts a byte array of RTF data into plain text.
+	/// </summary>
+	/// <param name="source">The byte array containing the RTF to convert.</param>
+	/// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+	[PublicAPI]
     public RtfResult Convert(byte[] source)
     {
         return Convert(source, source.Length, null);
