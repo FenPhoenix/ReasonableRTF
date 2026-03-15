@@ -60,4 +60,23 @@ internal static class Utils
 
         return charBuffer;
     }
+
+    /// <summary>
+    /// Reads exactly bytesToRead out of stream, unless it is out of bytes.
+    /// </summary>
+    internal static void ReadAll(this Stream stream, byte[] buffer, int bytesToRead)
+    {
+        int bytesLeftToRead = bytesToRead;
+
+        int totalBytesRead = 0;
+
+        while (bytesLeftToRead > 0)
+        {
+            int bytesRead = stream.Read(buffer, totalBytesRead, bytesLeftToRead);
+            if (bytesRead == 0) ThrowHelper.IOException("Unexpected end of stream.");
+
+            totalBytesRead += bytesRead;
+            bytesLeftToRead -= bytesRead;
+        }
+    }
 }
