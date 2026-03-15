@@ -2057,6 +2057,7 @@ public sealed class RtfToTextConverter
     /// </summary>
     /// <param name="stream">The RTF stream to convert.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
     public RtfResult Convert(Stream stream)
     {
         return ConvertInternal_Stream(stream, null);
@@ -2068,6 +2069,7 @@ public sealed class RtfToTextConverter
     /// <param name="stream">The RTF stream to convert.</param>
     /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
     public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
     {
         return ConvertInternal_Stream(stream, options);
