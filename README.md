@@ -1,20 +1,109 @@
-# ReasonableRTF: Parsing gigabytes (sometimes) of RTF per second
+# ReasonableRTF - Fast RTF to Plain Text Converter 🚀
 
-So you're using C# and you want to convert some RTF to text. The solution is easy: You reach for the WinForms RichTextBox. Load your RTF in, access the Text property, and presto, it's all there. Mostly. Except smiley faces become the letter J. And sometimes non-ASCII text becomes gibberish even though old versions used to display it fine. And it's really, really slow. Also it [leaks native memory](https://github.com/FenPhoenix/ReasonableRTF/blob/a8077dc484e8568a4aec5115320dc7c0babeae4f/ReasonableRTF_TestApp/Data/RTF_Test_Set_Full/TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf).
+A lightweight and performant C# library designed for rapidly converting **Rich Text Format (RTF)** files into **plain text**.
 
-You try the WPF version. Wait, did that one file take _twenty-five seconds_ to load just because it had a 240x180 image in it?!
-
-Forget it! You need something better. You need...
-
-<p align="center"><img src="https://github.com/FenPhoenix/ReasonableRTF/blob/main/docs/2026_perf_bar_charts.png" /></p>
-
-... the converter that's consistently over a hundred times faster than RichTextBox. 1.48 megs a second? That's unreasonable. 214 megs a second is slightly less unreasonable! That's like step 2½ out of 8 in *[Context is Everything](https://vimeo.com/644068002)*!
+- - -
 
 ## Features
 
-- Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats all converted to equivalent Unicode characters.  
-- Non-ASCII text correctly converted where RichTextBox can't.  
-- Got huge files with tons of images? No problem. We blaze past image data so fast it may as well not exist.  
+- Fast: Over 100x faster than RichTextBox.
+- Accurate: Even the toughest Unicode characters are converted correctly; symbol font characters (Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats) are converted to their Unicode equivalents.
+- Fully cross-platform.
+- [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/).
+
+- - -
+
+## Installation
+
+Install the library via NuGet:
+
+```
+dotnet add package ReasonableRTF.Standard
+```
+
+- - -
+
+## Quick Start
+
+Converting an RTF file (as a byte array) to plain text is straightforward. The `Convert` method returns an **`RtfResult`** object, providing the converted text and comprehensive error information, if any.
+
+### Basic Conversion
+
+Here is how to convert an RTF byte array to a plain text string:
+
+```cs
+using ReasonableRTF;
+using ReasonableRTF.Models;
+using System.IO;
+
+// ...
+
+// 1. Initialize the converter
+RtfToTextConverter converter = new RtfToTextConverter();
+
+// 2. Load the RTF data (e.g., from a file) and convert
+RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path));
+
+if (result.Error == RtfError.OK)
+{
+    // Conversion was successful
+    string plainText = result.Text;
+    Console.WriteLine("Converted Text:\n" + plainText);
+}
+else
+{
+    // Handle conversion errors
+    Console.WriteLine($"Conversion Error: {result.Error} at byte position: {result.BytePositionOfError}");
+    if (result.Exception != null)
+    {
+        Console.WriteLine($"Exception Details: {result.Exception.Message}");
+    }
+}
+```
+
+- - -
+
+## The RtfResult Class
+
+The `RtfResult` object provides full details about the conversion process, ensuring you can robustly handle success and failure cases.
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `Text` | `string` | The converted plain text. |
+| `Error` | `RtfError` | The error code. This will be `RtfError.OK` upon successful conversion. |
+| `BytePositionOfError` | `int` | The approximate position in the data stream where the error occurred, or `-1` if no error. |
+| `Exception` | `Exception?` | The caught exception, or `null` if no exception occurred during conversion. |
+
+- - -
+
+## Conversion Options
+
+For more control over the output, you can provide an instance of the **`RtfToTextConverterOptions`** class to the `Convert` method. This allows customization of line breaks, special character handling, and hidden text inclusion.
+
+### Applying Options
+
+```cs
+RtfToTextConverter converter = new RtfToTextConverter();
+RtfToTextConverterOptions options = new RtfToTextConverterOptions
+{
+    ConvertHiddenText = true, // Include text marked as hidden
+    LineBreakStyle = LineBreakStyle.LF // Use Unix-style line breaks
+};
+
+RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path), options);
+// ... check result
+```
+
+### RtfToTextConverterOptions Properties
+
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `SwapUppercaseAndLowercasePhiSymbols` | `bool` | `true` | If set to `true`, swaps the uppercase and lowercase Greek phi characters in the Symbol font translation. This addresses a common reversal in the Windows Symbol font. |
+| `SymbolFontA0Char` | `SymbolFontA0Char` | `SymbolFontA0Char.EuroSign` | Sets the character at index 0xA0 (160) in the Symbol font to Unicode translation table. Important for compatibility with older Symbol font versions. |
+| `LineBreakStyle` | `LineBreakStyle` | `LineBreakStyle.EnvironmentDefault` | Specifies the line break style (CRLF, LF, or environment default) for the converted plain text output. |
+| `ConvertHiddenText` | `bool` | `false` | Determines whether text marked as **hidden** in the RTF file should be included in the plain text output. |
+
+- - -
 
 ## Benchmarks
 
@@ -35,20 +124,34 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 | RichTextBox_NoImageSet   | 1,422.991 ms | 4.8078 ms | 4.4972 ms | 1x          |
 | ReasonableRTF_NoImageSet |     8.376 ms | 0.0197 ms | 0.0184 ms | 170x        |
 
-## Supported
+- - -
+
+## Supported RTF features
+
+### Supported
 
 - All basic plain text, hex-encoded chars, Unicode-encoded chars
 - Symbol fonts (the abovementioned ones) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
 - Undocumented use of the \langN keyword to [specify character encoding](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/) - old versions of RichTextBox used to support this
 
-## Partially supported
+### Partially supported
 
 - Tables: Cells and rows have spaces between them, but not much functionality beyond that.
 - Lists: Numbers and bullets show up (that's better than RichTextBox most of the time), but indentation usually doesn't.
 
-## Not currently supported
+### Not currently supported
 
 - Footnotes
 - "HYPERLINK" field instruction value
 - Math objects
+
+- - -
+
+## License and Attribution
+
+### Code License
+
+The **original code** for this RTF converter was written by **Brian Tobin** and is licensed under the **MIT License** (Copyright 2024-2026 Brian Tobin). For the full license text, please refer to the [LICENSE file ReasonableRTF](https://github.com/FenPhoenix/ReasonableRTF/blob/main/LICENSE).
+
+[Flamifly](https://github.com/Flamifly) contributed to the readme (installation, quick start, documentation, etc), and created the .NET Standard version.
