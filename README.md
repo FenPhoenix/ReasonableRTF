@@ -20,20 +20,20 @@ Forget it! You need something better. You need...
 
 ```
 
-BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.3448/22H2/2022Update)
-AMD Ryzen 9 3950X, 1 CPU, 32 logical and 16 physical cores
-.NET SDK 8.0.204
-  [Host]     : .NET 8.0.4 (8.0.424.16909), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.4 (8.0.424.16909), X64 RyuJIT AVX2
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8037/25H2/2025Update/HudsonValley2)
+AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 10.0.200
+  [Host]     : .NET 10.0.4 (10.0.4, 10.0.426.12010), X64 RyuJIT x86-64-v3
+  DefaultJob : .NET 10.0.4 (10.0.4, 10.0.426.12010), X64 RyuJIT x86-64-v3
 
 
 ```
-| Method                   | Mean        | Error    | StdDev   | Performance |
-|------------------------- |------------:|---------:|---------:|-------------|
-| RichTextBox_FullSet      | 5,556.20 ms | 8.693 ms | 8.132 ms | 1x          |
-| ReasonableRTF_FullSet    |    42.31 ms | 0.188 ms | 0.176 ms | 131x        |
-| RichTextBox_NoImageSet   | 2,389.84 ms | 3.342 ms | 3.126 ms | 1x          |
-| ReasonableRTF_NoImageSet |    16.52 ms | 0.023 ms | 0.019 ms | 145x        |
+| Method                   | Mean         | Error     | StdDev    | Performance |
+|------------------------- |-------------:|----------:|----------:|-------------|
+| RichTextBox_FullSet      | 3,307.722 ms | 7.3919 ms | 6.5527 ms | 1x          |
+| ReasonableRTF_FullSet    |    30.666 ms | 0.0438 ms | 0.0410 ms | 108x        |
+| RichTextBox_NoImageSet   | 1,422.991 ms | 4.8078 ms | 4.4972 ms | 1x          |
+| ReasonableRTF_NoImageSet |     8.376 ms | 0.0197 ms | 0.0184 ms | 170x        |
 
 ## Supported
 
