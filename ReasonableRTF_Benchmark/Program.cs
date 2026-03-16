@@ -110,7 +110,7 @@ public class Test
     {
         for (int i = 0; i < _smallSetByteArrays.Length; i++)
         {
-            _ = _rtfConverter.Convert(_fullSetByteArrays[i]);
+            _ = _rtfConverter.Convert(_smallSetByteArrays[i]);
         }
     }
 }
