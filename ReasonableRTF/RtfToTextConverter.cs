@@ -218,83 +218,15 @@ public readonly struct RtfResult
 
 public sealed class RtfToTextConverter
 {
+    #region Private fields
+
+    // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
+    // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
+
+    private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
+
     // Cache it for perf
     private readonly string LineBreakString = Environment.NewLine;
-
-    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
-    {
-        src.CopyTo(dest);
-
-        if (dest.SwapUppercaseAndLowercasePhiSymbols)
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
-        }
-        else
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
-        }
-
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
-        {
-            SymbolFontA0Char.EuroSign => '\x20AC',
-            SymbolFontA0Char.NumericSpace => '\x2007',
-            _ => _unicodeUnknown_Char,
-        };
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class.
-    /// </summary>
-    [PublicAPI]
-    public RtfToTextConverter()
-    {
-#if !NETFRAMEWORK
-#pragma warning disable IDE0002
-        // ReSharper disable once RedundantNameQualifier
-        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-#pragma warning restore IDE0002
-#endif
-
-        // Don't assign the passed-in options object directly! The user could have a reference to it and depend
-        // on it not changing. Deep copy it only!
-        _defaultOptions = new RtfToTextConverterOptions();
-        _options = new RtfToTextConverterOptions();
-
-        _windows1250Encoding = Encoding.GetEncoding(1250);
-        _windows1251Encoding = Encoding.GetEncoding(1251);
-        _shiftJisWinEncoding = Encoding.GetEncoding(_shiftJisWin);
-        _windows1252Encoding = Encoding.GetEncoding(_windows1252);
-
-        InitSymbolFontData();
-
-        ResetHeader();
-
-        _plainText = new ListFast<char>(4096);
-        _fontEntries = new FontDictionary(32);
-        _hexBuffer = new ListFast<byte>(32);
-        _unicodeBuffer = new ListFast<char>(32);
-        _symbolFontNameBuffer = new ListFast<char>(32);
-        _encodings = new Dictionary<int, Encoding>(32);
-        _fldinstSymbolFontName = new ListFast<char>(32);
-    }
-
-    /// <summary>
-    /// Resets all buffers back to default capacity, releasing excess memory.
-    /// </summary>
-    [PublicAPI]
-    public void ResetMemory()
-    {
-        _groupStack.ResetCapacityIfTooHigh();
-        _plainText.HardReset(4096);
-        _fontEntries.ClearFull(32);
-        _hexBuffer.HardReset(32);
-        _unicodeBuffer.HardReset(32);
-        _symbolFontNameBuffer.HardReset(32);
-        _encodings.Reset(32);
-        _fldinstSymbolFontName.HardReset(32);
-    }
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly char[] _keyword = new char[_keywordMaxLen + 1];
@@ -2011,12 +1943,48 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    #region Public API
-
-    // TODO: Add xml docs to all public APIs
-
     private readonly RtfToTextConverterOptions _defaultOptions;
     private readonly RtfToTextConverterOptions _options;
+
+    #endregion
+
+    #region Public API
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class.
+    /// </summary>
+    [PublicAPI]
+    public RtfToTextConverter()
+    {
+#if !NETFRAMEWORK
+#pragma warning disable IDE0002
+        // ReSharper disable once RedundantNameQualifier
+        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+#pragma warning restore IDE0002
+#endif
+
+        // Don't assign the passed-in options object directly! The user could have a reference to it and depend
+        // on it not changing. Deep copy it only!
+        _defaultOptions = new RtfToTextConverterOptions();
+        _options = new RtfToTextConverterOptions();
+
+        _windows1250Encoding = Encoding.GetEncoding(1250);
+        _windows1251Encoding = Encoding.GetEncoding(1251);
+        _shiftJisWinEncoding = Encoding.GetEncoding(_shiftJisWin);
+        _windows1252Encoding = Encoding.GetEncoding(_windows1252);
+
+        InitSymbolFontData();
+
+        ResetHeader();
+
+        _plainText = new ListFast<char>(4096);
+        _fontEntries = new FontDictionary(32);
+        _hexBuffer = new ListFast<byte>(32);
+        _unicodeBuffer = new ListFast<char>(32);
+        _symbolFontNameBuffer = new ListFast<char>(32);
+        _encodings = new Dictionary<int, Encoding>(32);
+        _fldinstSymbolFontName = new ListFast<char>(32);
+    }
 
     /// <summary>
     /// Converts an RTF file into plain text.
@@ -2186,12 +2154,23 @@ public sealed class RtfToTextConverter
         }
     }
 
+    /// <summary>
+    /// Resets all buffers back to default capacity, releasing excess memory.
+    /// </summary>
+    [PublicAPI]
+    public void ResetMemory()
+    {
+        _groupStack.ResetCapacityIfTooHigh();
+        _plainText.HardReset(4096);
+        _fontEntries.ClearFull(32);
+        _hexBuffer.HardReset(32);
+        _unicodeBuffer.HardReset(32);
+        _symbolFontNameBuffer.HardReset(32);
+        _encodings.Reset(32);
+        _fldinstSymbolFontName.HardReset(32);
+    }
+
     #endregion
-
-    // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
-    // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
-
-    private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
 
     private bool IsValidRtfFile()
     {
@@ -2225,6 +2204,29 @@ public sealed class RtfToTextConverter
         }
 
         return true;
+    }
+
+    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    {
+        src.CopyTo(dest);
+
+        if (dest.SwapUppercaseAndLowercasePhiSymbols)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
+        }
+        else
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
+        }
+
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
+        {
+            SymbolFontA0Char.EuroSign => '\x20AC',
+            SymbolFontA0Char.NumericSpace => '\x2007',
+            _ => _unicodeUnknown_Char,
+        };
     }
 
     private void Reset(in ByteArrayWithLength rtfBytes)
