@@ -6,7 +6,7 @@ You try the WPF version. Wait, did that one file take _twenty-five seconds_ to l
 
 Forget it! You need something better. You need...
 
-<p align="center"><img src="https://github.com/FenPhoenix/AngelLoader/blob/master/docs/images/reasonable_rtf/perf_bar_charts3.png" /></p>
+<p align="center"><img src="https://github.com/FenPhoenix/ReasonableRTF/blob/main/docs/2026_perf_bar_charts.png" /></p>
 
 ... the converter that's consistently over a hundred times faster than RichTextBox. 1.48 megs a second? That's unreasonable. 214 megs a second is slightly less unreasonable! That's like step 2½ out of 8 in *[Context is Everything](https://vimeo.com/644068002)*!
 
