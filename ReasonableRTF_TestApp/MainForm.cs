@@ -125,7 +125,7 @@ public sealed partial class MainForm : Form
         SaveConfig();
     }
 
-    private static string GetMBsString(long totalSize, long elapsedMilliseconds)
+    private static string GetMBsString(long totalSize, double elapsedMilliseconds)
     {
         double megs = (double)totalSize / 1024 / 1024;
         double intermediate = megs / elapsedMilliseconds;
@@ -452,5 +452,16 @@ public sealed partial class MainForm : Form
 
     private void Test1Button_Click(object sender, EventArgs e)
     {
+        // Change this when we want to re-measure the benchmark MB/s
+        const int fullBytes = 152_264_297;
+        const int smallBytes = 3_714_521;
+
+        Trace.WriteLine("RTB Full MB/s: " + GetMBsString(fullBytes, 3307.722));
+
+        Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1422.991));
+
+        Trace.WriteLine("RC Full MB/s: " + GetMBsString(fullBytes, 30.666));
+
+        Trace.WriteLine("RC Small MB/s: " + GetMBsString(smallBytes, 8.376));
     }
 }

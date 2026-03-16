@@ -77,6 +77,17 @@ public class Test
     [Benchmark]
     public void RichTextBox_FullSet()
     {
+        /*
+        Trying to have benchmarks match real use; the RichTextBox gets ~30% slower after the first run if we
+        don't call Clear(). However, if we call Clear() _too_ often (eg. before every single convert call), then
+        we get even slower still (too much overhead).
+        It's not at all certain that a programmer would actually think or know to call Clear() at all if they
+        were using a cached RichTextBox instance for their conversion, but then again they also wouldn't be
+        running the same set of files through the converter over and over again either. So I think this is the
+        closest to the most likely real-world scenario, which is that they run one set through and then quit.
+        */
+        _rtfBox.Clear();
+
         for (int i = 0; i < _fullSetMemStreams.Length; i++)
         {
             _fullSetMemStreams[i].Position = 0;
@@ -88,6 +99,9 @@ public class Test
     [Benchmark]
     public void RichTextBox_NoImageSet()
     {
+        // See above note
+        _rtfBox.Clear();
+
         for (int i = 0; i < _smallSetMemStreams.Length; i++)
         {
             _smallSetMemStreams[i].Position = 0;
