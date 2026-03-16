@@ -7,7 +7,7 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 ## Features
 
 - Fast: Over 100x faster than RichTextBox.
-- Accurate: All characters converted correctly. Even Wingdings.
+- Accurate: All characters converted correctly — even Wingdings.
 - Small: Less than 50k and with no dependencies.
 - Fully cross-platform.
 - [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/).
