@@ -1857,40 +1857,38 @@ public sealed class RtfToTextConverter
 
         if (stream is MemoryStream ms)
         {
-            length = GetLength(ms);
+            length = CheckAndGetLength(ms);
             bytes = GetMemoryStreamBytes(ms);
         }
         else if (stream is FileStream fs)
         {
-            length = GetLength(fs);
+            length = CheckAndGetLength(fs);
             bytes = new byte[length];
             fs.ReadAll(bytes, length);
         }
         else
         {
-            using (ms = new MemoryStream())
-            {
-                stream.CopyTo(ms);
-                ms.Seek(0, SeekOrigin.Begin);
-                length = GetLength(ms);
-                bytes = GetMemoryStreamBytes(ms);
-            }
+            using MemoryStream tempMemStream = new();
+            stream.CopyTo(tempMemStream);
+            tempMemStream.Seek(0, SeekOrigin.Begin);
+            length = CheckAndGetLength(tempMemStream);
+            bytes = GetMemoryStreamBytes(tempMemStream);
         }
 
         return Convert(bytes, length, options);
 
         #region Local functions
 
-        static int GetLength(Stream stream)
+        static int CheckAndGetLength(Stream stream)
         {
-            long readableLength = stream.Length - stream.Position;
+            long streamLength = stream.Length;
 
-            if (readableLength > int.MaxValue)
+            if (streamLength > int.MaxValue)
             {
                 ThrowHelper.IOException("Stream length was over 2 gigabytes. This is not supported.");
             }
 
-            int length = (int)readableLength;
+            int length = (int)streamLength;
 
             return length;
         }

@@ -197,14 +197,69 @@ public sealed partial class MainForm : Form
 
     private void ConvertWithCustom(SourceSet sourceSet)
     {
-        (_, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
+        (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
         RtfToTextConverter rtfConverter = new();
 
-        using (new TimingScope(totalSize))
+        if (Convert_ByteArrayRadioButton.Checked)
         {
-            for (int i = 0; i < byteArrays.Length; i++)
+            using (new TimingScope(totalSize))
             {
-                _ = rtfConverter.Convert(byteArrays[i]);
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    _ = rtfConverter.Convert(byteArrays[i]);
+                }
+            }
+        }
+        else if (Convert_MemoryStreamRadioButton.Checked)
+        {
+            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < memoryStreams.Length; i++)
+                    {
+                        _ = rtfConverter.Convert(memoryStreams[i]);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (MemoryStream ms in memoryStreams)
+                {
+                    ms.Dispose();
+                }
+            }
+        }
+        else if (Convert_FileStreamRadioButton.Checked)
+        {
+            FileStream[] fileStreams = new FileStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < rtfFiles.Length; i++)
+                {
+                    fileStreams[i] = File.OpenRead(rtfFiles[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < fileStreams.Length; i++)
+                    {
+                        _ = rtfConverter.Convert(fileStreams[i]);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (FileStream ms in fileStreams)
+                {
+                    ms.Dispose();
+                }
             }
         }
     }
@@ -335,16 +390,72 @@ public sealed partial class MainForm : Form
         (string[] rtfFiles, byte[][] byteArrays, long totalSize) = GetStuff_Custom(sourceSet);
         RtfToTextConverter rtfConverter = new();
 
-        using (new TimingScope(totalSize))
+        if (Convert_ByteArrayRadioButton.Checked)
         {
-            for (int i = 0; i < byteArrays.Length; i++)
+            using (new TimingScope(totalSize))
             {
-                string f = rtfFiles[i];
-                Trace.WriteLine(f);
-                byte[] array = byteArrays[i];
-                RtfResult result = rtfConverter.Convert(array);
-                rtfConverter.ResetMemory();
-                WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    string f = rtfFiles[i];
+                    RtfResult result = rtfConverter.Convert(byteArrays[i]);
+                    WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                }
+            }
+        }
+        else if (Convert_MemoryStreamRadioButton.Checked)
+        {
+            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < memoryStreams.Length; i++)
+                    {
+                        string f = rtfFiles[i];
+                        RtfResult result = rtfConverter.Convert(memoryStreams[i]);
+                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (MemoryStream ms in memoryStreams)
+                {
+                    ms.Dispose();
+                }
+            }
+        }
+        else if (Convert_FileStreamRadioButton.Checked)
+        {
+            FileStream[] fileStreams = new FileStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < rtfFiles.Length; i++)
+                {
+                    fileStreams[i] = File.OpenRead(rtfFiles[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < fileStreams.Length; i++)
+                    {
+                        string f = rtfFiles[i];
+                        RtfResult result = rtfConverter.Convert(fileStreams[i]);
+                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (FileStream ms in fileStreams)
+                {
+                    ms.Dispose();
+                }
             }
         }
     }

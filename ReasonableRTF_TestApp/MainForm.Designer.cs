@@ -52,12 +52,17 @@ sealed partial class MainForm
         WriteWorkingNewSetGroupBox = new GroupBox();
         WriteWorkingNewSetRTBButton = new Button();
         WriteWorkingNewSetCustomButton = new Button();
+        ConvertSourceGroupBox = new GroupBox();
+        Convert_FileStreamRadioButton = new RadioButton();
+        Convert_MemoryStreamRadioButton = new RadioButton();
+        Convert_ByteArrayRadioButton = new RadioButton();
         ConvertAndWriteToDiskGroupBox.SuspendLayout();
         ConvertOnly_Full_GroupBox.SuspendLayout();
         ConverOnly_Small_GroupBox.SuspendLayout();
         DataDirGroupBox.SuspendLayout();
         ValidityTestGroupBox.SuspendLayout();
         WriteWorkingNewSetGroupBox.SuspendLayout();
+        ConvertSourceGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // Test1Button
@@ -118,7 +123,7 @@ sealed partial class MainForm
         ConvertAndWriteWithCustomButton.Name = "ConvertAndWriteWithCustomButton";
         ConvertAndWriteWithCustomButton.Size = new Size(93, 27);
         ConvertAndWriteWithCustomButton.TabIndex = 1;
-        ConvertAndWriteWithCustomButton.Text = "Custom";
+        ConvertAndWriteWithCustomButton.Text = "Custom*";
         ConvertAndWriteWithCustomButton.UseVisualStyleBackColor = true;
         ConvertAndWriteWithCustomButton.Click += ConvertAndWriteWithCustomButton_Click;
         // 
@@ -165,7 +170,7 @@ sealed partial class MainForm
         ConvertOnlyWithCustomButton.Name = "ConvertOnlyWithCustomButton";
         ConvertOnlyWithCustomButton.Size = new Size(93, 27);
         ConvertOnlyWithCustomButton.TabIndex = 1;
-        ConvertOnlyWithCustomButton.Text = "Custom";
+        ConvertOnlyWithCustomButton.Text = "Custom*";
         ConvertOnlyWithCustomButton.UseVisualStyleBackColor = true;
         ConvertOnlyWithCustomButton.Click += ConvertOnlyWithCustomButton_Click;
         // 
@@ -212,7 +217,7 @@ sealed partial class MainForm
         ConvertOnlyWithCustom_Small_Button.Name = "ConvertOnlyWithCustom_Small_Button";
         ConvertOnlyWithCustom_Small_Button.Size = new Size(93, 27);
         ConvertOnlyWithCustom_Small_Button.TabIndex = 1;
-        ConvertOnlyWithCustom_Small_Button.Text = "Custom";
+        ConvertOnlyWithCustom_Small_Button.Text = "Custom*";
         ConvertOnlyWithCustom_Small_Button.UseVisualStyleBackColor = true;
         ConvertOnlyWithCustom_Small_Button.Click += ConvertOnlyWithCustom_Small_Button_Click;
         // 
@@ -324,11 +329,58 @@ sealed partial class MainForm
         WriteWorkingNewSetCustomButton.UseVisualStyleBackColor = true;
         WriteWorkingNewSetCustomButton.Click += WriteWorkingNewSetCustomButton_Click;
         // 
+        // ConvertSourceGroupBox
+        // 
+        ConvertSourceGroupBox.Controls.Add(Convert_FileStreamRadioButton);
+        ConvertSourceGroupBox.Controls.Add(Convert_MemoryStreamRadioButton);
+        ConvertSourceGroupBox.Controls.Add(Convert_ByteArrayRadioButton);
+        ConvertSourceGroupBox.Location = new Point(16, 312);
+        ConvertSourceGroupBox.Name = "ConvertSourceGroupBox";
+        ConvertSourceGroupBox.Size = new Size(592, 56);
+        ConvertSourceGroupBox.TabIndex = 8;
+        ConvertSourceGroupBox.TabStop = false;
+        ConvertSourceGroupBox.Text = "Convert source (applies only to buttons marked with *)";
+        // 
+        // Convert_FileStreamRadioButton
+        // 
+        Convert_FileStreamRadioButton.AutoSize = true;
+        Convert_FileStreamRadioButton.Location = new Point(224, 24);
+        Convert_FileStreamRadioButton.Name = "Convert_FileStreamRadioButton";
+        Convert_FileStreamRadioButton.Size = new Size(80, 19);
+        Convert_FileStreamRadioButton.TabIndex = 2;
+        Convert_FileStreamRadioButton.TabStop = true;
+        Convert_FileStreamRadioButton.Text = "FileStream";
+        Convert_FileStreamRadioButton.UseVisualStyleBackColor = true;
+        // 
+        // Convert_MemoryStreamRadioButton
+        // 
+        Convert_MemoryStreamRadioButton.AutoSize = true;
+        Convert_MemoryStreamRadioButton.Location = new Point(104, 24);
+        Convert_MemoryStreamRadioButton.Name = "Convert_MemoryStreamRadioButton";
+        Convert_MemoryStreamRadioButton.Size = new Size(107, 19);
+        Convert_MemoryStreamRadioButton.TabIndex = 1;
+        Convert_MemoryStreamRadioButton.TabStop = true;
+        Convert_MemoryStreamRadioButton.Text = "MemoryStream";
+        Convert_MemoryStreamRadioButton.UseVisualStyleBackColor = true;
+        // 
+        // Convert_ByteArrayRadioButton
+        // 
+        Convert_ByteArrayRadioButton.AutoSize = true;
+        Convert_ByteArrayRadioButton.Checked = true;
+        Convert_ByteArrayRadioButton.Location = new Point(16, 24);
+        Convert_ByteArrayRadioButton.Name = "Convert_ByteArrayRadioButton";
+        Convert_ByteArrayRadioButton.Size = new Size(77, 19);
+        Convert_ByteArrayRadioButton.TabIndex = 0;
+        Convert_ByteArrayRadioButton.TabStop = true;
+        Convert_ByteArrayRadioButton.Text = "Byte array";
+        Convert_ByteArrayRadioButton.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 398);
+        ClientSize = new Size(625, 385);
+        Controls.Add(ConvertSourceGroupBox);
         Controls.Add(ValidityTestGroupBox);
         Controls.Add(DataDirGroupBox);
         Controls.Add(WriteOneButton);
@@ -351,6 +403,8 @@ sealed partial class MainForm
         DataDirGroupBox.PerformLayout();
         ValidityTestGroupBox.ResumeLayout(false);
         WriteWorkingNewSetGroupBox.ResumeLayout(false);
+        ConvertSourceGroupBox.ResumeLayout(false);
+        ConvertSourceGroupBox.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -380,4 +434,8 @@ sealed partial class MainForm
     private GroupBox WriteWorkingNewSetGroupBox;
     private Button WriteWorkingNewSetRTBButton;
     private Button WriteWorkingNewSetCustomButton;
+    private GroupBox ConvertSourceGroupBox;
+    private RadioButton Convert_FileStreamRadioButton;
+    private RadioButton Convert_MemoryStreamRadioButton;
+    private RadioButton Convert_ByteArrayRadioButton;
 }
