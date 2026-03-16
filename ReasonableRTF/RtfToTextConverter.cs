@@ -245,19 +245,10 @@ public sealed class RtfToTextConverter
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class with the default options.
+    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class.
     /// </summary>
     [PublicAPI]
-    public RtfToTextConverter() : this(new RtfToTextConverterOptions())
-    {
-    }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RtfToTextConverter"/> class with the specified options.
-    /// </summary>
-    /// <param name="options">A set of options that control behavior.</param>
-    [PublicAPI]
-    public RtfToTextConverter(RtfToTextConverterOptions options)
+    public RtfToTextConverter()
     {
 #if !NETFRAMEWORK
 #pragma warning disable IDE0002
@@ -268,6 +259,7 @@ public sealed class RtfToTextConverter
 
         // Don't assign the passed-in options object directly! The user could have a reference to it and depend
         // on it not changing. Deep copy it only!
+        _defaultOptions = new RtfToTextConverterOptions();
         _options = new RtfToTextConverterOptions();
 
         _windows1250Encoding = Encoding.GetEncoding(1250);
@@ -278,8 +270,6 @@ public sealed class RtfToTextConverter
         InitSymbolFontData();
 
         ResetHeader();
-
-        SetOptions(options, _options);
 
         _plainText = new ListFast<char>(4096);
         _fontEntries = new FontDictionary(32);
@@ -2025,6 +2015,7 @@ public sealed class RtfToTextConverter
 
     // TODO: Add xml docs to all public APIs
 
+    private readonly RtfToTextConverterOptions _defaultOptions;
     private readonly RtfToTextConverterOptions _options;
 
     /// <summary>
@@ -2036,14 +2027,14 @@ public sealed class RtfToTextConverter
     public RtfResult Convert(string fileName)
     {
         byte[] bytes = File.ReadAllBytes(fileName);
-        return Convert(bytes, bytes.Length, null);
+        return Convert(bytes, bytes.Length, _defaultOptions);
     }
 
     /// <summary>
     /// Converts an RTF file into plain text.
     /// </summary>
     /// <param name="fileName">The path to the RTF file to convert.</param>
-    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
     public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
@@ -2060,14 +2051,14 @@ public sealed class RtfToTextConverter
     [PublicAPI]
     public RtfResult Convert(Stream stream)
     {
-        return ConvertInternal_Stream(stream, null);
+        return ConvertInternal_Stream(stream, _defaultOptions);
     }
 
     /// <summary>
     /// Converts an RTF stream into plain text.
     /// </summary>
     /// <param name="stream">The RTF stream to convert.</param>
-    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
     public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
@@ -2075,7 +2066,7 @@ public sealed class RtfToTextConverter
         return ConvertInternal_Stream(stream, options);
     }
 
-    private RtfResult ConvertInternal_Stream(Stream stream, RtfToTextConverterOptions? options)
+    private RtfResult ConvertInternal_Stream(Stream stream, RtfToTextConverterOptions options)
     {
         long streamLength = stream.Length;
 
@@ -2117,14 +2108,14 @@ public sealed class RtfToTextConverter
     [PublicAPI]
     public RtfResult Convert(byte[] source)
     {
-        return Convert(source, source.Length, null);
+        return Convert(source, source.Length, _defaultOptions);
     }
 
     /// <summary>
     /// Converts a byte array of RTF data into plain text.
     /// </summary>
     /// <param name="source">The byte array containing the RTF to convert.</param>
-    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     [PublicAPI]
     public RtfResult Convert(byte[] source, RtfToTextConverterOptions options)
@@ -2141,7 +2132,7 @@ public sealed class RtfToTextConverter
     [PublicAPI]
     public RtfResult Convert(byte[] source, int length)
     {
-        return Convert(source, length, null);
+        return Convert(source, length, _defaultOptions);
     }
 
     /// <summary>
@@ -2149,11 +2140,11 @@ public sealed class RtfToTextConverter
     /// </summary>
     /// <param name="source">The byte array containing the RTF to convert.</param>
     /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
-    /// <param name="options">A new set of options. This will overwrite any previously set options.</param>
+    /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     /// <exception cref="ArgumentException"/>
     [PublicAPI]
-    public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions? options)
+    public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
         if (length > source.Length)
         {
@@ -2161,10 +2152,7 @@ public sealed class RtfToTextConverter
                 nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
         }
 
-        if (options != null)
-        {
-            SetOptions(options, _options);
-        }
+        SetOptions(options, _options);
 
         ByteArrayWithLength rtfBytes = new(source, length);
 
