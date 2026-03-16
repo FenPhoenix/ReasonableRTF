@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using static ReasonableRTF.Enums;
 
 namespace ReasonableRTF;
 
 internal sealed class GroupStack
 {
+    private static readonly int PropertiesLen = Enum.GetValues<Property>().Length;
+
     private const int DefaultCapacity = 100;
     private int Capacity;
 
