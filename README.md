@@ -7,7 +7,7 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 ## Features
 
 - Fast: Over 100x faster than RichTextBox.
-- Accurate: Even the toughest Unicode characters are converted correctly; symbol font characters (Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats) are converted to their Unicode equivalents.
+- Accurate: All characters converted correctly. Even Wingdings.
 - Small: Less than 50k and with no dependencies.
 - Fully cross-platform.
 - [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/).
@@ -132,7 +132,7 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 ### Supported
 
 - All basic plain text, hex-encoded chars, Unicode-encoded chars
-- Symbol fonts (the abovementioned ones) converted to Unicode equivalents
+- Symbol fonts (Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
 - Undocumented use of the \langN keyword to [specify character encoding](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/) - old versions of RichTextBox used to support this
 
