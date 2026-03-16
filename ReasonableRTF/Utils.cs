@@ -66,6 +66,11 @@ internal static class Utils
     /// </summary>
     internal static void ReadAll(this Stream stream, byte[] buffer, int bytesToRead)
     {
+        // NOTE: .NET versions 7 and later have a built-in method for this (ReadExactly), but earlier versions
+        // and Framework require a custom-implemented one.
+#if NET7_0_OR_GREATER
+        stream.ReadExactly(buffer, 0, bytesToRead);
+#else
         int bytesLeftToRead = bytesToRead;
 
         int totalBytesRead = 0;
@@ -78,5 +83,6 @@ internal static class Utils
             totalBytesRead += bytesRead;
             bytesLeftToRead -= bytesRead;
         }
+#endif
     }
 }

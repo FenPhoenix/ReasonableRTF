@@ -1848,38 +1848,68 @@ public sealed class RtfToTextConverter
         return ConvertInternal_Stream(stream, options);
     }
 
+    // TODO: Test this with different kinds of streams.
+
     private RtfResult ConvertInternal_Stream(Stream stream, RtfToTextConverterOptions options)
     {
-        long streamLength = stream.Length;
-
-        if (streamLength > int.MaxValue)
-        {
-            ThrowHelper.IOException("Stream length was over 2 gigabytes. This is not supported.");
-        }
-
-        int length = (int)streamLength;
+        byte[] bytes;
+        int length;
 
         if (stream is MemoryStream ms)
+        {
+            length = GetLength(ms);
+            bytes = GetMemoryStreamBytes(ms);
+        }
+        else if (stream is FileStream fs)
+        {
+            length = GetLength(fs);
+            bytes = new byte[length];
+            fs.ReadAll(bytes, length);
+        }
+        else
+        {
+            using (ms = new MemoryStream())
+            {
+                stream.CopyTo(ms);
+                ms.Seek(0, SeekOrigin.Begin);
+                length = GetLength(ms);
+                bytes = GetMemoryStreamBytes(ms);
+            }
+        }
+
+        return Convert(bytes, length, options);
+
+        #region Local functions
+
+        static int GetLength(Stream stream)
+        {
+            long readableLength = stream.Length - stream.Position;
+
+            if (readableLength > int.MaxValue)
+            {
+                ThrowHelper.IOException("Stream length was over 2 gigabytes. This is not supported.");
+            }
+
+            int length = (int)readableLength;
+
+            return length;
+        }
+
+        static byte[] GetMemoryStreamBytes(MemoryStream ms)
         {
             // We don't support "virtual lower bounds" on arrays - only upper. I mean we could support lower, but
             // that's an extra bounds check on every access and all, so meh.
             if (ms.TryGetBuffer(out ArraySegment<byte> buffer) && buffer is { Array: not null, Offset: 0 })
             {
-                return Convert(buffer.Array, length, options);
+                return buffer.Array;
             }
             else
             {
-                return Convert(ms.ToArray(), length, options);
+                return ms.ToArray();
             }
         }
-        else
-        {
-            byte[] bytes = new byte[length];
-            stream.Seek(0, SeekOrigin.Begin);
-            stream.ReadAll(bytes, length);
 
-            return Convert(bytes, length, options);
-        }
+        #endregion
     }
 
     /// <summary>
