@@ -1770,12 +1770,7 @@ public sealed class RtfToTextConverter
     [PublicAPI]
     public RtfToTextConverter()
     {
-#if !NETFRAMEWORK
-#pragma warning disable IDE0002
-        // ReSharper disable once RedundantNameQualifier
-        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-#pragma warning restore IDE0002
-#endif
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
         // Don't assign the passed-in options object directly! The user could have a reference to it and depend
         // on it not changing. Deep copy it only!
