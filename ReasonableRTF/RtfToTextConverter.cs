@@ -100,6 +100,8 @@ public sealed class RtfToTextConverter
     // over-provision.
     private readonly ListFast<char> _charGeneralBuffer = new(20 * 4);
 
+    private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
+
 
     #region Tables
 
@@ -3262,25 +3264,14 @@ public sealed class RtfToTextConverter
 
         #region Check for SYMBOL instruction
 
-        // @Stream2026: This logic doesn't work for streaming, maybe just do a loop like we used to have here
-        if (_currentPos > _rtfBytes.Length - 8) return RewindAndSkipGroup();
-
-        // Compare the ulong-format "SYMBOL X" where X is any byte. Mask off the last byte, but it's
-        // little-endian so the mask looks backwards.
-
-        const ulong SYMBOLKeywordAsULong = 0x00204C4F424D5953;
-
-        ulong SYMBOLKeyword = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_currentPos]);
-
-        SYMBOLKeyword &= 0x00FFFFFFFFFFFFFF;
-        if (SYMBOLKeyword != SYMBOLKeywordAsULong)
+        for (i = 0; i < SYMBOLName.Length; i++)
         {
-            // Manual return to match previous behavior more-or-less (don't rewind too far)
-            _groupStack.CurrentSkipDest = true;
-            return RtfError.OK;
+            byte b = _rtfBytes[IncrementCurrentPos(1)];
+            if (b != SYMBOLName[i])
+            {
+                return RewindAndSkipGroup();
+            }
         }
-
-        IncrementCurrentPos(7);
 
         #endregion
 
