@@ -20,6 +20,8 @@ Then the only other thing would be that we'd have to wrap the Array.IndexOf() ca
 the next chunk if the result isn't found in the current one. We would presumably entail some performance loss
 from that, but as to how much, we'd have to implement and measure.
 
+@Stream2026: Test write the non-main sets with the stream mode
+
 ---
 
 Notes and miscellaneous:
@@ -4108,14 +4110,8 @@ public sealed class RtfToTextConverter
         {
             // On the last chunk, we may have fewer than 8 bytes, but we aren't going to use the copied garbage
             // in that case because we'll throw for attempt to read past end of stream.
-            for (int startIndex = 0,
-                 endIndex = _rtfBytes.CurrentBufferLength - _leadingBufferByteCount;
-                 startIndex < _leadingBufferByteCount;
-                 startIndex++,
-                 endIndex++)
-            {
-                _rtfBytes.Array[startIndex] = _rtfBytes[endIndex];
-            }
+            ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_rtfBytes.CurrentBufferLength - _leadingBufferByteCount]);
+            Unsafe.WriteUnaligned(ref _rtfBytes.Array[0], endChunk);
 
             int bytesRead = _bufferedStream.Read(_rtfBytes.Array, _leadingBufferByteCount, _rtfBytes.Length - _leadingBufferByteCount);
 
