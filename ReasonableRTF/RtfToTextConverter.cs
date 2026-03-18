@@ -2990,17 +2990,23 @@ public sealed class RtfToTextConverter
             switch (c)
             {
                 case '\\':
-                    if (_currentPos < _rtfBytes.Length - 4 &&
-                        _rtfBytes.Array[_currentPos] == '\'' &&
-                        // @Stream2026: We need peek-and-load-next-chunk-if-necessary functionality.
-                        _rtfBytes.Array[_currentPos + 1].IsAsciiHex() &&
-                        _rtfBytes.Array[_currentPos + 2].IsAsciiHex())
+                    if (_rtfBytes.Array[IncrementCurrentPos(1)] == '\'')
                     {
-                        IncrementCurrentPos(3);
+                        byte b = _rtfBytes.Array[IncrementCurrentPos(1)];
+                        if (!b.IsAsciiHex())
+                        {
+                            IncrementCurrentPos(-1);
+                            break;
+                        }
+                        b = _rtfBytes.Array[IncrementCurrentPos(1)];
+                        if (!b.IsAsciiHex())
+                        {
+                            IncrementCurrentPos(-2);
+                            break;
+                        }
                         numToSkip--;
                     }
-                    else if (_currentPos < _rtfBytes.Length - 2 &&
-                             _rtfBytes.Array[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
+                    else if (_rtfBytes.Array[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
                     {
                         IncrementCurrentPos(1);
                         numToSkip--;

@@ -351,7 +351,8 @@ public sealed partial class MainForm : Form
                 //"Issue50-2.rtf"
                 //"2007-12-28_DooM_V1_2__ReadMe.rtf"
                 //"10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
-                "10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
+                //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
+                "2004-02-29_c5Summit_The__summit.rtf"
             ;
         SourceSet sourceSet = SourceSet.Full;
 
