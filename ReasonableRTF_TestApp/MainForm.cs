@@ -352,16 +352,18 @@ public sealed partial class MainForm : Form
                 //"2007-12-28_DooM_V1_2__ReadMe.rtf"
                 //"10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
                 //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
-                "2004-02-29_c5Summit_The__summit.rtf"
+                //"2004-02-29_c5Summit_The__summit.rtf"
+                //"2007-11-11_WayoftheSword_v1_2__The Way of The Sword - Read Me.rtf"
+                "2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
             ;
         SourceSet sourceSet = SourceSet.Full;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
         using var fs = File.OpenRead(finalFile);
-        byte[] array = new byte[fs.Length];
-        fs.ReadExactly(array, 0, (int)fs.Length);
-        RtfResult result = rtfConverter.Convert(array);
+        //byte[] array = new byte[fs.Length];
+        //fs.ReadExactly(array, 0, (int)fs.Length);
+        RtfResult result = rtfConverter.ConvertStreaming(fs);
         Trace.WriteLine(result.ToString());
         if (write)
         {
@@ -503,8 +505,14 @@ public sealed partial class MainForm : Form
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
                         string f = rtfFiles[i];
-                        RtfResult result = rtfConverter.ConvertStreaming(memoryStreams[i]);
-                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                        Trace.WriteLine(f);
+                        using var fs = File.OpenRead(f);
+                        var rc = new RtfToTextConverter();
+                        //if (f.Contains("WayoftheSword"))
+                        {
+                            RtfResult result = rc.ConvertStreaming(fs);
+                            WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                        }
                     }
                 }
             }

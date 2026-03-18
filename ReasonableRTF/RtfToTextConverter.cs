@@ -48,6 +48,8 @@ The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext o
 I guess. So we could just leave this out...
 */
 
+// @Stream2026: Remove all Trace.* later
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -103,7 +105,6 @@ public sealed class RtfToTextConverter
     private readonly ListFast<char> _charGeneralBuffer = new(20 * 4);
 
     private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
-
 
     #region Tables
 
@@ -1988,7 +1989,7 @@ public sealed class RtfToTextConverter
     [PublicAPI]
     public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
-        return ConvertInternal(source, length, options, null);
+        return ConvertInternal(source, length, options, null, _defaultStreamBufferSize);
     }
 
     /// <summary>
@@ -1998,7 +1999,8 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult ConvertStreaming(Stream stream)
     {
-        return ConvertInternal(Array.Empty<byte>(), _defaultStreamBufferSize, _defaultOptions, stream);
+        // @Stream2026: Test explicit value, remove later
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, 16);
     }
 
     /// <summary>
@@ -2009,12 +2011,7 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult ConvertStreaming(Stream stream, int bufferSize)
     {
-        if (bufferSize <= _maxSeekBackBytes)
-        {
-            ThrowHelper.ArgumentException(nameof(bufferSize) + " must be at least 8 bytes.", nameof(bufferSize));
-        }
-
-        return ConvertInternal(Array.Empty<byte>(), bufferSize, _defaultOptions, stream);
+        return ConvertInternal(Array.Empty<byte>(), bufferSize, _defaultOptions, stream, bufferSize);
     }
 
     /// <summary>
@@ -2025,7 +2022,7 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult ConvertStreaming(Stream stream, RtfToTextConverterOptions options)
     {
-        return ConvertInternal(Array.Empty<byte>(), _defaultStreamBufferSize, options, stream);
+        return ConvertInternal(Array.Empty<byte>(), _defaultStreamBufferSize, options, stream, _defaultStreamBufferSize);
     }
 
     /// <summary>
@@ -2037,15 +2034,10 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult ConvertStreaming(Stream stream, int bufferSize, RtfToTextConverterOptions options)
     {
-        if (bufferSize <= _maxSeekBackBytes)
-        {
-            ThrowHelper.ArgumentException(nameof(bufferSize) + " must be at least 8 bytes.", nameof(bufferSize));
-        }
-
-        return ConvertInternal(Array.Empty<byte>(), bufferSize, options, stream);
+        return ConvertInternal(Array.Empty<byte>(), bufferSize, options, stream, bufferSize);
     }
 
-    private RtfResult ConvertInternal(byte[] source, int length, RtfToTextConverterOptions options, Stream? chunkedStream)
+    private RtfResult ConvertInternal(byte[] source, int length, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
     {
         if (chunkedStream == null)
         {
@@ -2069,12 +2061,14 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            if (_streamBuffer.Length != length)
+            bufferSize = Math.Max(bufferSize, 16);
+
+            if (_streamBuffer.Length != bufferSize)
             {
-                _streamBuffer = new byte[length];
+                _streamBuffer = new byte[bufferSize];
             }
             // @Stream2026: Now that this is a class, we should reuse one single instance
-            rtfBytes = new ByteArrayWithLength(_streamBuffer, length);
+            rtfBytes = new ByteArrayWithLength(_streamBuffer, bufferSize);
         }
 
         Reset(rtfBytes);
@@ -2100,6 +2094,7 @@ public sealed class RtfToTextConverter
             }
             else
             {
+                Trace.WriteLine(_currentOverallPos);
                 var ret = new RtfResult(error, _currentOverallPos, null);
 #if DEBUG
                 System.Diagnostics.Trace.WriteLine(ret);
@@ -2109,14 +2104,17 @@ public sealed class RtfToTextConverter
         }
         catch (IndexOutOfRangeException ex)
         {
+            Trace.WriteLine(_currentOverallPos);
             return new RtfResult(RtfError.UnexpectedEndOfFile, _currentOverallPos, ex);
         }
         catch (EndOfStreamException ex)
         {
+            Trace.WriteLine(_currentOverallPos);
             return new RtfResult(RtfError.UnexpectedEndOfFile, _currentOverallPos, ex);
         }
         catch (Exception ex)
         {
+            Trace.WriteLine(_currentOverallPos);
             return new RtfResult(RtfError.UnexpectedError, _currentOverallPos, ex);
         }
         finally
@@ -2202,6 +2200,8 @@ public sealed class RtfToTextConverter
 
     private void Reset(in ByteArrayWithLength rtfBytes)
     {
+        _reachedEndOfStream = false;
+
         _groupStack.ClearFast();
         _groupStack.ResetFirst();
         _fontEntries.Clear();
@@ -2246,7 +2246,7 @@ public sealed class RtfToTextConverter
 
     private RtfError ParseRtf()
     {
-        while (true)
+        while (!_reachedEndOfStream)
         {
             char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
@@ -2310,7 +2310,7 @@ public sealed class RtfToTextConverter
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
-            while (true)
+            while (!_reachedEndOfStream)
             {
                 char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
                 if (!_isNonPlainText[ch])
@@ -2327,7 +2327,7 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            while (true)
+            while (!_reachedEndOfStream)
             {
                 char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
                 if (!_isNonPlainText[ch])
@@ -2475,7 +2475,7 @@ public sealed class RtfToTextConverter
 
         int fontTableGroupLevel = _groupStack.Count;
 
-        while (true)
+        while (!_reachedEndOfStream)
         {
             char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
@@ -2839,7 +2839,7 @@ public sealed class RtfToTextConverter
             _hexBuffer.Add(finalHexByte);
         }
 
-        while (true)
+        while (!_reachedEndOfStream)
         {
             b = _rtfBytes[IncrementCurrentPos(1)];
             if (b == (byte)'\\')
@@ -2880,7 +2880,7 @@ public sealed class RtfToTextConverter
 
     private RtfError HandleUnicodeRun()
     {
-        while (true)
+        while (!_reachedEndOfStream)
         {
             char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
             if (ch == '\\')
@@ -3863,7 +3863,7 @@ public sealed class RtfToTextConverter
     {
         int count = _rtfBytes.CurrentBufferLength - _currentPos;
 
-        while (true)
+        while (!_reachedEndOfStream)
         {
             int foundIndex = Array.IndexOf(_rtfBytes.Array, (byte)'}', _currentPos, count);
             if (foundIndex > -1)
@@ -3884,6 +3884,8 @@ public sealed class RtfToTextConverter
                 count = _rtfBytes.CurrentBufferLength - _currentPos;
             }
         }
+
+        return _rtfBytes.Length;
     }
 
     #endregion
@@ -4006,7 +4008,7 @@ public sealed class RtfToTextConverter
 
         int startGroupLevel = _groupStack.Count;
 
-        while (true)
+        while (!_reachedEndOfStream)
         {
             char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
@@ -4078,25 +4080,70 @@ public sealed class RtfToTextConverter
         }
         else
         {
+            // @Stream2026: Testing, remove later
+            //if (amount > 1)
+            //{
+            //    for (int i = 0; i < amount; i++)
+            //    {
+            //        originalPos = IncrementCurrentPos_Stream(1, originalPos);
+            //    }
+            //    return originalPos;
+            //}
             return IncrementCurrentPos_Stream(amount, originalPos);
         }
     }
 
     private int IncrementCurrentPos_Stream(int amount, int originalPos)
     {
+        // @Stream2026: Remove all test code in here
+        bool test =
+            //amount==1
+            //amount > 1
+            false
+            ;
+
+        if (test)
+        {
+            Trace.WriteLine(nameof(amount) + ": " + amount);
+            Trace.WriteLine(nameof(_currentOverallPos) + ": " + _currentOverallPos);
+        }
+
         _currentOverallPos += amount;
+
+        //bool loopRan = false;
 
         if (
             (amount > 0) &&
             (_currentPos + amount > _rtfBytes.Length - 1))
         {
-            int difference = (_currentPos + amount) - _rtfBytes.CurrentBufferLength;
+            // @Stream2026: If our increment is greater than the length of our buffer than this completely fails
+            //  and screws all up. I tried to write a loop that reads new blocks until it's accounted for, but
+            //  I failed because this idiot math is IMPOSSIBLE TO SEE IN YOUR HEAD. I loathe array-border math.
+            //  It's ACTUALLY #$%#!@^$ IMPOSSIBLE.
+
+            //loopRan = true;
+
+            if (test)
+            {
+                Trace.WriteLine(nameof(_currentOverallPos) + "(after amount add): " + _currentOverallPos);
+                Trace.WriteLine(nameof(_currentPos) + ": " + _currentPos);
+                Debugger.Break();
+            }
+
+            int difference = ((_currentPos + amount) - (_rtfBytes.Length));
 
             LoadNextChunkIntoBuffer();
             _currentPos += difference;
             originalPos = _currentPos - amount;
+
+            if (test)
+            {
+                Trace.WriteLine(nameof(difference) + ": " + difference);
+                Trace.WriteLine(nameof(_currentPos) + "(after difference add): " + _currentPos);
+            }
         }
         else
+        //if (!loopRan)
         {
             _currentPos += amount;
         }
@@ -4104,21 +4151,41 @@ public sealed class RtfToTextConverter
         return originalPos;
     }
 
+    // @Stream2026: Move this to the fields area later
+    private bool _reachedEndOfStream;
+
     private void LoadNextChunkIntoBuffer()
     {
         if (_bufferedStream != null)
         {
             // On the last chunk, we may have fewer than 8 bytes, but we aren't going to use the copied garbage
             // in that case because we'll throw for attempt to read past end of stream.
-            ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_rtfBytes.CurrentBufferLength - _leadingBufferByteCount]);
-            Unsafe.WriteUnaligned(ref _rtfBytes.Array[0], endChunk);
+            // @Stream2026: We can put back the ReadUnaligned() later once we get the buffer border crap sorted out
+            for (int startIndex = 0,
+                 endIndex = _rtfBytes.CurrentBufferLength - _leadingBufferByteCount;
+                 startIndex < _leadingBufferByteCount;
+                 startIndex++,
+                 endIndex++)
+            {
+                _rtfBytes.Array[startIndex] = _rtfBytes[endIndex];
+            }
 
             int bytesRead = _bufferedStream.Read(_rtfBytes.Array, _leadingBufferByteCount, _rtfBytes.Length - _leadingBufferByteCount);
 
             if (bytesRead == 0)
             {
-                ThrowHelper.EndOfStreamException("Unexpected end of stream.");
+                _reachedEndOfStream = true;
             }
+
+            /*
+            @Stream2026: Not even sure if the below is actually accurate, test and remove later if necessary
+
+            If our file size is an exact multiple of our buffer and the buffer is smaller, we'll get a read and
+            get zero bytes back legitimately. So we can't throw. And we can't check against length either because
+            not all streams support getting the length. If we get into this situation, our upper bounds checker
+            on the array read getter will throw for us.
+            */
+
             _currentPos = _leadingBufferByteCount;
             _rtfBytes.CurrentBufferLength = bytesRead + _leadingBufferByteCount;
         }
