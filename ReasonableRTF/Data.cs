@@ -8,7 +8,7 @@ internal sealed class ByteArrayWithLength
     internal readonly int Length;
     internal int CurrentBufferLength;
 
-    public ByteArrayWithLength()
+    internal ByteArrayWithLength()
     {
         Array = System.Array.Empty<byte>();
         Length = 0;

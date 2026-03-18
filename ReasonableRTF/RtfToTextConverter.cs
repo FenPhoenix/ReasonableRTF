@@ -2155,7 +2155,7 @@ public sealed class RtfToTextConverter
         {
             for (int i = _leadingBufferByteCount; i < _rtfHeaderBytes.Length; i++)
             {
-                if (_rtfBytes.Array[i] != _rtfHeaderBytes[i])
+                if (_rtfBytes[i] != _rtfHeaderBytes[i])
                 {
                     return false;
                 }
@@ -2240,7 +2240,7 @@ public sealed class RtfToTextConverter
     {
         while (true)
         {
-            char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+            char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
             // Ordered by most frequently appearing first
             switch (ch)
@@ -2267,7 +2267,7 @@ public sealed class RtfToTextConverter
                     if (!_groupStack.CurrentSkipDest &&
                         _groupStack.CurrentProperties[(int)Property.Hidden] == 0)
                     {
-                        if (_isNonPlainText[_rtfBytes.Array[_currentPos]])
+                        if (_isNonPlainText[_rtfBytes[_currentPos]])
                         {
                             SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
                             if (symbolFont > SymbolFont.Unset)
@@ -2303,7 +2303,7 @@ public sealed class RtfToTextConverter
             uint[] table = _symbolFontTables[(int)symbolFont];
             while (true)
             {
-                char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+                char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
                 if (!_isNonPlainText[ch])
                 {
                     GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
@@ -2320,7 +2320,7 @@ public sealed class RtfToTextConverter
         {
             while (true)
             {
-                char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+                char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
                 if (!_isNonPlainText[ch])
                 {
                     _plainText.Add(ch);
@@ -2468,7 +2468,7 @@ public sealed class RtfToTextConverter
 
         while (true)
         {
-            char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+            char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
             switch (ch)
             {
@@ -2831,7 +2831,7 @@ public sealed class RtfToTextConverter
 
         while (true)
         {
-            b = _rtfBytes.Array[IncrementCurrentPos(1)];
+            b = _rtfBytes[IncrementCurrentPos(1)];
             if (b == (byte)'\\')
             {
                 b = _rtfBytes[IncrementCurrentPos(1)];
@@ -2872,7 +2872,7 @@ public sealed class RtfToTextConverter
     {
         while (true)
         {
-            char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+            char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
             if (ch == '\\')
             {
                 ch = (char)_rtfBytes[IncrementCurrentPos(1)];
@@ -2986,19 +2986,19 @@ public sealed class RtfToTextConverter
         int numToSkip = _groupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
         while (numToSkip > 0)
         {
-            char c = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+            char c = (char)_rtfBytes[IncrementCurrentPos(1)];
             switch (c)
             {
                 case '\\':
-                    if (_rtfBytes.Array[IncrementCurrentPos(1)] == '\'')
+                    if (_rtfBytes[IncrementCurrentPos(1)] == '\'')
                     {
-                        byte b = _rtfBytes.Array[IncrementCurrentPos(1)];
+                        byte b = _rtfBytes[IncrementCurrentPos(1)];
                         if (!b.IsAsciiHex())
                         {
                             IncrementCurrentPos(-1);
                             break;
                         }
-                        b = _rtfBytes.Array[IncrementCurrentPos(1)];
+                        b = _rtfBytes[IncrementCurrentPos(1)];
                         if (!b.IsAsciiHex())
                         {
                             IncrementCurrentPos(-2);
@@ -3006,7 +3006,7 @@ public sealed class RtfToTextConverter
                         }
                         numToSkip--;
                     }
-                    else if (_rtfBytes.Array[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
+                    else if (_rtfBytes[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
                     {
                         IncrementCurrentPos(1);
                         numToSkip--;
@@ -4008,7 +4008,7 @@ public sealed class RtfToTextConverter
 
         while (true)
         {
-            char ch = (char)_rtfBytes.Array[IncrementCurrentPos(1)];
+            char ch = (char)_rtfBytes[IncrementCurrentPos(1)];
 
             switch (ch)
             {
@@ -4115,7 +4115,7 @@ public sealed class RtfToTextConverter
                  startIndex++,
                  endIndex++)
             {
-                _rtfBytes.Array[startIndex] = _rtfBytes.Array[endIndex];
+                _rtfBytes.Array[startIndex] = _rtfBytes[endIndex];
             }
 
             int bytesRead = _bufferedStream.Read(_rtfBytes.Array, _leadingBufferByteCount, _rtfBytes.Length - _leadingBufferByteCount);
