@@ -4,8 +4,8 @@ namespace ReasonableRTF;
 
 internal sealed class ByteArrayWithLength
 {
-    internal readonly byte[] Array;
-    internal readonly int Length;
+    internal byte[] Array;
+    internal int Length;
     internal int CurrentBufferLength;
 
     internal ByteArrayWithLength()
@@ -15,21 +15,12 @@ internal sealed class ByteArrayWithLength
         CurrentBufferLength = 0;
     }
 
-    internal ByteArrayWithLength(byte[] array)
-    {
-        Array = array;
-        Length = array.Length;
-        CurrentBufferLength = Length;
-    }
-
-    internal ByteArrayWithLength(byte[] array, int length)
+    internal void Set(byte[] array, int length)
     {
         Array = array;
         Length = length;
         CurrentBufferLength = length;
     }
-
-    internal static readonly ByteArrayWithLength Empty = new();
 
     /// <summary>
     /// Manually bounds-checked past <see cref="T:Length"/>.

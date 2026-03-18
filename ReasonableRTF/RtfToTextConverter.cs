@@ -1731,7 +1731,7 @@ public sealed class RtfToTextConverter
 
     private int _leadingBufferByteCount;
 
-    private ByteArrayWithLength _rtfBytes = ByteArrayWithLength.Empty;
+    private readonly ByteArrayWithLength _rtfBytes = new();
 
     private bool _skipDestinationIfUnknown;
 
@@ -2036,49 +2036,77 @@ public sealed class RtfToTextConverter
         return ConvertInternal(Array.Empty<byte>(), bufferSize, options, stream, bufferSize);
     }
 
-    private RtfResult ConvertInternal(byte[] source, int length, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
+    private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
     {
         if (chunkedStream == null)
         {
-            if (length > source.Length)
+            if (bytesLength > bytes.Length)
             {
                 ThrowHelper.ArgumentException(
-                    nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
+                    nameof(bytesLength) + " is greater than the length of " + nameof(bytes) + ".", nameof(bytesLength));
             }
+
+            _rtfBytes.Set(bytes, bytesLength);
+            _leadingBufferByteCount = 0;
         }
         else
         {
             _bufferedStream = chunkedStream;
-        }
-
-        SetOptions(options, _options);
-
-        ByteArrayWithLength rtfBytes;
-        if (chunkedStream == null)
-        {
-            rtfBytes = new ByteArrayWithLength(source, length);
-        }
-        else
-        {
             bufferSize = Math.Max(bufferSize, 16);
 
             if (_streamBuffer.Length != bufferSize)
             {
                 _streamBuffer = new byte[bufferSize];
             }
-            // @Stream2026: Now that this is a class, we should reuse one single instance
-            rtfBytes = new ByteArrayWithLength(_streamBuffer, bufferSize);
+            _rtfBytes.Set(_streamBuffer, bufferSize);
+            _leadingBufferByteCount = 8;
         }
 
-        Reset(rtfBytes);
+        SetOptions(options, _options);
 
-        if (_bufferedStream != null)
-        {
-            LoadNextChunkIntoBuffer();
-        }
+        #region Reset
+
+        _reachedEndOfStream = false;
+
+        _groupStack.ClearFast();
+        _groupStack.ResetFirst();
+        _fontEntries.Clear();
+        ResetHeader();
+
+        _groupCount = 0;
+        _skipDestinationIfUnknown = false;
+
+        _currentOverallPos = 0;
+        _currentPos = _leadingBufferByteCount;
+
+        _inHandleSkippableHexData = false;
+
+        #region Fixed-size fields
+
+        // Specific capacity and won't grow; no need to deallocate
+        _fldinstSymbolNumber.ClearFast();
+
+        _lastUsedFontWithCodePage42 = NoFontNumber;
+
+        #endregion
+
+        _hexBuffer.ClearFast();
+        _unicodeBuffer.ClearFast();
+        _symbolFontNameBuffer.ClearFast();
+        _plainText.ClearFast();
+        _fldinstSymbolFontName.ClearFast();
+
+        _inHandleFontTable = false;
+
+        #endregion
 
         try
         {
+            if (_bufferedStream != null)
+            {
+                LoadNextChunkIntoBuffer();
+            }
+
             // The user may already have validated, but this check is ultra-fast so we can afford to do it
             // without complicating the logic with a user option and all.
             if (!IsValidRtfFile())
@@ -2114,7 +2142,7 @@ public sealed class RtfToTextConverter
         }
         finally
         {
-            _rtfBytes = ByteArrayWithLength.Empty;
+            _rtfBytes.Set(Array.Empty<byte>(), 0);
             _bufferedStream = null;
         }
     }
@@ -2191,44 +2219,6 @@ public sealed class RtfToTextConverter
             SymbolFontA0Char.NumericSpace => '\x2007',
             _ => _unicodeUnknown_Char,
         };
-    }
-
-    private void Reset(in ByteArrayWithLength rtfBytes)
-    {
-        _reachedEndOfStream = false;
-
-        _groupStack.ClearFast();
-        _groupStack.ResetFirst();
-        _fontEntries.Clear();
-        ResetHeader();
-
-        _groupCount = 0;
-        _skipDestinationIfUnknown = false;
-
-        _rtfBytes = rtfBytes;
-        _rtfBytes.CurrentBufferLength = rtfBytes.Length;
-        _currentOverallPos = 0;
-        _leadingBufferByteCount = _bufferedStream != null ? 8 : 0;
-        _currentPos = _leadingBufferByteCount;
-
-        _inHandleSkippableHexData = false;
-
-        #region Fixed-size fields
-
-        // Specific capacity and won't grow; no need to deallocate
-        _fldinstSymbolNumber.ClearFast();
-
-        _lastUsedFontWithCodePage42 = NoFontNumber;
-
-        #endregion
-
-        _hexBuffer.ClearFast();
-        _unicodeBuffer.ClearFast();
-        _symbolFontNameBuffer.ClearFast();
-        _plainText.ClearFast();
-        _fldinstSymbolFontName.ClearFast();
-
-        _inHandleFontTable = false;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
