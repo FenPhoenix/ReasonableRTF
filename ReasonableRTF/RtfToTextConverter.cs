@@ -2107,6 +2107,10 @@ public sealed class RtfToTextConverter
         {
             return new RtfResult(RtfError.UnexpectedEndOfFile, _currentOverallPos, ex);
         }
+        catch (EndOfStreamException ex)
+        {
+            return new RtfResult(RtfError.UnexpectedEndOfFile, _currentOverallPos, ex);
+        }
         catch (Exception ex)
         {
             return new RtfResult(RtfError.UnexpectedError, _currentOverallPos, ex);
@@ -4122,8 +4126,7 @@ public sealed class RtfToTextConverter
 
             if (bytesRead == 0)
             {
-                // @Stream2026: This needs to end up as an RtfResult with the correct error code.
-                ThrowHelper.IOException("Unexpected end of stream");
+                ThrowHelper.EndOfStreamException("Unexpected end of stream.");
             }
             _currentPos = _leadingBufferByteCount;
             _rtfBytes.CurrentBufferLength = bytesRead + _leadingBufferByteCount;

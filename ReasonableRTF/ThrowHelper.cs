@@ -12,4 +12,7 @@ internal static class ThrowHelper
 
     [DoesNotReturn]
     internal static void IOException(string message) => throw new IOException(message);
+
+    [DoesNotReturn]
+    internal static void EndOfStreamException(string message) => throw new EndOfStreamException(message);
 }
