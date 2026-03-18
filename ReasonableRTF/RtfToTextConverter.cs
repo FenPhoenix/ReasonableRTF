@@ -2296,6 +2296,7 @@ public sealed class RtfToTextConverter
             }
         }
 
+        // @Stream2026: Since this never gets hit now, we never return UnmatchedBrace. Can we fix this?
         return _groupCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
     }
 
@@ -2575,6 +2576,7 @@ public sealed class RtfToTextConverter
             }
         }
 
+        // @Stream2026: Okay that this is not reachable anymore?
         _inHandleFontTable = false;
         return RtfError.OK;
     }
@@ -2946,6 +2948,7 @@ public sealed class RtfToTextConverter
             }
         }
 
+        // @Stream2026: More unreachable code
         return RtfError.OK;
     }
 
@@ -4044,6 +4047,7 @@ public sealed class RtfToTextConverter
             }
         }
 
+        // @Stream2026: More unreachable code
         if (insertSpaceIfNecessary &&
             _plainText.Count > 0 &&
             !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
