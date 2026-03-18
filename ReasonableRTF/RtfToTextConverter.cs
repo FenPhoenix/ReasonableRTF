@@ -1999,7 +1999,6 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult ConvertStreaming(Stream stream)
     {
-        // @Stream2026: Test explicit value, remove later
         return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, _defaultStreamBufferSize);
     }
 
@@ -2294,7 +2293,6 @@ public sealed class RtfToTextConverter
             }
         }
 
-        // @Stream2026: Since this never gets hit now, we never return UnmatchedBrace. Can we fix this?
         return _groupCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
     }
 
@@ -2574,7 +2572,6 @@ public sealed class RtfToTextConverter
             }
         }
 
-        // @Stream2026: Okay that this is not reachable anymore?
         _inHandleFontTable = false;
         return RtfError.OK;
     }
@@ -2946,7 +2943,6 @@ public sealed class RtfToTextConverter
             }
         }
 
-        // @Stream2026: More unreachable code
         return RtfError.OK;
     }
 
@@ -4047,7 +4043,6 @@ public sealed class RtfToTextConverter
             }
         }
 
-        // @Stream2026: More unreachable code
         if (insertSpaceIfNecessary &&
             _plainText.Count > 0 &&
             !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
