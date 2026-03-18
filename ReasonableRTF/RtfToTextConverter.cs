@@ -1,4 +1,27 @@
 ﻿/*
+@Stream2026 notes:
+If we know the maximum number of bytes we ever need to seek backwards, we can just take that many bytes from the
+end of the current chunk and put them at the beginning of the buffer when we read the next chunk, and only read
+(nominal buffer size - max seek back count) bytes from each chunk.
+
+As far as I can tell, we do know that maximum, and it should be 8 bytes (for the ReadUnaligned<ulong> calls).
+There's just one potentially problematic place: in the font table reader where we read an essentially arbitrarily
+long font name and then set _currentPos back to the start of it. However, I think setting _currentPos back to the
+start of the name is unnecessary and may be an oversight, because removing it seems to still work fine, and also
+it just doesn't make sense when thinking about it. So I'm basically totally sure we can just remove that entirely.
+
+Then we would have to check every byte read if we're at the end of the current chunk, which could take the place
+of our already existent upper bounds check, and then inside that check could be the actual upper bounds check
+(or some sort of equivalent that works with streams where we don't know the length?). In that way, we wouldn't
+have any extra checks in the common case. However, we would have to do every read through the accessor methods
+to do the check, rather than doing some of them directly on the internal array, as we do now.
+
+Then the only other thing would be that we'd have to wrap the Array.IndexOf() calls into something that loads up
+the next chunk if the result isn't found in the current one. We would presumably entail some performance loss
+from that, but as to how much, we'd have to implement and measure.
+
+---
+
 Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
  (it's supposed to be an ellipsis - __MSG_final__FMInfo-De - Copy.rtf has an instance of it)
@@ -2412,6 +2435,7 @@ public sealed class RtfToTextConverter
                             _symbolFontNameBuffer.Add(ch);
                         }
 
+                        // @Stream2026: I think we can remove this entirely, cause why are we doing this anyway?
                         _currentPos = originalPos;
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
