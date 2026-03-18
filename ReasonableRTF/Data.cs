@@ -1,34 +1,35 @@
 ﻿using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 namespace ReasonableRTF;
 
-[StructLayout(LayoutKind.Auto)]
-internal readonly struct ByteArrayWithLength
+internal sealed class ByteArrayWithLength
 {
     internal readonly byte[] Array;
     internal readonly int Length;
+    internal int CurrentBufferLength;
 
     public ByteArrayWithLength()
     {
         Array = System.Array.Empty<byte>();
         Length = 0;
+        CurrentBufferLength = 0;
     }
 
     internal ByteArrayWithLength(byte[] array)
     {
         Array = array;
         Length = array.Length;
+        CurrentBufferLength = Length;
     }
 
     internal ByteArrayWithLength(byte[] array, int length)
     {
         Array = array;
         Length = length;
+        CurrentBufferLength = length;
     }
 
-    // This MUST be a method (not a static field) to maintain performance!
-    internal static ByteArrayWithLength Empty() => new();
+    internal static readonly ByteArrayWithLength Empty = new();
 
     /// <summary>
     /// Manually bounds-checked past <see cref="T:Length"/>.
@@ -43,7 +44,7 @@ internal readonly struct ByteArrayWithLength
         {
             // Very unfortunately, we have to manually bounds-check here, because our array could be longer
             // than Length (such as when it comes from a pool).
-            if (index > Length - 1) ThrowHelper.IndexOutOfRange();
+            if (index > CurrentBufferLength - 1) ThrowHelper.IndexOutOfRange();
             return Array[index];
         }
     }

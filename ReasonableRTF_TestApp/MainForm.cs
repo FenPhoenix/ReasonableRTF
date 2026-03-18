@@ -262,6 +262,32 @@ public sealed partial class MainForm : Form
                 }
             }
         }
+        else if (Convert_ChunkedStreamRadioButton.Checked)
+        {
+            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < memoryStreams.Length; i++)
+                    {
+                        _ = rtfConverter.ConvertStreaming(memoryStreams[i]);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (MemoryStream ms in memoryStreams)
+                {
+                    ms.Dispose();
+                }
+            }
+        }
     }
 
     private void ConvertWithCustom20x(SourceSet sourceSet)
@@ -322,9 +348,12 @@ public sealed partial class MainForm : Form
                 //"param_too_long.rtf"
                 //"2000-12-30_Uneaffaireenor__Readme.rtf"
                 //"fldinst.rtf"
-                "Issue50-2.rtf"
+                //"Issue50-2.rtf"
+                //"2007-12-28_DooM_V1_2__ReadMe.rtf"
+                //"10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
+                "10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
             ;
-        SourceSet sourceSet = SourceSet.WorkingNewSet;
+        SourceSet sourceSet = SourceSet.Full;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
@@ -453,6 +482,34 @@ public sealed partial class MainForm : Form
             finally
             {
                 foreach (FileStream ms in fileStreams)
+                {
+                    ms.Dispose();
+                }
+            }
+        }
+        else if (Convert_ChunkedStreamRadioButton.Checked)
+        {
+            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
+            try
+            {
+                for (int i = 0; i < byteArrays.Length; i++)
+                {
+                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
+                }
+
+                using (new TimingScope(totalSize))
+                {
+                    for (int i = 0; i < memoryStreams.Length; i++)
+                    {
+                        string f = rtfFiles[i];
+                        RtfResult result = rtfConverter.ConvertStreaming(memoryStreams[i]);
+                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                    }
+                }
+            }
+            finally
+            {
+                foreach (MemoryStream ms in memoryStreams)
                 {
                     ms.Dispose();
                 }
