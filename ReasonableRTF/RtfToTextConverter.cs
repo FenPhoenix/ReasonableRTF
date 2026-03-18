@@ -6,9 +6,9 @@ end of the current chunk and put them at the beginning of the buffer when we rea
 
 As far as I can tell, we do know that maximum, and it should be 8 bytes (for the ReadUnaligned<ulong> calls).
 There's just one potentially problematic place: in the font table reader where we read an essentially arbitrarily
-long font name and then set _currentPos back to the start of it. However, I think setting _currentPos back to the
-start of the name is unnecessary and may be an oversight, because removing it seems to still work fine, and also
-it just doesn't make sense when thinking about it. So I'm basically totally sure we can just remove that entirely.
+long font name and then set _currentPos back to the start of it. We're doing this to support some weird broken
+files that RtfPipe has in its test set - we were probably trying to match its behavior? So if we want to keep
+behavior the same then we need to figure that one place out.
 
 Then we would have to check every byte read if we're at the end of the current chunk, which could take the place
 of our already existent upper bounds check, and then inside that check could be the actual upper bounds check
@@ -2435,7 +2435,14 @@ public sealed class RtfToTextConverter
                             _symbolFontNameBuffer.Add(ch);
                         }
 
-                        // @Stream2026: I think we can remove this entirely, cause why are we doing this anyway?
+                        /*
+                        @Stream2026: Removing this causes a few of the (intentionally broken) RtfPipe test files
+                        to produce different output. This is a "behavior when the file is already broken" type
+                        case, but that would almost certainly be why we put this in. If we wanted to keep behavior
+                        exactly the same, we would have to figure out how to implement this in a way that doesn't
+                        require seeking backwards by an arbitrary (bounded by 32768, so essentially arbitary)
+                        amount.
+                        */
                         _currentPos = originalPos;
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
