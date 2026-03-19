@@ -1,5 +1,5 @@
 ﻿/*
-This is a streaming-capable version of ReasonableRTF. Performance is ~6%-14% lower than the non-streaming-capable
+This is a streaming-capable version of ReasonableRTF. Performance is ~6-10% lower than the non-streaming-capable
 version.
 
 ---
