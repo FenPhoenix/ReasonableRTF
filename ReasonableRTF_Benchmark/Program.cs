@@ -13,6 +13,8 @@ public class Test
 
     private readonly MemoryStream[] _fullSetMemStreams;
     private readonly MemoryStream[] _smallSetMemStreams;
+    private readonly MemoryStream[] _fullSetMemStreams_Chunked;
+    private readonly MemoryStream[] _smallSetMemStreams_Chunked;
     private readonly byte[][] _fullSetByteArrays;
     private readonly byte[][] _smallSetByteArrays;
     private readonly RichTextBox _rtfBox;
@@ -53,6 +55,24 @@ public class Test
         return byteArrays;
     }
 
+    private MemoryStream[] GetStuff_Custom_Chunked(bool small)
+    {
+        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+
+        MemoryStream[] memoryStreams = new MemoryStream[rtfFiles.Length];
+
+        for (int i = 0; i < rtfFiles.Length; i++)
+        {
+            string f = rtfFiles[i];
+            using var fs = File.OpenRead(f);
+            byte[] array = new byte[fs.Length];
+            fs.ReadExactly(array, 0, (int)fs.Length);
+            memoryStreams[i] = new MemoryStream(array);
+        }
+
+        return memoryStreams;
+    }
+
     public Test()
     {
         _fullSetMemStreams = GetStuff_RichTextBox(small: false);
@@ -60,6 +80,9 @@ public class Test
 
         _fullSetByteArrays = GetStuff_Custom(small: false);
         _smallSetByteArrays = GetStuff_Custom(small: true);
+
+        _fullSetMemStreams_Chunked = GetStuff_Custom_Chunked(small: false);
+        _smallSetMemStreams_Chunked = GetStuff_Custom_Chunked(small: true);
 
         _rtfBox = new RichTextBox();
         _rtfConverter = new RtfToTextConverter();
@@ -90,8 +113,9 @@ public class Test
 
         for (int i = 0; i < _fullSetMemStreams.Length; i++)
         {
-            _fullSetMemStreams[i].Position = 0;
-            _rtfBox.LoadFile(_fullSetMemStreams[i], RichTextBoxStreamType.RichText);
+            MemoryStream stream = _fullSetMemStreams[i];
+            stream.Position = 0;
+            _rtfBox.LoadFile(stream, RichTextBoxStreamType.RichText);
             _ = _rtfBox.Text;
         }
     }
@@ -104,8 +128,9 @@ public class Test
 
         for (int i = 0; i < _smallSetMemStreams.Length; i++)
         {
-            _smallSetMemStreams[i].Position = 0;
-            _rtfBox.LoadFile(_smallSetMemStreams[i], RichTextBoxStreamType.RichText);
+            MemoryStream stream = _smallSetMemStreams[i];
+            stream.Position = 0;
+            _rtfBox.LoadFile(stream, RichTextBoxStreamType.RichText);
             _ = _rtfBox.Text;
         }
     }
@@ -125,6 +150,28 @@ public class Test
         for (int i = 0; i < _smallSetByteArrays.Length; i++)
         {
             _ = _rtfConverter.Convert(_smallSetByteArrays[i]);
+        }
+    }
+
+    [Benchmark]
+    public void ReasonableRTF_FullSet_Streamed()
+    {
+        for (int i = 0; i < _fullSetMemStreams_Chunked.Length; i++)
+        {
+            MemoryStream stream = _fullSetMemStreams_Chunked[i];
+            stream.Position = 0;
+            _ = _rtfConverter.Convert(stream);
+        }
+    }
+
+    [Benchmark]
+    public void ReasonableRTF_NoImageSet_Streamed()
+    {
+        for (int i = 0; i < _smallSetMemStreams_Chunked.Length; i++)
+        {
+            MemoryStream stream = _smallSetMemStreams_Chunked[i];
+            stream.Position = 0;
+            _ = _rtfConverter.Convert(stream);
         }
     }
 }
