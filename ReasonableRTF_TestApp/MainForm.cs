@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Globalization;
+using System.IO.Compression;
 using ReasonableRTF;
 
 namespace ReasonableRTF_TestApp;
@@ -21,6 +22,9 @@ public sealed partial class MainForm : Form
 
     private const string _outputWorkingNewSetCustomDir = "Output_WorkingNewSet_Custom";
     private const string _outputWorkingNewSetRichTextBoxDir = "Output_WorkingNewSet_RichTextBox";
+
+    private const string DeflateStreamTestFullFileName = "DeflateStreamTest_Full.zip";
+    private const string DeflateStreamTestSmallFileName = "DeflateStreamTest_Small.zip";
 
     private enum SourceSet
     {
@@ -289,7 +293,29 @@ public sealed partial class MainForm : Form
                 }
             }
         }
+        else if (Convert_DeflateStreamRadioButton.Checked)
+        {
+            string zipFile = Path.Combine(DataDirTextBox.Text, GetDeflateStreamTestFileName(sourceSet));
+            using FileStream zipFileStream = File.OpenRead(zipFile);
+            using ZipArchive archive = new(zipFileStream, ZipArchiveMode.Read);
+
+            using (new TimingScope(totalSize))
+            {
+                foreach (ZipArchiveEntry entry in archive.Entries)
+                {
+                    using Stream es = entry.Open();
+                    _ = rtfConverter.ConvertStreaming(es);
+                }
+            }
+        }
     }
+
+    private static string GetDeflateStreamTestFileName(SourceSet sourceSet) => sourceSet switch
+    {
+        SourceSet.Full => DeflateStreamTestFullFileName,
+        SourceSet.Small => DeflateStreamTestSmallFileName,
+        _ => throw new Exception("No deflate stream test file for the set " + sourceSet),
+    };
 
     private void ConvertWithCustom20x(SourceSet sourceSet)
     {
@@ -352,12 +378,12 @@ public sealed partial class MainForm : Form
                 //"Issue50-2.rtf"
                 //"2007-12-28_DooM_V1_2__ReadMe.rtf"
                 "10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
-                //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
-                //"2004-02-29_c5Summit_The__summit.rtf"
-                //"2007-11-11_WayoftheSword_v1_2__The Way of The Sword - Read Me.rtf"
-                //"2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
-                //"TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf"
-                //"Issue23.rtf"
+            //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
+            //"2004-02-29_c5Summit_The__summit.rtf"
+            //"2007-11-11_WayoftheSword_v1_2__The Way of The Sword - Read Me.rtf"
+            //"2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
+            //"TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf"
+            //"Issue23.rtf"
             ;
         SourceSet sourceSet = SourceSet.Full;
 
@@ -524,6 +550,24 @@ public sealed partial class MainForm : Form
                 foreach (MemoryStream ms in memoryStreams)
                 {
                     ms.Dispose();
+                }
+            }
+        }
+        else if (Convert_DeflateStreamRadioButton.Checked)
+        {
+            string setDir = GetRtfSetDir(sourceSet);
+            string zipFile = Path.Combine(DataDirTextBox.Text, GetDeflateStreamTestFileName(sourceSet));
+            using FileStream zipFileStream = File.OpenRead(zipFile);
+            using ZipArchive archive = new(zipFileStream, ZipArchiveMode.Read);
+
+            using (new TimingScope(totalSize))
+            {
+                foreach (ZipArchiveEntry entry in archive.Entries)
+                {
+                    string f = Path.Combine(setDir, entry.Name);
+                    using Stream es = entry.Open();
+                    RtfResult result = rtfConverter.ConvertStreaming(es);
+                    WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                 }
             }
         }
