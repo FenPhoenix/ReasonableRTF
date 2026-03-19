@@ -687,8 +687,12 @@ public sealed partial class MainForm : Form
 
         Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1422.991));
 
-        Trace.WriteLine("RC Full MB/s: " + GetMBsString(fullBytes, 30.666));
+        Trace.WriteLine("RC Full (Streamable/Array) MB/s: " + GetMBsString(fullBytes, 32.786));
 
-        Trace.WriteLine("RC Small MB/s: " + GetMBsString(smallBytes, 8.376));
+        Trace.WriteLine("RC Small (Streamable/Array) MB/s: " + GetMBsString(smallBytes, 9.041));
+
+        Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 42.224));
+
+        Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 9.443));
     }
 }

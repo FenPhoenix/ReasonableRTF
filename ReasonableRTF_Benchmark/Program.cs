@@ -160,7 +160,7 @@ public class Test
         {
             MemoryStream stream = _fullSetMemStreams_Chunked[i];
             stream.Position = 0;
-            _ = _rtfConverter.Convert(stream);
+            _ = _rtfConverter.ConvertStreaming(stream);
         }
     }
 
@@ -171,7 +171,7 @@ public class Test
         {
             MemoryStream stream = _smallSetMemStreams_Chunked[i];
             stream.Position = 0;
-            _ = _rtfConverter.Convert(stream);
+            _ = _rtfConverter.ConvertStreaming(stream);
         }
     }
 }
