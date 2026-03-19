@@ -1,24 +1,15 @@
 ﻿/*
-@Stream2026 notes:
-If we know the maximum number of bytes we ever need to seek backwards, we can just take that many bytes from the
-end of the current chunk and put them at the beginning of the buffer when we read the next chunk, and only read
-(nominal buffer size - max seek back count) bytes from each chunk.
-
-As far as I can tell, we do know that maximum, and it should be 8 bytes (for the ReadUnaligned<ulong> calls).
-There's just one potentially problematic place: in the font table reader where we read an essentially arbitrarily
-long font name and then set _currentPos back to the start of it. We're doing this to support some weird broken
-files that RtfPipe has in its test set - we were probably trying to match its behavior? So if we want to keep
-behavior the same then we need to figure that one place out.
-
-Then we would have to check every byte read if we're at the end of the current chunk, which could take the place
-of our already existent upper bounds check, and then inside that check could be the actual upper bounds check
-(or some sort of equivalent that works with streams where we don't know the length?). In that way, we wouldn't
-have any extra checks in the common case. However, we would have to do every read through the accessor methods
-to do the check, rather than doing some of them directly on the internal array, as we do now.
-
-Then the only other thing would be that we'd have to wrap the Array.IndexOf() calls into something that loads up
-the next chunk if the result isn't found in the current one. We would presumably entail some performance loss
-from that, but as to how much, we'd have to implement and measure.
+This is a streaming-capable version of ReasonableRTF.
+Some notes:
+-By adding stream support to the code, the standard byte-array path loses about 10% performance (just from having
+ to branch on which mode it's in during very hot loops).
+-The stream path itself is about 20% slower than the non-stream-supporting byte-array-only version.
+-These numbers aren't horrible, given how fast we already are. We could afford to lose 20% and probably not upset
+ anybody too much. But still.
+-I could fix the byte array path's perf with a sledgehammer, if all else failed. But it wouldn't be pretty.
+-There is one solitary place in the code that's really hard to get working with stream support, and I haven't
+ figured it out yet (see HandleFontTable()). Disabling it is fine in the vast majority of cases, but there are
+ some partially broken rtf files in the test set that we can no longer convert properly in that case.
 
 @Stream2026: Test write the non-main sets with the stream mode
 
