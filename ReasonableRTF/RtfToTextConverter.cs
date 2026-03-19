@@ -1,15 +1,5 @@
 ﻿/*
 This is a streaming-capable version of ReasonableRTF.
-Some notes:
--By adding stream support to the code, the standard byte-array path loses about 10% performance (just from having
- to branch on which mode it's in during very hot loops).
--The stream path itself is about 20% slower than the non-stream-supporting byte-array-only version.
--These numbers aren't horrible, given how fast we already are. We could afford to lose 20% and probably not upset
- anybody too much. But still.
--I could fix the byte array path's perf with a sledgehammer, if all else failed. But it wouldn't be pretty.
--There is one solitary place in the code that's really hard to get working with stream support, and I haven't
- figured it out yet (see HandleFontTable()). Disabling it is fine in the vast majority of cases, but there are
- some partially broken rtf files in the test set that we can no longer convert properly in that case.
 
 @Stream2026: Test write the non-main sets with the stream mode
 
@@ -2521,48 +2511,26 @@ public sealed class RtfToTextConverter
                     {
                         _symbolFontNameBuffer.ClearFast();
 
-                        int originalPos = _currentPos;
-                        int originalChunksRead = _chunksRead;
-
-                        // Increment the real position instead of a temp one, so that if we get an exception
-                        // the error report will contain the real position.
+                        bool isSeparatorChar = false;
                         for (int i = 0;
-                             i < _maxSymbolFontNameLength && ch != ';';
+                             i < _maxSymbolFontNameLength && ch != ';' && !(isSeparatorChar = IsSeparatorChar(ch));
                              i++, ch = (char)_rtfBytes[IncrementCurrentPos()])
                         {
                             _symbolFontNameBuffer.Add(ch);
                         }
 
                         /*
-                        @Stream2026: Removing this causes a few of the (intentionally broken) RtfPipe test files
-                        to produce different output. This is a "behavior when the file is already broken" type
-                        case, but that would almost certainly be why we put this in. If we wanted to keep behavior
-                        exactly the same, we would have to figure out how to implement this in a way that doesn't
-                        require seeking backwards by an arbitrary (bounded by 32768, so essentially arbitrary)
-                        amount.
+                        Support weird nonsense in the font table like:
+                        
+                        {Zapf Dingbats{\*\falt Monotype Sorts};}
+
+                        where we should stop at the { instead of the ; so we get the name right.
+
+                        Also whatever nonsense is going in some of those RtfPipe test files.
                         */
-                        if (originalChunksRead == _chunksRead)
+                        if (isSeparatorChar)
                         {
-                            _currentPos = originalPos;
-                        }
-                        else
-                        {
-                            /*
-                            @Stream2026: Do some catastrophically horrible fallback path here.
-                            Remember we can't even read back a block even if we wanted to, because we might have
-                            a forward-only stream.
-                            We'll have to take the data in our symbol font name buffer and insert it back into
-                            the buffer I guess, somehow.
-                            Either that or dig into exactly what we're accomplishing here and express it in a
-                            different way. I think what we're doing is getting the name, and then backing up and
-                            allowing the name to now just be regular rtf so that we can parse it as such if there
-                            are \ { } chars in it. I think this is either allowing us to tolerate a mismatched
-                            number of open and closing braces in the font table, or else tolerate a font name
-                            that doesn't end with ; maybe?
-                            Why were we trying to support this? Was one of RtfPipe's test files a common situation
-                            we didn't want to fail on? Or if it was obscure and didn't matter then why did we do
-                            it?
-                            */
+                            _currentPos--;
                         }
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
