@@ -6,9 +6,6 @@
 # Why isn't this here by default...?
 .idea/
 
-# My personal thing...
-.editorconfig
-
 # User-specific files
 *.rsuser
 *.suo
