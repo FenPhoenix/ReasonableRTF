@@ -7,12 +7,14 @@ internal sealed class ByteArrayWithLength
     internal byte[] Array;
     internal int Length;
     internal int CurrentBufferLength;
+    private readonly RtfToTextConverter _conv;
 
-    internal ByteArrayWithLength()
+    internal ByteArrayWithLength(RtfToTextConverter conv)
     {
         Array = System.Array.Empty<byte>();
         Length = 0;
         CurrentBufferLength = 0;
+        _conv = conv;
     }
 
     internal void Set(byte[] array, int length)
@@ -35,8 +37,33 @@ internal sealed class ByteArrayWithLength
         {
             // Very unfortunately, we have to manually bounds-check here, because our array could be longer
             // than Length (such as when it comes from a pool).
-            if (index > CurrentBufferLength - 1) ThrowHelper.IndexOutOfRange();
+            if (index > CurrentBufferLength - 1)
+            {
+                /*
+                Putting the ThrowHelper call here makes us full speed (on the byte array path). Putting this
+                here instead loses us like 6-10% again. Even though HandleOutOfBounds() has the no inlining
+                attribute! Argh!
+                But, this system does make us a little faster than before (especially on the streaming path),
+                so hey.
+                */
+                index = HandleOutOfBounds();
+            }
             return Array[index];
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private int HandleOutOfBounds()
+    {
+        if (_conv._bufferedStream != null)
+        {
+            _conv._currentPos--;
+            return _conv.IncrementCurrentPos_Stream(_conv._currentPos);
+        }
+        else
+        {
+            ThrowHelper.IndexOutOfRange();
+            return 0;
         }
     }
 }

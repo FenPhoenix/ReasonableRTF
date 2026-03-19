@@ -1717,21 +1717,21 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private Stream? _bufferedStream;
+    internal Stream? _bufferedStream;
 
     private bool _endedStreamOnce;
     private bool _reachedEndOfStream;
 
     private int _leadingBufferByteCount;
 
-    private readonly ByteArrayWithLength _rtfBytes = new();
+    private readonly ByteArrayWithLength _rtfBytes;
 
     private bool _skipDestinationIfUnknown;
 
     // For whatever reason it's faster to have this
     private int _groupCount;
 
-    private int _currentPos;
+    internal int _currentPos;
     private int _chunksRead;
 
     private byte[] _streamBuffer = Array.Empty<byte>();
@@ -1806,6 +1806,7 @@ public sealed class RtfToTextConverter
 
         // Don't assign the passed-in options object directly! The user could have a reference to it and depend
         // on it not changing. Deep copy it only!
+        _rtfBytes = new ByteArrayWithLength(this);
         _defaultOptions = new RtfToTextConverterOptions();
         _options = new RtfToTextConverterOptions();
 
@@ -2999,7 +3000,7 @@ public sealed class RtfToTextConverter
                     }
                     else if (_rtfBytes[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
                     {
-                        IncrementCurrentPos();
+                        _ = _rtfBytes[IncrementCurrentPos()];
                         numToSkip--;
                     }
                     else
@@ -4056,17 +4057,15 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int IncrementCurrentPos()
     {
-        // @Stream2026: This branched function loses the ~10% perf in array mode, but if we just have it return
-        //  _currentPos++ right away and do nothing else, it's back to full perf. But then that can't be used in
-        //  streamed mode, of course.
-        if (_bufferedStream == null)
-        {
-            return _currentPos++;
-        }
-        else
-        {
-            return IncrementCurrentPos_Stream(_currentPos);
-        }
+        /*
+        This is by far the most frequently called increment function, so do a crazy trick and rely on the already
+        existent bounds checker in the rtf array getter to handle the chunk advance for us. That way, we can just
+        have this bare, inlinable increment to make the byte array path faster, and the streaming path also cuts
+        way down on branches too, only doing extra work when it gets to the end of a block, and otherwise just
+        running the array getter bounds checker which was already being run anyway.
+        We don't quite get back to the previous speed even for the byte array path, but we get closer.
+        */
+        return _currentPos++;
     }
 
     private void IncrementCurrentPos_ArbitraryAmountForward(int amount)
@@ -4081,7 +4080,7 @@ public sealed class RtfToTextConverter
         }
     }
 
-    private int IncrementCurrentPos_Stream(int originalPos)
+    internal int IncrementCurrentPos_Stream(int originalPos)
     {
         if (_currentPos + 1 > _rtfBytes.CurrentBufferLength - 1)
         {
