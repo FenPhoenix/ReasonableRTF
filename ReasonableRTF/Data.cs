@@ -60,7 +60,16 @@ internal sealed class ByteArrayWithLength
         if (_conv._bufferedStream != null)
         {
             _conv._currentPos--;
-            return _conv.IncrementCurrentPos_Stream(_conv._currentPos);
+            int ret = _conv.IncrementCurrentPos_Stream(_conv._currentPos);
+            if (_conv._currentPos > CurrentBufferLength - 1)
+            {
+                ThrowHelper.IndexOutOfRange();
+                return 0;
+            }
+            else
+            {
+                return ret;
+            }
         }
         else
         {
