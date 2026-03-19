@@ -1681,6 +1681,29 @@ public sealed class RtfToTextConverter
 
     private readonly bool[] _isNonPlainText = InitIsNonPlainTextBytes();
 
+    private static bool[] InitIsSeparatorCharBytes()
+    {
+        bool[] ret = new bool[256];
+        ret['\\'] = true;
+        ret['{'] = true;
+        ret['}'] = true;
+        return ret;
+    }
+
+    private readonly bool[] _isSeparatorChar = InitIsSeparatorCharBytes();
+
+    private static bool[] InitIsFontSeparatorCharBytes()
+    {
+        bool[] ret = new bool[256];
+        ret['\\'] = true;
+        ret['{'] = true;
+        ret['}'] = true;
+        ret[';'] = true;
+        return ret;
+    }
+
+    private readonly bool[] _isFontSeparatorChar = InitIsFontSeparatorCharBytes();
+
     #endregion
 
     private static readonly SymbolDict _symbols = new();
@@ -2403,7 +2426,7 @@ public sealed class RtfToTextConverter
 
                         bool isSeparatorChar = false;
                         for (int i = 0;
-                             i < _maxSymbolFontNameLength && ch != ';' && !(isSeparatorChar = IsSeparatorChar(ch));
+                             i < _maxSymbolFontNameLength && ch != ';' && !(isSeparatorChar = _isFontSeparatorChar[(byte)ch]);
                              i++, ch = (char)_rtfBytes[_currentPos++])
                         {
                             _symbolFontNameBuffer.Add(ch);
@@ -3288,7 +3311,7 @@ public sealed class RtfToTextConverter
             else if (ch == 'f')
             {
                 ch = (char)_rtfBytes[_currentPos++];
-                if (IsSeparatorChar(ch))
+                if (_isSeparatorChar[(byte)ch])
                 {
                     HandleFieldInst_F_Bare(param);
                     return RewindAndSkipGroup();
@@ -3306,7 +3329,7 @@ public sealed class RtfToTextConverter
 
                     while ((ch = (char)_rtfBytes[_currentPos++]) != '\"')
                     {
-                        if (fontNameCharCount >= _maxSymbolFontNameLength || IsSeparatorChar(ch))
+                        if (fontNameCharCount >= _maxSymbolFontNameLength || _isSeparatorChar[(byte)ch])
                         {
                             return RewindAndSkipGroup();
                         }
@@ -3337,7 +3360,7 @@ public sealed class RtfToTextConverter
             else if (ch == 'h')
             {
                 ch = (char)_rtfBytes[_currentPos++];
-                if (IsSeparatorChar(ch)) break;
+                if (_isSeparatorChar[(byte)ch]) break;
             }
             /*
             From the spec:
@@ -3360,7 +3383,7 @@ public sealed class RtfToTextConverter
                     numDigitCount++;
                 }
 
-                if (IsSeparatorChar(ch)) break;
+                if (_isSeparatorChar[(byte)ch]) break;
             }
         }
 
@@ -3368,9 +3391,6 @@ public sealed class RtfToTextConverter
 
         return RewindAndSkipGroup();
     }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsSeparatorChar(char ch) => ch is '\\' or '{' or '}';
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
