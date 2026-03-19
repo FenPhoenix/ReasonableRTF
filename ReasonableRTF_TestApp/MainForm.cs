@@ -677,11 +677,23 @@ public sealed partial class MainForm : Form
         ResetDataDir();
     }
 
+    private long GetDirectorySize(SourceSet sourceSet)
+    {
+        long totalSize = 0;
+        var di = new DirectoryInfo(GetRtfSetDir(sourceSet));
+        foreach (var fi in di.EnumerateFiles())
+        {
+            totalSize += fi.Length;
+        }
+        return totalSize;
+    }
+
     private void Test1Button_Click(object sender, EventArgs e)
     {
         // Change this when we want to re-measure the benchmark MB/s
-        const int fullBytes = 152_264_297;
-        const int smallBytes = 3_714_521;
+
+        long fullBytes = GetDirectorySize(SourceSet.Full);
+        long smallBytes = GetDirectorySize(SourceSet.Small);
 
         Trace.WriteLine("RTB Full MB/s: " + GetMBsString(fullBytes, 3307.722));
 
