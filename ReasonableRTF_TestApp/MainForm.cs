@@ -276,6 +276,7 @@ public sealed partial class MainForm : Form
                 {
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
+                        //Trace.WriteLine(rtfFiles[i]);
                         _ = rtfConverter.ConvertStreaming(memoryStreams[i]);
                     }
                 }
@@ -350,15 +351,15 @@ public sealed partial class MainForm : Form
                 //"fldinst.rtf"
                 //"Issue50-2.rtf"
                 //"2007-12-28_DooM_V1_2__ReadMe.rtf"
-                //"10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
+                "10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
                 //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
                 //"2004-02-29_c5Summit_The__summit.rtf"
                 //"2007-11-11_WayoftheSword_v1_2__The Way of The Sword - Read Me.rtf"
                 //"2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
                 //"TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf"
-                "Issue23.rtf"
+                //"Issue23.rtf"
             ;
-        SourceSet sourceSet = SourceSet.WorkingNewSet;
+        SourceSet sourceSet = SourceSet.Full;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
