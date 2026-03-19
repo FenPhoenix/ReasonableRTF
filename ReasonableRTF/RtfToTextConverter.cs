@@ -48,6 +48,7 @@ The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext o
 I guess. So we could just leave this out...
 */
 
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -4137,6 +4138,10 @@ public sealed class RtfToTextConverter
     {
         if (_bufferedStream != null)
         {
+            // This path should only be hit when in streaming mode, and when therefore the buffer size is supposed
+            // to have an enforced minimum.
+            Debug.Assert(_rtfBytes.Array.Length >= _maxSeekBackBytes);
+
             // On the last chunk, we may have fewer than 8 bytes, but we aren't going to use the copied garbage
             // in that case because we'll throw for attempt to read past end of stream.
             ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_rtfBytes.CurrentBufferLength - _leadingBufferByteCount]);
