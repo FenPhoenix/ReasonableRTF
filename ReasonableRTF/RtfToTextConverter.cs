@@ -1711,6 +1711,9 @@ public sealed class RtfToTextConverter
         ret['{'] = true;
         ret['}'] = true;
         ret[';'] = true;
+        ret['\r'] = true;
+        ret['\n'] = true;
+        ret['\0'] = true;
         return ret;
     }
 
