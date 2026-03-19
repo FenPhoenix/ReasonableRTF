@@ -536,10 +536,13 @@ public sealed partial class MainForm : Form
                         string f = rtfFiles[i];
                         Trace.WriteLine(f);
                         using var fs = File.OpenRead(f);
-                        var rc = new RtfToTextConverter();
                         //if (f.Contains("WayoftheSword"))
                         {
-                            RtfResult result = rc.ConvertStreaming(fs);
+                            RtfResult result = rtfConverter.ConvertStreaming(fs);
+                            if (result.Error != RtfError.OK)
+                            {
+                                Trace.WriteLine(result);
+                            }
                             WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                         }
                     }

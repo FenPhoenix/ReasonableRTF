@@ -63,7 +63,14 @@ internal sealed class ByteArrayWithLength
             int ret = _conv.IncrementCurrentPos_Stream(_conv._currentPos);
             if (_conv._currentPos > CurrentBufferLength - 1)
             {
-                ThrowHelper.IndexOutOfRange();
+                if (_conv._groupCount > 0)
+                {
+                    ThrowHelper.UnmatchedBraceException();
+                }
+                else
+                {
+                    ThrowHelper.IndexOutOfRange();
+                }
                 return 0;
             }
             else
@@ -73,6 +80,14 @@ internal sealed class ByteArrayWithLength
         }
         else
         {
+            if (_conv._groupCount > 0)
+            {
+                ThrowHelper.UnmatchedBraceException();
+            }
+            else
+            {
+                ThrowHelper.IndexOutOfRange();
+            }
             ThrowHelper.IndexOutOfRange();
             return 0;
         }

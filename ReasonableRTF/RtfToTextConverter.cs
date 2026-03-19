@@ -1,7 +1,6 @@
 ﻿/*
-This is a streaming-capable version of ReasonableRTF.
-
-@Stream2026: Test write the non-main sets with the stream mode
+This is a streaming-capable version of ReasonableRTF. Performance is ~6%-14% lower than the non-streaming-capable
+version.
 
 ---
 
@@ -1745,7 +1744,7 @@ public sealed class RtfToTextConverter
     private bool _skipDestinationIfUnknown;
 
     // For whatever reason it's faster to have this
-    private int _groupCount;
+    internal int _groupCount;
 
     internal int _currentPos;
     private int _chunksRead;
@@ -2150,6 +2149,10 @@ public sealed class RtfToTextConverter
         catch (EndOfStreamException ex)
         {
             return new RtfResult(RtfError.UnexpectedEndOfFile, GetCurrentOverallPos(), ex);
+        }
+        catch (UnmatchedBraceException ex)
+        {
+            return new RtfResult(RtfError.UnmatchedBrace, GetCurrentOverallPos(), ex);
         }
         catch (Exception ex)
         {
