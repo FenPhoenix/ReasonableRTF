@@ -4052,7 +4052,7 @@ public sealed class RtfToTextConverter
     #region Read and seek wrappers
 
     /// <summary>
-    /// Increment _currentPos, reading the next chunk if necessary. Behaves like _currentPos++, returning the value before it was modified.
+    /// Increment _currentPos. Behaves like _currentPos++, returning the value before it was modified.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int IncrementCurrentPos()
