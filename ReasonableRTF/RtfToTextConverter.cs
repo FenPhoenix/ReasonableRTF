@@ -1728,6 +1728,7 @@ public sealed class RtfToTextConverter
 
     private Stream? _bufferedStream;
 
+    private bool _endedStreamOnce;
     private bool _reachedEndOfStream;
 
     private int _leadingBufferByteCount;
@@ -2067,6 +2068,7 @@ public sealed class RtfToTextConverter
 
         #region Reset
 
+        _endedStreamOnce = false;
         _reachedEndOfStream = false;
 
         _groupStack.ClearFast();
@@ -2289,7 +2291,7 @@ public sealed class RtfToTextConverter
 
     private void HandlePlainTextRun()
     {
-        _currentPos--;
+        DecrementCurrentPos_Raw(-1);
 
         SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
@@ -2305,7 +2307,7 @@ public sealed class RtfToTextConverter
                 }
                 else
                 {
-                    _currentPos--;
+                    DecrementCurrentPos_Raw(-1);
                     break;
                 }
             }
@@ -2321,7 +2323,7 @@ public sealed class RtfToTextConverter
                 }
                 else
                 {
-                    _currentPos--;
+                    DecrementCurrentPos_Raw(-1);
                     break;
                 }
             }
@@ -2524,6 +2526,7 @@ public sealed class RtfToTextConverter
                         _symbolFontNameBuffer.ClearFast();
 
                         int originalPos = _currentPos;
+                        int originalOverallPos = _currentOverallPos;
 
                         // Increment the real position instead of a temp one, so that if we get an exception
                         // the error report will contain the real position.
@@ -2542,7 +2545,8 @@ public sealed class RtfToTextConverter
                         require seeking backwards by an arbitrary (bounded by 32768, so essentially arbitrary)
                         amount.
                         */
-                        //_currentPos = originalPos;
+                        _currentOverallPos = originalOverallPos;
+                        _currentPos = originalPos;
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
@@ -2843,7 +2847,7 @@ public sealed class RtfToTextConverter
                 }
                 else
                 {
-                    _currentPos -= 2;
+                    DecrementCurrentPos_Raw(-2);
                     AddHexBuffer(success, codePageWas42, enc, fontEntry);
                     return;
                 }
@@ -2851,7 +2855,7 @@ public sealed class RtfToTextConverter
             // Spaces end a hex run, but linebreaks don't.
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
-                _currentPos--;
+                DecrementCurrentPos_Raw(-1);
                 AddHexBuffer(success, codePageWas42, enc, fontEntry);
                 return;
             }
@@ -2908,27 +2912,27 @@ public sealed class RtfToTextConverter
                         }
                         param = BranchlessConditionalNegate(param, negateParam);
 
-                        _currentPos += MinusOneIfNotSpace_8Bits(ch);
+                        DecrementCurrentPos_Raw(MinusOneIfNotSpace_8Bits(ch));
                         HandleUnicodeParamAndSkipFallbackChars(param);
                     }
                     else
                     {
-                        _currentPos -= (3 + negateParam);
-                        _currentPos += MinusOneIfNotSpace_8Bits(ch);
+                        DecrementCurrentPos_Raw(-(3 + negateParam));
+                        DecrementCurrentPos_Raw(MinusOneIfNotSpace_8Bits(ch));
                         ParseUnicode();
                         return RtfError.OK;
                     }
                 }
                 else
                 {
-                    _currentPos -= 2;
+                    DecrementCurrentPos_Raw(-2);
                     ParseUnicode();
                     return RtfError.OK;
                 }
             }
             else
             {
-                _currentPos--;
+                DecrementCurrentPos_Raw(-1);
                 ParseUnicode();
                 return RtfError.OK;
             }
@@ -2989,13 +2993,13 @@ public sealed class RtfToTextConverter
                         byte b = _rtfBytes[IncrementCurrentPos()];
                         if (!b.IsAsciiHex())
                         {
-                            _currentPos--;
+                            DecrementCurrentPos_Raw(-1);
                             break;
                         }
                         b = _rtfBytes[IncrementCurrentPos()];
                         if (!b.IsAsciiHex())
                         {
-                            _currentPos -= 2;
+                            DecrementCurrentPos_Raw(-2);
                             break;
                         }
                         numToSkip--;
@@ -3014,7 +3018,7 @@ public sealed class RtfToTextConverter
                     break;
                 // Per spec, if we encounter a group delimiter during Unicode skipping, we end skipping early
                 case '{' or '}':
-                    _currentPos--;
+                    DecrementCurrentPos_Raw(-1);
                     return;
                 default:
                     numToSkip--;
@@ -3530,7 +3534,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError RewindAndSkipGroup()
     {
-        _currentPos--;
+        DecrementCurrentPos_Raw(-1);
         _groupStack.CurrentSkipDest = true;
         return RtfError.OK;
     }
@@ -3959,7 +3963,7 @@ public sealed class RtfToTextConverter
             the space from the skip-chars to count.
             */
             // Current position will be > 0 at this point, so a decrement is always safe
-            _currentPos += MinusOneIfNotSpace_8Bits(ch);
+            DecrementCurrentPos_Raw(MinusOneIfNotSpace_8Bits(ch));
 
             symbol = _symbols.LookUpControlWord(keyword, keywordCount);
         }
@@ -4046,6 +4050,13 @@ public sealed class RtfToTextConverter
 
     #region Read and seek wrappers
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void DecrementCurrentPos_Raw(int amount)
+    {
+        _currentOverallPos += amount;
+        _currentPos += amount;
+    }
+
     /// <summary>
     /// Increment _currentPos, reading the next chunk if necessary. Behaves like _currentPos++, returning the value before it was modified.
     /// </summary>
@@ -4057,6 +4068,7 @@ public sealed class RtfToTextConverter
         //  streamed mode, of course.
         if (_bufferedStream == null)
         {
+            _currentOverallPos++;
             return _currentPos++;
         }
         else
@@ -4069,6 +4081,7 @@ public sealed class RtfToTextConverter
     {
         if (_bufferedStream == null)
         {
+            _currentOverallPos += amount;
             _currentPos += amount;
         }
         else
@@ -4081,8 +4094,7 @@ public sealed class RtfToTextConverter
     {
         _currentOverallPos += 1;
 
-        if (
-            (_currentPos + 1 > _rtfBytes.CurrentBufferLength - 1))
+        if (_currentPos + 1 > _rtfBytes.CurrentBufferLength - 1)
         {
             int difference = (_currentPos + 1) - _rtfBytes.CurrentBufferLength;
 
@@ -4152,7 +4164,15 @@ public sealed class RtfToTextConverter
             // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
             if (bytesRead == 0)
             {
-                _reachedEndOfStream = true;
+                // Hack to match previous behavior with intentionally-broken RtfPipe test files
+                if (_endedStreamOnce)
+                {
+                    _reachedEndOfStream = true;
+                }
+                else
+                {
+                    _endedStreamOnce = true;
+                }
             }
 
             _currentPos = _leadingBufferByteCount;
