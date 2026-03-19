@@ -26,7 +26,9 @@ internal sealed class ByteArrayWithLength
 
     /// <summary>
     /// Manually bounds-checked past <see cref="T:Length"/>.
-    /// If you don't need bounds-checking past <see cref="T:Length"/>, access <see cref="T:Array"/> directly.
+    /// Now that we have stream support, this method should always be called for array accesses to ensure the
+    /// chunks are loaded when needed. Only access <see cref="T:Array"/> directly in cases where you know for
+    /// sure you don't need the chunk load triggering in your particular scenario.
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
