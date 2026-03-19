@@ -2401,18 +2401,27 @@ public sealed class RtfToTextConverter
                     {
                         _symbolFontNameBuffer.ClearFast();
 
-                        int originalPos = _currentPos;
-
-                        // Increment the real position instead of a temp one, so that if we get an exception
-                        // the error report will contain the real position.
+                        bool isSeparatorChar = false;
                         for (int i = 0;
-                             i < _maxSymbolFontNameLength && ch != ';';
+                             i < _maxSymbolFontNameLength && ch != ';' && !(isSeparatorChar = IsSeparatorChar(ch));
                              i++, ch = (char)_rtfBytes[_currentPos++])
                         {
                             _symbolFontNameBuffer.Add(ch);
                         }
 
-                        _currentPos = originalPos;
+                        /*
+                        Support weird nonsense in the font table like:
+
+                        {Zapf Dingbats{\*\falt Monotype Sorts};}
+
+                        where we should stop at the { instead of the ; so we get the name right.
+
+                        Also whatever nonsense is going in some of those RtfPipe test files.
+                        */
+                        if (isSeparatorChar)
+                        {
+                            _currentPos--;
+                        }
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
