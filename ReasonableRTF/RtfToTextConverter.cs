@@ -2522,6 +2522,7 @@ public sealed class RtfToTextConverter
                         _symbolFontNameBuffer.ClearFast();
 
                         int originalPos = _currentPos;
+                        int originalChunksRead = _chunksRead;
 
                         // Increment the real position instead of a temp one, so that if we get an exception
                         // the error report will contain the real position.
@@ -2540,7 +2541,29 @@ public sealed class RtfToTextConverter
                         require seeking backwards by an arbitrary (bounded by 32768, so essentially arbitrary)
                         amount.
                         */
-                        //_currentPos = originalPos;
+                        if (originalChunksRead == _chunksRead)
+                        {
+                            _currentPos = originalPos;
+                        }
+                        else
+                        {
+                            /*
+                            @Stream2026: Do some catastrophically horrible fallback path here.
+                            Remember we can't even read back a block even if we wanted to, because we might have
+                            a forward-only stream.
+                            We'll have to take the data in our symbol font name buffer and insert it back into
+                            the buffer I guess, somehow.
+                            Either that or dig into exactly what we're accomplishing here and express it in a
+                            different way. I think what we're doing is getting the name, and then backing up and
+                            allowing the name to now just be regular rtf so that we can parse it as such if there
+                            are \ { } chars in it. I think this is either allowing us to tolerate a mismatched
+                            number of open and closing braces in the font table, or else tolerate a font name
+                            that doesn't end with ; maybe?
+                            Why were we trying to support this? Was one of RtfPipe's test files a common situation
+                            we didn't want to fail on? Or if it was obscure and didn't matter then why did we do
+                            it?
+                            */
+                        }
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
