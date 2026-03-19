@@ -281,7 +281,7 @@ sealed partial class MainForm
         ConvertAndWriteValidityTestFiles_Custom_Button.Name = "ConvertAndWriteValidityTestFiles_Custom_Button";
         ConvertAndWriteValidityTestFiles_Custom_Button.Size = new Size(93, 27);
         ConvertAndWriteValidityTestFiles_Custom_Button.TabIndex = 1;
-        ConvertAndWriteValidityTestFiles_Custom_Button.Text = "Custom";
+        ConvertAndWriteValidityTestFiles_Custom_Button.Text = "Custom *";
         ConvertAndWriteValidityTestFiles_Custom_Button.UseVisualStyleBackColor = true;
         ConvertAndWriteValidityTestFiles_Custom_Button.Click += ConvertAndWriteValidityTestFiles_Custom_Button_Click;
         // 
@@ -326,7 +326,7 @@ sealed partial class MainForm
         WriteWorkingNewSetCustomButton.Name = "WriteWorkingNewSetCustomButton";
         WriteWorkingNewSetCustomButton.Size = new Size(93, 27);
         WriteWorkingNewSetCustomButton.TabIndex = 1;
-        WriteWorkingNewSetCustomButton.Text = "Custom";
+        WriteWorkingNewSetCustomButton.Text = "Custom *";
         WriteWorkingNewSetCustomButton.UseVisualStyleBackColor = true;
         WriteWorkingNewSetCustomButton.Click += WriteWorkingNewSetCustomButton_Click;
         // 
