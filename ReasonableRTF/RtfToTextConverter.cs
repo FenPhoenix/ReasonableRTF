@@ -2548,7 +2548,7 @@ public sealed class RtfToTextConverter
                         require seeking backwards by an arbitrary (bounded by 32768, so essentially arbitrary)
                         amount.
                         */
-                        _currentPos = originalPos;
+                        //_currentPos = originalPos;
 
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
