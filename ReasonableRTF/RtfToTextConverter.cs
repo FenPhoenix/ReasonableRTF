@@ -3895,7 +3895,142 @@ public sealed class RtfToTextConverter
 
     #endregion
 
+    #region Parse keyword
+
     private RtfError ParseKeyword()
+    {
+        // Add one extra to all the known counts because I can't think whether the read increments will put us
+        // one over or not
+        if (_currentPos < (_rtfBytes.CurrentBufferLength - 1) - (
+                1 + 1 +
+                _keywordMaxLen + 1 + 1 +
+                1 + 1 +
+                _paramMaxLen + 1 + 1
+            ))
+        {
+            return ParseKeyword_Fast();
+        }
+        else
+        {
+            return ParseKeyword_Slow();
+        }
+    }
+
+    /*
+    If we're going to sledgehammer-dupe one function, this is the most effective one:
+    -61% of array-get calls are coming from this function
+    -We know the maximum number of reads we're going to do, which means we can avoid array checks on both paths,
+     so both get faster
+    -It's not objectionably long
+    */
+    private RtfError ParseKeyword_Fast()
+    {
+        bool hasParam = false;
+        int param = 0;
+        Symbol? symbol;
+
+        char ch = (char)_rtfBytes.Array[IncrementCurrentPos()];
+
+        char[] keyword = _keyword;
+
+        if (!char.IsAsciiLetter(ch))
+        {
+            /*
+            From the spec:
+            "A control symbol consists of a backslash followed by a single, non-alphabetical character.
+            For example, \~ (backslash tilde) represents a non-breaking space. Control symbols do not have
+            delimiters, i.e., a space following a control symbol is treated as text, not a delimiter."
+
+            So just go straight to dispatching without looking for a param and without eating the space.
+            */
+
+            // Fast path for destination marker - claws us back a small amount of perf
+            if (ch == '*')
+            {
+                _skipDestinationIfUnknown = true;
+                return RtfError.OK;
+            }
+
+            symbol = _symbols.LookUpControlSymbol(ch);
+        }
+        else
+        {
+            int keywordCount;
+            for (keywordCount = 0;
+                 keywordCount < _keywordMaxLen + 1 && char.IsAsciiLetter(ch);
+                 keywordCount++, ch = (char)_rtfBytes.Array[IncrementCurrentPos()])
+            {
+                keyword[keywordCount] = ch;
+            }
+            if (keywordCount > _keywordMaxLen)
+            {
+                return RtfError.KeywordTooLong;
+            }
+
+            int negateParam = 0;
+            if (ch == '-')
+            {
+                negateParam = 1;
+                ch = (char)_rtfBytes.Array[IncrementCurrentPos()];
+            }
+            if (char.IsAsciiDigit(ch))
+            {
+                hasParam = true;
+                checked
+                {
+                    try
+                    {
+                        int i;
+                        for (i = 0;
+                             i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                             i++, ch = (char)_rtfBytes.Array[IncrementCurrentPos()])
+                        {
+                            param = (param * 10) + (ch - '0');
+                        }
+                        if (i > _paramMaxLen)
+                        {
+                            return RtfError.ParameterOutOfRange;
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        return RtfError.ParameterOutOfRange;
+                    }
+                }
+                // This negate is safe, because int max negated is -2147483647, and int min is -2147483648
+                param = BranchlessConditionalNegate(param, negateParam);
+            }
+
+            /*
+            From the spec:
+            "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI characters)
+            that is not counted in the characters to skip."
+            This implements the spec for regular control words and \uN alike. Nothing extra needed for removing
+            the space from the skip-chars to count.
+            */
+            // Current position will be > 0 at this point, so a decrement is always safe
+            _currentPos += MinusOneIfNotSpace_8Bits(ch);
+
+            symbol = _symbols.LookUpControlWord(keyword, keywordCount);
+        }
+
+        if (symbol == null)
+        {
+            // If this is a new destination
+            if (_skipDestinationIfUnknown)
+            {
+                _groupStack.CurrentSkipDest = true;
+            }
+            _skipDestinationIfUnknown = false;
+            return RtfError.OK;
+        }
+
+        _skipDestinationIfUnknown = false;
+
+        return DispatchKeyword(symbol, param, hasParam);
+    }
+
+    private RtfError ParseKeyword_Slow()
     {
         bool hasParam = false;
         int param = 0;
@@ -4001,6 +4136,8 @@ public sealed class RtfToTextConverter
 
         return DispatchKeyword(symbol, param, hasParam);
     }
+
+    #endregion
 
     private RtfError HandleSkippableHexData(int param)
     {
