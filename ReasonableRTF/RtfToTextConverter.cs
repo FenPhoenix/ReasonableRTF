@@ -4256,7 +4256,7 @@ public sealed class RtfToTextConverter
             ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_rtfBytes.CurrentBufferLength - _leadingBufferByteCount]);
             Unsafe.WriteUnaligned(ref _rtfBytes.Array[0], endChunk);
 
-            int bytesRead = _bufferedStream.Read(_rtfBytes.Array, _leadingBufferByteCount, _rtfBytes.Length - _leadingBufferByteCount);
+            int bytesRead = _bufferedStream.ReadAll(_rtfBytes.Array, _leadingBufferByteCount, _rtfBytes.Length - _leadingBufferByteCount);
 
             // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
             if (bytesRead == 0)

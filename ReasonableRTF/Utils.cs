@@ -61,28 +61,19 @@ internal static class Utils
         return charBuffer;
     }
 
-    /// <summary>
-    /// Reads exactly bytesToRead out of stream, unless it is out of bytes.
-    /// </summary>
-    internal static void ReadAll(this Stream stream, byte[] buffer, int bytesToRead)
+    internal static int ReadAll(this Stream stream, byte[] buffer, int offset, int count)
     {
-        // NOTE: .NET versions 7 and later have a built-in method for this (ReadExactly), but earlier versions
-        // and Framework require a custom-implemented one.
-#if NET7_0_OR_GREATER
-        stream.ReadExactly(buffer, 0, bytesToRead);
-#else
-        int bytesLeftToRead = bytesToRead;
-
-        int totalBytesRead = 0;
-
-        while (bytesLeftToRead > 0)
+        int bytesReadRet = 0;
+        int startPosThisRound = offset;
+        while (true)
         {
-            int bytesRead = stream.Read(buffer, totalBytesRead, bytesLeftToRead);
-            if (bytesRead == 0) ThrowHelper.IOException("Unexpected end of stream.");
-
-            totalBytesRead += bytesRead;
-            bytesLeftToRead -= bytesRead;
+            int bytesRead = stream.Read(buffer, startPosThisRound, count);
+            if (bytesRead <= 0) break;
+            bytesReadRet += bytesRead;
+            startPosThisRound += bytesRead;
+            count -= bytesRead;
         }
-#endif
+
+        return bytesReadRet;
     }
 }

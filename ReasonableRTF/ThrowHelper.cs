@@ -14,11 +14,5 @@ internal static class ThrowHelper
     internal static void ArgumentException(string? message, string? paramName) => throw new ArgumentException(message, paramName);
 
     [DoesNotReturn]
-    internal static void IOException(string message) => throw new IOException(message);
-
-    [DoesNotReturn]
-    internal static void EndOfStreamException(string message) => throw new EndOfStreamException(message);
-
-    [DoesNotReturn]
     internal static void UnmatchedBraceException() => throw new UnmatchedBraceException();
 }
