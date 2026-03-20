@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace ReasonableRTF;
+﻿namespace ReasonableRTF;
 
 #region Private
 
@@ -83,7 +81,6 @@ internal enum SymbolFont : byte
 
 #region Public
 
-[PublicAPI]
 public enum RtfError : byte
 {
     /// <summary>
@@ -124,7 +121,6 @@ public enum RtfError : byte
     UnexpectedError,
 }
 
-[PublicAPI]
 public enum SymbolFontA0Char
 {
     EuroSign,
@@ -132,7 +128,6 @@ public enum SymbolFontA0Char
     Unassigned,
 }
 
-[PublicAPI]
 public enum LineBreakStyle
 {
     /// <summary>

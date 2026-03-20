@@ -1,8 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿namespace ReasonableRTF;
 
-namespace ReasonableRTF;
-
-[PublicAPI]
 public sealed class RtfToTextConverterOptions
 {
     /// <summary>

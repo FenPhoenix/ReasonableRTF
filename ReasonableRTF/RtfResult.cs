@@ -1,9 +1,7 @@
 ﻿using System.Globalization;
-using JetBrains.Annotations;
 
 namespace ReasonableRTF;
 
-[PublicAPI]
 public readonly struct RtfResult
 {
     internal RtfResult(RtfError error, int bytePositionOfError, Exception? exception)

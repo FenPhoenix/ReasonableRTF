@@ -10,11 +10,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 
 namespace ReasonableRTF;
 
-[PublicAPI]
 public static class RTF_SymbolListGenSource
 {
     // This is the original "canonical" list, generate the perfect hash from this
