@@ -23,8 +23,10 @@ public sealed partial class MainForm : Form
     private const string _outputWorkingNewSetCustomDir = "Output_WorkingNewSet_Custom";
     private const string _outputWorkingNewSetRichTextBoxDir = "Output_WorkingNewSet_RichTextBox";
 
-    private const string DeflateStreamTestFullFileName = "DeflateStreamTest_Full.zip";
-    private const string DeflateStreamTestSmallFileName = "DeflateStreamTest_Small.zip";
+    private const string DeflateStreamTest_Full_FileName = "DeflateStreamTest_Full.zip";
+    private const string DeflateStreamTest_Small_FileName = "DeflateStreamTest_Small.zip";
+    private const string DeflateStreamTest_Validity_Test_Files_FileName = "DeflateStreamTest_Validity_Test_Files.zip";
+    private const string DeflateStreamTest_WorkingNewSet_FileName = "DeflateStreamTest_WorkingNewSet.zip";
 
     private enum SourceSet
     {
@@ -286,8 +288,10 @@ public sealed partial class MainForm : Form
 
     private static string GetDeflateStreamTestFileName(SourceSet sourceSet) => sourceSet switch
     {
-        SourceSet.Full => DeflateStreamTestFullFileName,
-        SourceSet.Small => DeflateStreamTestSmallFileName,
+        SourceSet.Full => DeflateStreamTest_Full_FileName,
+        SourceSet.Small => DeflateStreamTest_Small_FileName,
+        SourceSet.ValidityTest => DeflateStreamTest_Validity_Test_Files_FileName,
+        SourceSet.WorkingNewSet => DeflateStreamTest_WorkingNewSet_FileName,
         _ => throw new Exception("No deflate stream test file for the set " + sourceSet),
     };
 
