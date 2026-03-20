@@ -2950,7 +2950,7 @@ public sealed class RtfToTextConverter
         including bin and its data" thing means we get simpler and faster.
         */
         int numToSkip = _groupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
-        while (numToSkip > 0)
+        while (numToSkip > 0 && !_reachedEndOfStream)
         {
             char c = (char)_rtfBytes[IncrementCurrentPos()];
             switch (c)
