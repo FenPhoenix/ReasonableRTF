@@ -2540,7 +2540,7 @@ public sealed class RtfToTextConverter
 
                         where we should stop at the { instead of the ; so we get the name right.
 
-                        Also whatever nonsense is going in some of those RtfPipe test files.
+                        Also whatever nonsense is going on in some of those RtfPipe test files.
                         */
                         if (isSeparatorChar)
                         {
