@@ -34,6 +34,7 @@ Here is how to convert an RTF byte array to a plain text string:
 
 ```cs
 using ReasonableRTF;
+using ReasonableRTF.Models;
 using System.IO;
 
 // ...

@@ -2,6 +2,8 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO.Compression;
 using ReasonableRTF;
+using ReasonableRTF.Enums;
+using ReasonableRTF.Models;
 
 namespace ReasonableRTF_TestApp;
 
