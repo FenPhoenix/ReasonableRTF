@@ -53,7 +53,6 @@ sealed partial class MainForm
         WriteWorkingNewSetRTBButton = new Button();
         WriteWorkingNewSetCustomButton = new Button();
         ConvertSourceGroupBox = new GroupBox();
-        Convert_ChunkedStreamRadioButton = new RadioButton();
         Convert_DeflateStreamRadioButton = new RadioButton();
         Convert_FileStreamRadioButton = new RadioButton();
         Convert_MemoryStreamRadioButton = new RadioButton();
@@ -333,7 +332,6 @@ sealed partial class MainForm
         // 
         // ConvertSourceGroupBox
         // 
-        ConvertSourceGroupBox.Controls.Add(Convert_ChunkedStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_DeflateStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_FileStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_MemoryStreamRadioButton);
@@ -345,22 +343,10 @@ sealed partial class MainForm
         ConvertSourceGroupBox.TabStop = false;
         ConvertSourceGroupBox.Text = "Convert source (applies only to buttons marked with *)";
         // 
-        // Convert_ChunkedStreamRadioButton
-        // 
-        Convert_ChunkedStreamRadioButton.AutoSize = true;
-        Convert_ChunkedStreamRadioButton.Checked = true;
-        Convert_ChunkedStreamRadioButton.Location = new Point(312, 24);
-        Convert_ChunkedStreamRadioButton.Name = "Convert_ChunkedStreamRadioButton";
-        Convert_ChunkedStreamRadioButton.Size = new Size(112, 19);
-        Convert_ChunkedStreamRadioButton.TabIndex = 3;
-        Convert_ChunkedStreamRadioButton.TabStop = true;
-        Convert_ChunkedStreamRadioButton.Text = "Chunked stream";
-        Convert_ChunkedStreamRadioButton.UseVisualStyleBackColor = true;
-        // 
         // Convert_DeflateStreamRadioButton
         // 
         Convert_DeflateStreamRadioButton.AutoSize = true;
-        Convert_DeflateStreamRadioButton.Location = new Point(440, 24);
+        Convert_DeflateStreamRadioButton.Location = new Point(312, 24);
         Convert_DeflateStreamRadioButton.Name = "Convert_DeflateStreamRadioButton";
         Convert_DeflateStreamRadioButton.Size = new Size(99, 19);
         Convert_DeflateStreamRadioButton.TabIndex = 4;
@@ -380,10 +366,12 @@ sealed partial class MainForm
         // Convert_MemoryStreamRadioButton
         // 
         Convert_MemoryStreamRadioButton.AutoSize = true;
+        Convert_MemoryStreamRadioButton.Checked = true;
         Convert_MemoryStreamRadioButton.Location = new Point(104, 24);
         Convert_MemoryStreamRadioButton.Name = "Convert_MemoryStreamRadioButton";
         Convert_MemoryStreamRadioButton.Size = new Size(107, 19);
         Convert_MemoryStreamRadioButton.TabIndex = 1;
+        Convert_MemoryStreamRadioButton.TabStop = true;
         Convert_MemoryStreamRadioButton.Text = "MemoryStream";
         Convert_MemoryStreamRadioButton.UseVisualStyleBackColor = true;
         // 
@@ -460,6 +448,5 @@ sealed partial class MainForm
     private RadioButton Convert_FileStreamRadioButton;
     private RadioButton Convert_MemoryStreamRadioButton;
     private RadioButton Convert_ByteArrayRadioButton;
-    private RadioButton Convert_ChunkedStreamRadioButton;
     private RadioButton Convert_DeflateStreamRadioButton;
 }

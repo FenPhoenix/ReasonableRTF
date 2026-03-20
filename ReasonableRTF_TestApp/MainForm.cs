@@ -228,6 +228,7 @@ public sealed partial class MainForm : Form
                 {
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
+                        //Trace.WriteLine(rtfFiles[i]);
                         _ = rtfConverter.Convert(memoryStreams[i]);
                     }
                 }
@@ -266,33 +267,6 @@ public sealed partial class MainForm : Form
                 }
             }
         }
-        else if (Convert_ChunkedStreamRadioButton.Checked)
-        {
-            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
-            try
-            {
-                for (int i = 0; i < byteArrays.Length; i++)
-                {
-                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
-                }
-
-                using (new TimingScope(totalSize))
-                {
-                    for (int i = 0; i < memoryStreams.Length; i++)
-                    {
-                        //Trace.WriteLine(rtfFiles[i]);
-                        _ = rtfConverter.ConvertStreaming(memoryStreams[i]);
-                    }
-                }
-            }
-            finally
-            {
-                foreach (MemoryStream ms in memoryStreams)
-                {
-                    ms.Dispose();
-                }
-            }
-        }
         else if (Convert_DeflateStreamRadioButton.Checked)
         {
             string zipFile = Path.Combine(DataDirTextBox.Text, GetDeflateStreamTestFileName(sourceSet));
@@ -304,7 +278,7 @@ public sealed partial class MainForm : Form
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
                     using Stream es = entry.Open();
-                    _ = rtfConverter.ConvertStreaming(es);
+                    _ = rtfConverter.Convert(es);
                 }
             }
         }
@@ -392,7 +366,7 @@ public sealed partial class MainForm : Form
         using var fs = File.OpenRead(finalFile);
         //byte[] array = new byte[fs.Length];
         //fs.ReadExactly(array, 0, (int)fs.Length);
-        RtfResult result = rtfConverter.ConvertStreaming(fs);
+        RtfResult result = rtfConverter.Convert(fs);
         Trace.WriteLine(result.ToString());
         if (write)
         {
@@ -478,8 +452,17 @@ public sealed partial class MainForm : Form
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
                         string f = rtfFiles[i];
-                        RtfResult result = rtfConverter.Convert(memoryStreams[i]);
-                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                        Trace.WriteLine(f);
+                        using var fs = File.OpenRead(f);
+                        //if (f.Contains("WayoftheSword"))
+                        {
+                            RtfResult result = rtfConverter.Convert(fs);
+                            if (result.Error != RtfError.OK)
+                            {
+                                Trace.WriteLine(result);
+                            }
+                            WritePlaintextFile(f, result.Text, outputDir, sourceSet);
+                        }
                     }
                 }
             }
@@ -519,43 +502,6 @@ public sealed partial class MainForm : Form
                 }
             }
         }
-        else if (Convert_ChunkedStreamRadioButton.Checked)
-        {
-            MemoryStream[] memoryStreams = new MemoryStream[byteArrays.Length];
-            try
-            {
-                for (int i = 0; i < byteArrays.Length; i++)
-                {
-                    memoryStreams[i] = new MemoryStream(byteArrays[i]);
-                }
-
-                using (new TimingScope(totalSize))
-                {
-                    for (int i = 0; i < memoryStreams.Length; i++)
-                    {
-                        string f = rtfFiles[i];
-                        Trace.WriteLine(f);
-                        using var fs = File.OpenRead(f);
-                        //if (f.Contains("WayoftheSword"))
-                        {
-                            RtfResult result = rtfConverter.ConvertStreaming(fs);
-                            if (result.Error != RtfError.OK)
-                            {
-                                Trace.WriteLine(result);
-                            }
-                            WritePlaintextFile(f, result.Text, outputDir, sourceSet);
-                        }
-                    }
-                }
-            }
-            finally
-            {
-                foreach (MemoryStream ms in memoryStreams)
-                {
-                    ms.Dispose();
-                }
-            }
-        }
         else if (Convert_DeflateStreamRadioButton.Checked)
         {
             string setDir = GetRtfSetDir(sourceSet);
@@ -569,7 +515,7 @@ public sealed partial class MainForm : Form
                 {
                     string f = Path.Combine(setDir, entry.Name);
                     using Stream es = entry.Open();
-                    RtfResult result = rtfConverter.ConvertStreaming(es);
+                    RtfResult result = rtfConverter.Convert(es);
                     WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                 }
             }

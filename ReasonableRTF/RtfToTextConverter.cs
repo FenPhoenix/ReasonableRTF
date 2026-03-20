@@ -1844,115 +1844,7 @@ public sealed class RtfToTextConverter
         _fldinstSymbolFontName = new ListFast<char>(32);
     }
 
-    /// <summary>
-    /// Converts an RTF file into plain text.
-    /// </summary>
-    /// <param name="fileName">The path to the RTF file to convert.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    [PublicAPI]
-    public RtfResult Convert(string fileName)
-    {
-        byte[] bytes = File.ReadAllBytes(fileName);
-        return Convert(bytes, bytes.Length, _defaultOptions);
-    }
-
-    /// <summary>
-    /// Converts an RTF file into plain text.
-    /// </summary>
-    /// <param name="fileName">The path to the RTF file to convert.</param>
-    /// <param name="options">A set of options.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    [PublicAPI]
-    public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
-    {
-        byte[] bytes = File.ReadAllBytes(fileName);
-        return Convert(bytes, bytes.Length, options);
-    }
-
-    /// <summary>
-    /// Converts an RTF stream into plain text.
-    /// </summary>
-    /// <param name="stream">The RTF stream to convert.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    [PublicAPI]
-    public RtfResult Convert(Stream stream)
-    {
-        return ConvertInternal_Stream(stream, _defaultOptions);
-    }
-
-    /// <summary>
-    /// Converts an RTF stream into plain text.
-    /// </summary>
-    /// <param name="stream">The RTF stream to convert.</param>
-    /// <param name="options">A set of options.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    [PublicAPI]
-    public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
-    {
-        return ConvertInternal_Stream(stream, options);
-    }
-
-    // TODO: Test this with different kinds of streams.
-
-    private RtfResult ConvertInternal_Stream(Stream stream, RtfToTextConverterOptions options)
-    {
-        byte[] bytes;
-        int length;
-
-        if (stream is MemoryStream ms)
-        {
-            length = CheckAndGetLength(ms);
-            bytes = GetMemoryStreamBytes(ms);
-        }
-        else if (stream is FileStream fs)
-        {
-            length = CheckAndGetLength(fs);
-            bytes = new byte[length];
-            fs.ReadAll(bytes, length);
-        }
-        else
-        {
-            using MemoryStream tempMemStream = new();
-            stream.CopyTo(tempMemStream);
-            tempMemStream.Seek(0, SeekOrigin.Begin);
-            length = CheckAndGetLength(tempMemStream);
-            bytes = GetMemoryStreamBytes(tempMemStream);
-        }
-
-        return Convert(bytes, length, options);
-
-        #region Local functions
-
-        static int CheckAndGetLength(Stream stream)
-        {
-            long streamLength = stream.Length;
-
-            if (streamLength > int.MaxValue)
-            {
-                ThrowHelper.IOException("Stream length was over 2 gigabytes. This is not supported.");
-            }
-
-            int length = (int)streamLength;
-
-            return length;
-        }
-
-        static byte[] GetMemoryStreamBytes(MemoryStream ms)
-        {
-            // We don't support "virtual lower bounds" on arrays - only upper. I mean we could support lower, but
-            // that's an extra bounds check on every access and all, so meh.
-            if (ms.TryGetBuffer(out ArraySegment<byte> buffer) && buffer is { Array: not null, Offset: 0 })
-            {
-                return buffer.Array;
-            }
-            else
-            {
-                return ms.ToArray();
-            }
-        }
-
-        #endregion
-    }
+    #region Byte array
 
     /// <summary>
     /// Converts a byte array of RTF data into plain text.
@@ -2002,49 +1894,133 @@ public sealed class RtfToTextConverter
         return ConvertInternal(source, length, options, null, _defaultStreamBufferSize);
     }
 
+    #endregion
+
+    #region Filename
+
     /// <summary>
-    /// Converts a stream of RTF data into plain text. Converts in a streaming fashion; slower but uses less memory.
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
+    public RtfResult Convert(string fileName)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
+    public RtfResult Convert(string fileName, int bufferSize)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, bufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
+    public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    [PublicAPI]
+    public RtfResult Convert(string fileName, int bufferSize, RtfToTextConverterOptions options)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, bufferSize);
+    }
+
+    #endregion
+
+    #region Stream
+
+    /// <summary>
+    /// Converts a stream of RTF data into plain text.
     /// </summary>
     /// <param name="stream">A stream containing the RTF to convert.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult ConvertStreaming(Stream stream)
+    [PublicAPI]
+    public RtfResult Convert(Stream stream)
     {
         return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, _defaultStreamBufferSize);
     }
 
     /// <summary>
-    /// Converts a stream of RTF data into plain text. Converts in a streaming fashion; slower but uses less memory.
+    /// Converts a stream of RTF data into plain text.
     /// </summary>
     /// <param name="stream">A stream containing the RTF to convert.</param>
-    /// <param name="bufferSize">The size of the stream buffer.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult ConvertStreaming(Stream stream, int bufferSize)
+    [PublicAPI]
+    public RtfResult Convert(Stream stream, int bufferSize)
     {
-        return ConvertInternal(Array.Empty<byte>(), bufferSize, _defaultOptions, stream, bufferSize);
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, bufferSize);
     }
 
     /// <summary>
-    /// Converts a stream of RTF data into plain text. Converts in a streaming fashion; slower but uses less memory.
+    /// Converts a stream of RTF data into plain text.
     /// </summary>
     /// <param name="stream">A stream containing the RTF to convert.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult ConvertStreaming(Stream stream, RtfToTextConverterOptions options)
+    [PublicAPI]
+    public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
     {
-        return ConvertInternal(Array.Empty<byte>(), _defaultStreamBufferSize, options, stream, _defaultStreamBufferSize);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, _defaultStreamBufferSize);
     }
 
     /// <summary>
-    /// Converts a stream of RTF data into plain text. Converts in a streaming fashion; slower but uses less memory.
+    /// Converts a stream of RTF data into plain text.
     /// </summary>
     /// <param name="stream">A stream containing the RTF to convert.</param>
-    /// <param name="bufferSize">The size of the stream buffer.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult ConvertStreaming(Stream stream, int bufferSize, RtfToTextConverterOptions options)
+    [PublicAPI]
+    public RtfResult Convert(Stream stream, int bufferSize, RtfToTextConverterOptions options)
     {
-        return ConvertInternal(Array.Empty<byte>(), bufferSize, options, stream, bufferSize);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, bufferSize);
     }
+
+    #endregion
+
+    /// <summary>
+    /// Resets all buffers back to default capacity, releasing excess memory.
+    /// </summary>
+    [PublicAPI]
+    public void ResetMemory()
+    {
+        _groupStack.ResetCapacityIfTooHigh();
+        _plainText.HardReset(4096);
+        _fontEntries.ClearFull(32);
+        _hexBuffer.HardReset(32);
+        _unicodeBuffer.HardReset(32);
+        _symbolFontNameBuffer.HardReset(32);
+        _encodings.Reset(32);
+        _fldinstSymbolFontName.HardReset(32);
+    }
+
+    #endregion
 
     private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
     {
@@ -2165,24 +2141,6 @@ public sealed class RtfToTextConverter
             _bufferedStream = null;
         }
     }
-
-    /// <summary>
-    /// Resets all buffers back to default capacity, releasing excess memory.
-    /// </summary>
-    [PublicAPI]
-    public void ResetMemory()
-    {
-        _groupStack.ResetCapacityIfTooHigh();
-        _plainText.HardReset(4096);
-        _fontEntries.ClearFull(32);
-        _hexBuffer.HardReset(32);
-        _unicodeBuffer.HardReset(32);
-        _symbolFontNameBuffer.HardReset(32);
-        _encodings.Reset(32);
-        _fldinstSymbolFontName.HardReset(32);
-    }
-
-    #endregion
 
     private bool IsValidRtfFile()
     {
