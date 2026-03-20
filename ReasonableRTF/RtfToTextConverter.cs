@@ -76,6 +76,7 @@ public sealed class RtfToTextConverter
 
     private const int _defaultStreamBufferSize = 81920;
     private const int _maxSeekBackBytes = 8;
+    private const int _minimumBufferSize = _maxSeekBackBytes * 2;
 
     #endregion
 
@@ -2061,14 +2062,14 @@ public sealed class RtfToTextConverter
         else
         {
             _bufferedStream = chunkedStream;
-            bufferSize = Math.Max(bufferSize, 16);
+            bufferSize = Math.Max(bufferSize, _minimumBufferSize);
 
             if (_streamBuffer.Length != bufferSize)
             {
                 _streamBuffer = new byte[bufferSize];
             }
             _rtfBytes.Set(_streamBuffer, bufferSize);
-            _leadingBufferByteCount = 8;
+            _leadingBufferByteCount = _maxSeekBackBytes;
         }
 
         SetOptions(options, _options);
@@ -4292,8 +4293,8 @@ public sealed class RtfToTextConverter
             // to have an enforced minimum.
             Debug.Assert(_rtfBytes.Array.Length >= _maxSeekBackBytes);
 
-            // On the last chunk, we may have fewer than 8 bytes, but we aren't going to use the copied garbage
-            // in that case because we'll throw for attempt to read past end of stream.
+            // On the last chunk, we may have fewer than _maxSeekBackBytes bytes, but we aren't going to use the
+            // copied garbage in that case because we'll throw for attempt to read past end of stream.
             ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_rtfBytes.CurrentBufferLength - _leadingBufferByteCount]);
             Unsafe.WriteUnaligned(ref _rtfBytes.Array[0], endChunk);
 
