@@ -22,12 +22,10 @@
  * SOFTWARE.
 */
 
-using JetBrains.Annotations;
 using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models;
 
-[PublicAPI]
 public sealed class RtfToTextConverterOptions
 {
     /// <summary>

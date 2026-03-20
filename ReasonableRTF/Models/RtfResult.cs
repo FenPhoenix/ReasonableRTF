@@ -23,12 +23,10 @@
 */
 
 using System.Globalization;
-using JetBrains.Annotations;
 using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models;
 
-[PublicAPI]
 public readonly struct RtfResult
 {
     internal RtfResult(RtfError error, int bytePositionOfError, Exception? exception)

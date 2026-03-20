@@ -22,11 +22,8 @@
  * SOFTWARE.
 */
 
-using JetBrains.Annotations;
-
 namespace ReasonableRTF.Enums;
 
-[PublicAPI]
 public enum RtfError : byte
 {
     /// <summary>
