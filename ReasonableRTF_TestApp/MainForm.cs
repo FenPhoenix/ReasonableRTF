@@ -647,16 +647,16 @@ public sealed partial class MainForm : Form
         long fullBytes = GetDirectorySize(SourceSet.Full);
         long smallBytes = GetDirectorySize(SourceSet.Small);
 
-        Trace.WriteLine("RTB Full MB/s: " + GetMBsString(fullBytes, 3289.519));
+        Trace.WriteLine("RTB Full MB/s: " + GetMBsString(fullBytes, 3283.327));
 
-        Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1419.884));
+        Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1413.536));
 
-        Trace.WriteLine("RC Full (Streamable/Array) MB/s: " + GetMBsString(fullBytes, 31.410));
+        Trace.WriteLine("RC Full (Streamable/Array) MB/s: " + GetMBsString(fullBytes, 30.770));
 
-        Trace.WriteLine("RC Small (Streamable/Array) MB/s: " + GetMBsString(smallBytes, 8.877));
+        Trace.WriteLine("RC Small (Streamable/Array) MB/s: " + GetMBsString(smallBytes, 8.690));
 
-        Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 33.260));
+        Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 33.416));
 
-        Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 9.044));
+        Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 9.149));
     }
 }
