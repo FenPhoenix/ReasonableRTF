@@ -24,22 +24,21 @@
 
 using JetBrains.Annotations;
 
-namespace ReasonableRTF.Enums
+namespace ReasonableRTF.Enums;
+
+[PublicAPI]
+public enum LineBreakStyle
 {
-    [PublicAPI]
-    public enum LineBreakStyle
-    {
-        /// <summary>
-        /// Uses the line break style of the platform you're running on.
-        /// </summary>
-        EnvironmentDefault,
-        /// <summary>
-        /// Uses Windows-style line breaks.
-        /// </summary>
-        CRLF,
-        /// <summary>
-        /// Uses Unix-style line breaks.
-        /// </summary>
-        LF,
-    }
+    /// <summary>
+    /// Uses the line break style of the platform you're running on.
+    /// </summary>
+    EnvironmentDefault,
+    /// <summary>
+    /// Uses Windows-style line breaks.
+    /// </summary>
+    CRLF,
+    /// <summary>
+    /// Uses Unix-style line breaks.
+    /// </summary>
+    LF,
 }

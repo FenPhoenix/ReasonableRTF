@@ -24,13 +24,12 @@
 
 using JetBrains.Annotations;
 
-namespace ReasonableRTF.Enums
+namespace ReasonableRTF.Enums;
+
+[PublicAPI]
+public enum SymbolFontA0Char
 {
-    [PublicAPI]
-    public enum SymbolFontA0Char
-    {
-        EuroSign,
-        NumericSpace,
-        Unassigned,
-    }
+    EuroSign,
+    NumericSpace,
+    Unassigned,
 }

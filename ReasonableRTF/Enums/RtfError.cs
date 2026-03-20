@@ -24,46 +24,45 @@
 
 using JetBrains.Annotations;
 
-namespace ReasonableRTF.Enums
+namespace ReasonableRTF.Enums;
+
+[PublicAPI]
+public enum RtfError : byte
 {
-    [PublicAPI]
-    public enum RtfError : byte
-    {
-        /// <summary>
-        /// No error.
-        /// </summary>
-        OK,
-        /// <summary>
-        /// The file did not have a valid rtf header.
-        /// </summary>
-        NotAnRtfFile,
-        /// <summary>
-        /// Unmatched '}'.
-        /// </summary>
-        StackUnderflow,
-        /// <summary>
-        /// Unmatched '{'.
-        /// </summary>
-        UnmatchedBrace,
-        /// <summary>
-        /// End of file was unexpectedly encountered while parsing.
-        /// </summary>
-        UnexpectedEndOfFile,
-        /// <summary>
-        /// A keyword longer than 32 characters was encountered.
-        /// </summary>
-        KeywordTooLong,
-        /// <summary>
-        /// A keyword parameter was outside the range of -2147483648 to 2147483647, or was longer than 10 characters.
-        /// </summary>
-        ParameterOutOfRange,
-        /// <summary>
-        /// The rtf was malformed in such a way that it might have been unsafe to continue parsing it (infinite loops, stack overflows, etc.)
-        /// </summary>
-        AbortedForSafety,
-        /// <summary>
-        /// An unexpected error occurred.
-        /// </summary>
-        UnexpectedError,
-    }
+    /// <summary>
+    /// No error.
+    /// </summary>
+    OK,
+    /// <summary>
+    /// The file did not have a valid rtf header.
+    /// </summary>
+    NotAnRtfFile,
+    /// <summary>
+    /// Unmatched '}'.
+    /// </summary>
+    StackUnderflow,
+    /// <summary>
+    /// Unmatched '{'.
+    /// </summary>
+    UnmatchedBrace,
+    /// <summary>
+    /// End of file was unexpectedly encountered while parsing.
+    /// </summary>
+    UnexpectedEndOfFile,
+    /// <summary>
+    /// A keyword longer than 32 characters was encountered.
+    /// </summary>
+    KeywordTooLong,
+    /// <summary>
+    /// A keyword parameter was outside the range of -2147483648 to 2147483647, or was longer than 10 characters.
+    /// </summary>
+    ParameterOutOfRange,
+    /// <summary>
+    /// The rtf was malformed in such a way that it might have been unsafe to continue parsing it (infinite loops, stack overflows, etc.)
+    /// </summary>
+    AbortedForSafety,
+    /// <summary>
+    /// An unexpected error occurred.
+    /// </summary>
+    UnexpectedError,
 }

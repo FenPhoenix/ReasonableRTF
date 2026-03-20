@@ -24,20 +24,19 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-namespace ReasonableRTF.Helper
+namespace ReasonableRTF.Helper;
+
+// Total hack so we don't have to return and check a value eight trillion times (perf)
+internal sealed class UnmatchedBraceException : Exception;
+
+internal static class ThrowHelper
 {
-    // Total hack so we don't have to return and check a value eight trillion times (perf)
-    internal sealed class UnmatchedBraceException : Exception;
+    [DoesNotReturn]
+    internal static void IndexOutOfRange() => throw new IndexOutOfRangeException();
 
-    internal static class ThrowHelper
-    {
-        [DoesNotReturn]
-        internal static void IndexOutOfRange() => throw new IndexOutOfRangeException();
+    [DoesNotReturn]
+    internal static void ArgumentException(string? message, string? paramName) => throw new ArgumentException(message, paramName);
 
-        [DoesNotReturn]
-        internal static void ArgumentException(string? message, string? paramName) => throw new ArgumentException(message, paramName);
-
-        [DoesNotReturn]
-        internal static void UnmatchedBraceException() => throw new UnmatchedBraceException();
-    }
+    [DoesNotReturn]
+    internal static void UnmatchedBraceException() => throw new UnmatchedBraceException();
 }

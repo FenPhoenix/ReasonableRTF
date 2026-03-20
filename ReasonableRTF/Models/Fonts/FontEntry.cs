@@ -25,20 +25,19 @@
 using System.Runtime.CompilerServices;
 using ReasonableRTF.Enums;
 
-namespace ReasonableRTF.Models.Fonts
+namespace ReasonableRTF.Models.Fonts;
+
+internal sealed class FontEntry
 {
-    internal sealed class FontEntry
+    internal int CodePage = -1;
+
+    // We need to store names in case we get codepage 42 nonsense, we need to know which font to translate to
+    internal SymbolFont SymbolFont = SymbolFont.Unset;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal void Reset()
     {
-        internal int CodePage = -1;
-
-        // We need to store names in case we get codepage 42 nonsense, we need to know which font to translate to
-        internal SymbolFont SymbolFont = SymbolFont.Unset;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal void Reset()
-        {
-            CodePage = -1;
-            SymbolFont = SymbolFont.Unset;
-        }
+        CodePage = -1;
+        SymbolFont = SymbolFont.Unset;
     }
 }
