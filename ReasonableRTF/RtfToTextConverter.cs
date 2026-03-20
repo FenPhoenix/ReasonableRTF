@@ -2977,7 +2977,7 @@ public sealed class RtfToTextConverter
                         }
                         numToSkip--;
                     }
-                    else if (_rtfBytes[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
+                    else if (_isSeparatorChar[_rtfBytes[_currentPos]])
                     {
                         _ = _rtfBytes[IncrementCurrentPos()];
                         numToSkip--;
