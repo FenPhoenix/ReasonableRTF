@@ -1,9 +1,4 @@
 ﻿/*
-This is a streaming-capable version of ReasonableRTF. Performance is ~6-10% lower than the non-streaming-capable
-version.
-
----
-
 Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
  (it's supposed to be an ellipsis - __MSG_final__FMInfo-De - Copy.rtf has an instance of it)
