@@ -61,7 +61,7 @@ internal sealed class ByteArrayWithLength
         {
             _conv._currentPos--;
             int ret = _conv.IncrementCurrentPos_Stream(_conv._currentPos);
-            if (_conv._currentPos > CurrentBufferLength - 1)
+            if (_conv._currentPos > CurrentBufferLength)
             {
                 if (_conv._groupCount > 0)
                 {
