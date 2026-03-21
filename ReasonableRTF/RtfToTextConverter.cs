@@ -1841,8 +1841,6 @@ public sealed class RtfToTextConverter
 
         InitSymbolFontData();
 
-        ResetHeader();
-
         _plainText = new ListFast<char>(_plainTextDefaultCapacity);
         _fontEntries = new FontDictionary(_internalBufferDefaultCapacity);
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
@@ -2055,7 +2053,10 @@ public sealed class RtfToTextConverter
         _groupStack.ClearFast();
         _groupStack.ResetFirst();
         _fontEntries.Clear();
-        ResetHeader();
+
+        _headerCodePage = 1252;
+        _headerDefaultFontSet = false;
+        _headerDefaultFontNum = 0;
 
         _groupCount = 0;
         _skipDestinationIfUnknown = false;
@@ -2064,23 +2065,16 @@ public sealed class RtfToTextConverter
         _currentPos = _leadingBufferByteCount;
 
         _inHandleSkippableHexData = false;
-
-        #region Fixed-size fields
-
-        // Specific capacity and won't grow; no need to deallocate
-        _fldinstSymbolNumber.ClearFast();
+        _inHandleFontTable = false;
 
         _lastUsedFontWithCodePage42 = NoFontNumber;
-
-        #endregion
 
         _hexBuffer.ClearFast();
         _unicodeBuffer.ClearFast();
         _symbolFontNameBuffer.ClearFast();
-        _plainText.ClearFast();
         _fldinstSymbolFontName.ClearFast();
-
-        _inHandleFontTable = false;
+        _fldinstSymbolNumber.ClearFast();
+        _plainText.ClearFast();
 
         #endregion
 
@@ -2193,14 +2187,6 @@ public sealed class RtfToTextConverter
             SymbolFontA0Char.NumericSpace => '\x2007',
             _ => _unicodeUnknown_Char,
         };
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void ResetHeader()
-    {
-        _headerCodePage = 1252;
-        _headerDefaultFontSet = false;
-        _headerDefaultFontNum = 0;
     }
 
     private RtfError ParseRtf()
