@@ -1729,21 +1729,6 @@ public sealed class RtfToTextConverter
 
     private readonly bool[] _isSeparatorChar = InitIsSeparatorCharBytes();
 
-    private static bool[] InitIsFontSeparatorCharBytes()
-    {
-        bool[] ret = new bool[256];
-        ret['\\'] = true;
-        ret['{'] = true;
-        ret['}'] = true;
-        ret[';'] = true;
-        ret['\r'] = true;
-        ret['\n'] = true;
-        ret['\0'] = true;
-        return ret;
-    }
-
-    private readonly bool[] _isFontSeparatorChar = InitIsFontSeparatorCharBytes();
-
     #endregion
 
     private static readonly SymbolDict _symbols = new();
@@ -2505,9 +2490,11 @@ public sealed class RtfToTextConverter
                     {
                         _symbolFontNameBuffer.ClearFast();
 
-                        bool isSeparatorChar = false;
+                        bool isNonSemicolonSeparatorChar = false;
                         for (int i = 0;
-                             i < _maxSymbolFontNameLength && !(isSeparatorChar = _isFontSeparatorChar[(byte)ch]);
+                             i < _maxSymbolFontNameLength &&
+                             ch != ';' &&
+                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
                              i++, ch = (char)GetByte(IncrementCurrentPos()))
                         {
                             _symbolFontNameBuffer.Add(ch);
@@ -2522,7 +2509,7 @@ public sealed class RtfToTextConverter
 
                         Also whatever nonsense is going on in some of those RtfPipe test files.
                         */
-                        if (isSeparatorChar)
+                        if (isNonSemicolonSeparatorChar)
                         {
                             _currentPos--;
                         }
