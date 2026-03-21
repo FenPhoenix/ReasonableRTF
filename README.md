@@ -108,22 +108,32 @@ RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path), options);
 
 ## Benchmarks
 
+RTB Full MB/s: 43.78 MB/s
+RTB Small MB/s: 2.49 MB/s
+RC Full (Streamable/Array) MB/s: 4693.33 MB/s
+RC Small (Streamable/Array) MB/s: 407.74 MB/s
+RC Full (Streamable/Stream) MB/s: 4277.22 MB/s
+RC Small (Streamable/Stream) MB/s: 388.26 MB/s
+
 ```
 
 BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8037/25H2/2025Update/HudsonValley2)
 AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
-.NET SDK 10.0.200
-  [Host]     : .NET 10.0.4 (10.0.4, 10.0.426.12010), X64 RyuJIT x86-64-v3
-  DefaultJob : .NET 10.0.4 (10.0.4, 10.0.426.12010), X64 RyuJIT x86-64-v3
+.NET SDK 10.0.201
+  [Host]     : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v3
+  DefaultJob : .NET 10.0.5 (10.0.5, 10.0.526.15411), X64 RyuJIT x86-64-v3
 
 
 ```
-| Method                   | Mean         | Error     | StdDev    | Performance |
-|------------------------- |-------------:|----------:|----------:|-------------|
-| RichTextBox_FullSet      | 3,307.722 ms | 7.3919 ms | 6.5527 ms | 1x          |
-| ReasonableRTF_FullSet    |    30.666 ms | 0.0438 ms | 0.0410 ms | 108x        |
-| RichTextBox_NoImageSet   | 1,422.991 ms | 4.8078 ms | 4.4972 ms | 1x          |
-| ReasonableRTF_NoImageSet |     8.376 ms | 0.0197 ms | 0.0184 ms | 170x        |
+| Method                            | Mean         | Error     | StdDev    | Performance  | Performance Multiple |
+|---------------------------------- |-------------:|----------:|----------:|-------------:|----------------------|
+| RichTextBox_FullSet               | 3,316.729 ms | 8.9031 ms | 8.3280 ms |   43.78 MB/s | 1x                   |
+| RichTextBox_NoImageSet            | 1,421.105 ms | 2.5863 ms | 2.4192 ms |    2.49 MB/s | 1x                   |
+| ReasonableRTF_FullSet             |    30.940 ms | 0.0422 ms | 0.0395 ms | 4693.33 MB/s | 107x                 |
+| ReasonableRTF_NoImageSet          |     8.691 ms | 0.0130 ms | 0.0122 ms |  407.74 MB/s | 164x                 |
+| ReasonableRTF_FullSet_Streamed    |    33.950 ms | 0.5634 ms | 0.4994 ms | 4277.22 MB/s | 98x                  |
+| ReasonableRTF_NoImageSet_Streamed |     9.127 ms | 0.0799 ms | 0.0708 ms |  388.26 MB/s | 156x                 |
+
 
 - - -
 
