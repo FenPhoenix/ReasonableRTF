@@ -108,13 +108,6 @@ RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path), options);
 
 ## Benchmarks
 
-RTB Full MB/s: 43.78 MB/s
-RTB Small MB/s: 2.49 MB/s
-RC Full (Streamable/Array) MB/s: 4693.33 MB/s
-RC Small (Streamable/Array) MB/s: 407.74 MB/s
-RC Full (Streamable/Stream) MB/s: 4277.22 MB/s
-RC Small (Streamable/Stream) MB/s: 388.26 MB/s
-
 ```
 
 BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8037/25H2/2025Update/HudsonValley2)
