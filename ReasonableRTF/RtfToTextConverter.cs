@@ -1,4 +1,28 @@
 ﻿/*
+ * MIT License
+ * 
+ * Copyright (c) 2024 Brian Tobin
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+*/
+
+/*
 Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
  (it's supposed to be an ellipsis - __MSG_final__FMInfo-De - Copy.rtf has an instance of it)
@@ -23,9 +47,17 @@ The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext o
 I guess. So we could just leave this out...
 */
 
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
+using ReasonableRTF.Enums;
+using ReasonableRTF.Extensions;
+using ReasonableRTF.Helper;
+using ReasonableRTF.Models;
+using ReasonableRTF.Models.DataTypes;
+using ReasonableRTF.Models.Fonts;
+using ReasonableRTF.Models.Symbols;
 
 namespace ReasonableRTF;
 
@@ -67,11 +99,17 @@ public sealed class RtfToTextConverter
     // Just for robustness, set it to something stupidly high but still small in terms of memory
     private const int _maxSymbolFontNameLength = 32768;
 
+    private const int _defaultStreamBufferSize = 81920;
+    private const int _maxSeekBackBytes = 8;
+    private const int _minimumBufferSize = _maxSeekBackBytes * 2;
+
+    #endregion
+
     // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
     // over-provision.
     private readonly ListFast<char> _charGeneralBuffer = new(20 * 4);
 
-    #endregion
+    private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
 
     #region Tables
 
@@ -84,7 +122,7 @@ public sealed class RtfToTextConverter
 
     private static int[] InitializeCharSetToCodePage()
     {
-        int[] charSetToCodePage = Utils.InitializedArray(_charSetToCodePageLength, -1);
+        int[] charSetToCodePage = UtilHelper.InitializedArray(_charSetToCodePageLength, -1);
 
         charSetToCodePage[0] = 1252;   // "ANSI" (1252)
 
@@ -137,7 +175,7 @@ public sealed class RtfToTextConverter
 
     private static int[] InitializeLangToCodePage()
     {
-        int[] langToCodePage = Utils.InitializedArray(_maxLangNumIndex + 1, -1);
+        int[] langToCodePage = UtilHelper.InitializedArray(_maxLangNumIndex + 1, -1);
 
         /*
         There's a ton more languages than this, but it's not clear what code page they all translate to.
@@ -1720,7 +1758,12 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private ByteArrayWithLength _rtfBytes = ByteArrayWithLength.Empty();
+    private Stream? _bufferedStream;
+
+    private bool _endedStreamOnce;
+    private bool _reachedEndOfStream;
+
+    private int _leadingBufferByteCount;
 
     private bool _skipDestinationIfUnknown;
 
@@ -1728,6 +1771,7 @@ public sealed class RtfToTextConverter
     private int _groupCount;
 
     private int _currentPos;
+    private int _chunksRead;
 
     private bool _inHandleSkippableHexData;
 
@@ -1819,111 +1863,7 @@ public sealed class RtfToTextConverter
         _fldinstSymbolFontName = new ListFast<char>(32);
     }
 
-    /// <summary>
-    /// Converts an RTF file into plain text.
-    /// </summary>
-    /// <param name="fileName">The path to the RTF file to convert.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult Convert(string fileName)
-    {
-        byte[] bytes = File.ReadAllBytes(fileName);
-        return Convert(bytes, bytes.Length, _defaultOptions);
-    }
-
-    /// <summary>
-    /// Converts an RTF file into plain text.
-    /// </summary>
-    /// <param name="fileName">The path to the RTF file to convert.</param>
-    /// <param name="options">A set of options.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
-    {
-        byte[] bytes = File.ReadAllBytes(fileName);
-        return Convert(bytes, bytes.Length, options);
-    }
-
-    /// <summary>
-    /// Converts an RTF stream into plain text.
-    /// </summary>
-    /// <param name="stream">The RTF stream to convert.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult Convert(Stream stream)
-    {
-        return ConvertInternal_Stream(stream, _defaultOptions);
-    }
-
-    /// <summary>
-    /// Converts an RTF stream into plain text.
-    /// </summary>
-    /// <param name="stream">The RTF stream to convert.</param>
-    /// <param name="options">A set of options.</param>
-    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
-    {
-        return ConvertInternal_Stream(stream, options);
-    }
-
-    // TODO: Test this with different kinds of streams.
-
-    private RtfResult ConvertInternal_Stream(Stream stream, RtfToTextConverterOptions options)
-    {
-        byte[] bytes;
-        int length;
-
-        if (stream is MemoryStream ms)
-        {
-            length = CheckAndGetLength(ms);
-            bytes = GetMemoryStreamBytes(ms);
-        }
-        else if (stream is FileStream fs)
-        {
-            length = CheckAndGetLength(fs);
-            bytes = new byte[length];
-            fs.ReadAll(bytes, length);
-        }
-        else
-        {
-            using MemoryStream tempMemStream = new();
-            stream.CopyTo(tempMemStream);
-            tempMemStream.Seek(0, SeekOrigin.Begin);
-            length = CheckAndGetLength(tempMemStream);
-            bytes = GetMemoryStreamBytes(tempMemStream);
-        }
-
-        return Convert(bytes, length, options);
-
-        #region Local functions
-
-        static int CheckAndGetLength(Stream stream)
-        {
-            long streamLength = stream.Length;
-
-            if (streamLength > int.MaxValue)
-            {
-                ThrowHelper.IOException("Stream length was over 2 gigabytes. This is not supported.");
-            }
-
-            int length = (int)streamLength;
-
-            return length;
-        }
-
-        static byte[] GetMemoryStreamBytes(MemoryStream ms)
-        {
-            // We don't support "virtual lower bounds" on arrays - only upper. I mean we could support lower, but
-            // that's an extra bounds check on every access and all, so meh.
-            if (ms.TryGetBuffer(out ArraySegment<byte> buffer) && buffer is { Array: not null, Offset: 0 })
-            {
-                return buffer.Array;
-            }
-            else
-            {
-                return ms.ToArray();
-            }
-        }
-
-        #endregion
-    }
+    #region Byte array
 
     /// <summary>
     /// Converts a byte array of RTF data into plain text.
@@ -1964,48 +1904,112 @@ public sealed class RtfToTextConverter
     /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
-    /// <exception cref="ArgumentException"/>
     public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
-        if (length > source.Length)
-        {
-            ThrowHelper.ArgumentException(
-                nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
-        }
-
-        SetOptions(options, _options);
-
-        ByteArrayWithLength rtfBytes = new(source, length);
-
-        Reset(rtfBytes);
-
-        try
-        {
-            // The user may already have validated, but this check is ultra-fast so we can afford to do it
-            // without complicating the logic with a user option and all.
-            if (!IsValidRtfFile())
-            {
-                return new RtfResult(RtfError.NotAnRtfFile, 0, null);
-            }
-
-            RtfError error = ParseRtf();
-            return error == RtfError.OK
-                ? new RtfResult(CreateReturnStringFromChars(_plainText))
-                : new RtfResult(error, _currentPos, null);
-        }
-        catch (IndexOutOfRangeException ex)
-        {
-            return new RtfResult(RtfError.UnexpectedEndOfFile, _currentPos, ex);
-        }
-        catch (Exception ex)
-        {
-            return new RtfResult(RtfError.UnexpectedError, _currentPos, ex);
-        }
-        finally
-        {
-            _rtfBytes = ByteArrayWithLength.Empty();
-        }
+        return ConvertInternal(source, length, options, null, _defaultStreamBufferSize);
     }
+
+    #endregion
+
+    #region Filename
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(string fileName)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(string fileName, int bufferSize)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, bufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts an RTF file into plain text.
+    /// </summary>
+    /// <param name="fileName">The path to the RTF file to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(string fileName, int bufferSize, RtfToTextConverterOptions options)
+    {
+        using FileStream stream = File.OpenRead(fileName);
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, bufferSize);
+    }
+
+    #endregion
+
+    #region Stream
+
+    /// <summary>
+    /// Converts a stream of RTF data into plain text.
+    /// </summary>
+    /// <param name="stream">A stream containing the RTF to convert.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(Stream stream)
+    {
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts a stream of RTF data into plain text.
+    /// </summary>
+    /// <param name="stream">A stream containing the RTF to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(Stream stream, int bufferSize)
+    {
+        return ConvertInternal(Array.Empty<byte>(), 0, _defaultOptions, stream, bufferSize);
+    }
+
+    /// <summary>
+    /// Converts a stream of RTF data into plain text.
+    /// </summary>
+    /// <param name="stream">A stream containing the RTF to convert.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(Stream stream, RtfToTextConverterOptions options)
+    {
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, _defaultStreamBufferSize);
+    }
+
+    /// <summary>
+    /// Converts a stream of RTF data into plain text.
+    /// </summary>
+    /// <param name="stream">A stream containing the RTF to convert.</param>
+    /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
+    /// <param name="options">A set of options.</param>
+    /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    public RtfResult Convert(Stream stream, int bufferSize, RtfToTextConverterOptions options)
+    {
+        return ConvertInternal(Array.Empty<byte>(), 0, options, stream, bufferSize);
+    }
+
+    #endregion
 
     /// <summary>
     /// Resets all buffers back to default capacity, releasing excess memory.
@@ -2024,35 +2028,154 @@ public sealed class RtfToTextConverter
 
     #endregion
 
+    private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
+    {
+        if (chunkedStream == null)
+        {
+            if (bytesLength > bytes.Length)
+            {
+                ThrowHelper.ArgumentException(
+                    nameof(bytesLength) + " is greater than the length of " + nameof(bytes) + ".", nameof(bytesLength));
+            }
+
+            SetBuffer(bytes, bytesLength);
+            _leadingBufferByteCount = 0;
+        }
+        else
+        {
+            _bufferedStream = chunkedStream;
+            bufferSize = Math.Max(bufferSize, _minimumBufferSize);
+
+            if (_buffer.Length != bufferSize)
+            {
+                _buffer = new byte[bufferSize];
+            }
+            SetBuffer(_buffer, bufferSize);
+            _leadingBufferByteCount = _maxSeekBackBytes;
+        }
+
+        SetOptions(options, _options);
+
+        #region Reset
+
+        _endedStreamOnce = false;
+        _reachedEndOfStream = false;
+
+        _groupStack.ClearFast();
+        _groupStack.ResetFirst();
+        _fontEntries.Clear();
+        ResetHeader();
+
+        _groupCount = 0;
+        _skipDestinationIfUnknown = false;
+
+        _chunksRead = 0;
+        _currentPos = _leadingBufferByteCount;
+
+        _inHandleSkippableHexData = false;
+
+        #region Fixed-size fields
+
+        // Specific capacity and won't grow; no need to deallocate
+        _fldinstSymbolNumber.ClearFast();
+
+        _lastUsedFontWithCodePage42 = NoFontNumber;
+
+        #endregion
+
+        _hexBuffer.ClearFast();
+        _unicodeBuffer.ClearFast();
+        _symbolFontNameBuffer.ClearFast();
+        _plainText.ClearFast();
+        _fldinstSymbolFontName.ClearFast();
+
+        _inHandleFontTable = false;
+
+        #endregion
+
+        try
+        {
+            if (_bufferedStream != null)
+            {
+                LoadNextChunkIntoBuffer();
+            }
+            else
+            {
+                _chunksRead = 1;
+            }
+
+            // The user may already have validated, but this check is ultra-fast so we can afford to do it
+            // without complicating the logic with a user option and all.
+            if (!IsValidRtfFile())
+            {
+                return new RtfResult(RtfError.NotAnRtfFile, 0, null);
+            }
+
+            RtfError error = ParseRtf();
+            if (error == RtfError.OK)
+            {
+                return new RtfResult(CreateReturnStringFromChars(_plainText));
+            }
+            else
+            {
+                RtfResult ret = new(error, GetCurrentOverallPos(), null);
+#if DEBUG
+                System.Diagnostics.Trace.WriteLine(ret);
+#endif
+                return ret;
+            }
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            return new RtfResult(RtfError.UnexpectedEndOfFile, GetCurrentOverallPos(), ex);
+        }
+        catch (EndOfStreamException ex)
+        {
+            return new RtfResult(RtfError.UnexpectedEndOfFile, GetCurrentOverallPos(), ex);
+        }
+        catch (UnmatchedBraceException ex)
+        {
+            return new RtfResult(RtfError.UnmatchedBrace, GetCurrentOverallPos(), ex);
+        }
+        catch (Exception ex)
+        {
+            return new RtfResult(RtfError.UnexpectedError, GetCurrentOverallPos(), ex);
+        }
+        finally
+        {
+            SetBuffer(Array.Empty<byte>(), 0);
+            _bufferedStream = null;
+        }
+    }
+
     private bool IsValidRtfFile()
     {
-        switch (_rtfBytes.Length)
-        {
-            case >= 8:
-            {
-                const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
-                const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
+        const int ulongLength = 8;
 
-                ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[0]);
-                if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
+        if (_currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
+        {
+            const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
+            const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
+
+            ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_leadingBufferByteCount]);
+            if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
+            {
+                return false;
+            }
+        }
+        else if (_currentBufferChunkLength >= _leadingBufferByteCount + _rtfHeaderBytes.Length)
+        {
+            for (int i = _leadingBufferByteCount; i < _rtfHeaderBytes.Length; i++)
+            {
+                if (GetByte(i) != _rtfHeaderBytes[i])
                 {
                     return false;
                 }
-                break;
             }
-            case >= 5:
-            {
-                for (int i = 0; i < _rtfHeaderBytes.Length; i++)
-                {
-                    if (_rtfBytes.Array[i] != _rtfHeaderBytes[i])
-                    {
-                        return false;
-                    }
-                }
-                break;
-            }
-            default:
-                return false;
+        }
+        else
+        {
+            return false;
         }
 
         return true;
@@ -2081,39 +2204,6 @@ public sealed class RtfToTextConverter
         };
     }
 
-    private void Reset(in ByteArrayWithLength rtfBytes)
-    {
-        _groupStack.ClearFast();
-        _groupStack.ResetFirst();
-        _fontEntries.Clear();
-        ResetHeader();
-
-        _groupCount = 0;
-        _skipDestinationIfUnknown = false;
-
-        _rtfBytes = rtfBytes;
-        _currentPos = 0;
-
-        _inHandleSkippableHexData = false;
-
-        #region Fixed-size fields
-
-        // Specific capacity and won't grow; no need to deallocate
-        _fldinstSymbolNumber.ClearFast();
-
-        _lastUsedFontWithCodePage42 = NoFontNumber;
-
-        #endregion
-
-        _hexBuffer.ClearFast();
-        _unicodeBuffer.ClearFast();
-        _symbolFontNameBuffer.ClearFast();
-        _plainText.ClearFast();
-        _fldinstSymbolFontName.ClearFast();
-
-        _inHandleFontTable = false;
-    }
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void ResetHeader()
     {
@@ -2124,9 +2214,9 @@ public sealed class RtfToTextConverter
 
     private RtfError ParseRtf()
     {
-        while (_currentPos < _rtfBytes.Length)
+        while (!_reachedEndOfStream)
         {
-            char ch = (char)_rtfBytes.Array[_currentPos++];
+            char ch = (char)GetByte(IncrementCurrentPos());
 
             // Ordered by most frequently appearing first
             switch (ch)
@@ -2153,7 +2243,7 @@ public sealed class RtfToTextConverter
                     if (!_groupStack.CurrentSkipDest &&
                         _groupStack.CurrentProperties[(int)Property.Hidden] == 0)
                     {
-                        if (_isNonPlainText[_rtfBytes.Array[_currentPos]])
+                        if (_isNonPlainText[GetByte(_currentPos)])
                         {
                             SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
                             if (symbolFont > SymbolFont.Unset)
@@ -2187,9 +2277,9 @@ public sealed class RtfToTextConverter
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
-            while (_currentPos < _rtfBytes.Length)
+            while (!_reachedEndOfStream)
             {
-                char ch = (char)_rtfBytes.Array[_currentPos++];
+                char ch = (char)GetByte(IncrementCurrentPos());
                 if (!_isNonPlainText[ch])
                 {
                     GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
@@ -2204,9 +2294,9 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            while (_currentPos < _rtfBytes.Length)
+            while (!_reachedEndOfStream)
             {
-                char ch = (char)_rtfBytes.Array[_currentPos++];
+                char ch = (char)GetByte(IncrementCurrentPos());
                 if (!_isNonPlainText[ch])
                 {
                     _plainText.Add(ch);
@@ -2273,7 +2363,7 @@ public sealed class RtfToTextConverter
             case SpecialType.SkipNumberOfBytes:
                 if (symbol.UseDefaultParam) param = symbol.DefaultParam;
                 if (param < 0) return RtfError.AbortedForSafety;
-                _currentPos += param;
+                IncrementCurrentPos_ArbitraryAmountForward(param);
                 break;
             case SpecialType.HexEncodedChar:
                 HandleHexRun();
@@ -2286,8 +2376,7 @@ public sealed class RtfToTextConverter
                 break;
             }
             case SpecialType.ColorTable:
-                int closingBraceIndex = Array.IndexOf(_rtfBytes.Array, (byte)'}', _currentPos, _rtfBytes.Length - _currentPos);
-                _currentPos = closingBraceIndex == -1 ? _rtfBytes.Length : closingBraceIndex;
+                _currentPos = IndexOfNextClosingBrace_ChunkAware();
                 break;
             case SpecialType.FontTable:
             {
@@ -2353,9 +2442,9 @@ public sealed class RtfToTextConverter
 
         int fontTableGroupLevel = _groupStack.Count;
 
-        while (_currentPos < _rtfBytes.Length)
+        while (!_reachedEndOfStream)
         {
-            char ch = (char)_rtfBytes.Array[_currentPos++];
+            char ch = (char)GetByte(IncrementCurrentPos());
 
             switch (ch)
             {
@@ -2418,8 +2507,8 @@ public sealed class RtfToTextConverter
 
                         bool isSeparatorChar = false;
                         for (int i = 0;
-                             i < _maxSymbolFontNameLength && ch != ';' && !(isSeparatorChar = _isFontSeparatorChar[(byte)ch]);
-                             i++, ch = (char)_rtfBytes[_currentPos++])
+                             i < _maxSymbolFontNameLength && !(isSeparatorChar = _isFontSeparatorChar[(byte)ch]);
+                             i++, ch = (char)GetByte(IncrementCurrentPos()))
                         {
                             _symbolFontNameBuffer.Add(ch);
                         }
@@ -2431,7 +2520,7 @@ public sealed class RtfToTextConverter
 
                         where we should stop at the { instead of the ; so we get the name right.
 
-                        Also whatever nonsense is going in some of those RtfPipe test files.
+                        Also whatever nonsense is going on in some of those RtfPipe test files.
                         */
                         if (isSeparatorChar)
                         {
@@ -2704,12 +2793,12 @@ public sealed class RtfToTextConverter
         Other readers' behavior:
         -RichTextBox fails the whole read on invalid hex.
         -LibreOffice just skips invalid hex chars.
-        
+
         We're going to match LibreOffice here.
         */
-        byte b = _rtfBytes[_currentPos++];
+        byte b = GetByte(IncrementCurrentPos());
         byte hexNibble1 = _charToHex[b];
-        b = _rtfBytes[_currentPos++];
+        b = GetByte(IncrementCurrentPos());
         byte hexNibble2 = _charToHex[b];
         if ((hexNibble1 | hexNibble2) < 0xFF)
         {
@@ -2717,17 +2806,17 @@ public sealed class RtfToTextConverter
             _hexBuffer.Add(finalHexByte);
         }
 
-        while (_currentPos < _rtfBytes.Length)
+        while (!_reachedEndOfStream)
         {
-            b = _rtfBytes.Array[_currentPos++];
+            b = GetByte(IncrementCurrentPos());
             if (b == (byte)'\\')
             {
-                b = _rtfBytes[_currentPos++];
+                b = GetByte(IncrementCurrentPos());
                 if (b == (byte)'\'')
                 {
-                    b = _rtfBytes[_currentPos++];
+                    b = GetByte(IncrementCurrentPos());
                     hexNibble1 = _charToHex[b];
-                    b = _rtfBytes[_currentPos++];
+                    b = GetByte(IncrementCurrentPos());
                     hexNibble2 = _charToHex[b];
                     if ((hexNibble1 | hexNibble2) < 0xFF)
                     {
@@ -2758,22 +2847,22 @@ public sealed class RtfToTextConverter
 
     private RtfError HandleUnicodeRun()
     {
-        while (_currentPos < _rtfBytes.Length)
+        while (!_reachedEndOfStream)
         {
-            char ch = (char)_rtfBytes.Array[_currentPos++];
+            char ch = (char)GetByte(IncrementCurrentPos());
             if (ch == '\\')
             {
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)GetByte(IncrementCurrentPos());
 
                 if (ch == 'u')
                 {
-                    ch = (char)_rtfBytes[_currentPos++];
+                    ch = (char)GetByte(IncrementCurrentPos());
 
                     int negateParam = 0;
                     if (ch == '-')
                     {
                         negateParam = 1;
-                        ch = (char)_rtfBytes[_currentPos++];
+                        ch = (char)GetByte(IncrementCurrentPos());
                     }
                     if (char.IsAsciiDigit(ch))
                     {
@@ -2786,7 +2875,7 @@ public sealed class RtfToTextConverter
                                 int i;
                                 for (i = 0;
                                      i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
-                                     i++, ch = (char)_rtfBytes[_currentPos++])
+                                     i++, ch = (char)GetByte(IncrementCurrentPos()))
                                 {
                                     param = (param * 10) + (ch - '0');
                                 }
@@ -2837,7 +2926,7 @@ public sealed class RtfToTextConverter
         // If our code point has been through a font translation table, it may be longer than 2 bytes.
         if (codePoint > char.MaxValue)
         {
-            ListFast<char>? chars = Utils.ConvertFromUtf32(codePoint, _charGeneralBuffer);
+            ListFast<char>? chars = UtilHelper.ConvertFromUtf32(codePoint, _charGeneralBuffer);
             if (chars == null)
             {
                 _unicodeBuffer.Add(_unicodeUnknown_Char);
@@ -2872,24 +2961,31 @@ public sealed class RtfToTextConverter
         including bin and its data" thing means we get simpler and faster.
         */
         int numToSkip = _groupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
-        while (numToSkip > 0 && _currentPos < _rtfBytes.Length)
+        while (numToSkip > 0 && !_reachedEndOfStream)
         {
-            char c = (char)_rtfBytes.Array[_currentPos++];
+            char c = (char)GetByte(IncrementCurrentPos());
             switch (c)
             {
                 case '\\':
-                    if (_currentPos < _rtfBytes.Length - 4 &&
-                        _rtfBytes.Array[_currentPos] == '\'' &&
-                        _rtfBytes.Array[_currentPos + 1].IsAsciiHex() &&
-                        _rtfBytes.Array[_currentPos + 2].IsAsciiHex())
+                    if (GetByte(IncrementCurrentPos()) == '\'')
                     {
-                        _currentPos += 3;
+                        byte b = GetByte(IncrementCurrentPos());
+                        if (!b.IsAsciiHex())
+                        {
+                            _currentPos--;
+                            break;
+                        }
+                        b = GetByte(IncrementCurrentPos());
+                        if (!b.IsAsciiHex())
+                        {
+                            _currentPos -= 2;
+                            break;
+                        }
                         numToSkip--;
                     }
-                    else if (_currentPos < _rtfBytes.Length - 2 &&
-                             _rtfBytes.Array[_currentPos] is (byte)'{' or (byte)'}' or (byte)'\\')
+                    else if (_isSeparatorChar[GetByte(_currentPos)])
                     {
-                        _currentPos++;
+                        _ = GetByte(IncrementCurrentPos());
                         numToSkip--;
                     }
                     else
@@ -3080,10 +3176,10 @@ public sealed class RtfToTextConverter
     Also we only need one field instruction - SYMBOL. The syntax should go strictly like this:
 
     {\*\fldinst SYMBOL [\\f ["FontName"]] [\\a] [\\j] [\\u] [\\h] [\\s n] <arbitrary amounts of other junk>}
-    
+
     With [] denoting optional parameters. I guess one of them must be present (at least we would fail if we
     didn't find any).
-    
+
     Anyway, the spec is clear and simple and so we can just try to parse it exactly and quit on anything
     unexpected. Otherwise, we only want either \\f, \\a, \\j, or \\u. The others we ignore. Once we've found
     what we need, looped through six params and not found what we need, or reached a separator char, we quit
@@ -3116,7 +3212,7 @@ public sealed class RtfToTextConverter
     -This is a character in Windows-31J (932), but it's specified with a Unicode codepoint, in either dec or hex.
     -Supports 0xF000-0xF0FF stuff (but maybe by accident of weird multi-byte behavior?)
     -Supports symbol fonts, even though it's a multibyte encoding...
-    
+
     -These symbol-font-supporting things do a weird thing where if there's two bytes they ignore the second byte
      when they're in a symbol font, as far as I can tell? Like 0xF929 == 0x0929 == 0x0029.
      Except sometimes it isn't just the second byte, sometimes it's random and I don't know how it's arriving at
@@ -3139,28 +3235,18 @@ public sealed class RtfToTextConverter
 
         #region Check for SYMBOL instruction
 
-        if (_currentPos > _rtfBytes.Length - 8) return RewindAndSkipGroup();
-
-        // Compare the ulong-format "SYMBOL X" where X is any byte. Mask off the last byte, but it's
-        // little-endian so the mask looks backwards.
-
-        const ulong SYMBOLKeywordAsULong = 0x00204C4F424D5953;
-
-        ulong SYMBOLKeyword = Unsafe.ReadUnaligned<ulong>(ref _rtfBytes.Array[_currentPos]);
-
-        SYMBOLKeyword &= 0x00FFFFFFFFFFFFFF;
-        if (SYMBOLKeyword != SYMBOLKeywordAsULong)
+        for (i = 0; i < SYMBOLName.Length; i++)
         {
-            // Manual return to match previous behavior more-or-less (don't rewind too far)
-            _groupStack.CurrentSkipDest = true;
-            return RtfError.OK;
+            byte b = GetByte(IncrementCurrentPos());
+            if (b != SYMBOLName[i])
+            {
+                return RewindAndSkipGroup();
+            }
         }
-
-        _currentPos += 7;
 
         #endregion
 
-        char ch = (char)_rtfBytes[_currentPos++];
+        char ch = (char)GetByte(IncrementCurrentPos());
 
         bool numIsHex = false;
 
@@ -3175,10 +3261,10 @@ public sealed class RtfToTextConverter
 
         if (ch == '0')
         {
-            ch = (char)_rtfBytes[_currentPos++];
+            ch = (char)GetByte(IncrementCurrentPos());
             if (ch is 'x' or 'X')
             {
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)GetByte(IncrementCurrentPos());
                 if (ch == '-')
                 {
                     return RewindAndSkipGroup();
@@ -3195,7 +3281,7 @@ public sealed class RtfToTextConverter
         bool alphaFound;
         for (i = 0;
              i < _fldinstSymbolNumberMaxLen && ((alphaFound = char.IsAsciiLetter(ch)) || char.IsAsciiDigit(ch));
-             i++, ch = (char)_rtfBytes[_currentPos++])
+             i++, ch = (char)GetByte(IncrementCurrentPos()))
         {
             if (alphaFound) alphaCharsFound = true;
 
@@ -3252,12 +3338,12 @@ public sealed class RtfToTextConverter
 
         for (i = 0; i < maxParams; i++)
         {
-            ch = (char)_rtfBytes[_currentPos++];
+            ch = (char)GetByte(IncrementCurrentPos());
             if (ch != '\\') continue;
-            ch = (char)_rtfBytes[_currentPos++];
+            ch = (char)GetByte(IncrementCurrentPos());
             if (ch != '\\') continue;
 
-            ch = (char)_rtfBytes[_currentPos++];
+            ch = (char)GetByte(IncrementCurrentPos());
 
             // From the spec:
             // "Interprets text in field-argument as the value of an ANSI character."
@@ -3302,7 +3388,7 @@ public sealed class RtfToTextConverter
             */
             else if (ch == 'f')
             {
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)GetByte(IncrementCurrentPos());
                 if (_isSeparatorChar[(byte)ch])
                 {
                     HandleFieldInst_F_Bare(param);
@@ -3310,7 +3396,7 @@ public sealed class RtfToTextConverter
                 }
                 else if (ch == ' ')
                 {
-                    ch = (char)_rtfBytes[_currentPos++];
+                    ch = (char)GetByte(IncrementCurrentPos());
                     if (ch != '\"')
                     {
                         HandleFieldInst_F_Bare(param);
@@ -3319,7 +3405,7 @@ public sealed class RtfToTextConverter
 
                     int fontNameCharCount = 0;
 
-                    while ((ch = (char)_rtfBytes[_currentPos++]) != '\"')
+                    while ((ch = (char)GetByte(IncrementCurrentPos())) != '\"')
                     {
                         if (fontNameCharCount >= _maxSymbolFontNameLength || _isSeparatorChar[(byte)ch])
                         {
@@ -3351,7 +3437,7 @@ public sealed class RtfToTextConverter
             */
             else if (ch == 'h')
             {
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)GetByte(IncrementCurrentPos());
                 if (_isSeparatorChar[(byte)ch]) break;
             }
             /*
@@ -3362,11 +3448,11 @@ public sealed class RtfToTextConverter
             */
             else if (ch == 's')
             {
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)GetByte(IncrementCurrentPos());
                 if (ch != ' ') return RewindAndSkipGroup();
 
                 int numDigitCount = 0;
-                while (char.IsAsciiDigit(ch = (char)_rtfBytes[_currentPos++]))
+                while (char.IsAsciiDigit(ch = (char)GetByte(IncrementCurrentPos())))
                 {
                     if (numDigitCount > _fldinstSymbolNumberMaxLen)
                     {
@@ -3505,7 +3591,7 @@ public sealed class RtfToTextConverter
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
-    GetCurrentEncoding()
+        GetCurrentEncoding()
     {
         int groupFontNum = _groupStack.CurrentProperties[(int)Property.FontNum];
         int groupLang = _groupStack.CurrentProperties[(int)Property.Lang];
@@ -3555,7 +3641,7 @@ public sealed class RtfToTextConverter
 
         if (codePoint - 0x20 <= 0xFF - 0x20)
         {
-            ListFast<char>? chars = Utils.ConvertFromUtf32(fontTable[codePoint - 0x20], _charGeneralBuffer);
+            ListFast<char>? chars = UtilHelper.ConvertFromUtf32(fontTable[codePoint - 0x20], _charGeneralBuffer);
             if (chars != null)
             {
                 finalChars = chars;
@@ -3594,7 +3680,7 @@ public sealed class RtfToTextConverter
 
         if (codePoint >= 0x20)
         {
-            ListFast<char>? chars = Utils.ConvertFromUtf32(fontTable[codePoint - 0x20], _charGeneralBuffer);
+            ListFast<char>? chars = UtilHelper.ConvertFromUtf32(fontTable[codePoint - 0x20], _charGeneralBuffer);
             if (chars != null)
             {
                 finalChars = chars;
@@ -3736,15 +3822,79 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int BranchlessConditionalNegate(int value, int negate) => (value ^ -negate) + negate;
 
+    private int IndexOfNextClosingBrace_ChunkAware()
+    {
+        int count = _currentBufferChunkLength - _currentPos;
+
+        while (!_reachedEndOfStream)
+        {
+            int foundIndex = Array.IndexOf(_buffer, (byte)'}', _currentPos, count);
+            if (foundIndex > -1)
+            {
+                return foundIndex;
+            }
+            else
+            {
+                if (_bufferedStream != null)
+                {
+                    LoadNextChunkIntoBuffer();
+                }
+                else
+                {
+                    return _bufferLength;
+                }
+                count = _currentBufferChunkLength - _currentPos;
+            }
+        }
+
+        return _bufferLength;
+    }
+
+    // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
+    private int GetCurrentOverallPos()
+    {
+        return _bufferedStream == null
+            ? _currentPos
+            : ((_chunksRead - 1) * (_bufferLength - _leadingBufferByteCount)) + _currentPos - _leadingBufferByteCount;
+    }
+
     #endregion
 
+    #region Parse keyword
+
     private RtfError ParseKeyword()
+    {
+        // Add one extra to all the known counts because I can't think whether the read increments will put us
+        // one over or not
+        if (_currentPos < (_currentBufferChunkLength - 1) - (
+                1 + 1 +
+                _keywordMaxLen + 1 + 1 +
+                1 + 1 +
+                _paramMaxLen + 1 + 1
+            ))
+        {
+            return ParseKeyword_Fast();
+        }
+        else
+        {
+            return ParseKeyword_Slow();
+        }
+    }
+
+    /*
+    If we're going to sledgehammer-dupe one function, this is the most effective one:
+    -61% of array-get calls are coming from this function
+    -We know the maximum number of reads we're going to do, which means we can avoid array checks on both paths,
+     so both get faster
+    -It's not objectionably long
+    */
+    private RtfError ParseKeyword_Fast()
     {
         bool hasParam = false;
         int param = 0;
         Symbol? symbol;
 
-        char ch = (char)_rtfBytes[_currentPos++];
+        char ch = (char)_buffer[IncrementCurrentPos()];
 
         char[] keyword = _keyword;
 
@@ -3773,7 +3923,7 @@ public sealed class RtfToTextConverter
             int keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && char.IsAsciiLetter(ch);
-                 keywordCount++, ch = (char)_rtfBytes[_currentPos++])
+                 keywordCount++, ch = (char)_buffer[IncrementCurrentPos()])
             {
                 keyword[keywordCount] = ch;
             }
@@ -3786,7 +3936,7 @@ public sealed class RtfToTextConverter
             if (ch == '-')
             {
                 negateParam = 1;
-                ch = (char)_rtfBytes[_currentPos++];
+                ch = (char)_buffer[IncrementCurrentPos()];
             }
             if (char.IsAsciiDigit(ch))
             {
@@ -3798,7 +3948,7 @@ public sealed class RtfToTextConverter
                         int i;
                         for (i = 0;
                              i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
-                             i++, ch = (char)_rtfBytes[_currentPos++])
+                             i++, ch = (char)_buffer[IncrementCurrentPos()])
                         {
                             param = (param * 10) + (ch - '0');
                         }
@@ -3845,6 +3995,115 @@ public sealed class RtfToTextConverter
         return DispatchKeyword(symbol, param, hasParam);
     }
 
+    private RtfError ParseKeyword_Slow()
+    {
+        bool hasParam = false;
+        int param = 0;
+        Symbol? symbol;
+
+        char ch = (char)GetByte(IncrementCurrentPos());
+
+        char[] keyword = _keyword;
+
+        if (!char.IsAsciiLetter(ch))
+        {
+            /*
+            From the spec:
+            "A control symbol consists of a backslash followed by a single, non-alphabetical character.
+            For example, \~ (backslash tilde) represents a non-breaking space. Control symbols do not have
+            delimiters, i.e., a space following a control symbol is treated as text, not a delimiter."
+
+            So just go straight to dispatching without looking for a param and without eating the space.
+            */
+
+            // Fast path for destination marker - claws us back a small amount of perf
+            if (ch == '*')
+            {
+                _skipDestinationIfUnknown = true;
+                return RtfError.OK;
+            }
+
+            symbol = _symbols.LookUpControlSymbol(ch);
+        }
+        else
+        {
+            int keywordCount;
+            for (keywordCount = 0;
+                 keywordCount < _keywordMaxLen + 1 && char.IsAsciiLetter(ch);
+                 keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
+            {
+                keyword[keywordCount] = ch;
+            }
+            if (keywordCount > _keywordMaxLen)
+            {
+                return RtfError.KeywordTooLong;
+            }
+
+            int negateParam = 0;
+            if (ch == '-')
+            {
+                negateParam = 1;
+                ch = (char)GetByte(IncrementCurrentPos());
+            }
+            if (char.IsAsciiDigit(ch))
+            {
+                hasParam = true;
+                checked
+                {
+                    try
+                    {
+                        int i;
+                        for (i = 0;
+                             i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                        {
+                            param = (param * 10) + (ch - '0');
+                        }
+                        if (i > _paramMaxLen)
+                        {
+                            return RtfError.ParameterOutOfRange;
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        return RtfError.ParameterOutOfRange;
+                    }
+                }
+                // This negate is safe, because int max negated is -2147483647, and int min is -2147483648
+                param = BranchlessConditionalNegate(param, negateParam);
+            }
+
+            /*
+            From the spec:
+            "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI characters)
+            that is not counted in the characters to skip."
+            This implements the spec for regular control words and \uN alike. Nothing extra needed for removing
+            the space from the skip-chars to count.
+            */
+            // Current position will be > 0 at this point, so a decrement is always safe
+            _currentPos += MinusOneIfNotSpace_8Bits(ch);
+
+            symbol = _symbols.LookUpControlWord(keyword, keywordCount);
+        }
+
+        if (symbol == null)
+        {
+            // If this is a new destination
+            if (_skipDestinationIfUnknown)
+            {
+                _groupStack.CurrentSkipDest = true;
+            }
+            _skipDestinationIfUnknown = false;
+            return RtfError.OK;
+        }
+
+        _skipDestinationIfUnknown = false;
+
+        return DispatchKeyword(symbol, param, hasParam);
+    }
+
+    #endregion
+
     private RtfError HandleSkippableHexData(int param)
     {
         bool insertSpaceIfNecessary = param == 1;
@@ -3856,9 +4115,9 @@ public sealed class RtfToTextConverter
 
         int startGroupLevel = _groupStack.Count;
 
-        while (_currentPos < _rtfBytes.Length)
+        while (!_reachedEndOfStream)
         {
-            char ch = (char)_rtfBytes.Array[_currentPos++];
+            char ch = (char)GetByte(IncrementCurrentPos());
 
             switch (ch)
             {
@@ -3893,8 +4152,7 @@ public sealed class RtfToTextConverter
                 default:
                     if (_groupCount == startGroupLevel)
                     {
-                        int closingBraceIndex = Array.IndexOf(_rtfBytes.Array, (byte)'}', _currentPos, _rtfBytes.Length - _currentPos);
-                        _currentPos = closingBraceIndex == -1 ? _rtfBytes.Length : closingBraceIndex;
+                        _currentPos = IndexOfNextClosingBrace_ChunkAware();
                     }
                     break;
             }
@@ -3909,4 +4167,210 @@ public sealed class RtfToTextConverter
         _inHandleSkippableHexData = false;
         return RtfError.OK;
     }
+
+    #region Read and seek wrappers
+
+    /// <summary>
+    /// Increment _currentPos. Behaves like _currentPos++, returning the value before it was modified.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private int IncrementCurrentPos()
+    {
+        /*
+        This is by far the most frequently called increment function, so do a crazy trick and rely on the already
+        existent bounds checker in the rtf array getter to handle the chunk advance for us. That way, we can just
+        have this bare, inlinable increment to make the byte array path faster, and the streaming path also cuts
+        way down on branches too, only doing extra work when it gets to the end of a block, and otherwise just
+        running the array getter bounds checker which was already being run anyway.
+        We don't quite get back to the previous speed even for the byte array path, but we get closer.
+        */
+        return _currentPos++;
+    }
+
+    private void IncrementCurrentPos_ArbitraryAmountForward(int amount)
+    {
+        if (_bufferedStream == null)
+        {
+            _currentPos += amount;
+        }
+        else
+        {
+            IncrementCurrentPos_Stream_PossiblySkippingMultipleChunks(amount);
+        }
+    }
+
+    private int IncrementCurrentPos_Stream(int originalPos)
+    {
+        if (_currentPos + 1 > _currentBufferChunkLength - 1)
+        {
+            int difference = (_currentPos + 1) - _currentBufferChunkLength;
+
+            LoadNextChunkIntoBuffer();
+            _currentPos += difference;
+            originalPos = _currentPos - 1;
+        }
+        else
+        {
+            _currentPos += 1;
+        }
+
+        return originalPos;
+    }
+
+    private void IncrementCurrentPos_Stream_PossiblySkippingMultipleChunks(int amount)
+    {
+        if (_currentPos + amount > _currentBufferChunkLength - 1)
+        {
+            bool skippingMultipleChunks;
+            do
+            {
+                int savedAmount = amount;
+
+                skippingMultipleChunks = amount > _currentBufferChunkLength;
+
+                if (skippingMultipleChunks)
+                {
+                    amount = _currentBufferChunkLength - _currentPos;
+                    savedAmount -= amount;
+                }
+
+                int difference = (_currentPos + amount) - _currentBufferChunkLength;
+
+                LoadNextChunkIntoBuffer();
+                _currentPos += difference;
+
+                amount = savedAmount;
+
+            } while (skippingMultipleChunks);
+        }
+        else
+        {
+            _currentPos += amount;
+        }
+    }
+
+    private void LoadNextChunkIntoBuffer()
+    {
+        if (_bufferedStream != null)
+        {
+            // This path should only be hit when in streaming mode, and when therefore the buffer size is supposed
+            // to have an enforced minimum.
+            Debug.Assert(_buffer.Length >= _maxSeekBackBytes);
+
+            // On the last chunk, we may have fewer than _maxSeekBackBytes bytes, but we aren't going to use the
+            // copied garbage in that case because we'll throw for attempt to read past end of stream.
+            ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_currentBufferChunkLength - _leadingBufferByteCount]);
+            Unsafe.WriteUnaligned(ref _buffer[0], endChunk);
+
+            int bytesRead = _bufferedStream.ReadAll(_buffer, _leadingBufferByteCount, _bufferLength - _leadingBufferByteCount);
+
+            // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
+            if (bytesRead == 0)
+            {
+                // Hack to match previous behavior with intentionally-broken RtfPipe test files
+                if (_endedStreamOnce)
+                {
+                    _reachedEndOfStream = true;
+                }
+                else
+                {
+                    _endedStreamOnce = true;
+                    _chunksRead++;
+                }
+            }
+            else
+            {
+                _chunksRead++;
+            }
+
+            _currentPos = _leadingBufferByteCount;
+            _currentBufferChunkLength = bytesRead + _leadingBufferByteCount;
+        }
+        else
+        {
+            ThrowHelper.IndexOutOfRange();
+        }
+    }
+
+    #endregion
+
+    #region Buffer
+
+    private byte[] _buffer = Array.Empty<byte>();
+    private int _bufferLength;
+    private int _currentBufferChunkLength;
+
+    private void SetBuffer(byte[] array, int length)
+    {
+        _buffer = array;
+        _bufferLength = length;
+        _currentBufferChunkLength = length;
+    }
+
+    /// <summary>
+    /// Manually bounds-checked past <see cref="T:_bufferLength"/>.
+    /// Now that we have stream support, this method should always be called for array accesses to ensure the
+    /// chunks are loaded when needed. Only access <see cref="T:Array"/> directly in cases where you know for
+    /// sure you don't need the chunk load triggering in your particular scenario.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private byte GetByte(int index)
+    {
+        // Very unfortunately, we have to manually bounds-check here, because our array could be longer
+        // than Length (such as when it comes from a pool).
+        if (index > _currentBufferChunkLength - 1)
+        {
+            /*
+            Putting the ThrowHelper call here makes us full speed (on the byte array path). Putting this here
+            instead loses us like 6-10% again. Even though HandleOutOfBounds() has the no inlining attribute!
+            Argh!
+            But, this system does make us a little faster than before (especially on the streaming path), so hey.
+            */
+            index = HandleOutOfBounds();
+        }
+        return _buffer[index];
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private int HandleOutOfBounds()
+    {
+        if (_bufferedStream != null)
+        {
+            _currentPos--;
+            int ret = IncrementCurrentPos_Stream(_currentPos);
+            if (_currentPos > _currentBufferChunkLength)
+            {
+                if (_groupCount > 0)
+                {
+                    ThrowHelper.UnmatchedBraceException();
+                }
+                else
+                {
+                    ThrowHelper.IndexOutOfRange();
+                }
+                return 0;
+            }
+            else
+            {
+                return ret;
+            }
+        }
+        else
+        {
+            if (_groupCount > 0)
+            {
+                ThrowHelper.UnmatchedBraceException();
+            }
+            else
+            {
+                ThrowHelper.IndexOutOfRange();
+            }
+            ThrowHelper.IndexOutOfRange();
+            return 0;
+        }
+    }
+
+    #endregion
 }

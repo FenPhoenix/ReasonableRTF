@@ -53,6 +53,7 @@ sealed partial class MainForm
         WriteWorkingNewSetRTBButton = new Button();
         WriteWorkingNewSetCustomButton = new Button();
         ConvertSourceGroupBox = new GroupBox();
+        Convert_DeflateStreamRadioButton = new RadioButton();
         Convert_FileStreamRadioButton = new RadioButton();
         Convert_MemoryStreamRadioButton = new RadioButton();
         Convert_ByteArrayRadioButton = new RadioButton();
@@ -280,7 +281,7 @@ sealed partial class MainForm
         ConvertAndWriteValidityTestFiles_Custom_Button.Name = "ConvertAndWriteValidityTestFiles_Custom_Button";
         ConvertAndWriteValidityTestFiles_Custom_Button.Size = new Size(93, 27);
         ConvertAndWriteValidityTestFiles_Custom_Button.TabIndex = 1;
-        ConvertAndWriteValidityTestFiles_Custom_Button.Text = "Custom";
+        ConvertAndWriteValidityTestFiles_Custom_Button.Text = "Custom *";
         ConvertAndWriteValidityTestFiles_Custom_Button.UseVisualStyleBackColor = true;
         ConvertAndWriteValidityTestFiles_Custom_Button.Click += ConvertAndWriteValidityTestFiles_Custom_Button_Click;
         // 
@@ -325,12 +326,13 @@ sealed partial class MainForm
         WriteWorkingNewSetCustomButton.Name = "WriteWorkingNewSetCustomButton";
         WriteWorkingNewSetCustomButton.Size = new Size(93, 27);
         WriteWorkingNewSetCustomButton.TabIndex = 1;
-        WriteWorkingNewSetCustomButton.Text = "Custom";
+        WriteWorkingNewSetCustomButton.Text = "Custom *";
         WriteWorkingNewSetCustomButton.UseVisualStyleBackColor = true;
         WriteWorkingNewSetCustomButton.Click += WriteWorkingNewSetCustomButton_Click;
         // 
         // ConvertSourceGroupBox
         // 
+        ConvertSourceGroupBox.Controls.Add(Convert_DeflateStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_FileStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_MemoryStreamRadioButton);
         ConvertSourceGroupBox.Controls.Add(Convert_ByteArrayRadioButton);
@@ -341,6 +343,16 @@ sealed partial class MainForm
         ConvertSourceGroupBox.TabStop = false;
         ConvertSourceGroupBox.Text = "Convert source (applies only to buttons marked with *)";
         // 
+        // Convert_DeflateStreamRadioButton
+        // 
+        Convert_DeflateStreamRadioButton.AutoSize = true;
+        Convert_DeflateStreamRadioButton.Location = new Point(312, 24);
+        Convert_DeflateStreamRadioButton.Name = "Convert_DeflateStreamRadioButton";
+        Convert_DeflateStreamRadioButton.Size = new Size(99, 19);
+        Convert_DeflateStreamRadioButton.TabIndex = 4;
+        Convert_DeflateStreamRadioButton.Text = "DeflateStream";
+        Convert_DeflateStreamRadioButton.UseVisualStyleBackColor = true;
+        // 
         // Convert_FileStreamRadioButton
         // 
         Convert_FileStreamRadioButton.AutoSize = true;
@@ -348,13 +360,13 @@ sealed partial class MainForm
         Convert_FileStreamRadioButton.Name = "Convert_FileStreamRadioButton";
         Convert_FileStreamRadioButton.Size = new Size(80, 19);
         Convert_FileStreamRadioButton.TabIndex = 2;
-        Convert_FileStreamRadioButton.TabStop = true;
         Convert_FileStreamRadioButton.Text = "FileStream";
         Convert_FileStreamRadioButton.UseVisualStyleBackColor = true;
         // 
         // Convert_MemoryStreamRadioButton
         // 
         Convert_MemoryStreamRadioButton.AutoSize = true;
+        Convert_MemoryStreamRadioButton.Checked = true;
         Convert_MemoryStreamRadioButton.Location = new Point(104, 24);
         Convert_MemoryStreamRadioButton.Name = "Convert_MemoryStreamRadioButton";
         Convert_MemoryStreamRadioButton.Size = new Size(107, 19);
@@ -366,12 +378,10 @@ sealed partial class MainForm
         // Convert_ByteArrayRadioButton
         // 
         Convert_ByteArrayRadioButton.AutoSize = true;
-        Convert_ByteArrayRadioButton.Checked = true;
         Convert_ByteArrayRadioButton.Location = new Point(16, 24);
         Convert_ByteArrayRadioButton.Name = "Convert_ByteArrayRadioButton";
         Convert_ByteArrayRadioButton.Size = new Size(77, 19);
         Convert_ByteArrayRadioButton.TabIndex = 0;
-        Convert_ByteArrayRadioButton.TabStop = true;
         Convert_ByteArrayRadioButton.Text = "Byte array";
         Convert_ByteArrayRadioButton.UseVisualStyleBackColor = true;
         // 
@@ -438,4 +448,5 @@ sealed partial class MainForm
     private RadioButton Convert_FileStreamRadioButton;
     private RadioButton Convert_MemoryStreamRadioButton;
     private RadioButton Convert_ByteArrayRadioButton;
+    private RadioButton Convert_DeflateStreamRadioButton;
 }
