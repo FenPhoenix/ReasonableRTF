@@ -80,6 +80,12 @@ public sealed class RtfToTextConverter
 
     #region Constants
 
+    private const int _plainTextDefaultCapacity = 4096;
+    private const int _internalBufferDefaultCapacity = 32;
+    // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
+    // over-provision.
+    private const int _charGeneralBufferDefaultCapacity = 20 * 4;
+
     /// <summary>
     /// Since font numbers can be negative, let's just use a slightly less likely value than the already unlikely
     /// enough -1...
@@ -104,10 +110,6 @@ public sealed class RtfToTextConverter
     private const int _minimumBufferSize = _maxSeekBackBytes * 2;
 
     #endregion
-
-    // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
-    // over-provision.
-    private readonly ListFast<char> _charGeneralBuffer = new(20 * 4);
 
     private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
 
@@ -1785,6 +1787,8 @@ public sealed class RtfToTextConverter
 
     private bool _inHandleFontTable;
 
+    private readonly ListFast<char> _charGeneralBuffer;
+
     #endregion
 
     #region Reusable buffers
@@ -1839,13 +1843,14 @@ public sealed class RtfToTextConverter
 
         ResetHeader();
 
-        _plainText = new ListFast<char>(4096);
-        _fontEntries = new FontDictionary(32);
-        _hexBuffer = new ListFast<byte>(32);
-        _unicodeBuffer = new ListFast<char>(32);
-        _symbolFontNameBuffer = new ListFast<char>(32);
-        _encodings = new Dictionary<int, Encoding>(32);
-        _fldinstSymbolFontName = new ListFast<char>(32);
+        _plainText = new ListFast<char>(_plainTextDefaultCapacity);
+        _fontEntries = new FontDictionary(_internalBufferDefaultCapacity);
+        _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
+        _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
+        _symbolFontNameBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
+        _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
+        _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
+        _charGeneralBuffer = new ListFast<char>(_charGeneralBufferDefaultCapacity);
     }
 
     #region Byte array
@@ -2002,13 +2007,14 @@ public sealed class RtfToTextConverter
     public void ResetMemory()
     {
         _groupStack.ResetCapacityIfTooHigh();
-        _plainText.HardReset(4096);
-        _fontEntries.ClearFull(32);
-        _hexBuffer.HardReset(32);
-        _unicodeBuffer.HardReset(32);
-        _symbolFontNameBuffer.HardReset(32);
-        _encodings.Reset(32);
-        _fldinstSymbolFontName.HardReset(32);
+        _plainText.HardReset(_plainTextDefaultCapacity);
+        _fontEntries.ClearFull(_internalBufferDefaultCapacity);
+        _hexBuffer.HardReset(_internalBufferDefaultCapacity);
+        _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
+        _symbolFontNameBuffer.HardReset(_internalBufferDefaultCapacity);
+        _encodings.Reset(_internalBufferDefaultCapacity);
+        _fldinstSymbolFontName.HardReset(_internalBufferDefaultCapacity);
+        _charGeneralBuffer.HardReset(_charGeneralBufferDefaultCapacity);
     }
 
     #endregion
