@@ -1857,7 +1857,7 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult Convert(byte[] source)
     {
-        return Convert(source, source.Length, _defaultOptions);
+        return ConvertInternal(source, source.Length, _defaultOptions, null, _defaultStreamBufferSize);
     }
 
     /// <summary>
@@ -1868,7 +1868,7 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult Convert(byte[] source, RtfToTextConverterOptions options)
     {
-        return Convert(source, source.Length, options);
+        return ConvertInternal(source, source.Length, options, null, _defaultStreamBufferSize);
     }
 
     /// <summary>
@@ -1879,7 +1879,7 @@ public sealed class RtfToTextConverter
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
     public RtfResult Convert(byte[] source, int length)
     {
-        return Convert(source, length, _defaultOptions);
+        return ConvertInternal(source, length, _defaultOptions, null, _defaultStreamBufferSize);
     }
 
     /// <summary>
