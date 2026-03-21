@@ -109,6 +109,8 @@ public sealed class RtfToTextConverter
     private const int _maxSeekBackBytes = 8;
     private const int _minimumBufferSize = _maxSeekBackBytes * 2;
 
+    private const int _plainTextRunFastPathAmountBackFromBufferEnd = 512;
+
     #endregion
 
     private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
@@ -2193,7 +2195,11 @@ public sealed class RtfToTextConverter
     {
         while (!_reachedEndOfStream)
         {
-            char ch = (char)GetByte(IncrementCurrentPos());
+            // Not sure about how effective this is (double check sometimes?), but it got us our winning run so
+            // let's just leave it
+            char ch = _currentPos < _currentBufferChunkLength - 1
+                ? (char)_buffer[IncrementCurrentPos()]
+                : (char)GetByte(IncrementCurrentPos());
 
             // Ordered by most frequently appearing first
             switch (ch)
@@ -2250,6 +2256,59 @@ public sealed class RtfToTextConverter
     {
         _currentPos--;
 
+        if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd)
+        {
+            HandlePlainTextRun_Fast();
+        }
+        else
+        {
+            HandlePlainTextRun_Slow();
+        }
+    }
+
+    private void HandlePlainTextRun_Fast()
+    {
+        int i;
+
+        SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
+        if (symbolFont > SymbolFont.Unset)
+        {
+            uint[] table = _symbolFontTables[(int)symbolFont];
+            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            {
+                char ch = (char)_buffer[IncrementCurrentPos()];
+                if (!_isNonPlainText[ch])
+                {
+                    GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
+                    _plainText.AddRange(result, result.Count);
+                }
+                else
+                {
+                    _currentPos--;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            {
+                char ch = (char)_buffer[IncrementCurrentPos()];
+                if (!_isNonPlainText[ch])
+                {
+                    _plainText.Add(ch);
+                }
+                else
+                {
+                    _currentPos--;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void HandlePlainTextRun_Slow()
+    {
         SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {

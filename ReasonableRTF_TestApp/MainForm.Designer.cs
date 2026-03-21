@@ -366,22 +366,22 @@ sealed partial class MainForm
         // Convert_MemoryStreamRadioButton
         // 
         Convert_MemoryStreamRadioButton.AutoSize = true;
-        Convert_MemoryStreamRadioButton.Checked = true;
         Convert_MemoryStreamRadioButton.Location = new Point(104, 24);
         Convert_MemoryStreamRadioButton.Name = "Convert_MemoryStreamRadioButton";
         Convert_MemoryStreamRadioButton.Size = new Size(107, 19);
         Convert_MemoryStreamRadioButton.TabIndex = 1;
-        Convert_MemoryStreamRadioButton.TabStop = true;
         Convert_MemoryStreamRadioButton.Text = "MemoryStream";
         Convert_MemoryStreamRadioButton.UseVisualStyleBackColor = true;
         // 
         // Convert_ByteArrayRadioButton
         // 
         Convert_ByteArrayRadioButton.AutoSize = true;
+        Convert_ByteArrayRadioButton.Checked = true;
         Convert_ByteArrayRadioButton.Location = new Point(16, 24);
         Convert_ByteArrayRadioButton.Name = "Convert_ByteArrayRadioButton";
         Convert_ByteArrayRadioButton.Size = new Size(77, 19);
         Convert_ByteArrayRadioButton.TabIndex = 0;
+        Convert_ByteArrayRadioButton.TabStop = true;
         Convert_ByteArrayRadioButton.Text = "Byte array";
         Convert_ByteArrayRadioButton.UseVisualStyleBackColor = true;
         // 
