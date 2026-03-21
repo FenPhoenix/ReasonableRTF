@@ -15,23 +15,13 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 
 - - -
 
-## Installation
-
-Install the library via NuGet:
-
-```
-dotnet add package ReasonableRTF.Standard
-```
-
-- - -
-
 ## Quick Start
 
-Converting an RTF file (as a byte array) to plain text is straightforward. The `Convert` method returns an **`RtfResult`** object, providing the converted text and comprehensive error information, if any.
+Converting an RTF file to plain text is straightforward. The `Convert` method returns an **`RtfResult`** object, providing the converted text and comprehensive error information, if any.
 
 ### Basic Conversion
 
-Here is how to convert an RTF byte array to a plain text string:
+Here is how to convert an RTF file to a plain text string:
 
 ```cs
 using ReasonableRTF;
@@ -43,8 +33,8 @@ using System.IO;
 // 1. Initialize the converter
 RtfToTextConverter converter = new RtfToTextConverter();
 
-// 2. Load the RTF data (e.g., from a file) and convert
-RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path));
+// 2. Load the RTF data from a file and convert
+RtfResult result = converter.Convert("some_file.rtf");
 
 if (result.Error == RtfError.OK)
 {
@@ -92,7 +82,7 @@ RtfToTextConverterOptions options = new RtfToTextConverterOptions
     LineBreakStyle = LineBreakStyle.LF // Use Unix-style line breaks
 };
 
-RtfResult result = converter.Convert(File.ReadAllBytes(Context.Path), options);
+RtfResult result = converter.Convert("some_file.rtf", options);
 // ... check result
 ```
 
