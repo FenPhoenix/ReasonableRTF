@@ -2053,43 +2053,43 @@ public sealed class RtfToTextConverter
             _leadingBufferByteCount = _maxSeekBackBytes;
         }
 
-        SetOptions(options, _options);
-
-        #region Reset
-
-        _endedStreamOnce = false;
-        _reachedEndOfStream = false;
-
-        _groupStack.ClearFast();
-        _groupStack.ResetFirst();
-        _fontEntries.Clear();
-
-        _headerCodePage = 1252;
-        _headerDefaultFontSet = false;
-        _headerDefaultFontNum = 0;
-
-        _groupCount = 0;
-        _skipDestinationIfUnknown = false;
-
-        _chunksRead = 0;
-        _currentPos = _leadingBufferByteCount;
-
-        _inHandleSkippableHexData = false;
-        _inHandleFontTable = false;
-
-        _lastUsedFontWithCodePage42 = NoFontNumber;
-
-        _hexBuffer.ClearFast();
-        _unicodeBuffer.ClearFast();
-        _symbolFontNameBuffer.ClearFast();
-        _fldinstSymbolFontName.ClearFast();
-        _fldinstSymbolNumber.ClearFast();
-        _plainText.ClearFast();
-
-        #endregion
-
         try
         {
+            SetOptions(options, _options);
+
+            #region Reset
+
+            _endedStreamOnce = false;
+            _reachedEndOfStream = false;
+
+            _groupStack.ClearFast();
+            _groupStack.ResetFirst();
+            _fontEntries.Clear();
+
+            _headerCodePage = 1252;
+            _headerDefaultFontSet = false;
+            _headerDefaultFontNum = 0;
+
+            _groupCount = 0;
+            _skipDestinationIfUnknown = false;
+
+            _chunksRead = 0;
+            _currentPos = _leadingBufferByteCount;
+
+            _inHandleSkippableHexData = false;
+            _inHandleFontTable = false;
+
+            _lastUsedFontWithCodePage42 = NoFontNumber;
+
+            _hexBuffer.ClearFast();
+            _unicodeBuffer.ClearFast();
+            _symbolFontNameBuffer.ClearFast();
+            _fldinstSymbolFontName.ClearFast();
+            _fldinstSymbolNumber.ClearFast();
+            _plainText.ClearFast();
+
+            #endregion
+
             if (_bufferedStream != null)
             {
                 LoadNextChunkIntoBuffer();
