@@ -32,7 +32,11 @@ namespace ReasonableRTF.Models.Fonts;
 internal sealed class FontDictionary
 {
     private int _capacity;
+#if NET8_0_OR_GREATER
     private readonly Dictionary<int, FontEntry> _dict;
+#else
+    private Dictionary<int, FontEntry> _dict;
+#endif
 
     private readonly ListFast<FontEntry> _fontEntryPool;
     private int _fontEntryPoolVirtualCount;
@@ -85,7 +89,11 @@ internal sealed class FontDictionary
     {
         _capacity = capacity;
         _fontEntryPool.HardReset(capacity);
+#if NET8_0_OR_GREATER
         _dict.Reset(capacity);
+#else
+        _dict = new Dictionary<int, FontEntry>(_capacity);
+#endif
         Clear();
     }
 

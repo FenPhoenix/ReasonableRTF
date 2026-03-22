@@ -1804,7 +1804,12 @@ public sealed class RtfToTextConverter
 
     // DON'T reset this. We want to build up a dictionary of encodings and amortize it over the entire list
     // of RTF files.
+#if NET8_0_OR_GREATER
     private readonly Dictionary<int, Encoding> _encodings;
+#else
+    private Dictionary<int, Encoding> _encodings;
+#endif
+
 
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
     private readonly Encoding _windows1252Encoding;
@@ -2012,7 +2017,11 @@ public sealed class RtfToTextConverter
         _hexBuffer.HardReset(_internalBufferDefaultCapacity);
         _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
         _symbolFontNameBuffer.HardReset(_internalBufferDefaultCapacity);
+#if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
+#else
+        _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
+#endif
         _fldinstSymbolFontName.HardReset(_internalBufferDefaultCapacity);
         _charGeneralBuffer.HardReset(_charGeneralBufferDefaultCapacity);
     }

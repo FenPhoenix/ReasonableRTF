@@ -48,6 +48,7 @@ internal static class UtilHelper
         return ret;
     }
 
+#if NET8_0_OR_GREATER
     /// <summary>
     /// Clears the dictionary and sets its internal storage to zero-length.
     /// </summary>
@@ -60,6 +61,7 @@ internal static class UtilHelper
         dictionary.Clear();
         dictionary.TrimExcess(capacity);
     }
+#endif
 
     /// <summary>
     /// Copy of .NET 7 version (fewer branches than Framework) but with a fast null return on fail instead of the infernal exception-throwing.
