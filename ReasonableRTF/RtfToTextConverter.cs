@@ -2026,9 +2026,9 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? chunkedStream, int bufferSize)
+    private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? bufferedStream, int bufferSize)
     {
-        if (chunkedStream == null)
+        if (bufferedStream == null)
         {
             if (bytesLength > bytes.Length)
             {
@@ -2036,19 +2036,20 @@ public sealed class RtfToTextConverter
                     nameof(bytesLength) + " is greater than the length of " + nameof(bytes) + ".", nameof(bytesLength));
             }
 
-            SetBuffer(bytes, bytesLength);
+            _buffer = bytes;
+            SetBufferLength(bytesLength);
             _leadingBufferByteCount = 0;
         }
         else
         {
-            _bufferedStream = chunkedStream;
+            _bufferedStream = bufferedStream;
             bufferSize = Math.Max(bufferSize, _minimumBufferSize);
 
             if (_buffer.Length != bufferSize)
             {
                 _buffer = new byte[bufferSize];
             }
-            SetBuffer(_buffer, bufferSize);
+            SetBufferLength(bufferSize);
             _leadingBufferByteCount = _maxSeekBackBytes;
         }
 
@@ -2137,7 +2138,12 @@ public sealed class RtfToTextConverter
         }
         finally
         {
-            SetBuffer(Array.Empty<byte>(), 0);
+            if (_bufferedStream == null)
+            {
+                _buffer = Array.Empty<byte>();
+            }
+            _bufferLength = 0;
+            _currentBufferChunkLength = 0;
             _bufferedStream = null;
         }
     }
@@ -4352,13 +4358,11 @@ public sealed class RtfToTextConverter
     private int _bufferLength;
     private int _currentBufferChunkLength;
 
-    private void SetBuffer(byte[] array, int length)
+    private void SetBufferLength(int length)
     {
-        _buffer = array;
         _bufferLength = length;
         _currentBufferChunkLength = length;
     }
-
     /// <summary>
     /// Manually bounds-checked past <see cref="T:_bufferLength"/>.
     /// Now that we have stream support, this method should always be called for array accesses to ensure the
