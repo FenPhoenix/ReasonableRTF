@@ -36,8 +36,6 @@ TODO: Try to make API good like with granularity levels and whatever
 TODO: API: "Write the usage code first" - we haven't done that...
 We can figure out what's a good options-setting API then.
 TODO: API: Should we just always throw? Right now we throw in param out of range but return error result for everything else.
-TODO: Make Framework/.NET Standard 2.0 version
-And keep them separate because I can't figure out how to get them to play nicely together...
 TODO: Add an option to copy HYPERLINK field instructions to output like RichTextBox does?
 HYPERLINK in a fldinst can - and usually does - occur after a bunch of random cruft, unlike SYMBOL.
 So we'd have to make another special parse method that when it gets to plain text it checks for HYPERLINK and
