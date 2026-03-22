@@ -45,6 +45,7 @@ The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext o
 I guess. So we could just leave this out...
 */
 
+using System.Buffers;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -2035,26 +2036,25 @@ public sealed class RtfToTextConverter
                 ThrowHelper.ArgumentException(
                     nameof(bytesLength) + " is greater than the length of " + nameof(bytes) + ".", nameof(bytesLength));
             }
-
-            _buffer = bytes;
-            SetBufferLength(bytesLength);
-            _leadingBufferByteCount = 0;
-        }
-        else
-        {
-            _bufferedStream = bufferedStream;
-            bufferSize = Math.Max(bufferSize, _minimumBufferSize);
-
-            if (_buffer.Length != bufferSize)
-            {
-                _buffer = new byte[bufferSize];
-            }
-            SetBufferLength(bufferSize);
-            _leadingBufferByteCount = _maxSeekBackBytes;
         }
 
         try
         {
+            if (bufferedStream == null)
+            {
+                _buffer = bytes;
+                SetBufferLength(bytesLength);
+                _leadingBufferByteCount = 0;
+            }
+            else
+            {
+                _bufferedStream = bufferedStream;
+                bufferSize = Math.Max(bufferSize, _minimumBufferSize);
+                _buffer = ArrayPool<byte>.Shared.Rent(bufferSize);
+                SetBufferLength(bufferSize);
+                _leadingBufferByteCount = _maxSeekBackBytes;
+            }
+
             SetOptions(options, _options);
 
             #region Reset
@@ -2141,6 +2141,10 @@ public sealed class RtfToTextConverter
             if (_bufferedStream == null)
             {
                 _buffer = Array.Empty<byte>();
+            }
+            else
+            {
+                ArrayPool<byte>.Shared.Return(_buffer);
             }
             _bufferLength = 0;
             _currentBufferChunkLength = 0;
