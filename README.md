@@ -111,12 +111,12 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 ```
 | Method                            | Mean         | Error     | StdDev    | Speed        | Multiple |
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
-| RichTextBox_FullSet               | 3,294.980 ms | 3.8858 ms | 3.4447 ms |   44.07 MB/s | 1x       |
-| RichTextBox_NoImageSet            | 1,413.639 ms | 2.1362 ms | 1.7839 ms |    2.51 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    29.893 ms | 0.0299 ms | 0.0265 ms | 4857.72 MB/s | 110x     |
-| ReasonableRTF_NoImageSet          |     8.343 ms | 0.0110 ms | 0.0098 ms |  424.75 MB/s | 169x     |
-| ReasonableRTF_FullSet_Streamed    |    32.286 ms | 0.0796 ms | 0.0744 ms | 4497.67 MB/s | 102x     |
-| ReasonableRTF_NoImageSet_Streamed |     8.772 ms | 0.0302 ms | 0.0283 ms |  403.97 MB/s | 161x     |
+| RichTextBox_FullSet               | 3,335.737 ms | 8.2972 ms | 6.9285 ms |   43.53 MB/s | 1x       |
+| RichTextBox_NoImageSet            | 1,437.550 ms | 5.0440 ms | 4.7181 ms |    2.47 MB/s | 1x       |
+| ReasonableRTF_FullSet             |    29.865 ms | 0.0315 ms | 0.0295 ms | 4862.27 MB/s | 112x     |
+| ReasonableRTF_NoImageSet          |     8.456 ms | 0.0258 ms | 0.0241 ms |  419.07 MB/s | 170x     |
+| ReasonableRTF_FullSet_Streamed    |    31.949 ms | 0.0666 ms | 0.0623 ms | 4545.11 MB/s | 104x     |
+| ReasonableRTF_NoImageSet_Streamed |     8.326 ms | 0.0208 ms | 0.0195 ms |  425.61 MB/s | 173x     |
 
 - - -
 
