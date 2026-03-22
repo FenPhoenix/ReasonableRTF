@@ -24,7 +24,9 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+#if NET8_0_OR_GREATER
 using ReasonableRTF.Helper;
+#endif
 using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF.Models.Fonts;

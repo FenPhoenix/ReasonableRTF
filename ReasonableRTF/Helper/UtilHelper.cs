@@ -29,9 +29,6 @@ namespace ReasonableRTF.Helper;
 
 internal static class UtilHelper
 {
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsAsciiHex(this byte b) => char.IsAsciiHexDigit((char)b);
-
     /// <summary>
     /// Returns an array of type <typeparamref name="T"/> with all elements initialized to <paramref name="value"/>.
     /// </summary>
@@ -86,5 +83,33 @@ internal static class UtilHelper
         charBuffer.Count = 2;
 
         return charBuffer;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static int Array_IndexOfByte_Fast(byte[] array, byte value, int startIndex, int count)
+    {
+        // On .NET, Array.IndexOf() uses crazy fast SIMD. On Framework, it normally doesn't.
+#if NET8_0_OR_GREATER
+        return Array.IndexOf(array, value, startIndex, count);
+#else
+        /*
+        However, on Framework 64-bit only, we can make it use SIMD by using span.IndexOf(), if we reference the
+        appropriate package (directly or indirectly), System.Memory or whatever it is.
+        If we're 32-bit, though, SIMD is not supported, so we just stick to the regular Array.IndexOf(), which
+        while substantially slower than the SIMD version, is still reasonably fast.
+
+        But instead of checking for 64-bit vs. 32-bit, we can just check directly if SIMD is supported.
+        */
+        if (System.Numerics.Vector.IsHardwareAccelerated)
+        {
+            int index = array.AsSpan(startIndex, count).IndexOf(value);
+            if (index > -1) index += startIndex;
+            return index;
+        }
+        else
+        {
+            return Array.IndexOf(array, value, startIndex, count);
+        }
+#endif
     }
 }

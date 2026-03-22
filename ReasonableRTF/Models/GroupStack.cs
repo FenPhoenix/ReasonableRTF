@@ -30,7 +30,14 @@ namespace ReasonableRTF.Models;
 
 internal sealed class GroupStack
 {
+#if NET8_0_OR_GREATER
     private static readonly int PropertiesLen = Enum.GetValues<Property>().Length;
+#else
+    private static readonly int PropertiesLen = Enum.GetValues(typeof(Property)).Length;
+    // The Max Length of an Array
+    // Copy of https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Array.cs
+    private const int MaxLength = 0X7FFFFFC7;
+#endif
 
     private const int DefaultCapacity = 100;
     private int Capacity;
@@ -69,7 +76,11 @@ internal sealed class GroupStack
     {
         int oldMaxGroups = Capacity;
         int newCapacity = Capacity * 2;
+#if NET8_0_OR_GREATER
         if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
+#else
+        if ((uint)newCapacity > MaxLength) newCapacity = MaxLength;
+#endif
 
         Capacity = newCapacity;
         Array.Resize(ref _skipDestinations, Capacity);

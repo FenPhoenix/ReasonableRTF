@@ -2911,7 +2911,7 @@ public sealed class RtfToTextConverter
                         negateParam = 1;
                         ch = (char)GetByte(IncrementCurrentPos());
                     }
-                    if (char.IsAsciiDigit(ch))
+                    if (CharExtension.IsAsciiDigit(ch))
                     {
                         int param = 0;
 
@@ -2921,7 +2921,7 @@ public sealed class RtfToTextConverter
                             {
                                 int i;
                                 for (i = 0;
-                                     i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                                     i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
                                      i++, ch = (char)GetByte(IncrementCurrentPos()))
                                 {
                                     param = (param * 10) + (ch - '0');
@@ -3017,13 +3017,13 @@ public sealed class RtfToTextConverter
                     if (GetByte(IncrementCurrentPos()) == '\'')
                     {
                         byte b = GetByte(IncrementCurrentPos());
-                        if (!b.IsAsciiHex())
+                        if (!CharExtension.IsAsciiHexDigit((char)b))
                         {
                             _currentPos--;
                             break;
                         }
                         b = GetByte(IncrementCurrentPos());
-                        if (!b.IsAsciiHex())
+                        if (!CharExtension.IsAsciiHexDigit((char)b))
                         {
                             _currentPos -= 2;
                             break;
@@ -3327,7 +3327,7 @@ public sealed class RtfToTextConverter
         bool alphaCharsFound = false;
         bool alphaFound;
         for (i = 0;
-             i < _fldinstSymbolNumberMaxLen && ((alphaFound = char.IsAsciiLetter(ch)) || char.IsAsciiDigit(ch));
+             i < _fldinstSymbolNumberMaxLen && ((alphaFound = CharExtension.IsAsciiLetter(ch)) || CharExtension.IsAsciiDigit(ch));
              i++, ch = (char)GetByte(IncrementCurrentPos()))
         {
             if (alphaFound) alphaCharsFound = true;
@@ -3349,10 +3349,17 @@ public sealed class RtfToTextConverter
         if (numIsHex)
         {
             ReadOnlySpan<char> span = new(_fldinstSymbolNumber.ItemsArray, 0, _fldinstSymbolNumber.Count);
+#if NET8_0_OR_GREATER
             if (!ushort.TryParse(span,
                     NumberStyles.HexNumber,
                     NumberFormatInfo.InvariantInfo,
                     out param))
+#else
+            if (!ushort.TryParse(span.ToString(),
+                    NumberStyles.HexNumber,
+                    NumberFormatInfo.InvariantInfo,
+                    out param))
+#endif
             {
                 return RewindAndSkipGroup();
             }
@@ -3499,7 +3506,7 @@ public sealed class RtfToTextConverter
                 if (ch != ' ') return RewindAndSkipGroup();
 
                 int numDigitCount = 0;
-                while (char.IsAsciiDigit(ch = (char)GetByte(IncrementCurrentPos())))
+                while (CharExtension.IsAsciiDigit(ch = (char)GetByte(IncrementCurrentPos())))
                 {
                     if (numDigitCount > _fldinstSymbolNumberMaxLen)
                     {
@@ -3875,7 +3882,7 @@ public sealed class RtfToTextConverter
 
         while (!_reachedEndOfStream)
         {
-            int foundIndex = Array.IndexOf(_buffer, (byte)'}', _currentPos, count);
+            int foundIndex = UtilHelper.Array_IndexOfByte_Fast(_buffer, (byte)'}', _currentPos, count);
             if (foundIndex > -1)
             {
                 return foundIndex;
@@ -3945,7 +3952,7 @@ public sealed class RtfToTextConverter
 
         char[] keyword = _keyword;
 
-        if (!char.IsAsciiLetter(ch))
+        if (!CharExtension.IsAsciiLetter(ch))
         {
             /*
             From the spec:
@@ -3969,7 +3976,7 @@ public sealed class RtfToTextConverter
         {
             int keywordCount;
             for (keywordCount = 0;
-                 keywordCount < _keywordMaxLen + 1 && char.IsAsciiLetter(ch);
+                 keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)_buffer[IncrementCurrentPos()])
             {
                 keyword[keywordCount] = ch;
@@ -3985,7 +3992,7 @@ public sealed class RtfToTextConverter
                 negateParam = 1;
                 ch = (char)_buffer[IncrementCurrentPos()];
             }
-            if (char.IsAsciiDigit(ch))
+            if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;
                 checked
@@ -3994,7 +4001,7 @@ public sealed class RtfToTextConverter
                     {
                         int i;
                         for (i = 0;
-                             i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                             i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
                              i++, ch = (char)_buffer[IncrementCurrentPos()])
                         {
                             param = (param * 10) + (ch - '0');
@@ -4052,7 +4059,7 @@ public sealed class RtfToTextConverter
 
         char[] keyword = _keyword;
 
-        if (!char.IsAsciiLetter(ch))
+        if (!CharExtension.IsAsciiLetter(ch))
         {
             /*
             From the spec:
@@ -4076,7 +4083,7 @@ public sealed class RtfToTextConverter
         {
             int keywordCount;
             for (keywordCount = 0;
-                 keywordCount < _keywordMaxLen + 1 && char.IsAsciiLetter(ch);
+                 keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
             {
                 keyword[keywordCount] = ch;
@@ -4092,7 +4099,7 @@ public sealed class RtfToTextConverter
                 negateParam = 1;
                 ch = (char)GetByte(IncrementCurrentPos());
             }
-            if (char.IsAsciiDigit(ch))
+            if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;
                 checked
@@ -4101,7 +4108,7 @@ public sealed class RtfToTextConverter
                     {
                         int i;
                         for (i = 0;
-                             i < _paramMaxLen + 1 && char.IsAsciiDigit(ch);
+                             i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
                              i++, ch = (char)GetByte(IncrementCurrentPos()))
                         {
                             param = (param * 10) + (ch - '0');
