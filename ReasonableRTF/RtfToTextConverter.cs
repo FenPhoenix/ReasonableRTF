@@ -4309,45 +4309,40 @@ public sealed class RtfToTextConverter
 
     private void LoadNextChunkIntoBuffer()
     {
-        if (_bufferedStream != null)
+        Debug.Assert(_bufferedStream != null);
+
+        // This path should only be hit when in streaming mode, and when therefore the buffer size is supposed
+        // to have an enforced minimum.
+        Debug.Assert(_buffer.Length >= _maxSeekBackBytes);
+
+        // On the last chunk, we may have fewer than _maxSeekBackBytes bytes, but we aren't going to use the
+        // copied garbage in that case because we'll throw for attempt to read past end of stream.
+        ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_currentBufferChunkLength - _leadingBufferByteCount]);
+        Unsafe.WriteUnaligned(ref _buffer[0], endChunk);
+
+        int bytesRead = _bufferedStream!.ReadAll(_buffer, _leadingBufferByteCount, _bufferLength - _leadingBufferByteCount);
+
+        // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
+        if (bytesRead == 0)
         {
-            // This path should only be hit when in streaming mode, and when therefore the buffer size is supposed
-            // to have an enforced minimum.
-            Debug.Assert(_buffer.Length >= _maxSeekBackBytes);
-
-            // On the last chunk, we may have fewer than _maxSeekBackBytes bytes, but we aren't going to use the
-            // copied garbage in that case because we'll throw for attempt to read past end of stream.
-            ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_currentBufferChunkLength - _leadingBufferByteCount]);
-            Unsafe.WriteUnaligned(ref _buffer[0], endChunk);
-
-            int bytesRead = _bufferedStream.ReadAll(_buffer, _leadingBufferByteCount, _bufferLength - _leadingBufferByteCount);
-
-            // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
-            if (bytesRead == 0)
+            // Hack to match previous behavior with intentionally-broken RtfPipe test files
+            if (_endedStreamOnce)
             {
-                // Hack to match previous behavior with intentionally-broken RtfPipe test files
-                if (_endedStreamOnce)
-                {
-                    _reachedEndOfStream = true;
-                }
-                else
-                {
-                    _endedStreamOnce = true;
-                    _chunksRead++;
-                }
+                _reachedEndOfStream = true;
             }
             else
             {
+                _endedStreamOnce = true;
                 _chunksRead++;
             }
-
-            _currentPos = _leadingBufferByteCount;
-            _currentBufferChunkLength = bytesRead + _leadingBufferByteCount;
         }
         else
         {
-            ThrowHelper.IndexOutOfRange();
+            _chunksRead++;
         }
+
+        _currentPos = _leadingBufferByteCount;
+        _currentBufferChunkLength = bytesRead + _leadingBufferByteCount;
     }
 
     #endregion
