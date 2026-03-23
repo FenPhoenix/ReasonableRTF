@@ -2308,17 +2308,36 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            if (_plainText.Count < (_plainText.Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
             {
-                char ch = (char)_buffer[IncrementCurrentPos()];
-                if (!_isNonPlainText[ch])
+                for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
-                    _plainText.Add(ch);
+                    char ch = (char)_buffer[IncrementCurrentPos()];
+                    if (!_isNonPlainText[ch])
+                    {
+                        _plainText.ItemsArray[_plainText.Count++] = ch;
+                    }
+                    else
+                    {
+                        _currentPos--;
+                        break;
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
-                    _currentPos--;
-                    break;
+                    char ch = (char)_buffer[IncrementCurrentPos()];
+                    if (!_isNonPlainText[ch])
+                    {
+                        _plainText.Add(ch);
+                    }
+                    else
+                    {
+                        _currentPos--;
+                        break;
+                    }
                 }
             }
         }
