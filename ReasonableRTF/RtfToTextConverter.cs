@@ -3556,7 +3556,7 @@ public sealed class RtfToTextConverter
     private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
     {
         // BitConverter.GetBytes() does this, but it allocates a temp array every time.
-        // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639/changes
+        // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
         Unsafe.WriteUnaligned(ref MemoryMarshal.GetReference(_byteBuffer4), codePoint);
 
         try
