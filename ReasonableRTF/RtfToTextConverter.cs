@@ -49,6 +49,7 @@ using System.Buffers;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -3555,7 +3556,8 @@ public sealed class RtfToTextConverter
     private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
     {
         // BitConverter.GetBytes() does this, but it allocates a temp array every time.
-        Unsafe.As<byte, uint>(ref _byteBuffer4[0]) = codePoint;
+        // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639/changes
+        Unsafe.WriteUnaligned(ref MemoryMarshal.GetReference(_byteBuffer4), codePoint);
 
         try
         {
