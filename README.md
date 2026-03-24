@@ -15,6 +15,16 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 
 - - -
 
+## Installation
+
+Install the library via NuGet:
+
+```
+dotnet add package ReasonableRTF.Standard
+```
+
+- - -
+
 ## Quick Start
 
 Converting an RTF file to plain text is straightforward. The `Convert` method returns an **`RtfResult`** object, providing the converted text and comprehensive error information, if any.
