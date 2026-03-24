@@ -1,15 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-	  <TargetFrameworks>net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworks Condition="'$(Configuration)'!='Release_Framework' And '$(Configuration)'!='Debug_Framework'">net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+		<TargetFrameworks Condition="'$(Configuration)'=='Release_Framework' Or '$(Configuration)'=='Debug_Framework'">net48</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Configurations>Debug;Release;Debug_Framework;Release_Framework</Configurations>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ReasonableRTF\ReasonableRTF.csproj" />
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release_Framework'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Condition="'$(TargetFrameworks)'=='net48'" Include="PolySharp" Version="1.15.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ReasonableRTF\ReasonableRTF.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Condition="'$(TargetFrameworks)'=='net48'" Include="System.IO.Compression" />
+	</ItemGroup>
 
 </Project>
+

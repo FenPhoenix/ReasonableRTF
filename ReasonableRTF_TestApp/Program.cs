@@ -11,7 +11,12 @@ file static class Program
         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
+#if NETFRAMEWORK
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+#else
         ApplicationConfiguration.Initialize();
+#endif
         Application.Run(new MainForm());
     }
 }
