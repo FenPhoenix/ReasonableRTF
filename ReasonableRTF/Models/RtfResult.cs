@@ -27,9 +27,20 @@ using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models;
 
+/// <summary>
+/// The Conversion Result.
+/// If an error occured <see cref="Error"/> will be not <see cref="RtfError.OK"/> and <see cref="Exception"/> might be set to an <see cref="System.Exception"/>.
+/// </summary>
 public readonly struct RtfResult
 {
-    internal RtfResult(RtfError error, int bytePositionOfError, Exception? exception)
+	/// <summary>
+	/// Initializes the <see cref="RtfResult"/>.
+	/// </summary>
+	/// <param name="error">The <see cref="RtfError"/>.</param>
+	/// <param name="bytePositionOfError">The Position where the <paramref name="error"/> or <paramref name="exception"/> occured.</param>
+	/// <param name="exception">The <see cref="System.Exception"/>, which occured.</param>
+	/// This Constructor will be used if a Error occured and not if everything is fine.
+	internal RtfResult(RtfError error, int bytePositionOfError, Exception? exception)
     {
         Text = "";
         Error = error;
@@ -37,7 +48,11 @@ public readonly struct RtfResult
         Exception = exception;
     }
 
-    internal RtfResult(string text)
+	/// <summary>
+	/// Initializes the <see cref="RtfResult"/>.
+	/// </summary>
+	/// <param name="text">The extracted Text.</param>
+	internal RtfResult(string text)
     {
         Text = text;
         Error = RtfError.OK;
@@ -65,7 +80,12 @@ public readonly struct RtfResult
     /// </summary>
     public Exception? Exception { get; }
 
-    public override string ToString()
+	/// <summary>
+	/// Gets the <see cref="RtfResult"/> as <see cref="string"/>.
+	/// If the conversion was not successfull the Error Message will be included.
+	/// </summary>
+	/// <returns>Returns the <see cref="RtfResult"/> as <see cref="string"/>.</returns>
+	public override string ToString()
     {
         string error = Error == RtfError.OK ? "Success" : "Error: " + Error;
 
