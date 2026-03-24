@@ -1887,6 +1887,7 @@ public sealed class RtfToTextConverter
     /// <param name="source">The byte array containing the RTF to convert.</param>
     /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
     public RtfResult Convert(byte[] source, int length)
     {
         return ConvertInternal(source, length, _defaultOptions, null, _defaultStreamBufferSize);
@@ -1899,6 +1900,7 @@ public sealed class RtfToTextConverter
     /// <param name="length">The maximum number of bytes to read from the RTF byte array.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
     public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
         return ConvertInternal(source, length, options, null, _defaultStreamBufferSize);
@@ -1913,6 +1915,14 @@ public sealed class RtfToTextConverter
     /// </summary>
     /// <param name="fileName">The path to the RTF file to convert.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="PathTooLongException"></exception>
+    /// <exception cref="DirectoryNotFoundException"></exception>
+    /// <exception cref="UnauthorizedAccessException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    /// <exception cref="NotSupportedException"></exception>
+    /// <exception cref="IOException"></exception>
     public RtfResult Convert(string fileName)
     {
         using FileStream stream = File.OpenRead(fileName);
@@ -1925,6 +1935,14 @@ public sealed class RtfToTextConverter
     /// <param name="fileName">The path to the RTF file to convert.</param>
     /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="PathTooLongException"></exception>
+    /// <exception cref="DirectoryNotFoundException"></exception>
+    /// <exception cref="UnauthorizedAccessException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    /// <exception cref="NotSupportedException"></exception>
+    /// <exception cref="IOException"></exception>
     public RtfResult Convert(string fileName, int bufferSize)
     {
         using FileStream stream = File.OpenRead(fileName);
@@ -1937,6 +1955,14 @@ public sealed class RtfToTextConverter
     /// <param name="fileName">The path to the RTF file to convert.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="PathTooLongException"></exception>
+    /// <exception cref="DirectoryNotFoundException"></exception>
+    /// <exception cref="UnauthorizedAccessException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    /// <exception cref="NotSupportedException"></exception>
+    /// <exception cref="IOException"></exception>
     public RtfResult Convert(string fileName, RtfToTextConverterOptions options)
     {
         using FileStream stream = File.OpenRead(fileName);
@@ -1950,6 +1976,14 @@ public sealed class RtfToTextConverter
     /// <param name="bufferSize">The size of the buffer to use during streaming. The default value is 81920.</param>
     /// <param name="options">A set of options.</param>
     /// <returns>An <see cref="RtfResult"/> containing the converted plain text, or error information if the conversion was not successful.</returns>
+    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="PathTooLongException"></exception>
+    /// <exception cref="DirectoryNotFoundException"></exception>
+    /// <exception cref="UnauthorizedAccessException"></exception>
+    /// <exception cref="FileNotFoundException"></exception>
+    /// <exception cref="NotSupportedException"></exception>
+    /// <exception cref="IOException"></exception>
     public RtfResult Convert(string fileName, int bufferSize, RtfToTextConverterOptions options)
     {
         using FileStream stream = File.OpenRead(fileName);
