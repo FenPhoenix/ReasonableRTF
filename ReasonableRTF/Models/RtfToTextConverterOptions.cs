@@ -26,6 +26,9 @@ using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models;
 
+/// <summary>
+/// The Options for the Conversion in <see cref="RtfToTextConverter"/>.
+/// </summary>
 public sealed class RtfToTextConverterOptions
 {
     /// <summary>
