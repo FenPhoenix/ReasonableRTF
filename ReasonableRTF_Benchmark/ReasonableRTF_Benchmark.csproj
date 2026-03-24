@@ -9,6 +9,7 @@
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 		<Configurations>Debug;Release;Debug_Framework;Release_Framework</Configurations>
+		<Platforms>AnyCPU;x86;x64</Platforms>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release_Framework'">

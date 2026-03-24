@@ -8,6 +8,7 @@
 		<WarningsAsErrors>Nullable</WarningsAsErrors>
 		<LangVersion>latest</LangVersion>
 		<Version>0.1</Version>
+		<Platforms>AnyCPU;x86;x64</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
