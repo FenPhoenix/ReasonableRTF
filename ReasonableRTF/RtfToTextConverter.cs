@@ -3411,17 +3411,10 @@ public sealed class RtfToTextConverter
         if (numIsHex)
         {
             ReadOnlySpan<char> span = new(_fldinstSymbolNumber.ItemsArray, 0, _fldinstSymbolNumber.Count);
-#if NET8_0_OR_GREATER
             if (!ushort.TryParse(span,
                     NumberStyles.HexNumber,
                     NumberFormatInfo.InvariantInfo,
                     out param))
-#else
-            if (!ushort.TryParse(span.ToString(),
-                    NumberStyles.HexNumber,
-                    NumberFormatInfo.InvariantInfo,
-                    out param))
-#endif
             {
                 return RewindAndSkipGroup();
             }
