@@ -2363,38 +2363,35 @@ public sealed class RtfToTextConverter
                 }
             }
         }
-        else
+        else if (_plainText.Count < (_plainText.Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
         {
-            if (_plainText.Count < (_plainText.Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
+            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
-                for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+                char ch = (char)_buffer[IncrementCurrentPos()];
+                if (!_isNonPlainText[(byte)ch])
                 {
-                    char ch = (char)_buffer[IncrementCurrentPos()];
-                    if (!_isNonPlainText[(byte)ch])
-                    {
-                        _plainText.ItemsArray[_plainText.Count++] = ch;
-                    }
-                    else
-                    {
-                        _currentPos--;
-                        break;
-                    }
+                    _plainText.ItemsArray[_plainText.Count++] = ch;
+                }
+                else
+                {
+                    _currentPos--;
+                    break;
                 }
             }
-            else
+        }
+        else
+        {
+            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
-                for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+                char ch = (char)_buffer[IncrementCurrentPos()];
+                if (!_isNonPlainText[(byte)ch])
                 {
-                    char ch = (char)_buffer[IncrementCurrentPos()];
-                    if (!_isNonPlainText[(byte)ch])
-                    {
-                        _plainText.Add(ch);
-                    }
-                    else
-                    {
-                        _currentPos--;
-                        break;
-                    }
+                    _plainText.Add(ch);
+                }
+                else
+                {
+                    _currentPos--;
+                    break;
                 }
             }
         }
