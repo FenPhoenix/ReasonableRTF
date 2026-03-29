@@ -47,6 +47,7 @@ I guess. So we could just leave this out...
 
 using System.Buffers;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -75,8 +76,6 @@ public sealed class RtfToTextConverter
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly char[] _keyword = new char[_keywordMaxLen + 1];
-    private readonly GroupStack _groupStack = new();
-    private readonly FontDictionary _fontEntries;
 
     #region Constants
 
@@ -90,7 +89,7 @@ public sealed class RtfToTextConverter
     /// Since font numbers can be negative, let's just use a slightly less likely value than the already unlikely
     /// enough -1...
     /// </summary>
-    internal const int NoFontNumber = int.MinValue;
+    private const int NoFontNumber = int.MinValue;
 
     private const int _keywordMaxLen = 32;
     // Most are signed int16 (5 chars), but a few can be signed int32 (10 chars)
@@ -1735,8 +1734,6 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    private static readonly SymbolDict _symbols = new();
-
     #region Resettables
 
     #region Header
@@ -1755,9 +1752,6 @@ public sealed class RtfToTextConverter
     private int _leadingBufferByteCount;
 
     private bool _skipDestinationIfUnknown;
-
-    // For whatever reason it's faster to have this
-    private int _groupCount;
 
     private int _currentPos;
     private int _chunksRead;
@@ -1849,13 +1843,19 @@ public sealed class RtfToTextConverter
         InitSymbolFontData();
 
         _plainText = new ListFast<char>(_plainTextDefaultCapacity);
-        _fontEntries = new FontDictionary(_internalBufferDefaultCapacity);
+
+        _fontDictionaryCapacity = _internalBufferDefaultCapacity;
+        _fontEntryPool = new ListFast<FontEntry>(_internalBufferDefaultCapacity);
+        _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
+
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
         _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
         _symbolFontNameBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
         _charGeneralBuffer = new ListFast<char>(_charGeneralBufferDefaultCapacity);
+
+        InitGroupStack();
     }
 
     #region Byte array
@@ -2045,9 +2045,9 @@ public sealed class RtfToTextConverter
     /// </summary>
     public void ResetMemory()
     {
-        _groupStack.ResetCapacityIfTooHigh();
+        GroupStack_ResetCapacityIfTooHigh();
         _plainText.HardReset(_plainTextDefaultCapacity);
-        _fontEntries.ClearFull(_internalBufferDefaultCapacity);
+        FontDictionary_ClearFull(_internalBufferDefaultCapacity);
         _hexBuffer.HardReset(_internalBufferDefaultCapacity);
         _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
         _symbolFontNameBuffer.HardReset(_internalBufferDefaultCapacity);
@@ -2097,15 +2097,14 @@ public sealed class RtfToTextConverter
             _endedStreamOnce = false;
             _reachedEndOfStream = false;
 
-            _groupStack.ClearFast();
-            _groupStack.ResetFirst();
-            _fontEntries.Clear();
+            GroupStack_ClearFast();
+            GroupStack_ResetFirst();
+            ClearFontDictionary();
 
             _headerCodePage = 1252;
             _headerDefaultFontSet = false;
             _headerDefaultFontNum = 0;
 
-            _groupCount = 0;
             _skipDestinationIfUnknown = false;
 
             _chunksRead = 0;
@@ -2261,26 +2260,24 @@ public sealed class RtfToTextConverter
                     if (ec != RtfError.OK) return ec;
                     break;
                 case '{':
-                    _groupStack.DeepCopyToNext();
-                    _groupCount++;
+                    GroupStack_DeepCopyToNext();
                     break;
                 case '}':
-                    if (_groupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_groupStack.Count;
-                    _groupCount--;
-                    if (_groupCount == 0) return RtfError.OK;
+                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                    --_groupStackCount;
+                    if (_groupStackCount == 0) return RtfError.OK;
                     break;
                 case '\r':
                 case '\n':
                     break;
                 case not '\0':
                 {
-                    if (!_groupStack.CurrentSkipDest &&
-                        _groupStack.CurrentProperties[(int)Property.Hidden] == 0)
+                    if (!GroupStack_CurrentSkipDest &&
+                        GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
                     {
                         if (_isNonPlainText[GetByte(_currentPos)])
                         {
-                            SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
+                            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                             if (symbolFont > SymbolFont.Unset)
                             {
                                 GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
@@ -2301,7 +2298,7 @@ public sealed class RtfToTextConverter
             }
         }
 
-        return _groupCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
+        return _groupStackCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
     }
 
     private void HandlePlainTextRun()
@@ -2322,7 +2319,7 @@ public sealed class RtfToTextConverter
     {
         int i;
 
-        SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
+        SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
@@ -2380,7 +2377,7 @@ public sealed class RtfToTextConverter
 
     private void HandlePlainTextRun_Slow()
     {
-        SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
+        SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
@@ -2422,7 +2419,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError DispatchKeyword(Symbol symbol, int param, bool hasParam)
     {
-        if (!_groupStack.CurrentSkipDest)
+        if (!GroupStack_CurrentSkipDest)
         {
             switch (symbol.KeywordType)
             {
@@ -2487,7 +2484,7 @@ public sealed class RtfToTextConverter
                 break;
             case SpecialType.FontTable:
             {
-                _groupStack.CurrentInFontTable = true;
+                GroupStack_CurrentInFontTable = true;
                 RtfError error = HandleFontTable();
                 if (error != RtfError.OK) return error;
                 break;
@@ -2505,28 +2502,28 @@ public sealed class RtfToTextConverter
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
                 // (which is guaranteed not to be negative)
-                if (_fontEntries.Top != null && _groupStack.CurrentInFontTable)
+                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
                         int codePage = _charSetToCodePage[param];
-                        _fontEntries.Top.CodePage = codePage >= 0 ? codePage : _headerCodePage;
+                        _fontEntries_Top.CodePage = codePage >= 0 ? codePage : _headerCodePage;
                     }
                     else
                     {
-                        _fontEntries.Top.CodePage = _headerCodePage;
+                        _fontEntries_Top.CodePage = _headerCodePage;
                     }
                 }
                 break;
             case SpecialType.CodePage:
-                if (_fontEntries.Top != null && _groupStack.CurrentInFontTable)
+                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
                 {
-                    _fontEntries.Top.CodePage = param >= 0 ? param : _headerCodePage;
+                    _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
                 }
                 break;
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
-                if (_groupStack.CurrentProperties[(int)Property.Hidden] == 0)
+                if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
                 {
                     if (_plainText.Count > 0 && _plainText[_plainText.Count - 1] == '\t')
                     {
@@ -2547,7 +2544,7 @@ public sealed class RtfToTextConverter
         if (_inHandleFontTable) return RtfError.AbortedForSafety;
         _inHandleFontTable = true;
 
-        int fontTableGroupLevel = _groupStack.Count;
+        int fontTableGroupLevel = _groupStackCount;
 
         while (!_reachedEndOfStream)
         {
@@ -2556,32 +2553,30 @@ public sealed class RtfToTextConverter
             switch (ch)
             {
                 case '{':
-                    _groupStack.DeepCopyToNext();
-                    _groupCount++;
+                    GroupStack_DeepCopyToNext();
                     break;
                 case '}':
-                    if (_groupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_groupStack.Count;
-                    _groupCount--;
-                    if (_groupCount < fontTableGroupLevel)
+                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                    --_groupStackCount;
+                    if (_groupStackCount < fontTableGroupLevel)
                     {
                         // We can't actually set the symbol font as soon as we see \deffN, because we won't have
                         // any font entry objects yet. Now that we do, we can retroactively set all previous
                         // groups' fonts as appropriate, as if they had propagated up automatically.
                         int defaultFontNum = _headerDefaultFontNum;
-                        if (_fontEntries.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
+                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
                         {
                             SymbolFont symbolFont = fontEntry.SymbolFont;
                             // Start at 1 because the "base" group is still inside an opening { so it's really
                             // group 1.
-                            for (int i = 1; i < _groupCount + 1; i++)
+                            for (int i = 1; i < _groupStackCount + 1; i++)
                             {
-                                int[] properties = _groupStack.Properties[i];
+                                int[] properties = _groupStack_Properties[i];
                                 int fontNum = properties[(int)Property.FontNum];
                                 if (fontNum == NoFontNumber)
                                 {
                                     properties[(int)Property.FontNum] = defaultFontNum;
-                                    _groupStack._symbolFonts[i] = (byte)symbolFont;
+                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
                                 }
                                 else
                                 {
@@ -2603,8 +2598,8 @@ public sealed class RtfToTextConverter
                     break;
                 default:
                 {
-                    FontEntry? fontEntry = _fontEntries.Top;
-                    if (!_groupStack.CurrentSkipDest &&
+                    FontEntry? fontEntry = _fontEntries_Top;
+                    if (!GroupStack_CurrentSkipDest &&
                         // We can't check for codepage 42, because symbol fonts can have other codepages (although
                         // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
                         // save time here...
@@ -2664,12 +2659,12 @@ public sealed class RtfToTextConverter
     {
         if (propertyTableIndex == Property.FontNum)
         {
-            if (_groupStack.CurrentInFontTable)
+            if (GroupStack_CurrentInFontTable)
             {
-                _fontEntries.Add(val);
+                FontDictionary_Add(val);
                 return;
             }
-            else if (_fontEntries.TryGetValue(val, out FontEntry? fontEntry))
+            else if (_fontDictionary.TryGetValue(val, out FontEntry? fontEntry))
             {
                 if (fontEntry.CodePage == 42)
                 {
@@ -2677,10 +2672,10 @@ public sealed class RtfToTextConverter
                     _lastUsedFontWithCodePage42 = val;
                 }
 
-                _groupStack.CurrentSymbolFont = fontEntry.SymbolFont;
+                GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
             }
             // \fN supersedes \langN
-            _groupStack.CurrentProperties[(int)Property.Lang] = -1;
+            GroupStack_CurrentProperties[(int)Property.Lang] = -1;
         }
         else if (propertyTableIndex == Property.Lang)
         {
@@ -2694,7 +2689,7 @@ public sealed class RtfToTextConverter
             }
         }
 
-        _groupStack.CurrentProperties[(int)propertyTableIndex] = val;
+        GroupStack_CurrentProperties[(int)propertyTableIndex] = val;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2703,7 +2698,7 @@ public sealed class RtfToTextConverter
         switch (destinationType)
         {
             case DestinationType.Skip:
-                _groupStack.CurrentSkipDest = true;
+                GroupStack_CurrentSkipDest = true;
                 return RtfError.OK;
             case DestinationType.FieldInstruction:
                 return HandleFieldInstruction();
@@ -2758,7 +2753,7 @@ public sealed class RtfToTextConverter
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
         // none of them are null.
-        if (_groupStack.CurrentProperties[(int)Property.Hidden] == 0)
+        if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
         {
             // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
             // the start should we actually write it.
@@ -2773,7 +2768,7 @@ public sealed class RtfToTextConverter
                 return;
             }
 
-            SymbolFont symbolFont = _groupStack.CurrentSymbolFont;
+            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
             if (symbolFont > SymbolFont.Unset)
             {
                 uint[] fontTable = _symbolFontTables[(int)symbolFont];
@@ -3069,7 +3064,7 @@ public sealed class RtfToTextConverter
         to spec fully here. This is actually really fortunate, because ignoring the thorny "entire control word
         including bin and its data" thing means we get simpler and faster.
         */
-        int numToSkip = _groupStack.CurrentProperties[(int)Property.UnicodeCharSkipCount];
+        int numToSkip = GroupStack_CurrentProperties[(int)Property.UnicodeCharSkipCount];
         while (numToSkip > 0 && !_reachedEndOfStream)
         {
             char c = (char)GetByte(IncrementCurrentPos());
@@ -3156,7 +3151,7 @@ public sealed class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int FieldInst_GetFontNum()
     {
-        int currentFontNumber = _groupStack.CurrentProperties[(int)Property.FontNum];
+        int currentFontNumber = GroupStack_CurrentProperties[(int)Property.FontNum];
         return currentFontNumber > NoFontNumber
             ? currentFontNumber
             : _headerDefaultFontNum;
@@ -3200,7 +3195,7 @@ public sealed class RtfToTextConverter
             {
                 int fontNum = FieldInst_GetFontNum();
 
-                if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+                if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
                 {
                     _plainText.Add((char)param);
                     return;
@@ -3224,7 +3219,7 @@ public sealed class RtfToTextConverter
     {
         int fontNum = FieldInst_GetFontNum();
 
-        if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry))
+        if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry))
         {
             ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
             PutChars_FieldInst(finalChars, finalChars.Count);
@@ -3334,7 +3329,7 @@ public sealed class RtfToTextConverter
     */
     private RtfError HandleFieldInstruction()
     {
-        if (_groupStack.CurrentProperties[(int)Property.Hidden] != 0) return RewindAndSkipGroup();
+        if (GroupStack_CurrentProperties[(int)Property.Hidden] != 0) return RewindAndSkipGroup();
 
         _fldinstSymbolNumber.ClearFast();
         _fldinstSymbolFontName.ClearFast();
@@ -3621,7 +3616,7 @@ public sealed class RtfToTextConverter
     private RtfError RewindAndSkipGroup()
     {
         _currentPos--;
-        _groupStack.CurrentSkipDest = true;
+        GroupStack_CurrentSkipDest = true;
         return RtfError.OK;
     }
 
@@ -3637,8 +3632,8 @@ public sealed class RtfToTextConverter
         // of the bare-char symbol font stuff here.
 
         if (!(count == 1 && ch[0] == '\0') &&
-            _groupStack.CurrentProperties[(int)Property.Hidden] == 0 &&
-            !_groupStack.CurrentInFontTable)
+            GroupStack_CurrentProperties[(int)Property.Hidden] == 0 &&
+            !GroupStack_CurrentInFontTable)
         {
             _plainText.AddRange(ch, count);
         }
@@ -3703,12 +3698,12 @@ public sealed class RtfToTextConverter
     private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
         GetCurrentEncoding()
     {
-        int groupFontNum = _groupStack.CurrentProperties[(int)Property.FontNum];
-        int groupLang = _groupStack.CurrentProperties[(int)Property.Lang];
+        int groupFontNum = GroupStack_CurrentProperties[(int)Property.FontNum];
+        int groupLang = GroupStack_CurrentProperties[(int)Property.Lang];
 
         if (groupFontNum == NoFontNumber) groupFontNum = _headerDefaultFontNum;
 
-        _fontEntries.TryGetValue(groupFontNum, out FontEntry? fontEntry);
+        _fontDictionary.TryGetValue(groupFontNum, out FontEntry? fontEntry);
 
         int codePage;
         if (groupLang is > -1 and <= _maxLangNumIndex)
@@ -3858,7 +3853,7 @@ public sealed class RtfToTextConverter
                 ? _lastUsedFontWithCodePage42
                 : _headerDefaultFontNum;
 
-            if (!_fontEntries.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+            if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
             {
                 return;
             }
@@ -4026,7 +4021,7 @@ public sealed class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = _symbols.LookUpControlSymbol(ch);
+            symbol = LookUpControlSymbol(ch);
         }
         else
         {
@@ -4086,7 +4081,7 @@ public sealed class RtfToTextConverter
             // Current position will be > 0 at this point, so a decrement is always safe
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
 
-            symbol = _symbols.LookUpControlWord(keyword, keywordCount);
+            symbol = LookUpControlWord(keyword, keywordCount);
         }
 
         if (symbol == null)
@@ -4094,7 +4089,7 @@ public sealed class RtfToTextConverter
             // If this is a new destination
             if (_skipDestinationIfUnknown)
             {
-                _groupStack.CurrentSkipDest = true;
+                GroupStack_CurrentSkipDest = true;
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -4133,7 +4128,7 @@ public sealed class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = _symbols.LookUpControlSymbol(ch);
+            symbol = LookUpControlSymbol(ch);
         }
         else
         {
@@ -4193,7 +4188,7 @@ public sealed class RtfToTextConverter
             // Current position will be > 0 at this point, so a decrement is always safe
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
 
-            symbol = _symbols.LookUpControlWord(keyword, keywordCount);
+            symbol = LookUpControlWord(keyword, keywordCount);
         }
 
         if (symbol == null)
@@ -4201,7 +4196,7 @@ public sealed class RtfToTextConverter
             // If this is a new destination
             if (_skipDestinationIfUnknown)
             {
-                _groupStack.CurrentSkipDest = true;
+                GroupStack_CurrentSkipDest = true;
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -4223,7 +4218,7 @@ public sealed class RtfToTextConverter
         if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
         _inHandleSkippableHexData = true;
 
-        int startGroupLevel = _groupStack.Count;
+        int startGroupLevel = _groupStackCount;
 
         while (!_reachedEndOfStream)
         {
@@ -4232,14 +4227,12 @@ public sealed class RtfToTextConverter
             switch (ch)
             {
                 case '{':
-                    _groupStack.DeepCopyToNext();
-                    _groupCount++;
+                    GroupStack_DeepCopyToNext();
                     break;
                 case '}':
-                    if (_groupStack.Count == 0) return RtfError.StackUnderflow;
-                    --_groupStack.Count;
-                    _groupCount--;
-                    if (_groupCount < startGroupLevel)
+                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                    --_groupStackCount;
+                    if (_groupStackCount < startGroupLevel)
                     {
                         if (insertSpaceIfNecessary &&
                             _plainText.Count > 0 &&
@@ -4260,7 +4253,7 @@ public sealed class RtfToTextConverter
                 case '\n':
                     break;
                 default:
-                    if (_groupCount == startGroupLevel)
+                    if (_groupStackCount == startGroupLevel)
                     {
                         _currentPos = IndexOfNextClosingBrace_ChunkAware();
                     }
@@ -4399,6 +4392,9 @@ public sealed class RtfToTextConverter
 
     #endregion
 
+    // Pulling previously separate classes into the main class increases performance: the fewer separate classes
+    // we have to reference in hot loops, the better.
+
     #region Buffer
 
     private byte[] _buffer = Array.Empty<byte>();
@@ -4445,7 +4441,7 @@ public sealed class RtfToTextConverter
             int ret = IncrementCurrentPos_Stream(_currentPos);
             if (_currentPos > _currentBufferChunkLength)
             {
-                if (_groupCount > 0)
+                if (_groupStackCount > 0)
                 {
                     ThrowHelper.UnmatchedBraceException();
                 }
@@ -4462,7 +4458,7 @@ public sealed class RtfToTextConverter
         }
         else
         {
-            if (_groupCount > 0)
+            if (_groupStackCount > 0)
             {
                 ThrowHelper.UnmatchedBraceException();
             }
@@ -4473,6 +4469,610 @@ public sealed class RtfToTextConverter
             ThrowHelper.IndexOutOfRange();
             return 0;
         }
+    }
+
+    #endregion
+
+    #region GroupStack
+
+    private static readonly int PropertiesLen = Enum.GetValues<Property>().Length;
+
+    private const int _groupStackDefaultCapacity = 100;
+    private int _groupStackCapacity;
+    private int _groupStackCount;
+
+    private bool[] _groupStack_SkipDestinations;
+    private bool[] _groupStack_InFontTables;
+    private byte[] _groupStack_SymbolFonts;
+    private int[][] _groupStack_Properties;
+
+    [MemberNotNull(
+        nameof(_groupStack_SkipDestinations),
+        nameof(_groupStack_InFontTables),
+        nameof(_groupStack_SymbolFonts),
+        nameof(_groupStack_Properties))]
+    private void InitGroupStack()
+    {
+        _groupStackCount = 0;
+        _groupStackCapacity = _groupStackDefaultCapacity;
+
+        _groupStack_SkipDestinations = new bool[_groupStackCapacity];
+        _groupStack_InFontTables = new bool[_groupStackCapacity];
+        _groupStack_SymbolFonts = new byte[_groupStackCapacity];
+        _groupStack_Properties = new int[_groupStackCapacity][];
+
+        for (int i = 0; i < _groupStackCapacity; i++)
+        {
+            _groupStack_Properties[i] = new int[PropertiesLen];
+        }
+    }
+
+    private void GroupStack_Grow()
+    {
+        int oldMaxGroups = _groupStackCapacity;
+        int newCapacity = _groupStackCapacity * 2;
+        if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
+
+        _groupStackCapacity = newCapacity;
+        Array.Resize(ref _groupStack_SkipDestinations, _groupStackCapacity);
+        Array.Resize(ref _groupStack_InFontTables, _groupStackCapacity);
+        Array.Resize(ref _groupStack_SymbolFonts, _groupStackCapacity);
+        Array.Resize(ref _groupStack_Properties, _groupStackCapacity);
+
+        for (int i = oldMaxGroups; i < _groupStackCapacity; i++)
+        {
+            _groupStack_Properties[i] = new int[PropertiesLen];
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void GroupStack_DeepCopyToNext()
+    {
+        // We don't really take a speed hit from this at all, but we support files with a stupid amount of
+        // nested groups now.
+        if (_groupStackCount >= _groupStackCapacity - 1)
+        {
+            GroupStack_Grow();
+        }
+
+        _groupStack_SkipDestinations[_groupStackCount + 1] = _groupStack_SkipDestinations[_groupStackCount];
+        _groupStack_InFontTables[_groupStackCount + 1] = _groupStack_InFontTables[_groupStackCount];
+        _groupStack_SymbolFonts[_groupStackCount + 1] = _groupStack_SymbolFonts[_groupStackCount];
+        for (int i = 0; i < PropertiesLen; i++)
+        {
+            _groupStack_Properties[_groupStackCount + 1][i] = _groupStack_Properties[_groupStackCount][i];
+        }
+        ++_groupStackCount;
+    }
+
+    #region Current group
+
+    private bool GroupStack_CurrentSkipDest
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_SkipDestinations[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_SkipDestinations[_groupStackCount] = value;
+    }
+
+    private bool GroupStack_CurrentInFontTable
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_InFontTables[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_InFontTables[_groupStackCount] = value;
+    }
+
+    private SymbolFont GroupStack_CurrentSymbolFont
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (SymbolFont)_groupStack_SymbolFonts[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_SymbolFonts[_groupStackCount] = (byte)value;
+    }
+
+    private int[] GroupStack_CurrentProperties
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_Properties[_groupStackCount];
+    }
+
+    // Current group always begins at group 0, so reset just that one
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void GroupStack_ResetFirst()
+    {
+        _groupStack_SkipDestinations[0] = false;
+        _groupStack_InFontTables[0] = false;
+        _groupStack_SymbolFonts[0] = (int)SymbolFont.None;
+
+        _groupStack_Properties[0][(int)Property.Hidden] = 0;
+        _groupStack_Properties[0][(int)Property.UnicodeCharSkipCount] = 1;
+        _groupStack_Properties[0][(int)Property.FontNum] = NoFontNumber;
+        _groupStack_Properties[0][(int)Property.Lang] = -1;
+    }
+
+    #endregion
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void GroupStack_ClearFast() => _groupStackCount = 0;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void GroupStack_ResetCapacityIfTooHigh()
+    {
+        if (_groupStackCapacity > _groupStackDefaultCapacity)
+        {
+            InitGroupStack();
+        }
+    }
+
+    #endregion
+
+    #region SymbolDict
+
+    /* ANSI-C code produced by gperf version 3.1 */
+    /* Command-line: 'C:\\gperf\\tools\\gperf.exe' --output-file='C:\\_al_rtf_table_gen\\gperfOutputFile.txt' -t 'C:\\_al_rtf_table_gen\\gperfFormatFile.txt'  */
+    /* Computed positions: -k'1-3,$' */
+
+    //private const int TOTAL_KEYWORDS = 83;
+    //private const int MIN_WORD_LENGTH = 1;
+    private const int MAX_WORD_LENGTH = 18;
+    //private const int MIN_HASH_VALUE = 11;
+    private const int MAX_HASH_VALUE = 283;
+    /* maximum key range = 273, duplicates = 0 */
+
+    private static readonly ushort[] asso_values =
+    [
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 10, 45, 10,
+        75, 10, 5, 95, 40, 5, 90, 0, 0, 35,
+        15, 0, 25, 15, 50, 15, 0, 70, 10, 100,
+        32, 0, 0, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
+        284, 284, 284, 284, 284, 284,
+    ];
+
+    /*
+    For "cs", "ds", "ts"
+    Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
+
+    For "listtext", "pntext"
+    TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
+
+    For "v"
+    \v to make all plain text hidden (not output to the conversion stream), \v0 to make it shown again
+
+    For "ansi"
+    The spec calls this "ANSI (the default)" but says nothing about what codepage that actually means.
+    "ANSI" is often misused to mean one of the Windows codepages, so I'll assume it's Windows-1252.
+
+    For "mac"
+    The spec calls this "Apple Macintosh" but again says nothing about what codepage that is. I'll
+    assume 10000 ("Mac Roman")
+
+    For "fldinst"
+    We need to do stuff with this (SYMBOL instruction)
+
+    NOTE: This is generated. Values can be modified, but not keys (keys are the first string params).
+    Also no reordering. Adding, removing, reordering, or modifying keys requires generating a new version.
+    See RTF_SymbolListGenSource.cs for how to generate a new version (it also contains the original
+    Symbol list which must be used as the source to generate this one).
+    */
+    private static readonly Symbol?[] _symbolTable =
+    [
+        null, null, null, null, null, null, null, null, null,
+        null, null,
+// Entry 7
+        new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
+// Entry 47
+        new Symbol("footerl", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null,
+// Entry 46
+        new Symbol("footerf", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 41
+        new Symbol("colortbl", 0, false, KeywordType.Special, (ushort)SpecialType.ColorTable),
+        null,
+// Entry 67
+        new Symbol("title", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 13
+        new Symbol("v", 1, false, KeywordType.Property, (ushort)Property.Hidden),
+// Entry 66
+        new Symbol("tc", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 49
+        new Symbol("footnote", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 80
+        new Symbol("cell", 0, false, KeywordType.Character, '\t'),
+// Entry 64
+        new Symbol("stylesheet", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 6
+        new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
+// Entry 37
+        new Symbol("listtext", 0, false, KeywordType.Destination, 255),
+// Entry 57
+        new Symbol("info", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null,
+// Entry 36
+        new Symbol("ts", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+// Entry 58
+        new Symbol("keywords", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 15
+        new Symbol("line", 0, false, KeywordType.Character, '\n'),
+        null, null,
+// Entry 52
+        new Symbol("ftnsepc", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 16
+        new Symbol("sect", 0, false, KeywordType.Character, '\n'),
+// Entry 50
+        new Symbol("ftncn", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 34
+        new Symbol("cs", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+        null,
+// Entry 70
+        new Symbol("pict", 1, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null,
+// Entry 38
+        new Symbol("pntext", 0, false, KeywordType.Destination, 255),
+// Entry 1
+        new Symbol("pc", 437, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+// Entry 82
+        new Symbol("nestcell", 0, false, KeywordType.Character, '\t'),
+// Entry 0
+        new Symbol("ansi", 1252, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null,
+// Entry 51
+        new Symbol("ftnsep", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 42
+        new Symbol("comment", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 69
+        new Symbol("xe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 68
+        new Symbol("txe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 20
+        new Symbol("enspace", 0, false, KeywordType.Character, '\x2002'),
+// Entry 3
+        new Symbol("pca", 850, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null, null,
+// Entry 45
+        new Symbol("footer", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 48
+        new Symbol("footerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 8
+        new Symbol("fcharset", -1, false, KeywordType.Special, (ushort)SpecialType.Charset),
+        null, null,
+// Entry 78
+        new Symbol("panose", 20, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
+// Entry 55
+        new Symbol("headerl", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 2
+        new Symbol("mac", 10000, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+// Entry 71
+        new Symbol("themedata", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null,
+// Entry 54
+        new Symbol("headerf", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null,
+// Entry 19
+        new Symbol("emspace", 0, false, KeywordType.Character, '\x2003'),
+        null, null, null, null,
+// Entry 21
+        new Symbol("qmspace", 0, false, KeywordType.Character, '\x2005'),
+// Entry 32
+        new Symbol("bin", 0, false, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
+        null, null, null,
+// Entry 33
+        new Symbol("fldinst", 0, false, KeywordType.Destination, (ushort)DestinationType.FieldInstruction),
+        null, null, null, null,
+// Entry 11
+        new Symbol("uc", 1, false, KeywordType.Property, (ushort)Property.UnicodeCharSkipCount),
+// Entry 59
+        new Symbol("operator", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null,
+// Entry 61
+        new Symbol("private", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 5
+        new Symbol("deff", 0, false, KeywordType.Special, (ushort)SpecialType.DefaultFont),
+        null,
+// Entry 24
+        new Symbol("lquote", 0, false, KeywordType.Character, '\x2018'),
+// Entry 73
+        new Symbol("passwordhash", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+// Entry 17
+        new Symbol("tab", 0, false, KeywordType.Character, '\t'),
+// Entry 74
+        new Symbol("datastore", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+// Entry 63
+        new Symbol("rxe", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null,
+// Entry 35
+        new Symbol("ds", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
+        null, null, null,
+// Entry 62
+        new Symbol("revtim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 43
+        new Symbol("creatim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null,
+// Entry 53
+        new Symbol("header", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 56
+        new Symbol("headerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null,
+// Entry 29
+        new Symbol("zwnbo", 0, false, KeywordType.Character, '\xFEFF'),
+// Entry 18
+        new Symbol("bullet", 0, false, KeywordType.Character, '\x2022'),
+// Entry 60
+        new Symbol("printim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 72
+        new Symbol("colorschememapping", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+// Entry 10
+        new Symbol("lang", 0, false, KeywordType.Property, (ushort)Property.Lang),
+        null, null,
+// Entry 44
+        new Symbol("doccomm", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null,
+// Entry 77
+        new Symbol("blipuid", 32, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
+        null, null, null,
+// Entry 39
+        new Symbol("author", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 65
+        new Symbol("subject", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+// Entry 14
+        new Symbol("par", 0, false, KeywordType.Character, '\n'),
+// Entry 26
+        new Symbol("ldblquote", 0, false, KeywordType.Character, '\x201C'),
+        null,
+// Entry 12
+        new Symbol("u", 0, false, KeywordType.Special, (ushort)SpecialType.UnicodeChar),
+// Entry 4
+        new Symbol("ansicpg", 1252, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        null, null, null,
+// Entry 23
+        new Symbol("endash", 0, false, KeywordType.Character, '\x2013'),
+// Entry 81
+        new Symbol("nestrow", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
+        null,
+// Entry 28
+        new Symbol("zwbo", 0, false, KeywordType.Character, '\x200B'),
+        null,
+// Entry 25
+        new Symbol("rquote", 0, false, KeywordType.Character, '\x2019'),
+// Entry 76
+        new Symbol("objdata", 1, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null,
+// Entry 22
+        new Symbol("emdash", 0, false, KeywordType.Character, '\x2014'),
+        null, null,
+// Entry 75
+        new Symbol("datafield", 0, false, KeywordType.Destination, (ushort)DestinationType.SkippableHex),
+        null, null, null, null, null, null, null, null, null,
+        null, null,
+// Entry 40
+        new Symbol("buptim", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
+        null, null, null, null, null, null, null,
+// Entry 27
+        new Symbol("rdblquote", 0, false, KeywordType.Character, '\x201D'),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null, null,
+        null,
+// Entry 31
+        new Symbol("zwnj", 0, false, KeywordType.Character, '\x200C'),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null, null,
+// Entry 9
+        new Symbol("cpg", -1, false, KeywordType.Special, (ushort)SpecialType.CodePage),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null,
+// Entry 79
+        new Symbol("row", 0, false, KeywordType.Special, (ushort)SpecialType.CellRowEnd),
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null, null, null,
+        null, null,
+// Entry 30
+        new Symbol("zwj", 0, false, KeywordType.Character, '\x200D'),
+    ];
+
+    private static Symbol?[] InitControlSymbolArray()
+    {
+        Symbol?[] ret = new Symbol?[256];
+        ret['\''] = new Symbol("'", 0, false, KeywordType.Special, (int)SpecialType.HexEncodedChar);
+        /*
+        @RTF(KeywordType.Character and symbol fonts):
+        \, {, and } are the only KeywordType.Character chars that can be in a symbol font. Everything else is
+        either below 0x20 or more than one byte, which in either case means they can't be symbol font chars.
+        ~ is nominally a non-breaking space, and in RichEdit is displayed as such (or at least whitespace of
+        some kind), but in LibreOffice is displayed as a square dot when set to Wingdings (as expected).
+        Since RichEdit doesn't treat it as a symbol font character we should in theory match its behavior,
+        but we convert it to an ASCII space anyway so the whole thing is moot currently. But just in case we
+        decide to change it, there's the info.
+
+        We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
+        where we don't need to, is the point of this whole soliloquy.
+
+        TODO: Handle bulleted/numbered lists properly
+        TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
+        TODO: Remove all assumptions about Windows-1252
+        NOTE(Footnotes):
+        RichTextBox doesn't convert them at all.
+        LibreOffice adds citation numbers but doesn't add the footnotes themselves.
+        */
+        ret['\\'] = new Symbol("\\", 0, false, KeywordType.Character, '\\');
+        ret['{'] = new Symbol("{", 0, false, KeywordType.Character, '{');
+        ret['}'] = new Symbol("}", 0, false, KeywordType.Character, '}');
+
+        // Non-breaking space (0xA0)
+        ret['~'] = new Symbol("~", 0, false, KeywordType.Character, '\xA0');
+
+        // Non-breaking hyphen (0x2011)
+        ret['_'] = new Symbol("_", 0, false, KeywordType.Character, '\x2011');
+
+        // Soft hyphen (Spec calls this "Optional hyphen")
+        ret['-'] = new Symbol("-", 0, false, KeywordType.Character, '\xAD');
+
+        // There's also \: which "specifies a subentry in an index entry" (it's not clear even from the spec what
+        // exactly an "index entry" is).
+
+        /*
+        Spec:
+        "A carriage return (character value 13) or line feed (character value 10) is treated as a \par
+        control if the character is preceded by a backslash. You must include the backslash; otherwise,
+        RTF ignores the control word."
+        */
+        ret['\r'] = new Symbol("\r", 0, false, KeywordType.Character, '\n');
+        ret['\n'] = new Symbol("\n", 0, false, KeywordType.Character, '\n');
+        return ret;
+    }
+
+    private readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private Symbol? LookUpControlSymbol(char ch) => _controlSymbols[ch];
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private Symbol? LookUpControlWord(char[] keyword, int len)
+    {
+        // Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min
+        if (len <= MAX_WORD_LENGTH)
+        {
+            int key = len;
+
+            // Original C code does a stupid thing where it puts default at the top and falls through and junk,
+            // but we can't do that in C#, so have something clearer/clunkier
+            switch (len)
+            {
+                // Most common case first - we get a measurable speedup from this
+                case > 2:
+                    key += asso_values[keyword[2]];
+                    key += asso_values[keyword[1]];
+                    key += asso_values[keyword[0]];
+                    break;
+                case 1:
+                    key += asso_values[keyword[0]];
+                    break;
+                case 2:
+                    key += asso_values[keyword[1]];
+                    key += asso_values[keyword[0]];
+                    break;
+            }
+            key += asso_values[keyword[len - 1]];
+
+            if (key <= MAX_HASH_VALUE)
+            {
+                Symbol? symbol = _symbolTable[key];
+                if (symbol == null)
+                {
+                    return null;
+                }
+
+                string seq2 = symbol.Keyword;
+                if (len != seq2.Length)
+                {
+                    return null;
+                }
+
+                for (int ci = 0; ci < len; ci++)
+                {
+                    if (keyword[ci] != seq2[ci])
+                    {
+                        return null;
+                    }
+                }
+
+                return symbol;
+            }
+        }
+
+        return null;
+    }
+
+    #endregion
+
+    #region FontDictionary
+
+    private int _fontDictionaryCapacity;
+#if NET8_0_OR_GREATER
+    private readonly Dictionary<int, FontEntry> _fontDictionary;
+#else
+    private Dictionary<int, FontEntry> _fontDictionary;
+#endif
+
+    private readonly ListFast<FontEntry> _fontEntryPool;
+    private int _fontEntryPoolVirtualCount;
+
+    /*
+    \fN params are normally in the signed int16 range, but the Windows RichEdit control supports them in the
+    -30064771071 - 30064771070 (-0x6ffffffff - 0x6fffffffe) range (yes, bizarre numbers, but I tested and
+    there they are).
+    */
+
+    private FontEntry? _fontEntries_Top;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void FontDictionary_Add(int key)
+    {
+        FontEntry fontEntry;
+        if (_fontEntryPoolVirtualCount > 0)
+        {
+            --_fontEntryPoolVirtualCount;
+            fontEntry = _fontEntryPool[_fontEntryPoolVirtualCount];
+            fontEntry.Reset();
+        }
+        else
+        {
+            fontEntry = new FontEntry();
+            _fontEntryPool.Add(fontEntry);
+        }
+
+        _fontEntries_Top = fontEntry;
+        _fontDictionary[key] = fontEntry;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void ClearFontDictionary()
+    {
+        _fontEntries_Top = null;
+        _fontDictionary.Clear();
+        _fontEntryPoolVirtualCount = _fontEntryPool.Count;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void FontDictionary_ClearFull(int capacity)
+    {
+        _fontDictionaryCapacity = capacity;
+        _fontEntryPool.HardReset(capacity);
+#if NET8_0_OR_GREATER
+        _fontDictionary.Reset(capacity);
+#else
+        _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
+#endif
+        ClearFontDictionary();
     }
 
     #endregion
