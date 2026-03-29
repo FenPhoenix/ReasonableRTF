@@ -4956,7 +4956,7 @@ public sealed class RtfToTextConverter
     private Symbol? LookUpControlSymbol(char ch) => _controlSymbols[ch];
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Symbol? LookUpControlWord(char[] keyword, int len)
+    private static Symbol? LookUpControlWord(char[] keyword, int len)
     {
         // Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min
         if (len <= MAX_WORD_LENGTH)
