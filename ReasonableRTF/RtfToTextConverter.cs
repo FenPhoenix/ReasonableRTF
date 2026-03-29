@@ -75,7 +75,7 @@ public sealed class RtfToTextConverter
     private readonly string LineBreakString = Environment.NewLine;
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
-    private readonly char[] _keyword = new char[_keywordMaxLen + 1];
+    private readonly byte[] _keyword = new byte[_keywordMaxLen + 1];
 
     #region Constants
 
@@ -1686,53 +1686,78 @@ public sealed class RtfToTextConverter
 
     #endregion
 
-    // From .NET 8. Maps ascii characters to hex (ie. "A" -> 0xA). 0xFF means not a hex character.
-    private static readonly byte[] _charToHex =
-    {
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xa, 0xb, 0xc, 0xd, 0xe, 0xf, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-    };
+    // Perf: On modern .NET, the "ReadOnlySpan<> x =>" pattern removes bounds checking (assuming you index with a
+    // numeric type that's <= the length of the span), and generates only a tiny amount of asm. But on Framework,
+    // the JIT doesn't recognize the pattern, and performance is catastrophic. So ugly ifdefs everywhere it is...
+#if NET8_0_OR_GREATER
+    private static ReadOnlySpan<bool> _isNonPlainText =>
+#else
+    private static bool[] _isNonPlainText =
+#endif
+    [
+        true, false, false, false, false, false, false, false, false, false,
+        true, false, false, true, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, true, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, true, false, true, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false,
+    ];
 
-    private static bool[] InitIsNonPlainTextBytes()
-    {
-        bool[] ret = new bool[256];
-        ret['\\'] = true;
-        ret['{'] = true;
-        ret['}'] = true;
-        ret['\r'] = true;
-        ret['\n'] = true;
-        ret['\0'] = true;
-        return ret;
-    }
+#if NET8_0_OR_GREATER
+    private static ReadOnlySpan<bool> _isSeparatorChar =>
+#else
+    private readonly bool[] _isSeparatorChar =
+#endif
+    [
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, true, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, true, false, true, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false,
+    ];
 
-    private readonly bool[] _isNonPlainText = InitIsNonPlainTextBytes();
-
-    private static bool[] InitIsSeparatorCharBytes()
-    {
-        bool[] ret = new bool[256];
-        ret['\\'] = true;
-        ret['{'] = true;
-        ret['}'] = true;
-        return ret;
-    }
-
-    private readonly bool[] _isSeparatorChar = InitIsSeparatorCharBytes();
-
-    #endregion
+#endregion
 
     #region Resettables
 
@@ -1819,7 +1844,7 @@ public sealed class RtfToTextConverter
     private readonly RtfToTextConverterOptions _defaultOptions;
     private readonly RtfToTextConverterOptions _options;
 
-    #endregion
+#endregion
 
     #region Public API
 
@@ -2326,7 +2351,7 @@ public sealed class RtfToTextConverter
             for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
                 char ch = (char)_buffer[IncrementCurrentPos()];
-                if (!_isNonPlainText[ch])
+                if (!_isNonPlainText[(byte)ch])
                 {
                     GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
                     _plainText.AddRange(result, result.Count);
@@ -2345,7 +2370,7 @@ public sealed class RtfToTextConverter
                 for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
                     char ch = (char)_buffer[IncrementCurrentPos()];
-                    if (!_isNonPlainText[ch])
+                    if (!_isNonPlainText[(byte)ch])
                     {
                         _plainText.ItemsArray[_plainText.Count++] = ch;
                     }
@@ -2361,7 +2386,7 @@ public sealed class RtfToTextConverter
                 for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
                     char ch = (char)_buffer[IncrementCurrentPos()];
-                    if (!_isNonPlainText[ch])
+                    if (!_isNonPlainText[(byte)ch])
                     {
                         _plainText.Add(ch);
                     }
@@ -2384,7 +2409,7 @@ public sealed class RtfToTextConverter
             while (!_reachedEndOfStream)
             {
                 char ch = (char)GetByte(IncrementCurrentPos());
-                if (!_isNonPlainText[ch])
+                if (!_isNonPlainText[(byte)ch])
                 {
                     GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
                     _plainText.AddRange(result, result.Count);
@@ -2401,7 +2426,7 @@ public sealed class RtfToTextConverter
             while (!_reachedEndOfStream)
             {
                 char ch = (char)GetByte(IncrementCurrentPos());
-                if (!_isNonPlainText[ch])
+                if (!_isNonPlainText[(byte)ch])
                 {
                     _plainText.Add(ch);
                 }
@@ -2901,9 +2926,9 @@ public sealed class RtfToTextConverter
         We're going to match LibreOffice here.
         */
         byte b = GetByte(IncrementCurrentPos());
-        byte hexNibble1 = _charToHex[b];
+        byte hexNibble1 = CharExtension.CharToHexLookup[b];
         b = GetByte(IncrementCurrentPos());
-        byte hexNibble2 = _charToHex[b];
+        byte hexNibble2 = CharExtension.CharToHexLookup[b];
         if ((hexNibble1 | hexNibble2) < 0xFF)
         {
             byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
@@ -2919,9 +2944,9 @@ public sealed class RtfToTextConverter
                 if (b == (byte)'\'')
                 {
                     b = GetByte(IncrementCurrentPos());
-                    hexNibble1 = _charToHex[b];
+                    hexNibble1 = CharExtension.CharToHexLookup[b];
                     b = GetByte(IncrementCurrentPos());
-                    hexNibble2 = _charToHex[b];
+                    hexNibble2 = CharExtension.CharToHexLookup[b];
                     if ((hexNibble1 | hexNibble2) < 0xFF)
                     {
                         byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
@@ -4001,7 +4026,7 @@ public sealed class RtfToTextConverter
 
         char ch = (char)_buffer[IncrementCurrentPos()];
 
-        char[] keyword = _keyword;
+        byte[] keyword = _keyword;
 
         if (!CharExtension.IsAsciiLetter(ch))
         {
@@ -4021,16 +4046,16 @@ public sealed class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = LookUpControlSymbol(ch);
+            symbol = LookUpControlSymbol((byte)ch);
         }
         else
         {
-            int keywordCount;
+            byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)_buffer[IncrementCurrentPos()])
             {
-                keyword[keywordCount] = ch;
+                keyword[keywordCount] = (byte)ch;
             }
             if (keywordCount > _keywordMaxLen)
             {
@@ -4108,7 +4133,7 @@ public sealed class RtfToTextConverter
 
         char ch = (char)GetByte(IncrementCurrentPos());
 
-        char[] keyword = _keyword;
+        byte[] keyword = _keyword;
 
         if (!CharExtension.IsAsciiLetter(ch))
         {
@@ -4128,16 +4153,16 @@ public sealed class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = LookUpControlSymbol(ch);
+            symbol = LookUpControlSymbol((byte)ch);
         }
         else
         {
-            int keywordCount;
+            byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
             {
-                keyword[keywordCount] = ch;
+                keyword[keywordCount] = (byte)ch;
             }
             if (keywordCount > _keywordMaxLen)
             {
@@ -4620,7 +4645,11 @@ public sealed class RtfToTextConverter
     private const int MAX_HASH_VALUE = 283;
     /* maximum key range = 273, duplicates = 0 */
 
-    private static readonly ushort[] asso_values =
+#if NET8_0_OR_GREATER
+    private static ReadOnlySpan<ushort> asso_values =>
+#else
+    private static ushort[] asso_values =
+#endif
     [
         284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
         284, 284, 284, 284, 284, 284, 284, 284, 284, 284,
@@ -4953,10 +4982,10 @@ public sealed class RtfToTextConverter
     private readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Symbol? LookUpControlSymbol(char ch) => _controlSymbols[ch];
+    private Symbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Symbol? LookUpControlWord(char[] keyword, int len)
+    private static Symbol? LookUpControlWord(byte[] keyword, byte len)
     {
         // Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min
         if (len <= MAX_WORD_LENGTH)
@@ -4997,7 +5026,7 @@ public sealed class RtfToTextConverter
                     return null;
                 }
 
-                for (int ci = 0; ci < len; ci++)
+                for (byte ci = 0; ci < len; ci++)
                 {
                     if (keyword[ci] != seq2[ci])
                     {

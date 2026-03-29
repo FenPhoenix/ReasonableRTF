@@ -39,26 +39,17 @@ namespace ReasonableRTF.Extensions
         /// </remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #if NET8_0_OR_GREATER
-        public static bool IsAsciiLetter(char c) => char.IsAsciiLetter(c);
+        internal static bool IsAsciiLetter(char c) => char.IsAsciiLetter(c);
 #else
-        public static bool IsAsciiLetter(char c) => (uint)((c | 0x20) - 'a') <= 'z' - 'a';
+        internal static bool IsAsciiLetter(char c) => (uint)((c | 0x20) - 'a') <= 'z' - 'a';
 #endif
 
-        /// <summary>Indicates whether a character is categorized as an ASCII hexadecimal digit.</summary>
-        /// <param name="c">The character to evaluate.</param>
-        /// <returns>true if <paramref name="c"/> is a hexadecimal digit; otherwise, false.</returns>
-        /// <remarks>
-        /// This determines whether the character is in the range '0' through '9', inclusive,
-        /// 'A' through 'F', inclusive, or 'a' through 'f', inclusive.
-        /// </remarks>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#if NET8_0_OR_GREATER
-        public static bool IsAsciiHexDigit(char c) => char.IsAsciiHexDigit(c);
-#else
-        public static bool IsAsciiHexDigit(char c) => IsHexChar(c);
-
         /// <summary>Map from an ASCII char to its hex value, e.g. arr['b'] == 11. 0xFF means it's not a hex digit.</summary>
-        private static ReadOnlySpan<byte> CharToHexLookup =>
+#if NET8_0_OR_GREATER
+        internal static ReadOnlySpan<byte> CharToHexLookup =>
+#else
+        internal static readonly byte[] CharToHexLookup =
+#endif
         [
             0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 15
             0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 31
@@ -77,6 +68,19 @@ namespace ReasonableRTF.Extensions
             0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 239
             0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // 255
         ];
+
+        /// <summary>Indicates whether a character is categorized as an ASCII hexadecimal digit.</summary>
+        /// <param name="c">The character to evaluate.</param>
+        /// <returns>true if <paramref name="c"/> is a hexadecimal digit; otherwise, false.</returns>
+        /// <remarks>
+        /// This determines whether the character is in the range '0' through '9', inclusive,
+        /// 'A' through 'F', inclusive, or 'a' through 'f', inclusive.
+        /// </remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#if NET8_0_OR_GREATER
+        internal static bool IsAsciiHexDigit(char c) => char.IsAsciiHexDigit(c);
+#else
+        internal static bool IsAsciiHexDigit(char c) => IsHexChar(c);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool IsHexChar(int c)
@@ -110,7 +114,7 @@ namespace ReasonableRTF.Extensions
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int FromChar(int c)
+        internal static int FromChar(int c)
         {
             return c >= CharToHexLookup.Length ? 0xFF : CharToHexLookup[c];
         }
@@ -124,9 +128,9 @@ namespace ReasonableRTF.Extensions
         /// </remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #if NET8_0_OR_GREATER
-        public static bool IsAsciiDigit(char c) => char.IsAsciiDigit(c);
+        internal static bool IsAsciiDigit(char c) => char.IsAsciiDigit(c);
 #else
-        public static bool IsAsciiDigit(char c) => IsBetween(c, '0', '9');
+        internal static bool IsAsciiDigit(char c) => IsBetween(c, '0', '9');
 
         /// <summary>Indicates whether a character is within the specified inclusive range.</summary>
         /// <param name="c">The character to evaluate.</param>
@@ -139,7 +143,7 @@ namespace ReasonableRTF.Extensions
         /// <paramref name="minInclusive"/>, the behavior is undefined.
         /// </remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool IsBetween(char c, char minInclusive, char maxInclusive) =>
+        internal static bool IsBetween(char c, char minInclusive, char maxInclusive) =>
             (uint)(c - minInclusive) <= (uint)(maxInclusive - minInclusive);
 #endif
     }
