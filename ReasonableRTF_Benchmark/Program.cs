@@ -7,10 +7,6 @@ namespace ReasonableRTF_Benchmark;
 
 public class Test
 {
-    // Believe it or not you have to put your exact actual path here because BenchmarkDotNet causes every kind of
-    // app startup path getting method in the ENTIRE UNIVERSE to not work. Argh.
-    private const string TestDataDir = @"C:\Users\Brian\source\repos\ReasonableRTF\ReasonableRTF_TestApp\Data";
-
     private readonly MemoryStream[] _fullSetMemStreams;
     private readonly MemoryStream[] _smallSetMemStreams;
     private readonly MemoryStream[] _fullSetMemStreams_Chunked;
@@ -20,9 +16,9 @@ public class Test
     private readonly RichTextBox _rtfBox;
     private readonly RtfToTextConverter _rtfConverter;
 
-    private MemoryStream[] GetStuff_RichTextBox(bool small)
+    private static MemoryStream[] GetStuff_RichTextBox(FileSetType type)
     {
-        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+        string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
         MemoryStream[] memStreams = new MemoryStream[rtfFiles.Length];
 
         for (int i = 0; i < rtfFiles.Length; i++)
@@ -37,9 +33,9 @@ public class Test
         return memStreams;
     }
 
-    private byte[][] GetStuff_Custom(bool small)
+    private static byte[][] GetStuff_Custom(FileSetType type)
     {
-        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+        string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
 
         byte[][] byteArrays = new byte[rtfFiles.Length][];
 
@@ -55,9 +51,9 @@ public class Test
         return byteArrays;
     }
 
-    private MemoryStream[] GetStuff_Custom_Chunked(bool small)
+    private static MemoryStream[] GetStuff_Custom_Chunked(FileSetType type)
     {
-        string[] rtfFiles = Directory.GetFiles(GetRtfSetDir(small));
+        string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
 
         MemoryStream[] memoryStreams = new MemoryStream[rtfFiles.Length];
 
@@ -75,26 +71,17 @@ public class Test
 
     public Test()
     {
-        _fullSetMemStreams = GetStuff_RichTextBox(small: false);
-        _smallSetMemStreams = GetStuff_RichTextBox(small: true);
+        _fullSetMemStreams = GetStuff_RichTextBox(FileSetType.Full);
+        _smallSetMemStreams = GetStuff_RichTextBox(FileSetType.Small);
 
-        _fullSetByteArrays = GetStuff_Custom(small: false);
-        _smallSetByteArrays = GetStuff_Custom(small: true);
+        _fullSetByteArrays = GetStuff_Custom(FileSetType.Full);
+        _smallSetByteArrays = GetStuff_Custom(FileSetType.Small);
 
-        _fullSetMemStreams_Chunked = GetStuff_Custom_Chunked(small: false);
-        _smallSetMemStreams_Chunked = GetStuff_Custom_Chunked(small: true);
+        _fullSetMemStreams_Chunked = GetStuff_Custom_Chunked(FileSetType.Full);
+        _smallSetMemStreams_Chunked = GetStuff_Custom_Chunked(FileSetType.Small);
 
         _rtfBox = new RichTextBox();
         _rtfConverter = new RtfToTextConverter();
-    }
-
-    private const string _rtfFullSetDir = "RTF_Test_Set_Full";
-    private const string _rtfSmallSetDir = "RTF_Test_Set_Small";
-
-    private string GetRtfSetDir(bool small)
-    {
-        string dir = small ? _rtfSmallSetDir : _rtfFullSetDir;
-        return Path.Combine(TestDataDir, dir);
     }
 
     [Benchmark]
