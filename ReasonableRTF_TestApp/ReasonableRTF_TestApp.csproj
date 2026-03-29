@@ -13,23 +13,33 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)'=='Release_Framework'">
-	  <Optimize>True</Optimize>
+		<Optimize>True</Optimize>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <PackageReference Condition="'$(TargetFrameworks)'=='net48'" Include="PolySharp" Version="1.15.0">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
-	</ItemGroup>
+	<PropertyGroup Condition="'$(TargetFramework)'=='net48'">
+		<MeziantouPolyfill_IncludedPolyfills>
+			T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute;
+			T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute;
+			T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute;
+			T:System.Index;
+			T:System.Range;
+			T:System.Runtime.CompilerServices.IsExternalInit;
+		</MeziantouPolyfill_IncludedPolyfills>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\ReasonableRTF\ReasonableRTF.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Reference Condition="'$(TargetFrameworks)'=='net48'" Include="System.IO.Compression" />
+	<ItemGroup Condition="'$(TargetFramework)'=='net48'">
+		<Reference Include="System.IO.Compression" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'=='net48'">
+		<PackageReference Include="Meziantou.Polyfill">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 </Project>
-
