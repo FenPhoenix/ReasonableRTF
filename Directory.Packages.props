@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+      <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
+      <PackageVersion Include="Meziantou.Polyfill" Version="1.0.105" />
+      <PackageVersion Include="System.Text.Encoding.CodePages" Version="9.0.10" />
+  </ItemGroup>
+</Project>
