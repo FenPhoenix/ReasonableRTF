@@ -1689,14 +1689,17 @@ public sealed class RtfToTextConverter
     // Perf: On modern .NET, the "ReadOnlySpan<> x =>" pattern removes bounds checking (assuming you index with a
     // numeric type that's <= the length of the span), and generates only a tiny amount of asm. But on Framework,
     // the JIT doesn't recognize the pattern, and performance is catastrophic. So ugly ifdefs everywhere it is...
-#if NET8_0_OR_GREATER
+#if !NET8_0_OR_GREATER
     private static ReadOnlySpan<bool> _isNonPlainText =>
 #else
-    private static bool[] _isNonPlainText =
+    private static readonly bool[] _isNonPlainText =
 #endif
     [
-        true, false, false, false, false, false, false, false, false, false,
-        true, false, false, true, false, false, false, false, false, false,
+        true, // '\0' (0)
+        false, false, false, false, false, false, false, false, false,
+        true, // '\n' (10)
+        false, false,
+        true, // '\r' (13)
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
@@ -1704,29 +1707,33 @@ public sealed class RtfToTextConverter
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, true, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, true, false, true, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false,
+        true, // '\\' (92)
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
+        true, // '{' (123)
+        false,
+        true, // '}' (125)
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
     ];
 
 #if NET8_0_OR_GREATER
     private static ReadOnlySpan<bool> _isSeparatorChar =>
 #else
-    private readonly bool[] _isSeparatorChar =
+    private static readonly bool[] _isSeparatorChar =
 #endif
     [
         false, false, false, false, false, false, false, false, false, false,
@@ -1738,26 +1745,30 @@ public sealed class RtfToTextConverter
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, true, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, true, false, true, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
+        false, false,
+        true, // '\\' (92)
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false,
+        true, // '{' (123)
+        false,
+        true, // '}' (125)
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
     ];
 
-#endregion
+    #endregion
 
     #region Resettables
 
@@ -1844,7 +1855,7 @@ public sealed class RtfToTextConverter
     private readonly RtfToTextConverterOptions _defaultOptions;
     private readonly RtfToTextConverterOptions _options;
 
-#endregion
+    #endregion
 
     #region Public API
 
