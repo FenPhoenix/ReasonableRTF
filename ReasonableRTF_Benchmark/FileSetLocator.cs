@@ -16,7 +16,7 @@ internal static class FileSetLocator
         {
             FileSetType.Full => RtfFullSetDir,
             FileSetType.Small => RtfSmallSetDir,
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
         };
 
         return Path.GetFullPath(Path.Combine(currentPath, "..", "..", DataSetLocation, directory));
