@@ -31,5 +31,5 @@ internal static class FileSetLocator
 public enum FileSetType
 {
     Full,
-    Small
+    Small,
 }
