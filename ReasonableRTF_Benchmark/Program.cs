@@ -1,5 +1,4 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
 using ReasonableRTF;
 
@@ -16,7 +15,7 @@ public class Test
     private readonly RichTextBox _rtfBox;
     private readonly RtfToTextConverter _rtfConverter;
 
-    private static MemoryStream[] GetStuff_RichTextBox(FileSetType type)
+    private static MemoryStream[] GetMemoryStreams_RichTextBox(FileSetType type)
     {
         string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
         MemoryStream[] memStreams = new MemoryStream[rtfFiles.Length];
@@ -33,7 +32,7 @@ public class Test
         return memStreams;
     }
 
-    private static byte[][] GetStuff_Custom(FileSetType type)
+    private static byte[][] GetByteArrays_ReasonableRTF(FileSetType type)
     {
         string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
 
@@ -51,7 +50,7 @@ public class Test
         return byteArrays;
     }
 
-    private static MemoryStream[] GetStuff_Custom_Chunked(FileSetType type)
+    private static MemoryStream[] GetMemoryStreams_ReasonableRTF(FileSetType type)
     {
         string[] rtfFiles = Directory.GetFiles(FileSetLocator.GetFileSet(type));
 
@@ -71,20 +70,21 @@ public class Test
 
     public Test()
     {
-        _fullSetMemStreams = GetStuff_RichTextBox(FileSetType.Full);
-        _smallSetMemStreams = GetStuff_RichTextBox(FileSetType.Small);
+        _fullSetMemStreams = GetMemoryStreams_RichTextBox(FileSetType.Full);
+        _smallSetMemStreams = GetMemoryStreams_RichTextBox(FileSetType.Small);
 
-        _fullSetByteArrays = GetStuff_Custom(FileSetType.Full);
-        _smallSetByteArrays = GetStuff_Custom(FileSetType.Small);
+        _fullSetByteArrays = GetByteArrays_ReasonableRTF(FileSetType.Full);
+        _smallSetByteArrays = GetByteArrays_ReasonableRTF(FileSetType.Small);
 
-        _fullSetMemStreams_Chunked = GetStuff_Custom_Chunked(FileSetType.Full);
-        _smallSetMemStreams_Chunked = GetStuff_Custom_Chunked(FileSetType.Small);
+        _fullSetMemStreams_Chunked = GetMemoryStreams_ReasonableRTF(FileSetType.Full);
+        _smallSetMemStreams_Chunked = GetMemoryStreams_ReasonableRTF(FileSetType.Small);
 
         _rtfBox = new RichTextBox();
         _rtfConverter = new RtfToTextConverter();
     }
 
     [Benchmark]
+    [BenchmarkCategory("RichTextBox", "All")]
     public void RichTextBox_FullSet()
     {
         /*
@@ -108,6 +108,7 @@ public class Test
     }
 
     [Benchmark]
+    [BenchmarkCategory("RichTextBox", "All")]
     public void RichTextBox_NoImageSet()
     {
         // See above note
@@ -123,6 +124,7 @@ public class Test
     }
 
     [Benchmark]
+    [BenchmarkCategory("ReasonableRTF", "All")]
     public void ReasonableRTF_FullSet()
     {
         for (int i = 0; i < _fullSetByteArrays.Length; i++)
@@ -132,6 +134,7 @@ public class Test
     }
 
     [Benchmark]
+    [BenchmarkCategory("ReasonableRTF", "All")]
     public void ReasonableRTF_NoImageSet()
     {
         for (int i = 0; i < _smallSetByteArrays.Length; i++)
@@ -141,6 +144,7 @@ public class Test
     }
 
     [Benchmark]
+    [BenchmarkCategory("ReasonableRTF", "All")]
     public void ReasonableRTF_FullSet_Streamed()
     {
         for (int i = 0; i < _fullSetMemStreams_Chunked.Length; i++)
@@ -152,6 +156,7 @@ public class Test
     }
 
     [Benchmark]
+    [BenchmarkCategory("ReasonableRTF", "All")]
     public void ReasonableRTF_NoImageSet_Streamed()
     {
         for (int i = 0; i < _smallSetMemStreams_Chunked.Length; i++)
@@ -170,6 +175,6 @@ internal static class Program
         Console.WriteLine("ReasonableRTF Benchmark\r\n" +
                           "-----------------------\r\n");
 
-        Summary summary = BenchmarkRunner.Run<Test>();
+        _ = BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
     }
 }
