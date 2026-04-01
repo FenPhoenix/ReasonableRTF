@@ -4114,7 +4114,18 @@ public sealed class RtfToTextConverter
             // Current position will be > 0 at this point, so a decrement is always safe
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
 
-            symbol = LookUpControlWord(keyword, keywordCount);
+            // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
+            // performance gain.
+            if (keywordCount == 1 && keyword[0] == (byte)'f')
+            {
+                symbol = _fontSymbol;
+                _skipDestinationIfUnknown = false;
+                return DispatchKeyword(symbol, param, hasParam);
+            }
+            else
+            {
+                symbol = LookUpControlWord(keyword, keywordCount);
+            }
         }
 
         if (symbol == null)
@@ -4221,7 +4232,18 @@ public sealed class RtfToTextConverter
             // Current position will be > 0 at this point, so a decrement is always safe
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
 
-            symbol = LookUpControlWord(keyword, keywordCount);
+            // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
+            // performance gain.
+            if (keywordCount == 1 && keyword[0] == (byte)'f')
+            {
+                symbol = _fontSymbol;
+                _skipDestinationIfUnknown = false;
+                return DispatchKeyword(symbol, param, hasParam);
+            }
+            else
+            {
+                symbol = LookUpControlWord(keyword, keywordCount);
+            }
         }
 
         if (symbol == null)
@@ -4687,6 +4709,8 @@ public sealed class RtfToTextConverter
         284, 284, 284, 284, 284, 284,
     ];
 
+    private static readonly Symbol _fontSymbol = new("f", 0, false, KeywordType.Property, (ushort)Property.FontNum);
+
     /*
     For "cs", "ds", "ts"
     Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
@@ -4987,7 +5011,7 @@ public sealed class RtfToTextConverter
         return ret;
     }
 
-    private readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
+    private static readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private Symbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
