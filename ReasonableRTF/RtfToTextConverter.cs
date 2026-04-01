@@ -5014,7 +5014,7 @@ public sealed class RtfToTextConverter
     private static readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Symbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
+    private static Symbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Symbol? LookUpControlWord(byte[] keyword, byte len)
