@@ -22,8 +22,8 @@ internal static class Core
 {
     private static class DefineHeaders
     {
-        internal const string FenGen_ParseKeywordDuplicateSource = "FenGen_ParseKeywordDuplicateSource";
-        internal const string FenGen_ParseKeywordDuplicateDest = "FenGen_ParseKeywordDuplicateDest";
+        internal const string FenGen_ParseKeywordDuplicateSource = nameof(FenGen_ParseKeywordDuplicateSource);
+        internal const string FenGen_ParseKeywordDuplicateDest = nameof(FenGen_ParseKeywordDuplicateDest);
     }
 
 #if DEBUG

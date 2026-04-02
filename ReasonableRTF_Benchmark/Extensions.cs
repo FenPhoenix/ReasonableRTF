@@ -5,7 +5,7 @@ internal static class Extensions
 #if NETFRAMEWORK
     internal static void ReadExactly(this Stream stream, byte[] buffer, int offset, int count)
     {
-        _ = ReadAll(stream, buffer, offset, count);
+        _ = stream.ReadAll(buffer, offset, count);
     }
 
     internal static int ReadAll(this Stream stream, byte[] buffer, int offset, int count)
