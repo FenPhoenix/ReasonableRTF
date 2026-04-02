@@ -1,0 +1,30 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Debug_Framework" />
+    <BuildType Name="Release" />
+    <BuildType Name="Release_Framework" />
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="FenGen/FenGen.csproj">
+    <BuildType Project="Release" />
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="ReasonableRTF/ReasonableRTF.csproj">
+    <BuildDependency Project="FenGen/FenGen.csproj" />
+    <BuildType Solution="Debug_Framework|*" Project="Debug" />
+    <BuildType Solution="Release_Framework|*" Project="Release" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="ReasonableRTF_Benchmark/ReasonableRTF_Benchmark.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="ReasonableRTF_TestApp/ReasonableRTF_TestApp.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+</Solution>
