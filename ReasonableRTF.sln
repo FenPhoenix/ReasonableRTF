@@ -4,10 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 18.4.11612.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReasonableRTF", "ReasonableRTF\ReasonableRTF.csproj", "{9F8557CD-E012-4B52-8538-003470270667}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A} = {F09F00B2-17C3-ACF4-9F28-6D84B818D15A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReasonableRTF_TestApp", "ReasonableRTF_TestApp\ReasonableRTF_TestApp.csproj", "{F4A30C5A-46BE-4573-93E6-57FEE3B0D4AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReasonableRTF_Benchmark", "ReasonableRTF_Benchmark\ReasonableRTF_Benchmark.csproj", "{34CC2AD3-3281-4956-A66C-73371B74B57C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FenGen", "FenGen\FenGen.csproj", "{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +102,30 @@ Global
 		{34CC2AD3-3281-4956-A66C-73371B74B57C}.Release|x64.Build.0 = Release|x64
 		{34CC2AD3-3281-4956-A66C-73371B74B57C}.Release|x86.ActiveCfg = Release|x86
 		{34CC2AD3-3281-4956-A66C-73371B74B57C}.Release|x86.Build.0 = Release|x86
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|Any CPU.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|Any CPU.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|x64.ActiveCfg = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|x64.Build.0 = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|x86.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug_Framework|x86.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|x64.ActiveCfg = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|x64.Build.0 = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|x86.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Debug|x86.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|Any CPU.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|Any CPU.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|x64.ActiveCfg = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|x64.Build.0 = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|x86.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release_Framework|x86.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|x64.ActiveCfg = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|x64.Build.0 = Release|x64
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|x86.ActiveCfg = Release|Any CPU
+		{F09F00B2-17C3-ACF4-9F28-6D84B818D15A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

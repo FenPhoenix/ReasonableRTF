@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net48</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<Configurations>Debug;Release</Configurations>
+		<Platforms>AnyCPU</Platforms>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+		<DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Microsoft.VisualBasic" />
+		<PackageReference Include="Meziantou.Polyfill">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="post_build.bat &quot;$(Configuration)&quot; &quot;$(TargetDir)&quot; &quot;$(ProjectDir)&quot; &quot;$(SolutionDir)&quot; &quot;$(PlatformName)&quot; &quot;$(TargetFramework)&quot;" WorkingDirectory="$(ProjectDir)" />
+	</Target>
+
+</Project>
