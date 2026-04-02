@@ -2551,13 +2551,13 @@ public sealed partial class RtfToTextConverter
                 case KeywordType.Character:
                     AddChar_Explicit((char)symbol.Index);
                     return RtfError.OK;
+                case KeywordType.Special:
+                    var specialType = (SpecialType)symbol.Index;
+                    return DispatchSpecialKeyword(specialType, symbol, param);
                 case KeywordType.Destination:
                     return symbol.Index == (int)DestinationType.SkippableHex
                         ? HandleSkippableHexData(param)
                         : ChangeDestination((DestinationType)symbol.Index);
-                case KeywordType.Special:
-                    var specialType = (SpecialType)symbol.Index;
-                    return DispatchSpecialKeyword(specialType, symbol, param);
                 default:
                     return RtfError.OK;
             }
@@ -2585,40 +2585,8 @@ public sealed partial class RtfToTextConverter
     {
         switch (specialType)
         {
-            case SpecialType.SkipNumberOfBytes:
-                if (symbol.UseDefaultParam) param = symbol.DefaultParam;
-                if (param < 0) return RtfError.AbortedForSafety;
-                IncrementCurrentPos_ArbitraryAmountForward(param);
-                break;
             case SpecialType.HexEncodedChar:
                 HandleHexRun();
-                break;
-            case SpecialType.UnicodeChar:
-            {
-                HandleUnicodeParamAndSkipFallbackChars(param);
-                RtfError error = HandleUnicodeRun();
-                if (error != RtfError.OK) return error;
-                break;
-            }
-            case SpecialType.ColorTable:
-                _currentPos = IndexOfNextClosingBrace_ChunkAware();
-                break;
-            case SpecialType.FontTable:
-            {
-                GroupStack_CurrentInFontTable = true;
-                RtfError error = ParseFontTable();
-                if (error != RtfError.OK) return error;
-                break;
-            }
-            case SpecialType.HeaderCodePage:
-                _headerCodePage = param >= 0 ? param : 1252;
-                break;
-            case SpecialType.DefaultFont:
-                if (!_headerDefaultFontSet)
-                {
-                    _headerDefaultFontNum = param;
-                    _headerDefaultFontSet = true;
-                }
                 break;
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
@@ -2636,11 +2604,37 @@ public sealed partial class RtfToTextConverter
                     }
                 }
                 break;
-            case SpecialType.CodePage:
-                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
+            case SpecialType.SkipNumberOfBytes:
+                if (symbol.UseDefaultParam) param = symbol.DefaultParam;
+                if (param < 0) return RtfError.AbortedForSafety;
+                IncrementCurrentPos_ArbitraryAmountForward(param);
+                break;
+            case SpecialType.UnicodeChar:
+            {
+                HandleUnicodeParamAndSkipFallbackChars(param);
+                RtfError error = HandleUnicodeRun();
+                if (error != RtfError.OK) return error;
+                break;
+            }
+            case SpecialType.HeaderCodePage:
+                _headerCodePage = param >= 0 ? param : 1252;
+                break;
+            case SpecialType.DefaultFont:
+                if (!_headerDefaultFontSet)
                 {
-                    _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
+                    _headerDefaultFontNum = param;
+                    _headerDefaultFontSet = true;
                 }
+                break;
+            case SpecialType.FontTable:
+            {
+                GroupStack_CurrentInFontTable = true;
+                RtfError error = ParseFontTable();
+                if (error != RtfError.OK) return error;
+                break;
+            }
+            case SpecialType.ColorTable:
+                _currentPos = IndexOfNextClosingBrace_ChunkAware();
                 break;
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
@@ -2651,6 +2645,12 @@ public sealed partial class RtfToTextConverter
                         _plainText.Count--;
                         AddLineBreak();
                     }
+                }
+                break;
+            case SpecialType.CodePage:
+                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
+                {
+                    _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
                 }
                 break;
         }
@@ -4871,11 +4871,11 @@ public sealed partial class RtfToTextConverter
                     key += asso_values[keyword[1]];
                     key += asso_values[keyword[0]];
                     break;
-                case 1:
-                    key += asso_values[keyword[0]];
-                    break;
                 case 2:
                     key += asso_values[keyword[1]];
+                    key += asso_values[keyword[0]];
+                    break;
+                case 1:
                     key += asso_values[keyword[0]];
                     break;
             }
