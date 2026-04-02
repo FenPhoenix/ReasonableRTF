@@ -2222,61 +2222,7 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private bool IsValidRtfFile()
-    {
-        const int ulongLength = 8;
-
-        if (_currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
-        {
-            const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
-            const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
-
-            ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_leadingBufferByteCount]);
-            if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
-            {
-                return false;
-            }
-        }
-        else if (_currentBufferChunkLength >= _leadingBufferByteCount + _rtfHeaderBytes.Length)
-        {
-            for (int i = _leadingBufferByteCount; i < _rtfHeaderBytes.Length; i++)
-            {
-                if (GetByte(i) != _rtfHeaderBytes[i])
-                {
-                    return false;
-                }
-            }
-        }
-        else
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
-    {
-        src.CopyTo(dest);
-
-        if (dest.SwapUppercaseAndLowercasePhiSymbols)
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
-        }
-        else
-        {
-            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
-            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
-        }
-
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
-        {
-            SymbolFontA0Char.EuroSign => '\x20AC',
-            SymbolFontA0Char.NumericSpace => '\x2007',
-            _ => _unicodeUnknown_Char,
-        };
-    }
+    #region Parse
 
     private RtfError ParseRtf()
     {
@@ -2336,6 +2282,27 @@ public sealed partial class RtfToTextConverter
 
         return _groupStackCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
     }
+
+    private RtfError ParseKeyword()
+    {
+        // Add one extra to all the known counts because I can't think whether the read increments will put us
+        // one over or not
+        if (_currentPos < (_currentBufferChunkLength - 1) - (
+                1 + 1 +
+                _keywordMaxLen + 1 + 1 +
+                1 + 1 +
+                _paramMaxLen + 1 + 1
+            ))
+        {
+            return ParseKeyword_Fast();
+        }
+        else
+        {
+            return ParseKeyword_Slow();
+        }
+    }
+
+    #endregion
 
     #region Handle plain text run
 
@@ -2465,7 +2432,7 @@ public sealed partial class RtfToTextConverter
                     ChangeProperty((Property)symbol.Index, param);
                     return RtfError.OK;
                 case KeywordType.Character:
-                    ParseChar_Explicit((char)symbol.Index);
+                    AddChar_Explicit((char)symbol.Index);
                     return RtfError.OK;
                 case KeywordType.Destination:
                     return symbol.Index == (int)DestinationType.SkippableHex
@@ -2574,123 +2541,6 @@ public sealed partial class RtfToTextConverter
         return RtfError.OK;
     }
 
-    private RtfError HandleFontTable()
-    {
-        // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
-        // a spec-conforming file.
-        if (_inHandleFontTable) return RtfError.AbortedForSafety;
-        _inHandleFontTable = true;
-
-        int fontTableGroupLevel = _groupStackCount;
-
-        while (!_reachedEndOfStream)
-        {
-            char ch = (char)GetByte(IncrementCurrentPos());
-
-            switch (ch)
-            {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < fontTableGroupLevel)
-                    {
-                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
-                        // any font entry objects yet. Now that we do, we can retroactively set all previous
-                        // groups' fonts as appropriate, as if they had propagated up automatically.
-                        int defaultFontNum = _headerDefaultFontNum;
-                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
-                        {
-                            SymbolFont symbolFont = fontEntry.SymbolFont;
-                            // Start at 1 because the "base" group is still inside an opening { so it's really
-                            // group 1.
-                            for (int i = 1; i < _groupStackCount + 1; i++)
-                            {
-                                int[] properties = _groupStack_Properties[i];
-                                int fontNum = properties[(int)Property.FontNum];
-                                if (fontNum == NoFontNumber)
-                                {
-                                    properties[(int)Property.FontNum] = defaultFontNum;
-                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-                        }
-
-                        _inHandleFontTable = false;
-                        return RtfError.OK;
-                    }
-                    break;
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                {
-                    FontEntry? fontEntry = _fontEntries_Top;
-                    if (!GroupStack_CurrentSkipDest &&
-                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
-                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
-                        // save time here...
-                        fontEntry is { SymbolFont: SymbolFont.Unset })
-                    {
-                        _symbolFontNameBuffer.ClearFast();
-
-                        bool isNonSemicolonSeparatorChar = false;
-                        for (int i = 0;
-                             i < _maxSymbolFontNameLength &&
-                             ch != ';' &&
-                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
-                        {
-                            _symbolFontNameBuffer.Add(ch);
-                        }
-
-                        /*
-                        Support weird nonsense in the font table like:
-
-                        {Zapf Dingbats{\*\falt Monotype Sorts};}
-
-                        where we should stop at the { instead of the ; so we get the name right.
-
-                        Also whatever nonsense is going on in some of those RtfPipe test files.
-                        */
-                        if (isNonSemicolonSeparatorChar)
-                        {
-                            _currentPos--;
-                        }
-
-                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
-                        {
-                            byte[] nameBytes = _symbolFontCharsArrays[i];
-                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
-                            {
-                                fontEntry.SymbolFont = (SymbolFont)i;
-                                break;
-                            }
-                        }
-                        if (fontEntry.SymbolFont == SymbolFont.Unset)
-                        {
-                            fontEntry.SymbolFont = SymbolFont.None;
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
-        _inHandleFontTable = false;
-        return RtfError.OK;
-    }
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void ChangeProperty(Property propertyTableIndex, int val)
     {
@@ -2746,81 +2596,6 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void AddLineBreak()
-    {
-        if (_options.LineBreakStyle == LineBreakStyle.EnvironmentDefault)
-        {
-            int lineBreakLength = LineBreakString.Length;
-            // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
-            // cases.
-            switch (lineBreakLength)
-            {
-                case 2:
-                    _plainText.Add(LineBreakString[0]);
-                    _plainText.Add(LineBreakString[1]);
-                    break;
-                case 1:
-                    _plainText.Add(LineBreakString[0]);
-                    break;
-                default:
-                {
-                    // Shouldn't ever hit this, but maybe Microsoft vibe-codes a patch into Windows that makes
-                    // the line break be three characters. Just kidding. Probably.
-                    for (int i = 0; i < LineBreakString.Length; i++)
-                    {
-                        _plainText.Add(LineBreakString[i]);
-                    }
-                    break;
-                }
-            }
-        }
-        else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
-        {
-            _plainText.Add('\r');
-            _plainText.Add('\n');
-        }
-        else
-        {
-            _plainText.Add('\n');
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void ParseChar_Explicit(char ch)
-    {
-        // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
-        // none of them are null.
-        if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
-        {
-            // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
-            // the start should we actually write it.
-            if (ch == '\xFEFF' && _plainText.Count == 0)
-            {
-                return;
-            }
-
-            if (ch == '\n')
-            {
-                AddLineBreak();
-                return;
-            }
-
-            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-            if (symbolFont > SymbolFont.Unset)
-            {
-                uint[] fontTable = _symbolFontTables[(int)symbolFont];
-                if (GetCharFromConversionList_UInt(ch, fontTable, out ListFast<char> result))
-                {
-                    _plainText.AddRange(result, result.Count);
-                }
-            }
-            else
-            {
-                _plainText.Add(ch);
-            }
-        }
-    }
-
     #endregion
 
     #region Handle specially encoded characters
@@ -2838,7 +2613,7 @@ public sealed partial class RtfToTextConverter
         if (!success)
         {
             SetListFastToUnknownChar(finalChars);
-            PutChars(finalChars, finalChars.Count);
+            AddChars(finalChars, finalChars.Count);
         }
         else
         {
@@ -2856,7 +2631,7 @@ public sealed partial class RtfToTextConverter
                         {
                             SetListFastToUnknownChar(finalChars);
                         }
-                        PutChars(finalChars, finalChars.Count);
+                        AddChars(finalChars, finalChars.Count);
                     }
                 }
                 else
@@ -2868,7 +2643,7 @@ public sealed partial class RtfToTextConverter
                         {
                             byte codePoint = _hexBuffer.ItemsArray[i];
                             GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont], out finalChars);
-                            PutChars(finalChars, finalChars.Count);
+                            AddChars(finalChars, finalChars.Count);
                         }
                     }
                     else
@@ -2894,7 +2669,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 SetListFastToUnknownChar(finalChars);
                             }
-                            PutChars(finalChars, finalChars.Count);
+                            AddChars(finalChars, finalChars.Count);
                         }
                     }
                 }
@@ -2919,7 +2694,7 @@ public sealed partial class RtfToTextConverter
                 {
                     SetListFastToUnknownChar(finalChars);
                 }
-                PutChars(finalChars, finalChars.Count);
+                AddChars(finalChars, finalChars.Count);
             }
         }
     }
@@ -3174,7 +2949,7 @@ public sealed partial class RtfToTextConverter
 
         #endregion
 
-        PutChars(_unicodeBuffer, _unicodeBuffer.Count);
+        AddChars(_unicodeBuffer, _unicodeBuffer.Count);
 
         _unicodeBuffer.ClearFast();
     }
@@ -3209,14 +2984,14 @@ public sealed partial class RtfToTextConverter
         else
         {
             ListFast<char> finalChars = GetCharFromCodePage(-1, param);
-            PutChars_FieldInst(finalChars, finalChars.Count);
+            AddChars_FieldInst(finalChars, finalChars.Count);
         }
     }
 
     private void HandleFieldInst_A(ushort param)
     {
         if (param is < 0x20 or > byte.MaxValue) return;
-        HandleFieldInst_PutCharWithEncoding(param);
+        HandleFieldInst_AddCharWithEncoding(param);
     }
 
     private void HandleFieldInst_Unicode(ushort param)
@@ -3252,20 +3027,20 @@ public sealed partial class RtfToTextConverter
 
     private void HandleFieldInst_U(ushort param) => HandleFieldInst_Unicode(param);
 
-    private void HandleFieldInst_PutCharWithEncoding(ushort param)
+    private void HandleFieldInst_AddCharWithEncoding(ushort param)
     {
         int fontNum = FieldInst_GetFontNum();
 
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry))
         {
             ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
-            PutChars_FieldInst(finalChars, finalChars.Count);
+            AddChars_FieldInst(finalChars, finalChars.Count);
             return;
         }
         if (fontEntry.CodePage != 42)
         {
             ListFast<char> finalChars = GetCharFromCodePage(fontEntry.CodePage, param);
-            PutChars_FieldInst(finalChars, finalChars.Count);
+            AddChars_FieldInst(finalChars, finalChars.Count);
             return;
         }
 
@@ -3283,7 +3058,7 @@ public sealed partial class RtfToTextConverter
         {
             if (param >= 0x20)
             {
-                HandleFieldInst_PutCharWithEncoding(param);
+                HandleFieldInst_AddCharWithEncoding(param);
             }
         }
         else
@@ -3304,7 +3079,7 @@ public sealed partial class RtfToTextConverter
         if (GetCharFromConversionList_UInt(codePoint, symbolFontTable, out ListFast<char> finalChars) &&
             finalChars.Count > 0)
         {
-            PutChars_FieldInst(finalChars, finalChars.Count);
+            AddChars_FieldInst(finalChars, finalChars.Count);
         }
     }
 
@@ -3612,44 +3387,6 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
-    {
-        // BitConverter.GetBytes() does this, but it allocates a temp array every time.
-        // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
-        Unsafe.WriteUnaligned(ref MemoryMarshal.GetReference(_byteBuffer4), codePoint);
-
-        try
-        {
-            if (codePage > -1)
-            {
-                _charGeneralBuffer.Count = GetEncodingFromCachedList(codePage)
-                    .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
-                return _charGeneralBuffer;
-            }
-            else
-            {
-                (bool success, _, Encoding? enc, _) = GetCurrentEncoding();
-                if (success && enc != null)
-                {
-                    _charGeneralBuffer.Count = enc
-                        .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
-                    return _charGeneralBuffer;
-                }
-                else
-                {
-                    SetListFastToUnknownChar(_charGeneralBuffer);
-                    return _charGeneralBuffer;
-                }
-            }
-        }
-        catch
-        {
-            SetListFastToUnknownChar(_charGeneralBuffer);
-            return _charGeneralBuffer;
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError RewindAndSkipGroup()
     {
         _currentPos--;
@@ -3659,41 +3396,7 @@ public sealed partial class RtfToTextConverter
 
     #endregion
 
-    #endregion
-
-    #region PutChar
-
-    private void PutChars(ListFast<char> ch, int count)
-    {
-        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
-        // of the bare-char symbol font stuff here.
-
-        if (!(count == 1 && ch[0] == '\0') &&
-            GroupStack_CurrentProperties[(int)Property.Hidden] == 0 &&
-            !GroupStack_CurrentInFontTable)
-        {
-            _plainText.AddRange(ch, count);
-        }
-    }
-
-    private void PutChars_FieldInst(ListFast<char> ch, int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            char c = ch[i];
-            if (c != '\0')
-            {
-                _plainText.Add(c);
-            }
-        }
-    }
-
-    #endregion
-
-    #region Helpers
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static string CreateReturnStringFromChars(ListFast<char> chars) => new(chars.ItemsArray, 0, chars.Count);
+    #region Encoding helpers
 
     /// <summary>
     /// If <paramref name="codePage"/> is in the cached list, returns the Encoding associated with it;
@@ -3905,6 +3608,213 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
+    {
+        // BitConverter.GetBytes() does this, but it allocates a temp array every time.
+        // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
+        Unsafe.WriteUnaligned(ref MemoryMarshal.GetReference(_byteBuffer4), codePoint);
+
+        try
+        {
+            if (codePage > -1)
+            {
+                _charGeneralBuffer.Count = GetEncodingFromCachedList(codePage)
+                    .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
+                return _charGeneralBuffer;
+            }
+            else
+            {
+                (bool success, _, Encoding? enc, _) = GetCurrentEncoding();
+                if (success && enc != null)
+                {
+                    _charGeneralBuffer.Count = enc
+                        .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
+                    return _charGeneralBuffer;
+                }
+                else
+                {
+                    SetListFastToUnknownChar(_charGeneralBuffer);
+                    return _charGeneralBuffer;
+                }
+            }
+        }
+        catch
+        {
+            SetListFastToUnknownChar(_charGeneralBuffer);
+            return _charGeneralBuffer;
+        }
+    }
+
+    #endregion
+
+    #endregion
+
+    #region Add chars
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddChar_Explicit(char ch)
+    {
+        // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
+        // none of them are null.
+        if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
+        {
+            // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
+            // the start should we actually write it.
+            if (ch == '\xFEFF' && _plainText.Count == 0)
+            {
+                return;
+            }
+
+            if (ch == '\n')
+            {
+                AddLineBreak();
+                return;
+            }
+
+            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+            if (symbolFont > SymbolFont.Unset)
+            {
+                uint[] fontTable = _symbolFontTables[(int)symbolFont];
+                if (GetCharFromConversionList_UInt(ch, fontTable, out ListFast<char> result))
+                {
+                    _plainText.AddRange(result, result.Count);
+                }
+            }
+            else
+            {
+                _plainText.Add(ch);
+            }
+        }
+    }
+
+    private void AddChars(ListFast<char> ch, int count)
+    {
+        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
+        // of the bare-char symbol font stuff here.
+
+        if (!(count == 1 && ch[0] == '\0') &&
+            GroupStack_CurrentProperties[(int)Property.Hidden] == 0 &&
+            !GroupStack_CurrentInFontTable)
+        {
+            _plainText.AddRange(ch, count);
+        }
+    }
+
+    private void AddChars_FieldInst(ListFast<char> ch, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            char c = ch[i];
+            if (c != '\0')
+            {
+                _plainText.Add(c);
+            }
+        }
+    }
+
+    private void AddLineBreak()
+    {
+        if (_options.LineBreakStyle == LineBreakStyle.EnvironmentDefault)
+        {
+            int lineBreakLength = LineBreakString.Length;
+            // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
+            // cases.
+            switch (lineBreakLength)
+            {
+                case 2:
+                    _plainText.Add(LineBreakString[0]);
+                    _plainText.Add(LineBreakString[1]);
+                    break;
+                case 1:
+                    _plainText.Add(LineBreakString[0]);
+                    break;
+                default:
+                {
+                    // Shouldn't ever hit this, but maybe Microsoft vibe-codes a patch into Windows that makes
+                    // the line break be three characters. Just kidding. Probably.
+                    for (int i = 0; i < LineBreakString.Length; i++)
+                    {
+                        _plainText.Add(LineBreakString[i]);
+                    }
+                    break;
+                }
+            }
+        }
+        else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
+        {
+            _plainText.Add('\r');
+            _plainText.Add('\n');
+        }
+        else
+        {
+            _plainText.Add('\n');
+        }
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private bool IsValidRtfFile()
+    {
+        const int ulongLength = 8;
+
+        if (_currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
+        {
+            const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
+            const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
+
+            ulong chunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_leadingBufferByteCount]);
+            if ((chunk & rtfHeaderMask) != rtfHeaderAsULong)
+            {
+                return false;
+            }
+        }
+        else if (_currentBufferChunkLength >= _leadingBufferByteCount + _rtfHeaderBytes.Length)
+        {
+            for (int i = _leadingBufferByteCount; i < _rtfHeaderBytes.Length; i++)
+            {
+                if (GetByte(i) != _rtfHeaderBytes[i])
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    {
+        src.CopyTo(dest);
+
+        if (dest.SwapUppercaseAndLowercasePhiSymbols)
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
+        }
+        else
+        {
+            _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03C6;
+            _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
+        }
+
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest.SymbolFontA0Char switch
+        {
+            SymbolFontA0Char.EuroSign => '\x20AC',
+            SymbolFontA0Char.NumericSpace => '\x2007',
+            _ => _unicodeUnknown_Char,
+        };
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static string CreateReturnStringFromChars(ListFast<char> chars) => new(chars.ItemsArray, 0, chars.Count);
+
     /// <summary>
     /// Only call this if <paramref name="chars"/>'s length is > 0 and consists solely of the characters '0' through '9'.
     /// It does no checks at all and will throw if either of these things is false.
@@ -3964,6 +3874,18 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int BranchlessConditionalNegate(int value, int negate) => (value ^ -negate) + negate;
 
+    // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
+    private int GetCurrentOverallPos()
+    {
+        return _bufferedStream == null
+            ? _currentPos
+            : ((_chunksRead - 1) * (_bufferLength - _leadingBufferByteCount)) + _currentPos - _leadingBufferByteCount;
+    }
+
+    #endregion
+
+    #region Fast skipping
+
     private int IndexOfNextClosingBrace_ChunkAware()
     {
         int count = _currentBufferChunkLength - _currentPos;
@@ -3990,6 +3912,68 @@ public sealed partial class RtfToTextConverter
         }
 
         return _bufferLength;
+    }
+
+    private RtfError HandleSkippableHexData(int param)
+    {
+        bool insertSpaceIfNecessary = param == 1;
+
+        // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
+        // a spec-conforming file.
+        if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
+        _inHandleSkippableHexData = true;
+
+        int startGroupLevel = _groupStackCount;
+
+        while (!_reachedEndOfStream)
+        {
+            char ch = (char)GetByte(IncrementCurrentPos());
+
+            switch (ch)
+            {
+                case '{':
+                    GroupStack_DeepCopyToNext();
+                    break;
+                case '}':
+                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                    --_groupStackCount;
+                    if (_groupStackCount < startGroupLevel)
+                    {
+                        if (insertSpaceIfNecessary &&
+                            _plainText.Count > 0 &&
+                            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+                        {
+                            _plainText.Add(' ');
+                        }
+                        _inHandleSkippableHexData = false;
+                        return RtfError.OK;
+                    }
+                    break;
+                case '\\':
+                    // This implicitly also handles the case where the data is \binN instead of hex
+                    RtfError ec = ParseKeyword();
+                    if (ec != RtfError.OK) return ec;
+                    break;
+                case '\r':
+                case '\n':
+                    break;
+                default:
+                    if (_groupStackCount == startGroupLevel)
+                    {
+                        _currentPos = IndexOfNextClosingBrace_ChunkAware();
+                    }
+                    break;
+            }
+        }
+
+        if (insertSpaceIfNecessary &&
+            _plainText.Count > 0 &&
+            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+        {
+            _plainText.Add(' ');
+        }
+        _inHandleSkippableHexData = false;
+        return RtfError.OK;
     }
 
     /*
@@ -4058,45 +4042,16 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
-    private int GetCurrentOverallPos()
-    {
-        return _bufferedStream == null
-            ? _currentPos
-            : ((_chunksRead - 1) * (_bufferLength - _leadingBufferByteCount)) + _currentPos - _leadingBufferByteCount;
-    }
-
     #endregion
 
-    private RtfError ParseKeyword()
+    private RtfError HandleFontTable()
     {
-        // Add one extra to all the known counts because I can't think whether the read increments will put us
-        // one over or not
-        if (_currentPos < (_currentBufferChunkLength - 1) - (
-                1 + 1 +
-                _keywordMaxLen + 1 + 1 +
-                1 + 1 +
-                _paramMaxLen + 1 + 1
-            ))
-        {
-            return ParseKeyword_Fast();
-        }
-        else
-        {
-            return ParseKeyword_Slow();
-        }
-    }
-
-    private RtfError HandleSkippableHexData(int param)
-    {
-        bool insertSpaceIfNecessary = param == 1;
-
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
-        if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
-        _inHandleSkippableHexData = true;
+        if (_inHandleFontTable) return RtfError.AbortedForSafety;
+        _inHandleFontTable = true;
 
-        int startGroupLevel = _groupStackCount;
+        int fontTableGroupLevel = _groupStackCount;
 
         while (!_reachedEndOfStream)
         {
@@ -4110,20 +4065,38 @@ public sealed partial class RtfToTextConverter
                 case '}':
                     if (_groupStackCount == 0) return RtfError.StackUnderflow;
                     --_groupStackCount;
-                    if (_groupStackCount < startGroupLevel)
+                    if (_groupStackCount < fontTableGroupLevel)
                     {
-                        if (insertSpaceIfNecessary &&
-                            _plainText.Count > 0 &&
-                            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
+                        // any font entry objects yet. Now that we do, we can retroactively set all previous
+                        // groups' fonts as appropriate, as if they had propagated up automatically.
+                        int defaultFontNum = _headerDefaultFontNum;
+                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
                         {
-                            _plainText.Add(' ');
+                            SymbolFont symbolFont = fontEntry.SymbolFont;
+                            // Start at 1 because the "base" group is still inside an opening { so it's really
+                            // group 1.
+                            for (int i = 1; i < _groupStackCount + 1; i++)
+                            {
+                                int[] properties = _groupStack_Properties[i];
+                                int fontNum = properties[(int)Property.FontNum];
+                                if (fontNum == NoFontNumber)
+                                {
+                                    properties[(int)Property.FontNum] = defaultFontNum;
+                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
                         }
-                        _inHandleSkippableHexData = false;
+
+                        _inHandleFontTable = false;
                         return RtfError.OK;
                     }
                     break;
                 case '\\':
-                    // This implicitly also handles the case where the data is \binN instead of hex
                     RtfError ec = ParseKeyword();
                     if (ec != RtfError.OK) return ec;
                     break;
@@ -4131,21 +4104,60 @@ public sealed partial class RtfToTextConverter
                 case '\n':
                     break;
                 default:
-                    if (_groupStackCount == startGroupLevel)
+                {
+                    FontEntry? fontEntry = _fontEntries_Top;
+                    if (!GroupStack_CurrentSkipDest &&
+                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
+                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
+                        // save time here...
+                        fontEntry is { SymbolFont: SymbolFont.Unset })
                     {
-                        _currentPos = IndexOfNextClosingBrace_ChunkAware();
+                        _symbolFontNameBuffer.ClearFast();
+
+                        bool isNonSemicolonSeparatorChar = false;
+                        for (int i = 0;
+                             i < _maxSymbolFontNameLength &&
+                             ch != ';' &&
+                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                        {
+                            _symbolFontNameBuffer.Add(ch);
+                        }
+
+                        /*
+                        Support weird nonsense in the font table like:
+
+                        {Zapf Dingbats{\*\falt Monotype Sorts};}
+
+                        where we should stop at the { instead of the ; so we get the name right.
+
+                        Also whatever nonsense is going on in some of those RtfPipe test files.
+                        */
+                        if (isNonSemicolonSeparatorChar)
+                        {
+                            _currentPos--;
+                        }
+
+                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
+                        {
+                            byte[] nameBytes = _symbolFontCharsArrays[i];
+                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
+                            {
+                                fontEntry.SymbolFont = (SymbolFont)i;
+                                break;
+                            }
+                        }
+                        if (fontEntry.SymbolFont == SymbolFont.Unset)
+                        {
+                            fontEntry.SymbolFont = SymbolFont.None;
+                        }
                     }
                     break;
+                }
             }
         }
 
-        if (insertSpaceIfNecessary &&
-            _plainText.Count > 0 &&
-            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
-        {
-            _plainText.Add(' ');
-        }
-        _inHandleSkippableHexData = false;
+        _inHandleFontTable = false;
         return RtfError.OK;
     }
 
