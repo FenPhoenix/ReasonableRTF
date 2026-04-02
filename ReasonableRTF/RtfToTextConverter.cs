@@ -4001,6 +4001,14 @@ public sealed class RtfToTextConverter
     {
         GroupStack_CurrentSkipDest = true;
 
+        // If we don't have SIMD, then the slow path is actually faster.
+#if NETSTANDARD2_0
+        if (!System.Numerics.Vector.IsHardwareAccelerated)
+        {
+            return;
+        }
+#endif
+
         int startGroupLevel = _groupStackCount;
 
         int index = _currentPos;
