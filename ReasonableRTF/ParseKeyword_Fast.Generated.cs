@@ -1,5 +1,6 @@
 #nullable enable // Required for generated files
 #define FenGen_ParseKeywordDuplicateDest
+
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
 using ReasonableRTF.Models.Symbols;

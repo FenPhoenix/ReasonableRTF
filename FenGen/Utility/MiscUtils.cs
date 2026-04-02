@@ -119,6 +119,11 @@ internal static partial class Misc
                     lines.Insert(firstUsingLine, usingLines[i]);
                 }
             }
+
+            if (firstUsingLine > 0 && !lines[firstUsingLine - 1].IsWhiteSpace())
+            {
+                lines.Insert(firstUsingLine, "");
+            }
         }
 
         lines.Insert(0, "#nullable enable // Required for generated files");
