@@ -2731,7 +2731,7 @@ public sealed class RtfToTextConverter
         switch (destinationType)
         {
             case DestinationType.Skip:
-                GroupStack_CurrentSkipDest = true;
+                SkipDest();
                 return RtfError.OK;
             case DestinationType.FieldInstruction:
                 return HandleFieldInstruction();
@@ -3649,7 +3649,7 @@ public sealed class RtfToTextConverter
     private RtfError RewindAndSkipGroup()
     {
         _currentPos--;
-        GroupStack_CurrentSkipDest = true;
+        SkipDest();
         return RtfError.OK;
     }
 
@@ -3729,7 +3729,7 @@ public sealed class RtfToTextConverter
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
-        GetCurrentEncoding()
+    GetCurrentEncoding()
     {
         int groupFontNum = GroupStack_CurrentProperties[(int)Property.FontNum];
         int groupLang = GroupStack_CurrentProperties[(int)Property.Lang];
@@ -3988,6 +3988,57 @@ public sealed class RtfToTextConverter
         return _bufferLength;
     }
 
+    private void SkipDest()
+    {
+        GroupStack_CurrentSkipDest = true;
+
+        int startGroupLevel = _groupStackCount;
+
+        int index = _currentPos;
+        while (!_reachedEndOfStream)
+        {
+            index = UtilHelper.Array_IndexOfOpenOrClosingCurlyBrace_Fast(_buffer, index, _currentBufferChunkLength - index);
+
+            /*
+            Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
+            before a curly brace, because it could be a series of escaped backslashes and then an escaped curly
+            brace: \\\\\\\}. Which means if we encountered one, we'd have to read an arbitrary amount back in the
+            stream, which we can't do. So if we don't find the end of our subgroup stack in the current buffer
+            chunk, just give up and take the slow path that properly parses escapes.
+            */
+            if (index == -1 || _buffer[index - 1] == '\\')
+            {
+                _groupStackCount = startGroupLevel;
+                return;
+            }
+            switch (_buffer[index])
+            {
+                case (byte)'{':
+                    ++_groupStackCount;
+                    break;
+                case (byte)'}':
+                    --_groupStackCount;
+                    if (_groupStackCount < startGroupLevel)
+                    {
+                        _currentPos = index + 1;
+                        return;
+                    }
+                    break;
+                // If we find \bin, run away: it could contain unescaped curly braces that are just part of the
+                // raw binary.
+                case (byte)'\\':
+                    if (index > _currentBufferChunkLength - 4 ||
+                        (_buffer[index + 1] == 'b' && _buffer[index + 2] == 'i' && _buffer[index + 3] == 'n'))
+                    {
+                        _groupStackCount = startGroupLevel;
+                        return;
+                    }
+                    break;
+            }
+            ++index;
+        }
+    }
+
     // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
     private int GetCurrentOverallPos()
     {
@@ -4133,7 +4184,7 @@ public sealed class RtfToTextConverter
             // If this is a new destination
             if (_skipDestinationIfUnknown)
             {
-                GroupStack_CurrentSkipDest = true;
+                SkipDest();
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -4251,7 +4302,7 @@ public sealed class RtfToTextConverter
             // If this is a new destination
             if (_skipDestinationIfUnknown)
             {
-                GroupStack_CurrentSkipDest = true;
+                SkipDest();
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -4341,6 +4392,8 @@ public sealed class RtfToTextConverter
         way down on branches too, only doing extra work when it gets to the end of a block, and otherwise just
         running the array getter bounds checker which was already being run anyway.
         We don't quite get back to the previous speed even for the byte array path, but we get closer.
+
+        Also, this performs better than raw _currentPos++, inexplicably. Sure?
         */
         return _currentPos++;
     }

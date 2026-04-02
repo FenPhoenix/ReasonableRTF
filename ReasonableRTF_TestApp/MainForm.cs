@@ -214,6 +214,7 @@ public sealed partial class MainForm : Form
             {
                 for (int i = 0; i < byteArrays.Length; i++)
                 {
+                    //Trace.WriteLine(rtfFiles[i]);
                     _ = rtfConverter.Convert(byteArrays[i]);
                 }
             }
@@ -351,28 +352,30 @@ public sealed partial class MainForm : Form
         RtfToTextConverter rtfConverter = new();
 
         const string file =
-                //"1mil_CinderNotes__CinderNotes.rtf";
-                //"param_too_long.rtf"
-                //"2000-12-30_Uneaffaireenor__Readme.rtf"
-                //"fldinst.rtf"
-                //"Issue50-2.rtf"
-                //"2007-12-28_DooM_V1_2__ReadMe.rtf"
-                "10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
+            //"1mil_CinderNotes__CinderNotes.rtf";
+            //"param_too_long.rtf"
+            //"2000-12-30_Uneaffaireenor__Readme.rtf"
+            //"fldinst.rtf"
+            //"Issue50-2.rtf"
+            //"2007-12-28_DooM_V1_2__ReadMe.rtf"
+            //"10Rooms_Hammered_EnglishV1_0__FmInfo-en.rtf"
             //"10Rooms_LostInTheFarEdgesV1_1__Lost In The Far Edges.rtf"
+            //"no_cs.rtf"
             //"2004-02-29_c5Summit_The__summit.rtf"
             //"2007-11-11_WayoftheSword_v1_2__The Way of The Sword - Read Me.rtf"
             //"2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
             //"TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf"
             //"Issue23.rtf"
+            "2001-12-15_c2MeliansMethod_v1___melian.rtf"
             ;
         SourceSet sourceSet = SourceSet.Full;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
         using var fs = File.OpenRead(finalFile);
-        //byte[] array = new byte[fs.Length];
-        //fs.ReadExactly(array, 0, (int)fs.Length);
-        RtfResult result = rtfConverter.Convert(fs);
+        byte[] array = new byte[fs.Length];
+        fs.ReadExactly(array, 0, (int)fs.Length);
+        RtfResult result = rtfConverter.Convert(array);
         Trace.WriteLine(result.ToString());
         if (write)
         {
@@ -651,12 +654,12 @@ public sealed partial class MainForm : Form
 
         Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1432.217));
 
-        Trace.WriteLine("RC Full (Streamable/Array) MB/s: " + GetMBsString(fullBytes, 27.541));
+        Trace.WriteLine("RC Full (Streamable/Array) MB/s: " + GetMBsString(fullBytes, 25.293));
 
-        Trace.WriteLine("RC Small (Streamable/Array) MB/s: " + GetMBsString(smallBytes, 7.488));
+        Trace.WriteLine("RC Small (Streamable/Array) MB/s: " + GetMBsString(smallBytes, 6.760));
 
-        Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 29.466));
+        Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 26.749));
 
-        Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 7.748));
+        Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 6.853));
     }
 }
