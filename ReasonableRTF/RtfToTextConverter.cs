@@ -1817,7 +1817,7 @@ public sealed partial class RtfToTextConverter
 
     private readonly ListFast<char> _symbolFontNameBuffer;
 
-    private bool _inHandleFontTable;
+    private bool _inParseFontTable;
 
     private readonly ListFast<char> _charGeneralBuffer;
 
@@ -2147,7 +2147,7 @@ public sealed partial class RtfToTextConverter
             _currentPos = _leadingBufferByteCount;
 
             _inHandleSkippableHexData = false;
-            _inHandleFontTable = false;
+            _inParseFontTable = false;
 
             _lastUsedFontWithCodePage42 = NoFontNumber;
 
@@ -2300,6 +2300,123 @@ public sealed partial class RtfToTextConverter
         {
             return ParseKeyword_Slow();
         }
+    }
+
+    private RtfError ParseFontTable()
+    {
+        // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
+        // a spec-conforming file.
+        if (_inParseFontTable) return RtfError.AbortedForSafety;
+        _inParseFontTable = true;
+
+        int fontTableGroupLevel = _groupStackCount;
+
+        while (!_reachedEndOfStream)
+        {
+            char ch = (char)GetByte(IncrementCurrentPos());
+
+            switch (ch)
+            {
+                case '{':
+                    GroupStack_DeepCopyToNext();
+                    break;
+                case '}':
+                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                    --_groupStackCount;
+                    if (_groupStackCount < fontTableGroupLevel)
+                    {
+                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
+                        // any font entry objects yet. Now that we do, we can retroactively set all previous
+                        // groups' fonts as appropriate, as if they had propagated up automatically.
+                        int defaultFontNum = _headerDefaultFontNum;
+                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
+                        {
+                            SymbolFont symbolFont = fontEntry.SymbolFont;
+                            // Start at 1 because the "base" group is still inside an opening { so it's really
+                            // group 1.
+                            for (int i = 1; i < _groupStackCount + 1; i++)
+                            {
+                                int[] properties = _groupStack_Properties[i];
+                                int fontNum = properties[(int)Property.FontNum];
+                                if (fontNum == NoFontNumber)
+                                {
+                                    properties[(int)Property.FontNum] = defaultFontNum;
+                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
+
+                        _inParseFontTable = false;
+                        return RtfError.OK;
+                    }
+                    break;
+                case '\\':
+                    RtfError ec = ParseKeyword();
+                    if (ec != RtfError.OK) return ec;
+                    break;
+                case '\r':
+                case '\n':
+                    break;
+                default:
+                {
+                    FontEntry? fontEntry = _fontEntries_Top;
+                    if (!GroupStack_CurrentSkipDest &&
+                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
+                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
+                        // save time here...
+                        fontEntry is { SymbolFont: SymbolFont.Unset })
+                    {
+                        _symbolFontNameBuffer.ClearFast();
+
+                        bool isNonSemicolonSeparatorChar = false;
+                        for (int i = 0;
+                             i < _maxSymbolFontNameLength &&
+                             ch != ';' &&
+                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                        {
+                            _symbolFontNameBuffer.Add(ch);
+                        }
+
+                        /*
+                        Support weird nonsense in the font table like:
+
+                        {Zapf Dingbats{\*\falt Monotype Sorts};}
+
+                        where we should stop at the { instead of the ; so we get the name right.
+
+                        Also whatever nonsense is going on in some of those RtfPipe test files.
+                        */
+                        if (isNonSemicolonSeparatorChar)
+                        {
+                            _currentPos--;
+                        }
+
+                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
+                        {
+                            byte[] nameBytes = _symbolFontCharsArrays[i];
+                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
+                            {
+                                fontEntry.SymbolFont = (SymbolFont)i;
+                                break;
+                            }
+                        }
+                        if (fontEntry.SymbolFont == SymbolFont.Unset)
+                        {
+                            fontEntry.SymbolFont = SymbolFont.None;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        _inParseFontTable = false;
+        return RtfError.OK;
     }
 
     #endregion
@@ -2489,7 +2606,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.FontTable:
             {
                 GroupStack_CurrentInFontTable = true;
-                RtfError error = HandleFontTable();
+                RtfError error = ParseFontTable();
                 if (error != RtfError.OK) return error;
                 break;
             }
@@ -4043,123 +4160,6 @@ public sealed partial class RtfToTextConverter
     }
 
     #endregion
-
-    private RtfError HandleFontTable()
-    {
-        // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
-        // a spec-conforming file.
-        if (_inHandleFontTable) return RtfError.AbortedForSafety;
-        _inHandleFontTable = true;
-
-        int fontTableGroupLevel = _groupStackCount;
-
-        while (!_reachedEndOfStream)
-        {
-            char ch = (char)GetByte(IncrementCurrentPos());
-
-            switch (ch)
-            {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < fontTableGroupLevel)
-                    {
-                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
-                        // any font entry objects yet. Now that we do, we can retroactively set all previous
-                        // groups' fonts as appropriate, as if they had propagated up automatically.
-                        int defaultFontNum = _headerDefaultFontNum;
-                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
-                        {
-                            SymbolFont symbolFont = fontEntry.SymbolFont;
-                            // Start at 1 because the "base" group is still inside an opening { so it's really
-                            // group 1.
-                            for (int i = 1; i < _groupStackCount + 1; i++)
-                            {
-                                int[] properties = _groupStack_Properties[i];
-                                int fontNum = properties[(int)Property.FontNum];
-                                if (fontNum == NoFontNumber)
-                                {
-                                    properties[(int)Property.FontNum] = defaultFontNum;
-                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-                        }
-
-                        _inHandleFontTable = false;
-                        return RtfError.OK;
-                    }
-                    break;
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                {
-                    FontEntry? fontEntry = _fontEntries_Top;
-                    if (!GroupStack_CurrentSkipDest &&
-                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
-                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
-                        // save time here...
-                        fontEntry is { SymbolFont: SymbolFont.Unset })
-                    {
-                        _symbolFontNameBuffer.ClearFast();
-
-                        bool isNonSemicolonSeparatorChar = false;
-                        for (int i = 0;
-                             i < _maxSymbolFontNameLength &&
-                             ch != ';' &&
-                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
-                        {
-                            _symbolFontNameBuffer.Add(ch);
-                        }
-
-                        /*
-                        Support weird nonsense in the font table like:
-
-                        {Zapf Dingbats{\*\falt Monotype Sorts};}
-
-                        where we should stop at the { instead of the ; so we get the name right.
-
-                        Also whatever nonsense is going on in some of those RtfPipe test files.
-                        */
-                        if (isNonSemicolonSeparatorChar)
-                        {
-                            _currentPos--;
-                        }
-
-                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
-                        {
-                            byte[] nameBytes = _symbolFontCharsArrays[i];
-                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
-                            {
-                                fontEntry.SymbolFont = (SymbolFont)i;
-                                break;
-                            }
-                        }
-                        if (fontEntry.SymbolFont == SymbolFont.Unset)
-                        {
-                            fontEntry.SymbolFont = SymbolFont.None;
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
-        _inHandleFontTable = false;
-        return RtfError.OK;
-    }
 
     #region Read and seek wrappers
 
