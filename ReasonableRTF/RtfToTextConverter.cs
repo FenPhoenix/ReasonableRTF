@@ -2591,7 +2591,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
                 // (which is guaranteed not to be negative)
-                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
+                if (_fontEntries_Top != null && _inParseFontTable)
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
@@ -2628,7 +2628,6 @@ public sealed partial class RtfToTextConverter
                 break;
             case SpecialType.FontTable:
             {
-                GroupStack_CurrentInFontTable = true;
                 RtfError error = ParseFontTable();
                 if (error != RtfError.OK) return error;
                 break;
@@ -2648,7 +2647,7 @@ public sealed partial class RtfToTextConverter
                 }
                 break;
             case SpecialType.CodePage:
-                if (_fontEntries_Top != null && GroupStack_CurrentInFontTable)
+                if (_fontEntries_Top != null && _inParseFontTable)
                 {
                     _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
                 }
@@ -2663,7 +2662,7 @@ public sealed partial class RtfToTextConverter
     {
         if (propertyTableIndex == Property.FontNum)
         {
-            if (GroupStack_CurrentInFontTable)
+            if (_inParseFontTable)
             {
                 FontDictionary_Add(val);
                 return;
@@ -3812,7 +3811,7 @@ public sealed partial class RtfToTextConverter
 
         if (!(count == 1 && ch[0] == '\0') &&
             GroupStack_CurrentProperties[(int)Property.Hidden] == 0 &&
-            !GroupStack_CurrentInFontTable)
+            !_inParseFontTable)
         {
             _plainText.AddRange(ch, count);
         }
@@ -4374,13 +4373,11 @@ public sealed partial class RtfToTextConverter
     private int _groupStackCount;
 
     private bool[] _groupStack_SkipDestinations;
-    private bool[] _groupStack_InFontTables;
     private byte[] _groupStack_SymbolFonts;
     private int[][] _groupStack_Properties;
 
     [MemberNotNull(
         nameof(_groupStack_SkipDestinations),
-        nameof(_groupStack_InFontTables),
         nameof(_groupStack_SymbolFonts),
         nameof(_groupStack_Properties))]
     private void InitGroupStack()
@@ -4389,7 +4386,6 @@ public sealed partial class RtfToTextConverter
         _groupStackCapacity = _groupStackDefaultCapacity;
 
         _groupStack_SkipDestinations = new bool[_groupStackCapacity];
-        _groupStack_InFontTables = new bool[_groupStackCapacity];
         _groupStack_SymbolFonts = new byte[_groupStackCapacity];
         _groupStack_Properties = new int[_groupStackCapacity][];
 
@@ -4407,7 +4403,6 @@ public sealed partial class RtfToTextConverter
 
         _groupStackCapacity = newCapacity;
         Array.Resize(ref _groupStack_SkipDestinations, _groupStackCapacity);
-        Array.Resize(ref _groupStack_InFontTables, _groupStackCapacity);
         Array.Resize(ref _groupStack_SymbolFonts, _groupStackCapacity);
         Array.Resize(ref _groupStack_Properties, _groupStackCapacity);
 
@@ -4428,7 +4423,6 @@ public sealed partial class RtfToTextConverter
         }
 
         _groupStack_SkipDestinations[_groupStackCount + 1] = _groupStack_SkipDestinations[_groupStackCount];
-        _groupStack_InFontTables[_groupStackCount + 1] = _groupStack_InFontTables[_groupStackCount];
         _groupStack_SymbolFonts[_groupStackCount + 1] = _groupStack_SymbolFonts[_groupStackCount];
         for (int i = 0; i < PropertiesLen; i++)
         {
@@ -4445,14 +4439,6 @@ public sealed partial class RtfToTextConverter
         get => _groupStack_SkipDestinations[_groupStackCount];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         set => _groupStack_SkipDestinations[_groupStackCount] = value;
-    }
-
-    private bool GroupStack_CurrentInFontTable
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_InFontTables[_groupStackCount];
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_InFontTables[_groupStackCount] = value;
     }
 
     private SymbolFont GroupStack_CurrentSymbolFont
@@ -4474,7 +4460,6 @@ public sealed partial class RtfToTextConverter
     private void GroupStack_ResetFirst()
     {
         _groupStack_SkipDestinations[0] = false;
-        _groupStack_InFontTables[0] = false;
         _groupStack_SymbolFonts[0] = (int)SymbolFont.None;
 
         _groupStack_Properties[0][(int)Property.Hidden] = 0;
