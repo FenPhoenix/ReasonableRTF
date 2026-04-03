@@ -2591,7 +2591,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
                 // (which is guaranteed not to be negative)
-                if (_fontEntries_Top != null && _inParseFontTable)
+                if (_inParseFontTable && _fontEntries_Top != null)
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
@@ -2647,7 +2647,7 @@ public sealed partial class RtfToTextConverter
                 }
                 break;
             case SpecialType.CodePage:
-                if (_fontEntries_Top != null && _inParseFontTable)
+                if (_inParseFontTable && _fontEntries_Top != null)
                 {
                     _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
                 }
