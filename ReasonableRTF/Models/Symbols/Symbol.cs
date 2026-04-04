@@ -28,6 +28,8 @@ namespace ReasonableRTF.Models.Symbols;
 
 internal sealed class Symbol
 {
+    internal readonly byte KeywordFirstChar;
+    internal readonly byte KeywordLength;
     internal readonly string Keyword;
     internal readonly int DefaultParam;
     internal readonly bool UseDefaultParam;
@@ -39,6 +41,8 @@ internal sealed class Symbol
 
     internal Symbol(string keyword, int defaultParam, bool useDefaultParam, KeywordType keywordType, ushort index)
     {
+        KeywordFirstChar = (byte)keyword[0];
+        KeywordLength = (byte)keyword.Length;
         Keyword = keyword;
         DefaultParam = defaultParam;
         UseDefaultParam = useDefaultParam;

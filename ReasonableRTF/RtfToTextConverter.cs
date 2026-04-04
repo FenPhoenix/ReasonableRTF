@@ -4879,23 +4879,21 @@ public sealed partial class RtfToTextConverter
 
             // Original C code does a stupid thing where it puts default at the top and falls through and junk,
             // but we can't do that in C#, so have something clearer/clunkier
+            // NOTE: This logic is optimized to do the same thing as the gperf generated code, but more efficiently.
+            key += asso_values[keyword[len - 1]];
             switch (len)
             {
                 // Most common case first - we get a measurable speedup from this
                 case > 2:
                     key += asso_values[keyword[2]];
                     key += asso_values[keyword[1]];
-                    key += asso_values[keyword[0]];
                     break;
                 case 2:
                     key += asso_values[keyword[1]];
-                    key += asso_values[keyword[0]];
-                    break;
-                case 1:
-                    key += asso_values[keyword[0]];
                     break;
             }
-            key += asso_values[keyword[len - 1]];
+            byte first = keyword[0];
+            key += asso_values[first];
 
             if (key <= MAX_HASH_VALUE)
             {
@@ -4905,15 +4903,20 @@ public sealed partial class RtfToTextConverter
                     return null;
                 }
 
-                string seq2 = symbol.Keyword;
-                if (len != seq2.Length)
+                if (len != symbol.KeywordLength)
                 {
                     return null;
                 }
 
-                for (byte ci = 0; ci < len; ci++)
+                if (first != symbol.KeywordFirstChar)
                 {
-                    if (keyword[ci] != seq2[ci])
+                    return null;
+                }
+
+                string symbolKeyword = symbol.Keyword;
+                for (byte ci = 1; ci < len; ci++)
+                {
+                    if (keyword[ci] != symbolKeyword[ci])
                     {
                         return null;
                     }
