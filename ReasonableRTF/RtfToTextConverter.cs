@@ -4008,11 +4008,9 @@ public sealed partial class RtfToTextConverter
 
     private int IndexOfNextClosingBrace_ChunkAware()
     {
-        int count = _currentBufferChunkLength - _currentPos;
-
         while (!_reachedEndOfStream)
         {
-            int foundIndex = UtilHelper.Array_IndexOfByte_Fast(_buffer, (byte)'}', _currentPos, count);
+            int foundIndex = UtilHelper.Array_IndexOfByte_Fast(_buffer, (byte)'}', _currentPos, _currentBufferChunkLength - _currentPos);
             if (foundIndex > -1)
             {
                 return foundIndex;
@@ -4027,7 +4025,6 @@ public sealed partial class RtfToTextConverter
                 {
                     return _bufferLength;
                 }
-                count = _currentBufferChunkLength - _currentPos;
             }
         }
 
