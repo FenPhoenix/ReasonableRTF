@@ -4370,8 +4370,6 @@ public sealed partial class RtfToTextConverter
 
     #region GroupStack
 
-    private static readonly int PropertiesLen = Enum.GetValues<Property>().Length;
-
     private const int _groupStackDefaultCapacity = 100;
     private int _groupStackCapacity;
     private int _groupStackCount;
@@ -4407,7 +4405,6 @@ public sealed partial class RtfToTextConverter
 
     private void GroupStack_Grow()
     {
-        int oldMaxGroups = _groupStackCapacity;
         int newCapacity = _groupStackCapacity * 2;
         if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
 
@@ -4497,7 +4494,7 @@ public sealed partial class RtfToTextConverter
     private void GroupStack_ResetFirst()
     {
         _groupStack_SkipDestinations[0] = false;
-        _groupStack_SymbolFonts[0] = (int)SymbolFont.None;
+        _groupStack_SymbolFonts[0] = (byte)SymbolFont.None;
 
         _groupStack_Property_Hidden[0] = 0;
         _groupStack_Property_UnicodeCharSkipCount[0] = 1;
