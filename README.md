@@ -123,10 +123,10 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    25.293 ms | 0.0489 ms | 0.0434 ms | 5741.18 MB/s | 132x     |
-| ReasonableRTF_NoImageSet          |     6.760 ms | 0.0222 ms | 0.0208 ms |  524.21 MB/s | 211x     |
-| ReasonableRTF_FullSet_Streamed    |    26.749 ms | 0.0946 ms | 0.0839 ms | 5428.68 MB/s | 125x     |
-| ReasonableRTF_NoImageSet_Streamed |     6.853 ms | 0.0148 ms | 0.0131 ms |  517.10 MB/s | 208x     |
+| ReasonableRTF_FullSet             |    24.655 ms | 0.0339 ms | 0.0317 ms | 5889.75 MB/s | 135x     |
+| ReasonableRTF_NoImageSet          |     6.706 ms | 0.0253 ms | 0.0236 ms |  528.43 MB/s | 214x     |
+| ReasonableRTF_FullSet_Streamed    |    26.603 ms | 0.0888 ms | 0.0831 ms | 5458.47 MB/s | 125x     |
+| ReasonableRTF_NoImageSet_Streamed |     6.708 ms | 0.0100 ms | 0.0094 ms |  528.27 MB/s | 214x     |
 
 - - -
 

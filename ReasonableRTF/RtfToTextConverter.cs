@@ -2255,7 +2255,7 @@ public sealed partial class RtfToTextConverter
                 case not '\0':
                 {
                     if (!GroupStack_CurrentSkipDest &&
-                        GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
+                        GroupStack_CurrentPropertyHidden == 0)
                     {
                         if (_isNonPlainText[GetByte(_currentPos)])
                         {
@@ -2336,11 +2336,9 @@ public sealed partial class RtfToTextConverter
                             // group 1.
                             for (int i = 1; i < _groupStackCount + 1; i++)
                             {
-                                int[] properties = _groupStack_Properties[i];
-                                int fontNum = properties[(int)Property.FontNum];
-                                if (fontNum == NoFontNumber)
+                                if (_groupStack_Property_FontNum[i] == NoFontNumber)
                                 {
-                                    properties[(int)Property.FontNum] = defaultFontNum;
+                                    _groupStack_Property_FontNum[i] = defaultFontNum;
                                     _groupStack_SymbolFonts[i] = (byte)symbolFont;
                                 }
                                 else
@@ -2637,7 +2635,7 @@ public sealed partial class RtfToTextConverter
                 break;
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
-                if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
+                if (GroupStack_CurrentPropertyHidden == 0)
                 {
                     if (_plainText.Count > 0 && _plainText[_plainText.Count - 1] == '\t')
                     {
@@ -2678,21 +2676,27 @@ public sealed partial class RtfToTextConverter
                 GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
             }
             // \fN supersedes \langN
-            GroupStack_CurrentProperties[(int)Property.Lang] = -1;
+            GroupStack_CurrentPropertyLang = -1;
+            GroupStack_CurrentPropertyFontNum = val;
         }
         else if (propertyTableIndex == Property.Lang)
         {
-            if (val == _undefinedLanguage) return;
+            if (val != _undefinedLanguage)
+            {
+                GroupStack_CurrentPropertyLang = val;
+            }
         }
         else if (propertyTableIndex == Property.Hidden)
         {
-            if (_options.ConvertHiddenText)
+            if (!_options.ConvertHiddenText)
             {
-                return;
+                GroupStack_CurrentPropertyHidden = val;
             }
         }
-
-        GroupStack_CurrentProperties[(int)propertyTableIndex] = val;
+        else
+        {
+            GroupStack_CurrentPropertyUnicodeCharSkipCount = val;
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2992,7 +2996,7 @@ public sealed partial class RtfToTextConverter
         to spec fully here. This is actually really fortunate, because ignoring the thorny "entire control word
         including bin and its data" thing means we get simpler and faster.
         */
-        int numToSkip = GroupStack_CurrentProperties[(int)Property.UnicodeCharSkipCount];
+        int numToSkip = GroupStack_CurrentPropertyUnicodeCharSkipCount;
         while (numToSkip > 0 && !_reachedEndOfStream)
         {
             char c = (char)GetByte(IncrementCurrentPos());
@@ -3079,7 +3083,7 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private int FieldInst_GetFontNum()
     {
-        int currentFontNumber = GroupStack_CurrentProperties[(int)Property.FontNum];
+        int currentFontNumber = GroupStack_CurrentPropertyFontNum;
         return currentFontNumber > NoFontNumber
             ? currentFontNumber
             : _headerDefaultFontNum;
@@ -3257,7 +3261,7 @@ public sealed partial class RtfToTextConverter
     */
     private RtfError HandleFieldInstruction()
     {
-        if (GroupStack_CurrentProperties[(int)Property.Hidden] != 0) return RewindAndSkipGroup();
+        if (GroupStack_CurrentPropertyHidden != 0) return RewindAndSkipGroup();
 
         _fldinstSymbolNumber.ClearFast();
         _fldinstSymbolFontName.ClearFast();
@@ -3554,8 +3558,8 @@ public sealed partial class RtfToTextConverter
     private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
     GetCurrentEncoding()
     {
-        int groupFontNum = GroupStack_CurrentProperties[(int)Property.FontNum];
-        int groupLang = GroupStack_CurrentProperties[(int)Property.Lang];
+        int groupFontNum = GroupStack_CurrentPropertyFontNum;
+        int groupLang = GroupStack_CurrentPropertyLang;
 
         if (groupFontNum == NoFontNumber) groupFontNum = _headerDefaultFontNum;
 
@@ -3773,7 +3777,7 @@ public sealed partial class RtfToTextConverter
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
         // none of them are null.
-        if (GroupStack_CurrentProperties[(int)Property.Hidden] == 0)
+        if (GroupStack_CurrentPropertyHidden == 0)
         {
             // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
             // the start should we actually write it.
@@ -3810,7 +3814,7 @@ public sealed partial class RtfToTextConverter
         // of the bare-char symbol font stuff here.
 
         if (!(count == 1 && ch[0] == '\0') &&
-            GroupStack_CurrentProperties[(int)Property.Hidden] == 0 &&
+            GroupStack_CurrentPropertyHidden == 0 &&
             !_inParseFontTable)
         {
             _plainText.AddRange(ch, count);
@@ -4374,12 +4378,19 @@ public sealed partial class RtfToTextConverter
 
     private bool[] _groupStack_SkipDestinations;
     private byte[] _groupStack_SymbolFonts;
-    private int[][] _groupStack_Properties;
+
+    private int[] _groupStack_Property_Hidden;
+    private int[] _groupStack_Property_UnicodeCharSkipCount;
+    private int[] _groupStack_Property_FontNum;
+    private int[] _groupStack_Property_Lang;
 
     [MemberNotNull(
         nameof(_groupStack_SkipDestinations),
         nameof(_groupStack_SymbolFonts),
-        nameof(_groupStack_Properties))]
+        nameof(_groupStack_Property_Hidden),
+        nameof(_groupStack_Property_UnicodeCharSkipCount),
+        nameof(_groupStack_Property_FontNum),
+        nameof(_groupStack_Property_Lang))]
     private void InitGroupStack()
     {
         _groupStackCount = 0;
@@ -4387,12 +4398,11 @@ public sealed partial class RtfToTextConverter
 
         _groupStack_SkipDestinations = new bool[_groupStackCapacity];
         _groupStack_SymbolFonts = new byte[_groupStackCapacity];
-        _groupStack_Properties = new int[_groupStackCapacity][];
 
-        for (int i = 0; i < _groupStackCapacity; i++)
-        {
-            _groupStack_Properties[i] = new int[PropertiesLen];
-        }
+        _groupStack_Property_Hidden = new int[_groupStackCapacity];
+        _groupStack_Property_UnicodeCharSkipCount = new int[_groupStackCapacity];
+        _groupStack_Property_FontNum = new int[_groupStackCapacity];
+        _groupStack_Property_Lang = new int[_groupStackCapacity];
     }
 
     private void GroupStack_Grow()
@@ -4404,12 +4414,11 @@ public sealed partial class RtfToTextConverter
         _groupStackCapacity = newCapacity;
         Array.Resize(ref _groupStack_SkipDestinations, _groupStackCapacity);
         Array.Resize(ref _groupStack_SymbolFonts, _groupStackCapacity);
-        Array.Resize(ref _groupStack_Properties, _groupStackCapacity);
 
-        for (int i = oldMaxGroups; i < _groupStackCapacity; i++)
-        {
-            _groupStack_Properties[i] = new int[PropertiesLen];
-        }
+        Array.Resize(ref _groupStack_Property_Hidden, _groupStackCapacity);
+        Array.Resize(ref _groupStack_Property_UnicodeCharSkipCount, _groupStackCapacity);
+        Array.Resize(ref _groupStack_Property_FontNum, _groupStackCapacity);
+        Array.Resize(ref _groupStack_Property_Lang, _groupStackCapacity);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -4424,10 +4433,12 @@ public sealed partial class RtfToTextConverter
 
         _groupStack_SkipDestinations[_groupStackCount + 1] = _groupStack_SkipDestinations[_groupStackCount];
         _groupStack_SymbolFonts[_groupStackCount + 1] = _groupStack_SymbolFonts[_groupStackCount];
-        for (int i = 0; i < PropertiesLen; i++)
-        {
-            _groupStack_Properties[_groupStackCount + 1][i] = _groupStack_Properties[_groupStackCount][i];
-        }
+
+        _groupStack_Property_Hidden[_groupStackCount + 1] = _groupStack_Property_Hidden[_groupStackCount];
+        _groupStack_Property_UnicodeCharSkipCount[_groupStackCount + 1] = _groupStack_Property_UnicodeCharSkipCount[_groupStackCount];
+        _groupStack_Property_FontNum[_groupStackCount + 1] = _groupStack_Property_FontNum[_groupStackCount];
+        _groupStack_Property_Lang[_groupStackCount + 1] = _groupStack_Property_Lang[_groupStackCount];
+
         ++_groupStackCount;
     }
 
@@ -4449,10 +4460,36 @@ public sealed partial class RtfToTextConverter
         set => _groupStack_SymbolFonts[_groupStackCount] = (byte)value;
     }
 
-    private int[] GroupStack_CurrentProperties
+    private int GroupStack_CurrentPropertyHidden
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_Properties[_groupStackCount];
+        get => _groupStack_Property_Hidden[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_Property_Hidden[_groupStackCount] = value;
+    }
+
+    private int GroupStack_CurrentPropertyUnicodeCharSkipCount
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_Property_UnicodeCharSkipCount[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_Property_UnicodeCharSkipCount[_groupStackCount] = value;
+    }
+
+    private int GroupStack_CurrentPropertyFontNum
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_Property_FontNum[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_Property_FontNum[_groupStackCount] = value;
+    }
+
+    private int GroupStack_CurrentPropertyLang
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => _groupStack_Property_Lang[_groupStackCount];
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        set => _groupStack_Property_Lang[_groupStackCount] = value;
     }
 
     // Current group always begins at group 0, so reset just that one
@@ -4462,10 +4499,10 @@ public sealed partial class RtfToTextConverter
         _groupStack_SkipDestinations[0] = false;
         _groupStack_SymbolFonts[0] = (int)SymbolFont.None;
 
-        _groupStack_Properties[0][(int)Property.Hidden] = 0;
-        _groupStack_Properties[0][(int)Property.UnicodeCharSkipCount] = 1;
-        _groupStack_Properties[0][(int)Property.FontNum] = NoFontNumber;
-        _groupStack_Properties[0][(int)Property.Lang] = -1;
+        _groupStack_Property_Hidden[0] = 0;
+        _groupStack_Property_UnicodeCharSkipCount[0] = 1;
+        _groupStack_Property_FontNum[0] = NoFontNumber;
+        _groupStack_Property_Lang[0] = -1;
     }
 
     #endregion
