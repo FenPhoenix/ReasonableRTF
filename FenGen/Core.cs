@@ -72,7 +72,7 @@ internal static class Core
 
         foreach (string f in Cache.CSFiles)
         {
-            using var sr = new StreamReader(f);
+            using StreamReader sr = new(f);
             while (sr.ReadLine() is { } line)
             {
                 string lts = line.TrimStart();

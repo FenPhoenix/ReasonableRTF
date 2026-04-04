@@ -55,7 +55,7 @@ internal static partial class Misc
         ClassDeclarationSyntax targetClass;
         if (!genAttr.IsEmpty())
         {
-            var (member, _) = GetAttrMarkedItem(nodes, SyntaxKind.ClassDeclaration, genAttr);
+            (MemberDeclarationSyntax member, _) = GetAttrMarkedItem(nodes, SyntaxKind.ClassDeclaration, genAttr);
             targetClass = (ClassDeclarationSyntax)member;
         }
         else
@@ -82,7 +82,7 @@ internal static partial class Misc
     private static CodeWriters.IndentingWriter GetWriterForClass(string destFile, string classAttribute, List<string>? usingLines = null)
     {
         (string codeBlock, bool fileScopedNamespace) = GetCodeBlock(destFile, classAttribute);
-        var w = new CodeWriters.IndentingWriter(startingIndent: fileScopedNamespace ? 0 : 1, fileScopedNamespace);
+        CodeWriters.IndentingWriter w = new(startingIndent: fileScopedNamespace ? 0 : 1, fileScopedNamespace);
 
         List<string> lines = codeBlock.Split(SA_Linebreaks, StringSplitOptions.None).ToList();
 
@@ -138,17 +138,17 @@ internal static partial class Misc
     internal static (MemberDeclarationSyntax Member, AttributeSyntax Attribute)
     GetAttrMarkedItem(SyntaxNode[] nodes, SyntaxKind syntaxKind, string attrName)
     {
-        var attrMarkedItems = new List<MemberDeclarationSyntax>();
+        List<MemberDeclarationSyntax> attrMarkedItems = new();
         AttributeSyntax? retAttr = null;
 
         foreach (SyntaxNode n in nodes)
         {
             if (!n.IsKind(syntaxKind)) continue;
 
-            var item = (MemberDeclarationSyntax)n;
-            foreach (var attrList in item.AttributeLists)
+            MemberDeclarationSyntax item = (MemberDeclarationSyntax)n;
+            foreach (AttributeListSyntax attrList in item.AttributeLists)
             {
-                foreach (var attr in attrList.Attributes)
+                foreach (AttributeSyntax attr in attrList.Attributes)
                 {
                     if (GetAttributeName(attr.Name.ToString(), attrName))
                     {
@@ -250,7 +250,7 @@ internal static partial class Misc
     internal static void ThrowErrorAndTerminate(Exception ex)
     {
         Trace.WriteLine("FenGen: " + ex + "\r\nTerminating FenGen.");
-        using (var f = new ExceptionBox(ex.ToString())) f.ShowDialog();
+        using (ExceptionBox f = new(ex.ToString())) f.ShowDialog();
         Environment.Exit(-999);
     }
 #pragma warning restore CS8763

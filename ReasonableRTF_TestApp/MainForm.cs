@@ -119,7 +119,7 @@ public sealed partial class MainForm : Form
         try
         {
             string configFile = Path.Combine(Application.StartupPath, _configFile);
-            using var sw = new StreamWriter(configFile);
+            using StreamWriter sw = new(configFile);
             sw.WriteLine("DataDir=" + DataDirTextBox.Text);
         }
         catch
@@ -171,7 +171,7 @@ public sealed partial class MainForm : Form
         for (int i = 0; i < rtfFiles.Length; i++)
         {
             string f = rtfFiles[i];
-            using var fs = File.OpenRead(f);
+            using FileStream fs = File.OpenRead(f);
             byte[] array = new byte[fs.Length];
             fs.ReadExactly(array, 0, (int)fs.Length);
             memStreams[i] = new MemoryStream(array);
@@ -193,7 +193,7 @@ public sealed partial class MainForm : Form
         for (int i = 0; i < rtfFiles.Length; i++)
         {
             string f = rtfFiles[i];
-            using var fs = File.OpenRead(f);
+            using FileStream fs = File.OpenRead(f);
             byte[] array = new byte[fs.Length];
             fs.ReadExactly(array, 0, (int)fs.Length);
             byteArrays[i] = array;
@@ -318,7 +318,7 @@ public sealed partial class MainForm : Form
     private void ConvertWithRichTextBox(SourceSet sourceSet)
     {
         (_, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(sourceSet);
-        using var rtfBox = new RichTextBox();
+        using RichTextBox rtfBox = new();
 
         try
         {
@@ -372,7 +372,7 @@ public sealed partial class MainForm : Form
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
-        using var fs = File.OpenRead(finalFile);
+        using FileStream fs = File.OpenRead(finalFile);
         byte[] array = new byte[fs.Length];
         fs.ReadExactly(array, 0, (int)fs.Length);
         RtfResult result = rtfConverter.Convert(array);
@@ -396,7 +396,7 @@ public sealed partial class MainForm : Form
     private void ConvertAndWrite_RichTextBox(SourceSet sourceSet, string outputDir)
     {
         (string[] rtfFiles, MemoryStream[] memStreams, long totalSize) = GetStuff_RichTextBox(sourceSet);
-        using var rtfBox = new RichTextBox();
+        using RichTextBox rtfBox = new();
 
         try
         {
@@ -462,7 +462,7 @@ public sealed partial class MainForm : Form
                     {
                         string f = rtfFiles[i];
                         Trace.WriteLine(f);
-                        using var fs = File.OpenRead(f);
+                        using FileStream fs = File.OpenRead(f);
                         //if (f.Contains("WayoftheSword"))
                         {
                             RtfResult result = rtfConverter.Convert(fs);
@@ -621,10 +621,10 @@ public sealed partial class MainForm : Form
 
     private void DataDirBrowseButton_Click(object sender, EventArgs e)
     {
-        using var d = new FolderBrowserDialog();
-        DialogResult result = d.ShowDialog(this);
+        using FolderBrowserDialog dialog = new();
+        DialogResult result = dialog.ShowDialog(this);
         if (result != DialogResult.OK) return;
-        DataDirTextBox.Text = d.SelectedPath;
+        DataDirTextBox.Text = dialog.SelectedPath;
     }
 
     private void DataDirResetButton_Click(object sender, EventArgs e)
@@ -635,8 +635,8 @@ public sealed partial class MainForm : Form
     private long GetDirectorySize(SourceSet sourceSet)
     {
         long totalSize = 0;
-        var di = new DirectoryInfo(GetRtfSetDir(sourceSet));
-        foreach (var fi in di.EnumerateFiles())
+        DirectoryInfo di = new(GetRtfSetDir(sourceSet));
+        foreach (FileInfo fi in di.EnumerateFiles())
         {
             totalSize += fi.Length;
         }

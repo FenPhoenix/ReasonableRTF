@@ -23,7 +23,7 @@ public class Test
         for (int i = 0; i < rtfFiles.Length; i++)
         {
             string f = rtfFiles[i];
-            using var fs = File.OpenRead(f);
+            using FileStream fs = File.OpenRead(f);
             byte[] array = new byte[fs.Length];
             fs.ReadExactly(array, 0, (int)fs.Length);
             memStreams[i] = new MemoryStream(array);
@@ -41,7 +41,7 @@ public class Test
         for (int i = 0; i < rtfFiles.Length; i++)
         {
             string f = rtfFiles[i];
-            using var fs = File.OpenRead(f);
+            using FileStream fs = File.OpenRead(f);
             byte[] array = new byte[fs.Length];
             fs.ReadExactly(array, 0, (int)fs.Length);
             byteArrays[i] = array;
@@ -59,7 +59,7 @@ public class Test
         for (int i = 0; i < rtfFiles.Length; i++)
         {
             string f = rtfFiles[i];
-            using var fs = File.OpenRead(f);
+            using FileStream fs = File.OpenRead(f);
             byte[] array = new byte[fs.Length];
             fs.ReadExactly(array, 0, (int)fs.Length);
             memoryStreams[i] = new MemoryStream(array);

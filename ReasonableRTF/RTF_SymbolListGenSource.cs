@@ -197,7 +197,7 @@ public static class RTF_SymbolListGenSource
 
         string gperfFormatFile = Path.Combine(genDir, "gperfFormatFile.txt");
 
-        var outLines = new List<string>
+        List<string> outLines = new()
         {
             "struct Symbol { char *name; int dummy; };",
             "%%",
