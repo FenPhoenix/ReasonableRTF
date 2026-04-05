@@ -3893,7 +3893,8 @@ public sealed partial class RtfToTextConverter
     {
         const int ulongLength = 8;
 
-        if (_currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
+        // I think this is the only endian-depending place? Maybe? Not like I can test that theory anyway...
+        if (BitConverter.IsLittleEndian && _currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
         {
             const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
             const ulong rtfHeaderAsULong = 0x00_00_00_66_74_72_5C_7B;
