@@ -110,6 +110,7 @@ internal sealed class ListFast<T>
 
     internal int Capacity
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => _itemsArrayLength;
         set
         {

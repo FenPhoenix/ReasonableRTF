@@ -1731,6 +1731,8 @@ public sealed partial class RtfToTextConverter
     ];
 
 #if NET8_0_OR_GREATER
+    private static readonly byte[] _nonPlainTextBytes = "\0\n\r\\{}"u8.ToArray();
+
     private static ReadOnlySpan<bool> _isSeparatorChar =>
 #else
     private static readonly bool[] _isSeparatorChar =
@@ -2425,6 +2427,19 @@ public sealed partial class RtfToTextConverter
     {
         _currentPos--;
 
+#if NET8_0_OR_GREATER
+        if (GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
+        {
+            CopyPlainText_SIMD(
+                _buffer,
+                _currentPos,
+                _currentBufferChunkLength - _currentPos,
+                _nonPlainTextBytes,
+                _plainText,
+                ref _currentPos);
+        }
+#endif
+
         if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd)
         {
             HandlePlainTextRun_Fast();
@@ -2437,13 +2452,11 @@ public sealed partial class RtfToTextConverter
 
     private void HandlePlainTextRun_Fast()
     {
-        int i;
-
         SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
-            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
                 char ch = (char)_buffer[IncrementCurrentPos()];
                 if (!_isNonPlainText[(byte)ch])
@@ -2460,7 +2473,7 @@ public sealed partial class RtfToTextConverter
         }
         else if (_plainText.Count < (_plainText.Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
         {
-            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
                 char ch = (char)_buffer[IncrementCurrentPos()];
                 if (!_isNonPlainText[(byte)ch])
@@ -2476,7 +2489,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            for (i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
+            for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
             {
                 char ch = (char)_buffer[IncrementCurrentPos()];
                 if (!_isNonPlainText[(byte)ch])
