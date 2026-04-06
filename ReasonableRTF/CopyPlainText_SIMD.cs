@@ -87,12 +87,12 @@ public sealed partial class RtfToTextConverter
                 {
                     ulong notEqualsElements = equals.ExtractMostSignificantBits();
                     int index = BitOperations.TrailingZeroCount(notEqualsElements);
-                    if (index > Vector256<byte>.Count)
+                    if (index >= Vector256<byte>.Count)
                     {
                         Vector256<byte> current256 = Vector256.LoadUnsafe(ref currentSearchSpace);
                         CopyVector256(current256, plainText, ref currentPos);
                     }
-                    else if (index > Vector128<byte>.Count)
+                    else if (index >= Vector128<byte>.Count)
                     {
                         Vector128<byte> current128 = Vector128.LoadUnsafe(ref currentSearchSpace);
                         CopyVector128(current128, plainText, ref currentPos);
@@ -133,7 +133,7 @@ public sealed partial class RtfToTextConverter
                 {
                     uint notEqualsElements = equals.ExtractMostSignificantBits();
                     int index = BitOperations.TrailingZeroCount(notEqualsElements);
-                    if (index > Vector128<byte>.Count)
+                    if (index >= Vector128<byte>.Count)
                     {
                         Vector128<byte> current128 = Vector128.LoadUnsafe(ref currentSearchSpace);
                         CopyVector128(current128, plainText, ref currentPos);
