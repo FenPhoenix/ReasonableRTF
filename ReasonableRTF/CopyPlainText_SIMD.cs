@@ -146,7 +146,7 @@ public sealed partial class RtfToTextConverter
                 currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
             } while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
         }
-        else if (Vector128<byte>.IsSupported && length >= Vector128<byte>.Count)
+        else if (Vector128.IsHardwareAccelerated && length >= Vector128<byte>.Count)
         {
             Vector128<byte>
                 values0 = Vector128.Create(value0),
