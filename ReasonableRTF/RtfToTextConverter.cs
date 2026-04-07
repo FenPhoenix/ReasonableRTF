@@ -1819,7 +1819,7 @@ public sealed partial class RtfToTextConverter
 
     private readonly ListFast<char> _symbolFontNameBuffer;
 
-    private bool _inParseFontTable;
+    private bool _inFontTable;
 
     private readonly ListFast<char> _charGeneralBuffer;
 
@@ -2149,7 +2149,7 @@ public sealed partial class RtfToTextConverter
             _currentPos = _leadingBufferByteCount;
 
             _inHandleSkippableHexData = false;
-            _inParseFontTable = false;
+            _inFontTable = false;
 
             _lastUsedFontWithCodePage42 = NoFontNumber;
 
@@ -2308,8 +2308,8 @@ public sealed partial class RtfToTextConverter
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
-        if (_inParseFontTable) return RtfError.AbortedForSafety;
-        _inParseFontTable = true;
+        if (_inFontTable) return RtfError.AbortedForSafety;
+        _inFontTable = true;
 
         int fontTableGroupLevel = _groupStackCount;
 
@@ -2350,7 +2350,7 @@ public sealed partial class RtfToTextConverter
                             }
                         }
 
-                        _inParseFontTable = false;
+                        _inFontTable = false;
                         return RtfError.OK;
                     }
                     break;
@@ -2415,7 +2415,7 @@ public sealed partial class RtfToTextConverter
             }
         }
 
-        _inParseFontTable = false;
+        _inFontTable = false;
         return RtfError.OK;
     }
 
@@ -2602,7 +2602,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.Charset:
                 // Reject negative codepage values as invalid and just use the header default in that case
                 // (which is guaranteed not to be negative)
-                if (_inParseFontTable && _fontEntries_Top != null)
+                if (_inFontTable && _fontEntries_Top != null)
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
@@ -2658,7 +2658,7 @@ public sealed partial class RtfToTextConverter
                 }
                 break;
             case SpecialType.CodePage:
-                if (_inParseFontTable && _fontEntries_Top != null)
+                if (_inFontTable && _fontEntries_Top != null)
                 {
                     _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
                 }
@@ -2673,7 +2673,7 @@ public sealed partial class RtfToTextConverter
     {
         if (propertyTableIndex == Property.FontNum)
         {
-            if (_inParseFontTable)
+            if (_inFontTable)
             {
                 FontDictionary_Add(val);
                 return;
@@ -3821,24 +3821,31 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void AddChars(ListFast<char> ch, int count)
+    private void AddChars(ListFast<char> chars, int count)
     {
         // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
         // of the bare-char symbol font stuff here.
 
-        if (!(count == 1 && ch[0] == '\0') &&
-            GroupStack_CurrentPropertyHidden == 0 &&
-            !_inParseFontTable)
+        if (GroupStack_CurrentPropertyHidden == 0 && !_inFontTable)
         {
-            _plainText.AddRange(ch, count);
+            if (count == 1)
+            {
+                char ch = chars[0];
+                if (ch == '\0') return;
+                _plainText.Add(ch);
+            }
+            else
+            {
+                _plainText.AddRange(chars, count);
+            }
         }
     }
 
-    private void AddChars_FieldInst(ListFast<char> ch, int count)
+    private void AddChars_FieldInst(ListFast<char> chars, int count)
     {
         for (int i = 0; i < count; i++)
         {
-            char c = ch[i];
+            char c = chars[i];
             if (c != '\0')
             {
                 _plainText.Add(c);
