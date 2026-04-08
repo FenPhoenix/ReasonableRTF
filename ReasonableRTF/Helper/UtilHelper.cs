@@ -113,6 +113,7 @@ internal static class UtilHelper
 #endif
     }
 
+#if NETSTANDARD2_0
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static int Array_IndexOfOpenOrClosingCurlyBrace_Fast(byte[] array, int startIndex, int count)
     {
@@ -126,4 +127,5 @@ internal static class UtilHelper
         if (index > -1) index += startIndex;
         return index;
     }
+#endif
 }

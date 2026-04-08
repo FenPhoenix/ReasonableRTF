@@ -120,13 +120,13 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 
 ```
 | Method                            | Mean         | Error     | StdDev    | Speed        |          |
-|---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
+|---------------------------------- |-------------:|----------:|----------:|--------------|----------|
 | RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    23.927 ms | 0.0884 ms | 0.0826 ms | 6068.95 MB/s | 139x     |
-| ReasonableRTF_NoImageSet          |     6.307 ms | 0.0220 ms | 0.0206 ms |  561.86 MB/s | 227x     |
-| ReasonableRTF_FullSet_Streamed    |    25.738 ms | 0.0335 ms | 0.0297 ms | 5641.92 MB/s | 129x     |
-| ReasonableRTF_NoImageSet_Streamed |     6.412 ms | 0.0149 ms | 0.0139 ms |  552.66 MB/s | 223x     |
+| ReasonableRTF_FullSet             |    22.954 ms | 0.0236 ms | 0.0221 ms | 6326.21 MB/s | 145x     |
+| ReasonableRTF_NoImageSet          |     5.996 ms | 0.0136 ms | 0.0127 ms |  591.00 MB/s | 238x     |
+| ReasonableRTF_FullSet_Streamed    |    24.961 ms | 0.0316 ms | 0.0280 ms | 5817.55 MB/s | 133x     |
+| ReasonableRTF_NoImageSet_Streamed |     6.070 ms | 0.0137 ms | 0.0121 ms |  583.80 MB/s | 235x     |
 
 - - -
 

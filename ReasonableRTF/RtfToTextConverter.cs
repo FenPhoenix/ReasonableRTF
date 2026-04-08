@@ -79,6 +79,9 @@ public sealed partial class RtfToTextConverter
 
     #region Constants
 
+    // "\bin"
+    private const int _binLength = 4;
+
     private const int _plainTextDefaultCapacity = 4096;
     private const int _internalBufferDefaultCapacity = 32;
     // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
@@ -4138,7 +4141,15 @@ public sealed partial class RtfToTextConverter
         int index = _currentPos;
         while (!_reachedEndOfStream)
         {
+#if NET8_0_OR_GREATER
+            index = SkipDest_SIMD(
+                _buffer,
+                index,
+                _currentBufferChunkLength - index
+            );
+#else
             index = UtilHelper.Array_IndexOfOpenOrClosingCurlyBrace_Fast(_buffer, index, _currentBufferChunkLength - index);
+#endif
 
             /*
             Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
@@ -4169,7 +4180,9 @@ public sealed partial class RtfToTextConverter
                 // raw binary.
                 case (byte)'\\':
                     if (index > _currentBufferChunkLength - 4 ||
-                        (_buffer[index + 1] == 'b' && _buffer[index + 2] == 'i' && _buffer[index + 3] == 'n'))
+                        (_buffer[index + 1] == 'b' &&
+                         _buffer[index + 2] == 'i' &&
+                         _buffer[index + 3] == 'n'))
                     {
                         _groupStackCount = startGroupLevel;
                         return;
