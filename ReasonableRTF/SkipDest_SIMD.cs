@@ -278,9 +278,9 @@ public sealed partial class RtfToTextConverter
     // Compute index
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector128<byte> equals)
+    private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector512<byte> equals)
     {
-        uint notEqualsElements = equals.ExtractMostSignificantBits();
+        ulong notEqualsElements = equals.ExtractMostSignificantBits();
         int index = BitOperations.TrailingZeroCount(notEqualsElements);
         return index + (int)(nuint)Unsafe.ByteOffset(ref searchSpace, ref current);
     }
@@ -294,9 +294,9 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector512<byte> equals)
+    private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector128<byte> equals)
     {
-        ulong notEqualsElements = equals.ExtractMostSignificantBits();
+        uint notEqualsElements = equals.ExtractMostSignificantBits();
         int index = BitOperations.TrailingZeroCount(notEqualsElements);
         return index + (int)(nuint)Unsafe.ByteOffset(ref searchSpace, ref current);
     }
