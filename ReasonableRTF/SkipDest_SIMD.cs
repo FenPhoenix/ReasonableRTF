@@ -87,7 +87,7 @@ public sealed partial class RtfToTextConverter
 
                     if (backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector256<byte>.Count - _binLength ||
+                        if (backslashIndex > Vector512<byte>.Count - _binLength ||
                             (current[backslashIndex + 1] == 'b' &&
                              current[backslashIndex + 2] == 'i' &&
                              current[backslashIndex + 3] == 'n'))
@@ -97,7 +97,7 @@ public sealed partial class RtfToTextConverter
 
                         if (equalsBraces == Vector512<byte>.Zero)
                         {
-                            currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
+                            currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
                             continue;
                         }
                         else
