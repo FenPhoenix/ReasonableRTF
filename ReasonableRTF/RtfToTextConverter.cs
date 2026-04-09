@@ -4117,17 +4117,15 @@ public sealed partial class RtfToTextConverter
         return RtfError.OK;
     }
 
-    /*
-    NOTE: There could be a degenerate case where this method bails, parses another skip-dest keyword on the slow
-    path, runs again and bails again, etc., until the next chunk is read. This is unlikely and doesn't happen at
-    all in my test set. It might be that nested or consecutive skip-destinations are rare or nonexistent in well-
-    formed RTF files.
-    The way to mitigate this would be to add a group stack flag that says whether we're on the slow path, and
-    quit early from this method if we are, and then switch the flag off when a new chunk is read.
-    That would add a global performance burden for a very rare case, so let's just leave it as is for now.
-    */
     private void SkipDest()
     {
+        // This method should either skip the entire destination in one go, or else bail and use the slow path
+        // for the rest of the destination.
+        if (GroupStack_CurrentSkipDest)
+        {
+            return;
+        }
+
         GroupStack_CurrentSkipDest = true;
 
         // If we don't have SIMD, then the slow path is actually faster.
