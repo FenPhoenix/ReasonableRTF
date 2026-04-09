@@ -142,6 +142,12 @@ internal sealed class ListFast<T>
     internal void EnsureCapacity(int min)
     {
         if (_itemsArrayLength >= min) return;
+        Grow(min);
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private void Grow(int min)
+    {
         int newCapacity = _itemsArrayLength == 0 ? 4 : _itemsArrayLength * 2;
         if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
         if (newCapacity < min) newCapacity = min;
