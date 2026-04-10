@@ -45,6 +45,13 @@ public sealed partial class RtfToTextConverter
         ListFast<char> plainText,
         ref int currentPos)
     {
+        if (!Vector512.IsHardwareAccelerated &&
+            !Vector256.IsHardwareAccelerated &&
+            !Vector128.IsHardwareAccelerated)
+        {
+            return;
+        }
+
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
         int length = span.Length;

@@ -4119,6 +4119,15 @@ public sealed partial class RtfToTextConverter
 
     private void SkipDest()
     {
+        // If we don't have SIMD, then the slow path is actually faster.
+        // Check this first because the JIT will make it a constant and optimize it out entirely, so we skip the
+        // runtime check below if we're not hardware accelerated.
+        if (!System.Numerics.Vector.IsHardwareAccelerated)
+        {
+            GroupStack_CurrentSkipDest = true;
+            return;
+        }
+
         // This method should either skip the entire destination in one go, or else bail and use the slow path
         // for the rest of the destination.
         if (GroupStack_CurrentSkipDest)
@@ -4127,12 +4136,6 @@ public sealed partial class RtfToTextConverter
         }
 
         GroupStack_CurrentSkipDest = true;
-
-        // If we don't have SIMD, then the slow path is actually faster.
-        if (!System.Numerics.Vector.IsHardwareAccelerated)
-        {
-            return;
-        }
 
         int startGroupLevel = _groupStackCount;
 

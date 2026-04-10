@@ -43,6 +43,13 @@ public sealed partial class RtfToTextConverter
         int startIndex,
         int count)
     {
+        if (!Vector512.IsHardwareAccelerated &&
+            !Vector256.IsHardwareAccelerated &&
+            !Vector128.IsHardwareAccelerated)
+        {
+            return -1;
+        }
+
         const byte openBraceByte = (byte)'{';
         const byte closingBraceByte = (byte)'}';
         const byte backslashByte = (byte)'\\';
@@ -197,7 +204,6 @@ public sealed partial class RtfToTextConverter
                 }
             }
         }
-#if true
         else if (Vector128.IsHardwareAccelerated && length >= Vector128<byte>.Count)
         {
             ref byte searchSpace = ref MemoryMarshal.GetReference(span);
@@ -271,7 +277,6 @@ public sealed partial class RtfToTextConverter
                 }
             }
         }
-#endif
         return -1;
     }
 
