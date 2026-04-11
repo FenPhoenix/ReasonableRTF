@@ -33,6 +33,8 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
+    // Heavily modified version of SpanHelpers.IndexOfAnyValueType() from https://github.com/dotnet/maintenance-packages/
+    // Made to handle the \binN situation while losing as little performance as possible.
     private static unsafe int SkipDest_Old(
         byte[] buffer,
         int startIndex,
@@ -67,28 +69,28 @@ public sealed partial class RtfToTextConverter
             nLength -= 8;
 
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index))
                 goto Found;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 1);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 1))
                 goto Found1;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 2);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 2))
                 goto Found2;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 3);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 3))
                 goto Found3;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 4);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 4))
                 goto Found4;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 5);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 5))
                 goto Found5;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 6);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 6))
                 goto Found6;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 7);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 7))
                 goto Found7;
 
             index += 8;
@@ -99,16 +101,16 @@ public sealed partial class RtfToTextConverter
             nLength -= 4;
 
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index))
                 goto Found;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 1);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 1))
                 goto Found1;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 2);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 2))
                 goto Found2;
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index + 3);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound(ref searchSpace, lookUp, index + 3))
                 goto Found3;
 
             index += 4;
@@ -119,7 +121,7 @@ public sealed partial class RtfToTextConverter
             nLength -= 1;
 
             lookUp = Unsafe.AddByteOffset(ref searchSpace, index);
-            if (uOpenBraceByte == lookUp || uClosingBraceByte == lookUp || uBackslashByte == lookUp)
+            if (CountAsFound_BoundsCheck(ref searchSpace, lookUp, index, length))
                 goto Found;
 
             index += 1;
@@ -138,19 +140,47 @@ public sealed partial class RtfToTextConverter
             {
                 Vector<byte> vData = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.AddByteOffset(ref searchSpace, index));
 
-                Vector<byte> vMatches = Vector.BitwiseOr(
-                    Vector.BitwiseOr(
-                        Vector.Equals(vData, openBraceValues),
-                        Vector.Equals(vData, closingBraceValues)),
-                    Vector.Equals(vData, backslashValues));
+                Vector<byte> equalsBraces = Vector.BitwiseOr(
+                    Vector.Equals(vData, openBraceValues),
+                    Vector.Equals(vData, closingBraceValues));
+                Vector<byte> equalsBackslash = Vector.Equals(vData, backslashValues);
+                Vector<byte> equals = Vector.BitwiseOr(equalsBraces, equalsBackslash);
 
-                if (Vector<byte>.Zero.Equals(vMatches))
+                if (Vector<byte>.Zero.Equals(equals))
                 {
                     index += Vector<byte>.Count;
                     continue;
                 }
+
+                if (!Vector<byte>.Zero.Equals(equalsBackslash))
+                {
+                    int backslashIndex = LocateFirstFoundByte(equalsBackslash);
+                    int bracesIndex = LocateFirstFoundByte(equalsBraces);
+
+                    if (backslashIndex < bracesIndex)
+                    {
+                        if (backslashIndex > Vector<byte>.Count - _binLength ||
+                            (vData[backslashIndex + 1] == 'b' &&
+                             vData[backslashIndex + 2] == 'i' &&
+                             vData[backslashIndex + 3] == 'n'))
+                        {
+                            return startIndex + (int)(byte*)index + LocateFirstFoundByte(equals);
+                        }
+                    }
+
+                    if (Vector<byte>.Zero.Equals(equalsBraces))
+                    {
+                        index += Vector<byte>.Count;
+                        continue;
+                    }
+                    else
+                    {
+                        return startIndex + (int)(byte*)index + LocateFirstFoundByte(equals);
+                    }
+                }
+
                 // Find offset of first match
-                return startIndex + (int)(byte*)index + LocateFirstFoundByte(vMatches);
+                return startIndex + (int)(byte*)index + LocateFirstFoundByte(equals);
             }
 
             if ((int)(byte*)index < length)
@@ -177,6 +207,28 @@ public sealed partial class RtfToTextConverter
         return startIndex + (int)(byte*)(index + 6);
         Found7:
         return startIndex + (int)(byte*)(index + 7);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static bool CountAsFound(ref byte searchSpace, uint lookUp, nint index)
+        {
+            return uOpenBraceByte == lookUp ||
+                   uClosingBraceByte == lookUp ||
+                   (uBackslashByte == lookUp &&
+                    Unsafe.AddByteOffset(ref searchSpace, index + 1) == 'b' &&
+                    Unsafe.AddByteOffset(ref searchSpace, index + 2) == 'i' &&
+                    Unsafe.AddByteOffset(ref searchSpace, index + 3) == 'n');
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static bool CountAsFound_BoundsCheck(ref byte searchSpace, uint lookUp, nint index, int length)
+        {
+            return uOpenBraceByte == lookUp || uClosingBraceByte == lookUp ||
+                   (uBackslashByte == lookUp &&
+                    (index > length - _binLength ||
+                     (Unsafe.AddByteOffset(ref searchSpace, index + 1) == 'b' &&
+                      Unsafe.AddByteOffset(ref searchSpace, index + 2) == 'i' &&
+                      Unsafe.AddByteOffset(ref searchSpace, index + 3) == 'n')));
+        }
     }
 
     // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
