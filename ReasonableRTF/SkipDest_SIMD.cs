@@ -50,10 +50,6 @@ public sealed partial class RtfToTextConverter
             return -1;
         }
 
-        const byte openBraceByte = (byte)'{';
-        const byte closingBraceByte = (byte)'}';
-        const byte backslashByte = (byte)'\\';
-
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
         int length = span.Length;
@@ -65,9 +61,6 @@ public sealed partial class RtfToTextConverter
             Vector512<byte> equalsBackslash;
             Vector512<byte> equals;
             Vector512<byte> current;
-            Vector512<byte> openBrace = Vector512.Create(openBraceByte);
-            Vector512<byte> closingBrace = Vector512.Create(closingBraceByte);
-            Vector512<byte> backslash = Vector512.Create(backslashByte);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector512<byte>.Count);
 
@@ -75,8 +68,8 @@ public sealed partial class RtfToTextConverter
             do
             {
                 current = Vector512.LoadUnsafe(ref currentSearchSpace);
-                equalsBraces = Vector512.Equals(openBrace, current) | Vector512.Equals(closingBrace, current);
-                equalsBackslash = Vector512.Equals(backslash, current);
+                equalsBraces = Vector512.Equals(_openBraceVector512, current) | Vector512.Equals(_closingBraceVector512, current);
+                equalsBackslash = Vector512.Equals(_backslashVector512, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector512<byte>.Zero)
                 {
@@ -122,8 +115,8 @@ public sealed partial class RtfToTextConverter
             if ((uint)length % Vector512<byte>.Count != 0)
             {
                 current = Vector512.LoadUnsafe(ref oneVectorAwayFromEnd);
-                equalsBraces = Vector512.Equals(openBrace, current) | Vector512.Equals(closingBrace, current);
-                equalsBackslash = Vector512.Equals(backslash, current);
+                equalsBraces = Vector512.Equals(_openBraceVector512, current) | Vector512.Equals(_closingBraceVector512, current);
+                equalsBackslash = Vector512.Equals(_backslashVector512, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals != Vector512<byte>.Zero)
                 {
@@ -138,9 +131,6 @@ public sealed partial class RtfToTextConverter
             Vector256<byte> equalsBackslash;
             Vector256<byte> equals;
             Vector256<byte> current;
-            Vector256<byte> openBrace = Vector256.Create(openBraceByte);
-            Vector256<byte> closingBrace = Vector256.Create(closingBraceByte);
-            Vector256<byte> backslash = Vector256.Create(backslashByte);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector256<byte>.Count);
 
@@ -148,8 +138,8 @@ public sealed partial class RtfToTextConverter
             do
             {
                 current = Vector256.LoadUnsafe(ref currentSearchSpace);
-                equalsBraces = Vector256.Equals(openBrace, current) | Vector256.Equals(closingBrace, current);
-                equalsBackslash = Vector256.Equals(backslash, current);
+                equalsBraces = Vector256.Equals(_openBraceVector256, current) | Vector256.Equals(_closingBraceVector256, current);
+                equalsBackslash = Vector256.Equals(_backslashVector256, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector256<byte>.Zero)
                 {
@@ -195,8 +185,8 @@ public sealed partial class RtfToTextConverter
             if ((uint)length % Vector256<byte>.Count != 0)
             {
                 current = Vector256.LoadUnsafe(ref oneVectorAwayFromEnd);
-                equalsBraces = Vector256.Equals(openBrace, current) | Vector256.Equals(closingBrace, current);
-                equalsBackslash = Vector256.Equals(backslash, current);
+                equalsBraces = Vector256.Equals(_openBraceVector256, current) | Vector256.Equals(_closingBraceVector256, current);
+                equalsBackslash = Vector256.Equals(_backslashVector256, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals != Vector256<byte>.Zero)
                 {
@@ -211,9 +201,6 @@ public sealed partial class RtfToTextConverter
             Vector128<byte> equalsBackslash;
             Vector128<byte> equals;
             Vector128<byte> current;
-            Vector128<byte> openBrace = Vector128.Create(openBraceByte);
-            Vector128<byte> closingBrace = Vector128.Create(closingBraceByte);
-            Vector128<byte> backslash = Vector128.Create(backslashByte);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector128<byte>.Count);
 
@@ -221,8 +208,8 @@ public sealed partial class RtfToTextConverter
             do
             {
                 current = Vector128.LoadUnsafe(ref currentSearchSpace);
-                equalsBraces = Vector128.Equals(openBrace, current) | Vector128.Equals(closingBrace, current);
-                equalsBackslash = Vector128.Equals(backslash, current);
+                equalsBraces = Vector128.Equals(_openBraceVector128, current) | Vector128.Equals(_closingBraceVector128, current);
+                equalsBackslash = Vector128.Equals(_backslashVector128, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector128<byte>.Zero)
                 {
@@ -268,8 +255,8 @@ public sealed partial class RtfToTextConverter
             if ((uint)length % Vector128<byte>.Count != 0)
             {
                 current = Vector128.LoadUnsafe(ref oneVectorAwayFromEnd);
-                equalsBraces = Vector128.Equals(openBrace, current) | Vector128.Equals(closingBrace, current);
-                equalsBackslash = Vector128.Equals(backslash, current);
+                equalsBraces = Vector128.Equals(_openBraceVector128, current) | Vector128.Equals(_closingBraceVector128, current);
+                equalsBackslash = Vector128.Equals(_backslashVector128, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals != Vector128<byte>.Zero)
                 {

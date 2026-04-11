@@ -36,12 +36,32 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
+    private static readonly Vector512<byte> _zeroVector512 = Vector512.Create((byte)'\0');
+    private static readonly Vector512<byte> _lfVector512 = Vector512.Create((byte)'\n');
+    private static readonly Vector512<byte> _crVector512 = Vector512.Create((byte)'\r');
+    private static readonly Vector512<byte> _backslashVector512 = Vector512.Create((byte)'\\');
+    private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
+    private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
+
+    private static readonly Vector256<byte> _zeroVector256 = Vector256.Create((byte)'\0');
+    private static readonly Vector256<byte> _lfVector256 = Vector256.Create((byte)'\n');
+    private static readonly Vector256<byte> _crVector256 = Vector256.Create((byte)'\r');
+    private static readonly Vector256<byte> _backslashVector256 = Vector256.Create((byte)'\\');
+    private static readonly Vector256<byte> _openBraceVector256 = Vector256.Create((byte)'{');
+    private static readonly Vector256<byte> _closingBraceVector256 = Vector256.Create((byte)'}');
+
+    private static readonly Vector128<byte> _zeroVector128 = Vector128.Create((byte)'\0');
+    private static readonly Vector128<byte> _lfVector128 = Vector128.Create((byte)'\n');
+    private static readonly Vector128<byte> _crVector128 = Vector128.Create((byte)'\r');
+    private static readonly Vector128<byte> _backslashVector128 = Vector128.Create((byte)'\\');
+    private static readonly Vector128<byte> _openBraceVector128 = Vector128.Create((byte)'{');
+    private static readonly Vector128<byte> _closingBraceVector128 = Vector128.Create((byte)'}');
+
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType()
     private static void CopyPlainText_SIMD(
         byte[] buffer,
         int startIndex,
         int count,
-        byte[] nonPlainTextValues,
         ListFast<char> plainText,
         ref int currentPos)
     {
@@ -55,24 +75,9 @@ public sealed partial class RtfToTextConverter
         int length = span.Length;
 
         ref byte searchSpace = ref MemoryMarshal.GetReference(span);
-        ref byte valueRef = ref MemoryMarshal.GetReference(nonPlainTextValues);
-
-        byte value0 = valueRef;
-        byte value1 = Unsafe.Add(ref valueRef, 1);
-        byte value2 = Unsafe.Add(ref valueRef, 2);
-        byte value3 = Unsafe.Add(ref valueRef, 3);
-        byte value4 = Unsafe.Add(ref valueRef, 4);
-        byte value5 = Unsafe.Add(ref valueRef, 5);
 
         if (Vector512.IsHardwareAccelerated && length >= Vector512<byte>.Count)
         {
-            Vector512<byte>
-                values0 = Vector512.Create(value0),
-                values1 = Vector512.Create(value1),
-                values2 = Vector512.Create(value2),
-                values3 = Vector512.Create(value3),
-                values4 = Vector512.Create(value4),
-                values5 = Vector512.Create(value5);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(length - Vector512<byte>.Count));
 
@@ -81,12 +86,12 @@ public sealed partial class RtfToTextConverter
             {
                 Vector512<byte> current = Vector512.LoadUnsafe(ref currentSearchSpace);
                 Vector512<byte> equals =
-                    Vector512.Equals(values0, current) |
-                    Vector512.Equals(values1, current) |
-                    Vector512.Equals(values2, current) |
-                    Vector512.Equals(values3, current) |
-                    Vector512.Equals(values4, current) |
-                    Vector512.Equals(values5, current);
+                    Vector512.Equals(_zeroVector512, current) |
+                    Vector512.Equals(_lfVector512, current) |
+                    Vector512.Equals(_crVector512, current) |
+                    Vector512.Equals(_backslashVector512, current) |
+                    Vector512.Equals(_openBraceVector512, current) |
+                    Vector512.Equals(_closingBraceVector512, current);
 
                 if (equals != Vector512<byte>.Zero)
                 {
@@ -112,13 +117,6 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector256.IsHardwareAccelerated && length >= Vector256<byte>.Count)
         {
-            Vector256<byte>
-                values0 = Vector256.Create(value0),
-                values1 = Vector256.Create(value1),
-                values2 = Vector256.Create(value2),
-                values3 = Vector256.Create(value3),
-                values4 = Vector256.Create(value4),
-                values5 = Vector256.Create(value5);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(length - Vector256<byte>.Count));
 
@@ -127,12 +125,12 @@ public sealed partial class RtfToTextConverter
             {
                 Vector256<byte> current = Vector256.LoadUnsafe(ref currentSearchSpace);
                 Vector256<byte> equals =
-                    Vector256.Equals(values0, current) |
-                    Vector256.Equals(values1, current) |
-                    Vector256.Equals(values2, current) |
-                    Vector256.Equals(values3, current) |
-                    Vector256.Equals(values4, current) |
-                    Vector256.Equals(values5, current);
+                    Vector256.Equals(_zeroVector256, current) |
+                    Vector256.Equals(_lfVector256, current) |
+                    Vector256.Equals(_crVector256, current) |
+                    Vector256.Equals(_backslashVector256, current) |
+                    Vector256.Equals(_openBraceVector256, current) |
+                    Vector256.Equals(_closingBraceVector256, current);
 
                 if (equals != Vector256<byte>.Zero)
                 {
@@ -153,13 +151,6 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector128.IsHardwareAccelerated && length >= Vector128<byte>.Count)
         {
-            Vector128<byte>
-                values0 = Vector128.Create(value0),
-                values1 = Vector128.Create(value1),
-                values2 = Vector128.Create(value2),
-                values3 = Vector128.Create(value3),
-                values4 = Vector128.Create(value4),
-                values5 = Vector128.Create(value5);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(length - Vector128<byte>.Count));
 
@@ -168,12 +159,12 @@ public sealed partial class RtfToTextConverter
             {
                 Vector128<byte> current = Vector128.LoadUnsafe(ref currentSearchSpace);
                 Vector128<byte> equals =
-                    Vector128.Equals(values0, current) |
-                    Vector128.Equals(values1, current) |
-                    Vector128.Equals(values2, current) |
-                    Vector128.Equals(values3, current) |
-                    Vector128.Equals(values4, current) |
-                    Vector128.Equals(values5, current);
+                    Vector128.Equals(_zeroVector128, current) |
+                    Vector128.Equals(_lfVector128, current) |
+                    Vector128.Equals(_crVector128, current) |
+                    Vector128.Equals(_backslashVector128, current) |
+                    Vector128.Equals(_openBraceVector128, current) |
+                    Vector128.Equals(_closingBraceVector128, current);
 
                 if (equals != Vector128<byte>.Zero)
                 {

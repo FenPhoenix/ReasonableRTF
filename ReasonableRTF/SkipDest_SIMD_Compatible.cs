@@ -46,10 +46,6 @@ public sealed partial class RtfToTextConverter
             return -1;
         }
 
-        const byte openBraceByte = (byte)'{';
-        const byte closingBraceByte = (byte)'}';
-        const byte backslashByte = (byte)'\\';
-
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
         int length = span.Length;
@@ -61,9 +57,6 @@ public sealed partial class RtfToTextConverter
             Vector<byte> equalsBackslash;
             Vector<byte> equals;
             Vector<byte> current;
-            Vector<byte> openBrace = GetVector(openBraceByte);
-            Vector<byte> closingBrace = GetVector(closingBraceByte);
-            Vector<byte> backslash = GetVector(backslashByte);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector<byte>.Count);
 
@@ -71,8 +64,8 @@ public sealed partial class RtfToTextConverter
             do
             {
                 current = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
-                equalsBraces = Vector.Equals(openBrace, current) | Vector.Equals(closingBrace, current);
-                equalsBackslash = Vector.Equals(backslash, current);
+                equalsBraces = Vector.Equals(_openBraceVector, current) | Vector.Equals(_closingBraceVector, current);
+                equalsBackslash = Vector.Equals(_backslashVector, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector<byte>.Zero)
                 {
@@ -115,8 +108,8 @@ public sealed partial class RtfToTextConverter
             if ((uint)length % Vector<byte>.Count != 0)
             {
                 current = Unsafe.ReadUnaligned<Vector<byte>>(ref oneVectorAwayFromEnd);
-                equalsBraces = Vector.Equals(openBrace, current) | Vector.Equals(closingBrace, current);
-                equalsBackslash = Vector.Equals(backslash, current);
+                equalsBraces = Vector.Equals(_openBraceVector, current) | Vector.Equals(_closingBraceVector, current);
+                equalsBackslash = Vector.Equals(_backslashVector, current);
                 equals = equalsBraces | equalsBackslash;
                 if (equals != Vector<byte>.Zero)
                 {
@@ -133,8 +126,6 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector<byte> equals)
     {
-        //ulong notEqualsElements = equals.ExtractMostSignificantBits();
-        //int index = BitOperations.TrailingZeroCount(notEqualsElements);
         int index = LocateFirstFoundByte(equals);
         return index + (int)Unsafe.ByteOffset(ref searchSpace, ref current);
     }

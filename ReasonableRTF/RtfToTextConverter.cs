@@ -1734,8 +1734,6 @@ public sealed partial class RtfToTextConverter
     ];
 
 #if NET8_0_OR_GREATER
-    private static readonly byte[] _nonPlainTextBytes = "\0\n\r\\{}"u8.ToArray();
-
     private static ReadOnlySpan<bool> _isSeparatorChar =>
 #else
     private static readonly bool[] _isSeparatorChar =
@@ -2437,9 +2435,21 @@ public sealed partial class RtfToTextConverter
                 _buffer,
                 _currentPos,
                 _currentBufferChunkLength - _currentPos,
-                _nonPlainTextBytes,
                 _plainText,
                 ref _currentPos);
+        }
+#else
+        if (System.Numerics.Vector.IsHardwareAccelerated)
+        {
+            if (GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
+            {
+                CopyPlainText_SIMD_Compatible(
+                    _buffer,
+                    _currentPos,
+                    _currentBufferChunkLength - _currentPos,
+                    _plainText,
+                    ref _currentPos);
+            }
         }
 #endif
 
