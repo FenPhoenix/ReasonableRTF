@@ -4148,13 +4148,9 @@ public sealed partial class RtfToTextConverter
         while (!_reachedEndOfStream)
         {
 #if NET8_0_OR_GREATER
-            index = SkipDest_SIMD(
-                _buffer,
-                index,
-                _currentBufferChunkLength - index
-            );
+            index = SkipDest_SIMD(_buffer, index, _currentBufferChunkLength - index);
 #else
-            index = UtilHelper.Array_IndexOfOpenOrClosingCurlyBrace_Fast(_buffer, index, _currentBufferChunkLength - index);
+            index = SkipDest_Old(_buffer, index, _currentBufferChunkLength - index);
 #endif
 
             /*
