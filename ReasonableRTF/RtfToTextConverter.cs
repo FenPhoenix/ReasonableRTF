@@ -2428,7 +2428,7 @@ public sealed partial class RtfToTextConverter
     {
         _currentPos--;
 
-        if (GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
+        if (System.Numerics.Vector.IsHardwareAccelerated && GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
         {
             SIMD.CopyPlainText(
                 _buffer,
