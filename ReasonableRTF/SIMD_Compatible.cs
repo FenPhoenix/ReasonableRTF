@@ -29,14 +29,36 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
-public sealed partial class RtfToTextConverter
+public static partial class SIMD
 {
+    #region Private fields
+
+    private static readonly Vector<byte> _zeroVector = new((byte)'\0');
+    private static readonly Vector<byte> _lfVector = new((byte)'\n');
+    private static readonly Vector<byte> _crVector = new((byte)'\r');
+    private static readonly Vector<byte> _backslashVector = new((byte)'\\');
+    private static readonly Vector<byte> _openBraceVector = new((byte)'{');
+    private static readonly Vector<byte> _closingBraceVector = new((byte)'}');
+
+    private const ulong XorPowerOfTwoToHighByte = (0x07ul |
+                                                   0x06ul << 8 |
+                                                   0x05ul << 16 |
+                                                   0x04ul << 24 |
+                                                   0x03ul << 32 |
+                                                   0x02ul << 40 |
+                                                   0x01ul << 48) + 1;
+
+    #endregion
+
+    #region API
+
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
     // Made to handle the \binN situation while losing as little performance as possible.
-    private static int SkipDest_SIMD_Compatible(
+    internal static int SkipDest(
         byte[] buffer,
         int startIndex,
         int count)
@@ -80,7 +102,7 @@ public sealed partial class RtfToTextConverter
 
                     if (backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector<byte>.Count - _binLength ||
+                        if (backslashIndex > Vector<byte>.Count - RtfToTextConverter._binLength ||
                             (current[backslashIndex + 1] == 'b' &&
                              current[backslashIndex + 2] == 'i' &&
                              current[backslashIndex + 3] == 'n'))
@@ -121,7 +143,79 @@ public sealed partial class RtfToTextConverter
         return -1;
     }
 
-    // Compute index
+    // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
+    internal static void CopyPlainText(
+        byte[] buffer,
+        int startIndex,
+        int count,
+        ListFast<char> plainText,
+        ref int currentPos)
+    {
+        if (!Vector.IsHardwareAccelerated)
+        {
+            return;
+        }
+
+        ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
+
+        int length = span.Length;
+
+        ref byte searchSpace = ref MemoryMarshal.GetReference(span);
+
+        if (length >= Vector<byte>.Count)
+        {
+            ref byte currentSearchSpace = ref searchSpace;
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(length - Vector<byte>.Count));
+
+            // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
+            do
+            {
+                Vector<byte> current = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
+
+                Vector<byte> equals =
+                    Vector.Equals(_zeroVector, current) |
+                    Vector.Equals(_lfVector, current) |
+                    Vector.Equals(_crVector, current) |
+                    Vector.Equals(_backslashVector, current) |
+                    Vector.Equals(_openBraceVector, current) |
+                    Vector.Equals(_closingBraceVector, current);
+
+                if (!Vector<byte>.Zero.Equals(equals))
+                {
+                    return;
+                }
+
+                CopyVector(current, plainText, ref currentPos);
+
+                currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
+            } while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
+        }
+
+        // I think Vector128 should be supported on literally anything these days, but if it's not, just fall out
+        // without doing anything and we'll take the non-SIMD path. We don't fall back to Vector64 because that's
+        // slower than just doing the 8 bytes scalar.
+
+        return;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static void CopyVector(Vector<byte> current, ListFast<char> plainText, ref int currentPos)
+        {
+            Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
+
+            int vectorCount = Vector<byte>.Count;
+            plainText.EnsureCapacity(plainText.Count + vectorCount);
+
+            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
+            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+
+            plainText.Count += vectorCount;
+            currentPos += vectorCount;
+        }
+    }
+
+    #endregion
+
+    #region Helpers
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, Vector<byte> equals)
@@ -129,8 +223,6 @@ public sealed partial class RtfToTextConverter
         int index = LocateFirstFoundByte(equals);
         return index + (int)Unsafe.ByteOffset(ref searchSpace, ref current);
     }
-
-    // Take precomputed index
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, int index)
@@ -168,21 +260,6 @@ public sealed partial class RtfToTextConverter
         return (int)((powerOfTwoFlag * XorPowerOfTwoToHighByte) >> 57);
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Vector<byte> GetVector(byte vectorByte)
-    {
-        // Vector<byte> .ctor doesn't become an intrinsic due to detection issue
-        // However this does cause it to become an intrinsic (with additional multiply and reg->reg copy)
-        // https://github.com/dotnet/coreclr/issues/7459#issuecomment-253965670
-        return Vector.AsVectorByte(new Vector<uint>(vectorByte * 0x01010101u));
-    }
-
-    private const ulong XorPowerOfTwoToHighByte = (0x07ul |
-                                                   0x06ul << 8 |
-                                                   0x05ul << 16 |
-                                                   0x04ul << 24 |
-                                                   0x03ul << 32 |
-                                                   0x02ul << 40 |
-                                                   0x01ul << 48) + 1;
+    #endregion
 }
 #endif

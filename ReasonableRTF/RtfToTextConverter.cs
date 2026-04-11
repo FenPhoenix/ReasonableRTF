@@ -80,7 +80,7 @@ public sealed partial class RtfToTextConverter
     #region Constants
 
     // "\bin"
-    private const int _binLength = 4;
+    internal const int _binLength = 4;
 
     private const int _plainTextDefaultCapacity = 4096;
     private const int _internalBufferDefaultCapacity = 32;
@@ -2428,30 +2428,15 @@ public sealed partial class RtfToTextConverter
     {
         _currentPos--;
 
-#if NET8_0_OR_GREATER
         if (GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
         {
-            CopyPlainText_SIMD(
+            SIMD.CopyPlainText(
                 _buffer,
                 _currentPos,
                 _currentBufferChunkLength - _currentPos,
                 _plainText,
                 ref _currentPos);
         }
-#else
-        if (System.Numerics.Vector.IsHardwareAccelerated)
-        {
-            if (GroupStack_CurrentSymbolFont <= SymbolFont.Unset)
-            {
-                CopyPlainText_SIMD_Compatible(
-                    _buffer,
-                    _currentPos,
-                    _currentBufferChunkLength - _currentPos,
-                    _plainText,
-                    ref _currentPos);
-            }
-        }
-#endif
 
         if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd)
         {
@@ -4157,11 +4142,7 @@ public sealed partial class RtfToTextConverter
         int index = _currentPos;
         while (!_reachedEndOfStream)
         {
-#if NET8_0_OR_GREATER
-            index = SkipDest_SIMD(_buffer, index, _currentBufferChunkLength - index);
-#else
-            index = SkipDest_SIMD_Compatible(_buffer, index, _currentBufferChunkLength - index);
-#endif
+            index = SIMD.SkipDest(_buffer, index, _currentBufferChunkLength - index);
 
             /*
             Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
