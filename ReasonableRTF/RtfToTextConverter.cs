@@ -4172,7 +4172,7 @@ public sealed partial class RtfToTextConverter
                 // If we find \bin, run away: it could contain unescaped curly braces that are just part of the
                 // raw binary.
                 case (byte)'\\':
-                    if (index > _currentBufferChunkLength - 4 ||
+                    if (index > _currentBufferChunkLength - _binLength ||
                         (_buffer[index + 1] == 'b' &&
                          _buffer[index + 2] == 'i' &&
                          _buffer[index + 3] == 'n'))
