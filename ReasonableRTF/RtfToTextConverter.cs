@@ -4150,7 +4150,7 @@ public sealed partial class RtfToTextConverter
 #if NET8_0_OR_GREATER
             index = SkipDest_SIMD(_buffer, index, _currentBufferChunkLength - index);
 #else
-            index = SkipDest_Old(_buffer, index, _currentBufferChunkLength - index);
+            index = SkipDest_SIMD_Compatible(_buffer, index, _currentBufferChunkLength - index);
 #endif
 
             /*

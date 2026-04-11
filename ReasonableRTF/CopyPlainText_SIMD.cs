@@ -45,9 +45,7 @@ public sealed partial class RtfToTextConverter
         ListFast<char> plainText,
         ref int currentPos)
     {
-        if (!Vector512.IsHardwareAccelerated &&
-            !Vector256.IsHardwareAccelerated &&
-            !Vector128.IsHardwareAccelerated)
+        if (!Vector.IsHardwareAccelerated)
         {
             return;
         }
