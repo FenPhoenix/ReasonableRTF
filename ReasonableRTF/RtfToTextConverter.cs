@@ -2344,7 +2344,7 @@ public sealed partial class RtfToTextConverter
                                 if (_groupStack_Property_FontNum[i] == NoFontNumber)
                                 {
                                     _groupStack_Property_FontNum[i] = defaultFontNum;
-                                    _groupStack_SymbolFonts[i] = (byte)symbolFont;
+                                    _groupStack_SymbolFonts[i] = symbolFont;
                                 }
                                 else
                                 {
@@ -2943,6 +2943,11 @@ public sealed partial class RtfToTextConverter
                         }
                         param = BranchlessConditionalNegate(param, negateParam);
 
+                        /*
+                        From the spec:
+                        "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI
+                        characters) that is not counted in the characters to skip."
+                        */
                         _currentPos += MinusOneIfNotSpace_8Bits(ch);
                         HandleUnicodeParamAndSkipFallbackChars(param);
                     }
@@ -4407,7 +4412,7 @@ public sealed partial class RtfToTextConverter
     private int _groupStackCount;
 
     private bool[] _groupStack_SkipDestinations;
-    private byte[] _groupStack_SymbolFonts;
+    private SymbolFont[] _groupStack_SymbolFonts;
 
     private int[] _groupStack_Property_Hidden;
     private int[] _groupStack_Property_UnicodeCharSkipCount;
@@ -4427,7 +4432,7 @@ public sealed partial class RtfToTextConverter
         _groupStackCapacity = _groupStackDefaultCapacity;
 
         _groupStack_SkipDestinations = new bool[_groupStackCapacity];
-        _groupStack_SymbolFonts = new byte[_groupStackCapacity];
+        _groupStack_SymbolFonts = new SymbolFont[_groupStackCapacity];
 
         _groupStack_Property_Hidden = new int[_groupStackCapacity];
         _groupStack_Property_UnicodeCharSkipCount = new int[_groupStackCapacity];
@@ -4435,6 +4440,7 @@ public sealed partial class RtfToTextConverter
         _groupStack_Property_Lang = new int[_groupStackCapacity];
     }
 
+    [MethodImpl(MethodImplOptions.NoInlining)]
     private void GroupStack_Grow()
     {
         int newCapacity = _groupStackCapacity * 2;
@@ -4484,9 +4490,9 @@ public sealed partial class RtfToTextConverter
     private SymbolFont GroupStack_CurrentSymbolFont
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => (SymbolFont)_groupStack_SymbolFonts[_groupStackCount];
+        get => _groupStack_SymbolFonts[_groupStackCount];
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_SymbolFonts[_groupStackCount] = (byte)value;
+        set => _groupStack_SymbolFonts[_groupStackCount] = value;
     }
 
     private int GroupStack_CurrentPropertyHidden
@@ -4526,7 +4532,7 @@ public sealed partial class RtfToTextConverter
     private void GroupStack_ResetFirst()
     {
         _groupStack_SkipDestinations[0] = false;
-        _groupStack_SymbolFonts[0] = (byte)SymbolFont.None;
+        _groupStack_SymbolFonts[0] = SymbolFont.None;
 
         _groupStack_Property_Hidden[0] = 0;
         _groupStack_Property_UnicodeCharSkipCount[0] = 1;
