@@ -366,19 +366,20 @@ public sealed partial class MainForm : Form
             //"2002-04-04_Mistrz_ENG__mistrz_eng.rtf"
             //"TDP20AC_An_Enigmatic_Treasure___TDP20AC_An_Enigmatic_Treasure_With_A_Recondite_Discovery.rtf"
             //"Issue23.rtf"
-            "2001-12-15_c2MeliansMethod_v1___melian.rtf"
+            //"2001-12-15_c2MeliansMethod_v1___melian.rtf"
             //"long_text_test.rtf"
             //"simple_number.rtf"
             //"complex_list_diff_styles.rtf"
+            "RtfParserTest_fail_3.rtf"
             ;
-        SourceSet sourceSet = SourceSet.Full;
+        SourceSet sourceSet = SourceSet.WorkingNewSet;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
         using FileStream fs = File.OpenRead(finalFile);
-        byte[] array = new byte[fs.Length];
-        fs.ReadExactly(array, 0, (int)fs.Length);
-        RtfResult result = rtfConverter.Convert(array);
+        //byte[] array = new byte[fs.Length];
+        //fs.ReadExactly(array, 0, (int)fs.Length);
+        RtfResult result = rtfConverter.Convert(fs);
         Trace.WriteLine(result.ToString());
         if (write)
         {

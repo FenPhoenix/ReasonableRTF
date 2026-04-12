@@ -4297,7 +4297,6 @@ public sealed partial class RtfToTextConverter
             else
             {
                 _endedStreamOnce = true;
-                _chunksRead++;
             }
         }
         else
@@ -4357,15 +4356,18 @@ public sealed partial class RtfToTextConverter
         if (_bufferedStream != null)
         {
             _currentPos--;
+            int originalPos = _currentPos;
             int ret = IncrementCurrentPos_Stream(_currentPos);
             if (_currentPos > _currentBufferChunkLength)
             {
                 if (_groupStackCount > 0)
                 {
+                    _currentPos = originalPos;
                     ThrowHelper.UnmatchedBraceException();
                 }
                 else
                 {
+                    _currentPos = originalPos;
                     ThrowHelper.IndexOutOfRange();
                 }
                 return 0;
