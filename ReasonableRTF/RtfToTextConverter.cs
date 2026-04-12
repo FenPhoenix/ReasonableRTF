@@ -46,6 +46,7 @@ I guess. So we could just leave this out...
 */
 
 using System.Buffers;
+using System.Buffers.Binary;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -116,6 +117,30 @@ public sealed partial class RtfToTextConverter
     #endregion
 
     private readonly byte[] SYMBOLName = "SYMBOL "u8.ToArray();
+
+    private sealed class SkipDataKeywords
+    {
+        internal readonly uint Id;
+        internal readonly bool UseExtra;
+        internal readonly uint Id2;
+        internal readonly uint Id3;
+
+        public SkipDataKeywords(uint id)
+        {
+            Id = id;
+            UseExtra = false;
+            Id2 = 0;
+            Id3 = 0;
+        }
+
+        public SkipDataKeywords(uint id, uint id2, uint id3)
+        {
+            Id = id;
+            UseExtra = true;
+            Id2 = id2;
+            Id3 = id3;
+        }
+    }
 
     #region Tables
 
@@ -1770,6 +1795,37 @@ public sealed partial class RtfToTextConverter
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,
     ];
+
+    // For the non-SIMD fast destination skip code.
+    private static SkipDataKeywords?[] InitSkipDataKeywords()
+    {
+        SkipDataKeywords?[] ret = new SkipDataKeywords?[256];
+
+        const uint blipBytes = 0x70696C62;
+        const uint coloBytes = 0x6F6C6F63;
+        const uint dataBytes = 0x61746164;
+        const uint objdBytes = 0x646A626F;
+        const uint panoBytes = 0x6F6E6170;
+        const uint passBytes = 0x73736170;
+        const uint pictBytes = 0x74636970;
+        const uint themBytes = 0x6D656874;
+
+        ret['b'] = new SkipDataKeywords(GetBytes(blipBytes));
+        ret['c'] = new SkipDataKeywords(GetBytes(coloBytes));
+        ret['d'] = new SkipDataKeywords(GetBytes(dataBytes));
+        ret['o'] = new SkipDataKeywords(GetBytes(objdBytes));
+        ret['p'] = new SkipDataKeywords(GetBytes(panoBytes), GetBytes(passBytes), GetBytes(pictBytes));
+        ret['t'] = new SkipDataKeywords(GetBytes(themBytes));
+
+        return ret;
+
+        static uint GetBytes(uint bytes)
+        {
+            return !BitConverter.IsLittleEndian ? BinaryPrimitives.ReverseEndianness(bytes) : bytes;
+        }
+    }
+
+    private static readonly SkipDataKeywords?[] _skipDataKeywords = InitSkipDataKeywords();
 
     #endregion
 
@@ -4119,15 +4175,6 @@ public sealed partial class RtfToTextConverter
 
     private void SkipDest()
     {
-        // If we don't have SIMD, then the slow path is actually faster.
-        // Check this first because the JIT will make it a constant and optimize it out entirely, so we skip the
-        // runtime check below if we're not hardware accelerated.
-        if (!System.Numerics.Vector.IsHardwareAccelerated)
-        {
-            GroupStack_CurrentSkipDest = true;
-            return;
-        }
-
         // This method should either skip the entire destination in one go, or else bail and use the slow path
         // for the rest of the destination.
         if (GroupStack_CurrentSkipDest)
@@ -4140,50 +4187,136 @@ public sealed partial class RtfToTextConverter
         int startGroupLevel = _groupStackCount;
 
         int index = _currentPos;
-        while (!_reachedEndOfStream)
+        if (System.Numerics.Vector.IsHardwareAccelerated)
         {
-            index = SIMD.SkipDest(_buffer, index, _currentBufferChunkLength - index);
-
-            /*
-            Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
-            before a curly brace, because it could be a series of escaped backslashes and then an escaped curly
-            brace: \\\\\\\}. Which means if we encountered one, we'd have to read an arbitrary amount back in the
-            stream, which we can't do. So if we don't find the end of our subgroup stack in the current buffer
-            chunk, just give up and take the slow path that properly parses escapes.
-            */
-            if (index == -1 || _buffer[index - 1] == '\\')
+            while (!_reachedEndOfStream)
             {
-                _groupStackCount = startGroupLevel;
+                index = SIMD.SkipDest(_buffer, index, _currentBufferChunkLength - index);
+
+                /*
+                Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
+                before a curly brace, because it could be a series of escaped backslashes and then an escaped curly
+                brace: \\\\\\\}. Which means if we encountered one, we'd have to read an arbitrary amount back in the
+                stream, which we can't do. So if we don't find the end of our subgroup stack in the current buffer
+                chunk, just give up and take the slow path that properly parses escapes.
+                */
+                if (index == -1 || _buffer[index - 1] == '\\')
+                {
+                    _groupStackCount = startGroupLevel;
+                    return;
+                }
+                switch (_buffer[index])
+                {
+                    case (byte)'{':
+                        ++_groupStackCount;
+                        break;
+                    case (byte)'}':
+                        --_groupStackCount;
+                        if (_groupStackCount < startGroupLevel)
+                        {
+                            _currentPos = index + 1;
+                            return;
+                        }
+                        break;
+                    // If we find \bin, run away: it could contain unescaped curly braces that are just part of the
+                    // raw binary.
+                    case (byte)'\\':
+                        if (index > _currentBufferChunkLength - _binLength ||
+                            (_buffer[index + 1] == 'b' &&
+                             _buffer[index + 2] == 'i' &&
+                             _buffer[index + 3] == 'n'))
+                        {
+                            _groupStackCount = startGroupLevel;
+                            return;
+                        }
+                        break;
+                }
+                ++index;
+            }
+        }
+        else
+        {
+            /*
+            Without SIMD, we have two options: fall back to the slow path, or use a custom non-parsing path to
+            skip byte-at-a-time and count the braces and backslashes manually.
+
+            The fallback slow path does full parsing, which means it can know when there's about to be skippable
+            data (hex or skip-number-of-bytes), and can skip it fast with Array.IndexOf().
+
+            The custom non-parsing fast path can't know about skippable data, and so can't skip it fast with
+            Array.IndexOf().
+
+            The former option is faster for files that have skippable data (the full set), but slower for files
+            that don't. The latter option is faster for files that don't have skippable data (the no-image set),
+            but slower for those that do.
+            
+            So we use a hybrid, where we do the non-parsing fast path but detect skip-data keywords in the most
+            efficient way we can, to allow the fast Array.IndexOf() skip for when we have skippable data, but
+            minimize perf loss when we don't.
+            */
+
+            if (FoundSkipDataKeyword(_keyword, 0))
+            {
                 return;
             }
-            switch (_buffer[index])
+
+            for (; index < _currentBufferChunkLength; index++)
             {
-                case (byte)'{':
-                    ++_groupStackCount;
-                    break;
-                case (byte)'}':
-                    --_groupStackCount;
-                    if (_groupStackCount < startGroupLevel)
-                    {
-                        _currentPos = index + 1;
-                        return;
-                    }
-                    break;
-                // If we find \bin, run away: it could contain unescaped curly braces that are just part of the
-                // raw binary.
-                case (byte)'\\':
-                    if (index > _currentBufferChunkLength - _binLength ||
-                        (_buffer[index + 1] == 'b' &&
-                         _buffer[index + 2] == 'i' &&
-                         _buffer[index + 3] == 'n'))
-                    {
-                        _groupStackCount = startGroupLevel;
-                        return;
-                    }
-                    break;
+                char ch = (char)_buffer[index];
+                switch (ch)
+                {
+                    case '\\':
+                        if (index > _currentBufferChunkLength - _binLength ||
+                            (_buffer[index + 1] == 'b' &&
+                             _buffer[index + 2] == 'i' &&
+                             _buffer[index + 3] == 'n'))
+                        {
+                            _groupStackCount = startGroupLevel;
+                            return;
+                        }
+
+                        if (FoundSkipDataKeyword(_buffer, index + 1))
+                        {
+                            _groupStackCount = startGroupLevel;
+                            return;
+                        }
+                        break;
+                    case '{':
+                        ++_groupStackCount;
+                        break;
+                    case '}':
+                        --_groupStackCount;
+                        if (_groupStackCount < startGroupLevel)
+                        {
+                            _currentPos = index + 1;
+                            return;
+                        }
+                        break;
+                }
             }
-            ++index;
+            _groupStackCount = startGroupLevel;
         }
+    }
+
+    private static bool FoundSkipDataKeyword(byte[] buffer, int index)
+    {
+        // After testing a number of different methods of keyword detection, this came out the fastest. There are
+        // only six letters our keywords can start with, so any other letter will be rejected with a single array
+        // access and a null check.
+
+        SkipDataKeywords? keyword = _skipDataKeywords[buffer[index]];
+        if (keyword != null)
+        {
+            uint value = Unsafe.ReadUnaligned<uint>(ref buffer[index]);
+            if (((value & keyword.Id) != 0) ||
+                (keyword.UseExtra &&
+                 (((value & keyword.Id2) != 0) || ((value & keyword.Id3) != 0))))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     #endregion
