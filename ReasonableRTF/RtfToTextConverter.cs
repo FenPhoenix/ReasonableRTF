@@ -105,8 +105,9 @@ public sealed partial class RtfToTextConverter
     private const int _shiftJisWin = 932;
     private const char _unicodeUnknown_Char = '\u25A1';
 
-    // Just for robustness, set it to something stupidly high but still small in terms of memory
-    private const int _maxSymbolFontNameLength = 32768;
+    // Set to a length that no reasonable font name would be above, to minimize the chance of having to do a slow
+    // bounds-checked read-and-throw-away of the rest of the bytes.
+    private const int _maxSymbolFontNameLength = 64;
 
     private const int _defaultStreamBufferSize = 81920;
     private const int _maxSeekBackBytes = 8;
@@ -1874,7 +1875,7 @@ public sealed partial class RtfToTextConverter
 
     private readonly ListFast<char> _unicodeBuffer;
 
-    private readonly ListFast<char> _symbolFontNameBuffer;
+    private readonly char[] _symbolFontNameBuffer = new char[_maxSymbolFontNameLength];
 
     private bool _inFontTable;
 
@@ -1945,7 +1946,6 @@ public sealed partial class RtfToTextConverter
 
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
         _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
-        _symbolFontNameBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
         _charGeneralBuffer = new ListFast<char>(_charGeneralBufferDefaultCapacity);
@@ -2145,7 +2145,6 @@ public sealed partial class RtfToTextConverter
         FontDictionary_ClearFull(_internalBufferDefaultCapacity);
         _hexBuffer.HardReset(_internalBufferDefaultCapacity);
         _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
-        _symbolFontNameBuffer.HardReset(_internalBufferDefaultCapacity);
 #if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
 #else
@@ -2212,7 +2211,6 @@ public sealed partial class RtfToTextConverter
 
             _hexBuffer.ClearFast();
             _unicodeBuffer.ClearFast();
-            _symbolFontNameBuffer.ClearFast();
             _fldinstSymbolFontName.ClearFast();
             _fldinstSymbolNumber.ClearFast();
             _plainText.ClearFast();
@@ -2372,7 +2370,9 @@ public sealed partial class RtfToTextConverter
 
         while (!_reachedEndOfStream)
         {
-            char ch = (char)GetByte(IncrementCurrentPos());
+            char ch = _currentPos < _currentBufferChunkLength - 1
+                ? (char)_buffer[IncrementCurrentPos()]
+                : (char)GetByte(IncrementCurrentPos());
 
             switch (ch)
             {
@@ -2427,16 +2427,37 @@ public sealed partial class RtfToTextConverter
                         // save time here...
                         fontEntry is { SymbolFont: SymbolFont.Unset })
                     {
-                        _symbolFontNameBuffer.ClearFast();
-
                         bool isNonSemicolonSeparatorChar = false;
-                        for (int i = 0;
-                             i < _maxSymbolFontNameLength &&
-                             ch != ';' &&
-                             !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                        int symbolFontNameCount;
+                        if (_currentPos < _currentBufferChunkLength - (_maxSymbolFontNameLength + 1))
                         {
-                            _symbolFontNameBuffer.Add(ch);
+                            for (symbolFontNameCount = 0;
+                                 symbolFontNameCount < _maxSymbolFontNameLength &&
+                                   ch != ';' &&
+                                   !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                                 symbolFontNameCount++, ch = (char)_buffer[IncrementCurrentPos()])
+                            {
+                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
+                            }
+                        }
+                        else
+                        {
+                            for (symbolFontNameCount = 0;
+                                 symbolFontNameCount < _maxSymbolFontNameLength &&
+                                 ch != ';' &&
+                                 !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                                 symbolFontNameCount++, ch = (char)GetByte(IncrementCurrentPos()))
+                            {
+                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
+                            }
+                        }
+
+                        if (symbolFontNameCount == _maxSymbolFontNameLength)
+                        {
+                            while (ch != ';' && !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]))
+                            {
+                                ch = (char)GetByte(IncrementCurrentPos());
+                            }
                         }
 
                         /*
@@ -2456,7 +2477,7 @@ public sealed partial class RtfToTextConverter
                         for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
                         {
                             byte[] nameBytes = _symbolFontCharsArrays[i];
-                            if (SeqEqual(_symbolFontNameBuffer, nameBytes))
+                            if (FontName_SeqEqual(_symbolFontNameBuffer, nameBytes, symbolFontNameCount))
                             {
                                 fontEntry.SymbolFont = (SymbolFont)i;
                                 break;
@@ -2474,6 +2495,18 @@ public sealed partial class RtfToTextConverter
 
         _inFontTable = false;
         return RtfError.OK;
+
+        static bool FontName_SeqEqual(char[] first, byte[] second, int firstLength)
+        {
+            if (firstLength != second.Length) return false;
+
+            for (int i = 0; i < firstLength; i++)
+            {
+                if (first[i] != second[i]) return false;
+            }
+
+            return true;
+        }
     }
 
     #endregion
