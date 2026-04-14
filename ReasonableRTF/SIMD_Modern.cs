@@ -112,7 +112,7 @@ internal static partial class SIMD
                     ulong notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (backslashIndex < bracesIndex)
+                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
                     {
                         if (backslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength ||
                             (current[backslashIndex + 1] == 'b' &&
@@ -182,7 +182,7 @@ internal static partial class SIMD
                     uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (backslashIndex < bracesIndex)
+                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
                     {
                         if (backslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength ||
                             (current[backslashIndex + 1] == 'b' &&
@@ -252,7 +252,7 @@ internal static partial class SIMD
                     uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (backslashIndex < bracesIndex)
+                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
                     {
                         if (backslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength ||
                             (current[backslashIndex + 1] == 'b' &&

@@ -100,7 +100,7 @@ internal static partial class SIMD
                     int backslashIndex = LocateFirstFoundByte(equalsBackslash);
                     int bracesIndex = LocateFirstFoundByte(equalsBraces);
 
-                    if (backslashIndex < bracesIndex)
+                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
                     {
                         if (backslashIndex > Vector<byte>.Count - RtfToTextConverter._binLength ||
                             (current[backslashIndex + 1] == 'b' &&
