@@ -34,7 +34,7 @@ using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
-public static partial class SIMD
+internal static partial class SIMD
 {
     #region Private fields
 
