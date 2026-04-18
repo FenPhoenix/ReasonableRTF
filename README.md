@@ -122,7 +122,7 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 
 ```
 | Method                            | Mean         | Error     | StdDev    | Speed        |          |
-|---------------------------------- |-------------:|----------:|----------:|--------------|----------|
+|---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |
 | ReasonableRTF_FullSet             |    22.012 ms | 0.0435 ms | 0.0386 ms | 6596.94 MB/s | 151x     |
