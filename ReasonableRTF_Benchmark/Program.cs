@@ -172,9 +172,23 @@ internal static class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("ReasonableRTF Benchmark\r\n" +
-                          "-----------------------\r\n");
+        Console.WriteLine("ReasonableRTF Benchmark");
+        Console.WriteLine("-----------------------");
+        Console.WriteLine();
+        Console.WriteLine("Pass --allCategories=richtextbox to run only the RichTextBox benchmarks.");
+        Console.WriteLine("Pass --allCategories=reasonablertf to run only the ReasonableRTF benchmarks.");
+        Console.WriteLine("Pass --allCategories=all (or pass no arguments) to run all benchmarks.");
+        Console.WriteLine();
+        Console.WriteLine("-----------------------");
+        Console.WriteLine();
 
-        _ = BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+        if (args.Length == 0)
+        {
+            _ = BenchmarkRunner.Run<Test>();
+        }
+        else
+        {
+            _ = BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+        }
     }
 }
