@@ -2284,8 +2284,7 @@ public sealed partial class RtfToTextConverter
     private RtfError ParseRtf()
     {
         // TODO: Manually duplicated code for performance - should be automated if possible
-        int end = _currentBufferChunkLength - 1;
-        while (_currentPos < end)
+        while (_currentPos < _currentBufferChunkLength - 1)
         {
             char ch = (char)_buffer[IncrementCurrentPos()];
 
@@ -3088,8 +3087,7 @@ public sealed partial class RtfToTextConverter
         AddByteToHexBuffer(byte1, byte2);
 
         // TODO: Manually duplicated code for performance - should be automated if possible
-        int end = _currentBufferChunkLength - 3;
-        while (_currentPos < end)
+        while (_currentPos < _currentBufferChunkLength - 3)
         {
             byte b = _buffer[IncrementCurrentPos()];
             if (b == (byte)'\\')
@@ -3172,82 +3170,78 @@ public sealed partial class RtfToTextConverter
     private RtfError HandleUnicodeRun()
     {
         // TODO: Manually duplicated code for performance - should be automated if possible
-        int end = ((((_currentBufferChunkLength - 3) - _paramMaxLen) - 1) - 1);
-        while (_currentPos < end)
+        while (_currentPos < (_currentBufferChunkLength - (3 + _paramMaxLen + 1 + 1)))
         {
-            while (!_reachedEndOfStream)
+            char ch = (char)_buffer[IncrementCurrentPos()];
+            if (ch == '\\')
             {
-                char ch = (char)_buffer[IncrementCurrentPos()];
-                if (ch == '\\')
+                ch = (char)_buffer[IncrementCurrentPos()];
+
+                if (ch == 'u')
                 {
                     ch = (char)_buffer[IncrementCurrentPos()];
 
-                    if (ch == 'u')
+                    int negateParam = 0;
+                    if (ch == '-')
                     {
+                        negateParam = 1;
                         ch = (char)_buffer[IncrementCurrentPos()];
+                    }
+                    if (CharExtension.IsAsciiDigit(ch))
+                    {
+                        int param = 0;
 
-                        int negateParam = 0;
-                        if (ch == '-')
+                        checked
                         {
-                            negateParam = 1;
-                            ch = (char)_buffer[IncrementCurrentPos()];
-                        }
-                        if (CharExtension.IsAsciiDigit(ch))
-                        {
-                            int param = 0;
-
-                            checked
+                            try
                             {
-                                try
+                                int i;
+                                for (i = 0;
+                                     i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
+                                     i++, ch = (char)_buffer[IncrementCurrentPos()])
                                 {
-                                    int i;
-                                    for (i = 0;
-                                         i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                                         i++, ch = (char)_buffer[IncrementCurrentPos()])
-                                    {
-                                        param = (param * 10) + (ch - '0');
-                                    }
-                                    if (i > _paramMaxLen)
-                                    {
-                                        return RtfError.ParameterOutOfRange;
-                                    }
+                                    param = (param * 10) + (ch - '0');
                                 }
-                                catch (OverflowException)
+                                if (i > _paramMaxLen)
                                 {
                                     return RtfError.ParameterOutOfRange;
                                 }
                             }
-                            param = BranchlessConditionalNegate(param, negateParam);
+                            catch (OverflowException)
+                            {
+                                return RtfError.ParameterOutOfRange;
+                            }
+                        }
+                        param = BranchlessConditionalNegate(param, negateParam);
 
-                            /*
-                            From the spec:
-                            "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI
-                            characters) that is not counted in the characters to skip."
-                            */
-                            _currentPos += MinusOneIfNotSpace_8Bits(ch);
-                            HandleUnicodeParamAndSkipFallbackChars(param);
-                        }
-                        else
-                        {
-                            _currentPos -= (3 + negateParam);
-                            _currentPos += MinusOneIfNotSpace_8Bits(ch);
-                            ParseUnicode();
-                            return RtfError.OK;
-                        }
+                        /*
+                        From the spec:
+                        "As with all RTF keywords, a keyword-terminating space may be present (before the ANSI
+                        characters) that is not counted in the characters to skip."
+                        */
+                        _currentPos += MinusOneIfNotSpace_8Bits(ch);
+                        HandleUnicodeParamAndSkipFallbackChars(param);
                     }
                     else
                     {
-                        _currentPos -= 2;
+                        _currentPos -= (3 + negateParam);
+                        _currentPos += MinusOneIfNotSpace_8Bits(ch);
                         ParseUnicode();
                         return RtfError.OK;
                     }
                 }
                 else
                 {
-                    _currentPos--;
+                    _currentPos -= 2;
                     ParseUnicode();
                     return RtfError.OK;
                 }
+            }
+            else
+            {
+                _currentPos--;
+                ParseUnicode();
+                return RtfError.OK;
             }
         }
 
@@ -3372,8 +3366,7 @@ public sealed partial class RtfToTextConverter
         int numToSkip = GroupStack_CurrentPropertyUnicodeCharSkipCount;
 
         // TODO: Manually duplicated code for performance - should be automated if possible
-        int end = _currentBufferChunkLength - 5;
-        while (numToSkip > 0 && _currentPos < end)
+        while (numToSkip > 0 && _currentPos < _currentBufferChunkLength - 5)
         {
             char c = (char)_buffer[IncrementCurrentPos()];
             switch (c)
