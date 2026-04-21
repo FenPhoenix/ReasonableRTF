@@ -5033,6 +5033,8 @@ public sealed partial class RtfToTextConverter
         set => _groupStack_Property_Lang[_groupStackCount] = value;
     }
 
+    #endregion
+
     // Current group always begins at group 0, so reset just that one
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void GroupStack_ResetFirst()
@@ -5045,8 +5047,6 @@ public sealed partial class RtfToTextConverter
         _groupStack_Property_FontNum[0] = NoFontNumber;
         _groupStack_Property_Lang[0] = -1;
     }
-
-    #endregion
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void GroupStack_ClearFast() => _groupStackCount = 0;
