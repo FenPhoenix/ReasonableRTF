@@ -10,21 +10,27 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    private static readonly Vector256<byte> _hex20_256 = Vector256.Create((byte)0x20);
-    private static readonly Vector256<byte> _all_a_256 = Vector256.Create((byte)'a');
-    private static readonly Vector256<byte> _z_minus_a_256 = Vector256.Create((byte)('z' - 'a'));
-
-    private static readonly Vector256<byte> _indexVec_256 = Vector256.Create(
+    private static readonly Vector128<byte> _hex20_128 = Vector128.Create((byte)0x20);
+    private static readonly Vector128<byte> _all_a_128 = Vector128.Create((byte)'a');
+    private static readonly Vector128<byte> _z_minus_a_128 = Vector128.Create((byte)('z' - 'a'));
+    private static readonly Vector128<byte> _indexVec_128 = Vector128.Create(
         (byte)
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
     );
 
-    private RtfError ParseKeyword_Fast_Vector256()
+    /*
+    TODO: Interestingly, Vector128 is faster (on my Ryzen 5600) than Vector256 here.
+    Is it due to less overlap in loading each keyword and so less duplicate data loaded / less waste?
+    If we were smarter about it and parsed all found complete keywords in each vector, would Vector256 be faster
+    again?
+    */
+    private RtfError ParseKeyword_Fast_Vector128()
     {
         bool hasParam = false;
         int param = 0;
         Symbol? symbol;
+
+        int startingCurrentPos = _currentPos;
 
         char ch = (char)_buffer[IncrementCurrentPos()];
 
@@ -48,22 +54,25 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            Vector256<byte> keyword = Vector256.Create(_buffer, _currentPos - 1);
-            Vector256<byte> asciiLetters = Vector256.GreaterThan((keyword | _hex20_256) - _all_a_256, _z_minus_a_256);
+            Vector128<byte> keyword = Vector128.Create(_buffer, _currentPos - 1);
+            Vector128<byte> asciiLetters = Vector128.GreaterThan((keyword | _hex20_128) - _all_a_128, _z_minus_a_128);
 
             uint notEqualsElements = asciiLetters.ExtractMostSignificantBits();
             byte keywordCount = (byte)BitOperations.TrailingZeroCount(notEqualsElements);
 
-            Vector256<byte> maskVec = Vector256.GreaterThan(Vector256.Create(keywordCount), _indexVec_256);
-            keyword = Vector256.BitwiseAnd(keyword, maskVec);
+            Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
+            keyword = Vector128.BitwiseAnd(keyword, maskVec);
+
+            // 99.9% of keywords in the test set (849,098 out of 849,948) are less than 16 chars long, so this
+            // slightly inefficient fallback path will hardly ever be hit.
+            if (keywordCount >= Vector128<byte>.Count)
+            {
+                _currentPos = startingCurrentPos;
+                return RtfError.KeywordTooLong;
+            }
 
             _currentPos += keywordCount;
             ch = (char)_buffer[_currentPos - 1];
-
-            if (keywordCount == _keywordMaxLen && CharExtension.IsAsciiLetter(ch))
-            {
-                return RtfError.KeywordTooLong;
-            }
 
             int negateParam = 0;
             if (ch == '-')
@@ -111,7 +120,7 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                symbol = LookUpControlWord_Vector256(keyword, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, keywordCount);
             }
         }
 

@@ -32,7 +32,7 @@ internal sealed class Symbol
     internal readonly byte KeywordLength;
     internal readonly string Keyword;
 #if NET8_0_OR_GREATER
-    internal readonly System.Runtime.Intrinsics.Vector256<byte> KeywordVector;
+    internal readonly System.Runtime.Intrinsics.Vector128<byte> KeywordVector128;
 #endif
     internal readonly int DefaultParam;
     internal readonly bool UseDefaultParam;
@@ -48,13 +48,16 @@ internal sealed class Symbol
         KeywordLength = (byte)keyword.Length;
         Keyword = keyword;
 #if NET8_0_OR_GREATER
-        Span<byte> bytes = stackalloc byte[32];
-        bytes.Clear();
-        for (int i = 0; i < keyword.Length; i++)
+        // If keyword length is >16 then we'll fall back to the fast scalar path, so it's okay if the keyword
+        // gets truncated here.
+        Span<byte> bytes16 = stackalloc byte[16];
+        bytes16.Clear();
+        int end = Math.Min(16, keyword.Length);
+        for (int i = 0; i < end; i++)
         {
-            bytes[i] = (byte)keyword[i];
+            bytes16[i] = (byte)keyword[i];
         }
-        KeywordVector = System.Runtime.Intrinsics.Vector256.Create(bytes);
+        KeywordVector128 = System.Runtime.Intrinsics.Vector128.Create(bytes16);
 #endif
         DefaultParam = defaultParam;
         UseDefaultParam = useDefaultParam;

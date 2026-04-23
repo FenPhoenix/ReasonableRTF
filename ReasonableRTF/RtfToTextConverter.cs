@@ -2398,18 +2398,10 @@ public sealed partial class RtfToTextConverter
             ))
         {
 #if NET8_0_OR_GREATER
-            /*
-            .NET falls back to using 2 Vector128s if 256-bit isn't supported, but scalar appears to be faster
-            than the 2x128 path, at least on my Ryzen 5600 with the "bcdedit /set xsavedisable 1" hack to disable
-            AVX.
-
-            TODO: Can we gain back the speed by using 2 Vector128s manually, or is it just fundamentally not
-            going to work? Is the stupid hack above that I randomly looked up and blindly used actually not fully
-            correct and causes slow SSE?
-            */
-            if (System.Runtime.Intrinsics.Vector256.IsHardwareAccelerated)
+            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
             {
-                return ParseKeyword_Fast_Vector256();
+                RtfError result = ParseKeyword_Fast_Vector128();
+                return result == RtfError.KeywordTooLong ? ParseKeyword_Fast() : result;
             }
             else
 #endif
@@ -5500,7 +5492,7 @@ public sealed partial class RtfToTextConverter
 
 #if NET8_0_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Symbol? LookUpControlWord_Vector256(System.Runtime.Intrinsics.Vector256<byte> keyword, byte len)
+    private static Symbol? LookUpControlWord_Vector128(System.Runtime.Intrinsics.Vector128<byte> keyword, byte len)
     {
         // Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min
         if (len <= MAX_WORD_LENGTH)
@@ -5535,7 +5527,7 @@ public sealed partial class RtfToTextConverter
                 // Checking the entire keyword is one instruction, so no need for all the shortcutting from the
                 // scalar version here.
 
-                if (System.Runtime.Intrinsics.Vector256.EqualsAll(keyword, symbol.KeywordVector))
+                if (System.Runtime.Intrinsics.Vector128.EqualsAll(keyword, symbol.KeywordVector128))
                 {
                     return symbol;
                 }
