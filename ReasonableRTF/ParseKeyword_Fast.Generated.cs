@@ -37,6 +37,20 @@ public sealed partial class RtfToTextConverter
             }
 
             symbol = LookUpControlSymbol((byte)ch);
+
+            if (symbol == null)
+            {
+                if (_skipDestinationIfUnknown)
+                {
+                    SkipDest(null, 0);
+                }
+                _skipDestinationIfUnknown = false;
+                return RtfError.OK;
+            }
+
+            _skipDestinationIfUnknown = false;
+
+            return DispatchKeyword(symbol, param, hasParam, null, 0);
         }
         else
         {
@@ -94,26 +108,26 @@ public sealed partial class RtfToTextConverter
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(symbol, param, hasParam);
+                return DispatchKeyword(symbol, param, hasParam, null, 0);
             }
             else
             {
                 symbol = LookUpControlWord(keyword, keywordCount);
             }
-        }
 
-        if (symbol == null)
-        {
-            if (_skipDestinationIfUnknown)
+            if (symbol == null)
             {
-                SkipDest();
+                if (_skipDestinationIfUnknown)
+                {
+                    SkipDest(null, 0);
+                }
+                _skipDestinationIfUnknown = false;
+                return RtfError.OK;
             }
+
             _skipDestinationIfUnknown = false;
-            return RtfError.OK;
+
+            return DispatchKeyword(symbol, param, hasParam, keyword, keywordCount);
         }
-
-        _skipDestinationIfUnknown = false;
-
-        return DispatchKeyword(symbol, param, hasParam);
     }
 }

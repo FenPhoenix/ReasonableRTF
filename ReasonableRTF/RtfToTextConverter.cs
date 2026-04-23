@@ -2800,7 +2800,7 @@ public sealed partial class RtfToTextConverter
     #region Act on keywords
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private RtfError DispatchKeyword(Symbol symbol, int param, bool hasParam)
+    private RtfError DispatchKeyword(Symbol symbol, int param, bool hasParam, byte[]? keyword, int keywordLength)
     {
         if (!GroupStack_CurrentSkipDest)
         {
@@ -2817,9 +2817,26 @@ public sealed partial class RtfToTextConverter
                     SpecialType specialType = (SpecialType)symbol.Index;
                     return DispatchSpecialKeyword(specialType, symbol, param);
                 case KeywordType.Destination:
-                    return symbol.Index == (int)DestinationType.SkippableHex
-                        ? HandleSkippableHexData(param)
-                        : ChangeDestination((DestinationType)symbol.Index);
+                    DestinationType destType = (DestinationType)symbol.Index;
+                    if (destType == DestinationType.SkippableHex)
+                    {
+                        return HandleSkippableHexData(param);
+                    }
+                    else
+                    {
+                        switch (destType)
+                        {
+                            case DestinationType.Skip:
+                                SkipDest(keyword, keywordLength);
+                                return RtfError.OK;
+                            case DestinationType.FieldInstruction:
+                                return HandleFieldInstruction();
+                            // Stupid crazy type of control word, see description for enum field
+                            case DestinationType.CanBeDestOrNotDest:
+                            default:
+                                return RtfError.OK;
+                        }
+                    }
                 default:
                     return RtfError.OK;
             }
@@ -2960,23 +2977,6 @@ public sealed partial class RtfToTextConverter
         else
         {
             GroupStack_CurrentPropertyUnicodeCharSkipCount = val;
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private RtfError ChangeDestination(DestinationType destinationType)
-    {
-        switch (destinationType)
-        {
-            case DestinationType.Skip:
-                SkipDest();
-                return RtfError.OK;
-            case DestinationType.FieldInstruction:
-                return HandleFieldInstruction();
-            // Stupid crazy type of control word, see description for enum field
-            case DestinationType.CanBeDestOrNotDest:
-            default:
-                return RtfError.OK;
         }
     }
 
@@ -3942,7 +3942,7 @@ public sealed partial class RtfToTextConverter
     private RtfError RewindAndSkipGroup()
     {
         _currentPos--;
-        SkipDest();
+        SkipDest(null, 0);
         return RtfError.OK;
     }
 
@@ -4575,7 +4575,7 @@ public sealed partial class RtfToTextConverter
         return RtfError.OK;
     }
 
-    private void SkipDest()
+    private void SkipDest(byte[]? keyword, int keywordLength)
     {
         // This method should either skip the entire destination in one go, or else bail and use the slow path
         // for the rest of the destination.
@@ -4657,7 +4657,7 @@ public sealed partial class RtfToTextConverter
             minimize perf loss when we don't.
             */
 
-            if (FoundSkipDataKeyword(_keyword, 0))
+            if (keyword != null && keywordLength >= 4 && FoundSkipDataKeyword(keyword, 0))
             {
                 return;
             }
@@ -4677,7 +4677,7 @@ public sealed partial class RtfToTextConverter
                             return;
                         }
 
-                        if (FoundSkipDataKeyword(_buffer, index + 1))
+                        if (index < _currentBufferChunkLength - 4 && FoundSkipDataKeyword(_buffer, index + 1))
                         {
                             _groupStackCount = startGroupLevel;
                             return;

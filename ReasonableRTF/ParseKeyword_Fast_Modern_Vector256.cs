@@ -107,7 +107,7 @@ public sealed partial class RtfToTextConverter
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(symbol, param, hasParam);
+                return DispatchKeyword(symbol, param, hasParam, null, 0);
             }
             else
             {
@@ -119,7 +119,7 @@ public sealed partial class RtfToTextConverter
         {
             if (_skipDestinationIfUnknown)
             {
-                SkipDest();
+                SkipDest(null, 0);
             }
             _skipDestinationIfUnknown = false;
             return RtfError.OK;
@@ -127,7 +127,7 @@ public sealed partial class RtfToTextConverter
 
         _skipDestinationIfUnknown = false;
 
-        return DispatchKeyword(symbol, param, hasParam);
+        return DispatchKeyword(symbol, param, hasParam, null, 0);
     }
 }
 #endif
