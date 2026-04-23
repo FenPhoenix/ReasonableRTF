@@ -69,7 +69,6 @@ public sealed partial class RtfToTextConverter
 
     // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
     // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
-
     private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
 
     // Cache it for perf
@@ -2399,7 +2398,6 @@ public sealed partial class RtfToTextConverter
             ))
         {
 #if NET8_0_OR_GREATER
-
             /*
             .NET falls back to using 2 Vector128s if 256-bit isn't supported, but scalar appears to be faster
             than the 2x128 path, at least on my Ryzen 5600 with the "bcdedit /set xsavedisable 1" hack to disable
@@ -4597,10 +4595,10 @@ public sealed partial class RtfToTextConverter
 
                 /*
                 Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
-                before a curly brace, because it could be a series of escaped backslashes and then an escaped curly
-                brace: \\\\\\\}. Which means if we encountered one, we'd have to read an arbitrary amount back in the
-                stream, which we can't do. So if we don't find the end of our subgroup stack in the current buffer
-                chunk, just give up and take the slow path that properly parses escapes.
+                before a curly brace, because it could be a series of escaped backslashes and then an escaped
+                curly brace: \\\\\\\}. Which means if we encountered one, we'd have to read an arbitrary amount
+                back in the stream, which we can't do. So if we don't find the end of our subgroup stack in the
+                current buffer chunk, just give up and take the slow path that properly parses escapes.
                 */
                 if (index == -1 || _buffer[index - 1] == '\\')
                 {
@@ -4620,8 +4618,8 @@ public sealed partial class RtfToTextConverter
                             return;
                         }
                         break;
-                    // If we find \bin, run away: it could contain unescaped curly braces that are just part of the
-                    // raw binary.
+                    // If we find \bin, run away: it could contain unescaped curly braces that are just part of
+                    // the raw binary.
                     case (byte)'\\':
                         if (index > _currentBufferChunkLength - _binLength ||
                             (_buffer[index + 1] == 'b' &&
