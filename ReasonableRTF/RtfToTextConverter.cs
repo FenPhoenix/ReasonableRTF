@@ -2398,7 +2398,26 @@ public sealed partial class RtfToTextConverter
                 _paramMaxLen + 1 + 1
             ))
         {
-            return ParseKeyword_Fast();
+#if NET8_0_OR_GREATER
+
+            /*
+            .NET falls back to using 2 Vector128s if 256-bit isn't supported, but scalar appears to be faster
+            than the 2x128 path, at least on my Ryzen 5600 with the "bcdedit /set xsavedisable 1" hack to disable
+            AVX.
+
+            TODO: Can we gain back the speed by using 2 Vector128s manually, or is it just fundamentally not
+            going to work? Is the stupid hack above that I randomly looked up and blindly used actually not fully
+            correct and causes slow SSE?
+            */
+            if (System.Runtime.Intrinsics.Vector256.IsHardwareAccelerated)
+            {
+                return ParseKeyword_Fast_Vector256();
+            }
+            else
+#endif
+            {
+                return ParseKeyword_Fast();
+            }
         }
         else
         {
@@ -5475,6 +5494,55 @@ public sealed partial class RtfToTextConverter
 
         return null;
     }
+
+#if NET8_0_OR_GREATER
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static Symbol? LookUpControlWord_Vector256(System.Runtime.Intrinsics.Vector256<byte> keyword, byte len)
+    {
+        // Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min
+        if (len <= MAX_WORD_LENGTH)
+        {
+            int key = len;
+
+            // Original C code does a stupid thing where it puts default at the top and falls through and junk,
+            // but we can't do that in C#, so have something clearer/clunkier
+            // NOTE: This logic is optimized to do the same thing as the gperf generated code, but more efficiently.
+            key += asso_values[keyword[len - 1]];
+            switch (len)
+            {
+                // Most common case first - we get a measurable speedup from this
+                case > 2:
+                    key += asso_values[keyword[2]];
+                    key += asso_values[keyword[1]];
+                    break;
+                case 2:
+                    key += asso_values[keyword[1]];
+                    break;
+            }
+            byte first = keyword[0];
+            key += asso_values[first];
+
+            if (key <= MAX_HASH_VALUE)
+            {
+                Symbol? symbol = _symbolTable[key];
+                if (symbol == null)
+                {
+                    return null;
+                }
+
+                // Checking the entire keyword is one instruction, so no need for all the shortcutting from the
+                // scalar version here.
+
+                if (System.Runtime.Intrinsics.Vector256.EqualsAll(keyword, symbol.KeywordVector))
+                {
+                    return symbol;
+                }
+            }
+        }
+
+        return null;
+    }
+#endif
 
     #endregion
 

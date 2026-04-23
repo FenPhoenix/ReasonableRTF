@@ -31,6 +31,9 @@ internal sealed class Symbol
     internal readonly byte KeywordFirstChar;
     internal readonly byte KeywordLength;
     internal readonly string Keyword;
+#if NET8_0_OR_GREATER
+    internal readonly System.Runtime.Intrinsics.Vector256<byte> KeywordVector;
+#endif
     internal readonly int DefaultParam;
     internal readonly bool UseDefaultParam;
     internal readonly KeywordType KeywordType;
@@ -44,6 +47,15 @@ internal sealed class Symbol
         KeywordFirstChar = (byte)keyword[0];
         KeywordLength = (byte)keyword.Length;
         Keyword = keyword;
+#if NET8_0_OR_GREATER
+        Span<byte> bytes = stackalloc byte[32];
+        bytes.Clear();
+        for (int i = 0; i < keyword.Length; i++)
+        {
+            bytes[i] = (byte)keyword[i];
+        }
+        KeywordVector = System.Runtime.Intrinsics.Vector256.Create(bytes);
+#endif
         DefaultParam = defaultParam;
         UseDefaultParam = useDefaultParam;
         KeywordType = keywordType;
