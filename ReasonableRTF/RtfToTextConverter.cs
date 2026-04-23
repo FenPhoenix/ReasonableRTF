@@ -4660,22 +4660,27 @@ public sealed partial class RtfToTextConverter
                 return;
             }
 
-            for (; index < _currentBufferChunkLength; index++)
+            for (; index < _currentBufferChunkLength - _binLength; index++)
             {
                 char ch = (char)_buffer[index];
                 switch (ch)
                 {
                     case '\\':
+                        byte nextChar;
                         if (index > _currentBufferChunkLength - _binLength ||
-                            (_buffer[index + 1] == 'b' &&
+                            ((nextChar = _buffer[index + 1]) == 'b' &&
                              _buffer[index + 2] == 'i' &&
                              _buffer[index + 3] == 'n'))
                         {
                             _groupStackCount = startGroupLevel;
                             return;
                         }
-
-                        if (index < _currentBufferChunkLength - 4 && FoundSkipDataKeyword(_buffer, index + 1))
+                        else if (index < _currentBufferChunkLength - 4 && FoundSkipDataKeyword(_buffer, index + 1))
+                        {
+                            _groupStackCount = startGroupLevel;
+                            return;
+                        }
+                        else if (nextChar is (byte)'\\' or (byte)'{' or (byte)'}')
                         {
                             _groupStackCount = startGroupLevel;
                             return;
