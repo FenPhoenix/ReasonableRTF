@@ -5522,8 +5522,7 @@ public sealed partial class RtfToTextConverter
                     key += asso_values[keyword[1]];
                     break;
             }
-            byte first = keyword[0];
-            key += asso_values[first];
+            key += asso_values[keyword[0]];
 
             if (key <= MAX_HASH_VALUE)
             {
