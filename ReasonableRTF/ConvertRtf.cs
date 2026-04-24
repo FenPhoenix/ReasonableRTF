@@ -1,3 +1,4 @@
+using ReasonableRTF.Helper;
 using ReasonableRTF.Models;
 
 namespace ReasonableRTF;
@@ -38,6 +39,8 @@ public static class ConvertRtf
     /// <exception cref="ArgumentException"></exception>
     public static RtfResult ToText(byte[] source, int length)
     {
+        UtilHelper.ValidateArgs(source, length);
+
         RtfToTextConverter converter = new();
         return converter.Convert(source, length);
     }
@@ -52,6 +55,8 @@ public static class ConvertRtf
     /// <exception cref="ArgumentException"></exception>
     public static RtfResult ToText(byte[] source, int length, RtfToTextConverterOptions options)
     {
+        UtilHelper.ValidateArgs(source, length);
+
         RtfToTextConverter converter = new();
         return converter.Convert(source, length, options);
     }

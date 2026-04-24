@@ -128,4 +128,12 @@ internal static class UtilHelper
         return index;
     }
 #endif
+
+    internal static void ValidateArgs(byte[] source, int length)
+    {
+        if (length > source.Length)
+        {
+            throw new ArgumentException(nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
+        }
+    }
 }

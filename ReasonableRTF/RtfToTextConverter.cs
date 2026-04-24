@@ -1984,6 +1984,7 @@ public sealed partial class RtfToTextConverter
     /// <exception cref="ArgumentException"></exception>
     public RtfResult Convert(byte[] source, int length)
     {
+        UtilHelper.ValidateArgs(source, length);
         return ConvertInternal(source, length, _defaultOptions, null, _defaultStreamBufferSize);
     }
 
@@ -1997,6 +1998,7 @@ public sealed partial class RtfToTextConverter
     /// <exception cref="ArgumentException"></exception>
     public RtfResult Convert(byte[] source, int length, RtfToTextConverterOptions options)
     {
+        UtilHelper.ValidateArgs(source, length);
         return ConvertInternal(source, length, options, null, _defaultStreamBufferSize);
     }
 
@@ -2157,15 +2159,6 @@ public sealed partial class RtfToTextConverter
 
     private RtfResult ConvertInternal(byte[] bytes, int bytesLength, RtfToTextConverterOptions options, Stream? bufferedStream, int bufferSize)
     {
-        if (bufferedStream == null)
-        {
-            if (bytesLength > bytes.Length)
-            {
-                ThrowHelper.ArgumentException(
-                    nameof(bytesLength) + " is greater than the length of " + nameof(bytes) + ".", nameof(bytesLength));
-            }
-        }
-
         try
         {
             if (bufferedStream == null)
