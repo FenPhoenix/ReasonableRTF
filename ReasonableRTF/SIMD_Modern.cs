@@ -336,12 +336,12 @@ internal static partial class SIMD
                     int index = BitOperations.TrailingZeroCount(notEqualsElements);
                     if (index >= Vector256<byte>.Count)
                     {
-                        Vector256<byte> current256 = Vector256.LoadUnsafe(ref currentSearchSpace);
+                        Vector256<byte> current256 = current.GetLower();
                         CopyVector256(current256, plainText, ref currentPos);
                     }
                     else if (index >= Vector128<byte>.Count)
                     {
-                        Vector128<byte> current128 = Vector128.LoadUnsafe(ref currentSearchSpace);
+                        Vector128<byte> current128 = current.GetLower().GetLower();
                         CopyVector128(current128, plainText, ref currentPos);
                     }
                     return;
@@ -375,7 +375,7 @@ internal static partial class SIMD
                     int index = BitOperations.TrailingZeroCount(notEqualsElements);
                     if (index >= Vector128<byte>.Count)
                     {
-                        Vector128<byte> current128 = Vector128.LoadUnsafe(ref currentSearchSpace);
+                        Vector128<byte> current128 = current.GetLower();
                         CopyVector128(current128, plainText, ref currentPos);
                     }
                     return;
