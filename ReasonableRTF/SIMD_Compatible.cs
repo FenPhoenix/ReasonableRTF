@@ -25,7 +25,7 @@
  *
 */
 
-#if NETSTANDARD2_0
+#if !NET8_0_OR_GREATER
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

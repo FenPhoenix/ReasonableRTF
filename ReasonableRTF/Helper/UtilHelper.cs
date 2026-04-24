@@ -113,22 +113,6 @@ internal static class UtilHelper
 #endif
     }
 
-#if NETSTANDARD2_0
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static int Array_IndexOfOpenOrClosingCurlyBrace_Fast(byte[] array, int startIndex, int count)
-    {
-        /*
-        Very unfortunately, the accursed \binN keyword and its associated binary run - which can contain unescaped
-        curly braces that must not be parsed as such - can appear anywhere. So we have to stop at every single
-        backslash to check for it, and thus the spec cruelly yanks away performance we could almost taste. We're
-        still way faster than before, though, so it's not that bad.
-        */
-        int index = array.AsSpan(startIndex, count).IndexOfAny((byte)'{', (byte)'}', (byte)'\\');
-        if (index > -1) index += startIndex;
-        return index;
-    }
-#endif
-
     internal static void ValidateArgs(byte[] source, int length)
     {
         if (length > source.Length)
