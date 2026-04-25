@@ -27,22 +27,26 @@ Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
  (it's supposed to be an ellipsis - __MSG_final__FMInfo-De - Copy.rtf has an instance of it)
 -Tiger face (>2 byte Unicode test): \u-9169?\u-10179?
-
-@RTF(Every-char checks):
 -RichTextBox respects \v0 (hidden text) when it converts, but LibreOffice doesn't.
 -RichTextBox and LibreOffice both remove nulls.
 
-TODO: Try to make API good like with granularity levels and whatever
-TODO: API: "Write the usage code first" - we haven't done that...
-We can figure out what's a good options-setting API then.
-TODO: API: Should we just always throw? Right now we throw in param out of range but return error result for everything else.
 TODO: Add an option to copy HYPERLINK field instructions to output like RichTextBox does?
 HYPERLINK in a fldinst can - and usually does - occur after a bunch of random cruft, unlike SYMBOL.
 So we'd have to make another special parse method that when it gets to plain text it checks for HYPERLINK and
 parses from there. Not a big deal but yeah. In fact we could also handle SYMBOL that way just in case.
-
 The Framework RichTextBox doesn't seem to copy HYPERLINK text to the plaintext output. Just the .NET 8 one does
 I guess. So we could just leave this out...
+
+TODO: Handle bulleted/numbered lists properly
+
+NOTE(Footnotes):
+RichTextBox doesn't convert footnotes at all.
+LibreOffice adds citation numbers but doesn't add the footnotes themselves.
+
+NOTE(Explicit use of Windows-1252 for "ansi default"):
+If we were Windows-only, there would be an argument to be made that we should use the system "ansi" codepage
+rather than 1252 explicitly. However, since we're cross-platform and other OSes don't have the concept of a
+system "ansi" codepage, we would then have to choose something explicit anyway, and we'd be right back to 1252.
 */
 
 using System.Buffers;
@@ -5216,7 +5220,7 @@ public sealed partial class RtfToTextConverter
         Symbol?[] ret = new Symbol?[256];
         ret['\''] = new Symbol("'", 0, false, KeywordType.Special, (int)SpecialType.HexEncodedChar);
         /*
-        @RTF(KeywordType.Character and symbol fonts):
+        NOTE(KeywordType.Character and symbol fonts):
         \, {, and } are the only KeywordType.Character chars that can be in a symbol font. Everything else is
         either below 0x20 or more than one byte, which in either case means they can't be symbol font chars.
         ~ is nominally a non-breaking space, and in RichEdit is displayed as such (or at least whitespace of
@@ -5227,13 +5231,6 @@ public sealed partial class RtfToTextConverter
 
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
-
-        TODO: Handle bulleted/numbered lists properly
-        TODO: "ansi" keyword should be system default ANSI codepage maybe? 1252 currently
-        TODO: Remove all assumptions about Windows-1252
-        NOTE(Footnotes):
-        RichTextBox doesn't convert them at all.
-        LibreOffice adds citation numbers but doesn't add the footnotes themselves.
         */
         ret['\\'] = new Symbol("\\", 0, false, KeywordType.Character, '\\');
         ret['{'] = new Symbol("{", 0, false, KeywordType.Character, '{');
