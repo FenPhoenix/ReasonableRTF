@@ -86,6 +86,12 @@ internal static partial class SIMD
             return -1;
         }
 
+        // Not sure about the bit shifting crap, it seems backwards to me so maybe it's little-endian only, bleh
+        if (!BitConverter.IsLittleEndian)
+        {
+            return -1;
+        }
+
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
         int length = span.Length;
