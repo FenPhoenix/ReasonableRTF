@@ -2535,33 +2535,24 @@ public sealed partial class RtfToTextConverter
         if (symbolFont > SymbolFont.Unset)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
-            while (_currentPos < _currentBufferChunkLength)
-            {
-                char ch = (char)_buffer[IncrementCurrentPos()];
-                if (!_isNonPlainText[(byte)ch])
-                {
-                    GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
-                    _plainText.AddRange(result, result.Count);
-                }
-                else
-                {
-                    _currentPos--;
-                    return;
-                }
-            }
             while (!_reachedEndOfStream)
             {
-                char ch = (char)GetByte(IncrementCurrentPos());
-                if (!_isNonPlainText[(byte)ch])
+                while (_currentPos < _currentBufferChunkLength)
                 {
-                    GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
-                    _plainText.AddRange(result, result.Count);
+                    char ch = (char)_buffer[IncrementCurrentPos()];
+                    if (!_isNonPlainText[(byte)ch])
+                    {
+                        GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
+                        _plainText.AddRange(result, result.Count);
+                    }
+                    else
+                    {
+                        _currentPos--;
+                        return;
+                    }
                 }
-                else
-                {
-                    _currentPos--;
-                    return;
-                }
+
+                LoadNextChunkIntoBuffer();
             }
         }
         else
@@ -2594,32 +2585,23 @@ public sealed partial class RtfToTextConverter
                 }
             }
 
-            while (_currentPos < _currentBufferChunkLength)
-            {
-                char ch = (char)_buffer[IncrementCurrentPos()];
-                if (!_isNonPlainText[(byte)ch])
-                {
-                    _plainText.Add(ch);
-                }
-                else
-                {
-                    _currentPos--;
-                    return;
-                }
-            }
-
             while (!_reachedEndOfStream)
             {
-                char ch = (char)GetByte(IncrementCurrentPos());
-                if (!_isNonPlainText[(byte)ch])
+                while (_currentPos < _currentBufferChunkLength)
                 {
-                    _plainText.Add(ch);
+                    char ch = (char)_buffer[IncrementCurrentPos()];
+                    if (!_isNonPlainText[(byte)ch])
+                    {
+                        _plainText.Add(ch);
+                    }
+                    else
+                    {
+                        _currentPos--;
+                        return;
+                    }
                 }
-                else
-                {
-                    _currentPos--;
-                    return;
-                }
+
+                LoadNextChunkIntoBuffer();
             }
         }
     }
