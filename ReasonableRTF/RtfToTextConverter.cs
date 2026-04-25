@@ -2279,105 +2279,64 @@ public sealed partial class RtfToTextConverter
 
     private RtfError ParseRtf()
     {
-        // TODO: Manually duplicated code for performance - should be automated if possible
-        while (_currentPos < _currentBufferChunkLength - 1)
-        {
-            char ch = (char)_buffer[IncrementCurrentPos()];
-
-            // Ordered by most frequently appearing first
-            switch (ch)
-            {
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount == 0) return RtfError.OK;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                case not '\0':
-                {
-                    if (!GroupStack_CurrentSkipDest &&
-                        GroupStack_CurrentPropertyHidden == 0)
-                    {
-                        if (_isNonPlainText[_buffer[_currentPos]])
-                        {
-                            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-                            if (symbolFont > SymbolFont.Unset)
-                            {
-                                GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
-                                _plainText.AddRange(result, result.Count);
-                            }
-                            else
-                            {
-                                _plainText.Add(ch);
-                            }
-                        }
-                        else
-                        {
-                            HandlePlainTextRun();
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
         while (!_reachedEndOfStream)
         {
-            char ch = (char)GetByte(IncrementCurrentPos());
-
-            // Ordered by most frequently appearing first
-            switch (ch)
+            while (_currentPos < _currentBufferChunkLength)
             {
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount == 0) return RtfError.OK;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                case not '\0':
+                char ch = (char)_buffer[IncrementCurrentPos()];
+
+                // Ordered by most frequently appearing first
+                switch (ch)
                 {
-                    if (!GroupStack_CurrentSkipDest &&
-                        GroupStack_CurrentPropertyHidden == 0)
+                    case '\\':
+                        RtfError ec = ParseKeyword();
+                        if (ec != RtfError.OK) return ec;
+                        break;
+                    case '{':
+                        GroupStack_DeepCopyToNext();
+                        break;
+                    case '}':
+                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                        --_groupStackCount;
+                        if (_groupStackCount == 0) return RtfError.OK;
+                        break;
+                    case '\r':
+                    case '\n':
+                        break;
+                    case not '\0':
                     {
-                        if (_isNonPlainText[GetByte(_currentPos)])
+                        if (!GroupStack_CurrentSkipDest &&
+                            GroupStack_CurrentPropertyHidden == 0)
                         {
-                            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-                            if (symbolFont > SymbolFont.Unset)
+                            // No measurable perf loss from this, and it lets us avoid duplicating the loop body.
+                            char currentChar = (char)(_currentPos < _currentBufferChunkLength
+                                ? _buffer[_currentPos]
+                                : GetByte(_currentPos));
+
+                            if (_isNonPlainText[currentChar])
                             {
-                                GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
-                                _plainText.AddRange(result, result.Count);
+                                SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+                                if (symbolFont > SymbolFont.Unset)
+                                {
+                                    GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
+                                    _plainText.AddRange(result, result.Count);
+                                }
+                                else
+                                {
+                                    _plainText.Add(ch);
+                                }
                             }
                             else
                             {
-                                _plainText.Add(ch);
+                                HandlePlainTextRun();
                             }
                         }
-                        else
-                        {
-                            HandlePlainTextRun();
-                        }
+                        break;
                     }
-                    break;
                 }
             }
+
+            LoadNextChunkIntoBuffer();
         }
 
         return _groupStackCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
