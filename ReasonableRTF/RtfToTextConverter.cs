@@ -2336,7 +2336,7 @@ public sealed partial class RtfToTextConverter
                 }
             }
 
-            LoadNextChunkIntoBuffer();
+            if (_bufferedStream != null) { LoadNextChunkIntoBuffer(); } else { break; }
         }
 
         return _groupStackCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
@@ -2505,7 +2505,7 @@ public sealed partial class RtfToTextConverter
                 }
             }
 
-            LoadNextChunkIntoBuffer();
+            if (_bufferedStream != null) { LoadNextChunkIntoBuffer(); } else { break; }
         }
 
         _inFontTable = false;
@@ -2552,7 +2552,7 @@ public sealed partial class RtfToTextConverter
                     }
                 }
 
-                LoadNextChunkIntoBuffer();
+                if (_bufferedStream != null) { LoadNextChunkIntoBuffer(); } else { break; }
             }
         }
         else
@@ -2601,7 +2601,7 @@ public sealed partial class RtfToTextConverter
                     }
                 }
 
-                LoadNextChunkIntoBuffer();
+                if (_bufferedStream != null) { LoadNextChunkIntoBuffer(); } else { break; }
             }
         }
     }
@@ -4334,7 +4334,7 @@ public sealed partial class RtfToTextConverter
                 }
             }
 
-            LoadNextChunkIntoBuffer();
+            if (_bufferedStream != null) { LoadNextChunkIntoBuffer(); } else { break; }
         }
 
         if (insertSpaceIfNecessary &&
