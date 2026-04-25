@@ -2417,251 +2417,132 @@ public sealed partial class RtfToTextConverter
 
         int fontTableGroupLevel = _groupStackCount;
 
-        // TODO: Manually duplicated code for performance - should be automated if possible
-        while (_currentPos < _currentBufferChunkLength)
-        {
-            char ch = (char)_buffer[IncrementCurrentPos()];
-
-            switch (ch)
-            {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < fontTableGroupLevel)
-                    {
-                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
-                        // any font entry objects yet. Now that we do, we can retroactively set all previous
-                        // groups' fonts as appropriate, as if they had propagated up automatically.
-                        int defaultFontNum = _headerDefaultFontNum;
-                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
-                        {
-                            SymbolFont symbolFont = fontEntry.SymbolFont;
-                            // Start at 1 because the "base" group is still inside an opening { so it's really
-                            // group 1.
-                            for (int i = 1; i < _groupStackCount + 1; i++)
-                            {
-                                if (_groupStack_Property_FontNum[i] == NoFontNumber)
-                                {
-                                    _groupStack_Property_FontNum[i] = defaultFontNum;
-                                    _groupStack_SymbolFonts[i] = symbolFont;
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
-                        }
-
-                        _inFontTable = false;
-                        return RtfError.OK;
-                    }
-                    break;
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                {
-                    FontEntry? fontEntry = _fontEntries_Top;
-                    if (!GroupStack_CurrentSkipDest &&
-                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
-                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
-                        // save time here...
-                        fontEntry is { SymbolFont: SymbolFont.Unset })
-                    {
-                        bool isNonSemicolonSeparatorChar = false;
-                        int symbolFontNameCount;
-                        if (_currentPos < _currentBufferChunkLength - (_maxSymbolFontNameLength + 1))
-                        {
-                            for (symbolFontNameCount = 0;
-                                 symbolFontNameCount < _maxSymbolFontNameLength &&
-                                   ch != ';' &&
-                                   !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                                 symbolFontNameCount++, ch = (char)_buffer[IncrementCurrentPos()])
-                            {
-                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
-                            }
-                        }
-                        else
-                        {
-                            for (symbolFontNameCount = 0;
-                                 symbolFontNameCount < _maxSymbolFontNameLength &&
-                                 ch != ';' &&
-                                 !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                                 symbolFontNameCount++, ch = (char)GetByte(IncrementCurrentPos()))
-                            {
-                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
-                            }
-                        }
-
-                        if (symbolFontNameCount == _maxSymbolFontNameLength)
-                        {
-                            while (ch != ';' && !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]))
-                            {
-                                ch = (char)GetByte(IncrementCurrentPos());
-                            }
-                        }
-
-                        /*
-                        Support weird nonsense in the font table like:
-
-                        {Zapf Dingbats{\*\falt Monotype Sorts};}
-
-                        where we should stop at the { instead of the ; so we get the name right.
-
-                        Also whatever nonsense is going on in some of those RtfPipe test files.
-                        */
-                        if (isNonSemicolonSeparatorChar)
-                        {
-                            _currentPos--;
-                        }
-
-                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
-                        {
-                            byte[] nameBytes = _symbolFontCharsArrays[i];
-                            if (FontName_SeqEqual(_symbolFontNameBuffer, nameBytes, symbolFontNameCount))
-                            {
-                                fontEntry.SymbolFont = (SymbolFont)i;
-                                break;
-                            }
-                        }
-                        if (fontEntry.SymbolFont == SymbolFont.Unset)
-                        {
-                            fontEntry.SymbolFont = SymbolFont.None;
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-
         while (!_reachedEndOfStream)
         {
-            char ch = (char)GetByte(IncrementCurrentPos());
-
-            switch (ch)
+            while (_currentPos < _currentBufferChunkLength)
             {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < fontTableGroupLevel)
-                    {
-                        // We can't actually set the symbol font as soon as we see \deffN, because we won't have
-                        // any font entry objects yet. Now that we do, we can retroactively set all previous
-                        // groups' fonts as appropriate, as if they had propagated up automatically.
-                        int defaultFontNum = _headerDefaultFontNum;
-                        if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
+                char ch = (char)_buffer[IncrementCurrentPos()];
+
+                switch (ch)
+                {
+                    case '{':
+                        GroupStack_DeepCopyToNext();
+                        break;
+                    case '}':
+                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                        --_groupStackCount;
+                        if (_groupStackCount < fontTableGroupLevel)
                         {
-                            SymbolFont symbolFont = fontEntry.SymbolFont;
-                            // Start at 1 because the "base" group is still inside an opening { so it's really
-                            // group 1.
-                            for (int i = 1; i < _groupStackCount + 1; i++)
+                            // We can't actually set the symbol font as soon as we see \deffN, because we won't have
+                            // any font entry objects yet. Now that we do, we can retroactively set all previous
+                            // groups' fonts as appropriate, as if they had propagated up automatically.
+                            int defaultFontNum = _headerDefaultFontNum;
+                            if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
                             {
-                                if (_groupStack_Property_FontNum[i] == NoFontNumber)
+                                SymbolFont symbolFont = fontEntry.SymbolFont;
+                                // Start at 1 because the "base" group is still inside an opening { so it's really
+                                // group 1.
+                                for (int i = 1; i < _groupStackCount + 1; i++)
                                 {
-                                    _groupStack_Property_FontNum[i] = defaultFontNum;
-                                    _groupStack_SymbolFonts[i] = symbolFont;
+                                    if (_groupStack_Property_FontNum[i] == NoFontNumber)
+                                    {
+                                        _groupStack_Property_FontNum[i] = defaultFontNum;
+                                        _groupStack_SymbolFonts[i] = symbolFont;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
-                                else
+                            }
+
+                            _inFontTable = false;
+                            return RtfError.OK;
+                        }
+                        break;
+                    case '\\':
+                        RtfError ec = ParseKeyword();
+                        if (ec != RtfError.OK) return ec;
+                        break;
+                    case '\r':
+                    case '\n':
+                        break;
+                    default:
+                    {
+                        FontEntry? fontEntry = _fontEntries_Top;
+                        if (!GroupStack_CurrentSkipDest &&
+                            // We can't check for codepage 42, because symbol fonts can have other codepages (although
+                            // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
+                            // save time here...
+                            fontEntry is { SymbolFont: SymbolFont.Unset })
+                        {
+                            bool isNonSemicolonSeparatorChar = false;
+                            int symbolFontNameCount;
+                            if (_currentPos < _currentBufferChunkLength - (_maxSymbolFontNameLength + 1))
+                            {
+                                for (symbolFontNameCount = 0;
+                                     symbolFontNameCount < _maxSymbolFontNameLength &&
+                                       ch != ';' &&
+                                       !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                                     symbolFontNameCount++, ch = (char)_buffer[IncrementCurrentPos()])
                                 {
+                                    _symbolFontNameBuffer[symbolFontNameCount] = ch;
+                                }
+                            }
+                            else
+                            {
+                                for (symbolFontNameCount = 0;
+                                     symbolFontNameCount < _maxSymbolFontNameLength &&
+                                     ch != ';' &&
+                                     !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
+                                     symbolFontNameCount++, ch = (char)GetByte(IncrementCurrentPos()))
+                                {
+                                    _symbolFontNameBuffer[symbolFontNameCount] = ch;
+                                }
+                            }
+
+                            if (symbolFontNameCount == _maxSymbolFontNameLength)
+                            {
+                                while (ch != ';' && !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]))
+                                {
+                                    ch = (char)GetByte(IncrementCurrentPos());
+                                }
+                            }
+
+                            /*
+                            Support weird nonsense in the font table like:
+
+                            {Zapf Dingbats{\*\falt Monotype Sorts};}
+
+                            where we should stop at the { instead of the ; so we get the name right.
+
+                            Also whatever nonsense is going on in some of those RtfPipe test files.
+                            */
+                            if (isNonSemicolonSeparatorChar)
+                            {
+                                _currentPos--;
+                            }
+
+                            for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
+                            {
+                                byte[] nameBytes = _symbolFontCharsArrays[i];
+                                if (FontName_SeqEqual(_symbolFontNameBuffer, nameBytes, symbolFontNameCount))
+                                {
+                                    fontEntry.SymbolFont = (SymbolFont)i;
                                     break;
                                 }
                             }
+                            if (fontEntry.SymbolFont == SymbolFont.Unset)
+                            {
+                                fontEntry.SymbolFont = SymbolFont.None;
+                            }
                         }
-
-                        _inFontTable = false;
-                        return RtfError.OK;
+                        break;
                     }
-                    break;
-                case '\\':
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                {
-                    FontEntry? fontEntry = _fontEntries_Top;
-                    if (!GroupStack_CurrentSkipDest &&
-                        // We can't check for codepage 42, because symbol fonts can have other codepages (although
-                        // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
-                        // save time here...
-                        fontEntry is { SymbolFont: SymbolFont.Unset })
-                    {
-                        bool isNonSemicolonSeparatorChar = false;
-                        int symbolFontNameCount;
-                        if (_currentPos < _currentBufferChunkLength - (_maxSymbolFontNameLength + 1))
-                        {
-                            for (symbolFontNameCount = 0;
-                                 symbolFontNameCount < _maxSymbolFontNameLength &&
-                                   ch != ';' &&
-                                   !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                                 symbolFontNameCount++, ch = (char)_buffer[IncrementCurrentPos()])
-                            {
-                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
-                            }
-                        }
-                        else
-                        {
-                            for (symbolFontNameCount = 0;
-                                 symbolFontNameCount < _maxSymbolFontNameLength &&
-                                 ch != ';' &&
-                                 !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
-                                 symbolFontNameCount++, ch = (char)GetByte(IncrementCurrentPos()))
-                            {
-                                _symbolFontNameBuffer[symbolFontNameCount] = ch;
-                            }
-                        }
-
-                        if (symbolFontNameCount == _maxSymbolFontNameLength)
-                        {
-                            while (ch != ';' && !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]))
-                            {
-                                ch = (char)GetByte(IncrementCurrentPos());
-                            }
-                        }
-
-                        /*
-                        Support weird nonsense in the font table like:
-
-                        {Zapf Dingbats{\*\falt Monotype Sorts};}
-
-                        where we should stop at the { instead of the ; so we get the name right.
-
-                        Also whatever nonsense is going on in some of those RtfPipe test files.
-                        */
-                        if (isNonSemicolonSeparatorChar)
-                        {
-                            _currentPos--;
-                        }
-
-                        for (int i = _symbolArraysStartingIndex; i < _symbolArraysLength; i++)
-                        {
-                            byte[] nameBytes = _symbolFontCharsArrays[i];
-                            if (FontName_SeqEqual(_symbolFontNameBuffer, nameBytes, symbolFontNameCount))
-                            {
-                                fontEntry.SymbolFont = (SymbolFont)i;
-                                break;
-                            }
-                        }
-                        if (fontEntry.SymbolFont == SymbolFont.Unset)
-                        {
-                            fontEntry.SymbolFont = SymbolFont.None;
-                        }
-                    }
-                    break;
                 }
             }
+
+            LoadNextChunkIntoBuffer();
         }
 
         _inFontTable = false;
@@ -4465,87 +4346,50 @@ public sealed partial class RtfToTextConverter
 
         int startGroupLevel = _groupStackCount;
 
-        // TODO: Manually duplicated code for performance - should be automated if possible
-        while (_currentPos < _currentBufferChunkLength)
-        {
-            char ch = (char)_buffer[IncrementCurrentPos()];
-
-            switch (ch)
-            {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < startGroupLevel)
-                    {
-                        if (insertSpaceIfNecessary &&
-                            _plainText.Count > 0 &&
-                            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
-                        {
-                            _plainText.Add(' ');
-                        }
-                        _inHandleSkippableHexData = false;
-                        return RtfError.OK;
-                    }
-                    break;
-                case '\\':
-                    // This implicitly also handles the case where the data is \binN instead of hex
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                    if (_groupStackCount == startGroupLevel)
-                    {
-                        _currentPos = IndexOfNextClosingBrace_ChunkAware();
-                    }
-                    break;
-            }
-        }
-
         while (!_reachedEndOfStream)
         {
-            char ch = (char)GetByte(IncrementCurrentPos());
-
-            switch (ch)
+            while (_currentPos < _currentBufferChunkLength)
             {
-                case '{':
-                    GroupStack_DeepCopyToNext();
-                    break;
-                case '}':
-                    if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                    --_groupStackCount;
-                    if (_groupStackCount < startGroupLevel)
-                    {
-                        if (insertSpaceIfNecessary &&
-                            _plainText.Count > 0 &&
-                            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+                char ch = (char)_buffer[IncrementCurrentPos()];
+
+                switch (ch)
+                {
+                    case '{':
+                        GroupStack_DeepCopyToNext();
+                        break;
+                    case '}':
+                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
+                        --_groupStackCount;
+                        if (_groupStackCount < startGroupLevel)
                         {
-                            _plainText.Add(' ');
+                            if (insertSpaceIfNecessary &&
+                                _plainText.Count > 0 &&
+                                !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+                            {
+                                _plainText.Add(' ');
+                            }
+                            _inHandleSkippableHexData = false;
+                            return RtfError.OK;
                         }
-                        _inHandleSkippableHexData = false;
-                        return RtfError.OK;
-                    }
-                    break;
-                case '\\':
-                    // This implicitly also handles the case where the data is \binN instead of hex
-                    RtfError ec = ParseKeyword();
-                    if (ec != RtfError.OK) return ec;
-                    break;
-                case '\r':
-                case '\n':
-                    break;
-                default:
-                    if (_groupStackCount == startGroupLevel)
-                    {
-                        _currentPos = IndexOfNextClosingBrace_ChunkAware();
-                    }
-                    break;
+                        break;
+                    case '\\':
+                        // This implicitly also handles the case where the data is \binN instead of hex
+                        RtfError ec = ParseKeyword();
+                        if (ec != RtfError.OK) return ec;
+                        break;
+                    case '\r':
+                    case '\n':
+                        break;
+                    default:
+                        if (_groupStackCount == startGroupLevel)
+                        {
+                            _currentPos = IndexOfNextClosingBrace_ChunkAware();
+                        }
+                        break;
+                }
             }
+
+            LoadNextChunkIntoBuffer();
         }
 
         if (insertSpaceIfNecessary &&
