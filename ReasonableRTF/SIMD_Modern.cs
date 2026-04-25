@@ -44,6 +44,9 @@ internal static partial class SIMD
     private static readonly Vector512<byte> _backslashVector512 = Vector512.Create((byte)'\\');
     private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
     private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
+    private static readonly Vector512<byte> _bVector512 = Vector512.Create((byte)'b');
+    private static readonly Vector512<byte> _iVector512 = Vector512.Create((byte)'i');
+    private static readonly Vector512<byte> _nVector512 = Vector512.Create((byte)'n');
 
     private static readonly Vector256<byte> _zeroVector256 = Vector256.Create((byte)'\0');
     private static readonly Vector256<byte> _lfVector256 = Vector256.Create((byte)'\n');
@@ -51,6 +54,9 @@ internal static partial class SIMD
     private static readonly Vector256<byte> _backslashVector256 = Vector256.Create((byte)'\\');
     private static readonly Vector256<byte> _openBraceVector256 = Vector256.Create((byte)'{');
     private static readonly Vector256<byte> _closingBraceVector256 = Vector256.Create((byte)'}');
+    private static readonly Vector256<byte> _bVector256 = Vector256.Create((byte)'b');
+    private static readonly Vector256<byte> _iVector256 = Vector256.Create((byte)'i');
+    private static readonly Vector256<byte> _nVector256 = Vector256.Create((byte)'n');
 
     private static readonly Vector128<byte> _zeroVector128 = Vector128.Create((byte)'\0');
     private static readonly Vector128<byte> _lfVector128 = Vector128.Create((byte)'\n');
@@ -58,6 +64,9 @@ internal static partial class SIMD
     private static readonly Vector128<byte> _backslashVector128 = Vector128.Create((byte)'\\');
     private static readonly Vector128<byte> _openBraceVector128 = Vector128.Create((byte)'{');
     private static readonly Vector128<byte> _closingBraceVector128 = Vector128.Create((byte)'}');
+    private static readonly Vector128<byte> _bVector128 = Vector128.Create((byte)'b');
+    private static readonly Vector128<byte> _iVector128 = Vector128.Create((byte)'i');
+    private static readonly Vector128<byte> _nVector128 = Vector128.Create((byte)'n');
 
     #endregion
 
@@ -112,14 +121,35 @@ internal static partial class SIMD
                     ulong notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
+                    if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength ||
-                            (current[backslashIndex + 1] == 'b' &&
-                             current[backslashIndex + 2] == 'i' &&
-                             current[backslashIndex + 3] == 'n'))
+                        if (backslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength)
                         {
                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                        }
+
+                        Vector512<byte> containsBinLetters =
+                            Vector512.Equals(_bVector512, current) |
+                            Vector512.Equals(_iVector512, current) |
+                            Vector512.Equals(_nVector512, current);
+
+                        if (containsBinLetters != Vector512<byte>.Zero)
+                        {
+                            ulong remainingSetBackslashBits = notEqualsElementsBackslash;
+                            int currentBackslashIndex = backslashIndex;
+                            while (remainingSetBackslashBits != 0)
+                            {
+                                if (currentBackslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength ||
+                                    (current[currentBackslashIndex + 1] == 'b' &&
+                                     current[currentBackslashIndex + 2] == 'i' &&
+                                     current[currentBackslashIndex + 3] == 'n'))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                                }
+
+                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
+                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                            }
                         }
 
                         if (equalsBraces == Vector512<byte>.Zero)
@@ -182,14 +212,35 @@ internal static partial class SIMD
                     uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
+                    if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength ||
-                            (current[backslashIndex + 1] == 'b' &&
-                             current[backslashIndex + 2] == 'i' &&
-                             current[backslashIndex + 3] == 'n'))
+                        if (backslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength)
                         {
                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                        }
+
+                        Vector256<byte> containsBinLetters =
+                            Vector256.Equals(_bVector256, current) |
+                            Vector256.Equals(_iVector256, current) |
+                            Vector256.Equals(_nVector256, current);
+
+                        if (containsBinLetters != Vector256<byte>.Zero)
+                        {
+                            uint remainingSetBackslashBits = notEqualsElementsBackslash;
+                            int currentBackslashIndex = backslashIndex;
+                            while (remainingSetBackslashBits != 0)
+                            {
+                                if (currentBackslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength ||
+                                    (current[currentBackslashIndex + 1] == 'b' &&
+                                     current[currentBackslashIndex + 2] == 'i' &&
+                                     current[currentBackslashIndex + 3] == 'n'))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                                }
+
+                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
+                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                            }
                         }
 
                         if (equalsBraces == Vector256<byte>.Zero)
@@ -252,14 +303,35 @@ internal static partial class SIMD
                     uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
                     int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
 
-                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
+                    if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength ||
-                            (current[backslashIndex + 1] == 'b' &&
-                             current[backslashIndex + 2] == 'i' &&
-                             current[backslashIndex + 3] == 'n'))
+                        if (backslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength)
                         {
                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                        }
+
+                        Vector128<byte> containsBinLetters =
+                            Vector128.Equals(_bVector128, current) |
+                            Vector128.Equals(_iVector128, current) |
+                            Vector128.Equals(_nVector128, current);
+
+                        if (containsBinLetters != Vector128<byte>.Zero)
+                        {
+                            uint remainingSetBackslashBits = notEqualsElementsBackslash;
+                            int currentBackslashIndex = backslashIndex;
+                            while (remainingSetBackslashBits != 0)
+                            {
+                                if (currentBackslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength ||
+                                    (current[currentBackslashIndex + 1] == 'b' &&
+                                     current[currentBackslashIndex + 2] == 'i' &&
+                                     current[currentBackslashIndex + 3] == 'n'))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                                }
+
+                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
+                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                            }
                         }
 
                         if (equalsBraces == Vector128<byte>.Zero)
