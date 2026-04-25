@@ -4718,7 +4718,6 @@ public sealed partial class RtfToTextConverter
             {
                 ThrowHelper.IndexOutOfRange();
             }
-            ThrowHelper.IndexOutOfRange();
             return 0;
         }
     }
