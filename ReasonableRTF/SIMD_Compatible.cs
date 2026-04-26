@@ -110,11 +110,8 @@ internal static partial class SIMD
 
                     if (equalsBraces == Vector<byte>.Zero || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
-                        ref byte bRef = ref currentSearchSpace;
-                        ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
-
-                        Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref bRef);
-                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref nRef);
+                        Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
+                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.AddByteOffset(ref currentSearchSpace, binLettersLength - 1));
                         Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
                         Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
 
