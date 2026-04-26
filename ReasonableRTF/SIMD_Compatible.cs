@@ -131,7 +131,7 @@ internal static partial class SIMD
                                 if (index == -1) break;
 
                                 int spanIndex = currentSpanPosition + (index - 1);
-                                if (spanIndex == 0 || spanIndex >= count - binLettersLength)
+                                if (spanIndex < 0 || spanIndex >= count - binLettersLength)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
