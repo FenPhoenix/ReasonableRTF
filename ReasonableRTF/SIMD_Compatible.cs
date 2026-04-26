@@ -43,8 +43,10 @@ internal static partial class SIMD
     private static readonly Vector<byte> _backslashVector = new((byte)'\\');
     private static readonly Vector<byte> _openBraceVector = new((byte)'{');
     private static readonly Vector<byte> _closingBraceVector = new((byte)'}');
+    // We're searching for "bin" rather than "\bin" because the letters themselves are much less common than
+    // backslashes, so we minimize our hit count. We still check for the backslash after we've confirmed we've
+    // hit a "bin".
     private static readonly Vector<byte> _bVector = new((byte)'b');
-    private static readonly Vector<byte> _iVector = new((byte)'i');
     private static readonly Vector<byte> _nVector = new((byte)'n');
 
     private const ulong XorPowerOfTwoToHighByte = (0x07ul |
@@ -71,6 +73,10 @@ internal static partial class SIMD
             return -1;
         }
 
+        const int binLettersLength = 3;
+        uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
+        int currentBufferPosition = startIndex;
+
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
         int length = span.Length;
@@ -94,6 +100,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector<byte>.Zero)
                 {
+                    currentBufferPosition += Vector<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
                     continue;
                 }
@@ -105,23 +112,50 @@ internal static partial class SIMD
 
                     if (equalsBraces == Vector<byte>.Zero || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
-                        if (backslashIndex > Vector<byte>.Count - RtfToTextConverter._binLength)
+                        int lastBackslashIndex = LocateLastFoundByte(equalsBackslash);
+                        if (lastBackslashIndex > Vector<byte>.Count - RtfToTextConverter._binLength)
                         {
                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                         }
 
-                        Vector<byte> containsAllBinLetters =
-                            Vector.Equals(_bVector, current) |
-                            Vector.Equals(_iVector, current) |
-                            Vector.Equals(_nVector, current);
+                        ref byte bRef = ref currentSearchSpace;
+                        ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
-                        if (containsAllBinLetters != Vector<byte>.Zero)
+                        Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref bRef);
+                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref nRef);
+                        Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
+                        Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
+
+                        Vector<byte> containsBin = Vector.BitwiseAnd(firstEquals, lastEquals);
+
+                        if (containsBin != Vector<byte>.Zero)
                         {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                            int index = currentBufferPosition;
+                            int bufferSpanLength = Vector<byte>.Count;
+
+                            while (true)
+                            {
+                                index = buffer.AsSpan(index, bufferSpanLength).IndexOf((byte)'b');
+                                if (index == -1) break;
+
+                                if (index == 0 || index >= Vector<byte>.Count - binLettersLength)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+
+                                uint value = Unsafe.ReadUnaligned<uint>(ref buffer[currentBufferPosition + (index - 1)]);
+                                if (value == binUint)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+                                ++index;
+                                bufferSpanLength -= index;
+                            }
                         }
 
                         if (equalsBraces == Vector<byte>.Zero)
                         {
+                            currentBufferPosition += Vector<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
                             continue;
                         }
@@ -130,29 +164,6 @@ internal static partial class SIMD
                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, bracesIndex);
                         }
                     }
-
-#if false
-                    if (bracesIndex == 0 || backslashIndex < bracesIndex)
-                    {
-                        if (backslashIndex > Vector<byte>.Count - RtfToTextConverter._binLength ||
-                            (current[backslashIndex + 1] == 'b' &&
-                             current[backslashIndex + 2] == 'i' &&
-                             current[backslashIndex + 3] == 'n'))
-                        {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
-                        }
-
-                        if (equalsBraces == Vector<byte>.Zero)
-                        {
-                            currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
-                            continue;
-                        }
-                        else
-                        {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, bracesIndex);
-                        }
-                    }
-#endif
                 }
 
                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
@@ -310,6 +321,40 @@ internal static partial class SIMD
         ulong powerOfTwoFlag = match ^ (match - 1);
         // Shift all powers of two into the high byte and extract
         return (int)((powerOfTwoFlag * XorPowerOfTwoToHighByte) >> 57);
+    }
+
+    // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static int LocateLastFoundByte(Vector<byte> match)
+    {
+        var vector64 = Vector.AsVectorUInt64(match);
+        ulong candidate = 0;
+        int i = Vector<ulong>.Count - 1;
+        // Pattern unrolled by jit https://github.com/dotnet/coreclr/pull/8001
+        for (; i >= 0; i--)
+        {
+            candidate = vector64[i];
+            if (candidate != 0)
+            {
+                break;
+            }
+        }
+
+        // Single LEA instruction with jitted const (using function result)
+        return i * 8 + LocateLastFoundByte(candidate);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static int LocateLastFoundByte(ulong match)
+    {
+        // Find the most significant byte that has its highest bit set
+        int index = 7;
+        while ((long)match > 0)
+        {
+            match <<= 8;
+            index--;
+        }
+        return index;
     }
 
     #endregion

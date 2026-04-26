@@ -44,6 +44,9 @@ internal static partial class SIMD
     private static readonly Vector512<byte> _backslashVector512 = Vector512.Create((byte)'\\');
     private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
     private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
+    // We're searching for "bin" rather than "\bin" because the letters themselves are much less common than
+    // backslashes, so we minimize our hit count. We still check for the backslash after we've confirmed we've
+    // hit a "bin".
     private static readonly Vector512<byte> _bVector512 = Vector512.Create((byte)'b');
     private static readonly Vector512<byte> _nVector512 = Vector512.Create((byte)'n');
 
