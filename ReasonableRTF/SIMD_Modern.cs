@@ -45,7 +45,6 @@ internal static partial class SIMD
     private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
     private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
     private static readonly Vector512<byte> _bVector512 = Vector512.Create((byte)'b');
-    private static readonly Vector512<byte> _iVector512 = Vector512.Create((byte)'i');
     private static readonly Vector512<byte> _nVector512 = Vector512.Create((byte)'n');
 
     private static readonly Vector256<byte> _zeroVector256 = Vector256.Create((byte)'\0');
@@ -55,7 +54,6 @@ internal static partial class SIMD
     private static readonly Vector256<byte> _openBraceVector256 = Vector256.Create((byte)'{');
     private static readonly Vector256<byte> _closingBraceVector256 = Vector256.Create((byte)'}');
     private static readonly Vector256<byte> _bVector256 = Vector256.Create((byte)'b');
-    private static readonly Vector256<byte> _iVector256 = Vector256.Create((byte)'i');
     private static readonly Vector256<byte> _nVector256 = Vector256.Create((byte)'n');
 
     private static readonly Vector128<byte> _zeroVector128 = Vector128.Create((byte)'\0');
@@ -65,7 +63,6 @@ internal static partial class SIMD
     private static readonly Vector128<byte> _openBraceVector128 = Vector128.Create((byte)'{');
     private static readonly Vector128<byte> _closingBraceVector128 = Vector128.Create((byte)'}');
     private static readonly Vector128<byte> _bVector128 = Vector128.Create((byte)'b');
-    private static readonly Vector128<byte> _iVector128 = Vector128.Create((byte)'i');
     private static readonly Vector128<byte> _nVector128 = Vector128.Create((byte)'n');
 
     #endregion
@@ -86,11 +83,9 @@ internal static partial class SIMD
             return -1;
         }
 
-        // Not sure about the bit shifting crap, it seems backwards to me so maybe it's little-endian only, bleh
-        if (!BitConverter.IsLittleEndian)
-        {
-            return -1;
-        }
+        const int binLettersLength = 3;
+        uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
+        int currentBufferPosition = startIndex;
 
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
@@ -115,6 +110,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector512<byte>.Zero)
                 {
+                    currentBufferPosition += Vector512<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
                     continue;
                 }
@@ -129,37 +125,41 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength)
+                        int lastBackslashIndex = 63 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
+                        if (lastBackslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength)
                         {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                         }
 
-                        Vector512<byte> containsBinLetters =
-                            Vector512.Equals(_bVector512, current) |
-                            Vector512.Equals(_iVector512, current) |
-                            Vector512.Equals(_nVector512, current);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
-                        if (containsBinLetters != Vector512<byte>.Zero)
+                        Vector512<byte> firstBlock = Vector512.LoadUnsafe(ref bRef);
+                        Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref nRef);
+                        Vector512<byte> firstEquals = Vector512.Equals(_bVector512, firstBlock);
+                        Vector512<byte> lastEquals = Vector512.Equals(_nVector512, lastBlock);
+
+                        ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                        while (mask != 0)
                         {
-                            ulong remainingSetBackslashBits = notEqualsElementsBackslash;
-                            int currentBackslashIndex = backslashIndex;
-                            while (remainingSetBackslashBits != 0)
+                            int index = BitOperations.TrailingZeroCount(mask);
+                            if (index == 0 || index >= Vector512<byte>.Count - binLettersLength)
                             {
-                                if (currentBackslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength ||
-                                    (current[currentBackslashIndex + 1] == 'b' &&
-                                     current[currentBackslashIndex + 2] == 'i' &&
-                                     current[currentBackslashIndex + 3] == 'n'))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
-                                }
-
-                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
-                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
+
+                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            if (value == binUint)
+                            {
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                            }
+
+                            mask = ResetLowestSetBit(mask);
                         }
 
                         if (equalsBraces == Vector512<byte>.Zero)
                         {
+                            currentBufferPosition += Vector512<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
                             continue;
                         }
@@ -206,6 +206,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector256<byte>.Zero)
                 {
+                    currentBufferPosition += Vector256<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
                     continue;
                 }
@@ -220,37 +221,41 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength)
+                        int lastBackslashIndex = 31 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
+                        if (lastBackslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength)
                         {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                         }
 
-                        Vector256<byte> containsBinLetters =
-                            Vector256.Equals(_bVector256, current) |
-                            Vector256.Equals(_iVector256, current) |
-                            Vector256.Equals(_nVector256, current);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
-                        if (containsBinLetters != Vector256<byte>.Zero)
+                        Vector256<byte> firstBlock = Vector256.LoadUnsafe(ref bRef);
+                        Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref nRef);
+                        Vector256<byte> firstEquals = Vector256.Equals(_bVector256, firstBlock);
+                        Vector256<byte> lastEquals = Vector256.Equals(_nVector256, lastBlock);
+
+                        uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                        while (mask != 0)
                         {
-                            uint remainingSetBackslashBits = notEqualsElementsBackslash;
-                            int currentBackslashIndex = backslashIndex;
-                            while (remainingSetBackslashBits != 0)
+                            int index = BitOperations.TrailingZeroCount(mask);
+                            if (index == 0 || index >= Vector256<byte>.Count - binLettersLength)
                             {
-                                if (currentBackslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength ||
-                                    (current[currentBackslashIndex + 1] == 'b' &&
-                                     current[currentBackslashIndex + 2] == 'i' &&
-                                     current[currentBackslashIndex + 3] == 'n'))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
-                                }
-
-                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
-                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
+
+                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            if (value == binUint)
+                            {
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                            }
+
+                            mask = ResetLowestSetBit(mask);
                         }
 
                         if (equalsBraces == Vector256<byte>.Zero)
                         {
+                            currentBufferPosition += Vector256<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
                             continue;
                         }
@@ -297,6 +302,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector128<byte>.Zero)
                 {
+                    currentBufferPosition += Vector128<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector128<byte>.Count);
                     continue;
                 }
@@ -311,37 +317,41 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (backslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength)
+                        int lastBackslashIndex = 31 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
+                        if (lastBackslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength)
                         {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
+                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                         }
 
-                        Vector128<byte> containsBinLetters =
-                            Vector128.Equals(_bVector128, current) |
-                            Vector128.Equals(_iVector128, current) |
-                            Vector128.Equals(_nVector128, current);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
-                        if (containsBinLetters != Vector128<byte>.Zero)
+                        Vector128<byte> firstBlock = Vector128.LoadUnsafe(ref bRef);
+                        Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref nRef);
+                        Vector128<byte> firstEquals = Vector128.Equals(_bVector128, firstBlock);
+                        Vector128<byte> lastEquals = Vector128.Equals(_nVector128, lastBlock);
+
+                        uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                        while (mask != 0)
                         {
-                            uint remainingSetBackslashBits = notEqualsElementsBackslash;
-                            int currentBackslashIndex = backslashIndex;
-                            while (remainingSetBackslashBits != 0)
+                            int index = BitOperations.TrailingZeroCount(mask);
+                            if (index == 0 || index >= Vector128<byte>.Count - binLettersLength)
                             {
-                                if (currentBackslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength ||
-                                    (current[currentBackslashIndex + 1] == 'b' &&
-                                     current[currentBackslashIndex + 2] == 'i' &&
-                                     current[currentBackslashIndex + 3] == 'n'))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, equals);
-                                }
-
-                                remainingSetBackslashBits ^= 1u << currentBackslashIndex;
-                                currentBackslashIndex = BitOperations.TrailingZeroCount(remainingSetBackslashBits);
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
+
+                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            if (value == binUint)
+                            {
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                            }
+
+                            mask = ResetLowestSetBit(mask);
                         }
 
                         if (equalsBraces == Vector128<byte>.Zero)
                         {
+                            currentBufferPosition += Vector128<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector128<byte>.Count);
                             continue;
                         }
@@ -576,6 +586,20 @@ internal static partial class SIMD
     private static int ComputeFirstIndex(ref byte searchSpace, ref byte current, int index)
     {
         return index + (int)(nuint)Unsafe.ByteOffset(ref searchSpace, ref current);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static uint ResetLowestSetBit(uint value)
+    {
+        // It's lowered to BLSR on x86
+        return value & (value - 1);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ulong ResetLowestSetBit(ulong value)
+    {
+        // It's lowered to BLSR on x86
+        return value & (value - 1);
     }
 
     #endregion
