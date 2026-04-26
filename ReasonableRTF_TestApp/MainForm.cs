@@ -370,9 +370,10 @@ public sealed partial class MainForm : Form
             //"long_text_test.rtf"
             //"simple_number.rtf"
             //"complex_list_diff_styles.rtf"
-            "RtfParserTest_fail_3.rtf"
+            //"RtfParserTest_fail_3.rtf"
+            "2003-02-11_COSAS1-Gatheringatt__gati.rtf"
             ;
-        SourceSet sourceSet = SourceSet.WorkingNewSet;
+        SourceSet sourceSet = SourceSet.Full;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 

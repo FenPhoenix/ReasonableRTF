@@ -88,13 +88,11 @@ internal static partial class SIMD
 
         const int binLettersLength = 3;
         uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
-        int currentBufferPosition = startIndex;
+        int currentSpanPosition = 0;
 
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
 
-        int length = span.Length;
-
-        if (Vector512.IsHardwareAccelerated && length >= Vector512<byte>.Count)
+        if (Vector512.IsHardwareAccelerated && count >= Vector512<byte>.Count)
         {
             ref byte searchSpace = ref MemoryMarshal.GetReference(span);
             Vector512<byte> equalsBraces;
@@ -102,7 +100,7 @@ internal static partial class SIMD
             Vector512<byte> equals;
             Vector512<byte> current;
             ref byte currentSearchSpace = ref searchSpace;
-            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector512<byte>.Count);
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, count - Vector512<byte>.Count);
 
             // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
             do
@@ -113,7 +111,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector512<byte>.Zero)
                 {
-                    currentBufferPosition += Vector512<byte>.Count;
+                    currentSpanPosition += Vector512<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
                     continue;
                 }
@@ -128,13 +126,7 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        int lastBackslashIndex = 63 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
-                        if (lastBackslashIndex > Vector512<byte>.Count - RtfToTextConverter._binLength)
-                        {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                        }
-
-                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetReference(span), currentSpanPosition);
                         ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
                         Vector512<byte> firstBlock = Vector512.LoadUnsafe(ref bRef);
@@ -145,13 +137,13 @@ internal static partial class SIMD
                         ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
                         while (mask != 0)
                         {
-                            int index = BitOperations.TrailingZeroCount(mask);
-                            if (index == 0 || index >= Vector512<byte>.Count - binLettersLength)
+                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                            if (index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
                             if (value == binUint)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -162,7 +154,7 @@ internal static partial class SIMD
 
                         if (equalsBraces == Vector512<byte>.Zero)
                         {
-                            currentBufferPosition += Vector512<byte>.Count;
+                            currentSpanPosition += Vector512<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
                             continue;
                         }
@@ -178,7 +170,7 @@ internal static partial class SIMD
             while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
 
             // If any elements remain, process the last vector in the search space.
-            if ((uint)length % Vector512<byte>.Count != 0)
+            if ((uint)count % Vector512<byte>.Count != 0)
             {
                 current = Vector512.LoadUnsafe(ref oneVectorAwayFromEnd);
                 equalsBraces = Vector512.Equals(_openBraceVector512, current) | Vector512.Equals(_closingBraceVector512, current);
@@ -190,7 +182,7 @@ internal static partial class SIMD
                 }
             }
         }
-        else if (Vector256.IsHardwareAccelerated && length >= Vector256<byte>.Count)
+        else if (Vector256.IsHardwareAccelerated && count >= Vector256<byte>.Count)
         {
             ref byte searchSpace = ref MemoryMarshal.GetReference(span);
             Vector256<byte> equalsBraces;
@@ -198,7 +190,7 @@ internal static partial class SIMD
             Vector256<byte> equals;
             Vector256<byte> current;
             ref byte currentSearchSpace = ref searchSpace;
-            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector256<byte>.Count);
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, count - Vector256<byte>.Count);
 
             // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
             do
@@ -209,7 +201,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector256<byte>.Zero)
                 {
-                    currentBufferPosition += Vector256<byte>.Count;
+                    currentSpanPosition += Vector256<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
                     continue;
                 }
@@ -224,13 +216,7 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        int lastBackslashIndex = 31 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
-                        if (lastBackslashIndex > Vector256<byte>.Count - RtfToTextConverter._binLength)
-                        {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                        }
-
-                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetReference(span), currentSpanPosition);
                         ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
                         Vector256<byte> firstBlock = Vector256.LoadUnsafe(ref bRef);
@@ -241,13 +227,13 @@ internal static partial class SIMD
                         uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
                         while (mask != 0)
                         {
-                            int index = BitOperations.TrailingZeroCount(mask);
-                            if (index == 0 || index >= Vector256<byte>.Count - binLettersLength)
+                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                            if (index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
                             if (value == binUint)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -258,7 +244,7 @@ internal static partial class SIMD
 
                         if (equalsBraces == Vector256<byte>.Zero)
                         {
-                            currentBufferPosition += Vector256<byte>.Count;
+                            currentSpanPosition += Vector256<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
                             continue;
                         }
@@ -274,7 +260,7 @@ internal static partial class SIMD
             while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
 
             // If any elements remain, process the last vector in the search space.
-            if ((uint)length % Vector256<byte>.Count != 0)
+            if ((uint)count % Vector256<byte>.Count != 0)
             {
                 current = Vector256.LoadUnsafe(ref oneVectorAwayFromEnd);
                 equalsBraces = Vector256.Equals(_openBraceVector256, current) | Vector256.Equals(_closingBraceVector256, current);
@@ -286,7 +272,7 @@ internal static partial class SIMD
                 }
             }
         }
-        else if (Vector128.IsHardwareAccelerated && length >= Vector128<byte>.Count)
+        else if (Vector128.IsHardwareAccelerated && count >= Vector128<byte>.Count)
         {
             ref byte searchSpace = ref MemoryMarshal.GetReference(span);
             Vector128<byte> equalsBraces;
@@ -294,7 +280,7 @@ internal static partial class SIMD
             Vector128<byte> equals;
             Vector128<byte> current;
             ref byte currentSearchSpace = ref searchSpace;
-            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, length - Vector128<byte>.Count);
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, count - Vector128<byte>.Count);
 
             // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
             do
@@ -305,7 +291,7 @@ internal static partial class SIMD
                 equals = equalsBraces | equalsBackslash;
                 if (equals == Vector128<byte>.Zero)
                 {
-                    currentBufferPosition += Vector128<byte>.Count;
+                    currentSpanPosition += Vector128<byte>.Count;
                     currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector128<byte>.Count);
                     continue;
                 }
@@ -320,13 +306,7 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        int lastBackslashIndex = 31 - BitOperations.LeadingZeroCount(notEqualsElementsBackslash);
-                        if (lastBackslashIndex > Vector128<byte>.Count - RtfToTextConverter._binLength)
-                        {
-                            return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                        }
-
-                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetArrayDataReference(buffer), currentBufferPosition);
+                        ref byte bRef = ref Unsafe.AddByteOffset(ref MemoryMarshal.GetReference(span), currentSpanPosition);
                         ref byte nRef = ref Unsafe.AddByteOffset(ref bRef, binLettersLength - 1);
 
                         Vector128<byte> firstBlock = Vector128.LoadUnsafe(ref bRef);
@@ -337,13 +317,13 @@ internal static partial class SIMD
                         uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
                         while (mask != 0)
                         {
-                            int index = BitOperations.TrailingZeroCount(mask);
-                            if (index == 0 || index >= Vector128<byte>.Count - binLettersLength)
+                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                            if (index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in buffer[currentBufferPosition + (index - 1)]);
+                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
                             if (value == binUint)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -354,7 +334,7 @@ internal static partial class SIMD
 
                         if (equalsBraces == Vector128<byte>.Zero)
                         {
-                            currentBufferPosition += Vector128<byte>.Count;
+                            currentSpanPosition += Vector128<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector128<byte>.Count);
                             continue;
                         }
@@ -370,7 +350,7 @@ internal static partial class SIMD
             while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
 
             // If any elements remain, process the last vector in the search space.
-            if ((uint)length % Vector128<byte>.Count != 0)
+            if ((uint)count % Vector128<byte>.Count != 0)
             {
                 current = Vector128.LoadUnsafe(ref oneVectorAwayFromEnd);
                 equalsBraces = Vector128.Equals(_openBraceVector128, current) | Vector128.Equals(_closingBraceVector128, current);
