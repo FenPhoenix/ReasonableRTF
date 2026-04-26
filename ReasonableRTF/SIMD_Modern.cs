@@ -138,7 +138,7 @@ internal static partial class SIMD
                         while (mask != 0)
                         {
                             int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index >= count - binLettersLength)
+                            if (index == 0 || index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
@@ -228,7 +228,7 @@ internal static partial class SIMD
                         while (mask != 0)
                         {
                             int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index >= count - binLettersLength)
+                            if (index == 0 || index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
@@ -318,7 +318,7 @@ internal static partial class SIMD
                         while (mask != 0)
                         {
                             int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index >= count - binLettersLength)
+                            if (index == 0 || index >= count - binLettersLength)
                             {
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
