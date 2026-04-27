@@ -290,25 +290,6 @@ public sealed partial class RtfToTextConverter
         return i * 8 + LocateFirstFoundByte(candidate);
     }
 
-    // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int LocateFirstFoundByte(Vector<byte> match, int start)
-    {
-        Vector<ulong> vector64 = Vector.AsVectorUInt64(match);
-        // Pattern unrolled by jit https://github.com/dotnet/coreclr/pull/8001
-        for (int i = start; i < Vector<ulong>.Count; i++)
-        {
-            ulong candidate = vector64[i];
-            if (candidate != 0)
-            {
-                // Single LEA instruction with jitted const (using function result)
-                return i * 8 + LocateFirstFoundByte(candidate);
-            }
-        }
-
-        return -1;
-    }
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static int LocateFirstFoundByte(ulong match)
     {
@@ -316,40 +297,6 @@ public sealed partial class RtfToTextConverter
         ulong powerOfTwoFlag = match ^ (match - 1);
         // Shift all powers of two into the high byte and extract
         return (int)((powerOfTwoFlag * XorPowerOfTwoToHighByte) >> 57);
-    }
-
-    // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int LocateLastFoundByte(Vector<byte> match)
-    {
-        var vector64 = Vector.AsVectorUInt64(match);
-        ulong candidate = 0;
-        int i = Vector<ulong>.Count - 1;
-        // Pattern unrolled by jit https://github.com/dotnet/coreclr/pull/8001
-        for (; i >= 0; i--)
-        {
-            candidate = vector64[i];
-            if (candidate != 0)
-            {
-                break;
-            }
-        }
-
-        // Single LEA instruction with jitted const (using function result)
-        return i * 8 + LocateLastFoundByte(candidate);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int LocateLastFoundByte(ulong match)
-    {
-        // Find the most significant byte that has its highest bit set
-        int index = 7;
-        while ((long)match > 0)
-        {
-            match <<= 8;
-            index--;
-        }
-        return index;
     }
 
     #endregion
