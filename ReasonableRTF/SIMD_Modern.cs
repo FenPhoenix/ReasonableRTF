@@ -128,9 +128,8 @@ internal static partial class SIMD
                     {
                         if (currentSpanPosition + Vector512<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            Vector512<byte> firstBlock = Vector512.LoadUnsafe(ref currentSearchSpace);
                             Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector512<byte> firstEquals = Vector512.Equals(_bVector512, firstBlock);
+                            Vector512<byte> firstEquals = Vector512.Equals(_bVector512, current);
                             Vector512<byte> lastEquals = Vector512.Equals(_nVector512, lastBlock);
 
                             ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
@@ -236,9 +235,8 @@ internal static partial class SIMD
                     {
                         if (currentSpanPosition + Vector256<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            Vector256<byte> firstBlock = Vector256.LoadUnsafe(ref currentSearchSpace);
                             Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector256<byte> firstEquals = Vector256.Equals(_bVector256, firstBlock);
+                            Vector256<byte> firstEquals = Vector256.Equals(_bVector256, current);
                             Vector256<byte> lastEquals = Vector256.Equals(_nVector256, lastBlock);
 
                             uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
@@ -344,9 +342,8 @@ internal static partial class SIMD
                     {
                         if (currentSpanPosition + Vector128<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            Vector128<byte> firstBlock = Vector128.LoadUnsafe(ref currentSearchSpace);
                             Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector128<byte> firstEquals = Vector128.Equals(_bVector128, firstBlock);
+                            Vector128<byte> firstEquals = Vector128.Equals(_bVector128, current);
                             Vector128<byte> lastEquals = Vector128.Equals(_nVector128, lastBlock);
 
                             uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();

@@ -114,9 +114,8 @@ internal static partial class SIMD
 
                         if (currentSpanPosition + Vector<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
                             Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
+                            Vector<byte> firstEquals = Vector.Equals(_bVector, current);
                             Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
 
                             Vector<byte> containsBin = Vector.BitwiseAnd(firstEquals, lastEquals);
