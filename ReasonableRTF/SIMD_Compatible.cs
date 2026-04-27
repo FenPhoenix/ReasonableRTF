@@ -111,7 +111,7 @@ internal static partial class SIMD
                     if (equalsBraces == Vector<byte>.Zero || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
                         Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
-                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.AddByteOffset(ref currentSearchSpace, binLettersLength - 1));
+                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
                         Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
                         Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
 
@@ -133,7 +133,7 @@ internal static partial class SIMD
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
 
-                                uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref MemoryMarshal.GetReference(span), (nint)spanIndex));
+                                uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex));
                                 if (value == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
