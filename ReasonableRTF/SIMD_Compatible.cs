@@ -110,14 +110,24 @@ internal static partial class SIMD
 
                     if (equalsBraces == Vector<byte>.Zero || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
-                        Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
-                        Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                        Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
-                        Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
+                        bool mightContainBin = true;
 
-                        Vector<byte> containsBin = Vector.BitwiseAnd(firstEquals, lastEquals);
+                        if (currentSpanPosition + Vector<byte>.Count + (binLettersLength - 1) <= count)
+                        {
+                            Vector<byte> firstBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref currentSearchSpace);
+                            Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
+                            Vector<byte> firstEquals = Vector.Equals(_bVector, firstBlock);
+                            Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
 
-                        if (containsBin != Vector<byte>.Zero)
+                            Vector<byte> containsBin = Vector.BitwiseAnd(firstEquals, lastEquals);
+
+                            if (containsBin == Vector<byte>.Zero)
+                            {
+                                mightContainBin = false;
+                            }
+                        }
+
+                        if (mightContainBin)
                         {
                             int index = currentSpanPosition;
                             int sliceLength = Vector<byte>.Count;
@@ -128,7 +138,7 @@ internal static partial class SIMD
                                 if (index == -1) break;
 
                                 int spanIndex = currentSpanPosition + (index - 1);
-                                if (spanIndex < 0 || spanIndex >= count - binLettersLength)
+                                if (spanIndex < 0 || spanIndex >= count - sizeof(uint))
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }

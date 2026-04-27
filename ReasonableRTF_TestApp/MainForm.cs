@@ -371,16 +371,17 @@ public sealed partial class MainForm : Form
             //"simple_number.rtf"
             //"complex_list_diff_styles.rtf"
             //"RtfParserTest_fail_3.rtf"
-            "2003-02-11_COSAS1-Gatheringatt__gati.rtf"
+            //"2003-02-11_COSAS1-Gatheringatt__gati.rtf"
+            "bin_simd_test.rtf"
             ;
-        SourceSet sourceSet = SourceSet.Full;
+        SourceSet sourceSet = SourceSet.ValidityTest;
 
         string finalFile = Path.Combine(GetRtfSetDir(sourceSet), file);
 
         using FileStream fs = File.OpenRead(finalFile);
-        //byte[] array = new byte[fs.Length];
-        //fs.ReadExactly(array, 0, (int)fs.Length);
-        RtfResult result = rtfConverter.Convert(fs);
+        byte[] array = new byte[fs.Length];
+        fs.ReadExactly(array, 0, (int)fs.Length);
+        RtfResult result = rtfConverter.Convert(array);
         Trace.WriteLine(result.ToString());
         if (write)
         {

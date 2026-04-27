@@ -126,27 +126,48 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        Vector512<byte> firstBlock = Vector512.LoadUnsafe(ref currentSearchSpace);
-                        Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                        Vector512<byte> firstEquals = Vector512.Equals(_bVector512, firstBlock);
-                        Vector512<byte> lastEquals = Vector512.Equals(_nVector512, lastBlock);
-
-                        ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
-                        while (mask != 0)
+                        if (currentSpanPosition + Vector512<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index < 0 || index >= count - binLettersLength)
-                            {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                            Vector512<byte> firstBlock = Vector512.LoadUnsafe(ref currentSearchSpace);
+                            Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
+                            Vector512<byte> firstEquals = Vector512.Equals(_bVector512, firstBlock);
+                            Vector512<byte> lastEquals = Vector512.Equals(_nVector512, lastBlock);
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                            if (value == binUint)
+                            ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            while (mask != 0)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                if (index < 0 || index >= count - sizeof(uint))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
 
-                            mask = ResetLowestSetBit(mask);
+                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
+                                if (value == binUint)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+
+                                mask = ResetLowestSetBit(mask);
+                            }
+                        }
+                        else
+                        {
+                            if (TryFindBin(
+                                    currentSpanPosition,
+                                    Vector512<byte>.Count,
+                                    span,
+                                    currentSpanPosition,
+                                    startIndex,
+                                    count,
+                                    ref searchSpace,
+                                    ref currentSearchSpace,
+                                    backslashIndex,
+                                    binUint,
+                                    out int ret))
+                            {
+                                return ret;
+                            }
                         }
 
                         if (equalsBraces == Vector512<byte>.Zero)
@@ -213,27 +234,48 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        Vector256<byte> firstBlock = Vector256.LoadUnsafe(ref currentSearchSpace);
-                        Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                        Vector256<byte> firstEquals = Vector256.Equals(_bVector256, firstBlock);
-                        Vector256<byte> lastEquals = Vector256.Equals(_nVector256, lastBlock);
-
-                        uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
-                        while (mask != 0)
+                        if (currentSpanPosition + Vector256<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index < 0 || index >= count - binLettersLength)
-                            {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                            Vector256<byte> firstBlock = Vector256.LoadUnsafe(ref currentSearchSpace);
+                            Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
+                            Vector256<byte> firstEquals = Vector256.Equals(_bVector256, firstBlock);
+                            Vector256<byte> lastEquals = Vector256.Equals(_nVector256, lastBlock);
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                            if (value == binUint)
+                            uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            while (mask != 0)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                if (index < 0 || index >= count - sizeof(uint))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
 
-                            mask = ResetLowestSetBit(mask);
+                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
+                                if (value == binUint)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+
+                                mask = ResetLowestSetBit(mask);
+                            }
+                        }
+                        else
+                        {
+                            if (TryFindBin(
+                                    currentSpanPosition,
+                                    Vector256<byte>.Count,
+                                    span,
+                                    currentSpanPosition,
+                                    startIndex,
+                                    count,
+                                    ref searchSpace,
+                                    ref currentSearchSpace,
+                                    backslashIndex,
+                                    binUint,
+                                    out int ret))
+                            {
+                                return ret;
+                            }
                         }
 
                         if (equalsBraces == Vector256<byte>.Zero)
@@ -300,27 +342,48 @@ internal static partial class SIMD
 
                     if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        Vector128<byte> firstBlock = Vector128.LoadUnsafe(ref currentSearchSpace);
-                        Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                        Vector128<byte> firstEquals = Vector128.Equals(_bVector128, firstBlock);
-                        Vector128<byte> lastEquals = Vector128.Equals(_nVector128, lastBlock);
-
-                        uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
-                        while (mask != 0)
+                        if (currentSpanPosition + Vector128<byte>.Count + (binLettersLength - 1) <= count)
                         {
-                            int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                            if (index < 0 || index >= count - binLettersLength)
-                            {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                            Vector128<byte> firstBlock = Vector128.LoadUnsafe(ref currentSearchSpace);
+                            Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
+                            Vector128<byte> firstEquals = Vector128.Equals(_bVector128, firstBlock);
+                            Vector128<byte> lastEquals = Vector128.Equals(_nVector128, lastBlock);
 
-                            uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                            if (value == binUint)
+                            uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            while (mask != 0)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                            }
+                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                if (index < 0 || index >= count - sizeof(uint))
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
 
-                            mask = ResetLowestSetBit(mask);
+                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
+                                if (value == binUint)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+
+                                mask = ResetLowestSetBit(mask);
+                            }
+                        }
+                        else
+                        {
+                            if (TryFindBin(
+                                    currentSpanPosition,
+                                    Vector128<byte>.Count,
+                                    span,
+                                    currentSpanPosition,
+                                    startIndex,
+                                    count,
+                                    ref searchSpace,
+                                    ref currentSearchSpace,
+                                    backslashIndex,
+                                    binUint,
+                                    out int ret))
+                            {
+                                return ret;
+                            }
                         }
 
                         if (equalsBraces == Vector128<byte>.Zero)
@@ -354,6 +417,31 @@ internal static partial class SIMD
             }
         }
         return -1;
+    }
+
+    // It's called extremely rarely, so it's okay that it's separated out
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryFindBin(int index, int sliceLength, ReadOnlySpan<byte> span, int currentSpanPosition, int startIndex, int count, ref byte searchSpace, ref byte currentSearchSpace, int backslashIndex, uint binUint, out int result)
+    {
+        while (true)
+        {
+            index = span.Slice(index, sliceLength).IndexOf((byte)'b');
+            if (index == -1) break;
+
+            int spanIndex = currentSpanPosition + (index - 1);
+            if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
+                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
+            {
+                result = startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                return true;
+            }
+
+            ++index;
+            sliceLength -= index;
+        }
+
+        result = 0;
+        return false;
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
