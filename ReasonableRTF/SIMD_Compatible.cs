@@ -33,7 +33,7 @@ using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
-internal static partial class SIMD
+public sealed partial class RtfToTextConverter
 {
     #region Private fields
 
@@ -63,7 +63,7 @@ internal static partial class SIMD
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
     // Made to handle the \binN situation while losing as little performance as possible.
-    internal static int SkipDest(
+    private static int SIMD_SkipDest(
         byte[] buffer,
         int startIndex,
         int count)
@@ -183,7 +183,7 @@ internal static partial class SIMD
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
-    internal static void CopyPlainText(
+    private static void SIMD_CopyPlainText(
         byte[] buffer,
         int startIndex,
         int count,

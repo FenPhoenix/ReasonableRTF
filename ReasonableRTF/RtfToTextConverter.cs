@@ -2556,7 +2556,7 @@ public sealed partial class RtfToTextConverter
         {
             if (System.Numerics.Vector.IsHardwareAccelerated)
             {
-                SIMD.CopyPlainText(
+                SIMD_CopyPlainText(
                     _buffer,
                     _currentPos,
                     _currentBufferChunkLength - _currentPos,
@@ -4362,7 +4362,7 @@ public sealed partial class RtfToTextConverter
         {
             while (!_reachedEndOfStream)
             {
-                index = SIMD.SkipDest(_buffer, index, _currentBufferChunkLength - index);
+                index = SIMD_SkipDest(_buffer, index, _currentBufferChunkLength - index);
 
                 /*
                 Curly braces can be escaped like \{ and \}. But there can be an arbitrary amount of backslashes
