@@ -2261,14 +2261,11 @@ public sealed partial class RtfToTextConverter
         }
         finally
         {
-            if (_bufferedStream == null)
-            {
-                _buffer = Array.Empty<byte>();
-            }
-            else
+            if (_bufferedStream != null)
             {
                 ArrayPool<byte>.Shared.Return(_buffer);
             }
+            _buffer = Array.Empty<byte>();
             _bufferLength = 0;
             _currentBufferChunkLength = 0;
             _bufferedStream = null;
