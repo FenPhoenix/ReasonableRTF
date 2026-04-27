@@ -137,16 +137,12 @@ internal static partial class SIMD
                                 if (index == -1) break;
 
                                 int spanIndex = currentSpanPosition + (index - 1);
-                                if (spanIndex < 0 || spanIndex >= count - sizeof(uint))
+                                if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
 
-                                uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex));
-                                if (value == binUint)
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                                }
                                 ++index;
                                 sliceLength -= index;
                             }

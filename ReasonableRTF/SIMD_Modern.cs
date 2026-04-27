@@ -136,13 +136,8 @@ internal static partial class SIMD
                             while (mask != 0)
                             {
                                 int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                                if (index < 0 || index >= count - sizeof(uint))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                                }
-
-                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                                if (value == binUint)
+                                if (index < 0 || index >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -243,13 +238,8 @@ internal static partial class SIMD
                             while (mask != 0)
                             {
                                 int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                                if (index < 0 || index >= count - sizeof(uint))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                                }
-
-                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                                if (value == binUint)
+                                if (index < 0 || index >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -350,13 +340,8 @@ internal static partial class SIMD
                             while (mask != 0)
                             {
                                 int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
-                                if (index < 0 || index >= count - sizeof(uint))
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                                }
-
-                                uint value = Unsafe.ReadUnaligned<uint>(in span[index]);
-                                if (value == binUint)
+                                if (index < 0 || index >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -418,7 +403,18 @@ internal static partial class SIMD
 
     // It's called extremely rarely, so it's okay that it's separated out
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool TryFindBin(int index, int sliceLength, ReadOnlySpan<byte> span, int currentSpanPosition, int startIndex, int count, ref byte searchSpace, ref byte currentSearchSpace, int backslashIndex, uint binUint, out int result)
+    private static bool TryFindBin(
+        int index,
+        int sliceLength,
+        ReadOnlySpan<byte> span,
+        int currentSpanPosition,
+        int startIndex,
+        int count,
+        ref byte searchSpace,
+        ref byte currentSearchSpace,
+        int backslashIndex,
+        uint binUint,
+        out int result)
     {
         while (true)
         {
