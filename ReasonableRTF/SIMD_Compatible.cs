@@ -130,28 +130,37 @@ public sealed partial class RtfToTextConverter
                             else
                             {
                                 vector64 = Vector.AsVectorUInt64(containsBin);
+                                int currentVectorIndex = LocateFirstFoundByte(containsBin);
+                                while (currentVectorIndex > -1)
+                                {
+                                    int spanIndex = currentSpanPosition + currentVectorIndex;
+                                    if (spanIndex >= spanLength - sizeof(uint) ||
+                                        Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
+                                    {
+                                        if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
+                                        return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                    }
+                                    ++currentVectorIndex;
+                                    currentVectorIndex = LocateFirstFoundByte(vector64, currentVectorIndex);
+                                }
                             }
                         }
                         else
                         {
                             vector64 = Vector.AsVectorUInt64(equalsBackslash);
-                        }
-
-                        int currentVectorIndex = 0;
-                        while (true)
-                        {
-                            currentVectorIndex = LocateFirstFoundByte(vector64, currentVectorIndex);
-                            if (currentVectorIndex == -1) break;
-
-                            int spanIndex = currentSpanPosition + currentVectorIndex;
-
-                            if (spanIndex >= spanLength - sizeof(uint) ||
-                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
+                            if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
+                            int currentVectorIndex = backslashIndex;
+                            while (currentVectorIndex > -1)
                             {
-                                if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                int spanIndex = currentSpanPosition + currentVectorIndex;
+                                if (spanIndex >= spanLength - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+                                ++currentVectorIndex;
+                                currentVectorIndex = LocateFirstFoundByte(vector64, currentVectorIndex);
                             }
-                            ++currentVectorIndex;
                         }
 
                         if (!bracesFound)
