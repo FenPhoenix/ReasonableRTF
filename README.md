@@ -115,9 +115,9 @@ RtfResult result = converter.Convert("some_file.rtf", options);
 
 BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8246/25H2/2025Update/HudsonValley2)
 AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
-.NET SDK 10.0.202
-  [Host]     : .NET 10.0.6 (10.0.6, 10.0.626.17701), X64 RyuJIT x86-64-v3
-  DefaultJob : .NET 10.0.6 (10.0.6, 10.0.626.17701), X64 RyuJIT x86-64-v3
+.NET SDK 10.0.203
+  [Host]     : .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
+  DefaultJob : .NET 10.0.7 (10.0.7, 10.0.726.21808), X64 RyuJIT x86-64-v3
 
 
 ```
@@ -125,16 +125,16 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    21.137 ms | 0.0404 ms | 0.0378 ms | 6870.03 MB/s | 158x     |
-| ReasonableRTF_NoImageSet          |     5.454 ms | 0.0107 ms | 0.0101 ms |  649.74 MB/s | 263x     |
-| ReasonableRTF_FullSet_Streamed    |    22.959 ms | 0.0415 ms | 0.0388 ms | 6324.83 MB/s | 145x     |
-| ReasonableRTF_NoImageSet_Streamed |     5.427 ms | 0.0146 ms | 0.0136 ms |  652.97 MB/s | 264x     |
+| ReasonableRTF_FullSet             |    20.969 ms | 0.0703 ms | 0.0657 ms | 6925.07 MB/s | 159x     |
+| ReasonableRTF_NoImageSet          |     5.343 ms | 0.0173 ms | 0.0161 ms |  663.24 MB/s | 268x     |
+| ReasonableRTF_FullSet_Streamed    |    22.804 ms | 0.0593 ms | 0.0555 ms | 6367.82 MB/s | 146x     |
+| ReasonableRTF_NoImageSet_Streamed |     5.493 ms | 0.0113 ms | 0.0100 ms |  645.12 MB/s | 261x     |
 
 ### .NET Framework 4.8 64-bit
 
 ```
 
-BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8039/25H2/2025Update/HudsonValley2)
+BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8246/25H2/2025Update/HudsonValley2)
 AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
   [Host]     : .NET Framework 4.8.1 (4.8.9325.0), X64 RyuJIT VectorSize=256
   DefaultJob : .NET Framework 4.8.1 (4.8.9325.0), X64 RyuJIT VectorSize=256
@@ -145,10 +145,10 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 2,779.775 ms | 3.9318 ms | 3.2833 ms |   52.24 MB/s | 1x       |
 | RichTextBox_NoImageSet            |   992.237 ms | 2.5478 ms | 2.2585 ms |    3.57 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    28.682 ms | 0.0389 ms | 0.0325 ms | 5062.82 MB/s | 97x      |
-| ReasonableRTF_NoImageSet          |     7.764 ms | 0.0160 ms | 0.0150 ms |  456.42 MB/s | 128x     |
-| ReasonableRTF_FullSet_Streamed    |    31.010 ms | 0.0940 ms | 0.0880 ms | 4682.74 MB/s | 89x      |
-| ReasonableRTF_NoImageSet_Streamed |     7.826 ms | 0.0128 ms | 0.0120 ms |  452.81 MB/s | 127x     |
+| ReasonableRTF_FullSet             |    28.226 ms | 0.0418 ms | 0.0349 ms | 5144.61 MB/s | 99x      |
+| ReasonableRTF_NoImageSet          |     7.703 ms | 0.0187 ms | 0.0175 ms |  460.04 MB/s | 129x     |
+| ReasonableRTF_FullSet_Streamed    |    30.723 ms | 0.0665 ms | 0.0555 ms | 4726.48 MB/s | 91x      |
+| ReasonableRTF_NoImageSet_Streamed |     7.811 ms | 0.0057 ms | 0.0053 ms |  453.68 MB/s | 127x     |
 
 ### .NET Framework 4.8 32-bit
 
