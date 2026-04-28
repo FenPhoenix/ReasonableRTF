@@ -389,9 +389,8 @@ public sealed partial class RtfToTextConverter
             index = UtilHelper.Array_IndexOfByte_Fast_Span(span, (byte)'\\', index, (currentSpanPosition + sliceLength) - index);
             if (index == -1) break;
 
-            int spanIndex = currentSpanPosition + index;
-            if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
-                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
+            if (index >= count - sizeof(uint) ||
+                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), index)) == binUint)
             {
                 return true;
             }
