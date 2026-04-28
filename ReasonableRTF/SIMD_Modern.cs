@@ -114,11 +114,10 @@ public sealed partial class RtfToTextConverter
                 {
                     ulong notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
                     int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int bracesIndex = 0;
 
-                    ulong notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
-                    int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
-
-                    if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
+                    bool bracesFound = equalsBraces != Vector512<byte>.Zero;
+                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector512<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -157,7 +156,7 @@ public sealed partial class RtfToTextConverter
                             }
                         }
 
-                        if (equalsBraces == Vector512<byte>.Zero)
+                        if (!bracesFound)
                         {
                             currentSpanPosition += Vector512<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector512<byte>.Count);
@@ -215,11 +214,10 @@ public sealed partial class RtfToTextConverter
                 {
                     uint notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
                     int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int bracesIndex = 0;
 
-                    uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
-                    int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
-
-                    if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
+                    bool bracesFound = equalsBraces != Vector256<byte>.Zero;
+                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector256<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -258,7 +256,7 @@ public sealed partial class RtfToTextConverter
                             }
                         }
 
-                        if (equalsBraces == Vector256<byte>.Zero)
+                        if (!bracesFound)
                         {
                             currentSpanPosition += Vector256<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector256<byte>.Count);
@@ -316,11 +314,10 @@ public sealed partial class RtfToTextConverter
                 {
                     uint notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
                     int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int bracesIndex = 0;
 
-                    uint notEqualsElementsBraces = equalsBraces.ExtractMostSignificantBits();
-                    int bracesIndex = BitOperations.TrailingZeroCount(notEqualsElementsBraces);
-
-                    if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
+                    bool bracesFound = equalsBraces != Vector128<byte>.Zero;
+                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector128<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -359,7 +356,7 @@ public sealed partial class RtfToTextConverter
                             }
                         }
 
-                        if (equalsBraces == Vector128<byte>.Zero)
+                        if (!bracesFound)
                         {
                             currentSpanPosition += Vector128<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector128<byte>.Count);

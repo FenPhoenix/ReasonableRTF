@@ -102,9 +102,10 @@ public sealed partial class RtfToTextConverter
                 if (equalsBackslash != Vector<byte>.Zero)
                 {
                     int backslashIndex = LocateFirstFoundByte(equalsBackslash);
-                    int bracesIndex = -1;
+                    int bracesIndex = 0;
 
-                    if (equalsBraces == Vector<byte>.Zero || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
+                    bool bracesFound = equalsBraces != Vector<byte>.Zero;
+                    if (!bracesFound || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
                         bool mightContainBin = true;
 
@@ -140,7 +141,7 @@ public sealed partial class RtfToTextConverter
                             }
                         }
 
-                        if (equalsBraces == Vector<byte>.Zero)
+                        if (!bracesFound)
                         {
                             currentSpanPosition += Vector<byte>.Count;
                             currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
