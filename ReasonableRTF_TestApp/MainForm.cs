@@ -372,7 +372,8 @@ public sealed partial class MainForm : Form
             //"complex_list_diff_styles.rtf"
             //"RtfParserTest_fail_3.rtf"
             //"2003-02-11_COSAS1-Gatheringatt__gati.rtf"
-            "bin_simd_test_chunked.rtf"
+            "bin_simd_test.rtf"
+            //"bin_simd_test_chunked.rtf"
             ;
         SourceSet sourceSet = SourceSet.ValidityTest;
 

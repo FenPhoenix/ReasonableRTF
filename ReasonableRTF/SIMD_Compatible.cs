@@ -29,7 +29,6 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using ReasonableRTF.Helper;
 using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
@@ -101,14 +100,13 @@ public sealed partial class RtfToTextConverter
 
                 if (equalsBackslash != Vector<byte>.Zero)
                 {
-                    int backslashIndex = LocateFirstFoundByte(equalsBackslash);
+                    int backslashIndex = -1;
                     int bracesIndex = 0;
 
                     bool bracesFound = equalsBraces != Vector<byte>.Zero;
-                    if (!bracesFound || backslashIndex < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
+                    if (!bracesFound || (backslashIndex = LocateFirstFoundByte(equalsBackslash)) < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
-                        bool mightContainBin = true;
-
+                        Vector<ulong> vector64;
                         if (currentSpanPosition + Vector<byte>.Count + (_binLength - 1) <= count)
                         {
                             Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
@@ -118,26 +116,42 @@ public sealed partial class RtfToTextConverter
 
                             if (containsBin == Vector<byte>.Zero)
                             {
-                                mightContainBin = false;
+                                if (!bracesFound)
+                                {
+                                    currentSpanPosition += Vector<byte>.Count;
+                                    currentSearchSpace = ref Unsafe.Add(ref currentSearchSpace, Vector<byte>.Count);
+                                    continue;
+                                }
+                                else
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, bracesIndex);
+                                }
+                            }
+                            else
+                            {
+                                vector64 = Vector.AsVectorUInt64(containsBin);
                             }
                         }
-
-                        if (mightContainBin)
+                        else
                         {
-                            int index = currentSpanPosition;
+                            vector64 = Vector.AsVectorUInt64(equalsBackslash);
+                        }
 
-                            while (true)
+                        int currentVectorIndex = 0;
+                        while (true)
+                        {
+                            currentVectorIndex = LocateFirstFoundByte(vector64, currentVectorIndex);
+                            if (currentVectorIndex == -1) break;
+
+                            int spanIndex = currentSpanPosition + currentVectorIndex;
+
+                            if (spanIndex >= count - sizeof(uint) ||
+                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
                             {
-                                index = UtilHelper.Array_IndexOfByte_Fast_Span(span, (byte)'\\', index, (currentSpanPosition + Vector<byte>.Count) - index);
-                                if (index == -1) break;
-
-                                if (index >= count - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), index)) == binUint)
-                                {
-                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
-                                }
-                                ++index;
+                                if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
+                            ++currentVectorIndex;
                         }
 
                         if (!bracesFound)
@@ -280,6 +294,25 @@ public sealed partial class RtfToTextConverter
 
         // Single LEA instruction with jitted const (using function result)
         return i * 8 + LocateFirstFoundByte(candidate);
+    }
+
+    // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static int LocateFirstFoundByte(Vector<ulong> vector64, int start)
+    {
+        int i = start;
+        // Pattern unrolled by jit https://github.com/dotnet/coreclr/pull/8001
+        for (; i < Vector<ulong>.Count; i++)
+        {
+            ulong candidate = vector64[i];
+            if (candidate != 0)
+            {
+                // Single LEA instruction with jitted const (using function result)
+                return i * 8 + LocateFirstFoundByte(candidate);
+            }
+        }
+
+        return -1;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

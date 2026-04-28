@@ -113,11 +113,11 @@ public sealed partial class RtfToTextConverter
                 if (equalsBackslash != Vector512<byte>.Zero)
                 {
                     ulong notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
-                    int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int backslashIndex = -1;
                     int bracesIndex = 0;
 
                     bool bracesFound = equalsBraces != Vector512<byte>.Zero;
-                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
+                    if (!bracesFound || (backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash)) < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector512<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -131,6 +131,7 @@ public sealed partial class RtfToTextConverter
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
+                                    if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
 
@@ -139,15 +140,20 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (FoundPossibleBinKeyword(
-                                    currentSpanPosition,
-                                    Vector512<byte>.Count,
-                                    span,
-                                    currentSpanPosition,
-                                    count,
-                                    binUInt))
+                            if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                            int currentVectorIndex = backslashIndex;
+                            ulong mask = notEqualsElementsBackslash;
+                            while (currentVectorIndex < Vector512<byte>.Count)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                int spanIndex = currentSpanPosition + currentVectorIndex;
+                                if (spanIndex >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+                                ++currentVectorIndex;
+                                mask = ResetLowestSetBit(mask);
+                                currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
                         }
 
@@ -208,11 +214,11 @@ public sealed partial class RtfToTextConverter
                 if (equalsBackslash != Vector256<byte>.Zero)
                 {
                     uint notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
-                    int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int backslashIndex = -1;
                     int bracesIndex = 0;
 
                     bool bracesFound = equalsBraces != Vector256<byte>.Zero;
-                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
+                    if (!bracesFound || (backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash)) < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector256<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -226,6 +232,7 @@ public sealed partial class RtfToTextConverter
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
+                                    if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
 
@@ -234,15 +241,20 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (FoundPossibleBinKeyword(
-                                    currentSpanPosition,
-                                    Vector256<byte>.Count,
-                                    span,
-                                    currentSpanPosition,
-                                    count,
-                                    binUInt))
+                            if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                            int currentVectorIndex = backslashIndex;
+                            uint mask = notEqualsElementsBackslash;
+                            while (currentVectorIndex < Vector256<byte>.Count)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                int spanIndex = currentSpanPosition + currentVectorIndex;
+                                if (spanIndex >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+                                ++currentVectorIndex;
+                                mask = ResetLowestSetBit(mask);
+                                currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
                         }
 
@@ -303,11 +315,11 @@ public sealed partial class RtfToTextConverter
                 if (equalsBackslash != Vector128<byte>.Zero)
                 {
                     uint notEqualsElementsBackslash = equalsBackslash.ExtractMostSignificantBits();
-                    int backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                    int backslashIndex = -1;
                     int bracesIndex = 0;
 
                     bool bracesFound = equalsBraces != Vector128<byte>.Zero;
-                    if (!bracesFound || backslashIndex < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
+                    if (!bracesFound || (backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash)) < (bracesIndex = BitOperations.TrailingZeroCount(equalsBraces.ExtractMostSignificantBits())))
                     {
                         if (currentSpanPosition + Vector128<byte>.Count + (_binLength - 1) <= count)
                         {
@@ -321,6 +333,7 @@ public sealed partial class RtfToTextConverter
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
+                                    if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
 
@@ -329,15 +342,20 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (FoundPossibleBinKeyword(
-                                    currentSpanPosition,
-                                    Vector128<byte>.Count,
-                                    span,
-                                    currentSpanPosition,
-                                    count,
-                                    binUInt))
+                            if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
+                            int currentVectorIndex = backslashIndex;
+                            uint mask = notEqualsElementsBackslash;
+                            while (currentVectorIndex < Vector128<byte>.Count)
                             {
-                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                int spanIndex = currentSpanPosition + currentVectorIndex;
+                                if (spanIndex >= count - sizeof(uint) ||
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                {
+                                    return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
+                                }
+                                ++currentVectorIndex;
+                                mask = ResetLowestSetBit(mask);
+                                currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
                         }
 
@@ -372,32 +390,6 @@ public sealed partial class RtfToTextConverter
             }
         }
         return -1;
-    }
-
-    // It's called extremely rarely, so it's okay that it's separated out
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool FoundPossibleBinKeyword(
-        int index,
-        int sliceLength,
-        ReadOnlySpan<byte> span,
-        int currentSpanPosition,
-        int count,
-        uint binUint)
-    {
-        while (true)
-        {
-            index = UtilHelper.Array_IndexOfByte_Fast_Span(span, (byte)'\\', index, (currentSpanPosition + sliceLength) - index);
-            if (index == -1) break;
-
-            if (index >= count - sizeof(uint) ||
-                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), index)) == binUint)
-            {
-                return true;
-            }
-            ++index;
-        }
-
-        return false;
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
