@@ -81,7 +81,7 @@ public sealed partial class RtfToTextConverter
             return -1;
         }
 
-        uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
+        uint binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
         int currentSpanPosition = 0;
 
         ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
@@ -129,7 +129,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -139,20 +139,15 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (TryFindBin(
+                            if (FoundPossibleBinKeyword(
                                     currentSpanPosition,
                                     Vector512<byte>.Count,
                                     span,
                                     currentSpanPosition,
-                                    startIndex,
                                     count,
-                                    ref searchSpace,
-                                    ref currentSearchSpace,
-                                    backslashIndex,
-                                    binUint,
-                                    out int ret))
+                                    binUInt))
                             {
-                                return ret;
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
                         }
 
@@ -229,7 +224,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -239,20 +234,15 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (TryFindBin(
+                            if (FoundPossibleBinKeyword(
                                     currentSpanPosition,
                                     Vector256<byte>.Count,
                                     span,
                                     currentSpanPosition,
-                                    startIndex,
                                     count,
-                                    ref searchSpace,
-                                    ref currentSearchSpace,
-                                    backslashIndex,
-                                    binUint,
-                                    out int ret))
+                                    binUInt))
                             {
-                                return ret;
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
                         }
 
@@ -329,7 +319,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
+                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -339,20 +329,15 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            if (TryFindBin(
+                            if (FoundPossibleBinKeyword(
                                     currentSpanPosition,
                                     Vector128<byte>.Count,
                                     span,
                                     currentSpanPosition,
-                                    startIndex,
                                     count,
-                                    ref searchSpace,
-                                    ref currentSearchSpace,
-                                    backslashIndex,
-                                    binUint,
-                                    out int ret))
+                                    binUInt))
                             {
-                                return ret;
+                                return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                             }
                         }
 
@@ -391,18 +376,13 @@ public sealed partial class RtfToTextConverter
 
     // It's called extremely rarely, so it's okay that it's separated out
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool TryFindBin(
+    private static bool FoundPossibleBinKeyword(
         int index,
         int sliceLength,
         ReadOnlySpan<byte> span,
         int currentSpanPosition,
-        int startIndex,
         int count,
-        ref byte searchSpace,
-        ref byte currentSearchSpace,
-        int backslashIndex,
-        uint binUint,
-        out int result)
+        uint binUint)
     {
         while (true)
         {
@@ -413,13 +393,11 @@ public sealed partial class RtfToTextConverter
             if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
                 Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
             {
-                result = startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                 return true;
             }
             ++index;
         }
 
-        result = 0;
         return false;
     }
 
