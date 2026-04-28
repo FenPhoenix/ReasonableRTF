@@ -29,6 +29,7 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using ReasonableRTF.Helper;
 using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
@@ -43,10 +44,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector<byte> _backslashVector = new((byte)'\\');
     private static readonly Vector<byte> _openBraceVector = new((byte)'{');
     private static readonly Vector<byte> _closingBraceVector = new((byte)'}');
-    // We're searching for "bin" rather than "\bin" because the letters themselves are much less common than
-    // backslashes, so we minimize our hit count. We still check for the backslash after we've confirmed we've
-    // hit a "bin".
-    private static readonly Vector<byte> _bVector = new((byte)'b');
     private static readonly Vector<byte> _nVector = new((byte)'n');
 
     private const ulong XorPowerOfTwoToHighByte = (0x07ul |
@@ -73,7 +70,6 @@ public sealed partial class RtfToTextConverter
             return -1;
         }
 
-        const int binLettersLength = 3;
         uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
         int currentSpanPosition = 0;
 
@@ -112,13 +108,12 @@ public sealed partial class RtfToTextConverter
                     {
                         bool mightContainBin = true;
 
-                        if (currentSpanPosition + Vector<byte>.Count + (binLettersLength - 1) <= count)
+                        if (currentSpanPosition + Vector<byte>.Count + (_binLength - 1) <= count)
                         {
-                            Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector<byte> firstEquals = Vector.Equals(_bVector, current);
+                            Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
                             Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
 
-                            Vector<byte> containsBin = Vector.BitwiseAnd(firstEquals, lastEquals);
+                            Vector<byte> containsBin = Vector.BitwiseAnd(equalsBackslash, lastEquals);
 
                             if (containsBin == Vector<byte>.Zero)
                             {
@@ -129,22 +124,19 @@ public sealed partial class RtfToTextConverter
                         if (mightContainBin)
                         {
                             int index = currentSpanPosition;
-                            int sliceLength = Vector<byte>.Count;
 
                             while (true)
                             {
-                                index = span.Slice(index, sliceLength).IndexOf((byte)'b');
+                                index = UtilHelper.Array_IndexOfByte_Fast_Span(span, (byte)'\\', index, (currentSpanPosition + Vector<byte>.Count) - index);
                                 if (index == -1) break;
 
-                                int spanIndex = currentSpanPosition + (index - 1);
+                                int spanIndex = currentSpanPosition + index;
                                 if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
-
                                 ++index;
-                                sliceLength -= index;
                             }
                         }
 

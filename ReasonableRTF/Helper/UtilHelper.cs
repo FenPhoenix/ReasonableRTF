@@ -113,6 +113,14 @@ internal static class UtilHelper
 #endif
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static int Array_IndexOfByte_Fast_Span(ReadOnlySpan<byte> array, byte value, int startIndex, int count)
+    {
+        int index = array.Slice(startIndex, count).IndexOf(value);
+        if (index > -1) index += startIndex;
+        return index;
+    }
+
     internal static void ValidateArgs(byte[] source, int length)
     {
         if (length > source.Length)

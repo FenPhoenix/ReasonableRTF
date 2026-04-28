@@ -84,7 +84,7 @@ public sealed partial class RtfToTextConverter
     #region Constants
 
     // "\bin"
-    internal const int _binLength = 4;
+    private const int _binLength = 4;
 
     private const int _plainTextDefaultCapacity = 4096;
     private const int _internalBufferDefaultCapacity = 32;

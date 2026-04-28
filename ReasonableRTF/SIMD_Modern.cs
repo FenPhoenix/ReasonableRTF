@@ -30,6 +30,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics;
+using ReasonableRTF.Helper;
 using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
@@ -44,10 +45,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector512<byte> _backslashVector512 = Vector512.Create((byte)'\\');
     private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
     private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
-    // We're searching for "bin" rather than "\bin" because the letters themselves are much less common than
-    // backslashes, so we minimize our hit count. We still check for the backslash after we've confirmed we've
-    // hit a "bin".
-    private static readonly Vector512<byte> _bVector512 = Vector512.Create((byte)'b');
     private static readonly Vector512<byte> _nVector512 = Vector512.Create((byte)'n');
 
     private static readonly Vector256<byte> _zeroVector256 = Vector256.Create((byte)'\0');
@@ -56,7 +53,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector256<byte> _backslashVector256 = Vector256.Create((byte)'\\');
     private static readonly Vector256<byte> _openBraceVector256 = Vector256.Create((byte)'{');
     private static readonly Vector256<byte> _closingBraceVector256 = Vector256.Create((byte)'}');
-    private static readonly Vector256<byte> _bVector256 = Vector256.Create((byte)'b');
     private static readonly Vector256<byte> _nVector256 = Vector256.Create((byte)'n');
 
     private static readonly Vector128<byte> _zeroVector128 = Vector128.Create((byte)'\0');
@@ -65,7 +61,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector128<byte> _backslashVector128 = Vector128.Create((byte)'\\');
     private static readonly Vector128<byte> _openBraceVector128 = Vector128.Create((byte)'{');
     private static readonly Vector128<byte> _closingBraceVector128 = Vector128.Create((byte)'}');
-    private static readonly Vector128<byte> _bVector128 = Vector128.Create((byte)'b');
     private static readonly Vector128<byte> _nVector128 = Vector128.Create((byte)'n');
 
     #endregion
@@ -86,7 +81,6 @@ public sealed partial class RtfToTextConverter
             return -1;
         }
 
-        const int binLettersLength = 3;
         uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
         int currentSpanPosition = 0;
 
@@ -126,16 +120,15 @@ public sealed partial class RtfToTextConverter
 
                     if (bracesIndex >= Vector512<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (currentSpanPosition + Vector512<byte>.Count + (binLettersLength - 1) <= count)
+                        if (currentSpanPosition + Vector512<byte>.Count + (_binLength - 1) <= count)
                         {
-                            Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector512<byte> firstEquals = Vector512.Equals(_bVector512, current);
+                            Vector512<byte> lastBlock = Vector512.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
                             Vector512<byte> lastEquals = Vector512.Equals(_nVector512, lastBlock);
 
-                            ulong mask = Vector512.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            ulong mask = Vector512.BitwiseAnd(equalsBackslash, lastEquals).ExtractMostSignificantBits();
                             while (mask != 0)
                             {
-                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
@@ -228,16 +221,15 @@ public sealed partial class RtfToTextConverter
 
                     if (bracesIndex >= Vector256<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (currentSpanPosition + Vector256<byte>.Count + (binLettersLength - 1) <= count)
+                        if (currentSpanPosition + Vector256<byte>.Count + (_binLength - 1) <= count)
                         {
-                            Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector256<byte> firstEquals = Vector256.Equals(_bVector256, current);
+                            Vector256<byte> lastBlock = Vector256.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
                             Vector256<byte> lastEquals = Vector256.Equals(_nVector256, lastBlock);
 
-                            uint mask = Vector256.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            uint mask = Vector256.BitwiseAnd(equalsBackslash, lastEquals).ExtractMostSignificantBits();
                             while (mask != 0)
                             {
-                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
@@ -330,16 +322,15 @@ public sealed partial class RtfToTextConverter
 
                     if (bracesIndex >= Vector128<byte>.Count || backslashIndex < bracesIndex)
                     {
-                        if (currentSpanPosition + Vector128<byte>.Count + (binLettersLength - 1) <= count)
+                        if (currentSpanPosition + Vector128<byte>.Count + (_binLength - 1) <= count)
                         {
-                            Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, binLettersLength - 1));
-                            Vector128<byte> firstEquals = Vector128.Equals(_bVector128, current);
+                            Vector128<byte> lastBlock = Vector128.LoadUnsafe(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
                             Vector128<byte> lastEquals = Vector128.Equals(_nVector128, lastBlock);
 
-                            uint mask = Vector128.BitwiseAnd(firstEquals, lastEquals).ExtractMostSignificantBits();
+                            uint mask = Vector128.BitwiseAnd(equalsBackslash, lastEquals).ExtractMostSignificantBits();
                             while (mask != 0)
                             {
-                                int index = currentSpanPosition + (BitOperations.TrailingZeroCount(mask) - 1);
+                                int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= count - sizeof(uint) ||
                                     Unsafe.ReadUnaligned<uint>(in span[index]) == binUint)
                                 {
@@ -418,19 +409,17 @@ public sealed partial class RtfToTextConverter
     {
         while (true)
         {
-            index = span.Slice(index, sliceLength).IndexOf((byte)'b');
+            index = UtilHelper.Array_IndexOfByte_Fast_Span(span, (byte)'\\', index, (currentSpanPosition + sliceLength) - index);
             if (index == -1) break;
 
-            int spanIndex = currentSpanPosition + (index - 1);
+            int spanIndex = currentSpanPosition + index;
             if (spanIndex < 0 || spanIndex >= count - sizeof(uint) ||
                 Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
             {
                 result = startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                 return true;
             }
-
             ++index;
-            sliceLength -= index;
         }
 
         result = 0;
