@@ -62,19 +62,19 @@ public sealed partial class RtfToTextConverter
     private static int SIMD_SkipDest(
         byte[] buffer,
         int startIndex,
-        int count)
+        int spanLength)
     {
         if (!Vector.IsHardwareAccelerated)
         {
             return -1;
         }
 
-        uint binUint = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
+        uint binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
         int currentSpanPosition = 0;
 
-        ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
+        ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, spanLength);
 
-        if (count >= Vector<byte>.Count)
+        if (spanLength >= Vector<byte>.Count)
         {
             ref byte searchSpace = ref MemoryMarshal.GetReference(span);
             Vector<byte> equalsBraces;
@@ -82,7 +82,7 @@ public sealed partial class RtfToTextConverter
             Vector<byte> equals;
             Vector<byte> current;
             ref byte currentSearchSpace = ref searchSpace;
-            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, count - Vector<byte>.Count);
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, spanLength - Vector<byte>.Count);
 
             // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
             do
@@ -107,7 +107,7 @@ public sealed partial class RtfToTextConverter
                     if (!bracesFound || (backslashIndex = LocateFirstFoundByte(equalsBackslash)) < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
                         Vector<ulong> vector64;
-                        if (currentSpanPosition + Vector<byte>.Count + (_binLength - 1) <= count)
+                        if (currentSpanPosition + Vector<byte>.Count + (_binLength - 1) <= spanLength)
                         {
                             Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
                             Vector<byte> lastEquals = Vector.Equals(_nVector, lastBlock);
@@ -145,8 +145,8 @@ public sealed partial class RtfToTextConverter
 
                             int spanIndex = currentSpanPosition + currentVectorIndex;
 
-                            if (spanIndex >= count - sizeof(uint) ||
-                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUint)
+                            if (spanIndex >= spanLength - sizeof(uint) ||
+                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
                             {
                                 if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -172,7 +172,7 @@ public sealed partial class RtfToTextConverter
             while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
 
             // If any elements remain, process the last vector in the search space.
-            if ((uint)count % Vector<byte>.Count != 0)
+            if ((uint)spanLength % Vector<byte>.Count != 0)
             {
                 current = Unsafe.ReadUnaligned<Vector<byte>>(ref oneVectorAwayFromEnd);
                 equalsBraces = Vector.Equals(_openBraceVector, current) | Vector.Equals(_closingBraceVector, current);
@@ -192,7 +192,7 @@ public sealed partial class RtfToTextConverter
     private static void SIMD_CopyPlainText(
         byte[] buffer,
         int startIndex,
-        int count,
+        int spanLength,
         ListFast<char> plainText,
         ref int currentPos)
     {
@@ -201,16 +201,14 @@ public sealed partial class RtfToTextConverter
             return;
         }
 
-        ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, count);
-
-        int length = span.Length;
+        ReadOnlySpan<byte> span = buffer.AsSpan(startIndex, spanLength);
 
         ref byte searchSpace = ref MemoryMarshal.GetReference(span);
 
-        if (length >= Vector<byte>.Count)
+        if (spanLength >= Vector<byte>.Count)
         {
             ref byte currentSearchSpace = ref searchSpace;
-            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(length - Vector<byte>.Count));
+            ref byte oneVectorAwayFromEnd = ref Unsafe.Add(ref searchSpace, (uint)(spanLength - Vector<byte>.Count));
 
             // Loop until either we've finished all elements or there's less than a vector's-worth remaining.
             do
