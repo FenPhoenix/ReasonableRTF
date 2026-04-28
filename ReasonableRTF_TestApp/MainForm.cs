@@ -1,8 +1,8 @@
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO.Compression;
 using ReasonableRTF;
-using ReasonableRTF.Enums;
 using ReasonableRTF.Models;
 
 namespace ReasonableRTF_TestApp;
@@ -214,7 +214,7 @@ public sealed partial class MainForm : Form
             {
                 for (int i = 0; i < byteArrays.Length; i++)
                 {
-                    //Trace.WriteLine(rtfFiles[i]);
+                    TraceWriteLine_IfDebug(rtfFiles[i]);
                     _ = rtfConverter.Convert(byteArrays[i]);
                 }
             }
@@ -233,7 +233,7 @@ public sealed partial class MainForm : Form
                 {
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
-                        //Trace.WriteLine(rtfFiles[i]);
+                        TraceWriteLine_IfDebug(rtfFiles[i]);
                         _ = rtfConverter.Convert(memoryStreams[i]);
                     }
                 }
@@ -260,6 +260,7 @@ public sealed partial class MainForm : Form
                 {
                     for (int i = 0; i < fileStreams.Length; i++)
                     {
+                        TraceWriteLine_IfDebug(rtfFiles[i]);
                         _ = rtfConverter.Convert(fileStreams[i]);
                     }
                 }
@@ -280,14 +281,20 @@ public sealed partial class MainForm : Form
 
             using (new TimingScope(totalSize))
             {
-                foreach (ZipArchiveEntry entry in archive.Entries)
+                ReadOnlyCollection<ZipArchiveEntry> entries = archive.Entries;
+                for (int i = 0; i < entries.Count; i++)
                 {
+                    ZipArchiveEntry entry = entries[i];
+                    TraceWriteLine_IfDebug(rtfFiles[i]);
                     using Stream es = entry.Open();
                     _ = rtfConverter.Convert(es);
                 }
             }
         }
     }
+
+    [Conditional("DEBUG")]
+    private static void TraceWriteLine_IfDebug(string str) => Trace.WriteLine(str);
 
     private static string GetDeflateStreamTestFileName(SourceSet sourceSet) => sourceSet switch
     {
@@ -448,6 +455,7 @@ public sealed partial class MainForm : Form
                 for (int i = 0; i < byteArrays.Length; i++)
                 {
                     string f = rtfFiles[i];
+                    TraceWriteLine_IfDebug(f);
                     RtfResult result = rtfConverter.Convert(byteArrays[i]);
                     WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                 }
@@ -468,17 +476,10 @@ public sealed partial class MainForm : Form
                     for (int i = 0; i < memoryStreams.Length; i++)
                     {
                         string f = rtfFiles[i];
-                        Trace.WriteLine(f);
+                        TraceWriteLine_IfDebug(f);
                         using FileStream fs = File.OpenRead(f);
-                        //if (f.Contains("WayoftheSword"))
-                        {
-                            RtfResult result = rtfConverter.Convert(fs);
-                            if (result.Error != RtfError.OK)
-                            {
-                                Trace.WriteLine(result);
-                            }
-                            WritePlaintextFile(f, result.Text, outputDir, sourceSet);
-                        }
+                        RtfResult result = rtfConverter.Convert(fs);
+                        WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                     }
                 }
             }
@@ -505,6 +506,7 @@ public sealed partial class MainForm : Form
                     for (int i = 0; i < fileStreams.Length; i++)
                     {
                         string f = rtfFiles[i];
+                        TraceWriteLine_IfDebug(f);
                         RtfResult result = rtfConverter.Convert(fileStreams[i]);
                         WritePlaintextFile(f, result.Text, outputDir, sourceSet);
                     }
@@ -530,6 +532,7 @@ public sealed partial class MainForm : Form
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
                     string f = Path.Combine(setDir, entry.Name);
+                    TraceWriteLine_IfDebug(f);
                     using Stream es = entry.Open();
                     RtfResult result = rtfConverter.Convert(es);
                     WritePlaintextFile(f, result.Text, outputDir, sourceSet);
