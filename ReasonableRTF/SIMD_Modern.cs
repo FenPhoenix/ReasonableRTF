@@ -128,7 +128,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, index)) == binUInt)
                                 {
                                     if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -146,7 +146,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int spanIndex = currentSpanPosition + currentVectorIndex;
                                 if (spanIndex >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -229,7 +229,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, index)) == binUInt)
                                 {
                                     if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -247,7 +247,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int spanIndex = currentSpanPosition + currentVectorIndex;
                                 if (spanIndex >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
@@ -330,7 +330,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int index = currentSpanPosition + BitOperations.TrailingZeroCount(mask);
                                 if (index < 0 || index >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(in span[index]) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, index)) == binUInt)
                                 {
                                     if (backslashIndex == -1) backslashIndex = BitOperations.TrailingZeroCount(notEqualsElementsBackslash);
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
@@ -348,7 +348,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 int spanIndex = currentSpanPosition + currentVectorIndex;
                                 if (spanIndex >= spanLength - sizeof(uint) ||
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }

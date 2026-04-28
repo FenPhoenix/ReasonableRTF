@@ -146,7 +146,7 @@ public sealed partial class RtfToTextConverter
                             int spanIndex = currentSpanPosition + currentVectorIndex;
 
                             if (spanIndex >= spanLength - sizeof(uint) ||
-                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref MemoryMarshal.GetReference(span), spanIndex)) == binUInt)
+                                Unsafe.ReadUnaligned<uint>(ref Unsafe.Add(ref searchSpace, spanIndex)) == binUInt)
                             {
                                 if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                                 return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
