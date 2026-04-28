@@ -66,8 +66,6 @@ internal sealed class ListFast<T>
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => ItemsArray[index];
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => ItemsArray[index] = value;
     }
 
     internal ListFast(int capacity)
