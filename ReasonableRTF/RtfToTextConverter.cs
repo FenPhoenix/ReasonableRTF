@@ -105,7 +105,6 @@ public sealed partial class RtfToTextConverter
     private const int _undefinedLanguage = 1024;
 
     private const int _windows1252 = 1252;
-    private const int _shiftJisWin = 932;
     private const char _unicodeUnknown_Char = '\u25A1';
 
     // Set to a length that no reasonable font name would be above, to minimize the chance of having to do a slow
@@ -1905,13 +1904,13 @@ public sealed partial class RtfToTextConverter
 
 
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
+    /*
+    NOTE: 1251 being labeled "common" is a total dirty cheat - it's common in my test set, but who knows how
+    common it will be for a given user. 1252 is our default and fallback value, though, so there's justification
+    in calling it "common".
+    */
     private readonly Encoding _windows1252Encoding;
-
-    private readonly Encoding _windows1250Encoding;
-
     private readonly Encoding _windows1251Encoding;
-
-    private readonly Encoding _shiftJisWinEncoding;
 
     #endregion
 
@@ -1934,9 +1933,7 @@ public sealed partial class RtfToTextConverter
         _defaultOptions = new RtfToTextConverterOptions();
         _options = new RtfToTextConverterOptions();
 
-        _windows1250Encoding = Encoding.GetEncoding(1250);
         _windows1251Encoding = Encoding.GetEncoding(1251);
-        _shiftJisWinEncoding = Encoding.GetEncoding(_shiftJisWin);
         _windows1252Encoding = Encoding.GetEncoding(_windows1252);
 
         InitSymbolFontData();
@@ -3770,12 +3767,8 @@ public sealed partial class RtfToTextConverter
         {
             case _windows1252:
                 return _windows1252Encoding;
-            case 1250:
-                return _windows1250Encoding;
             case 1251:
                 return _windows1251Encoding;
-            case _shiftJisWin:
-                return _shiftJisWinEncoding;
             default:
                 if (_encodings.TryGetValue(codePage, out Encoding? result))
                 {
@@ -3826,7 +3819,7 @@ public sealed partial class RtfToTextConverter
         {
             try
             {
-                enc = GetEncodingFromCachedList(_windows1252);
+                enc = _windows1252Encoding;
             }
             catch
             {
@@ -3864,7 +3857,7 @@ public sealed partial class RtfToTextConverter
             try
             {
                 _byteBuffer1[0] = (byte)codePoint;
-                finalChars.Count = GetEncodingFromCachedList(_windows1252)
+                finalChars.Count = _windows1252Encoding
                     .GetChars(_byteBuffer1, 0, 1, finalChars.ItemsArray, 0);
             }
             catch
@@ -3898,7 +3891,7 @@ public sealed partial class RtfToTextConverter
             try
             {
                 _byteBuffer1[0] = codePoint;
-                finalChars.Count = GetEncodingFromCachedList(_windows1252)
+                finalChars.Count = _windows1252Encoding
                     .GetChars(_byteBuffer1, 0, 1, finalChars.ItemsArray, 0);
             }
             catch
