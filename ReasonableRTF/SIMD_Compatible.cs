@@ -162,6 +162,7 @@ public sealed partial class RtfToTextConverter
                                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                         }
 
+                                        // TODO: These are frigging incorrect still. Argh.
                                         mask = Vector.GreaterThan(new Vector<byte>((byte)vectorIndex), _indexVec);
                                     }
                                 }
