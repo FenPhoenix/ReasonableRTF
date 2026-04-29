@@ -162,8 +162,7 @@ public sealed partial class RtfToTextConverter
                                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                         }
 
-                                        // TODO: These are frigging incorrect still. Argh.
-                                        mask = Vector.GreaterThan(new Vector<byte>((byte)vectorIndex), _indexVec);
+                                        mask = Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)vectorIndex), _indexVec));
                                     }
                                 }
                             }
@@ -171,6 +170,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                                 int currentVectorIndex = backslashIndex;
+                                Vector<byte> mask = Vector.BitwiseAnd(equalsBackslash, Vector.LessThan(new Vector<byte>((byte)currentVectorIndex), _indexVec));
                                 while (currentVectorIndex < Vector<byte>.Count)
                                 {
                                     int spanIndex = currentSpanPosition + currentVectorIndex;
@@ -179,7 +179,7 @@ public sealed partial class RtfToTextConverter
                                     {
                                         return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                     }
-                                    Vector<byte> mask = Vector.GreaterThan(new Vector<byte>((byte)currentVectorIndex), _indexVec);
+                                    mask = Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)currentVectorIndex), _indexVec));
                                     currentVectorIndex = LocateFirstFoundByte(mask);
                                 }
                             }
