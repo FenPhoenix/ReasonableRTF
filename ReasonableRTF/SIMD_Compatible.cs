@@ -162,7 +162,7 @@ public sealed partial class RtfToTextConverter
                                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                         }
 
-                                        mask = Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)vectorIndex), _indexVec));
+                                        mask = RemoveMaskElementAtIndex(mask, vectorIndex);
                                     }
                                 }
                             }
@@ -170,7 +170,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                                 int currentVectorIndex = backslashIndex;
-                                Vector<byte> mask = Vector.BitwiseAnd(equalsBackslash, Vector.LessThan(new Vector<byte>((byte)currentVectorIndex), _indexVec));
+                                Vector<byte> mask = RemoveMaskElementAtIndex(equalsBackslash, currentVectorIndex);
                                 while (currentVectorIndex < Vector<byte>.Count)
                                 {
                                     int spanIndex = currentSpanPosition + currentVectorIndex;
@@ -179,7 +179,8 @@ public sealed partial class RtfToTextConverter
                                     {
                                         return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                     }
-                                    mask = Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)currentVectorIndex), _indexVec));
+
+                                    mask = RemoveMaskElementAtIndex(mask, currentVectorIndex);
                                     currentVectorIndex = LocateFirstFoundByte(mask);
                                 }
                             }
@@ -314,6 +315,12 @@ public sealed partial class RtfToTextConverter
         }
 
         return -1;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static Vector<byte> RemoveMaskElementAtIndex(Vector<byte> mask, int index)
+    {
+        return Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)index), _indexVec));
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
