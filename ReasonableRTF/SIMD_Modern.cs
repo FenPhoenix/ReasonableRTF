@@ -236,7 +236,6 @@ public sealed partial class RtfToTextConverter
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
-                                ++currentVectorIndex;
                                 mask = ResetLowestSetBit(mask);
                                 currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
@@ -337,7 +336,6 @@ public sealed partial class RtfToTextConverter
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
-                                ++currentVectorIndex;
                                 mask = ResetLowestSetBit(mask);
                                 currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
@@ -438,7 +436,6 @@ public sealed partial class RtfToTextConverter
                                 {
                                     return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                 }
-                                ++currentVectorIndex;
                                 mask = ResetLowestSetBit(mask);
                                 currentVectorIndex = BitOperations.TrailingZeroCount(mask);
                             }
