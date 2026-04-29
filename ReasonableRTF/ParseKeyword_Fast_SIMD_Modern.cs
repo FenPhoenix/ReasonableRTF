@@ -13,10 +13,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector128<byte> _hex20_128 = Vector128.Create((byte)0x20);
     private static readonly Vector128<byte> _all_a_128 = Vector128.Create((byte)'a');
     private static readonly Vector128<byte> _z_minus_a_128 = Vector128.Create((byte)('z' - 'a'));
-    private static readonly Vector128<byte> _indexVec_128 = Vector128.Create(
-        (byte)
-        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-    );
 
     /*
     TODO: Interestingly, Vector128 is faster (on my Ryzen 5600) than Vector256 here.
