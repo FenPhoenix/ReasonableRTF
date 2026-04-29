@@ -106,7 +106,7 @@ public sealed partial class RtfToTextConverter
                     bool bracesFound = equalsBraces != Vector<byte>.Zero;
                     if (!bracesFound || (backslashIndex = LocateFirstFoundByte(equalsBackslash)) < (bracesIndex = LocateFirstFoundByte(equalsBraces)))
                     {
-                        Vector<ulong> vector64;
+                        Vector<byte> vector64;
                         if (currentSpanPosition + Vector<byte>.Count + (_binLength - 1) <= spanLength)
                         {
                             Vector<byte> lastBlock = Unsafe.ReadUnaligned<Vector<byte>>(ref Unsafe.Add(ref currentSearchSpace, _binLength - 1));
@@ -129,7 +129,7 @@ public sealed partial class RtfToTextConverter
                             }
                             else
                             {
-                                vector64 = Vector.AsVectorUInt64(containsBin);
+                                vector64 = containsBin;
                                 int currentVectorIndex = LocateFirstFoundByte(containsBin);
                                 while (currentVectorIndex > -1)
                                 {
@@ -147,7 +147,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else
                         {
-                            vector64 = Vector.AsVectorUInt64(equalsBackslash);
+                            vector64 = equalsBackslash;
                             if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                             int currentVectorIndex = backslashIndex;
                             while (currentVectorIndex > -1)
@@ -304,18 +304,20 @@ public sealed partial class RtfToTextConverter
     }
 
     // Vector sub-search adapted from https://github.com/aspnet/KestrelHttpServer/pull/1138
+    /*
+    TODO: Realized the ulong version was not correct when used with a starting index and it worked by accident.
+    Using this slower one for now until I can get back to this...
+    */
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int LocateFirstFoundByte(Vector<ulong> vector64, int start)
+    private static int LocateFirstFoundByte(Vector<byte> vector64, int start)
     {
         int i = start;
         // Pattern unrolled by jit https://github.com/dotnet/coreclr/pull/8001
-        for (; i < Vector<ulong>.Count; i++)
+        for (; i < Vector<byte>.Count; i++)
         {
-            ulong candidate = vector64[i];
-            if (candidate != 0)
+            if (vector64[i] != 0)
             {
-                // Single LEA instruction with jitted const (using function result)
-                return i * 8 + LocateFirstFoundByte(candidate);
+                return i;
             }
         }
 
