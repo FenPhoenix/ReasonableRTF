@@ -7,9 +7,13 @@
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<WarningsAsErrors>Nullable</WarningsAsErrors>
 		<LangVersion>latest</LangVersion>
-		<Version>2026.4.0</Version>
+		<Version>2026.5.0</Version>
 		<Copyright>Copyright 2024-2026 Brian Tobin</Copyright>
 		<Platforms>AnyCPU;x86;x64</Platforms>
+		<IsPackable>true</IsPackable>
+		<Description>A lightweight and performant C# library designed for rapidly converting Rich Text Format (RTF) files into plain text.</Description>
+		<PackageTags>fast;rtf;converter</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 		<NoWarn>$(NoWarn);1591</NoWarn>
 	</PropertyGroup>
@@ -23,6 +27,10 @@
 			M:System.UInt16.TryParse(System.ReadOnlySpan{System.Char},System.Globalization.NumberStyles,System.IFormatProvider,System.UInt16@);
 		</MeziantouPolyfill_IncludedPolyfills>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
 		<PackageReference Include="Meziantou.Polyfill">
