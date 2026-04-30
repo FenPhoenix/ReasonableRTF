@@ -45,7 +45,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Vector512<byte> _openBraceVector512 = Vector512.Create((byte)'{');
     private static readonly Vector512<byte> _closingBraceVector512 = Vector512.Create((byte)'}');
     private static readonly Vector512<byte> _nVector512 = Vector512.Create((byte)'n');
-
     // CreateSequence() was introduced in .NET 9, so since we support 8, we need to do it manually for now.
     private static readonly Vector512<byte> _indexVec_512 = Vector512.Create(
         (byte)
@@ -115,9 +114,10 @@ public sealed partial class RtfToTextConverter
         0, 0, 0,
     ];
 
-    private static ReadOnlySpan<bool> _isLineBreak =>
+    private static ReadOnlySpan<bool> _isIgnoreChar =>
     [
-        false, false, false, false, false, false, false, false, false, false,
+        true, // '\0' (0)
+        false, false, false, false, false, false, false, false, false,
         true, // '\n' (10)
         false, false,
         true, // '\r' (13)
@@ -549,7 +549,7 @@ public sealed partial class RtfToTextConverter
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isLineBreak[current[index]])
+                        else if (_isIgnoreChar[current[index]])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -644,7 +644,7 @@ public sealed partial class RtfToTextConverter
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isLineBreak[current[index]])
+                        else if (_isIgnoreChar[current[index]])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -734,7 +734,7 @@ public sealed partial class RtfToTextConverter
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isLineBreak[current[index]])
+                        else if (_isIgnoreChar[current[index]])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -772,46 +772,90 @@ public sealed partial class RtfToTextConverter
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector512(Vector512<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
+            if (Vector512.Equals(_zeroVector512, current) != Vector512<byte>.Zero)
+            {
+                // Nulls are unlikely to occur, so just use a crappy scalar fallback instead of writing tons of
+                // extra code.
+                for (int i = 0; i < Vector512<byte>.Count; i++)
+                {
+                    byte b = current[i];
+                    if (b != 0)
+                    {
+                        plainText.Add((char)b);
+                    }
+                }
+            }
+            else
+            {
+                (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
 
-            int vectorCount = Vector512<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+                plainText.EnsureCapacity(plainText.Count + Vector512<byte>.Count);
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+                lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
+                upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector512<byte>.Count / 2));
 
-            plainText.Count += vectorCount;
-            currentPos += vectorCount;
+                plainText.Count += Vector512<byte>.Count;
+            }
+
+            currentPos += Vector512<byte>.Count;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector256(Vector256<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
+            if (Vector256.Equals(_zeroVector256, current) != Vector256<byte>.Zero)
+            {
+                for (int i = 0; i < Vector256<byte>.Count; i++)
+                {
+                    byte b = current[i];
+                    if (b != 0)
+                    {
+                        plainText.Add((char)b);
+                    }
+                }
+            }
+            else
+            {
+                (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
 
-            int vectorCount = Vector256<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+                plainText.EnsureCapacity(plainText.Count + Vector256<byte>.Count);
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+                lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
+                upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector256<byte>.Count / 2));
 
-            plainText.Count += vectorCount;
-            currentPos += vectorCount;
+                plainText.Count += Vector256<byte>.Count;
+            }
+
+            currentPos += Vector256<byte>.Count;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector128(Vector128<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
+            if (Vector128.Equals(_zeroVector128, current) != Vector128<byte>.Zero)
+            {
+                for (int i = 0; i < Vector128<byte>.Count; i++)
+                {
+                    byte b = current[i];
+                    if (b != 0)
+                    {
+                        plainText.Add((char)b);
+                    }
+                }
+            }
+            else
+            {
+                (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
 
-            int vectorCount = Vector128<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+                plainText.EnsureCapacity(plainText.Count + Vector128<byte>.Count);
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+                lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
+                upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector128<byte>.Count / 2));
 
-            plainText.Count += vectorCount;
-            currentPos += vectorCount;
+                plainText.Count += Vector128<byte>.Count;
+            }
+
+            currentPos += Vector128<byte>.Count;
         }
     }
 
