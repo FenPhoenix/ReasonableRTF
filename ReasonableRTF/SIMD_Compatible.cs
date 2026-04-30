@@ -162,7 +162,7 @@ public sealed partial class RtfToTextConverter
                                             return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                         }
 
-                                        mask = RemoveMaskElementAtIndex(mask, vectorIndex);
+                                        mask = ClearMaskElementAtIndex(mask, vectorIndex);
                                     }
                                 }
                             }
@@ -170,7 +170,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 if (backslashIndex == -1) backslashIndex = LocateFirstFoundByte(equalsBackslash);
                                 int currentVectorIndex = backslashIndex;
-                                Vector<byte> mask = RemoveMaskElementAtIndex(equalsBackslash, currentVectorIndex);
+                                Vector<byte> mask = ClearMaskElementAtIndex(equalsBackslash, currentVectorIndex);
                                 while (currentVectorIndex < Vector<byte>.Count)
                                 {
                                     int spanIndex = currentSpanPosition + currentVectorIndex;
@@ -180,7 +180,7 @@ public sealed partial class RtfToTextConverter
                                         return startIndex + ComputeFirstIndex(ref searchSpace, ref currentSearchSpace, backslashIndex);
                                     }
 
-                                    mask = RemoveMaskElementAtIndex(mask, currentVectorIndex);
+                                    mask = ClearMaskElementAtIndex(mask, currentVectorIndex);
                                     currentVectorIndex = LocateFirstFoundByte(mask);
                                 }
                             }
@@ -318,7 +318,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Vector<byte> RemoveMaskElementAtIndex(Vector<byte> mask, int index)
+    private static Vector<byte> ClearMaskElementAtIndex(Vector<byte> mask, int index)
     {
         return Vector.BitwiseAnd(mask, Vector.LessThan(new Vector<byte>((byte)index), _indexVec));
     }
