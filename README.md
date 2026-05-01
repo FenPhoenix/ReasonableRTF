@@ -6,12 +6,11 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 
 ## Features
 
-- Fast: Over 100x faster than RichTextBox.
-- Accurate: All characters converted correctly — even Wingdings.
-- Small: Less than 60k.
-- Fully cross-platform.
-- Can read from forward-only streams such as DeflateStream.
-- [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/).
+- Fast: Over 100x faster than RichTextBox
+- Accurate: All characters converted correctly — even Wingdings
+- Fully cross-platform
+- Can read from forward-only streams such as DeflateStream
+- [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/)
 
 - - -
 
