@@ -954,11 +954,14 @@ public sealed partial class RtfToTextConverter
 
             (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(working);
 
-            int vectorCount = Vector512<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+            int plainTextCount = plainText.Count;
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+            plainText.EnsureCapacity(plainTextCount + Vector512<byte>.Count);
+
+            char[] plainTextArray = plainText.ItemsArray;
+
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
 
             plainText.Count += diff;
         }
@@ -986,11 +989,14 @@ public sealed partial class RtfToTextConverter
 
             (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(working);
 
-            int vectorCount = Vector256<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+            int plainTextCount = plainText.Count;
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+            plainText.EnsureCapacity(plainTextCount + Vector256<byte>.Count);
+
+            char[] plainTextArray = plainText.ItemsArray;
+
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
 
             plainText.Count += diff;
         }
@@ -1018,11 +1024,14 @@ public sealed partial class RtfToTextConverter
 
             (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(working);
 
-            int vectorCount = Vector128<byte>.Count;
-            plainText.EnsureCapacity(plainText.Count + vectorCount);
+            int plainTextCount = plainText.Count;
 
-            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (vectorCount / 2));
+            plainText.EnsureCapacity(plainTextCount + Vector128<byte>.Count);
+
+            char[] plainTextArray = plainText.ItemsArray;
+
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
 
             plainText.Count += diff;
         }
