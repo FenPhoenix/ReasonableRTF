@@ -54,7 +54,7 @@ public sealed partial class RtfToTextConverter
                                                    0x01ul << 48) + 1;
 
     // Vector length is unknowable at compile time, so make sure this program still runs on AVX2048 in 200 years
-    private static readonly bool _vectorLengthFitsInAByte = Vector<byte>.Count < 256;
+    private static readonly bool _vectorLengthFitsInAByte = Vector<byte>.Count <= 256;
     private static Vector<byte> InitIndexVec()
     {
         if (_vectorLengthFitsInAByte)
