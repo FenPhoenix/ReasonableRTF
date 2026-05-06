@@ -29,13 +29,13 @@ namespace ReasonableRTF.Models.Fonts;
 
 internal sealed class FontEntry
 {
-    internal int CodePage = -1;
+    internal ushort CodePage = RtfToTextConverter.NoCodePage;
     internal SymbolFont SymbolFont = SymbolFont.Unset;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal void Reset()
     {
-        CodePage = -1;
+        CodePage = RtfToTextConverter.NoCodePage;
         SymbolFont = SymbolFont.Unset;
     }
 }

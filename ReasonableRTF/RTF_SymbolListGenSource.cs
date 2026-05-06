@@ -39,8 +39,8 @@ public static class RTF_SymbolListGenSource
 
         new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
         new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
-        new Symbol("fcharset", -1, false, KeywordType.Special, (ushort)SpecialType.Charset),
-        new Symbol("cpg", -1, false, KeywordType.Special, (ushort)SpecialType.CodePage),
+        new Symbol("fcharset", RtfToTextConverter.NoCodePage, false, KeywordType.Special, (ushort)SpecialType.Charset),
+        new Symbol("cpg", RtfToTextConverter.NoCodePage, false, KeywordType.Special, (ushort)SpecialType.CodePage),
 
         #endregion
 

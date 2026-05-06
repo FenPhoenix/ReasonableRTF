@@ -83,6 +83,8 @@ public sealed partial class RtfToTextConverter
 
     #region Constants
 
+    internal const ushort NoCodePage = ushort.MaxValue;
+
     // "\bin"
     private const int _binLength = 4;
 
@@ -152,11 +154,11 @@ public sealed partial class RtfToTextConverter
     #region Charset to code page
 
     private const int _charSetToCodePageLength = 256;
-    private static readonly int[] _charSetToCodePage = InitializeCharSetToCodePage();
+    private static readonly ushort[] _charSetToCodePage = InitializeCharSetToCodePage();
 
-    private static int[] InitializeCharSetToCodePage()
+    private static ushort[] InitializeCharSetToCodePage()
     {
-        int[] charSetToCodePage = UtilHelper.InitializedArray(_charSetToCodePageLength, -1);
+        ushort[] charSetToCodePage = UtilHelper.InitializedArray(_charSetToCodePageLength, NoCodePage);
 
         charSetToCodePage[0] = 1252;   // "ANSI" (1252)
 
@@ -205,11 +207,11 @@ public sealed partial class RtfToTextConverter
     #region Lang to code page
 
     private const int _maxLangNumIndex = 16385;
-    private static readonly int[] _langToCodePage = InitializeLangToCodePage();
+    private static readonly ushort[] _langToCodePage = InitializeLangToCodePage();
 
-    private static int[] InitializeLangToCodePage()
+    private static ushort[] InitializeLangToCodePage()
     {
-        int[] langToCodePage = UtilHelper.InitializedArray(_maxLangNumIndex + 1, -1);
+        ushort[] langToCodePage = UtilHelper.InitializedArray(_maxLangNumIndex + 1, NoCodePage);
 
         /*
         There's a ton more languages than this, but it's not clear what code page they all translate to.
@@ -1836,7 +1838,7 @@ public sealed partial class RtfToTextConverter
 
     #region Header
 
-    private int _headerCodePage;
+    private ushort _headerCodePage;
     private bool _headerDefaultFontSet;
     private int _headerDefaultFontNum;
 
@@ -1896,9 +1898,9 @@ public sealed partial class RtfToTextConverter
     // DON'T reset this. We want to build up a dictionary of encodings and amortize it over the entire list
     // of RTF files.
 #if NET8_0_OR_GREATER
-    private readonly Dictionary<int, Encoding> _encodings;
+    private readonly Dictionary<ushort, Encoding> _encodings;
 #else
-    private Dictionary<int, Encoding> _encodings;
+    private Dictionary<ushort, Encoding> _encodings;
 #endif
 
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
@@ -1944,7 +1946,7 @@ public sealed partial class RtfToTextConverter
 
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
         _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
-        _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
+        _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
         _charGeneralBuffer = new ListFast<char>(_charGeneralBufferDefaultCapacity);
 
@@ -2148,7 +2150,7 @@ public sealed partial class RtfToTextConverter
 #if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
 #else
-        _encodings = new Dictionary<int, Encoding>(_internalBufferDefaultCapacity);
+        _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
         _fldinstSymbolFontName.HardReset(_internalBufferDefaultCapacity);
         _charGeneralBuffer.HardReset(_charGeneralBufferDefaultCapacity);
@@ -2674,8 +2676,8 @@ public sealed partial class RtfToTextConverter
                 {
                     if (param is >= 0 and < _charSetToCodePageLength)
                     {
-                        int codePage = _charSetToCodePage[param];
-                        _fontEntries_Top.CodePage = codePage >= 0 ? codePage : _headerCodePage;
+                        ushort codePage = _charSetToCodePage[param];
+                        _fontEntries_Top.CodePage = codePage < NoCodePage ? codePage : _headerCodePage;
                     }
                     else
                     {
@@ -2696,7 +2698,7 @@ public sealed partial class RtfToTextConverter
                 break;
             }
             case SpecialType.HeaderCodePage:
-                _headerCodePage = param >= 0 ? param : 1252;
+                _headerCodePage = param.IsNonEmptyCodePage() ? (ushort)param : (ushort)1252;
                 break;
             case SpecialType.DefaultFont:
                 if (!_headerDefaultFontSet)
@@ -2728,7 +2730,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.CodePage:
                 if (_inFontTable && _fontEntries_Top != null)
                 {
-                    _fontEntries_Top.CodePage = param >= 0 ? param : _headerCodePage;
+                    _fontEntries_Top.CodePage = param.IsNonEmptyCodePage() ? (ushort)param : _headerCodePage;
                 }
                 break;
         }
@@ -3340,7 +3342,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            ListFast<char> finalChars = GetCharFromCodePage(-1, param);
+            ListFast<char> finalChars = GetCharFromCodePage(NoCodePage, param);
             AddChars_FieldInst(finalChars, finalChars.Count);
         }
     }
@@ -3763,7 +3765,7 @@ public sealed partial class RtfToTextConverter
     /// <param name="codePage"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private Encoding GetEncodingFromCachedList(int codePage)
+    private Encoding GetEncodingFromCachedList(ushort codePage)
     {
         switch (codePage)
         {
@@ -3798,15 +3800,15 @@ public sealed partial class RtfToTextConverter
 
         _fontDictionary.TryGetValue(groupFontNum, out FontEntry? fontEntry);
 
-        int codePage;
+        ushort codePage;
         if (groupLang is > -1 and <= _maxLangNumIndex)
         {
-            int translatedCodePage = _langToCodePage[groupLang];
-            codePage = translatedCodePage > -1 ? translatedCodePage : fontEntry?.CodePage >= 0 ? fontEntry.CodePage : _headerCodePage;
+            ushort translatedCodePage = _langToCodePage[groupLang];
+            codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry?.CodePage < NoCodePage ? fontEntry.CodePage : _headerCodePage;
         }
         else
         {
-            codePage = fontEntry?.CodePage >= 0 ? fontEntry.CodePage : _headerCodePage;
+            codePage = fontEntry?.CodePage < NoCodePage ? fontEntry.CodePage : _headerCodePage;
         }
 
         if (codePage == 42) return (true, true, null, fontEntry);
@@ -3962,7 +3964,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private ListFast<char> GetCharFromCodePage(int codePage, uint codePoint)
+    private ListFast<char> GetCharFromCodePage(ushort codePage, uint codePoint)
     {
         // BitConverter.GetBytes() does this, but it allocates a temp array every time.
         // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
@@ -3970,7 +3972,7 @@ public sealed partial class RtfToTextConverter
 
         try
         {
-            if (codePage > -1)
+            if (codePage < NoCodePage)
             {
                 _charGeneralBuffer.Count = GetEncodingFromCachedList(codePage)
                     .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
@@ -4998,7 +5000,7 @@ public sealed partial class RtfToTextConverter
 // Entry 48
         new Symbol("footerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 8
-        new Symbol("fcharset", -1, false, KeywordType.Special, (ushort)SpecialType.Charset),
+        new Symbol("fcharset", NoCodePage, false, KeywordType.Special, (ushort)SpecialType.Charset),
         null, null,
 // Entry 78
         new Symbol("panose", 20, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
@@ -5123,7 +5125,7 @@ public sealed partial class RtfToTextConverter
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
 // Entry 9
-        new Symbol("cpg", -1, false, KeywordType.Special, (ushort)SpecialType.CodePage),
+        new Symbol("cpg", NoCodePage, false, KeywordType.Special, (ushort)SpecialType.CodePage),
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null,

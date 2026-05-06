@@ -113,19 +113,22 @@ internal static class UtilHelper
 #endif
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static int Array_IndexOfByte_Fast_Span(ReadOnlySpan<byte> array, byte value, int startIndex, int count)
-    {
-        int index = array.Slice(startIndex, count).IndexOf(value);
-        if (index > -1) index += startIndex;
-        return index;
-    }
-
     internal static void ValidateArgs(byte[] source, int length)
     {
         if (length > source.Length)
         {
             throw new ArgumentException(nameof(length) + " is greater than the length of " + nameof(source) + ".", nameof(length));
         }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsNonEmptyCodePage(this int value)
+    {
+        /*
+        The whole ushort range except 0xFFFF - that's our value for "not set" (-1 equivalent). As 0xFFFF (65535)
+        is not a valid codepage in either the RTF spec or .NET (any version), we can hijack it for this purpose
+        without issue.
+        */
+        return (uint)(value - ushort.MinValue) <= (RtfToTextConverter.NoCodePage - 1) - ushort.MinValue;
     }
 }
