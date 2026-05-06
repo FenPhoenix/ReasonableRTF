@@ -4,9 +4,9 @@
     <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
   </PropertyGroup>
   <ItemGroup>
-      <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
-      <PackageVersion Include="Meziantou.Polyfill" Version="1.0.105" />
-      <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.3.0" />
-      <PackageVersion Include="System.Text.Encoding.CodePages" Version="9.0.10" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
+    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.123" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.3.0" />
+    <PackageVersion Include="System.Text.Encoding.CodePages" Version="10.0.7" />
   </ItemGroup>
 </Project>
