@@ -76,7 +76,7 @@ public sealed partial class RtfToTextConverter
     private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
 
     // Cache it for perf
-    private readonly string LineBreakString = Environment.NewLine;
+    private static readonly char[] LineBreakString = Environment.NewLine.ToCharArray();
 
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly byte[] _keyword = new byte[_keywordMaxLen + 1];
@@ -3158,7 +3158,12 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                _unicodeBuffer.AddRange(chars, 2);
+                int unicodeBufferCount = _unicodeBuffer.Count;
+                _unicodeBuffer.EnsureCapacity(unicodeBufferCount + 2);
+                char[] unicodeBufferArray = _unicodeBuffer.ItemsArray;
+                unicodeBufferArray[unicodeBufferCount] = chars[0];
+                unicodeBufferArray[unicodeBufferCount + 1] = chars[1];
+                _unicodeBuffer.Count += 2;
             }
         }
         else
@@ -4081,8 +4086,12 @@ public sealed partial class RtfToTextConverter
             switch (lineBreakLength)
             {
                 case 2:
-                    _plainText.Add(LineBreakString[0]);
-                    _plainText.Add(LineBreakString[1]);
+                    int plainTextCount = _plainText.Count;
+                    _plainText.EnsureCapacity(plainTextCount + 2);
+                    char[] plainTextArray = _plainText.ItemsArray;
+                    plainTextArray[plainTextCount] = LineBreakString[0];
+                    plainTextArray[plainTextCount + 1] = LineBreakString[1];
+                    _plainText.Count += 2;
                     break;
                 case 1:
                     _plainText.Add(LineBreakString[0]);
@@ -4101,8 +4110,11 @@ public sealed partial class RtfToTextConverter
         }
         else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
-            _plainText.Add('\r');
-            _plainText.Add('\n');
+            int plainTextCount = _plainText.Count;
+            _plainText.EnsureCapacity(plainTextCount + 2);
+            char[] plainTextArray = _plainText.ItemsArray;
+            plainTextArray[plainTextCount] = '\r';
+            plainTextArray[plainTextCount + 1] = '\n';
         }
         else
         {
