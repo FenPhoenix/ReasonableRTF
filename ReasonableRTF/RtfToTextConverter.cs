@@ -2464,15 +2464,7 @@ public sealed partial class RtfToTextConverter
                             {
                                 case KeywordType.FCharset:
                                 {
-                                    if (param is >= 0 and < _charSetToCodePageLength)
-                                    {
-                                        ushort codePage = _charSetToCodePage[param];
-                                        currentFontCodePage = codePage < NoCodePage ? codePage : _headerCodePage;
-                                    }
-                                    else
-                                    {
-                                        currentFontCodePage = _headerCodePage;
-                                    }
+                                    currentFontCodePage = param.IsBetween(0, _charSetToCodePageLength - 1) ? _charSetToCodePage[param] : _headerCodePage;
                                     break;
                                 }
                                 case KeywordType.CPG:
@@ -3402,7 +3394,7 @@ public sealed partial class RtfToTextConverter
 
     private void HandleFieldInst_Unicode(ushort param)
     {
-        if (param is >= 0xF020 and <= 0xF0FF)
+        if (param.IsBetween(0xF020, 0xF0FF))
         {
             param -= 0xF000;
         }
@@ -3455,7 +3447,7 @@ public sealed partial class RtfToTextConverter
 
     private void HandleFieldInst_F_Bare(ushort param)
     {
-        if (param is >= 0xF020 and <= 0xF0FF)
+        if (param.IsBetween(0xF020, 0xF0FF))
         {
             param -= 0xF000;
         }
@@ -3478,7 +3470,7 @@ public sealed partial class RtfToTextConverter
     {
         uint codePoint = param;
 
-        if (codePoint - 0xF020 <= 0xF0FF - 0xF020)
+        if (codePoint.IsBetween(0xF020, 0xF0FF))
         {
             codePoint -= 0xF000;
         }
@@ -3848,7 +3840,7 @@ public sealed partial class RtfToTextConverter
         _fontDictionary.TryGetValue(groupFontNum, out FontEntry fontEntry);
 
         ushort codePage;
-        if (groupLang is > -1 and <= _maxLangNumIndex)
+        if (groupLang.IsBetween(0, _maxLangNumIndex))
         {
             ushort translatedCodePage = _langToCodePage[groupLang];
             codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
@@ -3868,14 +3860,7 @@ public sealed partial class RtfToTextConverter
         }
         catch
         {
-            try
-            {
-                enc = _windows1252Encoding;
-            }
-            catch
-            {
-                return (false, false, null, _nullFontEntry);
-            }
+            enc = _windows1252Encoding;
         }
 
         return (true, false, enc, fontEntry);
@@ -3886,7 +3871,7 @@ public sealed partial class RtfToTextConverter
     {
         finalChars = _charGeneralBuffer;
 
-        if (codePoint - 0x20 <= 0xFF - 0x20)
+        if (codePoint.IsBetween(0x20, 0xFF))
         {
             ListFast<char>? chars = UtilHelper.ConvertFromUtf32(fontTable[codePoint - 0x20], _charGeneralBuffer);
             if (chars != null)
@@ -3987,7 +3972,7 @@ public sealed partial class RtfToTextConverter
         (despite the spec saying that \uN must be signed int16). So we need to fall through to this section
         even if we did the above, because by adding 65536 we might now be in the 0xF020-0xF0FF range.
         */
-        if (returnCodePoint - 0xF020 <= 0xF0FF - 0xF020)
+        if (returnCodePoint.IsBetween(0xF020, 0xF0FF))
         {
             returnCodePoint -= 0xF000;
 
@@ -4023,7 +4008,6 @@ public sealed partial class RtfToTextConverter
             {
                 _charGeneralBuffer.Count = GetEncodingFromCachedList(codePage)
                     .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
-                return _charGeneralBuffer;
             }
             else
             {
@@ -4032,14 +4016,14 @@ public sealed partial class RtfToTextConverter
                 {
                     _charGeneralBuffer.Count = enc
                         .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
-                    return _charGeneralBuffer;
                 }
                 else
                 {
                     SetListFastToUnknownChar(_charGeneralBuffer);
-                    return _charGeneralBuffer;
                 }
             }
+
+            return _charGeneralBuffer;
         }
         catch
         {
@@ -5346,8 +5330,6 @@ public sealed partial class RtfToTextConverter
     #endregion
 
     #region FontDictionary
-
-    private readonly FontEntry _nullFontEntry = new();
 
     private int _fontDictionaryCapacity;
 #if NET8_0_OR_GREATER

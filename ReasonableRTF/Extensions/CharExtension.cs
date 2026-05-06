@@ -146,4 +146,16 @@ internal static class CharExtension
     internal static bool IsBetween(char c, char minInclusive, char maxInclusive) =>
         (uint)(c - minInclusive) <= (uint)(maxInclusive - minInclusive);
 #endif
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsBetween(this int value, int minInclusive, int maxInclusive) =>
+        (uint)(value - minInclusive) <= (uint)(maxInclusive - minInclusive);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsBetween(this uint value, int minInclusive, int maxInclusive) =>
+        (uint)(value - minInclusive) <= (uint)(maxInclusive - minInclusive);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static bool IsBetween(this ushort value, int minInclusive, int maxInclusive) =>
+        (uint)(value - minInclusive) <= (uint)(maxInclusive - minInclusive);
 }
