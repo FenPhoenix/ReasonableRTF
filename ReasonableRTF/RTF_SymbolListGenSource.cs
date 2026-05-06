@@ -87,19 +87,15 @@ public static class RTF_SymbolListGenSource
 
         new Symbol("bin", 0, false, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
 
-        // We need to do stuff with this (SYMBOL instruction)
         new Symbol("fldinst", 0, false, KeywordType.Destination, (ushort)DestinationType.FieldInstruction),
 
-        // Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
         new Symbol("cs", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
         new Symbol("ds", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
         new Symbol("ts", 0, false, KeywordType.Destination, (ushort)DestinationType.CanBeDestOrNotDest),
 
         #region Custom skip-destinations
 
-        /*
-        TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
-        */
+        // TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
         new Symbol("listtext", 0, false, KeywordType.Destination, 255),
         new Symbol("pntext", 0, false, KeywordType.Destination, 255),
 

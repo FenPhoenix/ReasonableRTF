@@ -1902,7 +1902,6 @@ public sealed partial class RtfToTextConverter
     private Dictionary<int, Encoding> _encodings;
 #endif
 
-
     // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
     /*
     NOTE: 1251 being labeled "common" is a total dirty cheat - it's common in my test set, but who knows how
@@ -4130,7 +4129,7 @@ public sealed partial class RtfToTextConverter
     {
         const int ulongLength = 8;
 
-        // I think this is the only endian-depending place? Maybe? Not like I can test that theory anyway...
+        // Big-endian gets the infinitesimally slower path. Oh well.
         if (BitConverter.IsLittleEndian && _currentBufferChunkLength >= _leadingBufferByteCount + ulongLength)
         {
             const ulong rtfHeaderMask = 0x00_00_00_FF_FF_FF_FF_FF;
@@ -4600,12 +4599,13 @@ public sealed partial class RtfToTextConverter
 
         int bytesRead = _bufferedStream!.ReadAll(_buffer, _leadingBufferByteCount, _bufferLength - _leadingBufferByteCount);
 
-        // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
         if (bytesRead == 0)
         {
             // Hack to match previous behavior with intentionally-broken RtfPipe test files
             if (_endedStreamOnce)
             {
+                // Drop-in that loops can check to achieve the same effect as checking the length the way we used
+                // to
                 _reachedEndOfStream = true;
             }
             else
@@ -4650,8 +4650,8 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private byte GetByte(int index)
     {
-        // Very unfortunately, we have to manually bounds-check here, because our array could be longer
-        // than Length (such as when it comes from a pool).
+        // Very unfortunately, we have to manually bounds-check here, because our array could be longer than
+        // Length (such as when it comes from a pool).
         if (index > _currentBufferChunkLength - 1)
         {
             /*
@@ -4909,9 +4909,6 @@ public sealed partial class RtfToTextConverter
     private static readonly Symbol _fontSymbol = new("f", 0, false, KeywordType.Property, (ushort)Property.FontNum);
 
     /*
-    For "cs", "ds", "ts"
-    Hack to make sure we extract the \fldrslt text from Thief Trinity in that one place.
-
     For "listtext", "pntext"
     TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
 
@@ -4925,9 +4922,6 @@ public sealed partial class RtfToTextConverter
     For "mac"
     The spec calls this "Apple Macintosh" but again says nothing about what codepage that is. I'll
     assume 10000 ("Mac Roman")
-
-    For "fldinst"
-    We need to do stuff with this (SYMBOL instruction)
 
     NOTE: This is generated. Values can be modified, but not keys (keys are the first string params).
     Also no reordering. Adding, removing, reordering, or modifying keys requires generating a new version.
