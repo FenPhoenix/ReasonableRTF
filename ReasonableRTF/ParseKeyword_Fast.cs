@@ -1,4 +1,3 @@
-#nullable enable // Required for generated files
 #define FenGen_ParseKeywordDuplicateDest
 
 using ReasonableRTF.Enums;
@@ -16,6 +15,7 @@ public sealed partial class RtfToTextConverter
         int param = 0;
         Symbol? symbol;
 
+        // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
         char ch = (char)_buffer[IncrementCurrentPos()];
 
         byte[] keyword = _keyword;
@@ -101,6 +101,7 @@ public sealed partial class RtfToTextConverter
             }
 
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
+        // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.

@@ -29,8 +29,6 @@ internal enum SpecialType : byte
     HeaderCodePage,
     DefaultFont,
     FontTable,
-    Charset,
-    CodePage,
     UnicodeChar,
     HexEncodedChar,
     SkipNumberOfBytes,

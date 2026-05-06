@@ -1,4 +1,4 @@
-﻿#define FenGen_ParseKeywordDuplicateSource
+#define FenGen_ParseKeywordDuplicateDest
 
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -8,15 +8,15 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    [GenAttributes.FenGen_ParseKeyword(nameof(GetByte), nameof(_buffer), nameof(IncrementCurrentPos))]
-    private RtfError ParseKeyword_Slow()
+    private RtfError ParseKeyword_FontTable_Fast(out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
-        int param = 0;
+        param = 0;
         Symbol? symbol;
+        fontTableKeyword = default;
 
-        // [FenGen:ScalarKeywordParseSection:Source:Begin]
-        char ch = (char)GetByte(IncrementCurrentPos());
+        // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
+        char ch = (char)_buffer[IncrementCurrentPos()];
 
         byte[] keyword = _keyword;
 
@@ -57,7 +57,7 @@ public sealed partial class RtfToTextConverter
             byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
-                 keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
+                 keywordCount++, ch = (char)_buffer[IncrementCurrentPos()])
             {
                 keyword[keywordCount] = (byte)ch;
             }
@@ -70,7 +70,7 @@ public sealed partial class RtfToTextConverter
             if (ch == '-')
             {
                 negateParam = 1;
-                ch = (char)GetByte(IncrementCurrentPos());
+                ch = (char)_buffer[IncrementCurrentPos()];
             }
             if (CharExtension.IsAsciiDigit(ch))
             {
@@ -82,7 +82,7 @@ public sealed partial class RtfToTextConverter
                         int i;
                         for (i = 0;
                              i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                             i++, ch = (char)_buffer[IncrementCurrentPos()])
                         {
                             param = (param * 10) + (ch - '0');
                         }
@@ -101,15 +101,16 @@ public sealed partial class RtfToTextConverter
             }
 
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
-            // [FenGen:ScalarKeywordParseSection:Source:End]
+        // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
             if (keywordCount == 1 && keyword[0] == (byte)'f')
             {
-                symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(symbol, param, hasParam, null, 0);
+                // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
+                fontTableKeyword = KeywordType.F;
+                return RtfError.OK;
             }
             else
             {
@@ -128,7 +129,10 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(symbol, param, hasParam, keyword, keywordCount);
+            fontTableKeyword = symbol.KeywordType;
+            return fontTableKeyword < KeywordType.F
+                ? DispatchKeyword(symbol, param, hasParam, keyword, keywordCount)
+                : RtfError.OK;
         }
     }
 }

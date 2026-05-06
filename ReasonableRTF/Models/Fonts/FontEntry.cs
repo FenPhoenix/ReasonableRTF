@@ -22,20 +22,22 @@
  * SOFTWARE.
 */
 
-using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models.Fonts;
 
-internal sealed class FontEntry
+[StructLayout(LayoutKind.Auto)]
+internal readonly struct FontEntry
 {
-    internal ushort CodePage = RtfToTextConverter.NoCodePage;
-    internal SymbolFont SymbolFont = SymbolFont.Unset;
+    internal readonly ushort CodePage;
+    internal readonly bool IsSet;
+    internal readonly SymbolFont SymbolFont;
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal void Reset()
+    internal FontEntry(ushort codePage, SymbolFont symbolFont)
     {
-        CodePage = RtfToTextConverter.NoCodePage;
-        SymbolFont = SymbolFont.Unset;
+        CodePage = codePage;
+        SymbolFont = symbolFont;
+        IsSet = true;
     }
 }

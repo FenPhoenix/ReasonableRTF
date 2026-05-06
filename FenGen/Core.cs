@@ -60,15 +60,16 @@ internal static class Core
 
     private static void DoTasksInternal()
     {
-        (string parseKeywordSourceFile, string parseKeywordDestFile) = GetParseKeywordSourceAndDestFiles();
-        ParseKeywordGen.Generate(parseKeywordSourceFile, parseKeywordDestFile);
+        (string parseKeywordSourceFile, List<string> parseKeywordDestFiles) = GetParseKeywordSourceAndDestFiles();
+        ParseKeywordGen.Generate(parseKeywordSourceFile, parseKeywordDestFiles);
     }
 
-    private static (string SourceFile, string DestFile)
+    private static (string SourceFile, List<string> DestFile)
     GetParseKeywordSourceAndDestFiles()
     {
+        List<string> destFiles = new();
+
         string sourceFile = "";
-        string destFile = "";
 
         foreach (string f in Cache.CSFiles)
         {
@@ -90,15 +91,10 @@ internal static class Core
                     }
                     else if (tag == DefineHeaders.FenGen_ParseKeywordDuplicateDest)
                     {
-                        destFile = f;
+                        destFiles.Add(f);
                         break;
                     }
                 }
-            }
-
-            if (!sourceFile.IsEmpty() && destFile.IsEmpty())
-            {
-                break;
             }
         }
 
@@ -111,7 +107,7 @@ internal static class Core
                 "-No file found with #define " + DefineHeaders.FenGen_ParseKeywordDuplicateSource + " at top"
             );
         }
-        if (destFile.IsEmpty())
+        if (destFiles.Count == 0)
         {
             error = AddError(
                 error,
@@ -120,7 +116,7 @@ internal static class Core
         }
         if (!error.IsEmpty()) ThrowErrorAndTerminate(error);
 
-        return (sourceFile, destFile);
+        return (sourceFile, destFiles);
 
         static string AddError(string msg, string add) => msg + (msg.IsEmpty() ? "" : "\r\n") + add;
     }

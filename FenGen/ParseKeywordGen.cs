@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -10,7 +11,7 @@ namespace FenGen;
 
 internal static class ParseKeywordGen
 {
-    internal static void Generate(string sourceFile, string destFile)
+    internal static void Generate(string sourceFile, List<string> destFiles)
     {
         SyntaxNode[] nodes = GetNodes(sourceFile);
 
@@ -19,7 +20,7 @@ internal static class ParseKeywordGen
             SyntaxKind.MethodDeclaration,
             GenAttributes.FenGen_ParseKeywordAttribute);
 
-        const int reqArgCount = 4;
+        const int reqArgCount = 3;
 
         if (attr.ArgumentList is not { Arguments.Count: reqArgCount })
         {
@@ -30,7 +31,6 @@ internal static class ParseKeywordGen
         string getByteFunctionName = GetStringParamValue(attr, 0);
         string bufferName = GetStringParamValue(attr, 1);
         string incrementFunctionName = GetStringParamValue(attr, 2);
-        string destFunctionName = GetStringParamValue(attr, 3);
 
         if (member is not MethodDeclarationSyntax method)
         {
@@ -38,36 +38,94 @@ internal static class ParseKeywordGen
             return;
         }
 
-        List<string> usingLines = new();
-        foreach (SyntaxNode node in nodes)
+        TextLineCollection methodLines = method.GetText().Lines;
+        List<string> sourceLines = new();
+        bool inSourceLinesSection = false;
+        for (int i = 0; i < methodLines.Count; i++)
         {
-            if (node is UsingDirectiveSyntax uds)
+            TextLine line = methodLines[i];
+            string lineStr = line.ToString();
+
+            if (inSourceLinesSection)
             {
-                usingLines.Add(uds.ToString());
+                if (IsFenGenNotationLine(lineStr, "[FenGen:ScalarKeywordParseSection:Source:End]"))
+                {
+                    break;
+                }
+                else
+                {
+                    sourceLines.Add(lineStr);
+                }
             }
-            else if (node is BaseNamespaceDeclarationSyntax)
+            else if (IsFenGenNotationLine(lineStr, "[FenGen:ScalarKeywordParseSection:Source:Begin]"))
             {
-                break;
+                inSourceLinesSection = true;
             }
         }
 
-        method = method.RemoveNode(attr.Parent!, SyntaxRemoveOptions.KeepNoTrivia)!;
+        foreach (string destFile in destFiles)
+        {
+            List<string> destLines = File.ReadAllLines(destFile).ToList();
+            for (int i = 0; i < destLines.Count; i++)
+            {
+                string line = destLines[i];
+                if (IsFenGenNotationLine(line, "[FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]"))
+                {
+                    CopyLines(sourceLines, destLines, destFile, i, "Slow", getByteFunctionName, incrementFunctionName, bufferName);
+                    break;
+                }
+                else if (IsFenGenNotationLine(line, "[FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]"))
+                {
+                    CopyLines(sourceLines, destLines, destFile, i, "Fast", getByteFunctionName, incrementFunctionName, bufferName);
+                    break;
+                }
+            }
+        }
+    }
 
-        TextSpan nameSpan = method.Identifier.Span;
+    private static void CopyLines(
+        List<string> sourceLines,
+        List<string> destLines,
+        string destFile,
+        int i,
+        string version,
+        string getByteFunctionName,
+        string incrementFunctionName,
+        string bufferName)
+    {
+        for (int subI = i + 1; subI < destLines.Count; subI++)
+        {
+            string subLine = destLines[subI];
+            if (IsFenGenNotationLine(subLine, "[FenGen:ScalarKeywordParseSection:" + version + ":Dest:End]"))
+            {
+                for (int copyI = sourceLines.Count - 1; copyI >= 0; copyI--)
+                {
+                    string sourceLine = sourceLines[copyI];
+                    if (version == "Fast")
+                    {
+                        sourceLine = sourceLine.Replace(
+                            getByteFunctionName + "(" + incrementFunctionName + "())",
+                            bufferName + "[" + incrementFunctionName + "()]"
+                        );
+                    }
+                    destLines.Insert(subI, sourceLine);
+                }
 
-        string text = method.GetText().ToString();
-        text = text.Substring(0, nameSpan.Start) + destFunctionName + text.Substring(nameSpan.End);
+                File.WriteAllLines(destFile, destLines);
 
-        text = text.Replace(
-            getByteFunctionName + "(" + incrementFunctionName + "())",
-            bufferName + "[" + incrementFunctionName + "()]"
-        );
+                return;
+            }
+            else
+            {
+                destLines.RemoveAt(subI);
+                subI--;
+            }
+        }
+    }
 
-        text =
-            "// Generated version that doesn't do manual bounds checking, for when we know we're far enough from the end of the buffer" +
-            Environment.NewLine +
-            text;
-
-        WriteDestFile(destFile, text, usingLines: usingLines);
+    private static bool IsFenGenNotationLine(string line, string value)
+    {
+        string lineT = line.Trim();
+        return lineT.StartsWithO("//") && lineT.TrimStart('/').TrimStart(' ') == value;
     }
 }

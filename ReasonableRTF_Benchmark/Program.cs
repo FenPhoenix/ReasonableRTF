@@ -4,7 +4,6 @@ using ReasonableRTF;
 
 namespace ReasonableRTF_Benchmark;
 
-[MemoryRandomization]
 public class Test
 {
     private readonly MemoryStream[] _fullSetMemStreams;

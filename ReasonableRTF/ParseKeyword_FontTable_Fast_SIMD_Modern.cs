@@ -1,5 +1,6 @@
-﻿#define FenGen_ParseKeywordDuplicateSource
-
+﻿#if NET8_0_OR_GREATER
+using System.Numerics;
+using System.Runtime.Intrinsics;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
 using ReasonableRTF.Models.Symbols;
@@ -8,17 +9,16 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    [GenAttributes.FenGen_ParseKeyword(nameof(GetByte), nameof(_buffer), nameof(IncrementCurrentPos))]
-    private RtfError ParseKeyword_Slow()
+    private RtfError ParseKeyword_FontTable_Fast_Vector128(out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
-        int param = 0;
+        param = 0;
         Symbol? symbol;
+        fontTableKeyword = default;
 
-        // [FenGen:ScalarKeywordParseSection:Source:Begin]
-        char ch = (char)GetByte(IncrementCurrentPos());
+        int startingCurrentPos = _currentPos;
 
-        byte[] keyword = _keyword;
+        char ch = (char)_buffer[IncrementCurrentPos()];
 
         if (!CharExtension.IsAsciiLetter(ch))
         {
@@ -37,40 +37,34 @@ public sealed partial class RtfToTextConverter
             }
 
             symbol = LookUpControlSymbol((byte)ch);
-
-            if (symbol == null)
-            {
-                if (_skipDestinationIfUnknown)
-                {
-                    SkipDest(null, 0);
-                }
-                _skipDestinationIfUnknown = false;
-                return RtfError.OK;
-            }
-
-            _skipDestinationIfUnknown = false;
-
-            return DispatchKeyword(symbol, param, hasParam, null, 0);
         }
         else
         {
-            byte keywordCount;
-            for (keywordCount = 0;
-                 keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
-                 keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
+            Vector128<byte> keyword = Vector128.Create(_buffer, _currentPos - 1);
+            Vector128<byte> asciiLetters = Vector128.GreaterThan((keyword | _hex20_128) - _all_a_128, _z_minus_a_128);
+
+            uint notEqualsElements = asciiLetters.ExtractMostSignificantBits();
+            byte keywordCount = (byte)BitOperations.TrailingZeroCount(notEqualsElements);
+
+            Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
+            keyword = Vector128.BitwiseAnd(keyword, maskVec);
+
+            // 99.9% of keywords in the test set (849,098 out of 849,948) are less than 16 chars long, so this
+            // slightly inefficient fallback path will hardly ever be hit.
+            if (keywordCount >= Vector128<byte>.Count)
             {
-                keyword[keywordCount] = (byte)ch;
-            }
-            if (keywordCount > _keywordMaxLen)
-            {
+                _currentPos = startingCurrentPos;
                 return RtfError.KeywordTooLong;
             }
+
+            _currentPos += keywordCount;
+            ch = (char)_buffer[_currentPos - 1];
 
             int negateParam = 0;
             if (ch == '-')
             {
                 negateParam = 1;
-                ch = (char)GetByte(IncrementCurrentPos());
+                ch = (char)_buffer[IncrementCurrentPos()];
             }
             if (CharExtension.IsAsciiDigit(ch))
             {
@@ -82,7 +76,7 @@ public sealed partial class RtfToTextConverter
                         int i;
                         for (i = 0;
                              i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                             i++, ch = (char)_buffer[IncrementCurrentPos()])
                         {
                             param = (param * 10) + (ch - '0');
                         }
@@ -101,34 +95,38 @@ public sealed partial class RtfToTextConverter
             }
 
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
-            // [FenGen:ScalarKeywordParseSection:Source:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
             if (keywordCount == 1 && keyword[0] == (byte)'f')
             {
-                symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(symbol, param, hasParam, null, 0);
+                // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
+                fontTableKeyword = KeywordType.F;
+                return RtfError.OK;
             }
             else
             {
-                symbol = LookUpControlWord(keyword, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, keywordCount);
             }
-
-            if (symbol == null)
-            {
-                if (_skipDestinationIfUnknown)
-                {
-                    SkipDest(null, 0);
-                }
-                _skipDestinationIfUnknown = false;
-                return RtfError.OK;
-            }
-
-            _skipDestinationIfUnknown = false;
-
-            return DispatchKeyword(symbol, param, hasParam, keyword, keywordCount);
         }
+
+        if (symbol == null)
+        {
+            if (_skipDestinationIfUnknown)
+            {
+                SkipDest(null, 0);
+            }
+            _skipDestinationIfUnknown = false;
+            return RtfError.OK;
+        }
+
+        _skipDestinationIfUnknown = false;
+
+        fontTableKeyword = symbol.KeywordType;
+        return fontTableKeyword < KeywordType.F
+            ? DispatchKeyword(symbol, param, hasParam, null, 0)
+            : RtfError.OK;
     }
 }
+#endif

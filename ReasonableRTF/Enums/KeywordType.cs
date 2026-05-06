@@ -30,4 +30,7 @@ internal enum KeywordType : byte
     Property,
     Destination,
     Special,
+    F,
+    FCharset,
+    CPG,
 }

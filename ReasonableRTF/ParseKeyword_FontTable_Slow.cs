@@ -1,4 +1,4 @@
-﻿#define FenGen_ParseKeywordDuplicateSource
+#define FenGen_ParseKeywordDuplicateDest
 
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -8,14 +8,14 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    [GenAttributes.FenGen_ParseKeyword(nameof(GetByte), nameof(_buffer), nameof(IncrementCurrentPos))]
-    private RtfError ParseKeyword_Slow()
+    private RtfError ParseKeyword_FontTable_Slow(out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
-        int param = 0;
+        param = 0;
         Symbol? symbol;
+        fontTableKeyword = default;
 
-        // [FenGen:ScalarKeywordParseSection:Source:Begin]
+        // [FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]
         char ch = (char)GetByte(IncrementCurrentPos());
 
         byte[] keyword = _keyword;
@@ -101,15 +101,16 @@ public sealed partial class RtfToTextConverter
             }
 
             _currentPos += MinusOneIfNotSpace_8Bits(ch);
-            // [FenGen:ScalarKeywordParseSection:Source:End]
+        // [FenGen:ScalarKeywordParseSection:Slow:Dest:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
             if (keywordCount == 1 && keyword[0] == (byte)'f')
             {
-                symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(symbol, param, hasParam, null, 0);
+                // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
+                fontTableKeyword = KeywordType.F;
+                return RtfError.OK;
             }
             else
             {
@@ -128,7 +129,10 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(symbol, param, hasParam, keyword, keywordCount);
+            fontTableKeyword = symbol.KeywordType;
+            return fontTableKeyword < KeywordType.F
+                ? DispatchKeyword(symbol, param, hasParam, keyword, keywordCount)
+                : RtfError.OK;
         }
     }
 }

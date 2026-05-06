@@ -1941,7 +1941,6 @@ public sealed partial class RtfToTextConverter
         _plainText = new ListFast<char>(_plainTextDefaultCapacity);
 
         _fontDictionaryCapacity = _internalBufferDefaultCapacity;
-        _fontEntryPool = new ListFast<FontEntry>(_internalBufferDefaultCapacity);
         _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
 
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
@@ -2185,7 +2184,7 @@ public sealed partial class RtfToTextConverter
 
             GroupStack_ClearFast();
             GroupStack_ResetFirst();
-            ClearFontDictionary();
+            _fontDictionary.Clear();
 
             _headerCodePage = 1252;
             _headerDefaultFontSet = false;
@@ -2364,6 +2363,35 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    private RtfError ParseKeyword_FontTable(out KeywordType fontTableKeyword, out int param)
+    {
+        // Add one extra to all the known counts because I can't think whether the read increments will put us
+        // one over or not
+        if (_currentPos < (_currentBufferChunkLength - 1) - (
+                1 + 1 +
+                _keywordMaxLen + 1 + 1 +
+                1 + 1 +
+                _paramMaxLen + 1 + 1
+            ))
+        {
+#if NET8_0_OR_GREATER
+            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
+            {
+                RtfError result = ParseKeyword_FontTable_Fast_Vector128(out fontTableKeyword, out param);
+                return result == RtfError.KeywordTooLong ? ParseKeyword_FontTable_Fast(out fontTableKeyword, out param) : result;
+            }
+            else
+#endif
+            {
+                return ParseKeyword_FontTable_Fast(out fontTableKeyword, out param);
+            }
+        }
+        else
+        {
+            return ParseKeyword_FontTable_Slow(out fontTableKeyword, out param);
+        }
+    }
+
     private RtfError ParseFontTable()
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
@@ -2372,6 +2400,11 @@ public sealed partial class RtfToTextConverter
         _inFontTable = true;
 
         int fontTableGroupLevel = _groupStackCount;
+
+        bool currentFontAcquired = false;
+        int currentFontNumber = NoFontNumber;
+        ushort currentFontCodePage = NoCodePage;
+        SymbolFont currentFontSymbolFont = SymbolFont.Unset;
 
         while (!_reachedEndOfStream)
         {
@@ -2393,7 +2426,7 @@ public sealed partial class RtfToTextConverter
                             // any font entry objects yet. Now that we do, we can retroactively set all previous
                             // groups' fonts as appropriate, as if they had propagated up automatically.
                             int defaultFontNum = _headerDefaultFontNum;
-                            if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry? fontEntry))
+                            if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry fontEntry))
                             {
                                 SymbolFont symbolFont = fontEntry.SymbolFont;
                                 // Start at 1 because the "base" group is still inside an opening { so it's really
@@ -2417,20 +2450,47 @@ public sealed partial class RtfToTextConverter
                         }
                         break;
                     case '\\':
-                        RtfError ec = ParseKeyword();
+                        RtfError ec = ParseKeyword_FontTable(out KeywordType fontTableKeyword, out int param);
                         if (ec != RtfError.OK) return ec;
+
+                        if (fontTableKeyword == KeywordType.F)
+                        {
+                            currentFontNumber = param;
+                            currentFontAcquired = true;
+                        }
+                        else if (currentFontAcquired)
+                        {
+                            switch (fontTableKeyword)
+                            {
+                                case KeywordType.FCharset:
+                                {
+                                    if (param is >= 0 and < _charSetToCodePageLength)
+                                    {
+                                        ushort codePage = _charSetToCodePage[param];
+                                        currentFontCodePage = codePage < NoCodePage ? codePage : _headerCodePage;
+                                    }
+                                    else
+                                    {
+                                        currentFontCodePage = _headerCodePage;
+                                    }
+                                    break;
+                                }
+                                case KeywordType.CPG:
+                                    currentFontCodePage = param.IsNonEmptyCodePage() ? (ushort)param : _headerCodePage;
+                                    break;
+                            }
+                        }
                         break;
                     case '\r':
                     case '\n':
                         break;
                     default:
                     {
-                        FontEntry? fontEntry = _fontEntries_Top;
                         if (!GroupStack_CurrentSkipDest &&
                             // We can't check for codepage 42, because symbol fonts can have other codepages (although
                             // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
                             // save time here...
-                            fontEntry is { SymbolFont: SymbolFont.Unset })
+                            currentFontAcquired && currentFontSymbolFont == SymbolFont.Unset)
                         {
                             bool isNonSemicolonSeparatorChar = false;
                             int symbolFontNameCount;
@@ -2484,13 +2544,27 @@ public sealed partial class RtfToTextConverter
                                 byte[] nameBytes = _symbolFontCharsArrays[i];
                                 if (FontName_SeqEqual(_symbolFontNameBuffer, nameBytes, symbolFontNameCount))
                                 {
-                                    fontEntry.SymbolFont = (SymbolFont)i;
+                                    currentFontSymbolFont = (SymbolFont)i;
                                     break;
                                 }
                             }
-                            if (fontEntry.SymbolFont == SymbolFont.Unset)
+                            if (currentFontSymbolFont == SymbolFont.Unset)
                             {
-                                fontEntry.SymbolFont = SymbolFont.None;
+                                currentFontSymbolFont = SymbolFont.None;
+                            }
+
+                            if (currentFontNumber != NoFontNumber)
+                            {
+                                if (currentFontCodePage == NoCodePage)
+                                {
+                                    currentFontCodePage = _headerCodePage;
+                                }
+
+                                _fontDictionary[currentFontNumber] = new FontEntry(currentFontCodePage, currentFontSymbolFont);
+                                currentFontAcquired = false;
+                                currentFontNumber = NoFontNumber;
+                                currentFontCodePage = NoCodePage;
+                                currentFontSymbolFont = SymbolFont.Unset;
                             }
                         }
                         break;
@@ -2669,22 +2743,6 @@ public sealed partial class RtfToTextConverter
             case SpecialType.HexEncodedChar:
                 HandleHexRun();
                 break;
-            case SpecialType.Charset:
-                // Reject negative codepage values as invalid and just use the header default in that case
-                // (which is guaranteed not to be negative)
-                if (_inFontTable && _fontEntries_Top != null)
-                {
-                    if (param is >= 0 and < _charSetToCodePageLength)
-                    {
-                        ushort codePage = _charSetToCodePage[param];
-                        _fontEntries_Top.CodePage = codePage < NoCodePage ? codePage : _headerCodePage;
-                    }
-                    else
-                    {
-                        _fontEntries_Top.CodePage = _headerCodePage;
-                    }
-                }
-                break;
             case SpecialType.SkipNumberOfBytes:
                 if (symbol.UseDefaultParam) param = symbol.DefaultParam;
                 if (param < 0) return RtfError.AbortedForSafety;
@@ -2727,12 +2785,6 @@ public sealed partial class RtfToTextConverter
                     }
                 }
                 break;
-            case SpecialType.CodePage:
-                if (_inFontTable && _fontEntries_Top != null)
-                {
-                    _fontEntries_Top.CodePage = param.IsNonEmptyCodePage() ? (ushort)param : _headerCodePage;
-                }
-                break;
         }
 
         return RtfError.OK;
@@ -2743,12 +2795,7 @@ public sealed partial class RtfToTextConverter
     {
         if (propertyTableIndex == Property.FontNum)
         {
-            if (_inFontTable)
-            {
-                FontDictionary_Add(val);
-                return;
-            }
-            else if (_fontDictionary.TryGetValue(val, out FontEntry? fontEntry))
+            if (_fontDictionary.TryGetValue(val, out FontEntry fontEntry))
             {
                 if (fontEntry.CodePage == 42)
                 {
@@ -2788,7 +2835,7 @@ public sealed partial class RtfToTextConverter
 
     #region Hex
 
-    private void AddHexBuffer(bool success, bool codePageWas42, Encoding? enc, FontEntry? fontEntry)
+    private void AddHexBuffer(bool success, bool codePageWas42, Encoding? enc, in FontEntry fontEntry)
     {
         // If multiple hex chars are directly after another (eg. \'81\'63) then they may be representing one
         // multibyte character (or not, they may also just be two single-byte chars in a row). To deal with
@@ -2807,7 +2854,7 @@ public sealed partial class RtfToTextConverter
             // then we're guaranteed to be single-byte, and combining won't give a correct result
             if (codePageWas42)
             {
-                if (fontEntry == null)
+                if (!fontEntry.IsSet)
                 {
                     for (int i = 0; i < _hexBuffer.Count; i++)
                     {
@@ -2889,7 +2936,7 @@ public sealed partial class RtfToTextConverter
     {
         _hexBuffer.ClearFast();
 
-        (bool success, bool codePageWas42, Encoding? enc, FontEntry? fontEntry) = GetCurrentEncoding();
+        (bool success, bool codePageWas42, Encoding? enc, FontEntry fontEntry) = GetCurrentEncoding();
 
         byte byte1;
         byte byte2;
@@ -2923,7 +2970,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos -= 2;
-                    AddHexBuffer(success, codePageWas42, enc, fontEntry);
+                    AddHexBuffer(success, codePageWas42, enc, in fontEntry);
                     return;
                 }
             }
@@ -2931,7 +2978,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos--;
-                AddHexBuffer(success, codePageWas42, enc, fontEntry);
+                AddHexBuffer(success, codePageWas42, enc, in fontEntry);
                 return;
             }
         }
@@ -2951,7 +2998,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos -= 2;
-                    AddHexBuffer(success, codePageWas42, enc, fontEntry);
+                    AddHexBuffer(success, codePageWas42, enc, in fontEntry);
                     return;
                 }
             }
@@ -2959,7 +3006,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos--;
-                AddHexBuffer(success, codePageWas42, enc, fontEntry);
+                AddHexBuffer(success, codePageWas42, enc, in fontEntry);
                 return;
             }
         }
@@ -3329,7 +3376,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void FieldInst_AddChar(FontEntry fontEntry, ushort param)
+    private void FieldInst_AddChar(in FontEntry fontEntry, ushort param)
     {
         // We already know our code point is within bounds of the array, because the arrays also go from
         // 0x20 - 0xFF, so no need to check.
@@ -3366,13 +3413,13 @@ public sealed partial class RtfToTextConverter
             {
                 int fontNum = FieldInst_GetFontNum();
 
-                if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+                if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) || fontEntry.CodePage != 42)
                 {
                     _plainText.Add((char)param);
                     return;
                 }
 
-                FieldInst_AddChar(fontEntry, param);
+                FieldInst_AddChar(in fontEntry, param);
             }
         }
         else
@@ -3390,7 +3437,7 @@ public sealed partial class RtfToTextConverter
     {
         int fontNum = FieldInst_GetFontNum();
 
-        if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry))
+        if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
             ListFast<char> finalChars = GetCharFromCodePage(_headerCodePage, param);
             AddChars_FieldInst(finalChars, finalChars.Count);
@@ -3403,7 +3450,7 @@ public sealed partial class RtfToTextConverter
             return;
         }
 
-        FieldInst_AddChar(fontEntry, param);
+        FieldInst_AddChar(in fontEntry, param);
     }
 
     private void HandleFieldInst_F_Bare(ushort param)
@@ -3790,7 +3837,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry? FontEntry)
+    private (bool Success, bool CodePageWas42, Encoding? Encoding, FontEntry FontEntry)
     GetCurrentEncoding()
     {
         int groupFontNum = GroupStack_CurrentPropertyFontNum;
@@ -3798,17 +3845,17 @@ public sealed partial class RtfToTextConverter
 
         if (groupFontNum == NoFontNumber) groupFontNum = _headerDefaultFontNum;
 
-        _fontDictionary.TryGetValue(groupFontNum, out FontEntry? fontEntry);
+        _fontDictionary.TryGetValue(groupFontNum, out FontEntry fontEntry);
 
         ushort codePage;
         if (groupLang is > -1 and <= _maxLangNumIndex)
         {
             ushort translatedCodePage = _langToCodePage[groupLang];
-            codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry?.CodePage < NoCodePage ? fontEntry.CodePage : _headerCodePage;
+            codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
         else
         {
-            codePage = fontEntry?.CodePage < NoCodePage ? fontEntry.CodePage : _headerCodePage;
+            codePage = fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
 
         if (codePage == 42) return (true, true, null, fontEntry);
@@ -3827,7 +3874,7 @@ public sealed partial class RtfToTextConverter
             }
             catch
             {
-                return (false, false, null, null);
+                return (false, false, null, _nullFontEntry);
             }
         }
 
@@ -3948,7 +3995,7 @@ public sealed partial class RtfToTextConverter
                 ? _lastUsedFontWithCodePage42
                 : _headerDefaultFontNum;
 
-            if (!_fontDictionary.TryGetValue(fontNum, out FontEntry? fontEntry) || fontEntry.CodePage != 42)
+            if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) || fontEntry.CodePage != 42)
             {
                 return;
             }
@@ -5000,7 +5047,7 @@ public sealed partial class RtfToTextConverter
 // Entry 48
         new Symbol("footerr", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
 // Entry 8
-        new Symbol("fcharset", NoCodePage, false, KeywordType.Special, (ushort)SpecialType.Charset),
+        new Symbol("fcharset", NoCodePage, false, KeywordType.FCharset, 0),
         null, null,
 // Entry 78
         new Symbol("panose", 20, true, KeywordType.Special, (ushort)SpecialType.SkipNumberOfBytes),
@@ -5125,7 +5172,7 @@ public sealed partial class RtfToTextConverter
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
 // Entry 9
-        new Symbol("cpg", NoCodePage, false, KeywordType.Special, (ushort)SpecialType.CodePage),
+        new Symbol("cpg", NoCodePage, false, KeywordType.CPG, 0),
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null,
@@ -5300,6 +5347,8 @@ public sealed partial class RtfToTextConverter
 
     #region FontDictionary
 
+    private readonly FontEntry _nullFontEntry = new();
+
     private int _fontDictionaryCapacity;
 #if NET8_0_OR_GREATER
     private readonly Dictionary<int, FontEntry> _fontDictionary;
@@ -5307,56 +5356,21 @@ public sealed partial class RtfToTextConverter
     private Dictionary<int, FontEntry> _fontDictionary;
 #endif
 
-    private readonly ListFast<FontEntry> _fontEntryPool;
-    private int _fontEntryPoolVirtualCount;
-
     /*
     \fN params are normally in the signed int16 range, but the Windows RichEdit control supports them in the
     -30064771071 - 30064771070 (-0x6ffffffff - 0x6fffffffe) range (yes, bizarre numbers, but I tested and
     there they are).
     */
 
-    private FontEntry? _fontEntries_Top;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void FontDictionary_Add(int key)
-    {
-        FontEntry fontEntry;
-        if (_fontEntryPoolVirtualCount > 0)
-        {
-            --_fontEntryPoolVirtualCount;
-            fontEntry = _fontEntryPool[_fontEntryPoolVirtualCount];
-            fontEntry.Reset();
-        }
-        else
-        {
-            fontEntry = new FontEntry();
-            _fontEntryPool.Add(fontEntry);
-        }
-
-        _fontEntries_Top = fontEntry;
-        _fontDictionary[key] = fontEntry;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void ClearFontDictionary()
-    {
-        _fontEntries_Top = null;
-        _fontDictionary.Clear();
-        _fontEntryPoolVirtualCount = _fontEntryPool.Count;
-    }
-
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void FontDictionary_ClearFull(int capacity)
     {
         _fontDictionaryCapacity = capacity;
-        _fontEntryPool.HardReset(capacity);
 #if NET8_0_OR_GREATER
         _fontDictionary.Reset(capacity);
 #else
         _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
 #endif
-        ClearFontDictionary();
     }
 
     #endregion

@@ -11,8 +11,7 @@ internal static class GenAttributes
         internal FenGen_ParseKeywordAttribute(
             string getByteFunctionName,
             string bufferName,
-            string incrementFunctionName,
-            string destFunctionName)
+            string incrementFunctionName)
         { }
     }
 }
