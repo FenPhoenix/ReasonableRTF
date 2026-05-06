@@ -772,34 +772,18 @@ public sealed partial class RtfToTextConverter
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector512(Vector512<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            if (Vector512.Equals(_zeroVector512, current) != Vector512<byte>.Zero)
-            {
-                // Nulls are unlikely to occur, so just use a crappy scalar fallback instead of writing tons of
-                // extra code.
-                for (int i = 0; i < Vector512<byte>.Count; i++)
-                {
-                    byte b = current[i];
-                    if (b != 0)
-                    {
-                        plainText.Add((char)b);
-                    }
-                }
-            }
-            else
-            {
-                (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
+            (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
 
-                int plainTextCount = plainText.Count;
+            int plainTextCount = plainText.Count;
 
-                plainText.EnsureCapacity(plainTextCount + Vector512<byte>.Count);
+            plainText.EnsureCapacity(plainTextCount + Vector512<byte>.Count);
 
-                char[] plainTextArray = plainText.ItemsArray;
+            char[] plainTextArray = plainText.ItemsArray;
 
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
 
-                plainText.Count += Vector512<byte>.Count;
-            }
+            plainText.Count += Vector512<byte>.Count;
 
             currentPos += Vector512<byte>.Count;
         }
@@ -807,32 +791,18 @@ public sealed partial class RtfToTextConverter
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector256(Vector256<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            if (Vector256.Equals(_zeroVector256, current) != Vector256<byte>.Zero)
-            {
-                for (int i = 0; i < Vector256<byte>.Count; i++)
-                {
-                    byte b = current[i];
-                    if (b != 0)
-                    {
-                        plainText.Add((char)b);
-                    }
-                }
-            }
-            else
-            {
-                (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
+            (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
 
-                int plainTextCount = plainText.Count;
+            int plainTextCount = plainText.Count;
 
-                plainText.EnsureCapacity(plainTextCount + Vector256<byte>.Count);
+            plainText.EnsureCapacity(plainTextCount + Vector256<byte>.Count);
 
-                char[] plainTextArray = plainText.ItemsArray;
+            char[] plainTextArray = plainText.ItemsArray;
 
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
 
-                plainText.Count += Vector256<byte>.Count;
-            }
+            plainText.Count += Vector256<byte>.Count;
 
             currentPos += Vector256<byte>.Count;
         }
@@ -840,32 +810,18 @@ public sealed partial class RtfToTextConverter
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector128(Vector128<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            if (Vector128.Equals(_zeroVector128, current) != Vector128<byte>.Zero)
-            {
-                for (int i = 0; i < Vector128<byte>.Count; i++)
-                {
-                    byte b = current[i];
-                    if (b != 0)
-                    {
-                        plainText.Add((char)b);
-                    }
-                }
-            }
-            else
-            {
-                (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
+            (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
 
-                int plainTextCount = plainText.Count;
+            int plainTextCount = plainText.Count;
 
-                plainText.EnsureCapacity(plainTextCount + Vector128<byte>.Count);
+            plainText.EnsureCapacity(plainTextCount + Vector128<byte>.Count);
 
-                char[] plainTextArray = plainText.ItemsArray;
+            char[] plainTextArray = plainText.ItemsArray;
 
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-                Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
 
-                plainText.Count += Vector128<byte>.Count;
-            }
+            plainText.Count += Vector128<byte>.Count;
 
             currentPos += Vector128<byte>.Count;
         }

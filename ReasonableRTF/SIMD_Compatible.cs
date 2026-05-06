@@ -378,30 +378,14 @@ public sealed partial class RtfToTextConverter
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void CopyVector(Vector<byte> current, ListFast<char> plainText, ref int currentPos)
         {
-            if (Vector.Equals(_zeroVector, current) != Vector<byte>.Zero)
-            {
-                // Nulls are unlikely to occur, so just use a crappy scalar fallback instead of writing tons of
-                // extra code.
-                for (int i = 0; i < Vector<byte>.Count; i++)
-                {
-                    byte b = current[i];
-                    if (b != 0)
-                    {
-                        plainText.Add((char)b);
-                    }
-                }
-            }
-            else
-            {
-                Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
+            Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
 
-                plainText.EnsureCapacity(plainText.Count + Vector<byte>.Count);
+            plainText.EnsureCapacity(plainText.Count + Vector<byte>.Count);
 
-                lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-                upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector<byte>.Count / 2));
+            lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
+            upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector<byte>.Count / 2));
 
-                plainText.Count += Vector<byte>.Count;
-            }
+            plainText.Count += Vector<byte>.Count;
 
             currentPos += Vector<byte>.Count;
         }
