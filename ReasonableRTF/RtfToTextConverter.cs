@@ -1844,7 +1844,6 @@ public sealed partial class RtfToTextConverter
 
     private Stream? _bufferedStream;
 
-    private bool _endedStreamOnce;
     private bool _reachedEndOfStream;
 
     private int _leadingBufferByteCount;
@@ -2180,7 +2179,6 @@ public sealed partial class RtfToTextConverter
 
             #region Reset
 
-            _endedStreamOnce = false;
             _reachedEndOfStream = false;
 
             GroupStack_ClearFast();
@@ -4592,34 +4590,22 @@ public sealed partial class RtfToTextConverter
         // to have an enforced minimum.
         Debug.Assert(_buffer.Length >= _maxSeekBackBytes);
 
-        // On the last chunk, we may have fewer than _maxSeekBackBytes bytes, but we aren't going to use the
-        // copied garbage in that case because we'll throw for attempt to read past end of stream.
-        ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_currentBufferChunkLength - _leadingBufferByteCount]);
+        ulong endChunk = Unsafe.ReadUnaligned<ulong>(ref _buffer[_currentBufferChunkLength - _maxSeekBackBytes]);
         Unsafe.WriteUnaligned(ref _buffer[0], endChunk);
 
-        int bytesRead = _bufferedStream!.ReadAll(_buffer, _leadingBufferByteCount, _bufferLength - _leadingBufferByteCount);
+        int bytesRead = _bufferedStream!.ReadAll(_buffer, _maxSeekBackBytes, _bufferLength - _maxSeekBackBytes);
 
         if (bytesRead == 0)
         {
-            // Hack to match previous behavior with intentionally-broken RtfPipe test files
-            if (_endedStreamOnce)
-            {
-                // Drop-in that loops can check to achieve the same effect as checking the length the way we used
-                // to
-                _reachedEndOfStream = true;
-            }
-            else
-            {
-                _endedStreamOnce = true;
-            }
+            // Drop-in that loops can check to achieve the same effect as checking the length the way we used to
+            _reachedEndOfStream = true;
         }
         else
         {
             _chunksRead++;
+            _currentPos = _maxSeekBackBytes;
+            _currentBufferChunkLength = bytesRead + _maxSeekBackBytes;
         }
-
-        _currentPos = _leadingBufferByteCount;
-        _currentBufferChunkLength = bytesRead + _leadingBufferByteCount;
     }
 
     #endregion
