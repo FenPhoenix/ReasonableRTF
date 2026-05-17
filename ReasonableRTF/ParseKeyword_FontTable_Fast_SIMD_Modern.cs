@@ -98,9 +98,11 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
 
+            keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
+
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keyword[0] == (byte)'f')
+            if (keywordCount == 1 && keywordRef == (byte)'f')
             {
                 _skipDestinationIfUnknown = false;
                 // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
@@ -109,7 +111,7 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
             }
         }
 
