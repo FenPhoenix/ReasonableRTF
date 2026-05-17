@@ -1941,8 +1941,7 @@ public sealed partial class RtfToTextConverter
 
         _plainText = new ListFast<char>(_plainTextDefaultCapacity);
 
-        _fontDictionaryCapacity = _internalBufferDefaultCapacity;
-        _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
+        _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
 
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
         _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
@@ -5288,7 +5287,6 @@ public sealed partial class RtfToTextConverter
 
     #region FontDictionary
 
-    private int _fontDictionaryCapacity;
 #if NET8_0_OR_GREATER
     private readonly Dictionary<int, FontEntry> _fontDictionary;
 #else
@@ -5304,11 +5302,10 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void FontDictionary_ClearFull(int capacity)
     {
-        _fontDictionaryCapacity = capacity;
 #if NET8_0_OR_GREATER
         _fontDictionary.Reset(capacity);
 #else
-        _fontDictionary = new Dictionary<int, FontEntry>(_fontDictionaryCapacity);
+        _fontDictionary = new Dictionary<int, FontEntry>(capacity);
 #endif
     }
 
