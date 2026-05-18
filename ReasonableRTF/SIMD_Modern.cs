@@ -533,7 +533,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector512<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[current[index]])
+                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -555,12 +555,12 @@ public sealed partial class RtfToTextConverter
                                 return true;
                             }
                         }
-                        else if (IsPar(current, ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isIgnoreChar[current[index]])
+                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -644,7 +644,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector256<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[current[index]])
+                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -666,12 +666,12 @@ public sealed partial class RtfToTextConverter
                                 return true;
                             }
                         }
-                        else if (IsPar(current, ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isIgnoreChar[current[index]])
+                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -755,7 +755,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector128<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[current[index]])
+                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -777,12 +777,12 @@ public sealed partial class RtfToTextConverter
                                 return true;
                             }
                         }
-                        else if (IsPar(current, ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, true);
                         }
-                        else if (_isIgnoreChar[current[index]])
+                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount, plainText, false);
@@ -880,40 +880,10 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsPar(Vector512<byte> current, ref byte currentSearchSpace, byte index, uint parUInt, out int parLength)
+    private bool IsPar(ref byte currentSearchSpace, byte index, uint parUInt, out int parLength)
     {
         if (Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == parUInt &&
-            (parLength = _isParEndingChar[current[index + 4]]) > 0)
-        {
-            return true;
-        }
-        else
-        {
-            parLength = 0;
-            return false;
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsPar(Vector256<byte> current, ref byte currentSearchSpace, byte index, uint parUInt, out int parLength)
-    {
-        if (Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == parUInt &&
-            (parLength = _isParEndingChar[current[index + 4]]) > 0)
-        {
-            return true;
-        }
-        else
-        {
-            parLength = 0;
-            return false;
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool IsPar(Vector128<byte> current, ref byte currentSearchSpace, byte index, uint parUInt, out int parLength)
-    {
-        if (Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == parUInt &&
-            (parLength = _isParEndingChar[current[index + 4]]) > 0)
+            (parLength = _isParEndingChar[GetByteAtPos(ref currentSearchSpace, index + 4)]) > 0)
         {
             return true;
         }

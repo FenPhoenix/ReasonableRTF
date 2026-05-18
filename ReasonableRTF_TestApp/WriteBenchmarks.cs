@@ -31,7 +31,6 @@ internal static class WriteBenchmarks
 
     private sealed class TargetBenchmarkSet
     {
-        internal readonly TargetBenchmark TargetBenchmark;
         internal readonly string FileName;
         internal readonly string RTB_BenchmarkLine_Full;
         internal readonly string RTB_BenchmarkLine_Small;
@@ -39,9 +38,14 @@ internal static class WriteBenchmarks
         internal readonly decimal RTB_Time_Small;
         internal readonly ExtraCharsOnColumn ExtraCharsOnColumn;
 
-        public TargetBenchmarkSet(TargetBenchmark targetBenchmark, string fileName, string rtbBenchmarkLineFull, string rtbBenchmarkLineSmall, decimal rtbTimeFull, decimal rtbTimeSmall, ExtraCharsOnColumn extraCharsOnColumn)
+        public TargetBenchmarkSet(
+            string fileName,
+            string rtbBenchmarkLineFull,
+            string rtbBenchmarkLineSmall,
+            decimal rtbTimeFull,
+            decimal rtbTimeSmall,
+            ExtraCharsOnColumn extraCharsOnColumn)
         {
-            TargetBenchmark = targetBenchmark;
             FileName = fileName;
             RTB_BenchmarkLine_Full = rtbBenchmarkLineFull;
             RTB_BenchmarkLine_Small = rtbBenchmarkLineSmall;
@@ -51,13 +55,13 @@ internal static class WriteBenchmarks
         }
     }
 
-    internal static void Write(long fullBytes, long smallBytes)
-    {
-        TargetBenchmarkSet[] targetBenchmarkSets = new TargetBenchmarkSet[Enum.GetValues(typeof(TargetBenchmark)).Length];
+    private static readonly TargetBenchmarkSet[] targetBenchmarkSets;
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET10_64] = new TargetBenchmarkSet(
-            TargetBenchmark.NET10_64,
-            "net10 64.md",
+    static WriteBenchmarks()
+    {
+        targetBenchmarkSets = new TargetBenchmarkSet[Enum.GetValues(typeof(TargetBenchmark)).Length];
+
+        targetBenchmarkSets[(int)TargetBenchmark.NET_64] = new TargetBenchmarkSet("net modern 64.md",
             "| RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |",
             (decimal)3_331.340,
@@ -65,9 +69,7 @@ internal static class WriteBenchmarks
             new ExtraCharsOnColumn(3, 0, 0)
         );
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET48_64] = new TargetBenchmarkSet(
-            TargetBenchmark.NET48_64,
-            "net48 64.md",
+        targetBenchmarkSets[(int)TargetBenchmark.NET48_64] = new TargetBenchmarkSet("net48 64.md",
             "| RichTextBox_FullSet               | 2,779.775 ms | 3.9318 ms | 3.2833 ms |   52.24 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            |   992.237 ms | 2.5478 ms | 2.2585 ms |    3.57 MB/s | 1x       |",
             (decimal)2_779.775,
@@ -75,25 +77,38 @@ internal static class WriteBenchmarks
             new ExtraCharsOnColumn(3, 0, 0)
         );
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET48_32] = new TargetBenchmarkSet(
-            TargetBenchmark.NET48_32,
-            "net48 32.md",
+        targetBenchmarkSets[(int)TargetBenchmark.NET48_32] = new TargetBenchmarkSet("net48 32.md",
             "| RichTextBox_FullSet               | 6,932.056 ms | 131.6848 ms | 140.9013 ms |   20.95 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            | 2,885.139 ms |  57.0121 ms |  81.7651 ms |    1.23 MB/s | 1x       |",
             (decimal)6_932.056,
             (decimal)2_885.139,
             new ExtraCharsOnColumn(3, 2, 2)
         );
-
-        foreach (TargetBenchmarkSet targetBenchmarkSet in targetBenchmarkSets)
-        {
-            WriteBenchmarkSet(targetBenchmarkSet, fullBytes, smallBytes);
-        }
     }
 
-    private static void WriteBenchmarkSet(TargetBenchmarkSet tbs, long fullBytes, long smallBytes)
+    internal static void WriteAll()
     {
-        string sourceFileName = GetBenchmarkArtifactsDir(tbs.TargetBenchmark);
+        long fullBytes = GetDirectorySize(SourceSet.Full);
+        long smallBytes = GetDirectorySize(SourceSet.Small);
+
+        WriteBenchmarkSet(TargetBenchmark.NET_64, fullBytes, smallBytes);
+        WriteBenchmarkSet(TargetBenchmark.NET48_64, fullBytes, smallBytes);
+        WriteBenchmarkSet(TargetBenchmark.NET48_32, fullBytes, smallBytes);
+    }
+
+    internal static void Write(TargetBenchmark target)
+    {
+        long fullBytes = GetDirectorySize(SourceSet.Full);
+        long smallBytes = GetDirectorySize(SourceSet.Small);
+
+        WriteBenchmarkSet(target, fullBytes, smallBytes);
+    }
+
+    private static void WriteBenchmarkSet(TargetBenchmark target, long fullBytes, long smallBytes)
+    {
+        TargetBenchmarkSet tbs = targetBenchmarkSets[(int)target];
+
+        string sourceFileName = GetBenchmarkArtifactsDir(target);
 
         List<string> lines = File.ReadAllLines(sourceFileName).ToList();
         for (int i = 0; i < lines.Count; i++)

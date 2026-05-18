@@ -53,12 +53,18 @@ sealed partial class MainForm
         Convert_FileStreamRadioButton = new RadioButton();
         Convert_MemoryStreamRadioButton = new RadioButton();
         Convert_ByteArrayRadioButton = new RadioButton();
+        WriteBenchmarkFilesGroupBox = new GroupBox();
+        AllTargetsButton = new Button();
+        Net48_32Button = new Button();
+        Net48_64Button = new Button();
+        Net64Button = new Button();
         ConvertAndWriteToDiskGroupBox.SuspendLayout();
         ConvertOnly_Full_GroupBox.SuspendLayout();
         ConverOnly_Small_GroupBox.SuspendLayout();
         ValidityTestGroupBox.SuspendLayout();
         WriteWorkingNewSetGroupBox.SuspendLayout();
         ConvertSourceGroupBox.SuspendLayout();
+        WriteBenchmarkFilesGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // Test1Button
@@ -341,11 +347,65 @@ sealed partial class MainForm
         Convert_ByteArrayRadioButton.Text = "Byte array";
         Convert_ByteArrayRadioButton.UseVisualStyleBackColor = true;
         // 
+        // WriteBenchmarkFilesGroupBox
+        // 
+        WriteBenchmarkFilesGroupBox.Controls.Add(AllTargetsButton);
+        WriteBenchmarkFilesGroupBox.Controls.Add(Net48_32Button);
+        WriteBenchmarkFilesGroupBox.Controls.Add(Net48_64Button);
+        WriteBenchmarkFilesGroupBox.Controls.Add(Net64Button);
+        WriteBenchmarkFilesGroupBox.Location = new Point(16, 296);
+        WriteBenchmarkFilesGroupBox.Name = "WriteBenchmarkFilesGroupBox";
+        WriteBenchmarkFilesGroupBox.Size = new Size(592, 72);
+        WriteBenchmarkFilesGroupBox.TabIndex = 9;
+        WriteBenchmarkFilesGroupBox.TabStop = false;
+        WriteBenchmarkFilesGroupBox.Text = "Write benchmark files";
+        // 
+        // AllTargetsButton
+        // 
+        AllTargetsButton.Location = new Point(256, 32);
+        AllTargetsButton.Name = "AllTargetsButton";
+        AllTargetsButton.Size = new Size(75, 23);
+        AllTargetsButton.TabIndex = 0;
+        AllTargetsButton.Text = "All";
+        AllTargetsButton.UseVisualStyleBackColor = true;
+        AllTargetsButton.Click += AllTargetsButton_Click;
+        // 
+        // Net48_32Button
+        // 
+        Net48_32Button.Location = new Point(176, 32);
+        Net48_32Button.Name = "Net48_32Button";
+        Net48_32Button.Size = new Size(75, 23);
+        Net48_32Button.TabIndex = 0;
+        Net48_32Button.Text = "net48 32";
+        Net48_32Button.UseVisualStyleBackColor = true;
+        Net48_32Button.Click += Net48_32Button_Click;
+        // 
+        // Net48_64Button
+        // 
+        Net48_64Button.Location = new Point(96, 32);
+        Net48_64Button.Name = "Net48_64Button";
+        Net48_64Button.Size = new Size(75, 23);
+        Net48_64Button.TabIndex = 0;
+        Net48_64Button.Text = "net48 64";
+        Net48_64Button.UseVisualStyleBackColor = true;
+        Net48_64Button.Click += Net48_64Button_Click;
+        // 
+        // Net64Button
+        // 
+        Net64Button.Location = new Point(16, 32);
+        Net64Button.Name = "Net64Button";
+        Net64Button.Size = new Size(75, 23);
+        Net64Button.TabIndex = 0;
+        Net64Button.Text = "net 64";
+        Net64Button.UseVisualStyleBackColor = true;
+        Net64Button.Click += Net64Button_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(625, 304);
+        ClientSize = new Size(625, 384);
+        Controls.Add(WriteBenchmarkFilesGroupBox);
         Controls.Add(ConvertSourceGroupBox);
         Controls.Add(ValidityTestGroupBox);
         Controls.Add(WriteOneButton);
@@ -367,6 +427,7 @@ sealed partial class MainForm
         WriteWorkingNewSetGroupBox.ResumeLayout(false);
         ConvertSourceGroupBox.ResumeLayout(false);
         ConvertSourceGroupBox.PerformLayout();
+        WriteBenchmarkFilesGroupBox.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -397,4 +458,9 @@ sealed partial class MainForm
     private RadioButton Convert_MemoryStreamRadioButton;
     private RadioButton Convert_ByteArrayRadioButton;
     private RadioButton Convert_DeflateStreamRadioButton;
+    private GroupBox WriteBenchmarkFilesGroupBox;
+    private Button Net64Button;
+    private Button AllTargetsButton;
+    private Button Net48_32Button;
+    private Button Net48_64Button;
 }

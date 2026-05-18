@@ -15,9 +15,20 @@ internal static class FileSetLocator
 
     internal enum TargetBenchmark
     {
-        NET10_64,
+        NET_64,
         NET48_64,
         NET48_32,
+    }
+
+    internal static long GetDirectorySize(SourceSet sourceSet)
+    {
+        long totalSize = 0;
+        DirectoryInfo di = new(GetFileSet(sourceSet));
+        foreach (FileInfo fi in di.EnumerateFiles())
+        {
+            totalSize += fi.Length;
+        }
+        return totalSize;
     }
 
     internal const string RtfFullSetDir = "RTF_Test_Set_Full";
@@ -138,7 +149,7 @@ internal static class FileSetLocator
 
         switch (targetBenchmark)
         {
-            case TargetBenchmark.NET10_64:
+            case TargetBenchmark.NET_64:
                 return GetLatestDotNetModernBenchmarkOutputFile(baseBenchmarkPath);
             case TargetBenchmark.NET48_64:
                 return Path.Combine(

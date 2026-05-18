@@ -522,22 +522,8 @@ public sealed partial class MainForm : Form
 
     #endregion
 
-    private static long GetDirectorySize(SourceSet sourceSet)
-    {
-        long totalSize = 0;
-        DirectoryInfo di = new(GetFileSet(sourceSet));
-        foreach (FileInfo fi in di.EnumerateFiles())
-        {
-            totalSize += fi.Length;
-        }
-        return totalSize;
-    }
-
     private void Test1Button_Click(object sender, EventArgs e)
     {
-        long fullBytes = GetDirectorySize(SourceSet.Full);
-        long smallBytes = GetDirectorySize(SourceSet.Small);
-
 #if false
         // Change this when we want to re-measure the benchmark MB/s
 
@@ -552,8 +538,26 @@ public sealed partial class MainForm : Form
         Trace.WriteLine("RC Full (Streamable/Stream) MB/s: " + GetMBsString(fullBytes, 26.847));
 
         Trace.WriteLine("RC Small (Streamable/Stream) MB/s: " + GetMBsString(smallBytes, 6.415));
-#else
-        WriteBenchmarks.Write(fullBytes, smallBytes);
 #endif
+    }
+
+    private void Net64Button_Click(object sender, EventArgs e)
+    {
+        WriteBenchmarks.Write(TargetBenchmark.NET_64);
+    }
+
+    private void Net48_64Button_Click(object sender, EventArgs e)
+    {
+        WriteBenchmarks.Write(TargetBenchmark.NET48_64);
+    }
+
+    private void Net48_32Button_Click(object sender, EventArgs e)
+    {
+        WriteBenchmarks.Write(TargetBenchmark.NET48_32);
+    }
+
+    private void AllTargetsButton_Click(object sender, EventArgs e)
+    {
+        WriteBenchmarks.WriteAll();
     }
 }
