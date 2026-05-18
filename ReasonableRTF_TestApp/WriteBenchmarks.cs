@@ -5,15 +5,15 @@ namespace ReasonableRTF_TestApp;
 
 internal static class WriteBenchmarks
 {
-    private const string topLineExtension1 = " Speed        |          |";
-    private const string topLineExtension2 = "-------------:|----------|";
+    private const string _topLineExtension1 = " Speed        |          |";
+    private const string _topLineExtension2 = "-------------:|----------|";
 
-    private const int speedSectionWidth = 14;
-    private const int multipleSectionWidth = 10;
+    private const int _speedSectionWidth = 14;
+    private const int _multipleSectionWidth = 10;
 
-    private const int meanIndexAfter = 6;
-    private const int errorIndexAfter = 7;
-    private const int stdDevIndexAfter = 8;
+    private const int _meanIndexAfter = 6;
+    private const int _errorIndexAfter = 7;
+    private const int _stdDevIndexAfter = 8;
 
     private sealed class ExtraCharsOnColumn
     {
@@ -55,13 +55,13 @@ internal static class WriteBenchmarks
         }
     }
 
-    private static readonly TargetBenchmarkSet[] targetBenchmarkSets;
+    private static readonly TargetBenchmarkSet[] _targetBenchmarkSets;
 
     static WriteBenchmarks()
     {
-        targetBenchmarkSets = new TargetBenchmarkSet[Enum.GetValues(typeof(TargetBenchmark)).Length];
+        _targetBenchmarkSets = new TargetBenchmarkSet[Enum.GetValues(typeof(TargetBenchmark)).Length];
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET_64] = new TargetBenchmarkSet("net modern 64.md",
+        _targetBenchmarkSets[(int)TargetBenchmark.NET_64] = new TargetBenchmarkSet("net modern 64.md",
             "| RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |",
             (decimal)3_331.340,
@@ -69,7 +69,7 @@ internal static class WriteBenchmarks
             new ExtraCharsOnColumn(3, 0, 0)
         );
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET48_64] = new TargetBenchmarkSet("net48 64.md",
+        _targetBenchmarkSets[(int)TargetBenchmark.NET48_64] = new TargetBenchmarkSet("net48 64.md",
             "| RichTextBox_FullSet               | 2,779.775 ms | 3.9318 ms | 3.2833 ms |   52.24 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            |   992.237 ms | 2.5478 ms | 2.2585 ms |    3.57 MB/s | 1x       |",
             (decimal)2_779.775,
@@ -77,7 +77,7 @@ internal static class WriteBenchmarks
             new ExtraCharsOnColumn(3, 0, 0)
         );
 
-        targetBenchmarkSets[(int)TargetBenchmark.NET48_32] = new TargetBenchmarkSet("net48 32.md",
+        _targetBenchmarkSets[(int)TargetBenchmark.NET48_32] = new TargetBenchmarkSet("net48 32.md",
             "| RichTextBox_FullSet               | 6,932.056 ms | 131.6848 ms | 140.9013 ms |   20.95 MB/s | 1x       |",
             "| RichTextBox_NoImageSet            | 2,885.139 ms |  57.0121 ms |  81.7651 ms |    1.23 MB/s | 1x       |",
             (decimal)6_932.056,
@@ -106,7 +106,7 @@ internal static class WriteBenchmarks
 
     private static void WriteBenchmarkSet(TargetBenchmark target, long fullBytes, long smallBytes)
     {
-        TargetBenchmarkSet tbs = targetBenchmarkSets[(int)target];
+        TargetBenchmarkSet tbs = _targetBenchmarkSets[(int)target];
 
         string sourceFileName = GetBenchmarkArtifactsDir(target);
 
@@ -116,14 +116,14 @@ internal static class WriteBenchmarks
             string line = lines[i];
             if (line.StartsWithO("| Method"))
             {
-                lines[i] += topLineExtension1;
+                lines[i] += _topLineExtension1;
                 WriteExtraCharsSet(lines, i, ' ', tbs.ExtraCharsOnColumn, true);
             }
             else if (line.StartsWithO("|"))
             {
                 if (line.StartsWithO("|-"))
                 {
-                    lines[i] += topLineExtension2;
+                    lines[i] += _topLineExtension2;
                     WriteExtraCharsSet(lines, i, '-', tbs.ExtraCharsOnColumn, false);
                 }
                 else
@@ -145,7 +145,7 @@ internal static class WriteBenchmarks
                     string mbsString = GetMBsString(setBytes, time);
 
                     mbsString += " ";
-                    mbsString = new string(' ', speedSectionWidth - mbsString.Length) + mbsString;
+                    mbsString = new string(' ', _speedSectionWidth - mbsString.Length) + mbsString;
 
                     lines[i] += mbsString + "|";
 
@@ -153,7 +153,7 @@ internal static class WriteBenchmarks
                         " " +
                         intMultiple +
                         "x" +
-                        new string(' ', multipleSectionWidth - (intMultiple.ToString().Length + 2)) +
+                        new string(' ', _multipleSectionWidth - (intMultiple.ToString().Length + 2)) +
                         "|";
                 }
             }
@@ -192,9 +192,9 @@ internal static class WriteBenchmarks
     {
         if (relativeIndex)
         {
-            WriteExtraChars(lines, i, c, extra.MeanColumn, meanIndexAfter, 2);
-            WriteExtraChars(lines, i, c, extra.ErrorColumn, errorIndexAfter, 3);
-            WriteExtraChars(lines, i, c, extra.StdDevColumn, stdDevIndexAfter, 4);
+            WriteExtraChars(lines, i, c, extra.MeanColumn, _meanIndexAfter, 2);
+            WriteExtraChars(lines, i, c, extra.ErrorColumn, _errorIndexAfter, 3);
+            WriteExtraChars(lines, i, c, extra.StdDevColumn, _stdDevIndexAfter, 4);
         }
         else
         {

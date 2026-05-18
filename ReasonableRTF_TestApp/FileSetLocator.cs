@@ -20,6 +20,28 @@ internal static class FileSetLocator
         NET48_32,
     }
 
+    internal const string RtfFullSetDir = "RTF_Test_Set_Full";
+    internal const string RtfSmallSetDir = "RTF_Test_Set_Small";
+
+    internal const string RftValidityTestDir = "Validity_Test_Files";
+    internal const string WorkingNewSetDir = "WorkingNewSet";
+
+    internal const string OutputCustomDir = "Output_Custom";
+    internal const string OutputRichTextBoxDir = "Output_RichTextBox";
+
+    internal const string RtfValidityTestOutputCustomDir = "Output_Validity_Test_Custom";
+    internal const string RtfValidityTestOutputRichTextBoxDir = "Output_Validity_Test_RichTextBox";
+
+    internal const string OutputWorkingNewSetCustomDir = "Output_WorkingNewSet_Custom";
+    internal const string OutputWorkingNewSetRichTextBoxDir = "Output_WorkingNewSet_RichTextBox";
+
+    internal const string DeflateStreamTest_Full_FileName = "DeflateStreamTest_Full.zip";
+    internal const string DeflateStreamTest_Small_FileName = "DeflateStreamTest_Small.zip";
+    internal const string DeflateStreamTest_Validity_Test_Files_FileName = "DeflateStreamTest_Validity_Test_Files.zip";
+    internal const string DeflateStreamTest_WorkingNewSet_FileName = "DeflateStreamTest_WorkingNewSet.zip";
+
+    internal const string BenchmarkOutputFileName = "ReasonableRTF_Benchmark.Test-report-github.md";
+
     internal static long GetDirectorySize(SourceSet sourceSet)
     {
         long totalSize = 0;
@@ -31,36 +53,14 @@ internal static class FileSetLocator
         return totalSize;
     }
 
-    internal const string RtfFullSetDir = "RTF_Test_Set_Full";
-    internal const string RtfSmallSetDir = "RTF_Test_Set_Small";
-
-    internal const string _rftValidityTestDir = "Validity_Test_Files";
-    internal const string _workingNewSetDir = "WorkingNewSet";
-
-    internal const string _outputCustomDir = "Output_Custom";
-    internal const string _outputRichTextBoxDir = "Output_RichTextBox";
-
-    internal const string _rtfValidityTestOutputCustomDir = "Output_Validity_Test_Custom";
-    internal const string _rtfValidityTestOutputRichTextBoxDir = "Output_Validity_Test_RichTextBox";
-
-    internal const string _outputWorkingNewSetCustomDir = "Output_WorkingNewSet_Custom";
-    internal const string _outputWorkingNewSetRichTextBoxDir = "Output_WorkingNewSet_RichTextBox";
-
-    internal const string DeflateStreamTest_Full_FileName = "DeflateStreamTest_Full.zip";
-    internal const string DeflateStreamTest_Small_FileName = "DeflateStreamTest_Small.zip";
-    internal const string DeflateStreamTest_Validity_Test_Files_FileName = "DeflateStreamTest_Validity_Test_Files.zip";
-    internal const string DeflateStreamTest_WorkingNewSet_FileName = "DeflateStreamTest_WorkingNewSet.zip";
-
-    internal const string BenchmarkOutputFileName = "ReasonableRTF_Benchmark.Test-report-github.md";
-
     public static string GetFileSet(SourceSet sourceSet)
     {
         string directory = sourceSet switch
         {
             SourceSet.Full => RtfFullSetDir,
             SourceSet.Small => RtfSmallSetDir,
-            SourceSet.WorkingNewSet => _workingNewSetDir,
-            SourceSet.ValidityTest => _rftValidityTestDir,
+            SourceSet.WorkingNewSet => WorkingNewSetDir,
+            SourceSet.ValidityTest => RftValidityTestDir,
             _ => throw new ArgumentOutOfRangeException(nameof(sourceSet), sourceSet, null),
         };
 

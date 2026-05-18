@@ -289,9 +289,9 @@ public sealed partial class MainForm : Form
             string outputDir =
                 sourceSet switch
                 {
-                    SourceSet.ValidityTest => _rtfValidityTestOutputCustomDir,
-                    SourceSet.WorkingNewSet => _outputWorkingNewSetCustomDir,
-                    _ => _outputCustomDir,
+                    SourceSet.ValidityTest => RtfValidityTestOutputCustomDir,
+                    SourceSet.WorkingNewSet => OutputWorkingNewSetCustomDir,
+                    _ => OutputCustomDir,
                 };
 
             WritePlaintextFile(finalFile, result.Text, outputDir, sourceSet);
@@ -436,36 +436,36 @@ public sealed partial class MainForm : Form
 
     private void ConvertAndWriteWithRichTextBoxButton_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_RichTextBox(SourceSet.Full, _outputRichTextBoxDir);
+        ConvertAndWrite_RichTextBox(SourceSet.Full, OutputRichTextBoxDir);
     }
 
     private void ConvertAndWriteWithCustomButton_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_Custom(SourceSet.Full, _outputCustomDir);
+        ConvertAndWrite_Custom(SourceSet.Full, OutputCustomDir);
     }
 
     #region Write validity test
 
     private void ConvertAndWriteValidityTestFiles_RTB_Button_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_RichTextBox(SourceSet.ValidityTest, _rtfValidityTestOutputRichTextBoxDir);
+        ConvertAndWrite_RichTextBox(SourceSet.ValidityTest, RtfValidityTestOutputRichTextBoxDir);
     }
 
     private void ConvertAndWriteValidityTestFiles_Custom_Button_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_Custom(SourceSet.ValidityTest, _rtfValidityTestOutputCustomDir);
+        ConvertAndWrite_Custom(SourceSet.ValidityTest, RtfValidityTestOutputCustomDir);
     }
 
     #endregion
 
     private void WriteWorkingNewSetRTBButton_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_RichTextBox(SourceSet.WorkingNewSet, _outputWorkingNewSetRichTextBoxDir);
+        ConvertAndWrite_RichTextBox(SourceSet.WorkingNewSet, OutputWorkingNewSetRichTextBoxDir);
     }
 
     private void WriteWorkingNewSetCustomButton_Click(object sender, EventArgs e)
     {
-        ConvertAndWrite_Custom(SourceSet.WorkingNewSet, _outputWorkingNewSetCustomDir);
+        ConvertAndWrite_Custom(SourceSet.WorkingNewSet, OutputWorkingNewSetCustomDir);
     }
 
     #endregion
