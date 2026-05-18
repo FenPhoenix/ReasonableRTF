@@ -231,7 +231,7 @@ internal static class WriteBenchmarks
         decimal megs = (decimal)totalSize / 1024 / 1024;
         decimal intermediate = megs / elapsedMilliseconds;
         decimal finalMBs = Math.Round(intermediate * 1000, 2, MidpointRounding.AwayFromZero);
-        return finalMBs.ToString(CultureInfo.CurrentCulture) + " MB/s";
+        return finalMBs.ToString("F2", CultureInfo.CurrentCulture) + " MB/s";
     }
 
     private static int GetBarIndex(string line, int barNumberToGet)
