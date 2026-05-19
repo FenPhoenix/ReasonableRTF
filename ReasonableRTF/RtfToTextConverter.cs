@@ -2818,39 +2818,44 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void ChangeProperty(Property propertyTableIndex, int val)
     {
-        if (propertyTableIndex == Property.FontNum)
+        switch (propertyTableIndex)
         {
-            if (_fontDictionary.TryGetValue(val, out FontEntry fontEntry))
+            case Property.FontNum:
             {
-                if (fontEntry.CodePage == 42)
+                if (_fontDictionary.TryGetValue(val, out FontEntry fontEntry))
                 {
-                    // We have to track this globally, per behavior of RichEdit and implied by the spec.
-                    _lastUsedFontWithCodePage42 = val;
-                }
+                    if (fontEntry.CodePage == 42)
+                    {
+                        // We have to track this globally, per behavior of RichEdit and implied by the spec.
+                        _lastUsedFontWithCodePage42 = val;
+                    }
 
-                GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
+                    GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
+                }
+                // \fN supersedes \langN
+                GroupStack_CurrentPropertyLang = -1;
+                GroupStack_CurrentPropertyFontNum = val;
+                break;
             }
-            // \fN supersedes \langN
-            GroupStack_CurrentPropertyLang = -1;
-            GroupStack_CurrentPropertyFontNum = val;
-        }
-        else if (propertyTableIndex == Property.Lang)
-        {
-            if (val != _undefinedLanguage)
+            case Property.Lang:
             {
-                GroupStack_CurrentPropertyLang = val;
+                if (val != _undefinedLanguage)
+                {
+                    GroupStack_CurrentPropertyLang = val;
+                }
+                break;
             }
-        }
-        else if (propertyTableIndex == Property.Hidden)
-        {
-            if (!_options.ConvertHiddenText)
+            case Property.Hidden:
             {
-                GroupStack_CurrentPropertyHidden = val;
+                if (!_options.ConvertHiddenText)
+                {
+                    GroupStack_CurrentPropertyHidden = val;
+                }
+                break;
             }
-        }
-        else
-        {
-            GroupStack_CurrentPropertyUnicodeCharSkipCount = val;
+            default:
+                GroupStack_CurrentPropertyUnicodeCharSkipCount = val;
+                break;
         }
     }
 
