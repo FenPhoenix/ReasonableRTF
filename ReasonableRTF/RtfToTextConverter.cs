@@ -2415,15 +2415,15 @@ public sealed partial class RtfToTextConverter
                         --_groupStackCount;
                         if (_groupStackCount < fontTableGroupLevel)
                         {
-                            // We can't actually set the symbol font as soon as we see \deffN, because we won't have
-                            // any font entry objects yet. Now that we do, we can retroactively set all previous
-                            // groups' fonts as appropriate, as if they had propagated up automatically.
+                            // We can't actually set the symbol font as soon as we see \deffN, because we won't
+                            // have any font entry objects yet. Now that we do, we can retroactively set all
+                            // previous groups' fonts as appropriate, as if they had propagated up automatically.
                             int defaultFontNum = _headerDefaultFontNum;
                             if (_fontDictionary.TryGetValue(defaultFontNum, out FontEntry fontEntry))
                             {
                                 SymbolFont symbolFont = fontEntry.SymbolFont;
-                                // Start at 1 because the "base" group is still inside an opening { so it's really
-                                // group 1.
+                                // Start at 1 because the "base" group is still inside an opening { so it's
+                                // really group 1.
                                 for (int i = 1; i < _groupStackCount; i++)
                                 {
                                     if (_groupStack_Property_FontNum[i] == NoFontNumber)
@@ -2443,8 +2443,12 @@ public sealed partial class RtfToTextConverter
                         }
                         break;
                     case '\\':
-                        RtfError ec = ParseKeyword_FontTable(ref bufferRef, ref keywordRef, out KeywordType fontTableKeyword, out int param);
-                        if (ec != RtfError.OK) return ec;
+                        RtfError error = ParseKeyword_FontTable(
+                            ref bufferRef,
+                            ref keywordRef,
+                            out KeywordType fontTableKeyword,
+                            out int param);
+                        if (error != RtfError.OK) return error;
 
                         if (fontTableKeyword == KeywordType.F)
                         {
@@ -2457,11 +2461,15 @@ public sealed partial class RtfToTextConverter
                             {
                                 case KeywordType.FCharset:
                                 {
-                                    currentFontCodePage = param.IsBetween(0, _charSetToCodePageLength - 1) ? _charSetToCodePage[param] : _headerCodePage;
+                                    currentFontCodePage = param.IsBetween(0, _charSetToCodePageLength - 1)
+                                        ? _charSetToCodePage[param]
+                                        : _headerCodePage;
                                     break;
                                 }
                                 case KeywordType.CPG:
-                                    currentFontCodePage = param.IsNonEmptyCodePage() ? (ushort)param : _headerCodePage;
+                                    currentFontCodePage = param.IsNonEmptyCodePage()
+                                        ? (ushort)param
+                                        : _headerCodePage;
                                     break;
                             }
                         }
@@ -2472,9 +2480,9 @@ public sealed partial class RtfToTextConverter
                     default:
                     {
                         if (!GroupStack_CurrentSkipDest &&
-                            // We can't check for codepage 42, because symbol fonts can have other codepages (although
-                            // that may be a quirk/bug or whatever, but it can happen). Too bad, otherwise we could
-                            // save time here...
+                            // We can't check for codepage 42, because symbol fonts can have other codepages
+                            // (although that may be a quirk/bug or whatever, but it can happen). Too bad,
+                            // otherwise we could save time here...
                             currentFontAcquired && currentFontSymbolFont == SymbolFont.Unset)
                         {
                             currentFontSymbolFont = ShouldUseSimdFontNameCodePath()
@@ -2721,24 +2729,19 @@ public sealed partial class RtfToTextConverter
                     return DispatchSpecialKeyword(ref bufferRef, ref keywordRef, specialType, symbol, param);
                 case KeywordType.Destination:
                     DestinationType destType = (DestinationType)symbol.Index;
-                    if (destType == DestinationType.SkippableHex)
+                    switch (destType)
                     {
-                        return HandleSkippableHexData(ref bufferRef, ref keywordRef, param);
-                    }
-                    else
-                    {
-                        switch (destType)
-                        {
-                            case DestinationType.Skip:
-                                SkipDest(ref bufferRef);
-                                return RtfError.OK;
-                            case DestinationType.FieldInstruction:
-                                return HandleFieldInstruction(ref bufferRef);
-                            // Stupid crazy type of control word, see description for enum field
-                            case DestinationType.CanBeDestOrNotDest:
-                            default:
-                                return RtfError.OK;
-                        }
+                        case DestinationType.SkippableHex:
+                            return HandleSkippableHexData(ref bufferRef, ref keywordRef, param);
+                        case DestinationType.Skip:
+                            SkipDest(ref bufferRef);
+                            return RtfError.OK;
+                        case DestinationType.FieldInstruction:
+                            return HandleFieldInstruction(ref bufferRef);
+                        // Stupid crazy type of control word, see description for enum field
+                        case DestinationType.CanBeDestOrNotDest:
+                        default:
+                            return RtfError.OK;
                     }
                 default:
                     return RtfError.OK;
@@ -2778,9 +2781,7 @@ public sealed partial class RtfToTextConverter
             case SpecialType.UnicodeChar:
             {
                 HandleUnicodeParamAndSkipFallbackChars(ref bufferRef, param);
-                RtfError error = HandleUnicodeRun(ref bufferRef);
-                if (error != RtfError.OK) return error;
-                break;
+                return HandleUnicodeRun(ref bufferRef);
             }
             case SpecialType.HeaderCodePage:
                 _headerCodePage = param.IsNonEmptyCodePage() ? (ushort)param : (ushort)1252;
@@ -2794,22 +2795,19 @@ public sealed partial class RtfToTextConverter
                 break;
             case SpecialType.FontTable:
             {
-                RtfError error = ParseFontTable(ref bufferRef, ref keywordRef);
-                if (error != RtfError.OK) return error;
-                break;
+                return ParseFontTable(ref bufferRef, ref keywordRef);
             }
             case SpecialType.ColorTable:
                 _currentPos = IndexOfNextClosingBrace_ChunkAware();
                 break;
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
-                if (GroupStack_CurrentPropertyHidden == 0)
+                if (GroupStack_CurrentPropertyHidden == 0 &&
+                    _plainText.Count > 0 &&
+                    _plainText[_plainText.Count - 1] == '\t')
                 {
-                    if (_plainText.Count > 0 && _plainText[_plainText.Count - 1] == '\t')
-                    {
-                        _plainText.Count--;
-                        AddLineBreak();
-                    }
+                    _plainText.Count--;
+                    AddLineBreak();
                 }
                 break;
         }
