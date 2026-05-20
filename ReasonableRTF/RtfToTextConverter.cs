@@ -1902,8 +1902,6 @@ public sealed partial class RtfToTextConverter
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
-    private readonly ListFast<char> _plainText;
-
     private const int _fldinstSymbolNumberMaxLen = 10;
     private readonly ListFast<char> _fldinstSymbolNumber = new(_fldinstSymbolNumberMaxLen);
 
@@ -1973,7 +1971,7 @@ public sealed partial class RtfToTextConverter
 
         InitSymbolFontData();
 
-        _plainText = new ListFast<char>(_plainTextDefaultCapacity);
+        _plainText = new char[_plainTextDefaultCapacity];
 
         _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
 
@@ -2176,7 +2174,7 @@ public sealed partial class RtfToTextConverter
     public void ResetMemory()
     {
         GroupStack_ResetCapacityIfTooHigh();
-        _plainText.HardReset(_plainTextDefaultCapacity);
+        PlainText_HardReset(_plainTextDefaultCapacity);
         FontDictionary_ClearFull(_internalBufferDefaultCapacity);
         _hexBuffer.HardReset(_internalBufferDefaultCapacity);
         _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
@@ -2238,7 +2236,7 @@ public sealed partial class RtfToTextConverter
             _unicodeBuffer.ClearFast();
             _fldinstSymbolFontName.ClearFast();
             _fldinstSymbolNumber.ClearFast();
-            _plainText.ClearFast();
+            _plainText_Count = 0;
 
             #endregion
 
@@ -2261,7 +2259,7 @@ public sealed partial class RtfToTextConverter
             RtfError error = ParseRtf();
             if (error == RtfError.OK)
             {
-                return new RtfResult(CreateReturnStringFromChars(_plainText));
+                return new RtfResult(CreateReturnStringFromChars(_plainText, _plainText_Count));
             }
             else
             {
@@ -2356,11 +2354,11 @@ public sealed partial class RtfToTextConverter
                                 if (symbolFont > SymbolFont.Unset)
                                 {
                                     GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont], out ListFast<char> result);
-                                    _plainText.AddRange(result, result.Count);
+                                    PlainText_AddRange(result, result.Count);
                                 }
                                 else
                                 {
-                                    _plainText.Add(ch);
+                                    PlainText_Add(ch);
                                 }
                             }
                             else
@@ -2657,7 +2655,7 @@ public sealed partial class RtfToTextConverter
                     if (!_isNonPlainText[(byte)ch])
                     {
                         GetCharFromConversionList_Byte((byte)ch, table, out ListFast<char> result);
-                        _plainText.AddRange(result, result.Count);
+                        PlainText_AddRange(result, result.Count);
                     }
                     else
                     {
@@ -2682,14 +2680,14 @@ public sealed partial class RtfToTextConverter
             }
 
             if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd &&
-                _plainText.Count < (_plainText.Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
+                _plainText_Count < (_plainText_Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
             {
                 for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        _plainText.ItemsArray[_plainText.Count++] = ch;
+                        _plainText[_plainText_Count++] = ch;
                     }
                     else
                     {
@@ -2708,7 +2706,7 @@ public sealed partial class RtfToTextConverter
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        _plainText.Add(ch);
+                        PlainText_Add(ch);
                     }
                     else
                     {
@@ -2726,7 +2724,7 @@ public sealed partial class RtfToTextConverter
                         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                         if (!_isNonPlainText[(byte)ch])
                         {
-                            _plainText.Add(ch);
+                            PlainText_Add(ch);
                         }
                         else
                         {
@@ -2836,10 +2834,10 @@ public sealed partial class RtfToTextConverter
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
                 if (GroupStack_CurrentPropertyHidden == 0 &&
-                    _plainText.Count > 0 &&
-                    _plainText[_plainText.Count - 1] == '\t')
+                    _plainText_Count > 0 &&
+                    _plainText[_plainText_Count - 1] == '\t')
                 {
-                    _plainText.Count--;
+                    _plainText_Count--;
                     AddLineBreak();
                 }
                 break;
@@ -3470,7 +3468,7 @@ public sealed partial class RtfToTextConverter
 
                 if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) || fontEntry.CodePage != 42)
                 {
-                    _plainText.Add((char)param);
+                    PlainText_Add((char)param);
                     return;
                 }
 
@@ -4128,7 +4126,7 @@ public sealed partial class RtfToTextConverter
         {
             // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
             // the start should we actually write it.
-            if (ch == '\xFEFF' && _plainText.Count == 0)
+            if (ch == '\xFEFF' && _plainText_Count == 0)
             {
                 return;
             }
@@ -4145,12 +4143,12 @@ public sealed partial class RtfToTextConverter
                 uint[] fontTable = _symbolFontTables[(int)symbolFont];
                 if (GetCharFromConversionList_UInt(ch, fontTable, out ListFast<char> result))
                 {
-                    _plainText.AddRange(result, result.Count);
+                    PlainText_AddRange(result, result.Count);
                 }
             }
             else
             {
-                _plainText.Add(ch);
+                PlainText_Add(ch);
             }
         }
     }
@@ -4166,11 +4164,11 @@ public sealed partial class RtfToTextConverter
             {
                 char ch = chars[0];
                 if (ch == '\0') return;
-                _plainText.Add(ch);
+                PlainText_Add(ch);
             }
             else
             {
-                _plainText.AddRange(chars, count);
+                PlainText_AddRange(chars, count);
             }
         }
     }
@@ -4182,7 +4180,7 @@ public sealed partial class RtfToTextConverter
             char c = chars[i];
             if (c != '\0')
             {
-                _plainText.Add(c);
+                PlainText_Add(c);
             }
         }
     }
@@ -4196,15 +4194,15 @@ public sealed partial class RtfToTextConverter
             switch (LineBreakStringLength)
             {
                 case 2:
-                    int plainTextCount = _plainText.Count;
-                    _plainText.EnsureCapacity(plainTextCount + 2);
-                    char[] plainTextArray = _plainText.ItemsArray;
+                    int plainTextCount = _plainText_Count;
+                    PlainText_EnsureCapacity(plainTextCount + 2);
+                    char[] plainTextArray = _plainText;
                     plainTextArray[plainTextCount] = LineBreakString[0];
                     plainTextArray[plainTextCount + 1] = LineBreakString[1];
-                    _plainText.Count += 2;
+                    _plainText_Count += 2;
                     break;
                 case 1:
-                    _plainText.Add(LineBreakString[0]);
+                    PlainText_Add(LineBreakString[0]);
                     break;
                 default:
                 {
@@ -4212,7 +4210,7 @@ public sealed partial class RtfToTextConverter
                     // the line break be three characters. Just kidding. Probably.
                     for (int i = 0; i < LineBreakString.Length; i++)
                     {
-                        _plainText.Add(LineBreakString[i]);
+                        PlainText_Add(LineBreakString[i]);
                     }
                     break;
                 }
@@ -4220,15 +4218,15 @@ public sealed partial class RtfToTextConverter
         }
         else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
-            int plainTextCount = _plainText.Count;
-            _plainText.EnsureCapacity(plainTextCount + 2);
-            char[] plainTextArray = _plainText.ItemsArray;
+            int plainTextCount = _plainText_Count;
+            PlainText_EnsureCapacity(plainTextCount + 2);
+            char[] plainTextArray = _plainText;
             plainTextArray[plainTextCount] = '\r';
             plainTextArray[plainTextCount + 1] = '\n';
         }
         else
         {
-            _plainText.Add('\n');
+            PlainText_Add('\n');
         }
     }
 
@@ -4291,7 +4289,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static string CreateReturnStringFromChars(ListFast<char> chars) => new(chars.ItemsArray, 0, chars.Count);
+    private static string CreateReturnStringFromChars(char[] chars, int count) => new(chars, 0, count);
 
     /// <summary>
     /// Only call this if <paramref name="chars"/>'s length is > 0 and consists solely of the characters '0' through '9'.
@@ -4397,10 +4395,10 @@ public sealed partial class RtfToTextConverter
                         if (_groupStackCount < startGroupLevel)
                         {
                             if (insertSpaceIfNecessary &&
-                                _plainText.Count > 0 &&
-                                !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+                                _plainText_Count > 0 &&
+                                !char.IsWhiteSpace(_plainText[_plainText_Count - 1]))
                             {
-                                _plainText.Add(' ');
+                                PlainText_Add(' ');
                             }
                             _inHandleSkippableHexData = false;
                             return RtfError.OK;
@@ -4427,10 +4425,10 @@ public sealed partial class RtfToTextConverter
         }
 
         if (insertSpaceIfNecessary &&
-            _plainText.Count > 0 &&
-            !char.IsWhiteSpace(_plainText[_plainText.Count - 1]))
+            _plainText_Count > 0 &&
+            !char.IsWhiteSpace(_plainText[_plainText_Count - 1]))
         {
-            _plainText.Add(' ');
+            PlainText_Add(' ');
         }
         _inHandleSkippableHexData = false;
         return RtfError.OK;
@@ -5343,6 +5341,78 @@ public sealed partial class RtfToTextConverter
 #else
         _fontDictionary = new Dictionary<int, FontEntry>(capacity);
 #endif
+    }
+
+    #endregion
+
+    #region PlainText array
+
+    private char[] _plainText;
+    private int _plainText_Capacity;
+
+    private int _plainText_Count;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void PlainText_Add(char item)
+    {
+        if (_plainText_Count == _plainText_Capacity) PlainText_EnsureCapacity(_plainText_Count + 1);
+        _plainText[_plainText_Count++] = item;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void PlainText_AddRange(ListFast<char> items, int count)
+    {
+        PlainText_EnsureCapacity(_plainText_Count + count);
+        // We usually add small enough arrays that a loop is faster
+        for (int i = 0; i < count; i++)
+        {
+            _plainText[_plainText_Count + i] = items[i];
+        }
+        _plainText_Count += count;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void PlainText_EnsureCapacity(int min)
+    {
+        if (_plainText_Capacity >= min) return;
+        PlainText_Grow(min);
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private void PlainText_Grow(int min)
+    {
+        int newCapacity = _plainText_Capacity == 0 ? 4 : _plainText_Capacity * 2;
+        if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
+        if (newCapacity < min) newCapacity = min;
+        SetSetPlainTextCapacity(newCapacity);
+    }
+
+    private void SetSetPlainTextCapacity(int value)
+    {
+        if (value == _plainText_Capacity) return;
+        if (value > 0)
+        {
+            char[] objArray = new char[value];
+            if (_plainText_Count > 0) Array.Copy(_plainText, 0, objArray, 0, _plainText_Count);
+            _plainText = objArray;
+            _plainText_Capacity = value;
+            if (_plainText_Capacity < _plainText_Count)
+            {
+                _plainText_Count = _plainText_Capacity;
+            }
+        }
+        else
+        {
+            _plainText = Array.Empty<char>();
+            _plainText_Capacity = 0;
+            _plainText_Count = 0;
+        }
+    }
+
+    private void PlainText_HardReset(int capacity)
+    {
+        _plainText_Count = 0;
+        SetSetPlainTextCapacity(capacity);
     }
 
     #endregion
