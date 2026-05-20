@@ -4171,11 +4171,9 @@ public sealed partial class RtfToTextConverter
             switch (LineBreakStringLength)
             {
                 case 2:
-                    int plainTextCount = _plainText_Count;
-                    PlainText_EnsureCapacity(plainTextCount + 2);
-                    char[] plainTextArray = _plainText;
-                    plainTextArray[plainTextCount] = LineBreakString[0];
-                    plainTextArray[plainTextCount + 1] = LineBreakString[1];
+                    PlainText_EnsureCapacity(_plainText_Count + 2);
+                    _plainText[_plainText_Count] = LineBreakString[0];
+                    _plainText[_plainText_Count + 1] = LineBreakString[1];
                     _plainText_Count += 2;
                     break;
                 case 1:
@@ -4195,11 +4193,10 @@ public sealed partial class RtfToTextConverter
         }
         else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
-            int plainTextCount = _plainText_Count;
-            PlainText_EnsureCapacity(plainTextCount + 2);
-            char[] plainTextArray = _plainText;
-            plainTextArray[plainTextCount] = '\r';
-            plainTextArray[plainTextCount + 1] = '\n';
+            PlainText_EnsureCapacity(_plainText_Count + 2);
+            _plainText[_plainText_Count] = '\r';
+            _plainText[_plainText_Count + 1] = '\n';
+            _plainText_Count += 2;
         }
         else
         {

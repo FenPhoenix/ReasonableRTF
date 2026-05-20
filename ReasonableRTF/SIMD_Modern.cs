@@ -794,14 +794,10 @@ public sealed partial class RtfToTextConverter
     {
         (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
 
-        int plainTextCount = _plainText_Count;
+        PlainText_EnsureCapacity(_plainText_Count + Vector512<byte>.Count);
 
-        PlainText_EnsureCapacity(plainTextCount + Vector512<byte>.Count);
-
-        char[] plainTextArray = _plainText;
-
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector512<byte>.Count / 2)]), upper);
 
         _plainText_Count += length;
         _currentPos += length;
@@ -812,14 +808,10 @@ public sealed partial class RtfToTextConverter
     {
         (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
 
-        int plainTextCount = _plainText_Count;
+        PlainText_EnsureCapacity(_plainText_Count + Vector256<byte>.Count);
 
-        PlainText_EnsureCapacity(plainTextCount + Vector256<byte>.Count);
-
-        char[] plainTextArray = _plainText;
-
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector256<byte>.Count / 2)]), upper);
 
         _plainText_Count += length;
         _currentPos += length;
@@ -830,14 +822,10 @@ public sealed partial class RtfToTextConverter
     {
         (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
 
-        int plainTextCount = _plainText_Count;
+        PlainText_EnsureCapacity(_plainText_Count + Vector128<byte>.Count);
 
-        PlainText_EnsureCapacity(plainTextCount + Vector128<byte>.Count);
-
-        char[] plainTextArray = _plainText;
-
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+        Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector128<byte>.Count / 2)]), upper);
 
         _plainText_Count += length;
         _currentPos += length;
@@ -894,14 +882,10 @@ public sealed partial class RtfToTextConverter
 
             (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(working);
 
-            int plainTextCount = _plainText_Count;
+            PlainText_EnsureCapacity(_plainText_Count + Vector512<byte>.Count);
 
-            PlainText_EnsureCapacity(plainTextCount + Vector512<byte>.Count);
-
-            char[] plainTextArray = _plainText;
-
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector512<byte>.Count / 2)]), upper);
 
             _plainText_Count += diff;
         }
@@ -922,14 +906,10 @@ public sealed partial class RtfToTextConverter
 
             (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(working);
 
-            int plainTextCount = _plainText_Count;
+            PlainText_EnsureCapacity(_plainText_Count + Vector256<byte>.Count);
 
-            PlainText_EnsureCapacity(plainTextCount + Vector256<byte>.Count);
-
-            char[] plainTextArray = _plainText;
-
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector256<byte>.Count / 2)]), upper);
 
             _plainText_Count += diff;
         }
@@ -950,14 +930,10 @@ public sealed partial class RtfToTextConverter
 
             (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(working);
 
-            int plainTextCount = _plainText_Count;
+            PlainText_EnsureCapacity(_plainText_Count + Vector128<byte>.Count);
 
-            PlainText_EnsureCapacity(plainTextCount + Vector128<byte>.Count);
-
-            char[] plainTextArray = _plainText;
-
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount]), lower);
-            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count]), lower);
+            Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref _plainText[_plainText_Count + (Vector128<byte>.Count / 2)]), upper);
 
             _plainText_Count += diff;
         }
