@@ -2677,7 +2677,6 @@ public sealed partial class RtfToTextConverter
                     ref bufferRef,
                     _currentPos,
                     _currentBufferChunkLength - _currentPos,
-                    _plainText,
                     ref _currentPos);
 
                 if (finishedOnNonPlainTextChar)

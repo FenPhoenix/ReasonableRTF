@@ -227,7 +227,6 @@ public sealed partial class RtfToTextConverter
         ref byte bufferRef,
         int startIndex,
         int spanLength,
-        ListFast<char> plainText,
         ref int currentPos)
     {
         if (!Vector.IsHardwareAccelerated)
@@ -260,13 +259,13 @@ public sealed partial class RtfToTextConverter
                     int index = LocateFirstFoundByte(equals);
                     if (index > 0)
                     {
-                        CopyVector(current, index, plainText, ref currentPos);
+                        CopyVector(current, index, ref currentPos);
                     }
 
                     return true;
                 }
 
-                CopyVector(current, Vector<byte>.Count, plainText, ref currentPos);
+                CopyVector(current, Vector<byte>.Count, ref currentPos);
                 currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, (nint)Vector<byte>.Count);
             } while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
         }
@@ -275,15 +274,15 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static void CopyVector(Vector<byte> current, int index, ListFast<char> plainText, ref int currentPos)
+    private void CopyVector(Vector<byte> current, int index, ref int currentPos)
     {
         Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
 
-        plainText.EnsureCapacity(plainText.Count + Vector<byte>.Count);
-        lower.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count);
-        upper.CopyTo(Unsafe.As<char[], ushort[]>(ref plainText.ItemsArray), plainText.Count + (Vector<byte>.Count / 2));
+        _plainText.EnsureCapacity(_plainText.Count + Vector<byte>.Count);
+        lower.CopyTo(Unsafe.As<char[], ushort[]>(ref _plainText.ItemsArray), _plainText.Count);
+        upper.CopyTo(Unsafe.As<char[], ushort[]>(ref _plainText.ItemsArray), _plainText.Count + (Vector<byte>.Count / 2));
 
-        plainText.Count += index;
+        _plainText.Count += index;
         currentPos += index;
     }
 
