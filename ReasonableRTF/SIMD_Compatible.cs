@@ -223,16 +223,15 @@ public sealed partial class RtfToTextConverter
     the current position for the next vector load to just after the \par either, because that's still slower for
     some reason. Too many overlapping loads just like the keyword thing, I guess.
     */
-    private bool SIMD_CopyPlainText(
-        ref byte bufferRef,
-        int startIndex,
-        int spanLength,
-        ref int currentPos)
+    private bool SIMD_CopyPlainText(ref byte bufferRef)
     {
         if (!Vector.IsHardwareAccelerated)
         {
             return false;
         }
+
+        int startIndex = _currentPos;
+        int spanLength = _currentBufferChunkLength - _currentPos;
 
         ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
 
@@ -259,13 +258,13 @@ public sealed partial class RtfToTextConverter
                     int index = LocateFirstFoundByte(equals);
                     if (index > 0)
                     {
-                        CopyVector(current, index, ref currentPos);
+                        CopyVector(current, index);
                     }
 
                     return true;
                 }
 
-                CopyVector(current, Vector<byte>.Count, ref currentPos);
+                CopyVector(current, Vector<byte>.Count);
                 currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, (nint)Vector<byte>.Count);
             } while (!Unsafe.IsAddressGreaterThan(ref currentSearchSpace, ref oneVectorAwayFromEnd));
         }
@@ -274,7 +273,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CopyVector(Vector<byte> current, int index, ref int currentPos)
+    private void CopyVector(Vector<byte> current, int index)
     {
         Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
 
@@ -283,7 +282,7 @@ public sealed partial class RtfToTextConverter
         upper.CopyTo(Unsafe.As<char[], ushort[]>(ref _plainText.ItemsArray), _plainText.Count + (Vector<byte>.Count / 2));
 
         _plainText.Count += index;
-        currentPos += index;
+        _currentPos += index;
     }
 
     #endregion

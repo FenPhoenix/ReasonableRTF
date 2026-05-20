@@ -69,16 +69,13 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private SymbolFont SIMD_TryGetFontName(
-        ref byte bufferRef,
-        char ch,
-        ref int currentPos)
+    private SymbolFont SIMD_TryGetFontName(ref byte bufferRef, char ch)
     {
         if (Vector512.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector512<byte>.Count + 1))
         {
-            currentPos--;
+            _currentPos--;
 
-            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, currentPos);
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
             Vector512<byte> vector = Vector512.LoadUnsafe(ref searchSpace);
             Vector512<byte> equalsTerminatingChar =
                 Vector512.Equals(_zeroVector512, vector) |
@@ -96,33 +93,33 @@ public sealed partial class RtfToTextConverter
 
                 if (EarlyOut(terminatingCharIndex))
                 {
-                    currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                    _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                     return SymbolFont.None;
                 }
 
                 Vector512<byte> maskVec = Vector512.GreaterThan(Vector512.Create((byte)terminatingCharIndex), _indexVec_512);
                 Vector512<byte> fontName = Vector512.BitwiseAnd(vector, maskVec);
 
-                currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                 return TryFindSymbolFont512(fontName, _symbolFontNameVectors512);
             }
             else
             {
-                ch = (char)GetByteAtPos(ref bufferRef, currentPos + Vector512<byte>.Count);
+                ch = (char)GetByteAtPos(ref bufferRef, _currentPos + Vector512<byte>.Count);
                 if (ch == ';' || _isNonPlainText[(byte)ch])
                 {
                     if (EarlyOut(Vector512<byte>.Count))
                     {
-                        currentPos += ch == ';' ? Vector512<byte>.Count + 1 : Vector512<byte>.Count;
+                        _currentPos += ch == ';' ? Vector512<byte>.Count + 1 : Vector512<byte>.Count;
                         return SymbolFont.None;
                     }
 
-                    currentPos += ch == ';' ? Vector512<byte>.Count + 1 : Vector512<byte>.Count;
+                    _currentPos += ch == ';' ? Vector512<byte>.Count + 1 : Vector512<byte>.Count;
                     return TryFindSymbolFont512(vector, _symbolFontNameVectors512);
                 }
                 else
                 {
-                    currentPos += Vector512<byte>.Count;
+                    _currentPos += Vector512<byte>.Count;
                     if (Vector512<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
                         vector.CopyTo(_symbolFontNameBuffer);
@@ -137,9 +134,9 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector256.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector256<byte>.Count + 1))
         {
-            currentPos--;
+            _currentPos--;
 
-            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, currentPos);
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
             Vector256<byte> vector = Vector256.LoadUnsafe(ref searchSpace);
             Vector256<byte> equalsTerminatingChar =
                 Vector256.Equals(_zeroVector256, vector) |
@@ -157,33 +154,33 @@ public sealed partial class RtfToTextConverter
 
                 if (EarlyOut(terminatingCharIndex))
                 {
-                    currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                    _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                     return SymbolFont.None;
                 }
 
                 Vector256<byte> maskVec = Vector256.GreaterThan(Vector256.Create((byte)terminatingCharIndex), _indexVec_256);
                 Vector256<byte> fontName = Vector256.BitwiseAnd(vector, maskVec);
 
-                currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                 return TryFindSymbolFont256(fontName, _symbolFontNameVectors256);
             }
             else
             {
-                ch = (char)GetByteAtPos(ref bufferRef, currentPos + Vector256<byte>.Count);
+                ch = (char)GetByteAtPos(ref bufferRef, _currentPos + Vector256<byte>.Count);
                 if (ch == ';' || _isNonPlainText[(byte)ch])
                 {
                     if (EarlyOut(Vector256<byte>.Count))
                     {
-                        currentPos += ch == ';' ? Vector256<byte>.Count + 1 : Vector256<byte>.Count;
+                        _currentPos += ch == ';' ? Vector256<byte>.Count + 1 : Vector256<byte>.Count;
                         return SymbolFont.None;
                     }
 
-                    currentPos += ch == ';' ? Vector256<byte>.Count + 1 : Vector256<byte>.Count;
+                    _currentPos += ch == ';' ? Vector256<byte>.Count + 1 : Vector256<byte>.Count;
                     return TryFindSymbolFont256(vector, _symbolFontNameVectors256);
                 }
                 else
                 {
-                    currentPos += Vector256<byte>.Count;
+                    _currentPos += Vector256<byte>.Count;
                     if (Vector256<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
                         vector.CopyTo(_symbolFontNameBuffer);
@@ -198,9 +195,9 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector128.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector128<byte>.Count + 1))
         {
-            currentPos--;
+            _currentPos--;
 
-            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, currentPos);
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
             Vector128<byte> vector = Vector128.LoadUnsafe(ref searchSpace);
             Vector128<byte> equalsTerminatingChar =
                 Vector128.Equals(_zeroVector128, vector) |
@@ -218,33 +215,33 @@ public sealed partial class RtfToTextConverter
 
                 if (EarlyOut(terminatingCharIndex))
                 {
-                    currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                    _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                     return SymbolFont.None;
                 }
 
                 Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create((byte)terminatingCharIndex), _indexVec_128);
                 Vector128<byte> fontName = Vector128.BitwiseAnd(vector, maskVec);
 
-                currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
+                _currentPos += ch == ';' ? terminatingCharIndex + 1 : terminatingCharIndex;
                 return TryFindSymbolFont128(fontName, _symbolFontNameVectors128);
             }
             else
             {
-                ch = (char)GetByteAtPos(ref bufferRef, currentPos + Vector128<byte>.Count);
+                ch = (char)GetByteAtPos(ref bufferRef, _currentPos + Vector128<byte>.Count);
                 if (ch == ';' || _isNonPlainText[(byte)ch])
                 {
                     if (EarlyOut(Vector128<byte>.Count))
                     {
-                        currentPos += ch == ';' ? Vector128<byte>.Count + 1 : Vector128<byte>.Count;
+                        _currentPos += ch == ';' ? Vector128<byte>.Count + 1 : Vector128<byte>.Count;
                         return SymbolFont.None;
                     }
 
-                    currentPos += ch == ';' ? Vector128<byte>.Count + 1 : Vector128<byte>.Count;
+                    _currentPos += ch == ';' ? Vector128<byte>.Count + 1 : Vector128<byte>.Count;
                     return TryFindSymbolFont128(vector, _symbolFontNameVectors128);
                 }
                 else
                 {
-                    currentPos += Vector128<byte>.Count;
+                    _currentPos += Vector128<byte>.Count;
                     if (Vector128<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
                         vector.CopyTo(_symbolFontNameBuffer);

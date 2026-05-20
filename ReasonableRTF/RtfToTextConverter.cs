@@ -2524,7 +2524,7 @@ public sealed partial class RtfToTextConverter
                             currentFontAcquired && currentFontSymbolFont == SymbolFont.Unset)
                         {
                             currentFontSymbolFont = ShouldUseSimdFontNameCodePath()
-                                ? SIMD_TryGetFontName(ref bufferRef, ch, ref _currentPos)
+                                ? SIMD_TryGetFontName(ref bufferRef, ch)
                                 : GetSymbolFont_Scalar(ref bufferRef, ch);
 
                             if (currentFontNumber != NoFontNumber)
@@ -2673,11 +2673,7 @@ public sealed partial class RtfToTextConverter
         {
             if (System.Numerics.Vector.IsHardwareAccelerated)
             {
-                bool finishedOnNonPlainTextChar = SIMD_CopyPlainText(
-                    ref bufferRef,
-                    _currentPos,
-                    _currentBufferChunkLength - _currentPos,
-                    ref _currentPos);
+                bool finishedOnNonPlainTextChar = SIMD_CopyPlainText(ref bufferRef);
 
                 if (finishedOnNonPlainTextChar)
                 {

@@ -432,16 +432,15 @@ public sealed partial class RtfToTextConverter
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
-    private bool SIMD_CopyPlainText(
-        ref byte bufferRef,
-        int startIndex,
-        int spanLength,
-        ref int currentPos)
+    private bool SIMD_CopyPlainText(ref byte bufferRef)
     {
         if (!Vector.IsHardwareAccelerated)
         {
             return false;
         }
+
+        int startIndex = _currentPos;
+        int spanLength = _currentBufferChunkLength - _currentPos;
 
         ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
 
@@ -492,7 +491,7 @@ public sealed partial class RtfToTextConverter
                         if (index == Vector512<byte>.Count)
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             break;
                         }
                         else if (index >= Vector512<byte>.Count - _parMaxLength)
@@ -505,13 +504,13 @@ public sealed partial class RtfToTextConverter
                             else
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
-                                currentPos += index;
-                                if (currentPos < _currentBufferChunkLength - _parMaxLength &&
+                                _currentPos += index;
+                                if (_currentPos < _currentBufferChunkLength - _parMaxLength &&
                                     Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
                                     (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
                                 {
                                     currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPos += parLength;
+                                    _currentPos += parLength;
                                     AddLineBreak();
                                     goto outerLoop;
                                 }
@@ -533,7 +532,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             return true;
                         }
 
@@ -545,12 +544,12 @@ public sealed partial class RtfToTextConverter
                 {
                     int index = BitOperations.TrailingZeroCount(equals.ExtractMostSignificantBits());
                     if (index == 0) return true;
-                    CopyVector(current, ref currentPos, index);
+                    CopyVector(current, index);
                     return true;
                 }
                 else
                 {
-                    CopyVector(current, ref currentPos, Vector512<byte>.Count);
+                    CopyVector(current, Vector512<byte>.Count);
                 }
 
                 currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, Vector512<byte>.Count);
@@ -604,7 +603,7 @@ public sealed partial class RtfToTextConverter
                         if (index == Vector256<byte>.Count)
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             break;
                         }
                         else if (index >= Vector256<byte>.Count - _parMaxLength)
@@ -617,13 +616,13 @@ public sealed partial class RtfToTextConverter
                             else
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
-                                currentPos += index;
-                                if (currentPos < _currentBufferChunkLength - _parMaxLength &&
+                                _currentPos += index;
+                                if (_currentPos < _currentBufferChunkLength - _parMaxLength &&
                                     Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
                                     (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
                                 {
                                     currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPos += parLength;
+                                    _currentPos += parLength;
                                     AddLineBreak();
                                     goto outerLoop;
                                 }
@@ -645,7 +644,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             return true;
                         }
 
@@ -657,12 +656,12 @@ public sealed partial class RtfToTextConverter
                 {
                     int index = BitOperations.TrailingZeroCount(equals.ExtractMostSignificantBits());
                     if (index == 0) return true;
-                    CopyVector(current, ref currentPos, index);
+                    CopyVector(current, index);
                     return true;
                 }
                 else
                 {
-                    CopyVector(current, ref currentPos, Vector256<byte>.Count);
+                    CopyVector(current, Vector256<byte>.Count);
                 }
 
                 currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, Vector256<byte>.Count);
@@ -716,7 +715,7 @@ public sealed partial class RtfToTextConverter
                         if (index == Vector128<byte>.Count)
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             break;
                         }
                         else if (index >= Vector128<byte>.Count - _parMaxLength)
@@ -729,13 +728,13 @@ public sealed partial class RtfToTextConverter
                             else
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
-                                currentPos += index;
-                                if (currentPos < _currentBufferChunkLength - _parMaxLength &&
+                                _currentPos += index;
+                                if (_currentPos < _currentBufferChunkLength - _parMaxLength &&
                                     Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
                                     (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
                                 {
                                     currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPos += parLength;
+                                    _currentPos += parLength;
                                     AddLineBreak();
                                     goto outerLoop;
                                 }
@@ -757,7 +756,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            currentPos += index;
+                            _currentPos += index;
                             return true;
                         }
 
@@ -769,12 +768,12 @@ public sealed partial class RtfToTextConverter
                 {
                     int index = UtilHelper.Vector128_TrailingZeroCount(equals.ExtractMostSignificantBits());
                     if (index == 0) return true;
-                    CopyVector(current, ref currentPos, index);
+                    CopyVector(current, index);
                     return true;
                 }
                 else
                 {
-                    CopyVector(current, ref currentPos, Vector128<byte>.Count);
+                    CopyVector(current, Vector128<byte>.Count);
                 }
 
                 currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, Vector128<byte>.Count);
@@ -791,7 +790,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CopyVector(Vector512<byte> current, ref int currentPos, int length)
+    private void CopyVector(Vector512<byte> current, int length)
     {
         (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
 
@@ -805,12 +804,11 @@ public sealed partial class RtfToTextConverter
         Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector512<byte>.Count / 2)]), upper);
 
         _plainText.Count += length;
-
-        currentPos += length;
+        _currentPos += length;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CopyVector(Vector256<byte> current, ref int currentPos, int length)
+    private void CopyVector(Vector256<byte> current, int length)
     {
         (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
 
@@ -824,12 +822,11 @@ public sealed partial class RtfToTextConverter
         Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector256<byte>.Count / 2)]), upper);
 
         _plainText.Count += length;
-
-        currentPos += length;
+        _currentPos += length;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CopyVector(Vector128<byte> current, ref int currentPos, int length)
+    private void CopyVector(Vector128<byte> current, int length)
     {
         (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
 
@@ -843,8 +840,7 @@ public sealed partial class RtfToTextConverter
         Unsafe.WriteUnaligned(ref Unsafe.As<char, byte>(ref plainTextArray[plainTextCount + (Vector128<byte>.Count / 2)]), upper);
 
         _plainText.Count += length;
-
-        currentPos += length;
+        _currentPos += length;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
