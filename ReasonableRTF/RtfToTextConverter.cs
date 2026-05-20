@@ -1796,8 +1796,8 @@ public sealed partial class RtfToTextConverter
     ];
 
     private static ReadOnlySpan<bool> _isIgnoreChar =>
-[
-    true, // '\0' (0)
+    [
+        true, // '\0' (0)
         false, false, false, false, false, false, false, false, false,
         true, // '\n' (10)
         false, false,
@@ -2350,7 +2350,7 @@ public sealed partial class RtfToTextConverter
                                 ? GetByteAtPos(ref bufferRef, _currentPos)
                                 : GetByte(_currentPos));
 
-                            if(Unsafe.AddByteOffset(ref isNonPlainTextCharRef, (nint)currentChar))
+                            if (Unsafe.AddByteOffset(ref isNonPlainTextCharRef, (nint)currentChar))
                             {
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                                 if (symbolFont > SymbolFont.Unset)
