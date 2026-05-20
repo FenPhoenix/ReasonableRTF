@@ -1905,8 +1905,6 @@ public sealed partial class RtfToTextConverter
 
     private readonly ListFast<byte> _hexBuffer;
 
-    private readonly ListFast<char> _unicodeBuffer;
-
     private readonly byte[] _symbolFontNameBuffer = new byte[_maxSymbolFontNameLength];
 
     private bool _inFontTable;
@@ -1968,7 +1966,6 @@ public sealed partial class RtfToTextConverter
         _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
 
         _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
-        _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
 
@@ -2168,7 +2165,7 @@ public sealed partial class RtfToTextConverter
         PlainText_HardReset(_plainTextDefaultCapacity);
         FontDictionary_ClearFull(_internalBufferDefaultCapacity);
         _hexBuffer.HardReset(_internalBufferDefaultCapacity);
-        _unicodeBuffer.HardReset(_internalBufferDefaultCapacity);
+        UnicodeBuffer_HardReset(_internalBufferDefaultCapacity);
 #if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
 #else
@@ -2224,7 +2221,7 @@ public sealed partial class RtfToTextConverter
             _lastUsedFontWithCodePage42 = NoFontNumber;
 
             _hexBuffer.ClearFast();
-            _unicodeBuffer.ClearFast();
+            _unicodeBuffer_Count = 0;
             _fldinstSymbolFontName.ClearFast();
             _fldinstSymbolNumber.ClearFast();
             _plainText_Count = 0;
@@ -3242,21 +3239,21 @@ public sealed partial class RtfToTextConverter
         {
             if (!ConvertFromUtf32(codePoint))
             {
-                _unicodeBuffer.Add(_unicodeUnknown_Char);
+                UnicodeBuffer_Add(_unicodeUnknown_Char);
             }
             else
             {
-                int unicodeBufferCount = _unicodeBuffer.Count;
-                _unicodeBuffer.EnsureCapacity(unicodeBufferCount + 2);
-                char[] unicodeBufferArray = _unicodeBuffer.ItemsArray;
+                int unicodeBufferCount = _unicodeBuffer_Count;
+                UnicodeBuffer_EnsureCapacity(unicodeBufferCount + 2);
+                char[] unicodeBufferArray = _unicodeBuffer;
                 unicodeBufferArray[unicodeBufferCount] = _charGeneralBuffer[0];
                 unicodeBufferArray[unicodeBufferCount + 1] = _charGeneralBuffer[1];
-                _unicodeBuffer.Count += 2;
+                _unicodeBuffer_Count += 2;
             }
         }
         else
         {
-            _unicodeBuffer.Add((char)codePoint);
+            UnicodeBuffer_Add((char)codePoint);
         }
     }
 
@@ -3374,32 +3371,32 @@ public sealed partial class RtfToTextConverter
     {
         #region Handle surrogate pairs and fix up bad Unicode
 
-        for (int i = 0; i < _unicodeBuffer.Count; i++)
+        for (int i = 0; i < _unicodeBuffer_Count; i++)
         {
-            char c = _unicodeBuffer.ItemsArray[i];
+            char c = _unicodeBuffer[i];
 
             if (char.IsHighSurrogate(c))
             {
-                if (i < _unicodeBuffer.Count - 1 && char.IsLowSurrogate(_unicodeBuffer.ItemsArray[i + 1]))
+                if (i < _unicodeBuffer_Count - 1 && char.IsLowSurrogate(_unicodeBuffer[i + 1]))
                 {
                     i++;
                 }
                 else
                 {
-                    _unicodeBuffer.ItemsArray[i] = _unicodeUnknown_Char;
+                    _unicodeBuffer[i] = _unicodeUnknown_Char;
                 }
             }
             else if (char.IsLowSurrogate(c) || char.GetUnicodeCategory(c) is UnicodeCategory.OtherNotAssigned)
             {
-                _unicodeBuffer.ItemsArray[i] = _unicodeUnknown_Char;
+                _unicodeBuffer[i] = _unicodeUnknown_Char;
             }
         }
 
         #endregion
 
-        AddChars(_unicodeBuffer, _unicodeBuffer.Count);
+        AddChars(_unicodeBuffer, _unicodeBuffer_Count);
 
-        _unicodeBuffer.ClearFast();
+        _unicodeBuffer_Count = 0;
     }
 
     #endregion
@@ -3466,7 +3463,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            _unicodeBuffer.Add((char)param);
+            UnicodeBuffer_Add((char)param);
             ParseUnicode();
         }
     }
@@ -3511,7 +3508,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            _unicodeBuffer.Add((char)param);
+            UnicodeBuffer_Add((char)param);
             ParseUnicode();
         }
     }
@@ -4120,26 +4117,6 @@ public sealed partial class RtfToTextConverter
             else
             {
                 PlainText_Add(ch);
-            }
-        }
-    }
-
-    private void AddChars(ListFast<char> chars, int count)
-    {
-        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
-        // of the bare-char symbol font stuff here.
-
-        if (GroupStack_CurrentPropertyHidden == 0 && !_inFontTable)
-        {
-            if (count == 1)
-            {
-                char ch = chars[0];
-                if (ch == '\0') return;
-                PlainText_Add(ch);
-            }
-            else
-            {
-                PlainText_AddRange(chars, count);
             }
         }
     }
