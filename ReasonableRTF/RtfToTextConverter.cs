@@ -5384,10 +5384,10 @@ public sealed partial class RtfToTextConverter
         int newCapacity = _plainText_Capacity == 0 ? 4 : _plainText_Capacity * 2;
         if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
         if (newCapacity < min) newCapacity = min;
-        SetSetPlainTextCapacity(newCapacity);
+        SetPlainTextCapacity(newCapacity);
     }
 
-    private void SetSetPlainTextCapacity(int value)
+    private void SetPlainTextCapacity(int value)
     {
         if (value == _plainText_Capacity) return;
         if (value > 0)
@@ -5412,7 +5412,7 @@ public sealed partial class RtfToTextConverter
     private void PlainText_HardReset(int capacity)
     {
         _plainText_Count = 0;
-        SetSetPlainTextCapacity(capacity);
+        SetPlainTextCapacity(capacity);
     }
 
     #endregion
