@@ -50,9 +50,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void CharGeneralBuffer_HardReset(int capacity)
+    private void CharGeneralBuffer_HardReset()
     {
         _charGeneralBuffer_Count = 0;
-        CharGeneralBuffer_SetCapacity(capacity);
+        CharGeneralBuffer_SetCapacity(_charGeneralBufferDefaultCapacity);
     }
 }

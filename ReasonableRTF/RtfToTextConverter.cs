@@ -2157,16 +2157,16 @@ public sealed partial class RtfToTextConverter
     public void ResetMemory()
     {
         GroupStack_ResetCapacityIfTooHigh();
-        PlainText_HardReset(_plainTextDefaultCapacity);
+        PlainText_HardReset();
         FontDictionary_ClearFull(_internalBufferDefaultCapacity);
-        HexBuffer_HardReset(_internalBufferDefaultCapacity);
-        UnicodeBuffer_HardReset(_internalBufferDefaultCapacity);
+        HexBuffer_HardReset();
+        UnicodeBuffer_HardReset();
 #if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
 #else
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
-        CharGeneralBuffer_HardReset(_charGeneralBufferDefaultCapacity);
+        CharGeneralBuffer_HardReset();
     }
 
     #endregion

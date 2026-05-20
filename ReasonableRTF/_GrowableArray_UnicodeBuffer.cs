@@ -56,9 +56,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void UnicodeBuffer_HardReset(int capacity)
+    private void UnicodeBuffer_HardReset()
     {
         _unicodeBuffer_Count = 0;
-        UnicodeBuffer_SetCapacity(capacity);
+        UnicodeBuffer_SetCapacity(_internalBufferDefaultCapacity);
     }
 }

@@ -70,9 +70,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void PlainText_HardReset(int capacity)
+    private void PlainText_HardReset()
     {
         _plainText_Count = 0;
-        PlainText_SetCapacity(capacity);
+        PlainText_SetCapacity(_plainTextDefaultCapacity);
     }
 }

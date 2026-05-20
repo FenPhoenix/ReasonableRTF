@@ -56,9 +56,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void HexBuffer_HardReset(int capacity)
+    private void HexBuffer_HardReset()
     {
         _hexBuffer_Count = 0;
-        HexBuffer_SetCapacity(capacity);
+        HexBuffer_SetCapacity(_internalBufferDefaultCapacity);
     }
 }
