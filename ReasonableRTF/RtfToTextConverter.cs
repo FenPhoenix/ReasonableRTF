@@ -2927,11 +2927,9 @@ public sealed partial class RtfToTextConverter
                         {
                             if (enc != null)
                             {
-                                int sourceBufferCount = _hexBuffer_Count;
-                                CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
+                                CharGeneralBuffer_EnsureCapacity(_hexBuffer_Count);
                                 _charGeneralBuffer_Count = enc
-                                    .GetChars(_hexBuffer, 0, sourceBufferCount,
-                                        _charGeneralBuffer, 0);
+                                    .GetChars(_hexBuffer, 0, _hexBuffer_Count, _charGeneralBuffer, 0);
                             }
                             else
                             {
@@ -2953,10 +2951,9 @@ public sealed partial class RtfToTextConverter
             {
                 if (enc != null)
                 {
-                    int sourceBufferCount = _hexBuffer_Count;
-                    CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
+                    CharGeneralBuffer_EnsureCapacity(_hexBuffer_Count);
                     _charGeneralBuffer_Count = enc
-                        .GetChars(_hexBuffer, 0, sourceBufferCount, _charGeneralBuffer, 0);
+                        .GetChars(_hexBuffer, 0, _hexBuffer_Count, _charGeneralBuffer, 0);
                 }
                 else
                 {
@@ -3242,11 +3239,9 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                int unicodeBufferCount = _unicodeBuffer_Count;
-                UnicodeBuffer_EnsureCapacity(unicodeBufferCount + 2);
-                char[] unicodeBufferArray = _unicodeBuffer;
-                unicodeBufferArray[unicodeBufferCount] = _charGeneralBuffer[0];
-                unicodeBufferArray[unicodeBufferCount + 1] = _charGeneralBuffer[1];
+                UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 2);
+                _unicodeBuffer[_unicodeBuffer_Count] = _charGeneralBuffer[0];
+                _unicodeBuffer[_unicodeBuffer_Count + 1] = _charGeneralBuffer[1];
                 _unicodeBuffer_Count += 2;
             }
         }
