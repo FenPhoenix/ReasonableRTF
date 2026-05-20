@@ -2662,12 +2662,19 @@ public sealed partial class RtfToTextConverter
             if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd &&
                 _plainText_Count < (_plainText_Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
             {
+#if NET8_0_OR_GREATER
+                ref char plainTextRef = ref MemoryMarshal.GetArrayDataReference(_plainText);
+#else
+                ref char plainTextRef = ref MemoryMarshal.GetReference(_plainText.AsSpan());
+#endif
+
                 for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        _plainText[_plainText_Count++] = ch;
+                        Unsafe.AddByteOffset(ref plainTextRef, (nint)(_plainText_Count * sizeof(char))) = ch;
+                        ++_plainText_Count;
                     }
                     else
                     {
