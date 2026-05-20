@@ -1795,6 +1795,40 @@ public sealed partial class RtfToTextConverter
         false, false, false, false, false, false, false, false, false, false,
     ];
 
+    private static ReadOnlySpan<bool> _isIgnoreChar =>
+[
+    true, // '\0' (0)
+        false, false, false, false, false, false, false, false, false,
+        true, // '\n' (10)
+        false, false,
+        true, // '\r' (13)
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false, false, false,
+        false, false,
+    ];
+
 #if NET8_0_OR_GREATER
     private static ReadOnlySpan<bool> _isSeparatorChar =>
 #else
@@ -2272,10 +2306,16 @@ public sealed partial class RtfToTextConverter
     private RtfError ParseRtf()
     {
         // Avoid bounds checks by passing a buffer reference everywhere. We do our own bounds checking.
-        ReadOnlySpan<byte> bufferSpan = _buffer.AsSpan();
-        ref byte bufferRef = ref MemoryMarshal.GetReference(bufferSpan);
-        ReadOnlySpan<byte> keywordSpan = _keyword.AsSpan();
-        ref byte keywordRef = ref MemoryMarshal.GetReference(keywordSpan);
+#if NET8_0_OR_GREATER
+        ref byte bufferRef = ref MemoryMarshal.GetArrayDataReference(_buffer);
+        ref byte keywordRef = ref MemoryMarshal.GetArrayDataReference(_keyword);
+        ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText);
+#else
+        ref byte bufferRef = ref MemoryMarshal.GetReference(_buffer.AsSpan());
+        ref byte keywordRef = ref MemoryMarshal.GetReference(_keyword.AsSpan());
+        ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText.AsSpan());
+#endif
+        ref bool isIgnoreCharRef = ref MemoryMarshal.GetReference(_isIgnoreChar);
 
         while (!_reachedEndOfStream)
         {
@@ -2298,13 +2338,11 @@ public sealed partial class RtfToTextConverter
                         --_groupStackCount;
                         if (_groupStackCount == 0) return RtfError.OK;
                         break;
-                    case '\r':
-                    case '\n':
-                    case '\0':
-                        break;
                     default:
                     {
-                        if (!GroupStack_CurrentSkipDest &&
+                        if (
+                            !Unsafe.AddByteOffset(ref isIgnoreCharRef, (nint)ch) &&
+                            !GroupStack_CurrentSkipDest &&
                             GroupStack_CurrentPropertyHidden == 0)
                         {
                             // No measurable perf loss from this, and it lets us avoid duplicating the loop body.
@@ -2312,7 +2350,7 @@ public sealed partial class RtfToTextConverter
                                 ? GetByteAtPos(ref bufferRef, _currentPos)
                                 : GetByte(_currentPos));
 
-                            if (_isNonPlainText[currentChar])
+                            if(Unsafe.AddByteOffset(ref isNonPlainTextCharRef, (nint)currentChar))
                             {
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                                 if (symbolFont > SymbolFont.Unset)
