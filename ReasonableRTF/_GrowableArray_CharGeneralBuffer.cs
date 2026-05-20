@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
@@ -12,28 +11,6 @@ public sealed partial class RtfToTextConverter
     private char[] _charGeneralBuffer = new char[_charGeneralBufferDefaultCapacity];
     private int _charGeneralBuffer_Capacity;
     private int _charGeneralBuffer_Count;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CharGeneralBuffer_Add(char item)
-    {
-        if (_charGeneralBuffer_Count == _charGeneralBuffer_Capacity)
-        {
-            CharGeneralBuffer_EnsureCapacity(_charGeneralBuffer_Count + 1);
-        }
-        _charGeneralBuffer[_charGeneralBuffer_Count++] = item;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void CharGeneralBuffer_AddRange(ListFast<char> items, int count)
-    {
-        CharGeneralBuffer_EnsureCapacity(_charGeneralBuffer_Count + count);
-        // We usually add small enough arrays that a loop is faster
-        for (int i = 0; i < count; i++)
-        {
-            _charGeneralBuffer[_charGeneralBuffer_Count + i] = items[i];
-        }
-        _charGeneralBuffer_Count += count;
-    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void CharGeneralBuffer_EnsureCapacity(int min)

@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
@@ -17,18 +16,6 @@ public sealed partial class RtfToTextConverter
             UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 1);
         }
         _unicodeBuffer[_unicodeBuffer_Count++] = item;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void UnicodeBuffer_AddRange(ListFast<char> items, int count)
-    {
-        UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + count);
-        // We usually add small enough arrays that a loop is faster
-        for (int i = 0; i < count; i++)
-        {
-            _unicodeBuffer[_unicodeBuffer_Count + i] = items[i];
-        }
-        _unicodeBuffer_Count += count;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

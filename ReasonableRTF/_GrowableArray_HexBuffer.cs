@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
@@ -17,18 +16,6 @@ public sealed partial class RtfToTextConverter
             HexBuffer_EnsureCapacity(_hexBuffer_Count + 1);
         }
         _hexBuffer[_hexBuffer_Count++] = item;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void HexBuffer_Add_AddRange(ListFast<byte> items, int count)
-    {
-        HexBuffer_EnsureCapacity(_hexBuffer_Count + count);
-        // We usually add small enough arrays that a loop is faster
-        for (int i = 0; i < count; i++)
-        {
-            _hexBuffer[_hexBuffer_Count + i] = items[i];
-        }
-        _hexBuffer_Count += count;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

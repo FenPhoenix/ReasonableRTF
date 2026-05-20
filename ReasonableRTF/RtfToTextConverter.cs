@@ -60,7 +60,6 @@ using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
 using ReasonableRTF.Helper;
 using ReasonableRTF.Models;
-using ReasonableRTF.Models.DataTypes;
 using ReasonableRTF.Models.Fonts;
 using ReasonableRTF.Models.Symbols;
 
@@ -1899,9 +1898,9 @@ public sealed partial class RtfToTextConverter
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
     private const int _fldinstSymbolNumberMaxLen = 10;
-    private readonly ListFast<char> _fldinstSymbolNumber = new(_fldinstSymbolNumberMaxLen);
+    private readonly char[] _fldinstSymbolNumber = new char[_fldinstSymbolNumberMaxLen + 1];
 
-    private readonly ListFast<char> _fldinstSymbolFontName;
+    private readonly char[] _fldinstSymbolFontName = new char[_maxSymbolFontNameLength + 1];
 
     private readonly byte[] _symbolFontNameBuffer = new byte[_maxSymbolFontNameLength];
 
@@ -1964,7 +1963,6 @@ public sealed partial class RtfToTextConverter
         _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
 
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
-        _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
 
         InitGroupStack();
     }
@@ -2168,7 +2166,6 @@ public sealed partial class RtfToTextConverter
 #else
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
-        _fldinstSymbolFontName.HardReset(_internalBufferDefaultCapacity);
         CharGeneralBuffer_HardReset(_charGeneralBufferDefaultCapacity);
     }
 
@@ -2219,8 +2216,6 @@ public sealed partial class RtfToTextConverter
 
             _hexBuffer_Count = 0;
             _unicodeBuffer_Count = 0;
-            _fldinstSymbolFontName.ClearFast();
-            _fldinstSymbolNumber.ClearFast();
             _plainText_Count = 0;
 
             #endregion
@@ -3589,9 +3584,6 @@ public sealed partial class RtfToTextConverter
             return RtfError.OK;
         }
 
-        _fldinstSymbolNumber.ClearFast();
-        _fldinstSymbolFontName.ClearFast();
-
         ushort param;
         int i;
 
@@ -3655,17 +3647,19 @@ public sealed partial class RtfToTextConverter
 
         bool alphaCharsFound = false;
         bool alphaFound;
-        for (i = 0;
-             i < _fldinstSymbolNumberMaxLen && ((alphaFound = CharExtension.IsAsciiLetter(ch)) || CharExtension.IsAsciiDigit(ch));
-             i++, ch = (char)GetByte(IncrementCurrentPos()))
+        int fldinstSymbolNumberCount;
+        for (fldinstSymbolNumberCount = 0;
+             fldinstSymbolNumberCount < _fldinstSymbolNumberMaxLen + 1 &&
+             ((alphaFound = CharExtension.IsAsciiLetter(ch)) || CharExtension.IsAsciiDigit(ch));
+             fldinstSymbolNumberCount++, ch = (char)GetByte(IncrementCurrentPos()))
         {
             if (alphaFound) alphaCharsFound = true;
 
-            _fldinstSymbolNumber.Add(ch);
+            _fldinstSymbolNumber[fldinstSymbolNumberCount] = ch;
         }
 
-        if (_fldinstSymbolNumber.Count == 0 ||
-            i >= _fldinstSymbolNumberMaxLen ||
+        if (fldinstSymbolNumberCount == 0 ||
+            fldinstSymbolNumberCount >= _fldinstSymbolNumberMaxLen ||
             (!numIsHex && alphaCharsFound))
         {
             return RewindAndSkipGroup(ref bufferRef);
@@ -3677,7 +3671,7 @@ public sealed partial class RtfToTextConverter
 
         if (numIsHex)
         {
-            ReadOnlySpan<char> span = new(_fldinstSymbolNumber.ItemsArray, 0, _fldinstSymbolNumber.Count);
+            ReadOnlySpan<char> span = new(_fldinstSymbolNumber, 0, fldinstSymbolNumberCount);
             if (!ushort.TryParse(span,
                     NumberStyles.HexNumber,
                     NumberFormatInfo.InvariantInfo,
@@ -3688,7 +3682,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            int parsed = ParseIntFast(_fldinstSymbolNumber);
+            int parsed = ParseIntFast(_fldinstSymbolNumber, fldinstSymbolNumberCount);
             if (parsed <= ushort.MaxValue)
             {
                 param = (ushort)parsed;
@@ -3786,7 +3780,7 @@ public sealed partial class RtfToTextConverter
                         {
                             return RewindAndSkipGroup(ref bufferRef);
                         }
-                        _fldinstSymbolFontName.Add(ch);
+                        _fldinstSymbolFontName[fontNameCharCount] = ch;
                         fontNameCharCount++;
                     }
 
@@ -3795,7 +3789,7 @@ public sealed partial class RtfToTextConverter
                         byte[] symbolChars = _symbolFontCharsArrays[symbolFontI];
                         uint[] symbolFontTable = _symbolFontTables[symbolFontI];
 
-                        if (SeqEqual(_fldinstSymbolFontName, symbolChars))
+                        if (SeqEqual(_fldinstSymbolFontName, fontNameCharCount, symbolChars))
                         {
                             HandleFieldInst_F_WithSymbolFontName(param, symbolFontTable);
                             return RewindAndSkipGroup(ref bufferRef);
@@ -4258,29 +4252,29 @@ public sealed partial class RtfToTextConverter
     /// It does no checks at all and will throw if either of these things is false.
     /// </summary>
     /// <param name="chars"></param>
+    /// <param name="length"></param>
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static int ParseIntFast(ListFast<char> chars)
+    private static int ParseIntFast(char[] chars, int length)
     {
-        int result = chars.ItemsArray[0] - '0';
+        int result = chars[0] - '0';
 
-        for (int i = 1; i < chars.Count; i++)
+        for (int i = 1; i < length; i++)
         {
             result *= 10;
-            result += chars.ItemsArray[i] - '0';
+            result += chars[i] - '0';
         }
         return result;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool SeqEqual(ListFast<char> seq1, byte[] seq2)
+    private static bool SeqEqual(char[] seq1, int seq1Length, byte[] seq2)
     {
-        int seq1Count = seq1.Count;
-        if (seq1Count != seq2.Length) return false;
+        if (seq1Length != seq2.Length) return false;
 
-        for (int ci = 0; ci < seq1Count; ci++)
+        for (int ci = 0; ci < seq1Length; ci++)
         {
-            if (seq1.ItemsArray[ci] != seq2[ci]) return false;
+            if (seq1[ci] != seq2[ci]) return false;
         }
         return true;
     }

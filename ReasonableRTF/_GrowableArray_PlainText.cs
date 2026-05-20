@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using ReasonableRTF.Models.DataTypes;
 
 namespace ReasonableRTF;
 
@@ -19,18 +18,6 @@ public sealed partial class RtfToTextConverter
             PlainText_EnsureCapacity(_plainText_Count + 1);
         }
         _plainText[_plainText_Count++] = item;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void PlainText_AddRange(ListFast<char> items, int count)
-    {
-        PlainText_EnsureCapacity(_plainText_Count + count);
-        // We usually add small enough arrays that a loop is faster
-        for (int i = 0; i < count; i++)
-        {
-            _plainText[_plainText_Count + i] = items[i];
-        }
-        _plainText_Count += count;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
