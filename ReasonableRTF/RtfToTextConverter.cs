@@ -1903,8 +1903,6 @@ public sealed partial class RtfToTextConverter
 
     private readonly ListFast<char> _fldinstSymbolFontName;
 
-    private readonly ListFast<byte> _hexBuffer;
-
     private readonly byte[] _symbolFontNameBuffer = new byte[_maxSymbolFontNameLength];
 
     private bool _inFontTable;
@@ -1965,7 +1963,6 @@ public sealed partial class RtfToTextConverter
 
         _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
 
-        _hexBuffer = new ListFast<byte>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
 
@@ -2164,7 +2161,7 @@ public sealed partial class RtfToTextConverter
         GroupStack_ResetCapacityIfTooHigh();
         PlainText_HardReset(_plainTextDefaultCapacity);
         FontDictionary_ClearFull(_internalBufferDefaultCapacity);
-        _hexBuffer.HardReset(_internalBufferDefaultCapacity);
+        HexBuffer_HardReset(_internalBufferDefaultCapacity);
         UnicodeBuffer_HardReset(_internalBufferDefaultCapacity);
 #if NET8_0_OR_GREATER
         _encodings.Reset(_internalBufferDefaultCapacity);
@@ -2220,7 +2217,7 @@ public sealed partial class RtfToTextConverter
 
             _lastUsedFontWithCodePage42 = NoFontNumber;
 
-            _hexBuffer.ClearFast();
+            _hexBuffer_Count = 0;
             _unicodeBuffer_Count = 0;
             _fldinstSymbolFontName.ClearFast();
             _fldinstSymbolNumber.ClearFast();
@@ -2897,9 +2894,9 @@ public sealed partial class RtfToTextConverter
         {
             if (!fontEntry.IsSet)
             {
-                for (int i = 0; i < _hexBuffer.Count; i++)
+                for (int i = 0; i < _hexBuffer_Count; i++)
                 {
-                    byte codePoint = _hexBuffer.ItemsArray[i];
+                    byte codePoint = _hexBuffer[i];
                     GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)SymbolFont.Symbol]);
                     if (_charGeneralBuffer_Count == 0)
                     {
@@ -2913,25 +2910,25 @@ public sealed partial class RtfToTextConverter
                 SymbolFont symbolFont = fontEntry.SymbolFont;
                 if (symbolFont > SymbolFont.Unset)
                 {
-                    for (int i = 0; i < _hexBuffer.Count; i++)
+                    for (int i = 0; i < _hexBuffer_Count; i++)
                     {
-                        byte codePoint = _hexBuffer.ItemsArray[i];
+                        byte codePoint = _hexBuffer[i];
                         GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont]);
                         AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < _hexBuffer.Count; i++)
+                    for (int i = 0; i < _hexBuffer_Count; i++)
                     {
                         try
                         {
                             if (enc != null)
                             {
-                                int sourceBufferCount = _hexBuffer.Count;
+                                int sourceBufferCount = _hexBuffer_Count;
                                 CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
                                 _charGeneralBuffer_Count = enc
-                                    .GetChars(_hexBuffer.ItemsArray, 0, sourceBufferCount,
+                                    .GetChars(_hexBuffer, 0, sourceBufferCount,
                                         _charGeneralBuffer, 0);
                             }
                             else
@@ -2954,10 +2951,10 @@ public sealed partial class RtfToTextConverter
             {
                 if (enc != null)
                 {
-                    int sourceBufferCount = _hexBuffer.Count;
+                    int sourceBufferCount = _hexBuffer_Count;
                     CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
                     _charGeneralBuffer_Count = enc
-                        .GetChars(_hexBuffer.ItemsArray, 0, sourceBufferCount, _charGeneralBuffer, 0);
+                        .GetChars(_hexBuffer, 0, sourceBufferCount, _charGeneralBuffer, 0);
                 }
                 else
                 {
@@ -2974,7 +2971,7 @@ public sealed partial class RtfToTextConverter
 
     private void HandleHexRun(ref byte bufferRef)
     {
-        _hexBuffer.ClearFast();
+        _hexBuffer_Count = 0;
 
         (bool codePageWas42, Encoding? enc, FontEntry fontEntry) = GetCurrentEncoding();
 
@@ -3067,7 +3064,7 @@ public sealed partial class RtfToTextConverter
         if ((hexNibble1 | hexNibble2) < 0xFF)
         {
             byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
-            _hexBuffer.Add(finalHexByte);
+            HexBuffer_Add(finalHexByte);
         }
     }
 
