@@ -109,9 +109,6 @@ public sealed partial class RtfToTextConverter
     private readonly uint _parUInt = BitConverter.IsLittleEndian ? 0x7261705Cu : 0x5C706172u;
 
     private const int _internalBufferDefaultCapacity = 32;
-    // 20 bytes * 4 for up to 4 bytes per char. Chars are 2 bytes but like whatever, why do math when you can
-    // over-provision.
-    private const int _charGeneralBufferDefaultCapacity = 20 * 4;
 
     /// <summary>
     /// Since font numbers can be negative, let's just use a slightly less likely value than the already unlikely
@@ -1914,8 +1911,6 @@ public sealed partial class RtfToTextConverter
 
     private bool _inFontTable;
 
-    private readonly ListFast<char> _charGeneralBuffer;
-
     #endregion
 
     #region Reusable buffers
@@ -1976,7 +1971,6 @@ public sealed partial class RtfToTextConverter
         _unicodeBuffer = new ListFast<char>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
         _fldinstSymbolFontName = new ListFast<char>(_internalBufferDefaultCapacity);
-        _charGeneralBuffer = new ListFast<char>(_charGeneralBufferDefaultCapacity);
 
         InitGroupStack();
     }
@@ -2181,7 +2175,7 @@ public sealed partial class RtfToTextConverter
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
         _fldinstSymbolFontName.HardReset(_internalBufferDefaultCapacity);
-        _charGeneralBuffer.HardReset(_charGeneralBufferDefaultCapacity);
+        CharGeneralBuffer_HardReset(_charGeneralBufferDefaultCapacity);
     }
 
     #endregion
@@ -2351,7 +2345,7 @@ public sealed partial class RtfToTextConverter
                                 if (symbolFont > SymbolFont.Unset)
                                 {
                                     GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont]);
-                                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer.Count);
+                                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
                                 }
                                 else
                                 {
@@ -2652,7 +2646,7 @@ public sealed partial class RtfToTextConverter
                     if (!_isNonPlainText[(byte)ch])
                     {
                         GetCharFromConversionList_Byte((byte)ch, table);
-                        PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer.Count);
+                        PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
                     }
                     else
                     {
@@ -2910,11 +2904,11 @@ public sealed partial class RtfToTextConverter
                 {
                     byte codePoint = _hexBuffer.ItemsArray[i];
                     GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)SymbolFont.Symbol]);
-                    if (_charGeneralBuffer.Count == 0)
+                    if (_charGeneralBuffer_Count == 0)
                     {
                         SetCharGeneralBufferToUnknownChar();
                     }
-                    AddChars(_charGeneralBuffer, _charGeneralBuffer.Count);
+                    AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
                 }
             }
             else
@@ -2926,7 +2920,7 @@ public sealed partial class RtfToTextConverter
                     {
                         byte codePoint = _hexBuffer.ItemsArray[i];
                         GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont]);
-                        AddChars(_charGeneralBuffer, _charGeneralBuffer.Count);
+                        AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
                     }
                 }
                 else
@@ -2938,10 +2932,10 @@ public sealed partial class RtfToTextConverter
                             if (enc != null)
                             {
                                 int sourceBufferCount = _hexBuffer.Count;
-                                _charGeneralBuffer.EnsureCapacity(sourceBufferCount);
-                                _charGeneralBuffer.Count = enc
+                                CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
+                                _charGeneralBuffer_Count = enc
                                     .GetChars(_hexBuffer.ItemsArray, 0, sourceBufferCount,
-                                        _charGeneralBuffer.ItemsArray, 0);
+                                        _charGeneralBuffer, 0);
                             }
                             else
                             {
@@ -2952,7 +2946,7 @@ public sealed partial class RtfToTextConverter
                         {
                             SetCharGeneralBufferToUnknownChar();
                         }
-                        AddChars(_charGeneralBuffer, _charGeneralBuffer.Count);
+                        AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
                     }
                 }
             }
@@ -2964,9 +2958,9 @@ public sealed partial class RtfToTextConverter
                 if (enc != null)
                 {
                     int sourceBufferCount = _hexBuffer.Count;
-                    _charGeneralBuffer.EnsureCapacity(sourceBufferCount);
-                    _charGeneralBuffer.Count = enc
-                        .GetChars(_hexBuffer.ItemsArray, 0, sourceBufferCount, _charGeneralBuffer.ItemsArray, 0);
+                    CharGeneralBuffer_EnsureCapacity(sourceBufferCount);
+                    _charGeneralBuffer_Count = enc
+                        .GetChars(_hexBuffer.ItemsArray, 0, sourceBufferCount, _charGeneralBuffer, 0);
                 }
                 else
                 {
@@ -2977,7 +2971,7 @@ public sealed partial class RtfToTextConverter
             {
                 SetCharGeneralBufferToUnknownChar();
             }
-            AddChars(_charGeneralBuffer, _charGeneralBuffer.Count);
+            AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
         }
     }
 
@@ -3438,7 +3432,7 @@ public sealed partial class RtfToTextConverter
         else
         {
             GetCharFromCodePage(NoCodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer.Count);
+            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
         }
     }
 
@@ -3488,13 +3482,13 @@ public sealed partial class RtfToTextConverter
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
             GetCharFromCodePage(_headerCodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer.Count);
+            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
             return;
         }
         if (fontEntry.CodePage != 42)
         {
             GetCharFromCodePage(fontEntry.CodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer.Count);
+            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
             return;
         }
 
@@ -3531,9 +3525,9 @@ public sealed partial class RtfToTextConverter
             codePoint -= 0xF000;
         }
         if (GetCharFromConversionList_UInt(codePoint, symbolFontTable) &&
-            _charGeneralBuffer.Count > 0)
+            _charGeneralBuffer_Count > 0)
         {
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer.Count);
+            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
         }
     }
 
@@ -3719,7 +3713,7 @@ public sealed partial class RtfToTextConverter
 
         const int maxParams = 6;
 
-        _charGeneralBuffer.Count = 0;
+        _charGeneralBuffer_Count = 0;
 
         #region Parse params
 
@@ -3953,14 +3947,14 @@ public sealed partial class RtfToTextConverter
         {
             if (codePoint > 255)
             {
-                _charGeneralBuffer.Count = 0;
+                _charGeneralBuffer_Count = 0;
                 return false;
             }
             try
             {
                 _byteBuffer1[0] = (byte)codePoint;
-                _charGeneralBuffer.Count = _windows1252Encoding
-                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer.ItemsArray, 0);
+                _charGeneralBuffer_Count = _windows1252Encoding
+                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer, 0);
             }
             catch
             {
@@ -3986,8 +3980,8 @@ public sealed partial class RtfToTextConverter
             try
             {
                 _byteBuffer1[0] = codePoint;
-                _charGeneralBuffer.Count = _windows1252Encoding
-                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer.ItemsArray, 0);
+                _charGeneralBuffer_Count = _windows1252Encoding
+                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer, 0);
             }
             catch
             {
@@ -4065,16 +4059,16 @@ public sealed partial class RtfToTextConverter
         {
             if (codePage < NoCodePage)
             {
-                _charGeneralBuffer.Count = GetEncodingFromCachedList(codePage)
-                    .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
+                _charGeneralBuffer_Count = GetEncodingFromCachedList(codePage)
+                    .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer, 0);
             }
             else
             {
                 (_, Encoding? enc, _) = GetCurrentEncoding();
                 if (enc != null)
                 {
-                    _charGeneralBuffer.Count = enc
-                        .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer.ItemsArray, 0);
+                    _charGeneralBuffer_Count = enc
+                        .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer, 0);
                 }
                 else
                 {
@@ -4120,7 +4114,7 @@ public sealed partial class RtfToTextConverter
                 uint[] fontTable = _symbolFontTables[(int)symbolFont];
                 if (GetCharFromConversionList_UInt(ch, fontTable))
                 {
-                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer.Count);
+                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
                 }
             }
             else
@@ -4150,7 +4144,27 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void AddChars_FieldInst(ListFast<char> chars, int count)
+    private void AddChars(char[] chars, int count)
+    {
+        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
+        // of the bare-char symbol font stuff here.
+
+        if (GroupStack_CurrentPropertyHidden == 0 && !_inFontTable)
+        {
+            if (count == 1)
+            {
+                char ch = chars[0];
+                if (ch == '\0') return;
+                PlainText_Add(ch);
+            }
+            else
+            {
+                PlainText_AddRange(chars, count);
+            }
+        }
+    }
+
+    private void AddChars_FieldInst(char[] chars, int count)
     {
         for (int i = 0; i < count; i++)
         {
@@ -4300,8 +4314,8 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void SetCharGeneralBufferToUnknownChar()
     {
-        _charGeneralBuffer.ItemsArray[0] = _unicodeUnknown_Char;
-        _charGeneralBuffer.Count = 1;
+        _charGeneralBuffer[0] = _unicodeUnknown_Char;
+        _charGeneralBuffer_Count = 1;
     }
 
     // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
@@ -5332,14 +5346,14 @@ public sealed partial class RtfToTextConverter
 
         if (utf32u <= char.MaxValue)
         {
-            _charGeneralBuffer.ItemsArray[0] = (char)utf32u;
-            _charGeneralBuffer.Count = 1;
+            _charGeneralBuffer[0] = (char)utf32u;
+            _charGeneralBuffer_Count = 1;
             return true;
         }
 
-        _charGeneralBuffer.ItemsArray[0] = (char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10);
-        _charGeneralBuffer.ItemsArray[1] = (char)((utf32u & 0x3FFu) + 0xDC00u);
-        _charGeneralBuffer.Count = 2;
+        _charGeneralBuffer[0] = (char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10);
+        _charGeneralBuffer[1] = (char)((utf32u & 0x3FFu) + 0xDC00u);
+        _charGeneralBuffer_Count = 2;
 
         return true;
     }

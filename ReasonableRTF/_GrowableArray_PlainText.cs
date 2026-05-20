@@ -9,7 +9,6 @@ public sealed partial class RtfToTextConverter
 
     private char[] _plainText = new char[_plainTextDefaultCapacity];
     private int _plainText_Capacity;
-
     private int _plainText_Count;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -35,6 +34,18 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void PlainText_AddRange(char[] items, int count)
+    {
+        PlainText_EnsureCapacity(_plainText_Count + count);
+        // We usually add small enough arrays that a loop is faster
+        for (int i = 0; i < count; i++)
+        {
+            _plainText[_plainText_Count + i] = items[i];
+        }
+        _plainText_Count += count;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void PlainText_EnsureCapacity(int min)
     {
         if (_plainText_Capacity >= min) return;
@@ -47,10 +58,10 @@ public sealed partial class RtfToTextConverter
         int newCapacity = _plainText_Capacity == 0 ? 4 : _plainText_Capacity * 2;
         if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
         if (newCapacity < min) newCapacity = min;
-        SetPlainTextCapacity(newCapacity);
+        PlainText_SetCapacity(newCapacity);
     }
 
-    private void SetPlainTextCapacity(int value)
+    private void PlainText_SetCapacity(int value)
     {
         if (value == _plainText_Capacity) return;
         if (value > 0)
@@ -75,6 +86,6 @@ public sealed partial class RtfToTextConverter
     private void PlainText_HardReset(int capacity)
     {
         _plainText_Count = 0;
-        SetPlainTextCapacity(capacity);
+        PlainText_SetCapacity(capacity);
     }
 }
