@@ -2662,19 +2662,13 @@ public sealed partial class RtfToTextConverter
             if (_currentPos < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd &&
                 _plainText_Count < (_plainText_Capacity - _plainTextRunFastPathAmountBackFromBufferEnd) - 1)
             {
-#if NET8_0_OR_GREATER
-                ref char plainTextRef = ref MemoryMarshal.GetArrayDataReference(_plainText);
-#else
-                ref char plainTextRef = ref MemoryMarshal.GetReference(_plainText.AsSpan());
-#endif
-
+                char[] plainText = _plainText;
                 for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        Unsafe.AddByteOffset(ref plainTextRef, (nint)(_plainText_Count * sizeof(char))) = ch;
-                        ++_plainText_Count;
+                        plainText[_plainText_Count++] = ch;
                     }
                     else
                     {
@@ -4156,8 +4150,9 @@ public sealed partial class RtfToTextConverter
             {
                 case 2:
                     PlainText_EnsureCapacity(_plainText_Count + 2);
-                    _plainText[_plainText_Count] = LineBreakString[0];
-                    _plainText[_plainText_Count + 1] = LineBreakString[1];
+                    char[] plainText = _plainText;
+                    plainText[_plainText_Count] = LineBreakString[0];
+                    plainText[_plainText_Count + 1] = LineBreakString[1];
                     _plainText_Count += 2;
                     break;
                 case 1:
@@ -4178,8 +4173,9 @@ public sealed partial class RtfToTextConverter
         else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
         {
             PlainText_EnsureCapacity(_plainText_Count + 2);
-            _plainText[_plainText_Count] = '\r';
-            _plainText[_plainText_Count + 1] = '\n';
+            char[] plainText = _plainText;
+            plainText[_plainText_Count] = '\r';
+            plainText[_plainText_Count + 1] = '\n';
             _plainText_Count += 2;
         }
         else
