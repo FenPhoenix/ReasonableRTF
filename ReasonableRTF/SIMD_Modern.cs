@@ -442,10 +442,9 @@ public sealed partial class RtfToTextConverter
         int startIndex = _currentPos;
         int spanLength = _currentBufferChunkLength - _currentPos;
 
-        ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
-
         if (Vector512.IsHardwareAccelerated && spanLength >= Vector512<byte>.Count)
         {
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.AddByteOffset(ref searchSpace, (uint)(spanLength - Vector512<byte>.Count));
 
@@ -558,6 +557,7 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector256.IsHardwareAccelerated && spanLength >= Vector256<byte>.Count)
         {
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.AddByteOffset(ref searchSpace, (uint)(spanLength - Vector256<byte>.Count));
 
@@ -670,6 +670,7 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector128.IsHardwareAccelerated && spanLength >= Vector128<byte>.Count)
         {
+            ref byte searchSpace = ref GetRefAtPos(ref bufferRef, startIndex);
             ref byte currentSearchSpace = ref searchSpace;
             ref byte oneVectorAwayFromEnd = ref Unsafe.AddByteOffset(ref searchSpace, (uint)(spanLength - Vector128<byte>.Count));
 
@@ -786,7 +787,6 @@ public sealed partial class RtfToTextConverter
         // slower than just doing the 8 bytes scalar.
 
         return false;
-
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

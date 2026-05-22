@@ -2318,8 +2318,7 @@ public sealed partial class RtfToTextConverter
                         break;
                     default:
                     {
-                        if (
-                            !Unsafe.AddByteOffset(ref isIgnoreCharRef, (nint)ch) &&
+                        if (!Unsafe.AddByteOffset(ref isIgnoreCharRef, (nint)ch) &&
                             !GroupStack_CurrentSkipDest &&
                             GroupStack_CurrentPropertyHidden == 0)
                         {
