@@ -2965,7 +2965,15 @@ public sealed partial class RtfToTextConverter
                     switch (destType)
                     {
                         case DestinationType.SkippableHex:
-                            return HandleSkippableHexData(ref bufferRef, ref keywordRef, param);
+                            if (symbol.DefaultParam == 1)
+                            {
+                                return HandleSkippableHexData(ref bufferRef, ref keywordRef, symbol.DefaultParam);
+                            }
+                            else
+                            {
+                                _currentPos = IndexOfNextClosingBrace_ChunkAware();
+                                return RtfError.OK;
+                            }
                         case DestinationType.Skip:
                             SkipDest(ref bufferRef);
                             return RtfError.OK;
@@ -2985,9 +2993,20 @@ public sealed partial class RtfToTextConverter
             switch (symbol.KeywordType)
             {
                 case KeywordType.Destination:
-                    return symbol.Index == (int)DestinationType.SkippableHex
-                        ? HandleSkippableHexData(ref bufferRef, ref keywordRef, param)
-                        : RtfError.OK;
+                {
+                    if ((DestinationType)symbol.Index == DestinationType.SkippableHex)
+                    {
+                        if (symbol.DefaultParam == 1)
+                        {
+                            return HandleSkippableHexData(ref bufferRef, ref keywordRef, symbol.DefaultParam);
+                        }
+                        else
+                        {
+                            _currentPos = IndexOfNextClosingBrace_ChunkAware();
+                        }
+                    }
+                    return RtfError.OK;
+                }
                 case KeywordType.Special:
                     SpecialType specialType = (SpecialType)symbol.Index;
                     return specialType == SpecialType.SkipNumberOfBytes
@@ -3049,32 +3068,32 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void ChangeProperty(Property propertyTableIndex, int val)
+    private void ChangeProperty(Property propertyTableIndex, int param)
     {
         switch (propertyTableIndex)
         {
             case Property.FontNum:
             {
-                if (_fontDictionary.TryGetValue(val, out FontEntry fontEntry))
+                if (_fontDictionary.TryGetValue(param, out FontEntry fontEntry))
                 {
                     if (fontEntry.CodePage == 42)
                     {
                         // We have to track this globally, per behavior of RichEdit and implied by the spec.
-                        _lastUsedFontWithCodePage42 = val;
+                        _lastUsedFontWithCodePage42 = param;
                     }
 
                     GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
                 }
                 // \fN supersedes \langN
                 GroupStack_CurrentPropertyLang = -1;
-                GroupStack_CurrentPropertyFontNum = val;
+                GroupStack_CurrentPropertyFontNum = param;
                 break;
             }
             case Property.Lang:
             {
-                if (val != _undefinedLanguage)
+                if (param != _undefinedLanguage)
                 {
-                    GroupStack_CurrentPropertyLang = val;
+                    GroupStack_CurrentPropertyLang = param;
                 }
                 break;
             }
@@ -3082,12 +3101,12 @@ public sealed partial class RtfToTextConverter
             {
                 if (!_options.ConvertHiddenText)
                 {
-                    GroupStack_CurrentPropertyHidden = val;
+                    GroupStack_CurrentPropertyHidden = param;
                 }
                 break;
             }
             default:
-                GroupStack_CurrentPropertyUnicodeCharSkipCount = val;
+                GroupStack_CurrentPropertyUnicodeCharSkipCount = param;
                 break;
         }
     }
@@ -4544,8 +4563,6 @@ public sealed partial class RtfToTextConverter
 
     private RtfError HandleSkippableHexData(ref byte bufferRef, ref byte keywordRef, int param)
     {
-        bool insertSpaceIfNecessary = param == 1;
-
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
         if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
@@ -4569,12 +4586,7 @@ public sealed partial class RtfToTextConverter
                         --_groupStackCount;
                         if (_groupStackCount < startGroupLevel)
                         {
-                            if (insertSpaceIfNecessary &&
-                                _plainText_Count > 0 &&
-                                !char.IsWhiteSpace(_plainText[_plainText_Count - 1]))
-                            {
-                                PlainText_Add(' ');
-                            }
+                            InsertSpaceIfNecessary();
                             _inHandleSkippableHexData = false;
                             return RtfError.OK;
                         }
@@ -4599,14 +4611,19 @@ public sealed partial class RtfToTextConverter
             if (_bufferedStream != null) { HandleOutOfBounds(); } else { break; }
         }
 
-        if (insertSpaceIfNecessary &&
-            _plainText_Count > 0 &&
+        InsertSpaceIfNecessary();
+        _inHandleSkippableHexData = false;
+        return RtfError.OK;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void InsertSpaceIfNecessary()
+    {
+        if (_plainText_Count > 0 &&
             !char.IsWhiteSpace(_plainText[_plainText_Count - 1]))
         {
             PlainText_Add(' ');
         }
-        _inHandleSkippableHexData = false;
-        return RtfError.OK;
     }
 
     private void SkipDest(ref byte bufferRef)
