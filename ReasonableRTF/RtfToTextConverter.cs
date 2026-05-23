@@ -2967,7 +2967,7 @@ public sealed partial class RtfToTextConverter
                         case DestinationType.SkippableHex:
                             if (symbol.DefaultParam == 1)
                             {
-                                return HandleSkippableHexData(ref bufferRef, ref keywordRef, symbol.DefaultParam);
+                                return HandleSkippableHexData(ref bufferRef, ref keywordRef);
                             }
                             else
                             {
@@ -2998,7 +2998,7 @@ public sealed partial class RtfToTextConverter
                     {
                         if (symbol.DefaultParam == 1)
                         {
-                            return HandleSkippableHexData(ref bufferRef, ref keywordRef, symbol.DefaultParam);
+                            return HandleSkippableHexData(ref bufferRef, ref keywordRef);
                         }
                         else
                         {
@@ -4561,7 +4561,7 @@ public sealed partial class RtfToTextConverter
         return _currentBufferChunkLength;
     }
 
-    private RtfError HandleSkippableHexData(ref byte bufferRef, ref byte keywordRef, int param)
+    private RtfError HandleSkippableHexData(ref byte bufferRef, ref byte keywordRef)
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
