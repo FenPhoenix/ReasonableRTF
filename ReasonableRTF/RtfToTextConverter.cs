@@ -2538,7 +2538,7 @@ public sealed partial class RtfToTextConverter
                     {
                         if (!Unsafe.AddByteOffset(ref isIgnoreCharRef, (nint)ch) &&
                             !GroupStack_CurrentSkipDest &&
-                            GroupStack_CurrentPropertyHidden == 0)
+                            !GroupStack_CurrentPropertyHidden)
                         {
                             // No measurable perf loss from this, and it lets us avoid duplicating the loop body.
                             char currentChar = (char)(_currentPos < _currentBufferChunkLength
@@ -3055,7 +3055,7 @@ public sealed partial class RtfToTextConverter
                 break;
             case SpecialType.CellRowEnd:
                 // Quick and dirty hack - remove trailing cell separator char from the end of the last cell in a row
-                if (GroupStack_CurrentPropertyHidden == 0 &&
+                if (!GroupStack_CurrentPropertyHidden &&
                     _plainText_Count > 0 &&
                     _plainText[_plainText_Count - 1] == '\t')
                 {
@@ -3102,7 +3102,7 @@ public sealed partial class RtfToTextConverter
             {
                 if (!_options.ConvertHiddenText)
                 {
-                    GroupStack_CurrentPropertyHidden = param == 0 ? (byte)0 : (byte)1;
+                    GroupStack_CurrentPropertyHidden = param > 0;
                 }
                 break;
             }
@@ -3815,7 +3815,7 @@ public sealed partial class RtfToTextConverter
     */
     private RtfError HandleFieldInstruction(ref byte bufferRef)
     {
-        if (GroupStack_CurrentPropertyHidden != 0)
+        if (GroupStack_CurrentPropertyHidden)
         {
             SkipDest(ref bufferRef);
             return RtfError.OK;
@@ -4318,7 +4318,7 @@ public sealed partial class RtfToTextConverter
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
         // none of them are null.
-        if (GroupStack_CurrentPropertyHidden == 0)
+        if (!GroupStack_CurrentPropertyHidden)
         {
             // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
             // the start should we actually write it.
@@ -4354,7 +4354,7 @@ public sealed partial class RtfToTextConverter
         // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
         // of the bare-char symbol font stuff here.
 
-        if (GroupStack_CurrentPropertyHidden == 0 && !_inFontTable)
+        if (!GroupStack_CurrentPropertyHidden && !_inFontTable)
         {
             if (count == 1)
             {
@@ -4913,7 +4913,7 @@ public sealed partial class RtfToTextConverter
         internal bool SkipDestination;
         internal SymbolFont SymbolFont;
 
-        internal byte PropHidden;
+        internal bool PropHidden;
         internal int PropUnicodeSkipCharCount;
         internal int PropFontNum;
         internal ushort PropLang;
@@ -4978,7 +4978,7 @@ public sealed partial class RtfToTextConverter
         set => _groupStackFrames[_groupStackCount].SymbolFont = value;
     }
 
-    private byte GroupStack_CurrentPropertyHidden
+    private bool GroupStack_CurrentPropertyHidden
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => _groupStackFrames[_groupStackCount].PropHidden;
@@ -5020,7 +5020,7 @@ public sealed partial class RtfToTextConverter
         {
             SkipDestination = false,
             SymbolFont = SymbolFont.None,
-            PropHidden = 0,
+            PropHidden = false,
             PropUnicodeSkipCharCount = 1,
             PropFontNum = NoFontNumber,
             PropLang = NoLang,
