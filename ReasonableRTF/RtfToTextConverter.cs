@@ -4955,10 +4955,9 @@ public sealed partial class RtfToTextConverter
         }
 
         ref GroupStackFrame groupStackRef = ref GetArrayDataReference(_groupStackFrames);
-        ref GroupStackFrame nextRef = ref Unsafe.Add(ref groupStackRef, _groupStackCount + 1);
-        ref GroupStackFrame currentRef = ref Unsafe.Add(ref groupStackRef, _groupStackCount);
-        GroupStackFrame currentFrame = Unsafe.ReadUnaligned<GroupStackFrame>(ref Unsafe.As<GroupStackFrame, byte>(ref currentRef));
-        Unsafe.WriteUnaligned(ref Unsafe.As<GroupStackFrame, byte>(ref nextRef), currentFrame);
+        // .NET itself does this (ArraySortHelper.cs for example), so I'm just going to say it's safe.
+        // ARM users yell at me if it isn't I guess.
+        Unsafe.Add(ref groupStackRef, _groupStackCount + 1) = Unsafe.Add(ref groupStackRef, _groupStackCount);
 
         ++_groupStackCount;
     }
