@@ -4955,7 +4955,10 @@ public sealed partial class RtfToTextConverter
         }
 
         ref GroupStackFrame groupStackRef = ref GetArrayDataReference(_groupStackFrames);
-        Unsafe.Add(ref groupStackRef, _groupStackCount + 1) = Unsafe.Add(ref groupStackRef, _groupStackCount);
+        ref GroupStackFrame nextRef = ref Unsafe.Add(ref groupStackRef, _groupStackCount + 1);
+        ref GroupStackFrame currentRef = ref Unsafe.Add(ref groupStackRef, _groupStackCount);
+        GroupStackFrame currentFrame = Unsafe.ReadUnaligned<GroupStackFrame>(ref Unsafe.As<GroupStackFrame, byte>(ref currentRef));
+        Unsafe.WriteUnaligned(ref Unsafe.As<GroupStackFrame, byte>(ref nextRef), currentFrame);
 
         ++_groupStackCount;
     }
