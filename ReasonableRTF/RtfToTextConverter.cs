@@ -114,6 +114,7 @@ public sealed partial class RtfToTextConverter
     /// enough -1...
     /// </summary>
     private const int NoFontNumber = int.MinValue;
+    private const ushort NoLang = ushort.MaxValue;
 
     private const int _keywordMaxLen = 32;
     // Most are signed int16 (5 chars), but a few can be signed int32 (10 chars)
@@ -2661,12 +2662,12 @@ public sealed partial class RtfToTextConverter
                                 as demonstrated by the that fact that "current group" is "stack[group count]" not
                                 "stack[group count - 1]".
                                 */
-                                for (int i = 1; i <= _groupStackCount; i++)
+                                for (int i = 1; i < _groupStackCount; i++)
                                 {
-                                    if (_groupStack_Property_FontNum[i] == NoFontNumber)
+                                    if (_groupStackFrames[i].PropFontNum == NoFontNumber)
                                     {
-                                        _groupStack_Property_FontNum[i] = defaultFontNum;
-                                        _groupStack_SymbolFonts[i] = symbolFont;
+                                        _groupStackFrames[i].PropFontNum = defaultFontNum;
+                                        _groupStackFrames[i].SymbolFont = symbolFont;
                                     }
                                     else
                                     {
@@ -3085,7 +3086,7 @@ public sealed partial class RtfToTextConverter
                     GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
                 }
                 // \fN supersedes \langN
-                GroupStack_CurrentPropertyLang = -1;
+                GroupStack_CurrentPropertyLang = GroupStack_CurrentPropertyLang = NoLang; ;
                 GroupStack_CurrentPropertyFontNum = param;
                 break;
             }
@@ -3093,7 +3094,7 @@ public sealed partial class RtfToTextConverter
             {
                 if (param != _undefinedLanguage)
                 {
-                    GroupStack_CurrentPropertyLang = param;
+                    GroupStack_CurrentPropertyLang = param < NoLang ? (ushort)param : NoLang;
                 }
                 break;
             }
@@ -3101,7 +3102,7 @@ public sealed partial class RtfToTextConverter
             {
                 if (!_options.ConvertHiddenText)
                 {
-                    GroupStack_CurrentPropertyHidden = param;
+                    GroupStack_CurrentPropertyHidden = param == 0 ? (byte)0 : (byte)1;
                 }
                 break;
             }
@@ -4906,37 +4907,31 @@ public sealed partial class RtfToTextConverter
 
     #region GroupStack
 
+    [StructLayout(LayoutKind.Auto)]
+    private struct GroupStackFrame
+    {
+        internal bool SkipDestination;
+        internal SymbolFont SymbolFont;
+
+        internal byte PropHidden;
+        internal int PropUnicodeSkipCharCount;
+        internal int PropFontNum;
+        internal ushort PropLang;
+    }
+
     private const int _groupStackDefaultCapacity = 100;
     private int _groupStackCapacity;
     private int _groupStackCount;
 
-    private bool[] _groupStack_SkipDestinations;
-    private SymbolFont[] _groupStack_SymbolFonts;
+    private GroupStackFrame[] _groupStackFrames;
 
-    private int[] _groupStack_Property_Hidden;
-    private int[] _groupStack_Property_UnicodeCharSkipCount;
-    private int[] _groupStack_Property_FontNum;
-    private int[] _groupStack_Property_Lang;
-
-    [MemberNotNull(
-        nameof(_groupStack_SkipDestinations),
-        nameof(_groupStack_SymbolFonts),
-        nameof(_groupStack_Property_Hidden),
-        nameof(_groupStack_Property_UnicodeCharSkipCount),
-        nameof(_groupStack_Property_FontNum),
-        nameof(_groupStack_Property_Lang))]
+    [MemberNotNull(nameof(_groupStackFrames))]
     private void InitGroupStack()
     {
         _groupStackCount = 0;
         _groupStackCapacity = _groupStackDefaultCapacity;
 
-        _groupStack_SkipDestinations = new bool[_groupStackCapacity];
-        _groupStack_SymbolFonts = new SymbolFont[_groupStackCapacity];
-
-        _groupStack_Property_Hidden = new int[_groupStackCapacity];
-        _groupStack_Property_UnicodeCharSkipCount = new int[_groupStackCapacity];
-        _groupStack_Property_FontNum = new int[_groupStackCapacity];
-        _groupStack_Property_Lang = new int[_groupStackCapacity];
+        _groupStackFrames = new GroupStackFrame[_groupStackCapacity];
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
@@ -4946,13 +4941,7 @@ public sealed partial class RtfToTextConverter
         if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
 
         _groupStackCapacity = newCapacity;
-        Array.Resize(ref _groupStack_SkipDestinations, _groupStackCapacity);
-        Array.Resize(ref _groupStack_SymbolFonts, _groupStackCapacity);
-
-        Array.Resize(ref _groupStack_Property_Hidden, _groupStackCapacity);
-        Array.Resize(ref _groupStack_Property_UnicodeCharSkipCount, _groupStackCapacity);
-        Array.Resize(ref _groupStack_Property_FontNum, _groupStackCapacity);
-        Array.Resize(ref _groupStack_Property_Lang, _groupStackCapacity);
+        Array.Resize(ref _groupStackFrames, _groupStackCapacity);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -4965,13 +4954,8 @@ public sealed partial class RtfToTextConverter
             GroupStack_Grow();
         }
 
-        _groupStack_SkipDestinations[_groupStackCount + 1] = _groupStack_SkipDestinations[_groupStackCount];
-        _groupStack_SymbolFonts[_groupStackCount + 1] = _groupStack_SymbolFonts[_groupStackCount];
-
-        _groupStack_Property_Hidden[_groupStackCount + 1] = _groupStack_Property_Hidden[_groupStackCount];
-        _groupStack_Property_UnicodeCharSkipCount[_groupStackCount + 1] = _groupStack_Property_UnicodeCharSkipCount[_groupStackCount];
-        _groupStack_Property_FontNum[_groupStackCount + 1] = _groupStack_Property_FontNum[_groupStackCount];
-        _groupStack_Property_Lang[_groupStackCount + 1] = _groupStack_Property_Lang[_groupStackCount];
+        ref GroupStackFrame groupStackRef = ref GetArrayDataReference(_groupStackFrames);
+        Unsafe.Add(ref groupStackRef, _groupStackCount + 1) = Unsafe.Add(ref groupStackRef, _groupStackCount);
 
         ++_groupStackCount;
     }
@@ -4981,49 +4965,49 @@ public sealed partial class RtfToTextConverter
     private bool GroupStack_CurrentSkipDest
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_SkipDestinations[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].SkipDestination;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_SkipDestinations[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].SkipDestination = value;
     }
 
     private SymbolFont GroupStack_CurrentSymbolFont
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_SymbolFonts[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].SymbolFont;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_SymbolFonts[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].SymbolFont = value;
     }
 
-    private int GroupStack_CurrentPropertyHidden
+    private byte GroupStack_CurrentPropertyHidden
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_Property_Hidden[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].PropHidden;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_Property_Hidden[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].PropHidden = value;
     }
 
     private int GroupStack_CurrentPropertyUnicodeCharSkipCount
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_Property_UnicodeCharSkipCount[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].PropUnicodeSkipCharCount;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_Property_UnicodeCharSkipCount[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].PropUnicodeSkipCharCount = value;
     }
 
     private int GroupStack_CurrentPropertyFontNum
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_Property_FontNum[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].PropFontNum;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_Property_FontNum[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].PropFontNum = value;
     }
 
-    private int GroupStack_CurrentPropertyLang
+    private ushort GroupStack_CurrentPropertyLang
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStack_Property_Lang[_groupStackCount];
+        get => _groupStackFrames[_groupStackCount].PropLang;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStack_Property_Lang[_groupStackCount] = value;
+        set => _groupStackFrames[_groupStackCount].PropLang = value;
     }
 
     #endregion
@@ -5032,13 +5016,15 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void GroupStack_ResetFirst()
     {
-        _groupStack_SkipDestinations[0] = false;
-        _groupStack_SymbolFonts[0] = SymbolFont.None;
-
-        _groupStack_Property_Hidden[0] = 0;
-        _groupStack_Property_UnicodeCharSkipCount[0] = 1;
-        _groupStack_Property_FontNum[0] = NoFontNumber;
-        _groupStack_Property_Lang[0] = -1;
+        _groupStackFrames[0] = new GroupStackFrame()
+        {
+            SkipDestination = false,
+            SymbolFont = SymbolFont.None,
+            PropHidden = 0,
+            PropUnicodeSkipCharCount = 1,
+            PropFontNum = NoFontNumber,
+            PropLang = NoLang,
+        };
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
