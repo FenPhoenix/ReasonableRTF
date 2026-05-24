@@ -2143,15 +2143,6 @@ public sealed partial class RtfToTextConverter
     private Dictionary<ushort, Encoding> _encodings;
 #endif
 
-    // Common ones explicitly stored to avoid even a dictionary lookup. Don't reset these either.
-    /*
-    NOTE: 1251 being labeled "common" is a total dirty cheat - it's common in my test set, but who knows how
-    common it will be for a given user. 1252 is our default and fallback value, though, so there's justification
-    in calling it "common".
-    */
-    private readonly Encoding _windows1252Encoding;
-    private readonly Encoding _windows1251Encoding;
-
     #endregion
 
     private readonly RtfToTextConverterOptions _defaultOptions;
@@ -2172,9 +2163,6 @@ public sealed partial class RtfToTextConverter
         // on it not changing. Deep copy it only!
         _defaultOptions = new RtfToTextConverterOptions();
         _options = new RtfToTextConverterOptions();
-
-        _windows1251Encoding = Encoding.GetEncoding(1251);
-        _windows1252Encoding = Encoding.GetEncoding(_windows1252);
 
         InitSymbolFontData();
 
@@ -2384,7 +2372,6 @@ public sealed partial class RtfToTextConverter
 #else
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
-        CharGeneralBuffer_HardReset();
     }
 
     #endregion
@@ -2506,8 +2493,8 @@ public sealed partial class RtfToTextConverter
         ref byte bufferRef = ref MemoryMarshal.GetArrayDataReference(_buffer);
         ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText);
 #else
-        ref byte bufferRef = ref MemoryMarshal.GetReference(_buffer.AsSpan());
-        ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText.AsSpan());
+        ref byte bufferRef = ref GetArrayDataReference(_buffer);
+        ref bool isNonPlainTextCharRef = ref GetArrayDataReference(_isNonPlainText);
 #endif
         ref bool isIgnoreCharRef = ref MemoryMarshal.GetReference(_isIgnoreChar);
 
@@ -2548,8 +2535,7 @@ public sealed partial class RtfToTextConverter
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                                 if (symbolFont > SymbolFont.Unset)
                                 {
-                                    GetCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont]);
-                                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
+                                    AddCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont]);
                                 }
                                 else
                                 {
@@ -2853,8 +2839,7 @@ public sealed partial class RtfToTextConverter
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        GetCharFromConversionList_Byte((byte)ch, table);
-                        PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
+                        AddCharFromConversionList_Byte((byte)ch, table);
                     }
                     else
                     {
@@ -3083,7 +3068,7 @@ public sealed partial class RtfToTextConverter
                     GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
                 }
                 // \fN supersedes \langN
-                GroupStack_CurrentPropertyLang = GroupStack_CurrentPropertyLang = NoLang; ;
+                GroupStack_CurrentPropertyLang = GroupStack_CurrentPropertyLang = NoLang;
                 GroupStack_CurrentPropertyFontNum = param;
                 break;
             }
@@ -3115,8 +3100,13 @@ public sealed partial class RtfToTextConverter
 
     #region Hex
 
-    private void AddHexBuffer(bool codePageWas42, Encoding? enc, in FontEntry fontEntry)
+    private void AddHexBuffer(ushort codePage, in FontEntry fontEntry)
     {
+        if (GroupStack_CurrentSkipDest || GroupStack_CurrentPropertyHidden || _inFontTable)
+        {
+            return;
+        }
+
         // If multiple hex chars are directly after another (eg. \'81\'63) then they may be representing one
         // multibyte character (or not, they may also just be two single-byte chars in a row). To deal with
         // this, we have to put all contiguous hex chars into a buffer and when the run ends, we just pass
@@ -3124,19 +3114,14 @@ public sealed partial class RtfToTextConverter
 
         // DON'T try to combine this byte with the next one if we're on code page 42 (symbol font translation) -
         // then we're guaranteed to be single-byte, and combining won't give a correct result
-        if (codePageWas42)
+        if (codePage == 42)
         {
             if (!fontEntry.IsSet)
             {
                 for (int i = 0; i < _hexBuffer_Count; i++)
                 {
                     byte codePoint = _hexBuffer[i];
-                    GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)SymbolFont.Symbol]);
-                    if (_charGeneralBuffer_Count == 0)
-                    {
-                        SetCharGeneralBufferToUnknownChar();
-                    }
-                    AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
+                    AddCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)SymbolFont.Symbol]);
                 }
             }
             else
@@ -3147,56 +3132,21 @@ public sealed partial class RtfToTextConverter
                     for (int i = 0; i < _hexBuffer_Count; i++)
                     {
                         byte codePoint = _hexBuffer[i];
-                        GetCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont]);
-                        AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
+                        AddCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont]);
                     }
                 }
                 else
                 {
                     for (int i = 0; i < _hexBuffer_Count; i++)
                     {
-                        try
-                        {
-                            if (enc != null)
-                            {
-                                CharGeneralBuffer_EnsureCapacity(_hexBuffer_Count);
-                                _charGeneralBuffer_Count = enc
-                                    .GetChars(_hexBuffer, 0, _hexBuffer_Count, _charGeneralBuffer, 0);
-                            }
-                            else
-                            {
-                                SetCharGeneralBufferToUnknownChar();
-                            }
-                        }
-                        catch
-                        {
-                            SetCharGeneralBufferToUnknownChar();
-                        }
-                        AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
+                        PlainText_Add(_unicodeUnknown_Char);
                     }
                 }
             }
         }
         else
         {
-            try
-            {
-                if (enc != null)
-                {
-                    CharGeneralBuffer_EnsureCapacity(_hexBuffer_Count);
-                    _charGeneralBuffer_Count = enc
-                        .GetChars(_hexBuffer, 0, _hexBuffer_Count, _charGeneralBuffer, 0);
-                }
-                else
-                {
-                    SetCharGeneralBufferToUnknownChar();
-                }
-            }
-            catch
-            {
-                SetCharGeneralBufferToUnknownChar();
-            }
-            AddChars(_charGeneralBuffer, _charGeneralBuffer_Count);
+            DecodeAndCopyBytesIntoPlainText(codePage, _hexBuffer, _hexBuffer_Count);
         }
     }
 
@@ -3204,7 +3154,7 @@ public sealed partial class RtfToTextConverter
     {
         _hexBuffer_Count = 0;
 
-        (bool codePageWas42, Encoding? enc, FontEntry fontEntry) = GetCurrentEncoding();
+        (ushort codePage, FontEntry fontEntry) = GetCurrentCodePage();
 
         byte byte1;
         byte byte2;
@@ -3238,7 +3188,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos -= 2;
-                    AddHexBuffer(codePageWas42, enc, in fontEntry);
+                    AddHexBuffer(codePage, in fontEntry);
                     return;
                 }
             }
@@ -3246,7 +3196,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos--;
-                AddHexBuffer(codePageWas42, enc, in fontEntry);
+                AddHexBuffer(codePage, in fontEntry);
                 return;
             }
         }
@@ -3266,7 +3216,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos -= 2;
-                    AddHexBuffer(codePageWas42, enc, in fontEntry);
+                    AddHexBuffer(codePage, in fontEntry);
                     return;
                 }
             }
@@ -3274,7 +3224,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos--;
-                AddHexBuffer(codePageWas42, enc, in fontEntry);
+                AddHexBuffer(codePage, in fontEntry);
                 return;
             }
         }
@@ -3292,7 +3242,8 @@ public sealed partial class RtfToTextConverter
         */
         byte hexNibble1 = CharExtension.CharToHexLookup[byte1];
         byte hexNibble2 = CharExtension.CharToHexLookup[byte2];
-        if ((hexNibble1 | hexNibble2) < 0xFF)
+        // Reject null bytes
+        if ((hexNibble1 | hexNibble2).IsBetween(1, 0xFE))
         {
             byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
             HexBuffer_Add(finalHexByte);
@@ -3465,15 +3416,22 @@ public sealed partial class RtfToTextConverter
         // If our code point has been through a font translation table, it may be longer than 2 bytes.
         if (codePoint > char.MaxValue)
         {
-            if (!ConvertFromUtf32(codePoint))
+            if (((codePoint - 0x110000u) ^ 0xD800u) < 0xFFEF0800u)
             {
                 UnicodeBuffer_Add(_unicodeUnknown_Char);
+            }
+
+            if (codePoint <= char.MaxValue)
+            {
+                UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 1);
+                _unicodeBuffer[_unicodeBuffer_Count] = (char)codePoint;
+                _unicodeBuffer_Count += 1;
             }
             else
             {
                 UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 2);
-                _unicodeBuffer[_unicodeBuffer_Count] = _charGeneralBuffer[0];
-                _unicodeBuffer[_unicodeBuffer_Count + 1] = _charGeneralBuffer[1];
+                _unicodeBuffer[_unicodeBuffer_Count] = (char)((codePoint + ((0xD800u - 0x40u) << 10)) >> 10);
+                _unicodeBuffer[_unicodeBuffer_Count + 1] = (char)((codePoint & 0x3FFu) + 0xDC00u);
                 _unicodeBuffer_Count += 2;
             }
         }
@@ -3654,8 +3612,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            GetCharFromCodePage(NoCodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
+            AddCharFromCodePage(NoCodePage, param);
         }
     }
 
@@ -3704,14 +3661,12 @@ public sealed partial class RtfToTextConverter
 
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
-            GetCharFromCodePage(_headerCodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
+            AddCharFromCodePage(_headerCodePage, param);
             return;
         }
         if (fontEntry.CodePage != 42)
         {
-            GetCharFromCodePage(fontEntry.CodePage, param);
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
+            AddCharFromCodePage(fontEntry.CodePage, param);
             return;
         }
 
@@ -3747,11 +3702,7 @@ public sealed partial class RtfToTextConverter
         {
             codePoint -= 0xF000;
         }
-        if (GetCharFromConversionList_UInt(codePoint, symbolFontTable) &&
-            _charGeneralBuffer_Count > 0)
-        {
-            AddChars_FieldInst(_charGeneralBuffer, _charGeneralBuffer_Count);
-        }
+        AddCharFromConversionList_UInt(codePoint, symbolFontTable);
     }
 
     /*
@@ -3935,8 +3886,6 @@ public sealed partial class RtfToTextConverter
 
         const int maxParams = 6;
 
-        _charGeneralBuffer_Count = 0;
-
         #region Parse params
 
         for (i = 0; i < maxParams; i++)
@@ -4085,6 +4034,41 @@ public sealed partial class RtfToTextConverter
 
     #region Encoding helpers
 
+    private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
+    {
+        if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
+        {
+            ref byte bytesRef = ref GetArrayDataReference(bytes);
+            ref char charsRef = ref GetArrayDataReference(_plainText);
+            ref char mappingsRef = ref GetArrayDataReference(mappingTable);
+
+            PlainText_EnsureCapacity(_plainText_Count + byteCount);
+
+            for (int i = 0, charsI = _plainText_Count; i < byteCount; i++, charsI++)
+            {
+                byte b = Unsafe.AddByteOffset(ref bytesRef, (nint)i);
+                char c = Unsafe.Add(ref mappingsRef, (nint)b);
+                if (c != '\0')
+                {
+                    Unsafe.Add(ref charsRef, (nint)charsI) = c;
+                }
+            }
+            _plainText_Count += byteCount;
+        }
+        else
+        {
+            try
+            {
+                PlainText_EnsureCapacity(_plainText_Count + byteCount * 4);
+                _plainText_Count += GetEncodingFromCachedList(codePage).GetChars(bytes, 0, byteCount, _plainText, _plainText_Count);
+            }
+            catch
+            {
+                PlainText_Add(_unicodeUnknown_Char);
+            }
+        }
+    }
+
     /// <summary>
     /// If <paramref name="codePage"/> is in the cached list, returns the Encoding associated with it;
     /// otherwise, gets the Encoding for <paramref name="codePage"/> and places it in the cached list
@@ -4092,34 +4076,23 @@ public sealed partial class RtfToTextConverter
     /// </summary>
     /// <param name="codePage"></param>
     /// <returns></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private Encoding GetEncodingFromCachedList(ushort codePage)
     {
-        switch (codePage)
+        if (_encodings.TryGetValue(codePage, out Encoding? result))
         {
-            case _windows1252:
-                return _windows1252Encoding;
-            case 1251:
-                return _windows1251Encoding;
-            default:
-                if (_encodings.TryGetValue(codePage, out Encoding? result))
-                {
-                    return result;
-                }
-                else
-                {
-                    // NOTE: This can throw, but all calls to this are wrapped in try-catch blocks.
-                    // TODO: But weird that we don't put the try-catch here and just return null...?
-                    Encoding enc = Encoding.GetEncoding(codePage);
-                    _encodings[codePage] = enc;
-                    return enc;
-                }
+            return result;
+        }
+        else
+        {
+            Encoding enc = Encoding.GetEncoding(codePage);
+            _encodings[codePage] = enc;
+            return enc;
         }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private (bool CodePageWas42, Encoding? Encoding, FontEntry FontEntry)
-    GetCurrentEncoding()
+    private (ushort CodePage, FontEntry FontEntry)
+    GetCurrentCodePage()
     {
         int groupFontNum = GroupStack_CurrentPropertyFontNum;
         int groupLang = GroupStack_CurrentPropertyLang;
@@ -4139,76 +4112,34 @@ public sealed partial class RtfToTextConverter
             codePage = fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
 
-        if (codePage == 42) return (true, null, fontEntry);
-
-        // Awful, but we're based on nice, relaxing error returns, so we don't want to throw exceptions. Ever.
-        Encoding enc;
-        try
-        {
-            enc = GetEncodingFromCachedList(codePage);
-        }
-        catch
-        {
-            enc = _windows1252Encoding;
-        }
-
-        return (false, enc, fontEntry);
+        return (codePage, fontEntry);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private bool GetCharFromConversionList_UInt(uint codePoint, uint[] fontTable)
+    private void AddCharFromConversionList_UInt(uint codePoint, uint[] fontTable)
     {
         if (codePoint.IsBetween(0x20, 0xFF))
         {
-            if (!ConvertFromUtf32(fontTable[codePoint - 0x20]))
-            {
-                SetCharGeneralBufferToUnknownChar();
-            }
+            AddConvertedFromUtf32(fontTable[codePoint - 0x20]);
         }
-        else
+        else if (codePoint <= 255)
         {
-            if (codePoint > 255)
-            {
-                _charGeneralBuffer_Count = 0;
-                return false;
-            }
-            try
-            {
-                _byteBuffer1[0] = (byte)codePoint;
-                _charGeneralBuffer_Count = _windows1252Encoding
-                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer, 0);
-            }
-            catch
-            {
-                SetCharGeneralBufferToUnknownChar();
-            }
+            _byteBuffer1[0] = (byte)codePoint;
+            DecodeAndCopyBytesIntoPlainText(_windows1252, _byteBuffer1, 1);
         }
-
-        return true;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void GetCharFromConversionList_Byte(byte codePoint, uint[] fontTable)
+    private void AddCharFromConversionList_Byte(byte codePoint, uint[] fontTable)
     {
         if (codePoint >= 0x20)
         {
-            if (!ConvertFromUtf32(fontTable[codePoint - 0x20]))
-            {
-                SetCharGeneralBufferToUnknownChar();
-            }
+            AddConvertedFromUtf32(fontTable[codePoint - 0x20]);
         }
         else
         {
-            try
-            {
-                _byteBuffer1[0] = codePoint;
-                _charGeneralBuffer_Count = _windows1252Encoding
-                    .GetChars(_byteBuffer1, 0, 1, _charGeneralBuffer, 0);
-            }
-            catch
-            {
-                SetCharGeneralBufferToUnknownChar();
-            }
+            _byteBuffer1[0] = codePoint;
+            DecodeAndCopyBytesIntoPlainText(_windows1252, _byteBuffer1, 1);
         }
     }
 
@@ -4271,36 +4202,33 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void GetCharFromCodePage(ushort codePage, uint codePoint)
+    private void AddCharFromCodePage(ushort codePage, uint codePoint)
     {
+        // Reject null chars
+        if (codePoint == 0) return;
+
+        // We're a field instruction code path, so we don't have to be in tip top performance shape necessarily.
+        int byteCount = codePoint < 0xFF_FF ? 1 : codePoint < 0xFF_FF_FF ? 2 : codePoint < 0xFF_FF_FF_FF ? 3 : 4;
+
         // BitConverter.GetBytes() does this, but it allocates a temp array every time.
         // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
-        Unsafe.WriteUnaligned(ref MemoryMarshal.GetReference(_byteBuffer4), codePoint);
+        Unsafe.WriteUnaligned(ref GetArrayDataReference(_byteBuffer4), codePoint);
 
-        try
+        if (codePage < NoCodePage)
         {
-            if (codePage < NoCodePage)
+            DecodeAndCopyBytesIntoPlainText(codePage, _byteBuffer4, byteCount);
+        }
+        else
+        {
+            (codePage, _) = GetCurrentCodePage();
+            if (codePage != 42)
             {
-                _charGeneralBuffer_Count = GetEncodingFromCachedList(codePage)
-                    .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer, 0);
+                DecodeAndCopyBytesIntoPlainText(codePage, _byteBuffer4, byteCount);
             }
             else
             {
-                (_, Encoding? enc, _) = GetCurrentEncoding();
-                if (enc != null)
-                {
-                    _charGeneralBuffer_Count = enc
-                        .GetChars(_byteBuffer4, 0, 4, _charGeneralBuffer, 0);
-                }
-                else
-                {
-                    SetCharGeneralBufferToUnknownChar();
-                }
+                PlainText_Add(_unicodeUnknown_Char);
             }
-        }
-        catch
-        {
-            SetCharGeneralBufferToUnknownChar();
         }
     }
 
@@ -4334,10 +4262,7 @@ public sealed partial class RtfToTextConverter
             if (symbolFont > SymbolFont.Unset)
             {
                 uint[] fontTable = _symbolFontTables[(int)symbolFont];
-                if (GetCharFromConversionList_UInt(ch, fontTable))
-                {
-                    PlainText_AddRange(_charGeneralBuffer, _charGeneralBuffer_Count);
-                }
+                AddCharFromConversionList_UInt(ch, fontTable);
             }
             else
             {
@@ -4356,24 +4281,24 @@ public sealed partial class RtfToTextConverter
             if (count == 1)
             {
                 char ch = chars[0];
-                if (ch == '\0') return;
-                PlainText_Add(ch);
+                if (ch != '\0')
+                {
+                    PlainText_Add(ch);
+                }
             }
             else
             {
-                PlainText_AddRange(chars, count);
-            }
-        }
-    }
-
-    private void AddChars_FieldInst(char[] chars, int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            char c = chars[i];
-            if (c != '\0')
-            {
-                PlainText_Add(c);
+                PlainText_EnsureCapacity(_plainText_Count + count);
+                // We usually add small enough arrays that a loop is faster
+                for (int i = 0; i < count; i++)
+                {
+                    char ch = chars[i];
+                    if (ch != '\0')
+                    {
+                        _plainText[_plainText_Count + i] = chars[i];
+                    }
+                }
+                _plainText_Count += count;
             }
         }
     }
@@ -4513,13 +4438,6 @@ public sealed partial class RtfToTextConverter
             if (seq1[ci] != seq2[ci]) return false;
         }
         return true;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void SetCharGeneralBufferToUnknownChar()
-    {
-        _charGeneralBuffer[0] = _unicodeUnknown_Char;
-        _charGeneralBuffer_Count = 1;
     }
 
     // Calculate it at the end from values we already have, rather than changing an additional value in hot loops
@@ -5015,7 +4933,7 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void GroupStack_ResetFirst()
     {
-        _groupStackFrames[0] = new GroupStackFrame()
+        _groupStackFrames[0] = new GroupStackFrame
         {
             SkipDestination = false,
             SymbolFont = SymbolFont.None,
@@ -5526,24 +5444,21 @@ public sealed partial class RtfToTextConverter
     /// Copy of .NET 7 version (fewer branches than Framework) but with a fast null return on fail instead of the infernal exception-throwing.
     /// </summary>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private bool ConvertFromUtf32(uint utf32u)
+    private void AddConvertedFromUtf32(uint utf32u)
     {
         if (((utf32u - 0x110000u) ^ 0xD800u) < 0xFFEF0800u)
         {
-            return false;
+            PlainText_Add(_unicodeUnknown_Char);
+            return;
         }
 
         if (utf32u <= char.MaxValue)
         {
-            _charGeneralBuffer[0] = (char)utf32u;
-            _charGeneralBuffer_Count = 1;
-            return true;
+            PlainText_Add((char)utf32u);
+            return;
         }
 
-        _charGeneralBuffer[0] = (char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10);
-        _charGeneralBuffer[1] = (char)((utf32u & 0x3FFu) + 0xDC00u);
-        _charGeneralBuffer_Count = 2;
-
-        return true;
+        PlainText_Add((char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10));
+        PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
     }
 }

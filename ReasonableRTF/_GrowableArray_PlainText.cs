@@ -21,18 +21,6 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void PlainText_AddRange(char[] items, int count)
-    {
-        PlainText_EnsureCapacity(_plainText_Count + count);
-        // We usually add small enough arrays that a loop is faster
-        for (int i = 0; i < count; i++)
-        {
-            _plainText[_plainText_Count + i] = items[i];
-        }
-        _plainText_Count += count;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void PlainText_EnsureCapacity(int min)
     {
         if (_plainText_Capacity >= min) return;
