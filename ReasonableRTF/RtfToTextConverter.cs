@@ -2646,7 +2646,7 @@ public sealed partial class RtfToTextConverter
                                 as demonstrated by the that fact that "current group" is "stack[group count]" not
                                 "stack[group count - 1]".
                                 */
-                                for (int i = 1; i < _groupStackCount; i++)
+                                for (int i = 1; i <= _groupStackCount; i++)
                                 {
                                     if (_groupStackFrames[i].PropFontNum == NoFontNumber)
                                     {
