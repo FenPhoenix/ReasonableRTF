@@ -114,11 +114,11 @@ public sealed partial class RtfToTextConverter
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(ref bufferRef, ref keywordRefLocal, symbol, param, hasParam);
+                return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRefLocal, keywordCount);
             }
         }
 

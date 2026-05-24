@@ -2580,11 +2580,11 @@ public sealed partial class RtfToTextConverter
         if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
         {
 #if NET8_0_OR_GREATER
-            //if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            //{
-            //    return ParseKeyword_Fast_Vector128(ref bufferRef, ref keywordRef);
-            //}
-            //else
+            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
+            {
+                return ParseKeyword_Fast_Vector128(ref bufferRef, ref keywordRef);
+            }
+            else
 #endif
             {
                 return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
