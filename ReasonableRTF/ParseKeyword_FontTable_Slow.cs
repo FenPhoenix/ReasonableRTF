@@ -16,8 +16,6 @@ public sealed partial class RtfToTextConverter
         Symbol? symbol;
         fontTableKeyword = default;
 
-        ref byte keywordRef = ref GetArrayDataReference(_keyword);
-
         // [FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]
         char ch = (char)GetByte(IncrementCurrentPos());
 
@@ -55,6 +53,8 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
+            ref byte keywordRef = ref GetArrayDataReference(_keyword);
+
             byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);

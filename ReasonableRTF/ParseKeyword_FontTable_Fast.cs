@@ -16,7 +16,7 @@ public sealed partial class RtfToTextConverter
         Symbol? symbol;
         fontTableKeyword = default;
 
-        ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), (nint)_currentPos);
+        int startingCurrentPos = _currentPos;
 
         // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
@@ -106,6 +106,8 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
             // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
+
+            ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), (nint)startingCurrentPos);
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.

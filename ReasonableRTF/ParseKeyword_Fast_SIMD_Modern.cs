@@ -29,8 +29,6 @@ public sealed partial class RtfToTextConverter
 
         int startingCurrentPos = _currentPos;
 
-        ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), _currentPos);
-
         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
 
         if (!CharExtension.IsAsciiLetter(ch))
@@ -108,6 +106,8 @@ public sealed partial class RtfToTextConverter
             }
 
             if (ch != ' ') --_currentPos;
+
+            ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), (nint)startingCurrentPos);
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
