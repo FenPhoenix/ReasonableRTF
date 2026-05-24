@@ -4034,6 +4034,7 @@ public sealed partial class RtfToTextConverter
 
     #region Encoding helpers
 
+    // All callers reject nulls or won't send nulls.
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
@@ -4048,10 +4049,7 @@ public sealed partial class RtfToTextConverter
             {
                 byte b = Unsafe.AddByteOffset(ref bytesRef, (nint)i);
                 char c = Unsafe.Add(ref mappingsRef, (nint)b);
-                if (c != '\0')
-                {
-                    Unsafe.Add(ref charsRef, (nint)charsI) = c;
-                }
+                Unsafe.Add(ref charsRef, (nint)charsI) = c;
             }
             _plainText_Count += byteCount;
         }
