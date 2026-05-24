@@ -1,6 +1,7 @@
 ﻿#if NET8_0_OR_GREATER
 
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -20,13 +21,15 @@ public sealed partial class RtfToTextConverter
     If we were smarter about it and parsed all found complete keywords in each vector, would Vector256 be faster
     again?
     */
-    private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef, ref byte keywordRef)
+    private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef)
     {
         bool hasParam = false;
         int param = 0;
         Symbol? symbol;
 
         int startingCurrentPos = _currentPos;
+
+        ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), _currentPos);
 
         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
 
@@ -61,7 +64,7 @@ public sealed partial class RtfToTextConverter
             if (keywordCount >= Vector128<byte>.Count)
             {
                 _currentPos = startingCurrentPos;
-                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
+                return ParseKeyword_Fast(ref bufferRef);
             }
 
             Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
@@ -106,19 +109,17 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
 
-            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
-
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
+            if (keywordCount == 1 && keywordRef == (byte)'f')
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
+                return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, ref keywordRefLocal, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
             }
         }
 
@@ -134,7 +135,7 @@ public sealed partial class RtfToTextConverter
 
         _skipDestinationIfUnknown = false;
 
-        return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
+        return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
     }
 }
 #endif

@@ -9,12 +9,14 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    private RtfError ParseKeyword_FontTable_Slow(ref byte bufferRef, ref byte keywordRef, out KeywordType fontTableKeyword, out int param)
+    private RtfError ParseKeyword_FontTable_Slow(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
         param = 0;
         Symbol? symbol;
         fontTableKeyword = default;
+
+        ref byte keywordRef = ref GetArrayDataReference(_keyword);
 
         // [FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]
         char ch = (char)GetByte(IncrementCurrentPos());
@@ -49,7 +51,7 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
+            return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
         }
         else
         {
@@ -134,7 +136,7 @@ public sealed partial class RtfToTextConverter
 
             fontTableKeyword = symbol.KeywordType;
             return fontTableKeyword < KeywordType.F
-                ? DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam)
+                ? DispatchKeyword(ref bufferRef, symbol, param, hasParam)
                 : RtfError.OK;
         }
     }

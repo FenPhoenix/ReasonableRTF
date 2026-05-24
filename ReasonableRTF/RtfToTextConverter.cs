@@ -2504,11 +2504,9 @@ public sealed partial class RtfToTextConverter
         // Avoid bounds checks by passing a buffer reference everywhere. We do our own bounds checking.
 #if NET8_0_OR_GREATER
         ref byte bufferRef = ref MemoryMarshal.GetArrayDataReference(_buffer);
-        ref byte keywordRef = ref MemoryMarshal.GetArrayDataReference(_keyword);
         ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText);
 #else
         ref byte bufferRef = ref MemoryMarshal.GetReference(_buffer.AsSpan());
-        ref byte keywordRef = ref MemoryMarshal.GetReference(_keyword.AsSpan());
         ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText.AsSpan());
 #endif
         ref bool isIgnoreCharRef = ref MemoryMarshal.GetReference(_isIgnoreChar);
@@ -2523,7 +2521,7 @@ public sealed partial class RtfToTextConverter
                 switch (ch)
                 {
                     case '\\':
-                        RtfError ec = ParseKeyword(ref bufferRef, ref keywordRef);
+                        RtfError ec = ParseKeyword(ref bufferRef);
                         if (ec != RtfError.OK) return ec;
                         break;
                     case '{':
@@ -2575,50 +2573,50 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private RtfError ParseKeyword(ref byte bufferRef, ref byte keywordRef)
+    private RtfError ParseKeyword(ref byte bufferRef)
     {
         if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
         {
 #if NET8_0_OR_GREATER
             if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
             {
-                return ParseKeyword_Fast_Vector128(ref bufferRef, ref keywordRef);
+                return ParseKeyword_Fast_Vector128(ref bufferRef);
             }
             else
 #endif
             {
-                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
+                return ParseKeyword_Fast(ref bufferRef);
             }
         }
         else
         {
-            return ParseKeyword_Slow(ref bufferRef, ref keywordRef);
+            return ParseKeyword_Slow(ref bufferRef);
         }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private RtfError ParseKeyword_FontTable(ref byte bufferRef, ref byte keywordRef, out KeywordType fontTableKeyword, out int param)
+    private RtfError ParseKeyword_FontTable(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
         {
 #if NET8_0_OR_GREATER
             if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
             {
-                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, ref keywordRef, out fontTableKeyword, out param);
+                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param);
             }
             else
 #endif
             {
-                return ParseKeyword_FontTable_Fast(ref bufferRef, ref keywordRef, out fontTableKeyword, out param);
+                return ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param);
             }
         }
         else
         {
-            return ParseKeyword_FontTable_Slow(ref bufferRef, ref keywordRef, out fontTableKeyword, out param);
+            return ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
         }
     }
 
-    private RtfError ParseFontTable(ref byte bufferRef, ref byte keywordRef)
+    private RtfError ParseFontTable(ref byte bufferRef)
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
@@ -2683,7 +2681,6 @@ public sealed partial class RtfToTextConverter
                     case '\\':
                         RtfError error = ParseKeyword_FontTable(
                             ref bufferRef,
-                            ref keywordRef,
                             out KeywordType fontTableKeyword,
                             out int param);
                         if (error != RtfError.OK) return error;
@@ -2945,7 +2942,7 @@ public sealed partial class RtfToTextConverter
     #region Act on keywords
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private RtfError DispatchKeyword(ref byte bufferRef, ref byte keywordRef, Symbol symbol, int param, bool hasParam)
+    private RtfError DispatchKeyword(ref byte bufferRef, Symbol symbol, int param, bool hasParam)
     {
         if (!GroupStack_CurrentSkipDest)
         {
@@ -2960,7 +2957,7 @@ public sealed partial class RtfToTextConverter
                     return RtfError.OK;
                 case KeywordType.Special:
                     SpecialType specialType = (SpecialType)symbol.Index;
-                    return DispatchSpecialKeyword(ref bufferRef, ref keywordRef, specialType, symbol, param);
+                    return DispatchSpecialKeyword(ref bufferRef, specialType, symbol, param);
                 case KeywordType.Destination:
                     DestinationType destType = (DestinationType)symbol.Index;
                     switch (destType)
@@ -2968,7 +2965,7 @@ public sealed partial class RtfToTextConverter
                         case DestinationType.SkippableHex:
                             if (symbol.DefaultParam == 1)
                             {
-                                return HandleSkippableHexData(ref bufferRef, ref keywordRef);
+                                return HandleSkippableHexData(ref bufferRef);
                             }
                             else
                             {
@@ -2999,7 +2996,7 @@ public sealed partial class RtfToTextConverter
                     {
                         if (symbol.DefaultParam == 1)
                         {
-                            return HandleSkippableHexData(ref bufferRef, ref keywordRef);
+                            return HandleSkippableHexData(ref bufferRef);
                         }
                         else
                         {
@@ -3011,7 +3008,7 @@ public sealed partial class RtfToTextConverter
                 case KeywordType.Special:
                     SpecialType specialType = (SpecialType)symbol.Index;
                     return specialType == SpecialType.SkipNumberOfBytes
-                        ? DispatchSpecialKeyword(ref bufferRef, ref keywordRef, specialType, symbol, param)
+                        ? DispatchSpecialKeyword(ref bufferRef, specialType, symbol, param)
                         : RtfError.OK;
                 default:
                     return RtfError.OK;
@@ -3019,7 +3016,7 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private RtfError DispatchSpecialKeyword(ref byte bufferRef, ref byte keywordRef, SpecialType specialType, Symbol symbol, int param)
+    private RtfError DispatchSpecialKeyword(ref byte bufferRef, SpecialType specialType, Symbol symbol, int param)
     {
         switch (specialType)
         {
@@ -3048,7 +3045,7 @@ public sealed partial class RtfToTextConverter
                 break;
             case SpecialType.FontTable:
             {
-                return ParseFontTable(ref bufferRef, ref keywordRef);
+                return ParseFontTable(ref bufferRef);
             }
             case SpecialType.ColorTable:
                 _currentPos = IndexOfNextClosingBrace_ChunkAware();
@@ -4562,7 +4559,7 @@ public sealed partial class RtfToTextConverter
         return _currentBufferChunkLength;
     }
 
-    private RtfError HandleSkippableHexData(ref byte bufferRef, ref byte keywordRef)
+    private RtfError HandleSkippableHexData(ref byte bufferRef)
     {
         // Prevent stack overflow from maliciously-crafted rtf files - we should never recurse back into here in
         // a spec-conforming file.
@@ -4594,7 +4591,7 @@ public sealed partial class RtfToTextConverter
                         break;
                     case '\\':
                         // This implicitly also handles the case where the data is \binN instead of hex
-                        RtfError ec = ParseKeyword(ref bufferRef, ref keywordRef);
+                        RtfError ec = ParseKeyword(ref bufferRef);
                         if (ec != RtfError.OK) return ec;
                         break;
                     case '\r':

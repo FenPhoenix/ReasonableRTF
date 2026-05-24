@@ -9,14 +9,14 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    private RtfError ParseKeyword_FontTable_Fast(ref byte bufferRef, ref byte keywordRef, out KeywordType fontTableKeyword, out int param)
+    private RtfError ParseKeyword_FontTable_Fast(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
         param = 0;
         Symbol? symbol;
         fontTableKeyword = default;
 
-        int startingCurrentPos = _currentPos;
+        ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), (nint)_currentPos);
 
         // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
@@ -51,7 +51,7 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
+            return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
         }
         else
         {
@@ -60,7 +60,6 @@ public sealed partial class RtfToTextConverter
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef))
             {
-                Unsafe.WriteUnaligned(ref Unsafe.AddByteOffset(ref keywordRef, (nint)keywordCount), (byte)ch);
             }
             if (keywordCount > _keywordMaxLen)
             {
@@ -108,11 +107,9 @@ public sealed partial class RtfToTextConverter
             if (ch != ' ') --_currentPos;
             // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
-            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
-
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
+            if (keywordCount == 1 && keywordRef == (byte)'f')
             {
                 _skipDestinationIfUnknown = false;
                 // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
@@ -121,7 +118,7 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                symbol = LookUpControlWord(ref keywordRefLocal, keywordCount);
+                symbol = LookUpControlWord(ref keywordRef, keywordCount);
             }
 
             if (symbol == null)
@@ -138,7 +135,7 @@ public sealed partial class RtfToTextConverter
 
             fontTableKeyword = symbol.KeywordType;
             return fontTableKeyword < KeywordType.F
-                ? DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam)
+                ? DispatchKeyword(ref bufferRef, symbol, param, hasParam)
                 : RtfError.OK;
         }
     }

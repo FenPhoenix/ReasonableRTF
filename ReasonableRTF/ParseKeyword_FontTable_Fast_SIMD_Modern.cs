@@ -1,5 +1,6 @@
 ﻿#if NET8_0_OR_GREATER
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -9,7 +10,7 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    private RtfError ParseKeyword_FontTable_Fast_Vector128(ref byte bufferRef, ref byte keywordRef, out KeywordType fontTableKeyword, out int param)
+    private RtfError ParseKeyword_FontTable_Fast_Vector128(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
         param = 0;
@@ -17,6 +18,8 @@ public sealed partial class RtfToTextConverter
         fontTableKeyword = default;
 
         int startingCurrentPos = _currentPos;
+
+        ref byte keywordRef = ref Unsafe.AddByteOffset(ref GetArrayDataReference(_buffer), _currentPos);
 
         char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
 
@@ -51,7 +54,7 @@ public sealed partial class RtfToTextConverter
             if (keywordCount >= Vector128<byte>.Count)
             {
                 _currentPos = startingCurrentPos;
-                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
+                return ParseKeyword_Fast(ref bufferRef);
             }
 
             Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
@@ -96,11 +99,9 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
 
-            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
-
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
+            if (keywordCount == 1 && keywordRef == (byte)'f')
             {
                 _skipDestinationIfUnknown = false;
                 // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
@@ -109,7 +110,7 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, ref keywordRefLocal, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
             }
         }
 
@@ -127,7 +128,7 @@ public sealed partial class RtfToTextConverter
 
         fontTableKeyword = symbol.KeywordType;
         return fontTableKeyword < KeywordType.F
-            ? DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam)
+            ? DispatchKeyword(ref bufferRef, symbol, param, hasParam)
             : RtfError.OK;
     }
 }
