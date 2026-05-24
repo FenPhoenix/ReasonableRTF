@@ -3420,12 +3420,6 @@ public sealed partial class RtfToTextConverter
             {
                 UnicodeBuffer_Add(_unicodeUnknown_Char);
             }
-            else if (codePoint <= char.MaxValue)
-            {
-                UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 1);
-                _unicodeBuffer[_unicodeBuffer_Count] = (char)codePoint;
-                _unicodeBuffer_Count += 1;
-            }
             else
             {
                 UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 2);
