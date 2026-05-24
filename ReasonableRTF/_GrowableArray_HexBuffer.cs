@@ -11,16 +11,14 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HexBuffer_Add(byte item)
     {
-        if (_hexBuffer_Count == _hexBuffer_Capacity)
-        {
-            HexBuffer_EnsureCapacity(_hexBuffer_Count + 1);
-        }
+        HexBuffer_EnsureExtraCapacity(1);
         _hexBuffer[_hexBuffer_Count++] = item;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void HexBuffer_EnsureCapacity(int min)
+    private void HexBuffer_EnsureExtraCapacity(int minExtra)
     {
+        int min = _hexBuffer_Count + minExtra;
         if (_hexBuffer_Capacity >= min) return;
         HexBuffer_Grow(min);
     }

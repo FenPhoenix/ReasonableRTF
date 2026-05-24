@@ -276,7 +276,7 @@ public sealed partial class RtfToTextConverter
     {
         Vector.Widen(current, out Vector<ushort> lower, out Vector<ushort> upper);
 
-        PlainText_EnsureCapacity(_plainText_Count + Vector<byte>.Count);
+        PlainText_EnsureExtraCapacity(Vector<byte>.Count);
         lower.CopyTo(Unsafe.As<char[], ushort[]>(ref _plainText), _plainText_Count);
         upper.CopyTo(Unsafe.As<char[], ushort[]>(ref _plainText), _plainText_Count + (Vector<byte>.Count / 2));
 

@@ -11,16 +11,14 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void UnicodeBuffer_Add(char item)
     {
-        if (_unicodeBuffer_Count == _unicodeBuffer_Capacity)
-        {
-            UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 1);
-        }
+        UnicodeBuffer_EnsureExtraCapacity(1);
         _unicodeBuffer[_unicodeBuffer_Count++] = item;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void UnicodeBuffer_EnsureCapacity(int min)
+    private void UnicodeBuffer_EnsureExtraCapacity(int minExtra)
     {
+        int min = _unicodeBuffer_Count + minExtra;
         if (_unicodeBuffer_Capacity >= min) return;
         UnicodeBuffer_Grow(min);
     }

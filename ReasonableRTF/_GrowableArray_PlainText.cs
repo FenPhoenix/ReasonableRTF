@@ -13,16 +13,14 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void PlainText_Add(char item)
     {
-        if (_plainText_Count == _plainText_Capacity)
-        {
-            PlainText_EnsureCapacity(_plainText_Count + 1);
-        }
+        PlainText_EnsureExtraCapacity(1);
         _plainText[_plainText_Count++] = item;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void PlainText_EnsureCapacity(int min)
+    private void PlainText_EnsureExtraCapacity(int minExtra)
     {
+        int min = _plainText_Count + minExtra;
         if (_plainText_Capacity >= min) return;
         PlainText_Grow(min);
     }
