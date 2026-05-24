@@ -3641,8 +3641,8 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                PlainText_EnsureExtraCapacity(_unicodeBuffer_Count);
                 ref char plainTextRef = ref GetArrayDataReference(_plainText);
+                PlainText_EnsureExtraCapacity(_unicodeBuffer_Count);
                 for (int i = 0; i < _unicodeBuffer_Count; i++)
                 {
                     char ch = Unsafe.Add(ref unicodeBufferRef, (nint)i);
