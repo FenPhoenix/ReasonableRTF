@@ -60,6 +60,7 @@ public sealed partial class RtfToTextConverter
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
             {
+                // [FenGen:Fast:RemoveLine]
                 Unsafe.WriteUnaligned(ref Unsafe.AddByteOffset(ref keywordRef, (nint)keywordCount), (byte)ch);
             }
             if (keywordCount > _keywordMaxLen)
