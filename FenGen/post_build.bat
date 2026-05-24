@@ -16,6 +16,7 @@ rem ---
 rem vars with spaces in the value must be entirely in quotes
 set "FenGen=%SolutionDir%FenGen\bin\Release\net48\FenGen.exe"
 
+rem Disabled for now due to the code becoming too different to generate without too much of a pain in the ass
 rem %FenGen%
 
 echo Done!
