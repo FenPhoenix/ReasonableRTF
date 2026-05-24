@@ -794,7 +794,7 @@ public sealed partial class RtfToTextConverter
     {
         (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(current);
 
-        PlainText_EnsureExtraCapacity(Vector512<byte>.Count);
+        PlainText_EnsureCapacity(_plainText_Count + Vector512<byte>.Count);
 
         char[] plainText = _plainText;
         int plainTextCount = _plainText_Count;
@@ -811,7 +811,7 @@ public sealed partial class RtfToTextConverter
     {
         (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(current);
 
-        PlainText_EnsureExtraCapacity(Vector256<byte>.Count);
+        PlainText_EnsureCapacity(_plainText_Count + Vector256<byte>.Count);
 
         char[] plainText = _plainText;
         int plainTextCount = _plainText_Count;
@@ -828,7 +828,7 @@ public sealed partial class RtfToTextConverter
     {
         (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(current);
 
-        PlainText_EnsureExtraCapacity(Vector128<byte>.Count);
+        PlainText_EnsureCapacity(_plainText_Count + Vector128<byte>.Count);
 
         char[] plainText = _plainText;
         int plainTextCount = _plainText_Count;
@@ -891,7 +891,7 @@ public sealed partial class RtfToTextConverter
 
             (Vector512<ushort> lower, Vector512<ushort> upper) = Vector512.Widen(working);
 
-            PlainText_EnsureExtraCapacity(Vector512<byte>.Count);
+            PlainText_EnsureCapacity(_plainText_Count + Vector512<byte>.Count);
 
             char[] plainText = _plainText;
             int plainTextCount = _plainText_Count;
@@ -918,7 +918,7 @@ public sealed partial class RtfToTextConverter
 
             (Vector256<ushort> lower, Vector256<ushort> upper) = Vector256.Widen(working);
 
-            PlainText_EnsureExtraCapacity(Vector256<byte>.Count);
+            PlainText_EnsureCapacity(_plainText_Count + Vector256<byte>.Count);
 
             char[] plainText = _plainText;
             int plainTextCount = _plainText_Count;
@@ -945,7 +945,7 @@ public sealed partial class RtfToTextConverter
 
             (Vector128<ushort> lower, Vector128<ushort> upper) = Vector128.Widen(working);
 
-            PlainText_EnsureExtraCapacity(Vector128<byte>.Count);
+            PlainText_EnsureCapacity(_plainText_Count + Vector128<byte>.Count);
 
             char[] plainText = _plainText;
             int plainTextCount = _plainText_Count;
