@@ -1,5 +1,6 @@
 #define FenGen_ParseKeywordDuplicateDest
 
+using System.Runtime.CompilerServices;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
 using ReasonableRTF.Models.Symbols;
@@ -9,13 +10,11 @@ namespace ReasonableRTF;
 public sealed partial class RtfToTextConverter
 {
     // Generated version that doesn't do manual bounds checking, for when we know we're far enough from the end of the buffer
-    private RtfError ParseKeyword_Fast(ref byte bufferRef)
+    private RtfError ParseKeyword_Fast(ref byte bufferRef, ref byte keywordRef)
     {
         bool hasParam = false;
         int param = 0;
         Symbol? symbol;
-
-        ref byte keywordRef = ref bufferRef;
 
         int startingCurrentPos = _currentPos;
 
@@ -61,6 +60,7 @@ public sealed partial class RtfToTextConverter
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef))
             {
+                Unsafe.WriteUnaligned(ref Unsafe.AddByteOffset(ref keywordRef, (nint)keywordCount), (byte)ch);
             }
             if (keywordCount > _keywordMaxLen)
             {
@@ -108,11 +108,11 @@ public sealed partial class RtfToTextConverter
             if (ch != ' ') --_currentPos;
             // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
-            keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
+            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRef == (byte)'f')
+            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;

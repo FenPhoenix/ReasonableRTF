@@ -2580,14 +2580,14 @@ public sealed partial class RtfToTextConverter
         if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
         {
 #if NET8_0_OR_GREATER
-            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            {
-                return ParseKeyword_Fast_Vector128(ref bufferRef);
-            }
-            else
+            //if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
+            //{
+            //    return ParseKeyword_Fast_Vector128(ref bufferRef, ref keywordRef);
+            //}
+            //else
 #endif
             {
-                return ParseKeyword_Fast(ref bufferRef);
+                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
             }
         }
         else
@@ -2604,12 +2604,12 @@ public sealed partial class RtfToTextConverter
 #if NET8_0_OR_GREATER
             if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
             {
-                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param);
+                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, ref keywordRef, out fontTableKeyword, out param);
             }
             else
 #endif
             {
-                return ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param);
+                return ParseKeyword_FontTable_Fast(ref bufferRef, ref keywordRef, out fontTableKeyword, out param);
             }
         }
         else

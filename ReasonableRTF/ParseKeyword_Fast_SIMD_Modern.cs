@@ -20,13 +20,11 @@ public sealed partial class RtfToTextConverter
     If we were smarter about it and parsed all found complete keywords in each vector, would Vector256 be faster
     again?
     */
-    private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef)
+    private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef, ref byte keywordRef)
     {
         bool hasParam = false;
         int param = 0;
         Symbol? symbol;
-
-        ref byte keywordRef = ref bufferRef;
 
         int startingCurrentPos = _currentPos;
 
@@ -63,7 +61,7 @@ public sealed partial class RtfToTextConverter
             if (keywordCount >= Vector128<byte>.Count)
             {
                 _currentPos = startingCurrentPos;
-                return ParseKeyword_Fast(ref bufferRef);
+                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
             }
 
             Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
@@ -108,15 +106,15 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
 
-            keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
+            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRef == (byte)'f')
+            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
             {
                 symbol = _fontSymbol;
                 _skipDestinationIfUnknown = false;
-                return DispatchKeyword(ref bufferRef, ref keywordRef, symbol, param, hasParam);
+                return DispatchKeyword(ref bufferRef, ref keywordRefLocal, symbol, param, hasParam);
             }
             else
             {

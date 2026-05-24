@@ -9,14 +9,12 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
-    private RtfError ParseKeyword_FontTable_Fast_Vector128(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
+    private RtfError ParseKeyword_FontTable_Fast_Vector128(ref byte bufferRef, ref byte keywordRef, out KeywordType fontTableKeyword, out int param)
     {
         bool hasParam = false;
         param = 0;
         Symbol? symbol;
         fontTableKeyword = default;
-
-        ref byte keywordRef = ref bufferRef;
 
         int startingCurrentPos = _currentPos;
 
@@ -53,7 +51,7 @@ public sealed partial class RtfToTextConverter
             if (keywordCount >= Vector128<byte>.Count)
             {
                 _currentPos = startingCurrentPos;
-                return ParseKeyword_Fast(ref bufferRef);
+                return ParseKeyword_Fast(ref bufferRef, ref keywordRef);
             }
 
             Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
@@ -98,11 +96,11 @@ public sealed partial class RtfToTextConverter
 
             if (ch != ' ') --_currentPos;
 
-            keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
+            ref byte keywordRefLocal = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRef == (byte)'f')
+            if (keywordCount == 1 && keywordRefLocal == (byte)'f')
             {
                 _skipDestinationIfUnknown = false;
                 // \f default param is 0 but param will already be 0 if we didn't parse any, so no need to set it
@@ -111,7 +109,7 @@ public sealed partial class RtfToTextConverter
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRefLocal, keywordCount);
             }
         }
 
