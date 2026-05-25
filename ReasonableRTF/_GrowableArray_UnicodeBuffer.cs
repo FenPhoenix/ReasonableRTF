@@ -28,37 +28,20 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.NoInlining)]
     private void UnicodeBuffer_Grow(int min)
     {
-        int newCapacity = _unicodeBuffer_Capacity == 0 ? 4 : _unicodeBuffer_Capacity * 2;
-        if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
+        int newCapacity = _unicodeBuffer_Capacity * 2;
+        if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
         if (newCapacity < min) newCapacity = min;
-        UnicodeBuffer_SetCapacity(newCapacity);
-    }
 
-    private void UnicodeBuffer_SetCapacity(int value)
-    {
-        if (value == _unicodeBuffer_Capacity) return;
-        if (value > 0)
-        {
-            char[] objArray = new char[value];
-            if (_unicodeBuffer_Count > 0) Array.Copy(_unicodeBuffer, 0, objArray, 0, _unicodeBuffer_Count);
-            _unicodeBuffer = objArray;
-            _unicodeBuffer_Capacity = value;
-            if (_unicodeBuffer_Capacity < _unicodeBuffer_Count)
-            {
-                _unicodeBuffer_Count = _unicodeBuffer_Capacity;
-            }
-        }
-        else
-        {
-            _unicodeBuffer = Array.Empty<char>();
-            _unicodeBuffer_Capacity = 0;
-            _unicodeBuffer_Count = 0;
-        }
+        char[] newArray = new char[newCapacity];
+        if (_unicodeBuffer_Count > 0) Array.Copy(_unicodeBuffer, 0, newArray, 0, _unicodeBuffer_Count);
+        _unicodeBuffer = newArray;
+        _unicodeBuffer_Capacity = newCapacity;
     }
 
     private void UnicodeBuffer_HardReset()
     {
-        _unicodeBuffer_Count = 0;
-        UnicodeBuffer_SetCapacity(_internalBufferDefaultCapacity);
+        if (_unicodeBuffer_Capacity == _internalBufferDefaultCapacity) return;
+        _unicodeBuffer = new char[_internalBufferDefaultCapacity];
+        _unicodeBuffer_Capacity = _internalBufferDefaultCapacity;
     }
 }

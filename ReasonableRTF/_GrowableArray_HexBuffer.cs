@@ -28,37 +28,20 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.NoInlining)]
     private void HexBuffer_Grow(int min)
     {
-        int newCapacity = _hexBuffer_Capacity == 0 ? 4 : _hexBuffer_Capacity * 2;
-        if ((uint)newCapacity > 2146435071U) newCapacity = 2146435071;
+        int newCapacity = _hexBuffer_Capacity * 2;
+        if ((uint)newCapacity > Array.MaxLength) newCapacity = Array.MaxLength;
         if (newCapacity < min) newCapacity = min;
-        HexBuffer_SetCapacity(newCapacity);
-    }
 
-    private void HexBuffer_SetCapacity(int value)
-    {
-        if (value == _hexBuffer_Capacity) return;
-        if (value > 0)
-        {
-            byte[] objArray = new byte[value];
-            if (_hexBuffer_Count > 0) Array.Copy(_hexBuffer, 0, objArray, 0, _hexBuffer_Count);
-            _hexBuffer = objArray;
-            _hexBuffer_Capacity = value;
-            if (_hexBuffer_Capacity < _hexBuffer_Count)
-            {
-                _hexBuffer_Count = _hexBuffer_Capacity;
-            }
-        }
-        else
-        {
-            _hexBuffer = Array.Empty<byte>();
-            _hexBuffer_Capacity = 0;
-            _hexBuffer_Count = 0;
-        }
+        byte[] newArray = new byte[newCapacity];
+        if (_hexBuffer_Count > 0) Array.Copy(_hexBuffer, 0, newArray, 0, _hexBuffer_Count);
+        _hexBuffer = newArray;
+        _hexBuffer_Capacity = newCapacity;
     }
 
     private void HexBuffer_HardReset()
     {
-        _hexBuffer_Count = 0;
-        HexBuffer_SetCapacity(_internalBufferDefaultCapacity);
+        if (_hexBuffer_Capacity == _internalBufferDefaultCapacity) return;
+        _hexBuffer = new byte[_internalBufferDefaultCapacity];
+        _hexBuffer_Capacity = _internalBufferDefaultCapacity;
     }
 }
