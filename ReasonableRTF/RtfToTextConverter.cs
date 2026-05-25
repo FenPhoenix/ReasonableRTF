@@ -3001,7 +3001,10 @@ public sealed partial class RtfToTextConverter
         switch (specialType)
         {
             case SpecialType.HexEncodedChar:
-                HandleHexRun(ref bufferRef);
+                if (!GroupStack_CurrentSkipDest && !GroupStack_CurrentPropertyHidden && !_inFontTable)
+                {
+                    HandleHexRun(ref bufferRef);
+                }
                 break;
             case SpecialType.SkipNumberOfBytes:
                 if (symbol.UseDefaultParam) param = symbol.DefaultParam;
@@ -3097,11 +3100,6 @@ public sealed partial class RtfToTextConverter
 
     private void AddHexBuffer(ushort codePage, in FontEntry fontEntry)
     {
-        if (GroupStack_CurrentSkipDest || GroupStack_CurrentPropertyHidden || _inFontTable)
-        {
-            return;
-        }
-
         // If multiple hex chars are directly after another (eg. \'81\'63) then they may be representing one
         // multibyte character (or not, they may also just be two single-byte chars in a row). To deal with
         // this, we have to put all contiguous hex chars into a buffer and when the run ends, we just pass
