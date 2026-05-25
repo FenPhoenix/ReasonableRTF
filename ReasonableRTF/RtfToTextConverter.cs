@@ -4265,7 +4265,7 @@ public sealed partial class RtfToTextConverter
         if (codePoint == 0) return;
 
         // We're a field instruction code path, so we don't have to be in tip top performance shape necessarily.
-        int byteCount = codePoint <= 0xFF ? 1 : 2;
+        int byteCount = codePoint <= byte.MaxValue ? 1 : 2;
 
         // BitConverter.GetBytes() does this, but it allocates a temp array every time.
         // Use Unsafe.WriteUnaligned() like .NET 10+: https://github.com/dotnet/runtime/pull/91639
