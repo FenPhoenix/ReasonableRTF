@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFrameworks Condition="'$(Configuration)'!='Release_Framework' And '$(Configuration)'!='Debug_Framework'">net8.0-windows;net9.0-windows;net10.0-windows</TargetFrameworks>
+		<TargetFrameworks Condition="'$(Configuration)'!='Release_Framework' And '$(Configuration)'!='Debug_Framework'">net10.0-windows</TargetFrameworks>
 		<TargetFrameworks Condition="'$(Configuration)'=='Release_Framework' Or '$(Configuration)'=='Debug_Framework'">net48</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseWindowsForms>true</UseWindowsForms>
