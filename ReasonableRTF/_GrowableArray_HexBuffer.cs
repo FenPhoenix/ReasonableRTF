@@ -13,7 +13,7 @@ public sealed partial class RtfToTextConverter
     {
         if (_hexBuffer_Count == _hexBuffer_Capacity)
         {
-            HexBuffer_EnsureCapacity(_hexBuffer_Count + 1);
+            HexBuffer_Grow(_hexBuffer_Count + 1);
         }
         _hexBuffer[_hexBuffer_Count++] = item;
     }

@@ -13,7 +13,7 @@ public sealed partial class RtfToTextConverter
     {
         if (_unicodeBuffer_Count == _unicodeBuffer_Capacity)
         {
-            UnicodeBuffer_EnsureCapacity(_unicodeBuffer_Count + 1);
+            UnicodeBuffer_Grow(_unicodeBuffer_Count + 1);
         }
         _unicodeBuffer[_unicodeBuffer_Count++] = item;
     }

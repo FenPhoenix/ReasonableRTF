@@ -15,7 +15,7 @@ public sealed partial class RtfToTextConverter
     {
         if (_plainText_Count == _plainText_Capacity)
         {
-            PlainText_EnsureCapacity(_plainText_Count + 1);
+            PlainText_Grow(_plainText_Count + 1);
         }
         _plainText[_plainText_Count++] = item;
     }
