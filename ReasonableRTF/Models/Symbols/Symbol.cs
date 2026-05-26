@@ -30,12 +30,10 @@ namespace ReasonableRTF.Models.Symbols;
 [StructLayout(LayoutKind.Auto)]
 internal sealed class ControlSymbol
 {
-    internal readonly bool IsHexEncoded;
     internal readonly char Character;
 
-    public ControlSymbol(bool isHexEncoded, char character)
+    public ControlSymbol(char character)
     {
-        IsHexEncoded = isHexEncoded;
         Character = character;
     }
 }

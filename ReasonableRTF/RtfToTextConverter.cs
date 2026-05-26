@@ -2929,13 +2929,14 @@ public sealed partial class RtfToTextConverter
             return RtfError.OK;
         }
 
-        if (symbol.IsHexEncoded)
+        char ch = symbol.Character;
+        if (ch == '\0')
         {
             HandleHexRun(ref bufferRef);
         }
         else
         {
-            AddChar_Explicit(symbol.Character);
+            AddChar_Explicit(ch);
         }
 
         return RtfError.OK;
@@ -5252,7 +5253,7 @@ public sealed partial class RtfToTextConverter
     private static ControlSymbol?[] InitControlSymbolArray()
     {
         ControlSymbol?[] ret = new ControlSymbol?[256];
-        ret['\''] = new ControlSymbol(true, '\0');
+        ret['\''] = new ControlSymbol('\0');
         /*
         NOTE(KeywordType.Character and symbol fonts):
         \, {, and } are the only KeywordType.Character chars that can be in a symbol font. Everything else is
@@ -5266,18 +5267,18 @@ public sealed partial class RtfToTextConverter
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
         */
-        ret['\\'] = new ControlSymbol(false, '\\');
-        ret['{'] = new ControlSymbol(false, '{');
-        ret['}'] = new ControlSymbol(false, '}');
+        ret['\\'] = new ControlSymbol('\\');
+        ret['{'] = new ControlSymbol('{');
+        ret['}'] = new ControlSymbol('}');
 
         // Non-breaking space (0xA0)
-        ret['~'] = new ControlSymbol(false, '\xA0');
+        ret['~'] = new ControlSymbol('\xA0');
 
         // Non-breaking hyphen (0x2011)
-        ret['_'] = new ControlSymbol(false, '\x2011');
+        ret['_'] = new ControlSymbol('\x2011');
 
         // Soft hyphen (Spec calls this "Optional hyphen")
-        ret['-'] = new ControlSymbol(false, '\xAD');
+        ret['-'] = new ControlSymbol('\xAD');
 
         // There's also \: which "specifies a subentry in an index entry" (it's not clear even from the spec what
         // exactly an "index entry" is).
@@ -5288,8 +5289,8 @@ public sealed partial class RtfToTextConverter
         control if the character is preceded by a backslash. You must include the backslash; otherwise,
         RTF ignores the control word."
         */
-        ret['\r'] = new ControlSymbol(false, '\n');
-        ret['\n'] = new ControlSymbol(false, '\n');
+        ret['\r'] = new ControlSymbol('\n');
+        ret['\n'] = new ControlSymbol('\n');
         return ret;
     }
 
