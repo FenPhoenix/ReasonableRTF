@@ -35,6 +35,7 @@ public sealed partial class RtfToTextConverter
 
     private static readonly nint _groupStackFrame_ByteOffset = PerTypeValues<GroupStackFrame>.ArrayAdjustment;
     private static readonly nint _controlSymbol_ByteOffset = PerTypeValues<ControlSymbol>.ArrayAdjustment;
+    private static readonly nint _controlWord_ByteOffset = PerTypeValues<Symbol?>.ArrayAdjustment;
     private static readonly nint _byte_ByteOffset = PerTypeValues<byte>.ArrayAdjustment;
     private static readonly nint _char_ByteOffset = PerTypeValues<char>.ArrayAdjustment;
     private static readonly nint _bool_ByteOffset = PerTypeValues<bool>.ArrayAdjustment;
@@ -61,6 +62,16 @@ public sealed partial class RtfToTextConverter
         return ref MemoryMarshal.GetArrayDataReference(array);
 #else
         return ref Unsafe.AddByteOffset(ref Unsafe.As<Pinnable<ControlSymbol>>(array).Data, _controlSymbol_ByteOffset);
+#endif
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ref Symbol? GetArrayDataReference(Symbol?[] array)
+    {
+#if NET8_0_OR_GREATER
+        return ref MemoryMarshal.GetArrayDataReference(array);
+#else
+        return ref Unsafe.AddByteOffset(ref Unsafe.As<Pinnable<Symbol?>>(array).Data, _controlWord_ByteOffset);
 #endif
     }
 

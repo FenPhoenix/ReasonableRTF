@@ -5329,7 +5329,8 @@ public sealed partial class RtfToTextConverter
 
             if (key <= MAX_HASH_VALUE)
             {
-                Symbol? symbol = _symbolTable[key];
+                ref Symbol? symbolRef = ref GetArrayDataReference(_symbolTable);
+                Symbol? symbol = Unsafe.Add(ref symbolRef, (nint)key);
                 if (symbol == null)
                 {
                     return null;
@@ -5389,7 +5390,8 @@ public sealed partial class RtfToTextConverter
 
             if (key <= MAX_HASH_VALUE)
             {
-                Symbol? symbol = _symbolTable[key];
+                ref Symbol? symbolRef = ref GetArrayDataReference(_symbolTable);
+                Symbol? symbol = Unsafe.Add(ref symbolRef, (nint)key);
                 if (symbol == null)
                 {
                     return null;
