@@ -1,1 +1,2 @@
 Unicode symbol font test of the "last used font with codepage 42 could also be in a scope above us and it still counts as the last used font" quirk with RichEdit. Using font \f1 ("Symbol"). Should be pi symbol: π
+The previous pi symbol should not count as a Ctrl+F result for the letter 'p'. And here is the same symbol, but specified without the "add F000" thing, which means it SHOULD count as a Ctrl+F result for the letter 'p'. Can be tested in WordPad: p
