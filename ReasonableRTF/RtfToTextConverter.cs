@@ -5249,9 +5249,9 @@ public sealed partial class RtfToTextConverter
         new Symbol("zwj", 0, false, KeywordType.Character, '\x200D'),
     ];
 
-    private static ControlSymbol[] InitControlSymbolArray()
+    private static ControlSymbol?[] InitControlSymbolArray()
     {
-        ControlSymbol[] ret = new ControlSymbol[256];
+        ControlSymbol?[] ret = new ControlSymbol?[256];
         ret['\''] = new ControlSymbol(true, '\0');
         /*
         NOTE(KeywordType.Character and symbol fonts):
@@ -5293,14 +5293,10 @@ public sealed partial class RtfToTextConverter
         return ret;
     }
 
-    private static readonly ControlSymbol[] _controlSymbols = InitControlSymbolArray();
+    private static readonly ControlSymbol?[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static ControlSymbol LookUpControlSymbol(byte ch)
-    {
-        ref ControlSymbol controlSymbolsRef = ref GetArrayDataReference(_controlSymbols);
-        return Unsafe.Add(ref controlSymbolsRef, (nint)ch);
-    }
+    private static ControlSymbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Symbol? LookUpControlWord(ref byte keywordRef, byte len)
@@ -5329,8 +5325,7 @@ public sealed partial class RtfToTextConverter
 
             if (key <= MAX_HASH_VALUE)
             {
-                ref Symbol? symbolRef = ref GetArrayDataReference(_symbolTable);
-                Symbol? symbol = Unsafe.Add(ref symbolRef, (nint)key);
+                Symbol? symbol = _symbolTable[key];
                 if (symbol == null)
                 {
                     return null;
@@ -5390,8 +5385,7 @@ public sealed partial class RtfToTextConverter
 
             if (key <= MAX_HASH_VALUE)
             {
-                ref Symbol? symbolRef = ref GetArrayDataReference(_symbolTable);
-                Symbol? symbol = Unsafe.Add(ref symbolRef, (nint)key);
+                Symbol? symbol = _symbolTable[key];
                 if (symbol == null)
                 {
                     return null;
