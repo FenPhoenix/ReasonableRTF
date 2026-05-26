@@ -5296,7 +5296,10 @@ public sealed partial class RtfToTextConverter
     private static readonly char[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static char LookUpControlSymbol(byte ch) => _controlSymbols[ch];
+    private static char LookUpControlSymbol(byte ch)
+    {
+        return Unsafe.Add(ref GetArrayDataReference(_controlSymbols), (nint)ch);
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Symbol? LookUpControlWord(ref byte keywordRef, byte len)
