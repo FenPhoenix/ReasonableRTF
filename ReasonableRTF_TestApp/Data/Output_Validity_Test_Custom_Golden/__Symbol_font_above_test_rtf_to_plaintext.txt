@@ -1,0 +1,1 @@
+Unicode symbol font test of the "last used font with codepage 42 could also be in a scope above us and it still counts as the last used font" quirk with RichEdit. Using font \f1 ("Symbol"). Should be pi symbol: π
