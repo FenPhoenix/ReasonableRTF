@@ -45,9 +45,9 @@ public sealed partial class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            ControlSymbol? symbol = LookUpControlSymbol((byte)ch);
+            char symbol = LookUpControlSymbol((byte)ch);
 
-            if (symbol == null)
+            if (symbol == 0)
             {
                 if (_skipDestinationIfUnknown)
                 {

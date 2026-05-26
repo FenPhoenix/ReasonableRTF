@@ -22,21 +22,9 @@
  * SOFTWARE.
 */
 
-using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models.Symbols;
-
-[StructLayout(LayoutKind.Auto)]
-internal sealed class ControlSymbol
-{
-    internal readonly char Character;
-
-    public ControlSymbol(char character)
-    {
-        Character = character;
-    }
-}
 
 internal sealed class Symbol
 {
