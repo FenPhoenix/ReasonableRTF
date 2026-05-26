@@ -4596,14 +4596,14 @@ public sealed partial class RtfToTextConverter
     private byte GetByteAtCurrentPosAndIncrement(ref byte bufferRef)
     {
         Debug.Assert(_currentPos < _currentBufferChunkLength);
-        return Unsafe.ReadUnaligned<byte>(ref Unsafe.AddByteOffset(ref bufferRef, (nint)IncrementCurrentPos()));
+        return Unsafe.AddByteOffset(ref bufferRef, (nint)IncrementCurrentPos());
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private byte GetByteAtPos(ref byte bufferRef, int pos)
     {
         Debug.Assert(pos < _currentBufferChunkLength);
-        return Unsafe.ReadUnaligned<byte>(ref Unsafe.AddByteOffset(ref bufferRef, (nint)pos));
+        return Unsafe.AddByteOffset(ref bufferRef, (nint)pos);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5388,7 +5388,7 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static byte GetByteAtPos_KeywordLookup(ref byte keywordRef, int pos)
     {
-        return Unsafe.ReadUnaligned<byte>(ref Unsafe.AddByteOffset(ref keywordRef, (nint)pos));
+        return Unsafe.AddByteOffset(ref keywordRef, (nint)pos);
     }
 
     #endregion
