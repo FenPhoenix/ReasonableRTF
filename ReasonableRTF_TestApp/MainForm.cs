@@ -528,6 +528,9 @@ public sealed partial class MainForm : Form
 #if false
         // Change this when we want to re-measure the benchmark MB/s
 
+        long fullBytes = GetDirectorySize(SourceSet.Full);
+        long smallBytes = GetDirectorySize(SourceSet.Small);
+
         Trace.WriteLine("RTB Full MB/s: " + GetMBsString(fullBytes, 3331.340));
 
         Trace.WriteLine("RTB Small MB/s: " + GetMBsString(smallBytes, 1432.217));
