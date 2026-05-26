@@ -187,6 +187,7 @@ public sealed partial class MainForm : Form
     }
 
     [Conditional("DEBUG")]
+    [Conditional("DEBUG_FRAMEWORK")]
     private static void TraceWriteLine_IfDebug(string str) => Trace.WriteLine(str);
 
     private static string GetDeflateStreamTestFileName(SourceSet sourceSet) => sourceSet switch
