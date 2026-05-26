@@ -13,7 +13,6 @@ public sealed partial class RtfToTextConverter
     {
         bool hasParam = false;
         param = 0;
-        Symbol? symbol;
         fontTableKeyword = default;
 
         // [FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]
@@ -35,9 +34,9 @@ public sealed partial class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = LookUpControlSymbol((byte)ch);
+            ControlSymbol symbol = LookUpControlSymbol((byte)ch);
 
-            if (symbol == null)
+            if (!symbol.IsSet)
             {
                 if (_skipDestinationIfUnknown)
                 {
@@ -49,10 +48,11 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+            return DispatchControlSymbol(ref bufferRef, symbol);
         }
         else
         {
+            Symbol? symbol;
             ref byte keywordRef = ref GetArrayDataReference(_keyword);
 
             byte keywordCount;

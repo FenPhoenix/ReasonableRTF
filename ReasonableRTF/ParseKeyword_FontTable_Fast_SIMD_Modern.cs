@@ -13,7 +13,6 @@ public sealed partial class RtfToTextConverter
     {
         bool hasParam = false;
         param = 0;
-        Symbol? symbol;
         fontTableKeyword = default;
 
         int startingCurrentPos = _currentPos;
@@ -36,10 +35,25 @@ public sealed partial class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = LookUpControlSymbol((byte)ch);
+            ControlSymbol symbol = LookUpControlSymbol((byte)ch);
+
+            if (!symbol.IsSet)
+            {
+                if (_skipDestinationIfUnknown)
+                {
+                    SkipDest(ref bufferRef);
+                }
+                _skipDestinationIfUnknown = false;
+                return RtfError.OK;
+            }
+
+            _skipDestinationIfUnknown = false;
+
+            return DispatchControlSymbol(ref bufferRef, symbol);
         }
         else
         {
+            Symbol? symbol;
             Vector128<byte> keyword = Vector128.LoadUnsafe(ref GetRefAtPos(ref bufferRef, _currentPos - 1));
             Vector128<byte> asciiLetters = Vector128.GreaterThan((keyword | _hex20_128) - _all_a_128, _z_minus_a_128);
 
@@ -111,24 +125,24 @@ public sealed partial class RtfToTextConverter
             {
                 symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
             }
-        }
 
-        if (symbol == null)
-        {
-            if (_skipDestinationIfUnknown)
+            if (symbol == null)
             {
-                SkipDest(ref bufferRef);
+                if (_skipDestinationIfUnknown)
+                {
+                    SkipDest(ref bufferRef);
+                }
+                _skipDestinationIfUnknown = false;
+                return RtfError.OK;
             }
+
             _skipDestinationIfUnknown = false;
-            return RtfError.OK;
+
+            fontTableKeyword = symbol.KeywordType;
+            return fontTableKeyword < KeywordType.F
+                ? DispatchKeyword(ref bufferRef, symbol, param, hasParam)
+                : RtfError.OK;
         }
-
-        _skipDestinationIfUnknown = false;
-
-        fontTableKeyword = symbol.KeywordType;
-        return fontTableKeyword < KeywordType.F
-            ? DispatchKeyword(ref bufferRef, symbol, param, hasParam)
-            : RtfError.OK;
     }
 }
 #endif

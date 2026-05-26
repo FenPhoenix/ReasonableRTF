@@ -22,9 +22,25 @@
  * SOFTWARE.
 */
 
+using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
 
 namespace ReasonableRTF.Models.Symbols;
+
+[StructLayout(LayoutKind.Auto)]
+internal readonly struct ControlSymbol
+{
+    internal readonly bool IsSet;
+    internal readonly bool IsHexEncoded;
+    internal readonly char Character;
+
+    public ControlSymbol(bool isHexEncoded, char character)
+    {
+        IsSet = true;
+        IsHexEncoded = isHexEncoded;
+        Character = character;
+    }
+}
 
 internal sealed class Symbol
 {

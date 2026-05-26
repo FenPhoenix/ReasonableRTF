@@ -13,7 +13,6 @@ public sealed partial class RtfToTextConverter
     {
         bool hasParam = false;
         int param = 0;
-        Symbol? symbol;
 
         int startingCurrentPos = _currentPos;
 
@@ -36,9 +35,9 @@ public sealed partial class RtfToTextConverter
                 return RtfError.OK;
             }
 
-            symbol = LookUpControlSymbol((byte)ch);
+            ControlSymbol symbol = LookUpControlSymbol((byte)ch);
 
-            if (symbol == null)
+            if (!symbol.IsSet)
             {
                 if (_skipDestinationIfUnknown)
                 {
@@ -50,10 +49,11 @@ public sealed partial class RtfToTextConverter
 
             _skipDestinationIfUnknown = false;
 
-            return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+            return DispatchControlSymbol(ref bufferRef, symbol);
         }
         else
         {
+            Symbol? symbol;
             byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);

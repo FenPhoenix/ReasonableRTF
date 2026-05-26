@@ -2922,6 +2922,26 @@ public sealed partial class RtfToTextConverter
     #region Act on keywords
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private RtfError DispatchControlSymbol(ref byte bufferRef, ControlSymbol symbol)
+    {
+        if (GroupStack_CurrentSkipDest || GroupStack_CurrentPropertyHidden || _inFontTable)
+        {
+            return RtfError.OK;
+        }
+
+        if (symbol.IsHexEncoded)
+        {
+            HandleHexRun(ref bufferRef);
+        }
+        else
+        {
+            AddChar_Explicit(symbol.Character);
+        }
+
+        return RtfError.OK;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError DispatchKeyword(ref byte bufferRef, Symbol symbol, int param, bool hasParam)
     {
         if (!GroupStack_CurrentSkipDest)
@@ -2933,7 +2953,10 @@ public sealed partial class RtfToTextConverter
                     ChangeProperty((Property)symbol.Index, param);
                     return RtfError.OK;
                 case KeywordType.Character:
-                    AddChar_Explicit((char)symbol.Index);
+                    if (!GroupStack_CurrentPropertyHidden)
+                    {
+                        AddChar_Explicit((char)symbol.Index);
+                    }
                     return RtfError.OK;
                 case KeywordType.Special:
                     SpecialType specialType = (SpecialType)symbol.Index;
@@ -4200,31 +4223,28 @@ public sealed partial class RtfToTextConverter
     {
         // No need to check for null, because only explicit chars will be passed (not unknown ones) and we know
         // none of them are null.
-        if (!GroupStack_CurrentPropertyHidden)
+
+        // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
+        // the start should we actually write it.
+        if (ch == '\xFEFF' && _plainText_Count == 0)
         {
-            // If this byte is at the start of a stream it's going to be interpreted as a BOM; only if it's past
-            // the start should we actually write it.
-            if (ch == '\xFEFF' && _plainText_Count == 0)
-            {
-                return;
-            }
+            return;
+        }
 
-            if (ch == '\n')
-            {
-                AddLineBreak();
-                return;
-            }
+        if (ch == '\n')
+        {
+            AddLineBreak();
+            return;
+        }
 
-            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-            if (symbolFont > SymbolFont.Unset)
-            {
-                uint[] fontTable = _symbolFontTables[(int)symbolFont];
-                AddCharFromConversionList_UInt(ch, fontTable);
-            }
-            else
-            {
-                PlainText_Add(ch);
-            }
+        SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+        if (symbolFont > SymbolFont.Unset)
+        {
+            AddCharFromConversionList_UInt(ch, _symbolFontTables[(int)symbolFont]);
+        }
+        else
+        {
+            PlainText_Add(ch);
         }
     }
 
@@ -5229,10 +5249,10 @@ public sealed partial class RtfToTextConverter
         new Symbol("zwj", 0, false, KeywordType.Character, '\x200D'),
     ];
 
-    private static Symbol?[] InitControlSymbolArray()
+    private static ControlSymbol[] InitControlSymbolArray()
     {
-        Symbol?[] ret = new Symbol?[256];
-        ret['\''] = new Symbol("'", 0, false, KeywordType.Special, (int)SpecialType.HexEncodedChar);
+        ControlSymbol[] ret = new ControlSymbol[256];
+        ret['\''] = new ControlSymbol(true, '\0');
         /*
         NOTE(KeywordType.Character and symbol fonts):
         \, {, and } are the only KeywordType.Character chars that can be in a symbol font. Everything else is
@@ -5246,18 +5266,18 @@ public sealed partial class RtfToTextConverter
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
         */
-        ret['\\'] = new Symbol("\\", 0, false, KeywordType.Character, '\\');
-        ret['{'] = new Symbol("{", 0, false, KeywordType.Character, '{');
-        ret['}'] = new Symbol("}", 0, false, KeywordType.Character, '}');
+        ret['\\'] = new ControlSymbol(false, '\\');
+        ret['{'] = new ControlSymbol(false, '{');
+        ret['}'] = new ControlSymbol(false, '}');
 
         // Non-breaking space (0xA0)
-        ret['~'] = new Symbol("~", 0, false, KeywordType.Character, '\xA0');
+        ret['~'] = new ControlSymbol(false, '\xA0');
 
         // Non-breaking hyphen (0x2011)
-        ret['_'] = new Symbol("_", 0, false, KeywordType.Character, '\x2011');
+        ret['_'] = new ControlSymbol(false, '\x2011');
 
         // Soft hyphen (Spec calls this "Optional hyphen")
-        ret['-'] = new Symbol("-", 0, false, KeywordType.Character, '\xAD');
+        ret['-'] = new ControlSymbol(false, '\xAD');
 
         // There's also \: which "specifies a subentry in an index entry" (it's not clear even from the spec what
         // exactly an "index entry" is).
@@ -5268,15 +5288,19 @@ public sealed partial class RtfToTextConverter
         control if the character is preceded by a backslash. You must include the backslash; otherwise,
         RTF ignores the control word."
         */
-        ret['\r'] = new Symbol("\r", 0, false, KeywordType.Character, '\n');
-        ret['\n'] = new Symbol("\n", 0, false, KeywordType.Character, '\n');
+        ret['\r'] = new ControlSymbol(false, '\n');
+        ret['\n'] = new ControlSymbol(false, '\n');
         return ret;
     }
 
-    private static readonly Symbol?[] _controlSymbols = InitControlSymbolArray();
+    private static readonly ControlSymbol[] _controlSymbols = InitControlSymbolArray();
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Symbol? LookUpControlSymbol(byte ch) => _controlSymbols[ch];
+    private static ControlSymbol LookUpControlSymbol(byte ch)
+    {
+        ref ControlSymbol controlSymbolsRef = ref GetArrayDataReference(_controlSymbols);
+        return Unsafe.Add(ref controlSymbolsRef, (nint)ch);
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Symbol? LookUpControlWord(ref byte keywordRef, byte len)
