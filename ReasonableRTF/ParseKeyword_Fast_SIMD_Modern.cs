@@ -27,10 +27,12 @@ public sealed partial class RtfToTextConverter
 
         int startingCurrentPos = _currentPos;
 
-        char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
+        char ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos);
 
         if (!CharExtension.IsAsciiLetter(ch))
         {
+            ++_currentPos;
+
             /*
             From the spec:
             "A control symbol consists of a backslash followed by a single, non-alphabetical character.
@@ -64,7 +66,7 @@ public sealed partial class RtfToTextConverter
         else
         {
             Symbol? symbol;
-            Vector128<byte> keyword = Vector128.LoadUnsafe(ref GetRefAtPos(ref bufferRef, _currentPos - 1));
+            Vector128<byte> keyword = Vector128.LoadUnsafe(ref GetRefAtPos(ref bufferRef, startingCurrentPos));
             Vector128<byte> asciiLetters = Vector128.GreaterThan((keyword | _hex20_128) - _all_a_128, _z_minus_a_128);
 
             uint notEqualsElements = asciiLetters.ExtractMostSignificantBits();
@@ -74,21 +76,22 @@ public sealed partial class RtfToTextConverter
             // slightly inefficient fallback path will hardly ever be hit.
             if (keywordCount >= Vector128<byte>.Count)
             {
-                _currentPos = startingCurrentPos;
                 return ParseKeyword_Fast(ref bufferRef);
             }
 
             Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
             keyword = Vector128.BitwiseAnd(keyword, maskVec);
 
-            _currentPos += keywordCount;
-            ch = (char)GetByteAtPos(ref bufferRef, _currentPos - 1);
+            int accumulatedPos = startingCurrentPos + keywordCount;
+
+            ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
 
             int negateParam = 0;
             if (ch == '-')
             {
                 negateParam = 1;
-                ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                accumulatedPos += 1;
+                ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
             }
             if (CharExtension.IsAsciiDigit(ch))
             {
@@ -97,17 +100,19 @@ public sealed partial class RtfToTextConverter
                 {
                     try
                     {
-                        int i;
-                        for (i = 0;
-                             i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             i++, ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef))
+                        int paramLength;
+                        for (paramLength = 0;
+                             paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
+                             paramLength++,
+                             ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + paramLength))
                         {
                             param = (param * 10) + (ch - '0');
                         }
-                        if (i > _paramMaxLen)
+                        if (paramLength > _paramMaxLen)
                         {
                             return RtfError.ParameterOutOfRange;
                         }
+                        accumulatedPos += paramLength;
                     }
                     catch (OverflowException)
                     {
@@ -118,7 +123,7 @@ public sealed partial class RtfToTextConverter
                 if (negateParam == 1) param = -param;
             }
 
-            if (ch != ' ') --_currentPos;
+            _currentPos = accumulatedPos + (ch == ' ' ? 1 : 0);
 
             ref byte keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
 

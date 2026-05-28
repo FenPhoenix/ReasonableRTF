@@ -17,10 +17,12 @@ public sealed partial class RtfToTextConverter
         int startingCurrentPos = _currentPos;
 
         // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
-        char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
+        char ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos);
 
         if (!CharExtension.IsAsciiLetter(ch))
         {
+            ++_currentPos;
+
             /*
             From the spec:
             "A control symbol consists of a backslash followed by a single, non-alphabetical character.
@@ -57,19 +59,22 @@ public sealed partial class RtfToTextConverter
             byte keywordCount;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
-                 keywordCount++, ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef))
+                 keywordCount++,
+                 ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos + keywordCount))
             {
             }
             if (keywordCount > _keywordMaxLen)
             {
                 return RtfError.KeywordTooLong;
             }
+            int accumulatedPos = startingCurrentPos + keywordCount;
 
             int negateParam = 0;
             if (ch == '-')
             {
                 negateParam = 1;
-                ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                accumulatedPos += 1;
+                ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
             }
             if (CharExtension.IsAsciiDigit(ch))
             {
@@ -78,17 +83,19 @@ public sealed partial class RtfToTextConverter
                 {
                     try
                     {
-                        int i;
-                        for (i = 0;
-                             i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             i++, ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef))
+                        int paramLength;
+                        for (paramLength = 0;
+                             paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
+                             paramLength++,
+                             ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + paramLength))
                         {
                             param = (param * 10) + (ch - '0');
                         }
-                        if (i > _paramMaxLen)
+                        if (paramLength > _paramMaxLen)
                         {
                             return RtfError.ParameterOutOfRange;
                         }
+                        accumulatedPos += paramLength;
                     }
                     catch (OverflowException)
                     {
@@ -103,7 +110,7 @@ public sealed partial class RtfToTextConverter
                 if (negateParam == 1) param = -param;
             }
 
-            if (ch != ' ') --_currentPos;
+            _currentPos = accumulatedPos + (ch == ' ' ? 1 : 0);
             // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
             ref byte keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
