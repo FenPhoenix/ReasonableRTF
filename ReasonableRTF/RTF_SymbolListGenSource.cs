@@ -2,7 +2,7 @@
 TODO(gperf stuff): Tidy this up and get rid of hardcoded directories and whatnot
 */
 
-//#define SYMBOL_PERFECT_HASH_GEN
+#define SYMBOL_PERFECT_HASH_GEN
 
 #if SYMBOL_PERFECT_HASH_GEN
 
@@ -39,8 +39,8 @@ public static class RTF_SymbolListGenSource
 
         new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
         new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
-        new Symbol("fcharset", RtfToTextConverter.NoCodePage, false, KeywordType.FCharset, 0),
-        new Symbol("cpg", RtfToTextConverter.NoCodePage, false, KeywordType.CPG, 0),
+        new Symbol("fcharset", ushort.MaxValue, false, KeywordType.FCharset, 0),
+        new Symbol("cpg", ushort.MaxValue, false, KeywordType.CPG, 0),
 
         #endregion
 
