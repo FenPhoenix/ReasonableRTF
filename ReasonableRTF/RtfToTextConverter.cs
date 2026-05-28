@@ -4310,6 +4310,28 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    /// <summary>
+    /// Copy of .NET 7 version (fewer branches than Framework) but with a fast null return on fail instead of the infernal exception-throwing.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddConvertedFromUtf32(uint utf32u)
+    {
+        if (((utf32u - 0x110000u) ^ 0xD800u) < 0xFFEF0800u)
+        {
+            PlainText_Add(_unicodeUnknown_Char);
+            return;
+        }
+
+        if (utf32u <= char.MaxValue)
+        {
+            PlainText_Add((char)utf32u);
+            return;
+        }
+
+        PlainText_Add((char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10));
+        PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
+    }
+
     private void AddLineBreak()
     {
         if (_options.LineBreakStyle == LineBreakStyle.EnvironmentDefault)
@@ -5444,26 +5466,4 @@ public sealed partial class RtfToTextConverter
     }
 
     #endregion
-
-    /// <summary>
-    /// Copy of .NET 7 version (fewer branches than Framework) but with a fast null return on fail instead of the infernal exception-throwing.
-    /// </summary>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void AddConvertedFromUtf32(uint utf32u)
-    {
-        if (((utf32u - 0x110000u) ^ 0xD800u) < 0xFFEF0800u)
-        {
-            PlainText_Add(_unicodeUnknown_Char);
-            return;
-        }
-
-        if (utf32u <= char.MaxValue)
-        {
-            PlainText_Add((char)utf32u);
-            return;
-        }
-
-        PlainText_Add((char)((utf32u + ((0xD800u - 0x40u) << 10)) >> 10));
-        PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
-    }
 }
