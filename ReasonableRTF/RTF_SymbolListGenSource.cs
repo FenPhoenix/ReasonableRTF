@@ -2,7 +2,7 @@
 TODO(gperf stuff): Tidy this up and get rid of hardcoded directories and whatnot
 */
 
-#define SYMBOL_PERFECT_HASH_GEN
+//#define SYMBOL_PERFECT_HASH_GEN
 
 #if SYMBOL_PERFECT_HASH_GEN
 
