@@ -95,17 +95,6 @@ internal static class UtilHelper
         }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    internal static bool IsNonEmptyCodePage(this int value)
-    {
-        /*
-        The whole ushort range except 0xFFFF - that's our value for "not set" (-1 equivalent). As 0xFFFF (65535)
-        is not a valid codepage in either the RTF spec or .NET (any version), we can hijack it for this purpose
-        without issue.
-        */
-        return (uint)(value - ushort.MinValue) <= (RtfToTextConverter.NoCodePage - 1) - ushort.MinValue;
-    }
-
 #if NET8_0_OR_GREATER
     /// <summary>
     /// Returns the correct (clamped to 16) number of trailing zeros given a uint bitmask.

@@ -95,7 +95,7 @@ public sealed partial class RtfToTextConverter
         1 + 1 +
         _paramMaxLen + 1 + 1;
 
-    internal const ushort NoCodePage = ushort.MaxValue;
+    private const ushort NoCodePage = ushort.MaxValue;
 
     // "\bin"
     private const int _binLength = 4;
@@ -2683,7 +2683,7 @@ public sealed partial class RtfToTextConverter
                                     break;
                                 }
                                 case KeywordType.CPG:
-                                    currentFontCodePage = param.IsNonEmptyCodePage()
+                                    currentFontCodePage = IsNonEmptyUShortParam(param)
                                         ? (ushort)param
                                         : _headerCodePage;
                                     break;
@@ -3040,7 +3040,7 @@ public sealed partial class RtfToTextConverter
                 return HandleUnicodeRun(ref bufferRef);
             }
             case SpecialType.HeaderCodePage:
-                _headerCodePage = param.IsNonEmptyCodePage() ? (ushort)param : (ushort)1252;
+                _headerCodePage = IsNonEmptyUShortParam(param) ? (ushort)param : (ushort)1252;
                 break;
             case SpecialType.DefaultFont:
                 if (!_headerDefaultFontSet)
@@ -3097,7 +3097,7 @@ public sealed partial class RtfToTextConverter
             {
                 if (param != _undefinedLanguage)
                 {
-                    GroupStack_CurrentPropertyLang = param < NoLang ? (ushort)param : NoLang;
+                    GroupStack_CurrentPropertyLang = IsNonEmptyUShortParam(param) ? (ushort)param : NoLang;
                 }
                 break;
             }
@@ -4470,6 +4470,17 @@ public sealed partial class RtfToTextConverter
         return _bufferedStream == null
             ? _currentPos
             : ((_chunksRead - 1) * (_bufferLength - _leadingBufferByteCount)) + _currentPos - _leadingBufferByteCount;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool IsNonEmptyUShortParam(int value)
+    {
+        /*
+        The whole ushort range except 0xFFFF - that's our value for "not set" (-1 equivalent). As 0xFFFF (65535)
+        is not a valid codepage or lang in either the RTF spec or .NET (any version), we can hijack it for this
+        purpose without issue.
+        */
+        return (uint)(value - ushort.MinValue) <= (ushort.MaxValue - 1) - ushort.MinValue;
     }
 
     #endregion
