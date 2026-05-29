@@ -27,7 +27,7 @@ using ReasonableRTF.Enums;
 namespace ReasonableRTF.Models;
 
 /// <summary>
-/// The Options for the Conversion in <see cref="RtfToTextConverter"/>.
+/// The options for the conversion.
 /// </summary>
 public sealed class RtfToTextConverterOptions
 {
@@ -77,7 +77,7 @@ public sealed class RtfToTextConverterOptions
 
     /// <summary>
     /// Gets or sets whether to convert text that is marked as hidden. If <see langword="true"/>, this text will
-    /// appear in the plain text output; otherwise it will not.
+    /// appear in the plain text output; otherwise, it will not.
     /// <para/>
     /// The default value is <see langword="false"/>.
     /// </summary>
