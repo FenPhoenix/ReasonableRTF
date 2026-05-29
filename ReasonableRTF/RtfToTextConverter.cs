@@ -2541,7 +2541,7 @@ public sealed partial class RtfToTextConverter
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                                 if (symbolFont > SymbolFont.Unset)
                                 {
-                                    AddCharFromConversionList_Byte((byte)ch, _symbolFontTables[(int)symbolFont]);
+                                    AddCharFromConversionList((byte)ch, _symbolFontTables[(int)symbolFont]);
                                 }
                                 else
                                 {
@@ -2845,7 +2845,7 @@ public sealed partial class RtfToTextConverter
                     char ch = (char)GetByteAtCurrentPosAndIncrement(ref bufferRef);
                     if (!_isNonPlainText[(byte)ch])
                     {
-                        AddCharFromConversionList_Byte((byte)ch, table);
+                        AddCharFromConversionList((byte)ch, table);
                     }
                     else
                     {
@@ -3147,8 +3147,7 @@ public sealed partial class RtfToTextConverter
             {
                 for (int i = 0; i < _hexBuffer_Count; i++)
                 {
-                    byte codePoint = _hexBuffer[i];
-                    AddCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)SymbolFont.Symbol]);
+                    AddCharFromConversionList(_hexBuffer[i], _symbolFontTables[(int)SymbolFont.Symbol]);
                 }
             }
             else
@@ -3158,8 +3157,7 @@ public sealed partial class RtfToTextConverter
                 {
                     for (int i = 0; i < _hexBuffer_Count; i++)
                     {
-                        byte codePoint = _hexBuffer[i];
-                        AddCharFromConversionList_Byte(codePoint, _symbolFontTables[(int)symbolFont]);
+                        AddCharFromConversionList(_hexBuffer[i], _symbolFontTables[(int)symbolFont]);
                     }
                 }
                 else
@@ -3743,15 +3741,16 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    private void FieldInst_Handle_F_WithSymbolFontName(ushort param, uint[] symbolFontTable)
+    private void FieldInst_Handle_F_WithSymbolFontName(ushort codePoint, uint[] symbolFontTable)
     {
-        uint codePoint = param;
-
         if (codePoint.IsBetween(0xF020, 0xF0FF))
         {
             codePoint -= 0xF000;
         }
-        AddCharFromConversionList_UInt(codePoint, symbolFontTable);
+        if (codePoint <= byte.MaxValue)
+        {
+            AddCharFromConversionList((byte)codePoint, symbolFontTable);
+        }
     }
 
     /*
@@ -4249,9 +4248,9 @@ public sealed partial class RtfToTextConverter
         }
 
         SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-        if (symbolFont > SymbolFont.Unset)
+        if (symbolFont > SymbolFont.Unset && ch <= byte.MaxValue)
         {
-            AddCharFromConversionList_UInt(ch, _symbolFontTables[(int)symbolFont]);
+            AddCharFromConversionList((byte)ch, _symbolFontTables[(int)symbolFont]);
         }
         else
         {
@@ -4260,21 +4259,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void AddCharFromConversionList_UInt(uint codePoint, uint[] fontTable)
-    {
-        if (codePoint.IsBetween(0x20, 0xFF))
-        {
-            AddConvertedFromUtf32(fontTable[codePoint - 0x20]);
-        }
-        else if (codePoint <= 255)
-        {
-            _byteBuffer1[0] = (byte)codePoint;
-            DecodeAndCopyBytesIntoPlainText(_windows1252, _byteBuffer1, 1);
-        }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void AddCharFromConversionList_Byte(byte codePoint, uint[] fontTable)
+    private void AddCharFromConversionList(byte codePoint, uint[] fontTable)
     {
         if (codePoint >= 0x20)
         {
