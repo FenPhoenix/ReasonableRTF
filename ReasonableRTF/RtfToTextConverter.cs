@@ -3573,32 +3573,61 @@ public sealed partial class RtfToTextConverter
 
     private void ParseUnicode()
     {
+        char[] unicodeBuffer = _unicodeBuffer;
+        int unicodeBufferCount = _unicodeBuffer_Count;
+
         #region Handle surrogate pairs and fix up bad Unicode
 
-        for (int i = 0; i < _unicodeBuffer_Count; i++)
+        for (int i = 0; i < unicodeBufferCount; i++)
         {
-            char c = _unicodeBuffer[i];
+            char c = unicodeBuffer[i];
 
             if (char.IsHighSurrogate(c))
             {
-                if (i < _unicodeBuffer_Count - 1 && char.IsLowSurrogate(_unicodeBuffer[i + 1]))
+                if (i < unicodeBufferCount - 1 && char.IsLowSurrogate(unicodeBuffer[i + 1]))
                 {
                     i++;
                 }
                 else
                 {
-                    _unicodeBuffer[i] = _unicodeUnknown_Char;
+                    unicodeBuffer[i] = _unicodeUnknown_Char;
                 }
             }
             else if (char.IsLowSurrogate(c) || char.GetUnicodeCategory(c) is UnicodeCategory.OtherNotAssigned)
             {
-                _unicodeBuffer[i] = _unicodeUnknown_Char;
+                unicodeBuffer[i] = _unicodeUnknown_Char;
             }
         }
 
         #endregion
 
-        AddChars(_unicodeBuffer, _unicodeBuffer_Count);
+        if (!GroupStack_CurrentPropertyHidden && !GroupStack_CurrentSkipDest && !_inFontTable)
+        {
+            if (unicodeBufferCount == 1)
+            {
+                char ch = unicodeBuffer[0];
+                if (ch != '\0')
+                {
+                    PlainText_Add(ch);
+                }
+            }
+            else
+            {
+                PlainText_EnsureCapacity(_plainText_Count + unicodeBufferCount);
+                int plainTextIndex = _plainText_Count;
+                for (int unicodeBufferIndex = 0; unicodeBufferIndex < unicodeBufferCount; unicodeBufferIndex++)
+                {
+                    char ch = unicodeBuffer[unicodeBufferIndex];
+                    if (ch != '\0')
+                    {
+                        _plainText[plainTextIndex] = ch;
+                        plainTextIndex++;
+                    }
+                }
+
+                _plainText_Count = plainTextIndex;
+            }
+        }
 
         _unicodeBuffer_Count = 0;
     }
@@ -4199,38 +4228,6 @@ public sealed partial class RtfToTextConverter
     #endregion
 
     #region Add chars
-
-    private void AddChars(char[] chars, int count)
-    {
-        // This is only ever called from encoded-char handlers (hex, Unicode), so we don't need to duplicate any
-        // of the bare-char symbol font stuff here.
-
-        if (!GroupStack_CurrentPropertyHidden && !_inFontTable)
-        {
-            if (count == 1)
-            {
-                char ch = chars[0];
-                if (ch != '\0')
-                {
-                    PlainText_Add(ch);
-                }
-            }
-            else
-            {
-                PlainText_EnsureCapacity(_plainText_Count + count);
-                // We usually add small enough arrays that a loop is faster
-                for (int i = 0; i < count; i++)
-                {
-                    char ch = chars[i];
-                    if (ch != '\0')
-                    {
-                        _plainText[_plainText_Count + i] = chars[i];
-                    }
-                }
-                _plainText_Count += count;
-            }
-        }
-    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void AddChar_Explicit(char ch)
