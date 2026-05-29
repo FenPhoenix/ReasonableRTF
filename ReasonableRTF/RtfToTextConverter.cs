@@ -3639,8 +3639,6 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void FieldInst_AddChar(in FontEntry fontEntry, ushort param)
     {
-        // We already know our code point is within bounds of the array, because the arrays also go from
-        // 0x20 - 0xFF, so no need to check.
         SymbolFont symbolFont = fontEntry.SymbolFont;
         if (symbolFont > SymbolFont.Unset)
         {
@@ -3701,15 +3699,15 @@ public sealed partial class RtfToTextConverter
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
             FieldInst_AddCharFromCodePage(_headerCodePage, param);
-            return;
         }
-        if (fontEntry.CodePage != 42)
+        else if (fontEntry.CodePage != 42)
         {
             FieldInst_AddCharFromCodePage(fontEntry.CodePage, param);
-            return;
         }
-
-        FieldInst_AddChar(in fontEntry, param);
+        else
+        {
+            FieldInst_AddChar(in fontEntry, param);
+        }
     }
 
     private void FieldInst_Handle_F_Bare(ushort param)
@@ -3719,6 +3717,7 @@ public sealed partial class RtfToTextConverter
             param -= 0xF000;
         }
 
+        // TODO: Should this be an IsBetween(), to allow <0x20 chars like tab and whatever to be output in the else block?
         if (param <= byte.MaxValue)
         {
             if (param >= 0x20)
@@ -4202,9 +4201,6 @@ public sealed partial class RtfToTextConverter
                     return _symbolFontTables[(int)symbolFont][returnCodePoint - 0x20];
                 }
             }
-
-            // We already know our code point is within bounds of the array, because the arrays also go from
-            // 0x20 - 0xFF, so no need to check.
         }
 
         return returnCodePoint;
