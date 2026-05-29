@@ -2754,13 +2754,13 @@ public sealed partial class RtfToTextConverter
 #endif
     }
 
-    private SymbolFont GetSymbolFont_Scalar(ref byte bufferRef, char ch)
+    private SymbolFont GetSymbolFont_Scalar(ref byte bufferRef, char ch, int symbolFontNameCountStart = 0)
     {
         int symbolFontNameCount;
         bool isNonSemicolonSeparatorChar = false;
         if (_currentPos < _currentBufferChunkLength - (_maxSymbolFontNameLength + 1))
         {
-            for (symbolFontNameCount = 0;
+            for (symbolFontNameCount = symbolFontNameCountStart;
                  symbolFontNameCount < _maxSymbolFontNameLength &&
                  ch != ';' &&
                  !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);
@@ -2771,7 +2771,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            for (symbolFontNameCount = 0;
+            for (symbolFontNameCount = symbolFontNameCountStart;
                  symbolFontNameCount < _maxSymbolFontNameLength &&
                  ch != ';' &&
                  !(isNonSemicolonSeparatorChar = _isNonPlainText[(byte)ch]);

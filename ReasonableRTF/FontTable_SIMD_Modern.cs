@@ -72,9 +72,6 @@ public sealed partial class RtfToTextConverter
     {
         if (Vector512.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector512<byte>.Count + 1))
         {
-            int startingCurrentPos = _currentPos;
-            char origCh = ch;
-
             _currentPos--;
 
             ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
@@ -121,14 +118,14 @@ public sealed partial class RtfToTextConverter
                 }
                 else
                 {
+                    _currentPos += Vector512<byte>.Count + 1;
                     if (Vector512<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
-                        _currentPos = startingCurrentPos;
-                        return GetSymbolFont_Scalar(ref bufferRef, origCh);
+                        vector.CopyTo(_symbolFontNameBuffer);
+                        return GetSymbolFont_Scalar(ref bufferRef, ch, Vector512<byte>.Count);
                     }
                     else
                     {
-                        _currentPos += Vector512<byte>.Count;
                         return SymbolFont.None;
                     }
                 }
@@ -136,9 +133,6 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector256.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector256<byte>.Count + 1))
         {
-            int startingCurrentPos = _currentPos;
-            char origCh = ch;
-
             _currentPos--;
 
             ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
@@ -185,14 +179,14 @@ public sealed partial class RtfToTextConverter
                 }
                 else
                 {
+                    _currentPos += Vector256<byte>.Count + 1;
                     if (Vector256<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
-                        _currentPos = startingCurrentPos;
-                        return GetSymbolFont_Scalar(ref bufferRef, origCh);
+                        vector.CopyTo(_symbolFontNameBuffer);
+                        return GetSymbolFont_Scalar(ref bufferRef, ch, Vector256<byte>.Count);
                     }
                     else
                     {
-                        _currentPos += Vector256<byte>.Count;
                         return SymbolFont.None;
                     }
                 }
@@ -200,9 +194,6 @@ public sealed partial class RtfToTextConverter
         }
         else if (Vector128.IsHardwareAccelerated && _currentPos < _currentBufferChunkLength - (Vector128<byte>.Count + 1))
         {
-            int startingCurrentPos = _currentPos;
-            char origCh = ch;
-
             _currentPos--;
 
             ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
@@ -249,14 +240,14 @@ public sealed partial class RtfToTextConverter
                 }
                 else
                 {
+                    _currentPos += Vector128<byte>.Count + 1;
                     if (Vector128<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
-                        _currentPos = startingCurrentPos;
-                        return GetSymbolFont_Scalar(ref bufferRef, origCh);
+                        vector.CopyTo(_symbolFontNameBuffer);
+                        return GetSymbolFont_Scalar(ref bufferRef, ch, Vector128<byte>.Count);
                     }
                     else
                     {
-                        _currentPos += Vector128<byte>.Count;
                         return SymbolFont.None;
                     }
                 }
