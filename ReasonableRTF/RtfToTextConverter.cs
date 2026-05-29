@@ -3621,7 +3621,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            AddCharFromCodePage(NoCodePage, param);
+            FieldInst_AddCharFromCodePage(NoCodePage, param);
         }
     }
 
@@ -3670,12 +3670,12 @@ public sealed partial class RtfToTextConverter
 
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
-            AddCharFromCodePage(_headerCodePage, param);
+            FieldInst_AddCharFromCodePage(_headerCodePage, param);
             return;
         }
         if (fontEntry.CodePage != 42)
         {
-            AddCharFromCodePage(fontEntry.CodePage, param);
+            FieldInst_AddCharFromCodePage(fontEntry.CodePage, param);
             return;
         }
 
@@ -4280,7 +4280,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void AddCharFromCodePage(ushort codePage, ushort codePoint)
+    private void FieldInst_AddCharFromCodePage(ushort codePage, ushort codePoint)
     {
         // Reject null chars
         if (codePoint == 0) return;
@@ -4571,7 +4571,10 @@ public sealed partial class RtfToTextConverter
     private void InsertSpaceIfNecessary()
     {
         if (_plainText_Count > 0 &&
-            !char.IsWhiteSpace(_plainText[_plainText_Count - 1]))
+            !char.IsWhiteSpace(_plainText[_plainText_Count - 1]) &&
+            !GroupStack_CurrentPropertyHidden &&
+            !GroupStack_CurrentSkipDest &&
+            !_inFontTable)
         {
             PlainText_Add(' ');
         }
