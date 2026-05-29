@@ -2119,12 +2119,21 @@ public sealed partial class RtfToTextConverter
     private bool _inHandleSkippableHexData;
 
     /*
-    Per spec, if we see a \uN keyword whose N falls within the range of 0xF020 to 0xF0FF, we're supposed to
-    subtract 0xF000 and then find the last used font whose charset is 2 (codepage 42) and use its symbol font
-    to convert the char. However, when the spec says "last used" it REALLY means last used. Period. Regardless
-    of group. Even if the font was used in a group above us that we should have no knowledge of, it still
-    counts as the last used one. Also, we need the last used font WHOSE CODEPAGE IS 42, not the last used font
-    period. So we have to track only the charset 2/codepage 42 ones. Globally. Truly bizarre.
+    From the spec:
+    "Occasionally Word writes SYMBOL_CHARSET (nonUnicode) characters in the range U+F020..U+F0FF instead
+    of U+0020..U+00FF. Internally Word uses the values U+F020..U+F0FF for these characters so that plain-
+    text searches don't mistakenly match SYMBOL_CHARSET characters when searching for Unicode characters
+    in the range U+0020..U+00FF. To find out the correct symbol font to use, e.g., Wingdings, Symbol,
+    etc., find the last SYMBOL_CHARSET font control word \fN used, look up font N in the font table and
+    find the face name. The charset is specified by the \fcharsetN control word and SYMBOL_CHARSET is for
+    N = 2. This corresponds to codepage 42."
+
+    However, there's also a weird quirk with the Windows RichEdit control, which is that fonts that were set in a
+    non-destination group above us ALSO count as potentially "last used". In other words, these fonts leak right
+    out of their stack frames. So that means we have to globally track the last set font whose codepage is 42.
+
+    However, this quirk does NOT apply to LibreOffice or Microsoft Word 2010 (not sure about other versions). So
+    we just have to decide whose expectations we're going to match. We're going with RichEdit's behavior for now.
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
@@ -3462,7 +3471,7 @@ public sealed partial class RtfToTextConverter
     private void HandleUnicodeParamAndSkipFallbackChars(ref byte bufferRef, int param)
     {
         // Make sure the code point is normalized before adding it to the buffer!
-        uint codePoint = NormalizeUnicodePoint_HandleSymbolCharRange(param);
+        uint codePoint = NormalizeUnicodeCodePoint_HandleSymbolCharRange(param);
         AddCodePointToUnicodeBuffer(codePoint);
 
         /*
@@ -4151,7 +4160,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private uint NormalizeUnicodePoint_HandleSymbolCharRange(int codePoint)
+    private uint NormalizeUnicodeCodePoint_HandleSymbolCharRange(int codePoint)
     {
         // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
         // value.
@@ -4167,22 +4176,6 @@ public sealed partial class RtfToTextConverter
         uint returnCodePoint = (uint)codePoint;
 
         /*
-        From the spec:
-        "Occasionally Word writes SYMBOL_CHARSET (nonUnicode) characters in the range U+F020..U+F0FF instead
-        of U+0020..U+00FF. Internally Word uses the values U+F020..U+F0FF for these characters so that plain-
-        text searches don't mistakenly match SYMBOL_CHARSET characters when searching for Unicode characters
-        in the range U+0020..U+00FF. To find out the correct symbol font to use, e.g., Wingdings, Symbol,
-        etc., find the last SYMBOL_CHARSET font control word \fN used, look up font N in the font table and
-        find the face name. The charset is specified by the \fcharsetN control word and SYMBOL_CHARSET is for
-        N = 2. This corresponds to codepage 42."
-
-        Verified, this does in fact mean "find the last used font that specifically has \fcharset2" (or \cpg42).
-        And, yes, that's last used, period, regardless of group. So we track it globally. That's the official
-        behavior, don't ask me.
-
-        Also, "used" means "acted on", so fonts that were set in skipped destinations don't count, tested and
-        confirmed.
-
         Verified, these 0xF020-0xF0FF chars can be represented either as negatives or as >32767 positives
         (despite the spec saying that \uN must be signed int16). So we need to fall through to this section
         even if we did the above, because by adding 65536 we might now be in the 0xF020-0xF0FF range.
