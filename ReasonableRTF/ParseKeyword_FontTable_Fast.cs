@@ -16,7 +16,6 @@ public sealed partial class RtfToTextConverter
 
         int startingCurrentPos = _currentPos;
 
-        // [FenGen:ScalarKeywordParseSection:Fast:Dest:Begin]
         char ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos);
 
         if (!CharExtension.IsAsciiLetter(ch))
@@ -39,6 +38,7 @@ public sealed partial class RtfToTextConverter
             {
                 return RtfError.KeywordTooLong;
             }
+
             int accumulatedPos = startingCurrentPos + keywordCount;
 
             int negateParam = 0;
@@ -83,7 +83,6 @@ public sealed partial class RtfToTextConverter
             }
 
             _currentPos = accumulatedPos + (ch == ' ' ? 1 : 0);
-            // [FenGen:ScalarKeywordParseSection:Fast:Dest:End]
 
             ref byte keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
 

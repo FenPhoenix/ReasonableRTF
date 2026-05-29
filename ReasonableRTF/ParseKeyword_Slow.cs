@@ -15,7 +15,6 @@ public sealed partial class RtfToTextConverter
         bool hasParam = false;
         int param = 0;
 
-        // [FenGen:ScalarKeywordParseSection:Source:Begin]
         char ch = (char)GetByte(IncrementCurrentPos());
 
         if (!CharExtension.IsAsciiLetter(ch))
@@ -32,7 +31,6 @@ public sealed partial class RtfToTextConverter
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
             {
-                // [FenGen:Fast:RemoveLine]
                 Unsafe.WriteUnaligned(ref Unsafe.AddByteOffset(ref keywordRef, (nint)keywordCount), (byte)ch);
             }
             if (keywordCount > _keywordMaxLen)
@@ -79,7 +77,6 @@ public sealed partial class RtfToTextConverter
             }
 
             if (ch != ' ') --_currentPos;
-            // [FenGen:ScalarKeywordParseSection:Source:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.

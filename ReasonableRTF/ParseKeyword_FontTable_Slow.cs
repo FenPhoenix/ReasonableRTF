@@ -15,7 +15,6 @@ public sealed partial class RtfToTextConverter
         param = 0;
         fontTableKeyword = default;
 
-        // [FenGen:ScalarKeywordParseSection:Slow:Dest:Begin]
         char ch = (char)GetByte(IncrementCurrentPos());
 
         if (!CharExtension.IsAsciiLetter(ch))
@@ -78,7 +77,6 @@ public sealed partial class RtfToTextConverter
             }
 
             if (ch != ' ') --_currentPos;
-            // [FenGen:ScalarKeywordParseSection:Slow:Dest:End]
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
