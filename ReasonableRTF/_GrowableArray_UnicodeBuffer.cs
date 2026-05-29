@@ -38,7 +38,7 @@ public sealed partial class RtfToTextConverter
         _unicodeBuffer_Capacity = newCapacity;
     }
 
-    private void UnicodeBuffer_HardReset()
+    private void UnicodeBuffer_ResetCapacityToDefault()
     {
         if (_unicodeBuffer_Capacity == _internalBufferDefaultCapacity) return;
         _unicodeBuffer = new char[_internalBufferDefaultCapacity];

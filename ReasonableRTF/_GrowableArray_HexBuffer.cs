@@ -38,7 +38,7 @@ public sealed partial class RtfToTextConverter
         _hexBuffer_Capacity = newCapacity;
     }
 
-    private void HexBuffer_HardReset()
+    private void HexBuffer_ResetCapacityToDefault()
     {
         if (_hexBuffer_Capacity == _internalBufferDefaultCapacity) return;
         _hexBuffer = new byte[_internalBufferDefaultCapacity];

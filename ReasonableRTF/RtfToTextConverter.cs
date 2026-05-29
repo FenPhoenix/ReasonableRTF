@@ -95,8 +95,6 @@ public sealed partial class RtfToTextConverter
         1 + 1 +
         _paramMaxLen + 1 + 1;
 
-    private const ushort NoCodePage = ushort.MaxValue;
-
     // "\bin"
     private const int _binLength = 4;
     private readonly uint _binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
@@ -112,6 +110,7 @@ public sealed partial class RtfToTextConverter
     /// </summary>
     private const int NoFontNumber = int.MinValue;
     private const ushort NoLang = ushort.MaxValue;
+    private const ushort NoCodePage = ushort.MaxValue;
 
     private const int _keywordMaxLen = 32;
     // Most are signed int16 (5 chars), but a few can be signed int32 (10 chars)
@@ -2094,6 +2093,18 @@ public sealed partial class RtfToTextConverter
 
     #endregion
 
+    /*
+    \fN params are normally in the signed int16 range, but the Windows RichEdit control supports them in the
+    -30064771071 - 30064771070 (-0x6ffffffff - 0x6fffffffe) range (yes, bizarre numbers, but I tested and there
+    they are). So let's just make them int32.
+    */
+
+#if NET8_0_OR_GREATER
+    private readonly Dictionary<int, FontEntry> _fontDictionary;
+#else
+    private Dictionary<int, FontEntry> _fontDictionary;
+#endif
+
     private Stream? _bufferedStream;
 
     private bool _reachedEndOfStream;
@@ -2357,14 +2368,15 @@ public sealed partial class RtfToTextConverter
     /// </summary>
     public void ResetMemory()
     {
-        GroupStack_ResetCapacityIfTooHigh();
-        PlainText_HardReset();
-        FontDictionary_ClearFull(_internalBufferDefaultCapacity);
-        HexBuffer_HardReset();
-        UnicodeBuffer_HardReset();
+        GroupStack_ResetCapacityToDefault();
+        PlainText_ResetCapacityToDefault();
+        HexBuffer_ResetCapacityToDefault();
+        UnicodeBuffer_ResetCapacityToDefault();
 #if NET8_0_OR_GREATER
+        _fontDictionary.Reset(_internalBufferDefaultCapacity);
         _encodings.Reset(_internalBufferDefaultCapacity);
 #else
+        _fontDictionary = new Dictionary<int, FontEntry>(_internalBufferDefaultCapacity);
         _encodings = new Dictionary<ushort, Encoding>(_internalBufferDefaultCapacity);
 #endif
     }
@@ -2396,8 +2408,7 @@ public sealed partial class RtfToTextConverter
 
             _reachedEndOfStream = false;
 
-            GroupStack_ClearFast();
-            GroupStack_ResetFirst();
+            GroupStack_Reset();
             _fontDictionary.Clear();
 
             _headerCodePage = 1252;
@@ -4969,8 +4980,10 @@ public sealed partial class RtfToTextConverter
 
     // Current group always begins at group 0, so reset just that one
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void GroupStack_ResetFirst()
+    private void GroupStack_Reset()
     {
+        _groupStackCount = 0;
+
         _groupStackFrames[0] = new GroupStackFrame
         {
             SkipDestination = false,
@@ -4983,10 +4996,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void GroupStack_ClearFast() => _groupStackCount = 0;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void GroupStack_ResetCapacityIfTooHigh()
+    private void GroupStack_ResetCapacityToDefault()
     {
         if (_groupStackCapacity > _groupStackDefaultCapacity)
         {
@@ -5452,32 +5462,6 @@ public sealed partial class RtfToTextConverter
     private static byte GetByteAtPos_KeywordLookup(ref byte keywordRef, int pos)
     {
         return Unsafe.AddByteOffset(ref keywordRef, (nint)pos);
-    }
-
-    #endregion
-
-    #region FontDictionary
-
-#if NET8_0_OR_GREATER
-    private readonly Dictionary<int, FontEntry> _fontDictionary;
-#else
-    private Dictionary<int, FontEntry> _fontDictionary;
-#endif
-
-    /*
-    \fN params are normally in the signed int16 range, but the Windows RichEdit control supports them in the
-    -30064771071 - 30064771070 (-0x6ffffffff - 0x6fffffffe) range (yes, bizarre numbers, but I tested and
-    there they are).
-    */
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void FontDictionary_ClearFull(int capacity)
-    {
-#if NET8_0_OR_GREATER
-        _fontDictionary.Reset(capacity);
-#else
-        _fontDictionary = new Dictionary<int, FontEntry>(capacity);
-#endif
     }
 
     #endregion

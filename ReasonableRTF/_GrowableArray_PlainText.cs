@@ -40,7 +40,7 @@ public sealed partial class RtfToTextConverter
         _plainText_Capacity = newCapacity;
     }
 
-    private void PlainText_HardReset()
+    private void PlainText_ResetCapacityToDefault()
     {
         if (_plainText_Capacity == _plainTextDefaultCapacity) return;
         _plainText = new char[_plainTextDefaultCapacity];
