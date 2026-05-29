@@ -23,35 +23,7 @@ public sealed partial class RtfToTextConverter
         {
             ++_currentPos;
 
-            /*
-            From the spec:
-            "A control symbol consists of a backslash followed by a single, non-alphabetical character.
-            For example, \~ (backslash tilde) represents a non-breaking space. Control symbols do not have
-            delimiters, i.e., a space following a control symbol is treated as text, not a delimiter."
-            */
-
-            // Fast path for destination marker - claws us back a small amount of perf
-            if (ch == '*')
-            {
-                _skipDestinationIfUnknown = true;
-                return RtfError.OK;
-            }
-
-            char symbol = LookUpControlSymbol((byte)ch);
-
-            if (symbol == 0)
-            {
-                if (_skipDestinationIfUnknown)
-                {
-                    SkipDest(ref bufferRef);
-                }
-                _skipDestinationIfUnknown = false;
-                return RtfError.OK;
-            }
-
-            _skipDestinationIfUnknown = false;
-
-            return DispatchControlSymbol(ref bufferRef, symbol);
+            return HandleControlChar(ref bufferRef, ch);
         }
         else
         {
