@@ -3462,7 +3462,7 @@ public sealed partial class RtfToTextConverter
     private void HandleUnicodeParamAndSkipFallbackChars(ref byte bufferRef, int param)
     {
         // Make sure the code point is normalized before adding it to the buffer!
-        NormalizeUnicodePoint_HandleSymbolCharRange(param, out uint codePoint);
+        uint codePoint = NormalizeUnicodePoint_HandleSymbolCharRange(param);
         AddCodePointToUnicodeBuffer(codePoint);
 
         /*
@@ -3637,15 +3637,6 @@ public sealed partial class RtfToTextConverter
     // TODO: Add unknown char when appropriate, instead of nothing
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private int FieldInst_GetFontNum()
-    {
-        int currentFontNumber = GroupStack_CurrentPropertyFontNum;
-        return currentFontNumber > NoFontNumber
-            ? currentFontNumber
-            : _headerDefaultFontNum;
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void FieldInst_AddChar(in FontEntry fontEntry, ushort param)
     {
         // We already know our code point is within bounds of the array, because the arrays also go from
@@ -3676,11 +3667,12 @@ public sealed partial class RtfToTextConverter
             param -= 0xF000;
         }
 
+        // TODO: Should this be an IsBetween(), to allow <0x20 chars like tab and whatever to be output in the else block?
         if (param <= byte.MaxValue)
         {
             if (param >= 0x20)
             {
-                int fontNum = FieldInst_GetFontNum();
+                int fontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
 
                 if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) || fontEntry.CodePage != 42)
                 {
@@ -3704,7 +3696,7 @@ public sealed partial class RtfToTextConverter
 
     private void FieldInst_Handle_AddCharWithEncoding(ushort param)
     {
-        int fontNum = FieldInst_GetFontNum();
+        int fontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
 
         if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry))
         {
@@ -4140,15 +4132,13 @@ public sealed partial class RtfToTextConverter
     private (ushort CodePage, FontEntry FontEntry)
     GetCurrentCodePage()
     {
-        int groupFontNum = GroupStack_CurrentPropertyFontNum;
-        int groupLang = GroupStack_CurrentPropertyLang;
-
-        if (groupFontNum == NoFontNumber) groupFontNum = _headerDefaultFontNum;
+        int groupFontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
+        ushort groupLang = GroupStack_CurrentPropertyLang;
 
         _fontDictionary.TryGetValue(groupFontNum, out FontEntry fontEntry);
 
         ushort codePage;
-        if (groupLang.IsBetween(0, _maxLangNumIndex))
+        if (groupLang < _maxLangNumIndex)
         {
             ushort translatedCodePage = _langToCodePage[groupLang];
             codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
@@ -4162,7 +4152,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void NormalizeUnicodePoint_HandleSymbolCharRange(int codePoint, out uint returnCodePoint)
+    private uint NormalizeUnicodePoint_HandleSymbolCharRange(int codePoint)
     {
         // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
         // value.
@@ -4171,12 +4161,11 @@ public sealed partial class RtfToTextConverter
             codePoint += 65536;
             if (codePoint < 0)
             {
-                returnCodePoint = _unicodeUnknown_Char;
-                return;
+                return _unicodeUnknown_Char;
             }
         }
 
-        returnCodePoint = (uint)codePoint;
+        uint returnCodePoint = (uint)codePoint;
 
         /*
         From the spec:
@@ -4203,23 +4192,22 @@ public sealed partial class RtfToTextConverter
         {
             returnCodePoint -= 0xF000;
 
-            int fontNum = _lastUsedFontWithCodePage42 > NoFontNumber
-                ? _lastUsedFontWithCodePage42
-                : _headerDefaultFontNum;
+            int fontNum = HeaderDefaultIfNotSet(_lastUsedFontWithCodePage42);
 
-            if (!_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) || fontEntry.CodePage != 42)
+            if (_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) && fontEntry.CodePage == 42)
             {
-                return;
+                SymbolFont symbolFont = fontEntry.SymbolFont;
+                if (symbolFont > SymbolFont.Unset)
+                {
+                    return _symbolFontTables[(int)symbolFont][returnCodePoint - 0x20];
+                }
             }
 
             // We already know our code point is within bounds of the array, because the arrays also go from
             // 0x20 - 0xFF, so no need to check.
-            SymbolFont symbolFont = fontEntry.SymbolFont;
-            if (symbolFont > SymbolFont.Unset)
-            {
-                returnCodePoint = _symbolFontTables[(int)symbolFont][returnCodePoint - 0x20];
-            }
         }
+
+        return returnCodePoint;
     }
 
     #endregion
@@ -4475,6 +4463,9 @@ public sealed partial class RtfToTextConverter
         */
         return (uint)(value - ushort.MinValue) <= (ushort.MaxValue - 1) - ushort.MinValue;
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private int HeaderDefaultIfNotSet(int fontNum) => fontNum > NoFontNumber ? fontNum : _headerDefaultFontNum;
 
     #endregion
 
