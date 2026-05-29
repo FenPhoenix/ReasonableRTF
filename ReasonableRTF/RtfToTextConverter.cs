@@ -2128,12 +2128,19 @@ public sealed partial class RtfToTextConverter
     find the face name. The charset is specified by the \fcharsetN control word and SYMBOL_CHARSET is for
     N = 2. This corresponds to codepage 42."
 
-    However, there's also a weird quirk with the Windows RichEdit control, which is that fonts that were set in a
-    non-destination group above us ALSO count as potentially "last used". In other words, these fonts leak right
-    out of their stack frames. So that means we have to globally track the last set font whose codepage is 42.
+    However, there's also a weird quirk with the Windows RichEdit control (the "RichEdit50W" version only!),
+    which is that fonts that were set in a non-destination group above us ALSO count as potentially "last used".
+    In other words, these fonts leak right out of their stack frames. So that means we have to globally track the
+    last set font whose codepage is 42.
 
-    However, this quirk does NOT apply to LibreOffice or Microsoft Word 2010 (not sure about other versions). So
-    we just have to decide whose expectations we're going to match. We're going with RichEdit's behavior for now.
+    However, this quirk ONLY appears to happen with the "RichEdit50W" version of the Windows RichEdit control
+    (doesn't happen with LibreOffice or Microsoft Word 2010 or "RichEdit20W"). So we just have to decide whose
+    expectations we're going to match. We're going with RichEdit's behavior for now.
+
+    TODO: We could just get rid of this and probably break nobody. We don't even break my test set except for the
+    one file I made specifically to test this quirk. I swear I remember coming across an affected file in the FM
+    readme set way back in the day, and that's how I discovered the quirk. Or else how tf did I discover it
+    otherwise?!
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
