@@ -40,6 +40,9 @@ public sealed partial class RtfToTextConverter
     {
         if (_currentPos < _currentBufferChunkLength - (Vector<byte>.Count + 1))
         {
+            int startingCurrentPos = _currentPos;
+            char origCh = ch;
+
             _currentPos--;
 
             ref byte searchSpace = ref GetRefAtPos(ref bufferRef, _currentPos);
@@ -86,14 +89,14 @@ public sealed partial class RtfToTextConverter
                 }
                 else
                 {
-                    _currentPos += Vector<byte>.Count;
                     if (Vector<byte>.Count < _maxSupportedSymbolFontNameLength)
                     {
-                        vector.CopyTo(_symbolFontNameBuffer);
-                        return GetSymbolFont_Scalar(ref bufferRef, ch, Vector<byte>.Count);
+                        _currentPos = startingCurrentPos;
+                        return GetSymbolFont_Scalar(ref bufferRef, origCh);
                     }
                     else
                     {
+                        _currentPos += Vector<byte>.Count;
                         return SymbolFont.None;
                     }
                 }
