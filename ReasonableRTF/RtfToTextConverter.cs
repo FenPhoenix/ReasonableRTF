@@ -2521,9 +2521,9 @@ public sealed partial class RtfToTextConverter
                         GroupStack_DeepCopyToNext();
                         break;
                     case '}':
-                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                        --_groupStackCount;
-                        if (_groupStackCount == 0) return RtfError.OK;
+                        if (_groupStackTopIndex == 0) return RtfError.StackUnderflow;
+                        --_groupStackTopIndex;
+                        if (_groupStackTopIndex == 0) return RtfError.OK;
                         break;
                     default:
                     {
@@ -2561,7 +2561,7 @@ public sealed partial class RtfToTextConverter
             if (_bufferedStream != null) { HandleOutOfBounds(); } else { break; }
         }
 
-        return _groupStackCount > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
+        return _groupStackTopIndex > 0 ? RtfError.UnmatchedBrace : RtfError.OK;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2615,7 +2615,7 @@ public sealed partial class RtfToTextConverter
         if (_inFontTable) return RtfError.AbortedForSafety;
         _inFontTable = true;
 
-        int fontTableGroupLevel = _groupStackCount;
+        int fontTableGroupLevel = _groupStackTopIndex;
 
         bool currentFontAcquired = false;
         int currentFontNumber = NoFontNumber;
@@ -2634,9 +2634,9 @@ public sealed partial class RtfToTextConverter
                         GroupStack_DeepCopyToNext();
                         break;
                     case '}':
-                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                        --_groupStackCount;
-                        if (_groupStackCount < fontTableGroupLevel)
+                        if (_groupStackTopIndex == 0) return RtfError.StackUnderflow;
+                        --_groupStackTopIndex;
+                        if (_groupStackTopIndex < fontTableGroupLevel)
                         {
                             // We can't actually set the symbol font as soon as we see \deffN, because we won't
                             // have any font entry objects yet. Now that we do, we can retroactively set all
@@ -2652,7 +2652,7 @@ public sealed partial class RtfToTextConverter
                                 as demonstrated by the that fact that "current group" is "stack[group count]" not
                                 "stack[group count - 1]".
                                 */
-                                for (int i = 1; i <= _groupStackCount; i++)
+                                for (int i = 1; i <= _groupStackTopIndex; i++)
                                 {
                                     if (_groupStackFrames[i].PropFontNum == NoFontNumber)
                                     {
@@ -4499,7 +4499,7 @@ public sealed partial class RtfToTextConverter
         if (_inHandleSkippableHexData) return RtfError.AbortedForSafety;
         _inHandleSkippableHexData = true;
 
-        int startGroupLevel = _groupStackCount;
+        int startGroupLevel = _groupStackTopIndex;
 
         while (!_reachedEndOfStream)
         {
@@ -4513,9 +4513,9 @@ public sealed partial class RtfToTextConverter
                         GroupStack_DeepCopyToNext();
                         break;
                     case '}':
-                        if (_groupStackCount == 0) return RtfError.StackUnderflow;
-                        --_groupStackCount;
-                        if (_groupStackCount < startGroupLevel)
+                        if (_groupStackTopIndex == 0) return RtfError.StackUnderflow;
+                        --_groupStackTopIndex;
+                        if (_groupStackTopIndex < startGroupLevel)
                         {
                             InsertSpaceIfNecessary();
                             _inHandleSkippableHexData = false;
@@ -4531,7 +4531,7 @@ public sealed partial class RtfToTextConverter
                     case '\n':
                         break;
                     default:
-                        if (_groupStackCount == startGroupLevel)
+                        if (_groupStackTopIndex == startGroupLevel)
                         {
                             _currentPos = IndexOfNextClosingBrace_ChunkAware();
                         }
@@ -4576,7 +4576,7 @@ public sealed partial class RtfToTextConverter
             return;
         }
 
-        int startGroupLevel = _groupStackCount;
+        int startGroupLevel = _groupStackTopIndex;
 
         int index = _currentPos;
         while (!_reachedEndOfStream)
@@ -4594,17 +4594,17 @@ public sealed partial class RtfToTextConverter
                 index >= _currentBufferChunkLength ||
                 GetByteAtPos(ref bufferRef, index - 1) == '\\')
             {
-                _groupStackCount = startGroupLevel;
+                _groupStackTopIndex = startGroupLevel;
                 return;
             }
             switch (GetByteAtPos(ref bufferRef, index))
             {
                 case (byte)'{':
-                    ++_groupStackCount;
+                    ++_groupStackTopIndex;
                     break;
                 case (byte)'}':
-                    --_groupStackCount;
-                    if (_groupStackCount < startGroupLevel)
+                    --_groupStackTopIndex;
+                    if (_groupStackTopIndex < startGroupLevel)
                     {
                         _currentPos = index + 1;
                         return;
@@ -4618,7 +4618,7 @@ public sealed partial class RtfToTextConverter
                          GetByteAtPos(ref bufferRef, index + 2) == 'i' &&
                          GetByteAtPos(ref bufferRef, index + 3) == 'n'))
                     {
-                        _groupStackCount = startGroupLevel;
+                        _groupStackTopIndex = startGroupLevel;
                         return;
                     }
                     break;
@@ -4805,7 +4805,7 @@ public sealed partial class RtfToTextConverter
             int ret = IncrementCurrentPos_Stream(_currentPos);
             if (_currentPos > _currentBufferChunkLength)
             {
-                if (_groupStackCount > 0)
+                if (_groupStackTopIndex > 0)
                 {
                     _currentPos = originalPos;
                     ThrowHelper.UnmatchedBraceException();
@@ -4824,7 +4824,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            if (_groupStackCount > 0)
+            if (_groupStackTopIndex > 0)
             {
                 ThrowHelper.UnmatchedBraceException();
             }
@@ -4854,14 +4854,14 @@ public sealed partial class RtfToTextConverter
 
     private const int _groupStackDefaultCapacity = 100;
     private int _groupStackCapacity;
-    private int _groupStackCount;
+    private int _groupStackTopIndex;
 
     private GroupStackFrame[] _groupStackFrames;
 
     [MemberNotNull(nameof(_groupStackFrames))]
     private void InitGroupStack()
     {
-        _groupStackCount = 0;
+        _groupStackTopIndex = 0;
         _groupStackCapacity = _groupStackDefaultCapacity;
 
         _groupStackFrames = new GroupStackFrame[_groupStackCapacity];
@@ -4882,7 +4882,7 @@ public sealed partial class RtfToTextConverter
     {
         // We don't really take a speed hit from this at all, but we support files with a stupid amount of
         // nested groups now.
-        if (_groupStackCount >= _groupStackCapacity - 1)
+        if (_groupStackTopIndex >= _groupStackCapacity - 1)
         {
             GroupStack_Grow();
         }
@@ -4890,9 +4890,9 @@ public sealed partial class RtfToTextConverter
         ref GroupStackFrame groupStackRef = ref GetArrayDataReference(_groupStackFrames);
         // .NET itself does this (ArraySortHelper.cs for example), so I'm just going to say it's safe.
         // ARM users yell at me if it isn't I guess.
-        Unsafe.Add(ref groupStackRef, _groupStackCount + 1) = Unsafe.Add(ref groupStackRef, _groupStackCount);
+        Unsafe.Add(ref groupStackRef, _groupStackTopIndex + 1) = Unsafe.Add(ref groupStackRef, _groupStackTopIndex);
 
-        ++_groupStackCount;
+        ++_groupStackTopIndex;
     }
 
     #region Current group
@@ -4900,49 +4900,49 @@ public sealed partial class RtfToTextConverter
     private bool GroupStack_CurrentSkipDest
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].SkipDestination;
+        get => _groupStackFrames[_groupStackTopIndex].SkipDestination;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].SkipDestination = value;
+        set => _groupStackFrames[_groupStackTopIndex].SkipDestination = value;
     }
 
     private SymbolFont GroupStack_CurrentSymbolFont
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].SymbolFont;
+        get => _groupStackFrames[_groupStackTopIndex].SymbolFont;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].SymbolFont = value;
+        set => _groupStackFrames[_groupStackTopIndex].SymbolFont = value;
     }
 
     private bool GroupStack_CurrentPropertyHidden
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].PropHidden;
+        get => _groupStackFrames[_groupStackTopIndex].PropHidden;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].PropHidden = value;
+        set => _groupStackFrames[_groupStackTopIndex].PropHidden = value;
     }
 
     private int GroupStack_CurrentPropertyUnicodeCharSkipCount
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].PropUnicodeSkipCharCount;
+        get => _groupStackFrames[_groupStackTopIndex].PropUnicodeSkipCharCount;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].PropUnicodeSkipCharCount = value;
+        set => _groupStackFrames[_groupStackTopIndex].PropUnicodeSkipCharCount = value;
     }
 
     private int GroupStack_CurrentPropertyFontNum
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].PropFontNum;
+        get => _groupStackFrames[_groupStackTopIndex].PropFontNum;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].PropFontNum = value;
+        set => _groupStackFrames[_groupStackTopIndex].PropFontNum = value;
     }
 
     private ushort GroupStack_CurrentPropertyLang
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => _groupStackFrames[_groupStackCount].PropLang;
+        get => _groupStackFrames[_groupStackTopIndex].PropLang;
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        set => _groupStackFrames[_groupStackCount].PropLang = value;
+        set => _groupStackFrames[_groupStackTopIndex].PropLang = value;
     }
 
     #endregion
@@ -4951,7 +4951,7 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void GroupStack_Reset()
     {
-        _groupStackCount = 0;
+        _groupStackTopIndex = 0;
 
         _groupStackFrames[0] = new GroupStackFrame
         {
