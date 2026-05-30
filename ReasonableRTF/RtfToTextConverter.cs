@@ -64,6 +64,14 @@ public sealed partial class RtfToTextConverter
 {
     #region Private fields
 
+    #region Options
+
+    private LineBreakStyle _lineBreakStyle;
+    private bool _convertHiddenText;
+    private ushort _defaultCodePage;
+
+    #endregion
+
     // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
     // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
     private static readonly byte[] _rtfHeaderBytes = @"{\rtf"u8.ToArray();
@@ -2170,7 +2178,6 @@ public sealed partial class RtfToTextConverter
     #endregion
 
     private readonly RtfToTextConverterOptions _defaultOptions;
-    private readonly RtfToTextConverterOptions _options;
 
     #endregion
 
@@ -2183,10 +2190,7 @@ public sealed partial class RtfToTextConverter
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        // Don't assign the passed-in options object directly! The user could have a reference to it and depend
-        // on it not changing. Deep copy it only!
         _defaultOptions = new RtfToTextConverterOptions();
-        _options = new RtfToTextConverterOptions();
 
         InitSymbolFontData();
 
@@ -2420,7 +2424,7 @@ public sealed partial class RtfToTextConverter
                 _leadingBufferByteCount = _maxSeekBackBytes;
             }
 
-            SetOptions(options, _options);
+            SetOptions(options);
 
             #region Reset
 
@@ -3131,7 +3135,7 @@ public sealed partial class RtfToTextConverter
             }
             case Property.Hidden:
             {
-                if (!_options._convertHiddenText)
+                if (!_convertHiddenText)
                 {
                     GroupStack_CurrentPropertyHidden = param > 0;
                 }
@@ -4095,7 +4099,7 @@ public sealed partial class RtfToTextConverter
     {
         if (codePage == 0)
         {
-            codePage = _options._defaultCodePage;
+            codePage = _defaultCodePage;
         }
 
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
@@ -4258,7 +4262,7 @@ public sealed partial class RtfToTextConverter
         else
         {
             _byteBuffer1[0] = codePoint;
-            DecodeAndCopyBytesIntoPlainText(_options._defaultCodePage, _byteBuffer1, 1);
+            DecodeAndCopyBytesIntoPlainText(_defaultCodePage, _byteBuffer1, 1);
         }
     }
 
@@ -4317,7 +4321,7 @@ public sealed partial class RtfToTextConverter
 
     private void AddLineBreak()
     {
-        switch (_options.LineBreakStyle)
+        switch (_lineBreakStyle)
         {
             case LineBreakStyle.EnvironmentDefault:
                 // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
@@ -4393,16 +4397,19 @@ public sealed partial class RtfToTextConverter
         return true;
     }
 
-    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    /*
+    This MUST have AggressiveInlining on it, or else .NET Framework x64 gets significantly slower. Also if we
+    pull the code inline physically, .NET Framework x64 is ALSO slower. No, we have to make this method separate
+    BUT THEN ALSO tell the JIT to inline it, and only then do we keep performance. Yeah okay sure.
+    */
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void SetOptions(RtfToTextConverterOptions src)
     {
-        dest._swapUppercaseAndLowercasePhiSymbols = src._swapUppercaseAndLowercasePhiSymbols;
-        dest._symbolFontA0Char = src._symbolFontA0Char;
-        dest._lineBreakStyle = src._lineBreakStyle;
-        dest._convertHiddenText = src._convertHiddenText;
-        dest._defaultCodePage = src._defaultCodePage;
+        _lineBreakStyle = src._lineBreakStyle;
+        _convertHiddenText = src._convertHiddenText;
+        _defaultCodePage = src._defaultCodePage;
 
-
-        if (dest._swapUppercaseAndLowercasePhiSymbols)
+        if (src._swapUppercaseAndLowercasePhiSymbols)
         {
             _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
             _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
@@ -4413,7 +4420,7 @@ public sealed partial class RtfToTextConverter
             _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
         }
 
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest._symbolFontA0Char switch
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = src._symbolFontA0Char switch
         {
             SymbolFontA0Char.EuroSign => '\x20AC',
             SymbolFontA0Char.NumericSpace => '\x2007',
