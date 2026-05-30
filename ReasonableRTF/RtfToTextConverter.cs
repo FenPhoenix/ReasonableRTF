@@ -123,7 +123,7 @@ public sealed partial class RtfToTextConverter
 
     private const char _unicodeUnknown_Char = '\u25A1';
 
-    private const int _defaultStreamBufferSize = 128;
+    private const int _defaultStreamBufferSize = 81920;
     private const int _maxSeekBackBytes = 8;
     private const int _minimumBufferSize = _maxSeekBackBytes * 2;
 
