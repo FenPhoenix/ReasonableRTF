@@ -2148,6 +2148,9 @@ public sealed partial class RtfToTextConverter
     the 16-byte boundary and we'd be up to 20. We would have to see if that's worse or if a linear stack search
     is worse.
     Unless the spec doesn't mean what I interpret it as. I'd have to test that too.
+    * Update: Nope, it does mean "the last font used and if it's not codepage 42 then quit", apparently. At least
+      that's how Word 2010 and LibreOffice both treat it. So, we wouldn't have to search the stack or add a field
+      or anything.
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
