@@ -42,11 +42,6 @@ TODO: Handle bulleted/numbered lists properly
 NOTE(Footnotes):
 RichTextBox doesn't convert footnotes at all.
 LibreOffice adds citation numbers but doesn't add the footnotes themselves.
-
-NOTE(Explicit use of Windows-1252 for "ansi default"):
-If we were Windows-only, there would be an argument to be made that we should use the system "ansi" codepage
-rather than 1252 explicitly. However, since we're cross-platform and other OSes don't have the concept of a
-system "ansi" codepage, we would then have to choose something explicit anyway, and we'd be right back to 1252.
 */
 
 using System.Buffers;
@@ -68,6 +63,14 @@ namespace ReasonableRTF;
 public sealed partial class RtfToTextConverter
 {
     #region Private fields
+
+    #region Options
+
+    private LineBreakStyle _lineBreakStyle;
+    private bool _convertHiddenText;
+    private ushort _defaultCodePage;
+
+    #endregion
 
     // Officially, the header is supposed to be "{\rtf1", but some files have just "{\rtf" or "{\rtf0" or other
     // crap. RichTextBox also only checks for "{\rtf", no doubt for that very reason.
@@ -118,7 +121,6 @@ public sealed partial class RtfToTextConverter
 
     private const int _undefinedLanguage = 1024;
 
-    private const int _windows1252 = 1252;
     private const char _unicodeUnknown_Char = '\u25A1';
 
     private const int _defaultStreamBufferSize = 81920;
@@ -160,7 +162,7 @@ public sealed partial class RtfToTextConverter
     private static readonly ushort[] _charSetToCodePage =
 #endif
     [
-        1252, // 0 - "ANSI" (1252)
+        1252, // 0 - "ANSI" (1252) (Yes, this is specified as _explicitly_ 1252, so this isn't a straggling 1252-default)
         0, // 1 - Default
         42, // 2 - Symbol
         NoCodePage, // 3
@@ -2128,19 +2130,24 @@ public sealed partial class RtfToTextConverter
     find the face name. The charset is specified by the \fcharsetN control word and SYMBOL_CHARSET is for
     N = 2. This corresponds to codepage 42."
 
-    However, there's also a weird quirk with the Windows RichEdit control (the "RichEdit50W" version only!),
-    which is that fonts that were set in a non-destination group above us ALSO count as potentially "last used".
-    In other words, these fonts leak right out of their stack frames. So that means we have to globally track the
-    last set font whose codepage is 42.
+    However, there's also a weird quirk with the "RichEdit50W" version of the Windows RichEdit control, which is
+    that fonts that were set in a non-destination group above us ALSO count as potentially "last used". In other
+    words, these fonts leak right out of their stack frames. So that means we have to globally track the last set
+    font whose codepage is 42.
 
-    However, this quirk ONLY appears to happen with the "RichEdit50W" version of the Windows RichEdit control
-    (doesn't happen with LibreOffice or Microsoft Word 2010 or "RichEdit20W"). So we just have to decide whose
+    However, this quirk appears to ONLY happen with the "RichEdit50W" version of the Windows RichEdit control
+    (it doesn't happen with LibreOffice or Microsoft Word 2010 or "RichEdit20W"). So we just have to decide whose
     expectations we're going to match. We're going with RichEdit's behavior for now.
 
-    TODO: We could just get rid of this and probably break nobody. We don't even break my test set except for the
-    one file I made specifically to test this quirk. I swear I remember coming across an affected file in the FM
-    readme set way back in the day, and that's how I discovered the quirk. Or else how tf did I discover it
-    otherwise?!
+    TODO: If we wanted to support this "properly", we would actually need another field in the group stack to
+    track codepage 42 fonts, because it says "last SYMBOL_CHARSET font control \fN used", which I take to mean
+    not "the last font used and if it's not codepage 42 then quit", but rather "the last codepage 42 font used
+    even if it's not the last font used". Which means we either keep track of codepage 42 fonts in the stack, or
+    we just search backward in the stack for the last used font when we need it.
+    The group stack frame is currently 13 bytes, so another 4 bytes for another font number puts us one byte over
+    the 16-byte boundary and we'd be up to 20. We would have to see if that's worse or if a linear stack search
+    is worse.
+    Unless the spec doesn't mean what I interpret it as. I'd have to test that too.
     */
     private int _lastUsedFontWithCodePage42 = NoFontNumber;
 
@@ -2168,7 +2175,6 @@ public sealed partial class RtfToTextConverter
     #endregion
 
     private readonly RtfToTextConverterOptions _defaultOptions;
-    private readonly RtfToTextConverterOptions _options;
 
     #endregion
 
@@ -2181,10 +2187,7 @@ public sealed partial class RtfToTextConverter
     {
         Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        // Don't assign the passed-in options object directly! The user could have a reference to it and depend
-        // on it not changing. Deep copy it only!
         _defaultOptions = new RtfToTextConverterOptions();
-        _options = new RtfToTextConverterOptions();
 
         InitSymbolFontData();
 
@@ -2418,7 +2421,7 @@ public sealed partial class RtfToTextConverter
                 _leadingBufferByteCount = _maxSeekBackBytes;
             }
 
-            SetOptions(options, _options);
+            SetOptions(options);
 
             #region Reset
 
@@ -2427,7 +2430,7 @@ public sealed partial class RtfToTextConverter
             GroupStack_Reset();
             _fontDictionary.Clear();
 
-            _headerCodePage = 1252;
+            _headerCodePage = 0;
             _headerDefaultFontSet = false;
             _headerDefaultFontNum = 0;
 
@@ -3067,7 +3070,7 @@ public sealed partial class RtfToTextConverter
                 return HandleUnicodeRun(ref bufferRef);
             }
             case SpecialType.HeaderCodePage:
-                _headerCodePage = IsNonEmptyUShortParam(param) ? (ushort)param : (ushort)1252;
+                _headerCodePage = IsNonEmptyUShortParam(param) ? (ushort)param : (ushort)0;
                 break;
             case SpecialType.DefaultFont:
                 if (!_headerDefaultFontSet)
@@ -3109,7 +3112,6 @@ public sealed partial class RtfToTextConverter
                 {
                     if (fontEntry.CodePage == 42)
                     {
-                        // We have to track this globally, per behavior of RichEdit and implied by the spec.
                         _lastUsedFontWithCodePage42 = param;
                     }
 
@@ -3130,7 +3132,7 @@ public sealed partial class RtfToTextConverter
             }
             case Property.Hidden:
             {
-                if (!_options.ConvertHiddenText)
+                if (!_convertHiddenText)
                 {
                     GroupStack_CurrentPropertyHidden = param > 0;
                 }
@@ -4092,6 +4094,11 @@ public sealed partial class RtfToTextConverter
     // All callers reject nulls or won't send nulls.
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
+        if (codePage == 0)
+        {
+            codePage = _defaultCodePage;
+        }
+
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
         {
             ref byte bytesRef = ref GetArrayDataReference(bytes);
@@ -4252,7 +4259,7 @@ public sealed partial class RtfToTextConverter
         else
         {
             _byteBuffer1[0] = codePoint;
-            DecodeAndCopyBytesIntoPlainText(_windows1252, _byteBuffer1, 1);
+            DecodeAndCopyBytesIntoPlainText(_defaultCodePage, _byteBuffer1, 1);
         }
     }
 
@@ -4311,45 +4318,47 @@ public sealed partial class RtfToTextConverter
 
     private void AddLineBreak()
     {
-        if (_options.LineBreakStyle == LineBreakStyle.EnvironmentDefault)
+        switch (_lineBreakStyle)
         {
-            // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
-            // cases.
-            switch (LineBreakStringLength)
-            {
-                case 2:
-                    PlainText_EnsureCapacity(_plainText_Count + 2);
-                    char[] plainText = _plainText;
-                    plainText[_plainText_Count] = LineBreakString[0];
-                    plainText[_plainText_Count + 1] = LineBreakString[1];
-                    _plainText_Count += 2;
-                    break;
-                case 1:
-                    PlainText_Add(LineBreakString[0]);
-                    break;
-                default:
+            case LineBreakStyle.EnvironmentDefault:
+                // Try to be efficient - should be branch predictor friendly with no loop overhead in the expected
+                // cases.
+                switch (LineBreakStringLength)
                 {
-                    // Shouldn't ever hit this, but maybe Microsoft vibe-codes a patch into Windows that makes
-                    // the line break be three characters. Just kidding. Probably.
-                    for (int i = 0; i < LineBreakString.Length; i++)
+                    case 2:
+                        PlainText_EnsureCapacity(_plainText_Count + 2);
+                        char[] plainText = _plainText;
+                        plainText[_plainText_Count] = LineBreakString[0];
+                        plainText[_plainText_Count + 1] = LineBreakString[1];
+                        _plainText_Count += 2;
+                        break;
+                    case 1:
+                        PlainText_Add(LineBreakString[0]);
+                        break;
+                    default:
                     {
-                        PlainText_Add(LineBreakString[i]);
+                        // Shouldn't ever hit this, but maybe Microsoft vibe-codes a patch into Windows that makes
+                        // the line break be three characters. Just kidding. Probably.
+                        for (int i = 0; i < LineBreakString.Length; i++)
+                        {
+                            PlainText_Add(LineBreakString[i]);
+                        }
+                        break;
                     }
-                    break;
                 }
+                break;
+            case LineBreakStyle.CRLF:
+            {
+                PlainText_EnsureCapacity(_plainText_Count + 2);
+                char[] plainText = _plainText;
+                plainText[_plainText_Count] = '\r';
+                plainText[_plainText_Count + 1] = '\n';
+                _plainText_Count += 2;
+                break;
             }
-        }
-        else if (_options.LineBreakStyle == LineBreakStyle.CRLF)
-        {
-            PlainText_EnsureCapacity(_plainText_Count + 2);
-            char[] plainText = _plainText;
-            plainText[_plainText_Count] = '\r';
-            plainText[_plainText_Count + 1] = '\n';
-            _plainText_Count += 2;
-        }
-        else
-        {
-            PlainText_Add('\n');
+            default:
+                PlainText_Add('\n');
+                break;
         }
     }
 
@@ -4385,14 +4394,13 @@ public sealed partial class RtfToTextConverter
         return true;
     }
 
-    private void SetOptions(RtfToTextConverterOptions src, RtfToTextConverterOptions dest)
+    private void SetOptions(RtfToTextConverterOptions src)
     {
-        dest._lineBreakStyle = src._lineBreakStyle;
-        dest._convertHiddenText = src._convertHiddenText;
-        dest._swapUppercaseAndLowercasePhiSymbols = src._swapUppercaseAndLowercasePhiSymbols;
-        dest._symbolFontA0Char = src._symbolFontA0Char;
+        _lineBreakStyle = src._lineBreakStyle;
+        _convertHiddenText = src._convertHiddenText;
+        _defaultCodePage = src._defaultCodePage;
 
-        if (dest._swapUppercaseAndLowercasePhiSymbols)
+        if (src._swapUppercaseAndLowercasePhiSymbols)
         {
             _symbolFontTables[(int)SymbolFont.Symbol][0x66 - 0x20] = 0x03D5;
             _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03C6;
@@ -4403,7 +4411,7 @@ public sealed partial class RtfToTextConverter
             _symbolFontTables[(int)SymbolFont.Symbol][0x6A - 0x20] = 0x03D5;
         }
 
-        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = dest._symbolFontA0Char switch
+        _symbolFontTables[(int)SymbolFont.Symbol][0xA0 - 0x20] = src._symbolFontA0Char switch
         {
             SymbolFontA0Char.EuroSign => '\x20AC',
             SymbolFontA0Char.NumericSpace => '\x2007',
@@ -5031,10 +5039,6 @@ public sealed partial class RtfToTextConverter
     For "v"
     \v to make all plain text hidden (not output to the conversion stream), \v0 to make it shown again
 
-    For "ansi"
-    The spec calls this "ANSI (the default)" but says nothing about what codepage that actually means.
-    "ANSI" is often misused to mean one of the Windows codepages, so I'll assume it's Windows-1252.
-
     For "mac"
     The spec calls this "Apple Macintosh" but again says nothing about what codepage that is. I'll
     assume 10000 ("Mac Roman")
@@ -5106,7 +5110,7 @@ public sealed partial class RtfToTextConverter
 // Entry 82
         new Symbol("nestcell", 0, false, KeywordType.Character, '\t'),
 // Entry 0
-        new Symbol("ansi", 1252, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        new Symbol("ansi", 0, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
         null,
 // Entry 51
         new Symbol("ftnsep", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
@@ -5217,7 +5221,7 @@ public sealed partial class RtfToTextConverter
 // Entry 12
         new Symbol("u", 0, false, KeywordType.Special, (ushort)SpecialType.UnicodeChar),
 // Entry 4
-        new Symbol("ansicpg", 1252, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        new Symbol("ansicpg", 0, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
         null, null, null,
 // Entry 23
         new Symbol("endash", 0, false, KeywordType.Character, '\x2013'),

@@ -35,6 +35,7 @@ public sealed class RtfToTextConverterOptions
     internal SymbolFontA0Char _symbolFontA0Char = SymbolFontA0Char.EuroSign;
     internal LineBreakStyle _lineBreakStyle = LineBreakStyle.EnvironmentDefault;
     internal bool _convertHiddenText;
+    internal ushort _defaultCodePage = 1252;
 
     /// <summary>
     /// Gets or sets whether to swap the uppercase and lowercase Greek phi characters in the Symbol font to Unicode
@@ -53,6 +54,7 @@ public sealed class RtfToTextConverterOptions
 
     /// <summary>
     /// Gets or sets the character at index 0xA0 (160) in the Symbol font to Unicode translation table.
+    /// <para/>
     /// This character is nominally the Euro sign, but in older versions of the Symbol font it may have been a
     /// numeric space or undefined.
     /// <para/>
@@ -85,5 +87,23 @@ public sealed class RtfToTextConverterOptions
     {
         get => _convertHiddenText;
         set => _convertHiddenText = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the code page to use when an rtf file requests the "default code page".
+    /// <para/>
+    /// If set to 0, the default code page will be determined automatically based on your OS and which version of
+    /// NET you're using.
+    /// <br/>
+    /// On .NET Framework for Windows, it will normally be your actual Windows ANSI codepage (1252, for example). On .NET, it will
+    /// normally be UTF-8, which is probably not what you want. Hence, it's recommended to set this property
+    /// to something other than 0.
+    /// <para/>
+    /// The default value is 1252.
+    /// </summary>
+    public ushort DefaultCodePage
+    {
+        get => _defaultCodePage;
+        set => _defaultCodePage = value;
     }
 }

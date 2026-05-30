@@ -22,9 +22,7 @@ public static class RTF_SymbolListGenSource
     {
         #region Code pages / charsets / fonts
 
-        // The spec calls this "ANSI (the default)" but says nothing about what codepage that actually means.
-        // "ANSI" is often misused to mean one of the Windows codepages, so I'll assume it's Windows-1252.
-        new Symbol("ansi", 1252, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        new Symbol("ansi", 0, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
 
         new Symbol("pc", 437, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
 
@@ -33,7 +31,7 @@ public static class RTF_SymbolListGenSource
         new Symbol("mac", 10000, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
 
         new Symbol("pca", 850, true, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
-        new Symbol("ansicpg", 1252, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
+        new Symbol("ansicpg", 0, false, KeywordType.Special, (ushort)SpecialType.HeaderCodePage),
 
         new Symbol("deff", 0, false, KeywordType.Special, (ushort)SpecialType.DefaultFont),
 
