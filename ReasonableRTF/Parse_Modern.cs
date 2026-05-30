@@ -148,15 +148,13 @@ public sealed partial class RtfToTextConverter
         {
             if (System.Numerics.Vector.IsHardwareAccelerated)
             {
-                _currentPos = currentPosLocal;
-                bool finishedOnNonPlainTextChar = SIMD_CopyPlainText(ref bufferRef);
+                bool finishedOnNonPlainTextChar = SIMD_CopyPlainText(ref bufferRef, currentPosLocal, out currentPosLocal);
 
                 if (finishedOnNonPlainTextChar)
                 {
+                    _currentPos = currentPosLocal;
                     return;
                 }
-
-                currentPosLocal = _currentPos;
             }
 
             if (currentPosLocal < (_currentBufferChunkLength - 1) - _plainTextRunFastPathAmountBackFromBufferEnd &&
