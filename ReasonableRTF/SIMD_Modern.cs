@@ -432,17 +432,17 @@ public sealed partial class RtfToTextConverter
     }
 
     // Heavily modified version of .NET SpanHelpers.IndexOfAnyValueType().
-    private bool SIMD_CopyPlainText(ref byte bufferRef, int currentPosLocal, out int outCurrentPos)
+    private bool SIMD_CopyPlainText(ref byte bufferRef)
     {
-        outCurrentPos = currentPosLocal;
-
         if (!Vector.IsHardwareAccelerated)
         {
             return false;
         }
 
+        int currentPosLocal = _currentPos;
+
         int startIndex = currentPosLocal;
-        int spanLength = _currentBufferChunkLength - currentPosLocal;
+        int spanLength = _currentBufferChunkLength - startIndex;
 
         if (Vector512.IsHardwareAccelerated && spanLength >= Vector512<byte>.Count)
         {
@@ -516,7 +516,7 @@ public sealed partial class RtfToTextConverter
                                     goto outerLoop;
                                 }
 
-                                outCurrentPos = currentPosLocal;
+                                _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
@@ -534,7 +534,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            outCurrentPos = currentPosLocal + index;
+                            _currentPos = currentPosLocal + index;
                             return true;
                         }
 
@@ -545,7 +545,7 @@ public sealed partial class RtfToTextConverter
                 else if (equals != Vector512<byte>.Zero)
                 {
                     int index = BitOperations.TrailingZeroCount(equals.ExtractMostSignificantBits());
-                    outCurrentPos = currentPosLocal + index;
+                    _currentPos = currentPosLocal + index;
                     if (index == 0) return true;
                     CopyVector(current, index);
                     return true;
@@ -632,7 +632,7 @@ public sealed partial class RtfToTextConverter
                                     goto outerLoop;
                                 }
 
-                                outCurrentPos = currentPosLocal;
+                                _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
@@ -650,7 +650,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            outCurrentPos = currentPosLocal + index;
+                            _currentPos = currentPosLocal + index;
                             return true;
                         }
 
@@ -661,7 +661,7 @@ public sealed partial class RtfToTextConverter
                 else if (equals != Vector256<byte>.Zero)
                 {
                     int index = BitOperations.TrailingZeroCount(equals.ExtractMostSignificantBits());
-                    outCurrentPos = currentPosLocal + index;
+                    _currentPos = currentPosLocal + index;
                     if (index == 0) return true;
                     CopyVector(current, index);
                     return true;
@@ -748,7 +748,7 @@ public sealed partial class RtfToTextConverter
                                     goto outerLoop;
                                 }
 
-                                outCurrentPos = currentPosLocal;
+                                _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
@@ -766,7 +766,7 @@ public sealed partial class RtfToTextConverter
                         else
                         {
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            outCurrentPos = currentPosLocal + index;
+                            _currentPos = currentPosLocal + index;
                             return true;
                         }
 
@@ -777,7 +777,7 @@ public sealed partial class RtfToTextConverter
                 else if (equals != Vector128<byte>.Zero)
                 {
                     int index = UtilHelper.Vector128_TrailingZeroCount(equals.ExtractMostSignificantBits());
-                    outCurrentPos = currentPosLocal + index;
+                    _currentPos = currentPosLocal + index;
                     if (index == 0) return true;
                     CopyVector(current, index);
                     return true;
@@ -797,7 +797,7 @@ public sealed partial class RtfToTextConverter
         // without doing anything and we'll take the non-SIMD path. We don't fall back to Vector64 because that's
         // slower than just doing the 8 bytes scalar.
 
-        outCurrentPos = currentPosLocal;
+        _currentPos = currentPosLocal;
         return false;
     }
 
