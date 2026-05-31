@@ -2506,8 +2506,6 @@ public sealed partial class RtfToTextConverter
                 ArrayPool<byte>.Shared.Return(_buffer);
             }
             _buffer = Array.Empty<byte>();
-            _bufferLength = 0;
-            _currentBufferChunkLength = 0;
             _bufferedStream = null;
         }
     }
