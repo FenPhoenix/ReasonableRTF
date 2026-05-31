@@ -3852,17 +3852,17 @@ public sealed partial class RtfToTextConverter
 
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
         {
-            ref byte bytesRef = ref GetArrayDataReference(bytes);
-            ref char charsRef = ref GetArrayDataReference(_plainText);
-            ref char mappingsRef = ref GetArrayDataReference(mappingTable);
-
             PlainText_EnsureCapacity(_plainText_Count + byteCount);
+
+            ref byte bytesRef = ref GetArrayDataReference(bytes);
+            ref char plainTextRef = ref GetArrayDataReference(_plainText);
+            ref char mappingsRef = ref GetArrayDataReference(mappingTable);
 
             for (int i = 0, charsI = _plainText_Count; i < byteCount; i++, charsI++)
             {
                 byte b = Unsafe.AddByteOffset(ref bytesRef, (nint)i);
                 char c = Unsafe.Add(ref mappingsRef, (nint)b);
-                Unsafe.Add(ref charsRef, (nint)charsI) = c;
+                Unsafe.Add(ref plainTextRef, (nint)charsI) = c;
             }
             _plainText_Count += byteCount;
         }
@@ -3870,8 +3870,41 @@ public sealed partial class RtfToTextConverter
         {
             try
             {
-                PlainText_EnsureCapacity(_plainText_Count + byteCount * 4);
+                PlainText_EnsureCapacity(_plainText_Count + (byteCount * 4));
                 _plainText_Count += GetEncodingFromCachedList(codePage).GetChars(bytes, 0, byteCount, _plainText, _plainText_Count);
+            }
+            catch
+            {
+                PlainText_Add(_unicodeUnknown_Char);
+            }
+        }
+    }
+
+    private void DecodeAndCopyByteIntoPlainText(ushort codePage, byte b)
+    {
+        if (codePage == 0)
+        {
+            codePage = _defaultCodePage;
+        }
+
+        if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
+        {
+            PlainText_EnsureCapacity(_plainText_Count + 1);
+
+            ref char charsRef = ref GetArrayDataReference(_plainText);
+            ref char mappingsRef = ref GetArrayDataReference(mappingTable);
+
+            char c = Unsafe.Add(ref mappingsRef, (nint)b);
+            Unsafe.Add(ref charsRef, (nint)_plainText_Count) = c;
+            _plainText_Count += 1;
+        }
+        else
+        {
+            try
+            {
+                _byteBuffer1[0] = b;
+                PlainText_EnsureCapacity(_plainText_Count + 4);
+                _plainText_Count += GetEncodingFromCachedList(codePage).GetChars(_byteBuffer1, 0, 1, _plainText, _plainText_Count);
             }
             catch
             {
@@ -4009,8 +4042,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            _byteBuffer1[0] = codePoint;
-            DecodeAndCopyBytesIntoPlainText(_defaultCodePage, _byteBuffer1, 1);
+            DecodeAndCopyByteIntoPlainText(_defaultCodePage, codePoint);
         }
     }
 
