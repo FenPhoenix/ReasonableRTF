@@ -4129,9 +4129,13 @@ public sealed partial class RtfToTextConverter
         }
         else if (_currentBufferChunkLength >= _leadingBufferByteCount + _rtfHeaderBytes.Length)
         {
-            for (int i = _leadingBufferByteCount; i < _rtfHeaderBytes.Length; i++)
+            for (int bufferI = _leadingBufferByteCount,
+                 rtfHeaderBytesI = 0;
+                 rtfHeaderBytesI < _rtfHeaderBytes.Length;
+                 bufferI++,
+                 rtfHeaderBytesI++)
             {
-                if (GetByte(i) != _rtfHeaderBytes[i])
+                if (_buffer[bufferI] != _rtfHeaderBytes[rtfHeaderBytesI])
                 {
                     return false;
                 }
