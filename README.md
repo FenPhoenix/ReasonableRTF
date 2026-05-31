@@ -124,10 +124,10 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 3,331.340 ms | 6.2250 ms | 5.5183 ms |   43.59 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 1,432.217 ms | 3.7089 ms | 3.4693 ms |    2.47 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    16.863 ms | 0.0209 ms | 0.0195 ms | 8611.27 MB/s | 198x     |
-| ReasonableRTF_NoImageSet          |     3.959 ms | 0.0049 ms | 0.0044 ms |  895.09 MB/s | 362x     |
-| ReasonableRTF_FullSet_Streamed    |    18.687 ms | 0.0526 ms | 0.0492 ms | 7770.74 MB/s | 178x     |
-| ReasonableRTF_NoImageSet_Streamed |     4.052 ms | 0.0153 ms | 0.0143 ms |  874.55 MB/s | 353x     |
+| ReasonableRTF_FullSet             |    16.565 ms | 0.0453 ms | 0.0424 ms | 8766.18 MB/s | 201x     |
+| ReasonableRTF_NoImageSet          |     3.875 ms | 0.0042 ms | 0.0039 ms |  914.49 MB/s | 370x     |
+| ReasonableRTF_FullSet_Streamed    |    18.233 ms | 0.0333 ms | 0.0295 ms | 7964.23 MB/s | 183x     |
+| ReasonableRTF_NoImageSet_Streamed |     3.951 ms | 0.0086 ms | 0.0080 ms |  896.90 MB/s | 362x     |
 
 ### .NET Framework 4.8 64-bit
 
@@ -144,10 +144,10 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|----------:|----------:|-------------:|----------|
 | RichTextBox_FullSet               | 2,779.775 ms | 3.9318 ms | 3.2833 ms |   52.24 MB/s | 1x       |
 | RichTextBox_NoImageSet            |   992.237 ms | 2.5478 ms | 2.2585 ms |    3.57 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    21.048 ms | 0.0359 ms | 0.0336 ms | 6899.08 MB/s | 132x     |
-| ReasonableRTF_NoImageSet          |     5.295 ms | 0.0194 ms | 0.0172 ms |  669.25 MB/s | 187x     |
-| ReasonableRTF_FullSet_Streamed    |    23.462 ms | 0.0728 ms | 0.0681 ms | 6189.23 MB/s | 118x     |
-| ReasonableRTF_NoImageSet_Streamed |     5.394 ms | 0.0167 ms | 0.0140 ms |  656.96 MB/s | 184x     |
+| ReasonableRTF_FullSet             |    20.957 ms | 0.1130 ms | 0.1057 ms | 6929.03 MB/s | 133x     |
+| ReasonableRTF_NoImageSet          |     5.220 ms | 0.0205 ms | 0.0192 ms |  678.86 MB/s | 190x     |
+| ReasonableRTF_FullSet_Streamed    |    23.391 ms | 0.0713 ms | 0.0667 ms | 6208.02 MB/s | 119x     |
+| ReasonableRTF_NoImageSet_Streamed |     5.301 ms | 0.0166 ms | 0.0155 ms |  668.49 MB/s | 187x     |
 
 ### .NET Framework 4.8 32-bit
 
@@ -164,10 +164,10 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 |---------------------------------- |-------------:|------------:|------------:|-------------:|----------|
 | RichTextBox_FullSet               | 6,932.056 ms | 131.6848 ms | 140.9013 ms |   20.95 MB/s | 1x       |
 | RichTextBox_NoImageSet            | 2,885.139 ms |  57.0121 ms |  81.7651 ms |    1.23 MB/s | 1x       |
-| ReasonableRTF_FullSet             |    40.329 ms |   0.6888 ms |   0.6106 ms | 3600.68 MB/s | 172x     |
-| ReasonableRTF_NoImageSet          |     7.724 ms |   0.0110 ms |   0.0097 ms |  458.79 MB/s | 374x     |
-| ReasonableRTF_FullSet_Streamed    |    44.410 ms |   0.0754 ms |   0.0589 ms | 3269.80 MB/s | 156x     |
-| ReasonableRTF_NoImageSet_Streamed |     7.699 ms |   0.0232 ms |   0.0217 ms |  460.28 MB/s | 375x     |
+| ReasonableRTF_FullSet             |    39.753 ms |   0.0892 ms |   0.0791 ms | 3652.85 MB/s | 174x     |
+| ReasonableRTF_NoImageSet          |     7.597 ms |   0.0188 ms |   0.0166 ms |  466.46 MB/s | 380x     |
+| ReasonableRTF_FullSet_Streamed    |    44.062 ms |   0.1640 ms |   0.1534 ms | 3295.62 MB/s | 157x     |
+| ReasonableRTF_NoImageSet_Streamed |     7.661 ms |   0.0198 ms |   0.0185 ms |  462.56 MB/s | 377x     |
 
 - - -
 
