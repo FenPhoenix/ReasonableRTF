@@ -4129,13 +4129,11 @@ public sealed partial class RtfToTextConverter
         }
         else if (_currentBufferChunkLength >= _leadingBufferByteCount + _rtfHeaderBytes.Length)
         {
-            for (int bufferI = _leadingBufferByteCount,
-                 rtfHeaderBytesI = 0;
-                 rtfHeaderBytesI < _rtfHeaderBytes.Length;
-                 bufferI++,
-                 rtfHeaderBytesI++)
+            for (int i = 0; i < _rtfHeaderBytes.Length; i++)
             {
-                if (_buffer[bufferI] != _rtfHeaderBytes[rtfHeaderBytesI])
+                // GetByte() because if we use the raw buffer, Framework x64 goes back to its trailer and refuses
+                // to perform. Even though we never hit this path. Ugh.
+                if (GetByte(_leadingBufferByteCount + i) != _rtfHeaderBytes[i])
                 {
                     return false;
                 }
