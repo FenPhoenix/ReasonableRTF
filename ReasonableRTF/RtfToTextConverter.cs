@@ -3850,11 +3850,9 @@ public sealed partial class RtfToTextConverter
 
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
         {
-            PlainText_EnsureCapacity(_plainText_Count + byteCount);
-
             ref byte bytesRef = ref GetArrayDataReference(bytes);
-            ref char plainTextRef = ref GetArrayDataReference(_plainText);
             ref char mappingsRef = ref GetArrayDataReference(mappingTable);
+            ref char plainTextRef = ref PlainText_EnsureCapacityAndGetRef(_plainText_Count + byteCount);
 
             for (int i = 0, charsI = _plainText_Count; i < byteCount; i++, charsI++)
             {
@@ -3887,13 +3885,11 @@ public sealed partial class RtfToTextConverter
 
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
         {
-            PlainText_EnsureCapacity(_plainText_Count + 1);
-
-            ref char charsRef = ref GetArrayDataReference(_plainText);
             ref char mappingsRef = ref GetArrayDataReference(mappingTable);
+            ref char plainTextRef = ref PlainText_EnsureCapacityAndGetRef(_plainText_Count + 1);
 
             char c = Unsafe.Add(ref mappingsRef, (nint)b);
-            Unsafe.Add(ref charsRef, (nint)_plainText_Count) = c;
+            Unsafe.Add(ref plainTextRef, (nint)_plainText_Count) = c;
             _plainText_Count += 1;
         }
         else
@@ -3911,13 +3907,6 @@ public sealed partial class RtfToTextConverter
         }
     }
 
-    /// <summary>
-    /// If <paramref name="codePage"/> is in the cached list, returns the Encoding associated with it;
-    /// otherwise, gets the Encoding for <paramref name="codePage"/> and places it in the cached list
-    /// for next time.
-    /// </summary>
-    /// <param name="codePage"></param>
-    /// <returns></returns>
     private Encoding GetEncodingFromCachedList(ushort codePage)
     {
         if (_encodings.TryGetValue(codePage, out Encoding? result))

@@ -27,6 +27,13 @@ public sealed partial class RtfToTextConverter
         PlainText_Grow(min);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private ref char PlainText_EnsureCapacityAndGetRef(int min)
+    {
+        PlainText_EnsureCapacity(min);
+        return ref GetArrayDataReference(_plainText);
+    }
+
     [MethodImpl(MethodImplOptions.NoInlining)]
     private void PlainText_Grow(int min)
     {
