@@ -3000,7 +3000,7 @@ public sealed partial class RtfToTextConverter
             else
             {
                 SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.Unset)
+                if (symbolFont > SymbolFont.None)
                 {
                     for (int i = 0; i < _hexBuffer_Count; i++)
                     {
@@ -3407,7 +3407,7 @@ public sealed partial class RtfToTextConverter
     private void FieldInst_AddChar(in FontEntry fontEntry, ushort param)
     {
         SymbolFont symbolFont = fontEntry.SymbolFont;
-        if (symbolFont > SymbolFont.Unset)
+        if (symbolFont > SymbolFont.None)
         {
             uint codePoint = _symbolFontTables[(int)symbolFont][param - 0x20];
             AddCodePointToUnicodeBuffer(codePoint);
@@ -3974,7 +3974,7 @@ public sealed partial class RtfToTextConverter
             if (_fontDictionary.TryGetValue(fontNum, out FontEntry fontEntry) && fontEntry.CodePage == 42)
             {
                 SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.Unset)
+                if (symbolFont > SymbolFont.None)
                 {
                     return _symbolFontTables[(int)symbolFont][returnCodePoint - 0x20];
                 }
@@ -4010,7 +4010,7 @@ public sealed partial class RtfToTextConverter
         }
 
         SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-        if (symbolFont > SymbolFont.Unset && ch <= byte.MaxValue)
+        if (symbolFont > SymbolFont.None && ch <= byte.MaxValue)
         {
             AddCharFromConversionList((byte)ch, _symbolFontTables[(int)symbolFont]);
         }

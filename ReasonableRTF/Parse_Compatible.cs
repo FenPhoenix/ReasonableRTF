@@ -50,7 +50,7 @@ public sealed partial class RtfToTextConverter
                             if (Unsafe.AddByteOffset(ref isNonPlainTextCharRef, (nint)currentChar))
                             {
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-                                if (symbolFont > SymbolFont.Unset)
+                                if (symbolFont > SymbolFont.None)
                                 {
                                     AddCharFromConversionList((byte)ch, _symbolFontTables[(int)symbolFont]);
                                 }
@@ -80,7 +80,7 @@ public sealed partial class RtfToTextConverter
         _currentPos--;
 
         SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-        if (symbolFont > SymbolFont.Unset)
+        if (symbolFont > SymbolFont.None)
         {
             uint[] table = _symbolFontTables[(int)symbolFont];
             while (!_reachedEndOfStream)

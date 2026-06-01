@@ -27,8 +27,8 @@ namespace ReasonableRTF.Enums;
 internal enum SymbolFont : byte
 {
     // Non-font values at the start, to avoid having to check the top bounds
-    None,
     Unset,
+    None,
     Symbol,
     Wingdings,
     Wingdings2,
