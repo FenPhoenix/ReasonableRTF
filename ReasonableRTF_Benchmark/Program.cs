@@ -124,7 +124,7 @@ public class Test
     }
 
     [Benchmark]
-    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Array", "All")]
+    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Array", "ReasonableRTF_Array_Full", "All")]
     public void ReasonableRTF_FullSet()
     {
         for (int i = 0; i < _fullSetByteArrays.Length; i++)
@@ -134,7 +134,7 @@ public class Test
     }
 
     [Benchmark]
-    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Array", "All")]
+    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Array", "ReasonableRTF_Array_Small", "All")]
     public void ReasonableRTF_NoImageSet()
     {
         for (int i = 0; i < _smallSetByteArrays.Length; i++)
@@ -144,7 +144,7 @@ public class Test
     }
 
     [Benchmark]
-    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Stream", "All")]
+    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Stream", "ReasonableRTF_Stream_Full", "All")]
     public void ReasonableRTF_FullSet_Streamed()
     {
         for (int i = 0; i < _fullSetMemStreams_Chunked.Length; i++)
@@ -156,7 +156,7 @@ public class Test
     }
 
     [Benchmark]
-    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Stream", "All")]
+    [BenchmarkCategory("ReasonableRTF", "ReasonableRTF_Stream", "ReasonableRTF_Stream_Small", "All")]
     public void ReasonableRTF_NoImageSet_Streamed()
     {
         for (int i = 0; i < _smallSetMemStreams_Chunked.Length; i++)
@@ -179,6 +179,10 @@ internal static class Program
         Console.WriteLine("Pass --allCategories=reasonablertf to run only the ReasonableRTF benchmarks.");
         Console.WriteLine("Pass --allCategories=reasonablertf_array to run only the ReasonableRTF byte array benchmarks.");
         Console.WriteLine("Pass --allCategories=reasonablertf_stream to run only the ReasonableRTF stream benchmarks.");
+        Console.WriteLine("Pass --allCategories=reasonablertf_array_full to run only the ReasonableRTF byte array benchmarks (full set).");
+        Console.WriteLine("Pass --allCategories=reasonablertf_array_small to run only the ReasonableRTF byte array benchmarks (small set).");
+        Console.WriteLine("Pass --allCategories=reasonablertf_stream_full to run only the ReasonableRTF stream benchmarks (full set).");
+        Console.WriteLine("Pass --allCategories=reasonablertf_stream_small to run only the ReasonableRTF stream benchmarks (small set).");
         Console.WriteLine("Pass --allCategories=all (or pass no arguments) to run all benchmarks.");
         Console.WriteLine();
         Console.WriteLine("-----------------------");
