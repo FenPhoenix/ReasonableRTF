@@ -36,7 +36,7 @@ public static class RTF_SymbolListGenSource
         new Symbol("deff", 0, false, KeywordType.Special, (ushort)SpecialType.DefaultFont),
 
         new Symbol("fonttbl", 0, false, KeywordType.Special, (ushort)SpecialType.FontTable),
-        new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
+        //new Symbol("f", 0, false, KeywordType.Property, (ushort)Property.FontNum),
         new Symbol("fcharset", ushort.MaxValue, false, KeywordType.FCharset, 0),
         new Symbol("cpg", ushort.MaxValue, false, KeywordType.CPG, 0),
 
@@ -208,6 +208,9 @@ public static class RTF_SymbolListGenSource
         using (Process.Start(
                    gperfExePath,
                    "--output-file=" + Path.Combine(genDir, "gperfOutputFile.txt") + " " +
+                   // -r = random, which increases the size of the table, leading to faster misses from more null
+                   // hits
+                   "-r " +
                    "-t " +
                    gperfFormatFile))
         {
