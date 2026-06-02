@@ -4805,10 +4805,32 @@ public sealed partial class RtfToTextConverter
         408, 408, 408, 408, 408, 408, 408, 408, 408, 408,
         408, 408, 408, 408, 408, 408, 408, 408, 408, 408,
         408, 408, 408, 408, 408, 408, 408, 408, 408, 408,
-        408, 408, 408, 408, 408, 408
+        408, 408, 408, 408, 408, 408,
     ];
 
     private static readonly Symbol _fontSymbol = new("f", 0, false, KeywordType.Property, (ushort)Property.FontNum);
+
+#if NET8_0_OR_GREATER
+    private static ReadOnlySpan<byte> _symbolFirstCharTable =>
+#else
+    private static readonly byte[] _symbolFirstCharTable =
+#endif
+    [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, 0, 116, 0, 117, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 112, 0, 0, 112, 0, 0, 0, 0, 116, 0, 0,
+        0, 99, 0, 0, 120, 0, 112, 104, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 116, 0, 99, 0, 0, 0, 101, 0, 116, 0, 108,
+        0, 0, 0, 112, 0, 108, 0, 112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97, 0, 0, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 115, 0, 0, 0, 0, 99, 104, 104, 102, 0, 108, 0, 116, 0, 0, 0, 0, 108, 0, 100, 102, 99, 0, 99, 108, 101,
+        109, 0, 114, 97, 114, 0, 0, 102, 98, 0, 104, 0, 112, 0, 110, 0, 0, 115, 0, 0, 0, 102, 97, 0, 0, 0, 112,
+        0, 0, 101, 0, 0, 0, 0, 116, 0, 0, 0, 0, 115, 0, 0, 0, 102, 111, 0, 98, 0, 0, 0, 0, 0, 99, 0, 118, 98, 0,
+        0, 0, 100, 114, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 122, 0, 0, 0, 0, 122, 0, 0, 112, 99, 0, 110, 0,
+        0, 0, 0, 0, 113, 101, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 111, 100, 0, 0, 0, 0, 122, 0, 0,
+        105, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 102, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 114, 0, 0, 114, 0, 0,
+        0, 0, 0, 0, 0, 0, 102, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 102,
+    ];
 
     /*
     For "listtext", "pntext"
@@ -5151,18 +5173,15 @@ public sealed partial class RtfToTextConverter
 
             if (key <= MAX_HASH_VALUE)
             {
-                Symbol? symbol = _symbolTable[key];
-                if (symbol == null)
+                byte firstChar = _symbolFirstCharTable[key];
+                if (keywordRef != firstChar)
                 {
                     return null;
                 }
+
+                Symbol symbol = _symbolTable[key]!;
 
                 if (len != symbol.KeywordLength)
-                {
-                    return null;
-                }
-
-                if (keywordRef != symbol.KeywordFirstChar)
                 {
                     return null;
                 }
@@ -5213,11 +5232,13 @@ public sealed partial class RtfToTextConverter
 
         if (key <= MAX_HASH_VALUE)
         {
-            Symbol? symbol = _symbolTable[key];
-            if (symbol == null)
+            byte firstChar = _symbolFirstCharTable[key];
+            if (keywordRef != firstChar)
             {
                 return null;
             }
+
+            Symbol symbol = _symbolTable[key]!;
 
             // Checking the entire keyword is one instruction, so no need for all the shortcutting from the
             // scalar version here.
