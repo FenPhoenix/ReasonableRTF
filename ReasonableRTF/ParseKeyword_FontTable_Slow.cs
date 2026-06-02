@@ -49,11 +49,11 @@ public sealed partial class RtfToTextConverter
                 hasParam = true;
                 checked
                 {
-                    param = ch - '0';
-                    ch = (char)GetByte(IncrementCurrentPos());
-
                     try
                     {
+                        param = ch - '0';
+                        ch = (char)GetByte(IncrementCurrentPos());
+
                         int paramLength;
                         for (paramLength = 1;
                              paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
@@ -99,8 +99,8 @@ public sealed partial class RtfToTextConverter
             {
                 if (_skipDestinationIfUnknown)
                 {
-                    SkipDest(ref bufferRef);
                     _skipDestinationIfUnknown = false;
+                    SkipDest(ref bufferRef);
                 }
                 return RtfError.OK;
             }
