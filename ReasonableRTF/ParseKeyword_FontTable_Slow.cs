@@ -49,16 +49,19 @@ public sealed partial class RtfToTextConverter
                 hasParam = true;
                 checked
                 {
+                    param = ch - '0';
+                    ch = (char)GetByte(IncrementCurrentPos());
+
                     try
                     {
-                        int i;
-                        for (i = 0;
-                             i < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             i++, ch = (char)GetByte(IncrementCurrentPos()))
+                        int paramLength;
+                        for (paramLength = 1;
+                             paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
+                             paramLength++, ch = (char)GetByte(IncrementCurrentPos()))
                         {
                             param = (param * 10) + (ch - '0');
                         }
-                        if (i > _paramMaxLen)
+                        if (paramLength > _paramMaxLen)
                         {
                             return RtfError.ParameterOutOfRange;
                         }
@@ -97,8 +100,8 @@ public sealed partial class RtfToTextConverter
                 if (_skipDestinationIfUnknown)
                 {
                     SkipDest(ref bufferRef);
+                    _skipDestinationIfUnknown = false;
                 }
-                _skipDestinationIfUnknown = false;
                 return RtfError.OK;
             }
 
