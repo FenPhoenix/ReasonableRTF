@@ -51,32 +51,25 @@ public sealed partial class RtfToTextConverter
             if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;
-                checked
-                {
-                    try
-                    {
-                        param = ch - '0';
-                        ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + 1);
+                long longParam = ch - '0';
+                ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + 1);
 
-                        int paramLength;
-                        for (paramLength = 1;
-                             paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
-                             paramLength++,
-                             ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + paramLength))
-                        {
-                            param = (param * 10) + (ch - '0');
-                        }
-                        if (paramLength > _paramMaxLen)
-                        {
-                            return RtfError.ParameterOutOfRange;
-                        }
-                        accumulatedPos += paramLength;
-                    }
-                    catch (OverflowException)
-                    {
-                        return RtfError.ParameterOutOfRange;
-                    }
+                int paramLength;
+                for (paramLength = 1;
+                     paramLength < _paramMaxLen + 1 && CharExtension.IsAsciiDigit(ch);
+                     paramLength++,
+                     ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos + paramLength))
+                {
+                    longParam = (longParam * 10) + (ch - '0');
                 }
+                if (paramLength > _paramMaxLen || longParam > int.MaxValue)
+                {
+                    return RtfError.ParameterOutOfRange;
+                }
+
+                param = (int)longParam;
+
+                accumulatedPos += paramLength;
                 /*
                 NOTE: Turns out the branches are actually faster than the branchless black magic. On all targets.
                 Go figure...
