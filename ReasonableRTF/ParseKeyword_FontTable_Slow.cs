@@ -25,8 +25,11 @@ public sealed partial class RtfToTextConverter
             Symbol? symbol;
             ref byte keywordRef = ref GetArrayDataReference(_keyword);
 
+            Unsafe.WriteUnaligned(ref Unsafe.AddByteOffset(ref keywordRef, (nint)0), (byte)ch);
+            ch = (char)GetByte(IncrementCurrentPos());
+
             byte keywordCount;
-            for (keywordCount = 0;
+            for (keywordCount = 1;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++, ch = (char)GetByte(IncrementCurrentPos()))
             {

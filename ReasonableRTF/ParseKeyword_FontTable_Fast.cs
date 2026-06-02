@@ -25,9 +25,11 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
+            ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos + 1);
+
             byte keywordCount;
             Symbol? symbol;
-            for (keywordCount = 0;
+            for (keywordCount = 1;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++,
                  ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos + keywordCount))
