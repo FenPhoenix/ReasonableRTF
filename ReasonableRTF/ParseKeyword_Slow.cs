@@ -131,6 +131,15 @@ public sealed partial class RtfToTextConverter
 
         if (symbol == 0)
         {
+            /*
+            NOTE(Control symbol skippable destination check):
+            Technically, only control words (not control symbols) can be destinations, so we don't necessarily
+            have to check for a skippable destination here by spec. LibreOffice skips unknown control symbol
+            "destinations", while RichEdit fails the whole read. So we'd be within reason to assume this will
+            never happen. But if we do, then any text inside a skippable control word "destination" group WILL
+            be output. It's a vanishingly unlikely scenario, but the perf loss from this check is also tiny.
+            So let's just leave it in for now.
+            */
             if (_skipDestinationIfUnknown)
             {
                 _skipDestinationIfUnknown = false;
