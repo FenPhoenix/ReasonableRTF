@@ -11,7 +11,6 @@ public sealed partial class RtfToTextConverter
 {
     private RtfError ParseKeyword_FontTable_Slow(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
-        bool hasParam = false;
         param = 0;
         fontTableKeyword = default;
 
@@ -44,6 +43,7 @@ public sealed partial class RtfToTextConverter
                 negateParam = 1;
                 ch = (char)GetByte(IncrementCurrentPos());
             }
+            bool hasParam = false;
             if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;

@@ -10,7 +10,6 @@ public sealed partial class RtfToTextConverter
 {
     private RtfError ParseKeyword_FontTable_Fast(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
-        bool hasParam = false;
         param = 0;
         fontTableKeyword = default;
 
@@ -26,8 +25,8 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            Symbol? symbol;
             byte keywordCount;
+            Symbol? symbol;
             for (keywordCount = 0;
                  keywordCount < _keywordMaxLen + 1 && CharExtension.IsAsciiLetter(ch);
                  keywordCount++,
@@ -48,6 +47,7 @@ public sealed partial class RtfToTextConverter
                 accumulatedPos += 1;
                 ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
             }
+            bool hasParam = false;
             if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;

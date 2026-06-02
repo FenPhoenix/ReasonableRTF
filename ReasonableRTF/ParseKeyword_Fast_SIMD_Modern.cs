@@ -22,9 +22,6 @@ public sealed partial class RtfToTextConverter
     */
     private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef)
     {
-        bool hasParam = false;
-        int param = 0;
-
         int startingCurrentPos = _currentPos;
 
         char ch = (char)GetByteAtPos(ref bufferRef, startingCurrentPos);
@@ -65,6 +62,8 @@ public sealed partial class RtfToTextConverter
                 accumulatedPos += 1;
                 ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
             }
+            bool hasParam = false;
+            int param = 0;
             if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;

@@ -11,9 +11,6 @@ public sealed partial class RtfToTextConverter
 {
     private RtfError ParseKeyword_Slow(ref byte bufferRef)
     {
-        bool hasParam = false;
-        int param = 0;
-
         char ch = (char)GetByte(IncrementCurrentPos());
 
         if (!CharExtension.IsAsciiLetter(ch))
@@ -43,6 +40,8 @@ public sealed partial class RtfToTextConverter
                 negateParam = 1;
                 ch = (char)GetByte(IncrementCurrentPos());
             }
+            bool hasParam = false;
+            int param = 0;
             if (CharExtension.IsAsciiDigit(ch))
             {
                 hasParam = true;
