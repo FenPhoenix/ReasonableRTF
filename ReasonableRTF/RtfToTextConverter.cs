@@ -1488,7 +1488,7 @@ public sealed partial class RtfToTextConverter
                     GroupStack_CurrentSymbolFont = fontEntry.SymbolFont;
                 }
                 // \fN supersedes \langN
-                GroupStack_CurrentPropertyLang = GroupStack_CurrentPropertyLang = NoLang;
+                GroupStack_CurrentPropertyLang = NoLang;
                 GroupStack_CurrentPropertyFontNum = param;
                 break;
             }
