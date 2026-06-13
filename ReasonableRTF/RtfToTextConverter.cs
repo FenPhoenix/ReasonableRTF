@@ -507,6 +507,9 @@ public sealed partial class RtfToTextConverter
     #region Font to Unicode
 
     /*
+    NOTE: _DON'T_ move this stuff to a separate file, or else Fw64 gets slower again. I swear this crap is making
+    less and less sense.
+
     Many RTF files put emoji-like glyphs into text not with a Unicode character, but by just putting in a
     regular-ass single-byte char and then setting the font to Wingdings or whatever. So the letter "J"
     would show as "☺" in the Wingdings font. If we want to support this lunacy, we need conversion tables
