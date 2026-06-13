@@ -93,7 +93,7 @@ public sealed class RtfToTextConverterOptions
     /// Gets or sets the code page to use when an rtf file requests the "default code page".
     /// <para/>
     /// If set to 0, the default code page will be determined automatically based on your OS and which version of
-    /// NET you're using.
+    /// .NET you're using.
     /// <br/>
     /// On .NET Framework for Windows, it will normally be your Windows ANSI codepage (1252, for example).
     /// On .NET, it will normally be UTF-8, which is probably not what you want. Hence, it's recommended to set
