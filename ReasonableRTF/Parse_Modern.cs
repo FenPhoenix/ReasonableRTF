@@ -235,7 +235,7 @@ public sealed partial class RtfToTextConverter
     {
         _hexBuffer_Count = 0;
 
-        (ushort codePage, FontEntry fontEntry) = GetCurrentCodePage();
+        ushort codePage = GetCurrentCodePage();
 
         byte byte1;
         byte byte2;
@@ -272,7 +272,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos = currentPosLocal - 2;
-                    AddHexBuffer(codePage, in fontEntry);
+                    AddHexBuffer(codePage);
                     return;
                 }
             }
@@ -280,7 +280,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos = currentPosLocal - 1;
-                AddHexBuffer(codePage, in fontEntry);
+                AddHexBuffer(codePage);
                 return;
             }
 
@@ -304,7 +304,7 @@ public sealed partial class RtfToTextConverter
                 else
                 {
                     _currentPos -= 2;
-                    AddHexBuffer(codePage, in fontEntry);
+                    AddHexBuffer(codePage);
                     return;
                 }
             }
@@ -312,7 +312,7 @@ public sealed partial class RtfToTextConverter
             else if (b is not (byte)'\r' and not (byte)'\n')
             {
                 _currentPos--;
-                AddHexBuffer(codePage, in fontEntry);
+                AddHexBuffer(codePage);
                 return;
             }
         }

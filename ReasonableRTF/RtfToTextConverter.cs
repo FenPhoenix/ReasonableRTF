@@ -2979,7 +2979,7 @@ public sealed partial class RtfToTextConverter
 
     #region Hex
 
-    private void AddHexBuffer(ushort codePage, in FontEntry fontEntry)
+    private void AddHexBuffer(ushort codePage)
     {
         // If multiple hex chars are directly after another (eg. \'81\'63) then they may be representing one
         // multibyte character (or not, they may also just be two single-byte chars in a row). To deal with
@@ -2990,29 +2990,21 @@ public sealed partial class RtfToTextConverter
         // then we're guaranteed to be single-byte, and combining won't give a correct result
         if (codePage == 42)
         {
-            if (!fontEntry.IsSet)
+            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+            if (symbolFont == SymbolFont.None)
             {
+                uint[] symbolFontTable = _symbolFontTables[(int)SymbolFont.Symbol];
                 for (int i = 0; i < _hexBuffer_Count; i++)
                 {
-                    AddCharFromConversionList(_hexBuffer[i], _symbolFontTables[(int)SymbolFont.Symbol]);
+                    AddCharFromConversionList(_hexBuffer[i], symbolFontTable);
                 }
             }
             else
             {
-                SymbolFont symbolFont = fontEntry.SymbolFont;
-                if (symbolFont > SymbolFont.None)
+                uint[] symbolFontTable = _symbolFontTables[(int)symbolFont];
+                for (int i = 0; i < _hexBuffer_Count; i++)
                 {
-                    for (int i = 0; i < _hexBuffer_Count; i++)
-                    {
-                        AddCharFromConversionList(_hexBuffer[i], _symbolFontTables[(int)symbolFont]);
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < _hexBuffer_Count; i++)
-                    {
-                        PlainText_Add(_unicodeUnknown_Char);
-                    }
+                    AddCharFromConversionList(_hexBuffer[i], symbolFontTable);
                 }
             }
         }
@@ -3922,8 +3914,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private (ushort CodePage, FontEntry FontEntry)
-    GetCurrentCodePage()
+    private ushort GetCurrentCodePage()
     {
         int groupFontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
         ushort groupLang = GroupStack_CurrentPropertyLang;
@@ -3941,7 +3932,7 @@ public sealed partial class RtfToTextConverter
             codePage = fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
 
-        return (codePage, fontEntry);
+        return codePage;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -4052,7 +4043,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            (codePage, _) = GetCurrentCodePage();
+            codePage = GetCurrentCodePage();
             if (codePage != 42)
             {
                 DecodeAndCopyBytesIntoPlainText(codePage, _byteBuffer4, byteCount);
