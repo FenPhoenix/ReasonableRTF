@@ -101,6 +101,8 @@ public sealed partial class RtfToTextConverter
     // "\par " (ending space optional)
     private const int _parMaxLength = 5;
     private readonly uint _parUInt = BitConverter.IsLittleEndian ? 0x7261705Cu : 0x5C706172u;
+    // "\tab " (ending space optional)
+    private readonly uint _tabUInt = BitConverter.IsLittleEndian ? 0x6261745Cu : 0x5C746162u;
 
     private const int _internalBufferDefaultCapacity = 32;
 

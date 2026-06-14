@@ -116,6 +116,12 @@ public sealed partial class RtfToTextConverter
         0, 0, 0,
     ];
 
+    private enum InterTextKeyword
+    {
+        Par,
+        Tab,
+    }
+
     #endregion
 
     #region API
@@ -506,25 +512,42 @@ public sealed partial class RtfToTextConverter
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
                                 currentPosLocal += index;
-                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength &&
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
-                                    (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPosLocal += parLength;
-                                    AddLineBreak();
-                                    goto outerLoop;
+                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
+                                    if ((value == _parUInt || value == _tabUInt) &&
+                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    {
+                                        currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
+                                        currentPosLocal += parLength;
+                                        if (value == _parUInt)
+                                        {
+                                            AddLineBreak();
+                                        }
+                                        else
+                                        {
+                                            PlainText_Add('\t');
+                                        }
+                                        goto outerLoop;
+                                    }
                                 }
 
                                 _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
-                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, out int length, out InterTextKeyword interTextKeyword))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            AddLineBreak();
+                            if (interTextKeyword == InterTextKeyword.Par)
+                            {
+                                AddLineBreak();
+                            }
+                            else
+                            {
+                                PlainText_Add('\t');
+                            }
                         }
                         else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
@@ -622,25 +645,42 @@ public sealed partial class RtfToTextConverter
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
                                 currentPosLocal += index;
-                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength &&
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
-                                    (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPosLocal += parLength;
-                                    AddLineBreak();
-                                    goto outerLoop;
+                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
+                                    if ((value == _parUInt || value == _tabUInt) &&
+                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    {
+                                        currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
+                                        currentPosLocal += parLength;
+                                        if (value == _parUInt)
+                                        {
+                                            AddLineBreak();
+                                        }
+                                        else
+                                        {
+                                            PlainText_Add('\t');
+                                        }
+                                        goto outerLoop;
+                                    }
                                 }
 
                                 _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
-                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, out int length, out InterTextKeyword interTextKeyword))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            AddLineBreak();
+                            if (interTextKeyword == InterTextKeyword.Par)
+                            {
+                                AddLineBreak();
+                            }
+                            else
+                            {
+                                PlainText_Add('\t');
+                            }
                         }
                         else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
@@ -738,25 +778,42 @@ public sealed partial class RtfToTextConverter
                             {
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
                                 currentPosLocal += index;
-                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength &&
-                                    Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == _parUInt &&
-                                    (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
-                                    currentPosLocal += parLength;
-                                    AddLineBreak();
-                                    goto outerLoop;
+                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
+                                    if ((value == _parUInt || value == _tabUInt) &&
+                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    {
+                                        currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
+                                        currentPosLocal += parLength;
+                                        if (value == _parUInt)
+                                        {
+                                            AddLineBreak();
+                                        }
+                                        else
+                                        {
+                                            PlainText_Add('\t');
+                                        }
+                                        goto outerLoop;
+                                    }
                                 }
 
                                 _currentPos = currentPosLocal;
                                 return true;
                             }
                         }
-                        else if (IsPar(ref currentSearchSpace, index, _parUInt, out int length))
+                        else if (IsPar(ref currentSearchSpace, index, out int length, out InterTextKeyword interTextKeyword))
                         {
                             parLength = length;
                             CopyVector_ParSupport(current, index, shiftLeftCount);
-                            AddLineBreak();
+                            if (interTextKeyword == InterTextKeyword.Par)
+                            {
+                                AddLineBreak();
+                            }
+                            else
+                            {
+                                PlainText_Add('\t');
+                            }
                         }
                         else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
                         {
@@ -850,16 +907,19 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private bool IsPar(ref byte currentSearchSpace, byte index, uint parUInt, out int parLength)
+    private bool IsPar(ref byte currentSearchSpace, byte index, out int parLength, out InterTextKeyword interTextKeyword)
     {
-        if (Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index)) == parUInt &&
+        uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
+        if ((value == _parUInt || value == _tabUInt) &&
             (parLength = _isParEndingChar[GetByteAtPos(ref currentSearchSpace, index + 4)]) > 0)
         {
+            interTextKeyword = value == _parUInt ? InterTextKeyword.Par : InterTextKeyword.Tab;
             return true;
         }
         else
         {
             parLength = 0;
+            interTextKeyword = default;
             return false;
         }
     }
