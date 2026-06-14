@@ -138,21 +138,11 @@ public sealed partial class RtfToTextConverter
         */
         int key = len;
 
-        // Original C code does a stupid thing where it puts default at the top and falls through and junk,
-        // but we can't do that in C#, so have something clearer/clunkier
+        // We handle 1-length before we get here, so know we're at least 2.
         // NOTE: This logic is optimized to do the same thing as the gperf generated code, but more efficiently.
         key += asso_values[Unsafe.AddByteOffset(ref keywordRef, len - 1)];
-        switch (len)
-        {
-            // Most common case first - we get a measurable speedup from this
-            case > 2:
-                key += asso_values[Unsafe.AddByteOffset(ref keywordRef, 2)];
-                key += asso_values[Unsafe.AddByteOffset(ref keywordRef, 1)];
-                break;
-            case 2:
-                key += asso_values[Unsafe.AddByteOffset(ref keywordRef, 1)];
-                break;
-        }
+        if (len > 2) key += asso_values[Unsafe.AddByteOffset(ref keywordRef, 2)];
+        key += asso_values[Unsafe.AddByteOffset(ref keywordRef, 1)];
         key += asso_values[firstChar];
 
         if (key <= MAX_HASH_VALUE)
