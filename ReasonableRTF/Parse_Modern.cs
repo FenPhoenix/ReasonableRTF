@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
-using ReasonableRTF.Models.Fonts;
+using ReasonableRTF.Extensions;
 
 namespace ReasonableRTF;
 
@@ -254,67 +254,242 @@ public sealed partial class RtfToTextConverter
             currentPosLocal = _currentPos;
         }
 
-        AddByteToHexBuffer(byte1, byte2);
-
-        // TODO: Manually duplicated code for performance - should be automated if possible
-        while (currentPosLocal < _currentBufferChunkLength - 3)
+        if (codePage == 42)
         {
-            byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-            if (b == (byte)'\\')
+            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+            if (symbolFont == SymbolFont.None) symbolFont = SymbolFont.Symbol;
+            uint[] symbolFontTable = _symbolFontTables[(int)symbolFont];
+
+            AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (currentPosLocal < _currentBufferChunkLength - 3)
             {
-                b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                if (b == (byte)'\'')
+                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                if (b == (byte)'\\')
                 {
-                    byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                    byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                    AddByteToHexBuffer(byte1, byte2);
+                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+                    }
+                    else
+                    {
+                        _currentPos = currentPosLocal - 2;
+                        return;
+                    }
                 }
-                else
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
                 {
-                    _currentPos = currentPosLocal - 2;
-                    AddHexBuffer(codePage);
+                    _currentPos = currentPosLocal - 1;
                     return;
                 }
-            }
-            // Spaces end a hex run, but linebreaks don't.
-            else if (b is not (byte)'\r' and not (byte)'\n')
-            {
-                _currentPos = currentPosLocal - 1;
-                AddHexBuffer(codePage);
-                return;
+
+                _currentPos = currentPosLocal;
             }
 
             _currentPos = currentPosLocal;
-        }
 
-        _currentPos = currentPosLocal;
-
-        while (!_reachedEndOfStream)
-        {
-            byte b = GetByte(IncrementCurrentPos());
-            if (b == (byte)'\\')
+            while (!_reachedEndOfStream)
             {
-                b = GetByte(IncrementCurrentPos());
-                if (b == (byte)'\'')
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
                 {
-                    byte1 = GetByte(IncrementCurrentPos());
-                    byte2 = GetByte(IncrementCurrentPos());
-                    AddByteToHexBuffer(byte1, byte2);
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
                 }
-                else
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
                 {
-                    _currentPos -= 2;
+                    _currentPos--;
+                    return;
+                }
+            }
+        }
+        else if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? sbcsMappingTable))
+        {
+            AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (currentPosLocal < _currentBufferChunkLength - 3)
+            {
+                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                if (b == (byte)'\\')
+                {
+                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
+                    }
+                    else
+                    {
+                        _currentPos = currentPosLocal - 2;
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos = currentPosLocal - 1;
+                    return;
+                }
+
+                _currentPos = currentPosLocal;
+            }
+
+            _currentPos = currentPosLocal;
+
+            while (!_reachedEndOfStream)
+            {
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
+                {
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
+                    return;
+                }
+            }
+        }
+        else
+        {
+            AddByteToHexBuffer(byte1, byte2);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (currentPosLocal < _currentBufferChunkLength - 3)
+            {
+                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                if (b == (byte)'\\')
+                {
+                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        AddByteToHexBuffer(byte1, byte2);
+                    }
+                    else
+                    {
+                        _currentPos = currentPosLocal - 2;
+                        AddHexBuffer(codePage);
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos = currentPosLocal - 1;
+                    AddHexBuffer(codePage);
+                    return;
+                }
+
+                _currentPos = currentPosLocal;
+            }
+
+            _currentPos = currentPosLocal;
+
+            while (!_reachedEndOfStream)
+            {
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
+                {
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddByteToHexBuffer(byte1, byte2);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        AddHexBuffer(codePage);
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
                     AddHexBuffer(codePage);
                     return;
                 }
             }
-            // Spaces end a hex run, but linebreaks don't.
-            else if (b is not (byte)'\r' and not (byte)'\n')
-            {
-                _currentPos--;
-                AddHexBuffer(codePage);
-                return;
-            }
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddHexByteToPlainText_SymbolFont(byte byte1, byte byte2, uint[] symbolFontTable)
+    {
+        /*
+        Other readers' behavior:
+        -RichTextBox fails the whole read on invalid hex.
+        -LibreOffice just skips invalid hex chars.
+
+        We're going to match LibreOffice here.
+        */
+        byte hexNibble1 = CharExtension.CharToHexLookup[byte1];
+        byte hexNibble2 = CharExtension.CharToHexLookup[byte2];
+        // Reject null bytes
+        if ((hexNibble1 | hexNibble2).IsBetween(1, 0xFE))
+        {
+            byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+            AddCharFromConversionList(finalHexByte, symbolFontTable);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddHexByteToPlainText_SBCS(byte byte1, byte byte2, char[] sbcsMappingTable)
+    {
+        /*
+        Other readers' behavior:
+        -RichTextBox fails the whole read on invalid hex.
+        -LibreOffice just skips invalid hex chars.
+
+        We're going to match LibreOffice here.
+        */
+        byte hexNibble1 = CharExtension.CharToHexLookup[byte1];
+        byte hexNibble2 = CharExtension.CharToHexLookup[byte2];
+        // Reject null bytes
+        if ((hexNibble1 | hexNibble2).IsBetween(1, 0xFE))
+        {
+            byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+
+            ref char mappingsRef = ref GetArrayDataReference(sbcsMappingTable);
+            ref char plainTextRef = ref PlainText_EnsureCapacityAndGetRef(_plainText_Count + 1);
+
+            char c = Unsafe.Add(ref mappingsRef, (nint)finalHexByte);
+            Unsafe.Add(ref plainTextRef, (nint)_plainText_Count) = c;
+            _plainText_Count += 1;
         }
     }
 }

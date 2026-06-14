@@ -2991,21 +2991,12 @@ public sealed partial class RtfToTextConverter
         if (codePage == 42)
         {
             SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
-            if (symbolFont == SymbolFont.None)
+            if (symbolFont == SymbolFont.None) symbolFont = SymbolFont.Symbol;
+
+            uint[] symbolFontTable = _symbolFontTables[(int)symbolFont];
+            for (int i = 0; i < _hexBuffer_Count; i++)
             {
-                uint[] symbolFontTable = _symbolFontTables[(int)SymbolFont.Symbol];
-                for (int i = 0; i < _hexBuffer_Count; i++)
-                {
-                    AddCharFromConversionList(_hexBuffer[i], symbolFontTable);
-                }
-            }
-            else
-            {
-                uint[] symbolFontTable = _symbolFontTables[(int)symbolFont];
-                for (int i = 0; i < _hexBuffer_Count; i++)
-                {
-                    AddCharFromConversionList(_hexBuffer[i], symbolFontTable);
-                }
+                AddCharFromConversionList(_hexBuffer[i], symbolFontTable);
             }
         }
         else
@@ -3835,10 +3826,7 @@ public sealed partial class RtfToTextConverter
     // All callers reject nulls or won't send nulls.
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
-        if (codePage == 0)
-        {
-            codePage = _defaultCodePage;
-        }
+        if (codePage == 0) codePage = _defaultCodePage;
 
         if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? mappingTable))
         {
@@ -3932,7 +3920,7 @@ public sealed partial class RtfToTextConverter
             codePage = fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
 
-        return codePage;
+        return codePage > 0 ? codePage : _defaultCodePage;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
