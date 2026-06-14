@@ -514,13 +514,11 @@ public sealed partial class RtfToTextConverter
                                 currentPosLocal += index;
                                 if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
-                                    if ((value == _parUInt || value == _tabUInt) &&
-                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    if (IsPar(ref currentSearchSpace, index, out parLength, out InterTextKeyword interTextKeyword))
                                     {
                                         currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
                                         currentPosLocal += parLength;
-                                        if (value == _parUInt)
+                                        if (interTextKeyword == InterTextKeyword.Par)
                                         {
                                             AddLineBreak();
                                         }
@@ -647,13 +645,11 @@ public sealed partial class RtfToTextConverter
                                 currentPosLocal += index;
                                 if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
-                                    if ((value == _parUInt || value == _tabUInt) &&
-                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    if (IsPar(ref currentSearchSpace, index, out parLength, out InterTextKeyword interTextKeyword))
                                     {
                                         currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
                                         currentPosLocal += parLength;
-                                        if (value == _parUInt)
+                                        if (interTextKeyword == InterTextKeyword.Par)
                                         {
                                             AddLineBreak();
                                         }
@@ -780,13 +776,11 @@ public sealed partial class RtfToTextConverter
                                 currentPosLocal += index;
                                 if (currentPosLocal < _currentBufferChunkLength - _parMaxLength)
                                 {
-                                    uint value = Unsafe.ReadUnaligned<uint>(ref Unsafe.AddByteOffset(ref currentSearchSpace, index));
-                                    if ((value == _parUInt || value == _tabUInt) &&
-                                        (parLength = _isParEndingChar[Unsafe.AddByteOffset(ref currentSearchSpace, index + 4)]) > 0)
+                                    if (IsPar(ref currentSearchSpace, index, out parLength, out InterTextKeyword interTextKeyword))
                                     {
                                         currentSearchSpace = ref Unsafe.AddByteOffset(ref currentSearchSpace, index + parLength);
                                         currentPosLocal += parLength;
-                                        if (value == _parUInt)
+                                        if (interTextKeyword == InterTextKeyword.Par)
                                         {
                                             AddLineBreak();
                                         }
