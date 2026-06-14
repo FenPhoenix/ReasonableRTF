@@ -51,6 +51,8 @@ public sealed partial class RtfToTextConverter
 
             int accumulatedPos = startingCurrentPos + keywordCount;
 
+            byte firstChar = (byte)ch;
+
             ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);
 
             int negateParam = 0;
@@ -90,19 +92,25 @@ public sealed partial class RtfToTextConverter
 
             _currentPos = accumulatedPos + (ch == ' ' ? 1 : 0);
 
-            ref byte keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
-
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRef == (byte)'f')
+            if (keywordCount == 1)
             {
-                symbol = _fontSymbol;
-                _skipDestinationIfUnknown = false;
-                return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+                if (firstChar == (byte)'f')
+                {
+                    symbol = _fontSymbol;
+                    _skipDestinationIfUnknown = false;
+                    return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+                }
+                else
+                {
+                    symbol = LookUpControlWord_LengthOne(firstChar);
+                }
             }
             else
             {
-                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount);
+                ref byte keywordRef = ref GetRefAtPos(ref bufferRef, startingCurrentPos);
+                symbol = LookUpControlWord_Vector128(keyword, ref keywordRef, keywordCount, firstChar);
             }
 
             if (symbol == null)
@@ -122,7 +130,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Symbol? LookUpControlWord_Vector128(Vector128<byte> keyword, ref byte keywordRef, byte len)
+    private static Symbol? LookUpControlWord_Vector128(Vector128<byte> keyword, ref byte keywordRef, byte len, byte firstChar)
     {
         /*
         Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min.
@@ -146,12 +154,12 @@ public sealed partial class RtfToTextConverter
                 key += asso_values[GetByteAtPos_KeywordLookup(ref keywordRef, 1)];
                 break;
         }
-        key += asso_values[keywordRef];
+        key += asso_values[firstChar];
 
         if (key <= MAX_HASH_VALUE)
         {
             ushort firstCharAndLength = _symbolFirstCharTable[key];
-            ushort incomingFirstCharAndLength = (ushort)((ushort)(keywordRef << 8) + len);
+            ushort incomingFirstCharAndLength = (ushort)((ushort)(firstChar << 8) + len);
             if (incomingFirstCharAndLength != firstCharAndLength)
             {
                 return null;
@@ -168,6 +176,26 @@ public sealed partial class RtfToTextConverter
             {
                 return _symbolTable[key]!;
             }
+        }
+
+        return null;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static Symbol? LookUpControlWord_LengthOne(byte firstChar)
+    {
+        int key = 1 + (asso_values[firstChar] * 2);
+
+        if (key <= MAX_HASH_VALUE)
+        {
+            ushort firstCharAndLength = _symbolFirstCharTable[key];
+            ushort incomingFirstCharAndLength = (ushort)((ushort)(firstChar << 8) + 1);
+            if (incomingFirstCharAndLength != firstCharAndLength)
+            {
+                return null;
+            }
+
+            return _symbolTable[key]!;
         }
 
         return null;
