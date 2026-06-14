@@ -4957,7 +4957,8 @@ public sealed partial class RtfToTextConverter
         System.Runtime.Intrinsics.Vector128<byte>.Zero,
         System.Runtime.Intrinsics.Vector128.Create("ds\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
         System.Runtime.Intrinsics.Vector128.Create("fldinst\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("colorschememapping"u8),
+        // "colorschememapping" - over 16 chars, won't be hit, so it's okay that it's truncated
+        System.Runtime.Intrinsics.Vector128.Create("colorschememappi"u8),
         System.Runtime.Intrinsics.Vector128<byte>.Zero,
         System.Runtime.Intrinsics.Vector128.Create("cs\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
         System.Runtime.Intrinsics.Vector128.Create("ldblquote\0\0\0\0\0\0\0"u8),
