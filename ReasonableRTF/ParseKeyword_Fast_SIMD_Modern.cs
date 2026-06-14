@@ -1,5 +1,4 @@
 ﻿#if NET8_0_OR_GREATER
-
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
@@ -181,24 +180,22 @@ public sealed partial class RtfToTextConverter
         return null;
     }
 
+    private static Symbol?[] InitSingleCharSymbolTable()
+    {
+        Symbol?[] ret = new Symbol?[256];
+
+        ret['u'] = new Symbol("u", 0, false, KeywordType.Special, (ushort)SpecialType.UnicodeChar);
+        ret['v'] = new Symbol("v", 1, false, KeywordType.Property, (ushort)Property.Hidden);
+
+        return ret;
+    }
+
+    private static readonly Symbol?[] _singleCharSymbolTable = InitSingleCharSymbolTable();
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static Symbol? LookUpControlWord_LengthOne(byte firstChar)
     {
-        int key = 1 + (asso_values[firstChar] * 2);
-
-        if (key <= MAX_HASH_VALUE)
-        {
-            ushort firstCharAndLength = _symbolFirstCharTable[key];
-            ushort incomingFirstCharAndLength = (ushort)((ushort)(firstChar << 8) + 1);
-            if (incomingFirstCharAndLength != firstCharAndLength)
-            {
-                return null;
-            }
-
-            return _symbolTable[key]!;
-        }
-
-        return null;
+        return _singleCharSymbolTable[firstChar];
     }
 }
 #endif
