@@ -92,11 +92,10 @@ public sealed partial class RtfToTextConverter
     // Add one extra to all the known counts because I can't think whether the read increments will put us one
     // over or not
     private const int _keywordParseMaxRequiredBytes =
-        1 +
-        1 + 1 +
-        _keywordMaxLen + 1 + 1 +
-        1 + 1 +
-        _paramMaxLen + 1 + 1;
+        _keywordMaxLen + 1 + // +1 to read one beyond for length checking purposes
+        1 + // Minus sign
+        _paramMaxLen + 1 + // +1 to read one beyond for length checking purposes
+        1; // Space at end
 
     // "\bin"
     private const int _binLength = 4;
