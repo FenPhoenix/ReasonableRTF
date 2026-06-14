@@ -195,62 +195,183 @@ public sealed partial class RtfToTextConverter
             byte2 = GetByte(IncrementCurrentPos());
         }
 
-        AddByteToHexBuffer(byte1, byte2);
-
-        // TODO: Manually duplicated code for performance - should be automated if possible
-        while (_currentPos < _currentBufferChunkLength - 3)
+        if (codePage == 42)
         {
-            byte b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
-            if (b == (byte)'\\')
+            SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
+            if (symbolFont == SymbolFont.None) symbolFont = SymbolFont.Symbol;
+            uint[] symbolFontTable = _symbolFontTables[(int)symbolFont];
+
+            AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (_currentPos < _currentBufferChunkLength - 3)
             {
-                b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
-                if (b == (byte)'\'')
+                byte b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                if (b == (byte)'\\')
                 {
-                    byte1 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
-                    byte2 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
-                    AddByteToHexBuffer(byte1, byte2);
+                    b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        byte2 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
                 }
-                else
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
                 {
-                    _currentPos -= 2;
-                    AddHexBuffer(codePage);
+                    _currentPos--;
                     return;
                 }
             }
-            // Spaces end a hex run, but linebreaks don't.
-            else if (b is not (byte)'\r' and not (byte)'\n')
+
+            while (!_reachedEndOfStream)
             {
-                _currentPos--;
-                AddHexBuffer(codePage);
-                return;
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
+                {
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
+                    return;
+                }
             }
         }
-
-        while (!_reachedEndOfStream)
+        else if (_sbcsToUtf16Dict.TryGetValue(codePage, out char[]? sbcsMappingTable))
         {
-            byte b = GetByte(IncrementCurrentPos());
-            if (b == (byte)'\\')
+            AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (_currentPos < _currentBufferChunkLength - 3)
             {
-                b = GetByte(IncrementCurrentPos());
-                if (b == (byte)'\'')
+                byte b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                if (b == (byte)'\\')
                 {
-                    byte1 = GetByte(IncrementCurrentPos());
-                    byte2 = GetByte(IncrementCurrentPos());
-                    AddByteToHexBuffer(byte1, byte2);
+                    b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        byte2 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
                 }
-                else
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
                 {
-                    _currentPos -= 2;
+                    _currentPos--;
+                    return;
+                }
+            }
+
+            while (!_reachedEndOfStream)
+            {
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
+                {
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddByteToHexBuffer(byte1, byte2);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
+                    return;
+                }
+            }
+        }
+        else
+        {
+            AddByteToHexBuffer(byte1, byte2);
+
+            // TODO: Manually duplicated code for performance - should be automated if possible
+            while (_currentPos < _currentBufferChunkLength - 3)
+            {
+                byte b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                if (b == (byte)'\\')
+                {
+                    b = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        byte2 = GetByteAtCurrentPosAndIncrement(ref bufferRef);
+                        AddByteToHexBuffer(byte1, byte2);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        AddHexBuffer(codePage);
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
                     AddHexBuffer(codePage);
                     return;
                 }
             }
-            // Spaces end a hex run, but linebreaks don't.
-            else if (b is not (byte)'\r' and not (byte)'\n')
+
+            while (!_reachedEndOfStream)
             {
-                _currentPos--;
-                AddHexBuffer(codePage);
-                return;
+                byte b = GetByte(IncrementCurrentPos());
+                if (b == (byte)'\\')
+                {
+                    b = GetByte(IncrementCurrentPos());
+                    if (b == (byte)'\'')
+                    {
+                        byte1 = GetByte(IncrementCurrentPos());
+                        byte2 = GetByte(IncrementCurrentPos());
+                        AddByteToHexBuffer(byte1, byte2);
+                    }
+                    else
+                    {
+                        _currentPos -= 2;
+                        AddHexBuffer(codePage);
+                        return;
+                    }
+                }
+                // Spaces end a hex run, but linebreaks don't.
+                else if (b is not (byte)'\r' and not (byte)'\n')
+                {
+                    _currentPos--;
+                    AddHexBuffer(codePage);
+                    return;
+                }
             }
         }
     }

@@ -3025,6 +3025,52 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddHexByteToPlainText_SymbolFont(byte byte1, byte byte2, uint[] symbolFontTable)
+    {
+        /*
+        Other readers' behavior:
+        -RichTextBox fails the whole read on invalid hex.
+        -LibreOffice just skips invalid hex chars.
+
+        We're going to match LibreOffice here.
+        */
+        byte hexNibble1 = CharExtension.CharToHexLookup[byte1];
+        byte hexNibble2 = CharExtension.CharToHexLookup[byte2];
+        // Reject null bytes
+        if ((hexNibble1 | hexNibble2).IsBetween(1, 0xFE))
+        {
+            byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+            AddCharFromConversionList(finalHexByte, symbolFontTable);
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void AddHexByteToPlainText_SBCS(byte byte1, byte byte2, char[] sbcsMappingTable)
+    {
+        /*
+        Other readers' behavior:
+        -RichTextBox fails the whole read on invalid hex.
+        -LibreOffice just skips invalid hex chars.
+
+        We're going to match LibreOffice here.
+        */
+        byte hexNibble1 = CharExtension.CharToHexLookup[byte1];
+        byte hexNibble2 = CharExtension.CharToHexLookup[byte2];
+        // Reject null bytes
+        if ((hexNibble1 | hexNibble2).IsBetween(1, 0xFE))
+        {
+            byte finalHexByte = (byte)((hexNibble1 << 4) + hexNibble2);
+
+            ref char mappingsRef = ref GetArrayDataReference(sbcsMappingTable);
+            ref char plainTextRef = ref PlainText_EnsureCapacityAndGetRef(_plainText_Count + 1);
+
+            char c = Unsafe.Add(ref mappingsRef, (nint)finalHexByte);
+            Unsafe.Add(ref plainTextRef, (nint)_plainText_Count) = c;
+            _plainText_Count += 1;
+        }
+    }
+
     #endregion
 
     #region Unicode
