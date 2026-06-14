@@ -89,8 +89,6 @@ public sealed partial class RtfToTextConverter
     // +1 to allow reading one beyond the max and then checking for it to return an error
     private readonly byte[] _keyword = new byte[_keywordMaxLen + 1];
 
-    // Add one extra to all the known counts because I can't think whether the read increments will put us one
-    // over or not
     private const int _keywordParseMaxRequiredBytes =
         _keywordMaxLen + 1 + // +1 to read one beyond for length checking purposes
         1 + // Minus sign
