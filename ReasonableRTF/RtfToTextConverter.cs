@@ -98,7 +98,7 @@ public sealed partial class RtfToTextConverter
     // "\bin"
     private const int _binLength = 4;
     private readonly uint _binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
-    // "\par"
+    // "\par " (ending space optional)
     private const int _parMaxLength = 5;
     private readonly uint _parUInt = BitConverter.IsLittleEndian ? 0x7261705Cu : 0x5C706172u;
 
