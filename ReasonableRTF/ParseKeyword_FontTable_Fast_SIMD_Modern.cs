@@ -40,9 +40,6 @@ public sealed partial class RtfToTextConverter
                 return ParseKeyword_Fast(ref bufferRef);
             }
 
-            Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
-            keyword = Vector128.BitwiseAnd(keyword, maskVec);
-
             int accumulatedPos = startingCurrentPos + keywordCount;
 
             ch = (char)GetByteAtPos(ref bufferRef, accumulatedPos);

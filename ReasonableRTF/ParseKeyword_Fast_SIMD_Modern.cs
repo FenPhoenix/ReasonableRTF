@@ -1,6 +1,7 @@
 ﻿#if NET8_0_OR_GREATER
 
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -47,9 +48,6 @@ public sealed partial class RtfToTextConverter
             {
                 return ParseKeyword_Fast(ref bufferRef);
             }
-
-            Vector128<byte> maskVec = Vector128.GreaterThan(Vector128.Create(keywordCount), _indexVec_128);
-            keyword = Vector128.BitwiseAnd(keyword, maskVec);
 
             int accumulatedPos = startingCurrentPos + keywordCount;
 
@@ -121,6 +119,58 @@ public sealed partial class RtfToTextConverter
 
             return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
         }
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static Symbol? LookUpControlWord_Vector128(Vector128<byte> keyword, ref byte keywordRef, byte len)
+    {
+        /*
+        Min word length is 1, and we're guaranteed to always be at least 1, so no need to check for >= min.
+        Max keyword length on this path is 16 (Vector128<byte>.Count), while MAX_WORD_LENGTH is 18, so no need
+        to check for that either.
+        */
+        int key = len;
+
+        // Original C code does a stupid thing where it puts default at the top and falls through and junk,
+        // but we can't do that in C#, so have something clearer/clunkier
+        // NOTE: This logic is optimized to do the same thing as the gperf generated code, but more efficiently.
+        key += asso_values[GetByteAtPos_KeywordLookup(ref keywordRef, len - 1)];
+        switch (len)
+        {
+            // Most common case first - we get a measurable speedup from this
+            case > 2:
+                key += asso_values[GetByteAtPos_KeywordLookup(ref keywordRef, 2)];
+                key += asso_values[GetByteAtPos_KeywordLookup(ref keywordRef, 1)];
+                break;
+            case 2:
+                key += asso_values[GetByteAtPos_KeywordLookup(ref keywordRef, 1)];
+                break;
+        }
+        key += asso_values[keywordRef];
+
+        if (key <= MAX_HASH_VALUE)
+        {
+            ushort firstCharAndLength = _symbolFirstCharTable[key];
+            ushort incomingFirstCharAndLength = (ushort)((ushort)(keywordRef << 8) + len);
+            if (incomingFirstCharAndLength != firstCharAndLength)
+            {
+                return null;
+            }
+
+            Vector128<byte> keywordVectorFromTable = _vectorKeywordTable[key];
+
+            // Only do the masking operation if we've got a keyword hit. This saves doing it for the majority of
+            // encountered keywords that will never reach this point.
+            Vector128<byte> keywordMask = Vector128.GreaterThan(Vector128.Create(len), _indexVec_128);
+            keyword = Vector128.BitwiseAnd(keyword, keywordMask);
+
+            if (Vector128.EqualsAll(keyword, keywordVectorFromTable))
+            {
+                return _symbolTable[key]!;
+            }
+        }
+
+        return null;
     }
 }
 #endif
