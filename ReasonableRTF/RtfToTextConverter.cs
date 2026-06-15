@@ -3862,6 +3862,7 @@ public sealed partial class RtfToTextConverter
     #region Encoding helpers
 
     // All callers reject nulls or won't send nulls.
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
         if (codePage == 0) codePage = _defaultCodePage;
@@ -3894,6 +3895,7 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void DecodeAndCopyByteIntoPlainText(ushort codePage, byte b)
     {
         if (codePage == 0)
@@ -4102,6 +4104,7 @@ public sealed partial class RtfToTextConverter
         PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void AddLineBreak()
     {
         switch (_lineBreakStyle)
@@ -4526,6 +4529,7 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void LoadNextChunkIntoBuffer()
     {
         Debug.Assert(_bufferedStream != null);
@@ -5392,10 +5396,6 @@ public sealed partial class RtfToTextConverter
         either below 0x20 or more than one byte, which in either case means they can't be symbol font chars.
         ~ is nominally a non-breaking space, and in RichEdit is displayed as such (or at least whitespace of
         some kind), but in LibreOffice is displayed as a square dot when set to Wingdings (as expected).
-        Since RichEdit doesn't treat it as a symbol font character we should in theory match its behavior,
-        but we convert it to an ASCII space anyway so the whole thing is moot currently. But just in case we
-        decide to change it, there's the info.
-
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
         */
