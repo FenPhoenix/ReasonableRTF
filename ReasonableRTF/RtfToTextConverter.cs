@@ -2567,10 +2567,8 @@ public sealed partial class RtfToTextConverter
 
         int fontTableGroupLevel = _groupStackTopIndex;
 
-        bool currentFontAcquired = false;
         int currentFontNumber = NoFontNumber;
         ushort currentFontCodePage = NoCodePage;
-        SymbolFont currentFontSymbolFont = SymbolFont.Unset;
 
         while (!_reachedEndOfStream)
         {
@@ -2630,9 +2628,8 @@ public sealed partial class RtfToTextConverter
                         if (fontTableKeyword == KeywordType.F)
                         {
                             currentFontNumber = param;
-                            currentFontAcquired = true;
                         }
-                        else if (currentFontAcquired)
+                        else if (currentFontNumber > NoFontNumber)
                         {
                             switch (fontTableKeyword)
                             {
@@ -2660,25 +2657,20 @@ public sealed partial class RtfToTextConverter
                             // We can't check for codepage 42, because symbol fonts can have other codepages
                             // (although that may be a quirk/bug or whatever, but it can happen). Too bad,
                             // otherwise we could save time here...
-                            currentFontAcquired && currentFontSymbolFont == SymbolFont.Unset)
+                            currentFontNumber > NoFontNumber)
                         {
-                            currentFontSymbolFont = ShouldUseSimdFontNameCodePath()
+                            SymbolFont currentFontSymbolFont = ShouldUseSimdFontNameCodePath()
                                 ? SIMD_TryGetFontName(ref bufferRef, ch)
                                 : GetSymbolFont_Scalar(ref bufferRef, ch);
 
-                            if (currentFontNumber != NoFontNumber)
+                            if (currentFontCodePage == NoCodePage)
                             {
-                                if (currentFontCodePage == NoCodePage)
-                                {
-                                    currentFontCodePage = _headerCodePage;
-                                }
-
-                                _fontDictionary[currentFontNumber] = new FontEntry(currentFontCodePage, currentFontSymbolFont);
-                                currentFontAcquired = false;
-                                currentFontNumber = NoFontNumber;
-                                currentFontCodePage = NoCodePage;
-                                currentFontSymbolFont = SymbolFont.Unset;
+                                currentFontCodePage = _headerCodePage;
                             }
+
+                            _fontDictionary[currentFontNumber] = new FontEntry(currentFontCodePage, currentFontSymbolFont);
+                            currentFontNumber = NoFontNumber;
+                            currentFontCodePage = NoCodePage;
                         }
                         break;
                     }
