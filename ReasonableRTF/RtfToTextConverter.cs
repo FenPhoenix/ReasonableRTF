@@ -2596,9 +2596,7 @@ public sealed partial class RtfToTextConverter
                                 /*
                                 Start at 1 because the "base" group is still inside an opening { so it's really
                                 group 1.
-                                NOTE: The <= is correct. Group stack count is an index, not a "Length" or "Count",
-                                as demonstrated by the that fact that "current group" is "stack[group count]" not
-                                "stack[group count - 1]".
+                                NOTE: The <= is correct. It's an index, not a length.
                                 */
                                 for (int i = 1; i <= _groupStackTopIndex; i++)
                                 {
