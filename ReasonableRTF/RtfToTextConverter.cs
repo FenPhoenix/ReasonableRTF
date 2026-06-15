@@ -423,12 +423,12 @@ public sealed partial class RtfToTextConverter
 
     #region Lang to code page
 
-    private const int _maxLangNumIndex = 16385;
+    private const int _maxLangNumber = 16385;
     private static readonly ushort[] _langToCodePage = InitializeLangToCodePage();
 
     private static ushort[] InitializeLangToCodePage()
     {
-        ushort[] langToCodePage = UtilHelper.InitializedArray(_maxLangNumIndex + 1, NoCodePage);
+        ushort[] langToCodePage = UtilHelper.InitializedArray(_maxLangNumber + 1, NoCodePage);
 
         /*
         There's a ton more languages than this, but it's not clear what code page they all translate to.
@@ -3942,19 +3942,18 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private ushort GetCurrentCodePage()
     {
-        int groupFontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
         ushort groupLang = GroupStack_CurrentPropertyLang;
 
-        _fontDictionary.TryGetValue(groupFontNum, out FontEntry fontEntry);
-
         ushort codePage;
-        if (groupLang < _maxLangNumIndex)
+        ushort translatedCodePage;
+        if (groupLang <= _maxLangNumber && (translatedCodePage = _langToCodePage[groupLang]) < NoCodePage)
         {
-            ushort translatedCodePage = _langToCodePage[groupLang];
-            codePage = translatedCodePage < NoCodePage ? translatedCodePage : fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
+            codePage = translatedCodePage;
         }
         else
         {
+            int groupFontNum = HeaderDefaultIfNotSet(GroupStack_CurrentPropertyFontNum);
+            _fontDictionary.TryGetValue(groupFontNum, out FontEntry fontEntry);
             codePage = fontEntry.IsSet ? fontEntry.CodePage : _headerCodePage;
         }
 
