@@ -1,6 +1,4 @@
-﻿#define FenGen_ParseKeywordDuplicateSource
-
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
 using ReasonableRTF.Models.Symbols;

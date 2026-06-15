@@ -20,6 +20,7 @@ public sealed partial class RtfToTextConverter
     If we were smarter about it and parsed all found complete keywords in each vector, would Vector256 be faster
     again?
     */
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_Fast_Vector128(ref byte bufferRef)
     {
         int startingCurrentPos = _currentPos;

@@ -1,5 +1,6 @@
 ﻿#if NET8_0_OR_GREATER
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -9,6 +10,7 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_FontTable_Fast_Vector128(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         param = 0;

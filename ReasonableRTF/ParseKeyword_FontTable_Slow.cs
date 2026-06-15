@@ -1,5 +1,3 @@
-#define FenGen_ParseKeywordDuplicateDest
-
 using System.Runtime.CompilerServices;
 using ReasonableRTF.Enums;
 using ReasonableRTF.Extensions;
@@ -9,6 +7,7 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_FontTable_Slow(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
         param = 0;
