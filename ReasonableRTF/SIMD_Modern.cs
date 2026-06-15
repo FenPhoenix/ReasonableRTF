@@ -503,7 +503,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector512<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                            if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
@@ -547,7 +547,7 @@ public sealed partial class RtfToTextConverter
                                 PlainText_Add('\t');
                             }
                         }
-                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                        else if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount);
@@ -634,7 +634,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector256<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                            if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
@@ -678,7 +678,7 @@ public sealed partial class RtfToTextConverter
                                 PlainText_Add('\t');
                             }
                         }
-                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                        else if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount);
@@ -765,7 +765,7 @@ public sealed partial class RtfToTextConverter
                         }
                         else if (index >= Vector128<byte>.Count - _parMaxLength)
                         {
-                            if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                            if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                             {
                                 parLength = 1;
                                 CopyVector_ParSupport(current, index, shiftLeftCount);
@@ -809,7 +809,7 @@ public sealed partial class RtfToTextConverter
                                 PlainText_Add('\t');
                             }
                         }
-                        else if (_isIgnoreChar[GetByteAtPos(ref currentSearchSpace, index)])
+                        else if (GetByteAtPos(ref currentSearchSpace, index) < 14)
                         {
                             parLength = 1;
                             CopyVector_ParSupport(current, index, shiftLeftCount);

@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
-using ReasonableRTF.Extensions;
 
 namespace ReasonableRTF;
 
@@ -13,7 +12,6 @@ public sealed partial class RtfToTextConverter
         // Avoid bounds checks by passing a buffer reference everywhere. We do our own bounds checking.
         ref byte bufferRef = ref MemoryMarshal.GetArrayDataReference(_buffer);
         ref bool isNonPlainTextCharRef = ref MemoryMarshal.GetReference(_isNonPlainText);
-        ref bool isIgnoreCharRef = ref MemoryMarshal.GetReference(_isIgnoreChar);
 
         int currentPosLocal = _currentPos;
 
@@ -50,7 +48,7 @@ public sealed partial class RtfToTextConverter
                         break;
                     default:
                     {
-                        if (!Unsafe.AddByteOffset(ref isIgnoreCharRef, (nint)ch) &&
+                        if (!_isIgnoreChar[ch] &&
                             !GroupStack_CurrentSkipDest &&
                             !GroupStack_CurrentPropertyHidden)
                         {
