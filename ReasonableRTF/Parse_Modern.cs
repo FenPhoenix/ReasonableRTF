@@ -285,8 +285,6 @@ public sealed partial class RtfToTextConverter
                     _currentPos = currentPosLocal - 1;
                     return;
                 }
-
-                _currentPos = currentPosLocal;
             }
 
             _currentPos = currentPosLocal;
@@ -346,8 +344,6 @@ public sealed partial class RtfToTextConverter
                     _currentPos = currentPosLocal - 1;
                     return;
                 }
-
-                _currentPos = currentPosLocal;
             }
 
             _currentPos = currentPosLocal;
@@ -409,8 +405,6 @@ public sealed partial class RtfToTextConverter
                     AddHexBuffer(codePage);
                     return;
                 }
-
-                _currentPos = currentPosLocal;
             }
 
             _currentPos = currentPosLocal;
