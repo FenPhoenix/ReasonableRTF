@@ -95,6 +95,12 @@ public sealed partial class RtfToTextConverter
         _paramMaxLen + 1 + // +1 to read one beyond for length checking purposes
         1; // Space at end
 
+    private const int _keywordVector128ParseMaxRequiredBytes =
+        16 + // Vector128<byte>.Count (no need for +1 for this codepath)
+        1 + // Minus sign
+        _paramMaxLen + 1 + // +1 to read one beyond for length checking purposes
+        1; // Space at end
+
     // "\bin"
     private const int _binLength = 4;
     private readonly uint _binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
@@ -2517,44 +2523,52 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword(ref byte bufferRef)
     {
-        if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
-        {
+        // The keyword parsers are JIT inlined now, so make sure to have only one call to each!
+
 #if NET8_0_OR_GREATER
-            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            {
-                return ParseKeyword_Fast_Vector128(ref bufferRef);
-            }
-            else
+        RtfError error;
+        if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated &&
+            _currentPos < _currentBufferChunkLength - _keywordVector128ParseMaxRequiredBytes &&
+            (error = ParseKeyword_Fast_Vector128(ref bufferRef)) != RtfError.KeywordTooLong)
+        {
+            return error;
+        }
+        else
 #endif
+        {
+            if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
             {
                 return ParseKeyword_Fast(ref bufferRef);
             }
-        }
-        else
-        {
-            return ParseKeyword_Slow(ref bufferRef);
+            else
+            {
+                return ParseKeyword_Slow(ref bufferRef);
+            }
         }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_FontTable(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
-        if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
-        {
 #if NET8_0_OR_GREATER
-            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            {
-                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param);
-            }
-            else
+        RtfError error;
+        if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated &&
+            _currentPos < _currentBufferChunkLength - _keywordVector128ParseMaxRequiredBytes &&
+            (error = ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param)) != RtfError.KeywordTooLong)
+        {
+            return error;
+        }
+        else
 #endif
+        {
+            if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
             {
                 return ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param);
             }
-        }
-        else
-        {
-            return ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
+            else
+            {
+                return ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
+            }
         }
     }
 
@@ -3250,7 +3264,7 @@ public sealed partial class RtfToTextConverter
     private void HandleUnicodeParamAndSkipFallbackChars(ref byte bufferRef, int param)
     {
         // Make sure the code point is normalized before adding it to the buffer!
-        uint codePoint = NormalizeUnicodeCodePoint_HandleSymbolCharRange(param);
+        uint codePoint = NormalizeUnicodeCodePoint(param);
         AddCodePointToUnicodeBuffer(codePoint);
 
         /*
@@ -3862,6 +3876,9 @@ public sealed partial class RtfToTextConverter
     #region Encoding helpers
 
     // All callers reject nulls or won't send nulls.
+#if NET8_0_OR_GREATER
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
         if (codePage == 0) codePage = _defaultCodePage;
@@ -3894,6 +3911,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+#if NET8_0_OR_GREATER
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void DecodeAndCopyByteIntoPlainText(ushort codePage, byte b)
     {
         if (codePage == 0)
@@ -3961,7 +3981,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private uint NormalizeUnicodeCodePoint_HandleSymbolCharRange(int codePoint)
+    private uint NormalizeUnicodeCodePoint(int codePoint)
     {
         // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
         // value.
@@ -4102,6 +4122,9 @@ public sealed partial class RtfToTextConverter
         PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
     }
 
+#if NET8_0_OR_GREATER
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void AddLineBreak()
     {
         switch (_lineBreakStyle)
@@ -4526,6 +4549,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+#if NET8_0_OR_GREATER
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void LoadNextChunkIntoBuffer()
     {
         Debug.Assert(_bufferedStream != null);
@@ -4850,276 +4876,6 @@ public sealed partial class RtfToTextConverter
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x6607,
     ];
 
-#if NET8_0_OR_GREATER
-    private static readonly System.Runtime.Intrinsics.Vector128<byte>[] _vectorKeywordTable =
-    [
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("u\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("pc\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("tc\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("uc\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("datafield\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("pca\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("pntext\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("themedata\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("cpg\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("xe\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("pict\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("headerl\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("datastore\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("txe\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("cell\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("endash\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("title\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("lquote\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("panose\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("lang\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("passwordhash\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("author\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("bullet\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("sect\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("colortbl\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("header\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("headerr\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("fcharset\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("line\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("ts\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("listtext\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("ds\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("fldinst\0\0\0\0\0\0\0\0\0"u8),
-        // "colorschememapping" - over 16 chars, won't be hit, so it's okay that it's truncated
-        System.Runtime.Intrinsics.Vector128.Create("colorschememappi"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("cs\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("ldblquote\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("emdash\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("mac\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("rquote\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("ansicpg\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("rxe\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("ftnsep\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("blipuid\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("headerf\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("private\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("nestcell\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("subject\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("ftnsepc\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("ansi\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("par\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("enspace\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("tab\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("stylesheet\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("ftncn\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("operator\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("buptim\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("comment\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("v\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("bin\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("doccomm\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("rdblquote\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("keywords\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("zwnbo\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("zwnj\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("printim\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("creatim\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("nestrow\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("qmspace\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("emspace\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("fonttbl\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("objdata\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("deff\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("zwbo\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("info\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("zwj\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("footerl\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("footnote\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("revtim\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("row\0\0\0\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("footer\0\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128.Create("footerr\0\0\0\0\0\0\0\0\0"u8),
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128<byte>.Zero, System.Runtime.Intrinsics.Vector128<byte>.Zero,
-        System.Runtime.Intrinsics.Vector128.Create("footerf\0\0\0\0\0\0\0\0\0"u8),
-    ];
-#endif
-
     /*
     For "listtext", "pntext"
     TODO(listtext/pntext): Temporarily disabled with a hack, but decide what we want to do here
@@ -5382,6 +5138,48 @@ public sealed partial class RtfToTextConverter
         new Symbol("footerf", 0, false, KeywordType.Destination, (ushort)DestinationType.Skip),
     ];
 
+#if NET8_0_OR_GREATER
+    // Construct dynamically (static, so only done once) to cut down on file size for the .NET versions. We do
+    // this because we can't do the ReadOnlySpan<> => trick with structs, so there's no gain in writing it all
+    // out manually.
+    private static System.Runtime.Intrinsics.Vector128<byte>[] InitVectorKeywordTable()
+    {
+        System.Runtime.Intrinsics.Vector128<byte>[] ret = new System.Runtime.Intrinsics.Vector128<byte>[_symbolTable.Length];
+
+        Span<byte> keywordBytes = stackalloc byte[16];
+
+        for (int symbolTableIndex = 0; symbolTableIndex < _symbolTable.Length; symbolTableIndex++)
+        {
+            Symbol? symbol = _symbolTable[symbolTableIndex];
+            if (symbol == null)
+            {
+                ret[symbolTableIndex] = System.Runtime.Intrinsics.Vector128<byte>.Zero;
+            }
+            else
+            {
+                string keyword = symbol.Keyword;
+                if (keyword.Length > 16)
+                {
+                    ret[symbolTableIndex] = System.Runtime.Intrinsics.Vector128<byte>.Zero;
+                }
+                else
+                {
+                    keywordBytes.Clear();
+                    for (int i = 0; i < keyword.Length; i++)
+                    {
+                        keywordBytes[i] = (byte)keyword[i];
+                    }
+                    ret[symbolTableIndex] = System.Runtime.Intrinsics.Vector128.Create(keywordBytes);
+                }
+            }
+        }
+
+        return ret;
+    }
+
+    private static readonly System.Runtime.Intrinsics.Vector128<byte>[] _vectorKeywordTable = InitVectorKeywordTable();
+#endif
+
     private static char[] InitControlSymbolArray()
     {
         char[] ret = new char[256];
@@ -5392,10 +5190,6 @@ public sealed partial class RtfToTextConverter
         either below 0x20 or more than one byte, which in either case means they can't be symbol font chars.
         ~ is nominally a non-breaking space, and in RichEdit is displayed as such (or at least whitespace of
         some kind), but in LibreOffice is displayed as a square dot when set to Wingdings (as expected).
-        Since RichEdit doesn't treat it as a symbol font character we should in theory match its behavior,
-        but we convert it to an ASCII space anyway so the whole thing is moot currently. But just in case we
-        decide to change it, there's the info.
-
         We could maybe figure out a way to not have to do the symbol font check/conversion in the common case
         where we don't need to, is the point of this whole soliloquy.
         */
