@@ -7,6 +7,7 @@ namespace ReasonableRTF;
 
 public sealed partial class RtfToTextConverter
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_Slow(ref byte bufferRef)
     {
         char ch = (char)GetByte(IncrementCurrentPos());
