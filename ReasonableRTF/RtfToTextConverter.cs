@@ -3254,7 +3254,7 @@ public sealed partial class RtfToTextConverter
     private void HandleUnicodeParamAndSkipFallbackChars(ref byte bufferRef, int param)
     {
         // Make sure the code point is normalized before adding it to the buffer!
-        uint codePoint = NormalizeUnicodeCodePoint_HandleSymbolCharRange(param);
+        uint codePoint = NormalizeUnicodeCodePoint(param);
         AddCodePointToUnicodeBuffer(codePoint);
 
         /*
@@ -3967,7 +3967,7 @@ public sealed partial class RtfToTextConverter
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private uint NormalizeUnicodeCodePoint_HandleSymbolCharRange(int codePoint)
+    private uint NormalizeUnicodeCodePoint(int codePoint)
     {
         // Per spec, values >32767 are expressed as negative numbers, and we must add 65536 to get the correct
         // value.
