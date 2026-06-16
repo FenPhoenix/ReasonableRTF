@@ -2536,9 +2536,14 @@ public sealed partial class RtfToTextConverter
         else
 #endif
         {
-            return _currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes
-                ? ParseKeyword_Fast(ref bufferRef)
-                : ParseKeyword_Slow(ref bufferRef);
+            if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
+            {
+                return ParseKeyword_Fast(ref bufferRef);
+            }
+            else
+            {
+                return ParseKeyword_Slow(ref bufferRef);
+            }
         }
     }
 
@@ -2556,9 +2561,14 @@ public sealed partial class RtfToTextConverter
         else
 #endif
         {
-            return _currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes
-                ? ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param)
-                : ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
+            if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
+            {
+                return ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param);
+            }
+            else
+            {
+                return ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
+            }
         }
     }
 
@@ -3866,7 +3876,9 @@ public sealed partial class RtfToTextConverter
     #region Encoding helpers
 
     // All callers reject nulls or won't send nulls.
+#if NET8_0_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void DecodeAndCopyBytesIntoPlainText(ushort codePage, byte[] bytes, int byteCount)
     {
         if (codePage == 0) codePage = _defaultCodePage;
@@ -3899,7 +3911,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+#if NET8_0_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void DecodeAndCopyByteIntoPlainText(ushort codePage, byte b)
     {
         if (codePage == 0)
@@ -4108,7 +4122,9 @@ public sealed partial class RtfToTextConverter
         PlainText_Add((char)((utf32u & 0x3FFu) + 0xDC00u));
     }
 
+#if NET8_0_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void AddLineBreak()
     {
         switch (_lineBreakStyle)
@@ -4533,7 +4549,9 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+#if NET8_0_OR_GREATER
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
     private void LoadNextChunkIntoBuffer()
     {
         Debug.Assert(_bufferedStream != null);
