@@ -6,7 +6,7 @@ public sealed partial class RtfToTextConverter
 {
     private char[] _unicodeBuffer = new char[_internalBufferDefaultCapacity];
     private int _unicodeBuffer_Count;
-    private int _unicodeBuffer_Capacity;
+    private int _unicodeBuffer_Capacity = _internalBufferDefaultCapacity;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void UnicodeBuffer_Add(char item)

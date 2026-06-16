@@ -7,7 +7,7 @@ public sealed partial class RtfToTextConverter
     private const int _plainTextDefaultCapacity = 4096;
 
     private char[] _plainText = new char[_plainTextDefaultCapacity];
-    private int _plainText_Capacity;
+    private int _plainText_Capacity = _plainTextDefaultCapacity;
     private int _plainText_Count;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

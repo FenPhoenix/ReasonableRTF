@@ -6,7 +6,7 @@ public sealed partial class RtfToTextConverter
 {
     private byte[] _hexBuffer = new byte[_internalBufferDefaultCapacity];
     private int _hexBuffer_Count;
-    private int _hexBuffer_Capacity;
+    private int _hexBuffer_Capacity = _internalBufferDefaultCapacity;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HexBuffer_Add(byte item)
