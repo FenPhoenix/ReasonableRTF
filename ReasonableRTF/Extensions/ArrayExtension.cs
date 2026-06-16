@@ -1,5 +1,4 @@
 ﻿#if !NET8_0_OR_GREATER
-
 namespace System;
 
 internal static class ArrayExtension
@@ -11,5 +10,4 @@ internal static class ArrayExtension
         public static int MaxLength => 0X7FFFFFC7;
     }
 }
-
 #endif

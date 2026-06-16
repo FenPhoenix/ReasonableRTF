@@ -1,4 +1,5 @@
 ﻿#if NET8_0_OR_GREATER
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using ReasonableRTF.Enums;
@@ -19,7 +20,7 @@ public sealed partial class RtfToTextConverter
         {
             while (currentPosLocal < _currentBufferChunkLength)
             {
-                char ch = (char)Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                char ch = (char)Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
 
                 // Ordered by most frequently appearing first
                 switch (ch)
@@ -65,7 +66,7 @@ public sealed partial class RtfToTextConverter
                                 currentPosLocal = _currentPos;
                             }
 
-                            if (Unsafe.AddByteOffset(ref isNonPlainTextCharRef, (nint)currentChar))
+                            if (Unsafe.AddByteOffset(ref isNonPlainTextCharRef, currentChar))
                             {
                                 SymbolFont symbolFont = GroupStack_CurrentSymbolFont;
                                 if (symbolFont > SymbolFont.None)
@@ -117,7 +118,7 @@ public sealed partial class RtfToTextConverter
             {
                 while (currentPosLocal < _currentBufferChunkLength)
                 {
-                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (!_isNonPlainText[(byte)ch])
                     {
                         AddCharFromConversionList((byte)ch, table);
@@ -144,7 +145,7 @@ public sealed partial class RtfToTextConverter
         }
         else
         {
-            if (System.Numerics.Vector.IsHardwareAccelerated)
+            if (Vector.IsHardwareAccelerated)
             {
                 _currentPos = currentPosLocal;
                 bool finishedOnNonPlainTextChar = SIMD_CopyPlainText(ref bufferRef);
@@ -162,7 +163,7 @@ public sealed partial class RtfToTextConverter
                 char[] plainText = _plainText;
                 for (int i = 0; i < _plainTextRunFastPathAmountBackFromBufferEnd; i++)
                 {
-                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (!_isNonPlainText[(byte)ch])
                     {
                         plainText[_plainText_Count++] = ch;
@@ -175,13 +176,13 @@ public sealed partial class RtfToTextConverter
                 }
             }
 
-            if (System.Numerics.Vector.IsHardwareAccelerated)
+            if (Vector.IsHardwareAccelerated)
             {
                 // Break out of the scalar loop at the buffer boundary, so that if the plaintext run continues
                 // after the next buffer load, we'll be able to jump back into a SIMD parse.
                 while (currentPosLocal < _currentBufferChunkLength)
                 {
-                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    char ch = (char)Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (!_isNonPlainText[(byte)ch])
                     {
                         PlainText_Add(ch);
@@ -199,7 +200,7 @@ public sealed partial class RtfToTextConverter
                 {
                     while (currentPosLocal < _currentBufferChunkLength)
                     {
-                        char ch = (char)Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        char ch = (char)Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                         if (!_isNonPlainText[(byte)ch])
                         {
                             PlainText_Add(ch);
@@ -242,8 +243,8 @@ public sealed partial class RtfToTextConverter
 
         if (currentPosLocal < _currentBufferChunkLength - 1)
         {
-            byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-            byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+            byte1 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
+            byte2 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
         }
         else
         {
@@ -263,14 +264,14 @@ public sealed partial class RtfToTextConverter
             // TODO: Manually duplicated code for performance - should be automated if possible
             while (currentPosLocal < _currentBufferChunkLength - 3)
             {
-                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                byte b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                 if (b == (byte)'\\')
                 {
-                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (b == (byte)'\'')
                     {
-                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                         AddHexByteToPlainText_SymbolFont(byte1, byte2, symbolFontTable);
                     }
                     else
@@ -322,14 +323,14 @@ public sealed partial class RtfToTextConverter
             // TODO: Manually duplicated code for performance - should be automated if possible
             while (currentPosLocal < _currentBufferChunkLength - 3)
             {
-                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                byte b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                 if (b == (byte)'\\')
                 {
-                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (b == (byte)'\'')
                     {
-                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                         AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
                     }
                     else
@@ -381,14 +382,14 @@ public sealed partial class RtfToTextConverter
             // TODO: Manually duplicated code for performance - should be automated if possible
             while (currentPosLocal < _currentBufferChunkLength - 3)
             {
-                byte b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                byte b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                 if (b == (byte)'\\')
                 {
-                    b = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                    b = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                     if (b == (byte)'\'')
                     {
-                        byte1 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
-                        byte2 = Unsafe.AddByteOffset(ref bufferRef, (nint)currentPosLocal++);
+                        byte1 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
+                        byte2 = Unsafe.AddByteOffset(ref bufferRef, currentPosLocal++);
                         AddByteToHexBuffer(byte1, byte2);
                     }
                     else

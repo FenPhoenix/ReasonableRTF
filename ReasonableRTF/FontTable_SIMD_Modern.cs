@@ -89,7 +89,7 @@ public sealed partial class RtfToTextConverter
             if (equalsTerminatingChar != Vector512<byte>.Zero)
             {
                 int terminatingCharIndex = BitOperations.TrailingZeroCount(equalsTerminatingChar.ExtractMostSignificantBits());
-                ch = (char)Unsafe.AddByteOffset(ref searchSpace, (nint)terminatingCharIndex);
+                ch = (char)Unsafe.AddByteOffset(ref searchSpace, terminatingCharIndex);
 
                 if (EarlyOut(terminatingCharIndex))
                 {
@@ -150,7 +150,7 @@ public sealed partial class RtfToTextConverter
             if (equalsTerminatingChar != Vector256<byte>.Zero)
             {
                 int terminatingCharIndex = BitOperations.TrailingZeroCount(equalsTerminatingChar.ExtractMostSignificantBits());
-                ch = (char)Unsafe.AddByteOffset(ref searchSpace, (nint)terminatingCharIndex);
+                ch = (char)Unsafe.AddByteOffset(ref searchSpace, terminatingCharIndex);
 
                 if (EarlyOut(terminatingCharIndex))
                 {
@@ -211,7 +211,7 @@ public sealed partial class RtfToTextConverter
             if (equalsTerminatingChar != Vector128<byte>.Zero)
             {
                 int terminatingCharIndex = BitOperations.TrailingZeroCount(equalsTerminatingChar.ExtractMostSignificantBits());
-                ch = (char)Unsafe.AddByteOffset(ref searchSpace, (nint)terminatingCharIndex);
+                ch = (char)Unsafe.AddByteOffset(ref searchSpace, terminatingCharIndex);
 
                 if (EarlyOut(terminatingCharIndex))
                 {

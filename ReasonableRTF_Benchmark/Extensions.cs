@@ -1,8 +1,8 @@
-﻿namespace ReasonableRTF_Benchmark;
+﻿#if NETFRAMEWORK
+namespace ReasonableRTF_Benchmark;
 
 internal static class Extensions
 {
-#if NETFRAMEWORK
     internal static void ReadExactly(this Stream stream, byte[] buffer, int offset, int count)
     {
         _ = stream.ReadAll(buffer, offset, count);
@@ -23,5 +23,5 @@ internal static class Extensions
 
         return bytesReadRet;
     }
-#endif
 }
+#endif
