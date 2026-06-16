@@ -95,6 +95,12 @@ public sealed partial class RtfToTextConverter
         _paramMaxLen + 1 + // +1 to read one beyond for length checking purposes
         1; // Space at end
 
+    private const int _keywordVector128ParseMaxRequiredBytes =
+        16 + // Vector128<byte>.Count (no need for +1 for this codepath)
+        1 + // Minus sign
+        _paramMaxLen + 1 + // +1 to read one beyond for length checking purposes
+        1; // Space at end
+
     // "\bin"
     private const int _binLength = 4;
     private readonly uint _binUInt = BitConverter.IsLittleEndian ? 0x6E69625Cu : 0x5C62696Eu;
@@ -2517,44 +2523,42 @@ public sealed partial class RtfToTextConverter
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword(ref byte bufferRef)
     {
-        if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
-        {
+        // The keyword parsers are JIT inlined now, so make sure to have only one call to each!
+
 #if NET8_0_OR_GREATER
-            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            {
-                return ParseKeyword_Fast_Vector128(ref bufferRef);
-            }
-            else
-#endif
-            {
-                return ParseKeyword_Fast(ref bufferRef);
-            }
+        RtfError error;
+        if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated &&
+            _currentPos < _currentBufferChunkLength - _keywordVector128ParseMaxRequiredBytes &&
+            (error = ParseKeyword_Fast_Vector128(ref bufferRef)) != RtfError.KeywordTooLong)
+        {
+            return error;
         }
         else
+#endif
         {
-            return ParseKeyword_Slow(ref bufferRef);
+            return _currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes
+                ? ParseKeyword_Fast(ref bufferRef)
+                : ParseKeyword_Slow(ref bufferRef);
         }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private RtfError ParseKeyword_FontTable(ref byte bufferRef, out KeywordType fontTableKeyword, out int param)
     {
-        if (_currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes)
-        {
 #if NET8_0_OR_GREATER
-            if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated)
-            {
-                return ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param);
-            }
-            else
-#endif
-            {
-                return ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param);
-            }
+        RtfError error;
+        if (System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated &&
+            _currentPos < _currentBufferChunkLength - _keywordVector128ParseMaxRequiredBytes &&
+            (error = ParseKeyword_FontTable_Fast_Vector128(ref bufferRef, out fontTableKeyword, out param)) != RtfError.KeywordTooLong)
+        {
+            return error;
         }
         else
+#endif
         {
-            return ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
+            return _currentPos < _currentBufferChunkLength - _keywordParseMaxRequiredBytes
+                ? ParseKeyword_FontTable_Fast(ref bufferRef, out fontTableKeyword, out param)
+                : ParseKeyword_FontTable_Slow(ref bufferRef, out fontTableKeyword, out param);
         }
     }
 

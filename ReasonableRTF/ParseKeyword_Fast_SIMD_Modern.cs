@@ -46,7 +46,7 @@ public sealed partial class RtfToTextConverter
             // slightly inefficient fallback path will hardly ever be hit.
             if (keywordCount >= Vector128<byte>.Count)
             {
-                return ParseKeyword_Fast(ref bufferRef);
+                return RtfError.KeywordTooLong;
             }
 
             int accumulatedPos = startingCurrentPos + keywordCount;
