@@ -6,7 +6,7 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 
 ## Features
 
-- Fast: Over 100x faster than RichTextBox
+- Fast: Up to 400x faster than RichTextBox - and over 100x faster at minimum
 - Accurate: All characters converted correctly — even Wingdings
 - Fully cross-platform
 - Can read from forward-only streams such as DeflateStream
