@@ -1,4 +1,4 @@
-*.js linguist-vendored
+*.rtf linguist-vendored
 
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
