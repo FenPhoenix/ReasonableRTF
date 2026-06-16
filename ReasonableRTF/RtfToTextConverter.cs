@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
 */
-
+//
 /*
 Notes and miscellaneous:
 -Hex that combines into an actual valid character: \'81\'63
