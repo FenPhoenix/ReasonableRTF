@@ -13,6 +13,7 @@
 		<IsPackable>true</IsPackable>
 		<Description>A lightweight and performant C# library designed for rapidly converting Rich Text Format (RTF) files into plain text.</Description>
 		<PackageTags>fast;rtf;converter</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 		<NoWarn>$(NoWarn);1591</NoWarn>
@@ -29,7 +30,8 @@
 
 	<ItemGroup>
 		<None Include="..\README.md" Pack="true" PackagePath="\"/>
-	</ItemGroup>
+        <None Include="icon.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
 		<PackageReference Include="Meziantou.Polyfill">
