@@ -28,6 +28,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="ObjectLayoutInspector" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\ReasonableRTF\ReasonableRTF.csproj" />
 	</ItemGroup>
 
