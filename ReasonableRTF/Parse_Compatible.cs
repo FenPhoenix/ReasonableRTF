@@ -297,7 +297,7 @@ public sealed partial class RtfToTextConverter
                     {
                         byte1 = GetByte(IncrementCurrentPos());
                         byte2 = GetByte(IncrementCurrentPos());
-                        AddByteToHexBuffer(byte1, byte2);
+                        AddHexByteToPlainText_SBCS(byte1, byte2, sbcsMappingTable);
                     }
                     else
                     {
