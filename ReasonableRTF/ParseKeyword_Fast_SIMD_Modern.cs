@@ -170,23 +170,5 @@ public sealed partial class RtfToTextConverter
 
         return null;
     }
-
-    private static Symbol?[] InitSingleCharSymbolTable()
-    {
-        Symbol?[] ret = new Symbol?[256];
-
-        ret['u'] = new Symbol("u", 0, false, KeywordType.Special, (ushort)SpecialType.UnicodeChar);
-        ret['v'] = new Symbol("v", 1, false, KeywordType.Property, (ushort)Property.Hidden);
-
-        return ret;
-    }
-
-    private static readonly Symbol?[] _singleCharSymbolTable = InitSingleCharSymbolTable();
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Symbol? LookUpControlWord_LengthOne(byte firstChar)
-    {
-        return _singleCharSymbolTable[firstChar];
-    }
 }
 #endif

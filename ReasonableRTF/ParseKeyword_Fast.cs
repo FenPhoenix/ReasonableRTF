@@ -84,11 +84,20 @@ public sealed partial class RtfToTextConverter
 
             // 33% of hit keywords and 97% of hit single-char keywords are \f, so fast-pathing nets substantial
             // performance gain.
-            if (keywordCount == 1 && keywordRef == (byte)'f')
+            if (keywordCount == 1)
             {
-                symbol = _fontSymbol;
-                _skipDestinationIfUnknown = false;
-                return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+                byte firstChar = keywordRef;
+
+                if (firstChar == (byte)'f')
+                {
+                    symbol = _fontSymbol;
+                    _skipDestinationIfUnknown = false;
+                    return DispatchKeyword(ref bufferRef, symbol, param, hasParam);
+                }
+                else
+                {
+                    symbol = LookUpControlWord_LengthOne(firstChar);
+                }
             }
             else
             {
