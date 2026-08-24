@@ -166,7 +166,6 @@ public sealed partial class RtfToTextConverter
         new FontNameSuffix(" (Vietnamese)"u8.ToArray(), 1258),
     ];
 
-
     // Set to a length that no reasonable font name would be above, to minimize the chance of having to do a slow
     // bounds-checked read-and-throw-away of the rest of the bytes.
     private const int _maxSymbolFontNameLength = 64;
@@ -1908,8 +1907,6 @@ public sealed partial class RtfToTextConverter
         _symbolFontCharsArrays[(int)SymbolFont.Webdings] = "Webdings"u8.ToArray();
         _symbolFontCharsArrays[(int)SymbolFont.ITCZapfDingbats] = "ITC Zapf Dingbats"u8.ToArray();
         _symbolFontCharsArrays[(int)SymbolFont.ZapfDingbats] = "Zapf Dingbats"u8.ToArray();
-
-        InitSymbolFontNameVectors();
     }
 
     #endregion
@@ -2615,7 +2612,7 @@ public sealed partial class RtfToTextConverter
                             currentFontNumber > NoFontNumber)
                         {
                             (SymbolFont currentFontSymbolFont, ushort codePageOverride) =
-                                GetSymbolFont_Scalar(ref bufferRef, ch);
+                                GetSymbolFontAndCodePageOverride_Scalar(ref bufferRef, ch);
 
                             if (codePageOverride != NoCodePage)
                             {
@@ -2642,20 +2639,13 @@ public sealed partial class RtfToTextConverter
         return RtfError.OK;
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool ShouldUseSimdFontNameCodePath()
-    {
-#if NET8_0_OR_GREATER
-        return System.Runtime.Intrinsics.Vector512.IsHardwareAccelerated ||
-               System.Runtime.Intrinsics.Vector256.IsHardwareAccelerated ||
-               System.Runtime.Intrinsics.Vector128.IsHardwareAccelerated;
-#else
-        return System.Numerics.Vector.IsHardwareAccelerated && _vectorLengthFitsInAByte;
-#endif
-    }
-
+    /*
+    NOTE: We're not using SIMD for this anymore, because it would require re-writing the whole SIMD logic to
+    account for having to read the whole font name instead of shortcutting all over the place. We're fast enough
+    that we can easily afford to take the slight haircut, but we could bring back SIMD later if we wanted to.
+    */
     private (SymbolFont SymbolFont, ushort CodePage)
-    GetSymbolFont_Scalar(ref byte bufferRef, char ch, int symbolFontNameCountStart = 0)
+    GetSymbolFontAndCodePageOverride_Scalar(ref byte bufferRef, char ch, int symbolFontNameCountStart = 0)
     {
         int symbolFontNameCount;
         _fontNameBuffer_Count = 0;
