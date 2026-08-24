@@ -117,14 +117,11 @@ public sealed partial class RtfToTextConverter
     /// enough -1...
     /// </summary>
     private const int NoFontNumber = int.MinValue;
-    private const ushort NoLang = ushort.MaxValue;
     private const ushort NoCodePage = ushort.MaxValue;
 
     private const int _keywordMaxLen = 32;
     // Most are signed int16 (5 chars), but a few can be signed int32 (10 chars)
     private const int _paramMaxLen = 10;
-
-    private const int _undefinedLanguage = 1024;
 
     private const char _unicodeUnknown_Char = '\u25A1';
 
@@ -4204,7 +4201,7 @@ public sealed partial class RtfToTextConverter
     {
         /*
         The whole ushort range except 0xFFFF - that's our value for "not set" (-1 equivalent). As 0xFFFF (65535)
-        is not a valid codepage or lang in either the RTF spec or .NET (any version), we can hijack it for this
+        is not a valid codepage in either the RTF spec or .NET (any version), we can hijack it for this
         purpose without issue.
         */
         return (uint)(value - ushort.MinValue) <= (ushort.MaxValue - 1) - ushort.MinValue;
