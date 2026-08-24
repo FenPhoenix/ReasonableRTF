@@ -273,10 +273,11 @@ public sealed partial class MainForm : Form
             //"complex_list_diff_styles.rtf"
             //"RtfParserTest_fail_3.rtf"
             //"2003-02-11_COSAS1-Gatheringatt__gati.rtf"
-            "bin_simd_test.rtf"
+            //"bin_simd_test.rtf"
             //"bin_simd_test_chunked.rtf"
+            "char_upper_ranges_hex.rtf"
             ;
-        SourceSet sourceSet = SourceSet.ValidityTest;
+        SourceSet sourceSet = SourceSet.WorkingNewSet;
 
         string finalFile = Path.Combine(GetFileSet(sourceSet), file);
 

@@ -68,6 +68,7 @@ public sealed partial class RtfToTextConverter
         }
     }
 
+#if false
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private SymbolFont SIMD_TryGetFontName(ref byte bufferRef, char ch)
     {
@@ -308,5 +309,6 @@ public sealed partial class RtfToTextConverter
             return SymbolFont.None;
         }
     }
+#endif
 }
 #endif

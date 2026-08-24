@@ -42,8 +42,6 @@ public sealed partial class RtfToTextConverter
 
         #endregion
 
-        new Symbol("lang", 0, false, KeywordType.Property, (ushort)Property.Lang),
-
         #region Encoded characters
 
         new Symbol("uc", 1, false, KeywordType.Property, (ushort)Property.UnicodeCharSkipCount),
