@@ -10,7 +10,6 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 - Accurate: All characters converted correctly — even Wingdings
 - Fully cross-platform
 - Can read from forward-only streams such as DeflateStream
-- [We even support this obscure nonsense](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/)
 
 - - -
 
@@ -197,7 +196,6 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 - All basic plain text, hex-encoded chars, Unicode-encoded chars
 - Symbol fonts (Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
-- Undocumented use of the \langN keyword to [specify character encoding](https://therealfenphoenix.wordpress.com/2024/01/05/rtf-character-encoding-who-needs-a-spec-anyway/) - old versions of RichTextBox used to support this
 
 ### Partially supported
 
