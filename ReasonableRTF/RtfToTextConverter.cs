@@ -466,34 +466,6 @@ public sealed partial class RtfToTextConverter
 
     private readonly uint[][] _symbolFontTables = new uint[_symbolArraysLength][];
     private readonly byte[][] _symbolFontCharsArrays = new byte[_symbolArraysLength][];
-    private const int _minSupportedSymbolFontNameLength = 6;
-    private const int _maxSupportedSymbolFontNameLength = 17;
-
-#if NET8_0_OR_GREATER
-    private static ReadOnlySpan<bool> _symbolFontNameLengths =>
-#else
-    private static readonly bool[] _symbolFontNameLengths =
-#endif
-    [
-        false, // 0
-        false, // 1
-        false, // 2
-        false, // 3
-        false, // 4
-        false, // 5
-        true,  // 6
-        false, // 7
-        true,  // 8
-        true,  // 9
-        false, // 10
-        true,  // 11
-        false, // 12
-        true,  // 13
-        false, // 14
-        false, // 15
-        false, // 16
-        true,  // 17
-    ];
 
     private void InitSymbolFontData()
     {
