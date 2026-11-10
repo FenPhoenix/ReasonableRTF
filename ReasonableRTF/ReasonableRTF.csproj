@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0;net9.0;net10.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0;net10.0;net11.0;netstandard2.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<WarningsAsErrors>Nullable</WarningsAsErrors>
 		<LangVersion>latest</LangVersion>
-		<Version>2026.7.0</Version>
+		<Version>2026.11.0</Version>
 		<Copyright>Copyright 2024-2026 Brian Tobin</Copyright>
 		<Platforms>AnyCPU;x86;x64</Platforms>
 		<IsPackable>true</IsPackable>

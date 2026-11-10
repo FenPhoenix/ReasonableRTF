@@ -8,12 +8,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="FenGen/FenGen.csproj">
-    <BuildType Project="Release" />
-    <Platform Solution="*|x64" Project="x64" />
-  </Project>
   <Project Path="ReasonableRTF/ReasonableRTF.csproj">
-    <BuildDependency Project="FenGen/FenGen.csproj" />
     <BuildType Solution="Debug_Framework|*" Project="Debug" />
     <BuildType Solution="Release_Framework|*" Project="Release" />
     <Platform Solution="*|x64" Project="x64" />
