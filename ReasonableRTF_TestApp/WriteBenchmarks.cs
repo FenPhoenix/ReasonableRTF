@@ -221,9 +221,7 @@ internal static class WriteBenchmarks
         string timeStr = line.Substring(secondBarIndex + 1, thirdBarIndex - (secondBarIndex + 1));
         timeStr = timeStr.Trim().TrimEnd('m', 's').Trim();
 
-        decimal.TryParse(timeStr, out decimal result);
-
-        return result;
+        return decimal.TryParse(timeStr, out decimal result) ? result : 0;
     }
 
     private static string GetMBsString(long totalSize, decimal elapsedMilliseconds)
