@@ -6,7 +6,7 @@ A lightweight and performant C# library designed for rapidly converting **Rich T
 
 ## Features
 
-- Fast: Up to 400x faster than RichTextBox — and over 100x faster at minimum
+- Fast: Up to 400x faster than RichTextBox — and over 120x faster at minimum
 - Accurate: All characters converted correctly — even Wingdings
 - Fully cross-platform
 - Can read from forward-only streams such as DeflateStream
@@ -196,6 +196,7 @@ AMD Ryzen 5 5600 3.50GHz, 1 CPU, 12 logical and 6 physical cores
 - All basic plain text, hex-encoded chars, Unicode-encoded chars
 - Symbol fonts (Wingdings 1, 2 and 3, Webdings, Symbol, and Zapf Dingbats) converted to Unicode equivalents
 - Characters specified as "SYMBOL" field instructions
+- Character encodings specified through font name suffixes (eg. "Arial Cyr" meaning "Arial font, code page 1251 (Cyrillic)")
 
 ### Partially supported
 
